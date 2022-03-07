@@ -19,15 +19,11 @@ Route::group(['middleware' => 'auth'],
 		Route::any('logout', 'Auth\LoginController@logout')->name('web.logout');
 	});
 
-Route::get('/', function () {
-	return view('welcome');
-});
-
 Route::middleware(ProtectAgainstSpam::class)->group(function () {
 	Auth::routes(['verify' => true]);
 
 });
 
-Route::any('/app',function (){
+Route::get('/{vue_capture?}', function (){
     return view('app.index');
-});
+})->where('vue_capture', '[\/\w\.\-\ \&\=]*');
