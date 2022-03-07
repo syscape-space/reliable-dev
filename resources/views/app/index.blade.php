@@ -21,10 +21,12 @@
 <body>
 <div id="app">
     <div class="relative flex items-top justify-center min-h-screen bg-gray-100 sm:items-center py-4 sm:pt-0">
-        <app base_url="{{url('/')}}"></app>
+        <app></app>
     </div>
 </div>
-
+<script>
+    const base_url = '{{url('/')}}';
+</script>
 <script src="{{ asset('js/app.js') }}"></script>
 <script src="{{asset('/')}}/js/jquery-3.3.1.min.js"></script>
 <script src="{{asset('/')}}/js/popper.min.js"></script>

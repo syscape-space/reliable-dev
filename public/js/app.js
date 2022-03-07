@@ -19481,7 +19481,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['base_url'],
   name: "App",
   setup: function setup() {
     return {
@@ -19515,7 +19514,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      base_url: this.$parent.$parent.base_url
+      base_url: base_url
     };
   }
 });
@@ -19545,7 +19544,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      base_url: this.$parent.$parent.base_url
+      base_url: base_url
     };
   }
 });
@@ -19584,7 +19583,7 @@ __webpack_require__.r(__webpack_exports__);
   name: "LayoutFooter",
   data: function data() {
     return {
-      base_url: this.$parent.base_url
+      base_url: base_url
     };
   }
 });
@@ -19606,7 +19605,7 @@ __webpack_require__.r(__webpack_exports__);
   name: "LayoutNavBar",
   data: function data() {
     return {
-      base_url: this.$parent.base_url
+      base_url: base_url
     };
   }
 });
@@ -19645,7 +19644,7 @@ __webpack_require__.r(__webpack_exports__);
   name: "SearchServiceSection",
   data: function data() {
     return {
-      base_url: this.$parent.base_url
+      base_url: base_url
     };
   }
 });

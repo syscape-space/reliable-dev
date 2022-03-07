@@ -18,7 +18,7 @@ export default {
   components: {LayoutFooter, LayoutNavBar},
   data(){
     return{
-      base_url:this.$parent.$parent.base_url,
+      base_url:base_url,
     };
   }
 }

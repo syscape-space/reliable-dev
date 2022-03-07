@@ -16,7 +16,7 @@ export default {
   name: "LayoutFooter",
   data(){
     return{
-      base_url:this.$parent.base_url,
+      base_url:base_url,
     };
   }
 }
