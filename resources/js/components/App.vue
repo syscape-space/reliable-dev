@@ -6,6 +6,7 @@
 
 <script>
 export default {
+  props: ['base_url'],
   name: "App",
   setup: () => ({
     title: "welcome to vue page <3",

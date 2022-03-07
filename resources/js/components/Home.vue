@@ -1,10 +1,19 @@
 <template>
-  Home
+  <home-header/>
+  <search-service-section/>
 </template>
 
 <script>
+import HomeHeader from "./partials/home/HomeHeader";
+import SearchServiceSection from "./partials/home/SearchServiceSection";
 export default {
-  name: "Home"
+  name: "Home",
+  components: {SearchServiceSection, HomeHeader},
+  data(){
+    return{
+      base_url:this.$parent.$parent.base_url,
+    };
+  }
 }
 </script>
 
