@@ -1,0 +1,101 @@
+<?php
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Setting extends Model {
+	protected $table    = 'settings';
+	protected $fillable = [
+		'sitename_ar',
+		'sitename_en',
+		'sitename_fr',
+		'email',
+		'logo',
+		'icon',
+		'system_status',
+		'system_message',
+		'theme_setting',
+		'whatsapp',
+		'mobile',
+		//contract_formats_settings
+		'contract_form',
+		'maximum_arbitrators',
+		//reviews_settings
+		'rate_orders_status',
+		'rate_review_status',
+		'number_days_objection',
+		//orders_settings
+		'add_order',
+		'offers_order',
+		'minimum_amount_add_order',
+		'amount_add_order_vat',
+		'arbitration_amount_tax',
+		'review_order_status',
+		'review_offers_status',
+		//payment_methods_settings
+		'mada_vat',
+		'mada_status',
+		'paypal_status',
+		'paypal_vat',
+		'sadad_status',
+		'sadad_vat',
+		'bank_transfer_status',
+		'bank_transfer_vat',
+		//account_settings
+		'register_new_customer',
+		'register_new_vendor',
+		'register_customer_status',
+		'register_vendor_status',
+		'expiry_commercial_alarm',
+		'expiry_license_alarm',
+		'commercial_status',
+		'license_status',
+		'age_limit_vendor',
+		'age_limit_customer',
+		//sms_settings
+		'sms_sender',
+		'sms_mobile',
+		'sms_password',
+		'phone_verification_status',
+		//iam_settings
+		'iam_status',
+		'iam_public_key',
+		'iam_secret',
+		'iam_ip',
+		//subscription_fee_settings
+		'customer_membership_fee',
+		'vendor_membership_fee',
+		'customer_membership_fee_status',
+		'vendor_membership_fee_status',
+		//terms_conditions_settings
+		"terms_conditions_subscription_fee_ar",
+		"terms_conditions_subscription_fee_en",
+		"terms_conditions_withdrawal_ar",
+		"terms_conditions_withdrawal_en",
+		"terms_conditions_recharge_en",
+		"terms_conditions_recharge_ar",
+		"terms_conditions_add_offer_ar",
+		"terms_conditions_add_offer_en",
+		"terms_conditions_add_order_ar",
+		"terms_conditions_add_order_en",
+		"terms_conditions_registering_vendor_ar",
+		"terms_conditions_registering_vendor_en",
+		"terms_conditions_registering_customer_ar",
+		"terms_conditions_registering_customer_en",
+		//attached_files_settings
+		'attachment_orders_status',
+		'attachment_offers_status',
+		'attachment_ticket_status',
+		'attachment_comment_ticket_status',
+		'attachment_orders_exts',
+		'attachment_orders_files_timeout',
+		'attachment_qualifications_exts',
+		'attachment_experience_exts',
+		'attachment_license_exts',
+		'attachment_commercial_exts',
+		'attachment_ticket_exts',
+		'attachment_comment_ticket_exts',
+
+	];
+
+}
