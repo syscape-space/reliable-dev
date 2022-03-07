@@ -27,3 +27,7 @@ Route::middleware(ProtectAgainstSpam::class)->group(function () {
 	Auth::routes(['verify' => true]);
 
 });
+
+Route::any('/app',function (){
+    return view('app.index');
+});
