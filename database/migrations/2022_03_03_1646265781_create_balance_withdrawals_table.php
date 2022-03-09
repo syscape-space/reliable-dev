@@ -15,18 +15,18 @@ class CreateBalanceWithdrawalsTable extends Migration {
 	 */
 	public function up() {
 		Schema::create('balance_withdrawals', function (Blueprint $table) {
-				$table->bigIncrements('id');
-				$table->foreignId("admin_id")->nullable()->constrained("admins")->onUpdate("cascade")->onDelete("cascade");
-				$table->foreignId("user_id")->constrained("users")->references("id")->onUpdate("cascade")->onDelete("cascade");
-				$table->decimal('amount', 20, 2);
-				$table->enum('receipt_via', ['bank_transfer', 'bank_account', 'system']);
-				$table->string('transfer_picture')->nullable();
-				$table->longtext('user_notes')->nullable();
-				$table->enum('withdrawal_status', ['pending', 'approved', 'refused'])->default('pending');
-				$table->longtext('reason')->nullable();
-				$table->longtext('system_notes')->nullable();
-				$table->timestamps();
-			});
+			$table->bigIncrements('id');
+			$table->foreignId("admin_id")->nullable()->constrained("admins")->onUpdate("cascade")->onDelete("cascade");
+			$table->foreignId("user_id")->constrained("users")->references("id")->onUpdate("cascade")->onDelete("cascade");
+			$table->decimal('amount', 20, 2);
+			$table->enum('receipt_via', ['bank_transfer', 'bank_account', 'system']);
+			$table->string('transfer_picture')->nullable();
+			$table->longtext('user_notes')->nullable();
+			$table->enum('withdrawal_status', ['pending', 'approved', 'refused'])->default('pending');
+			$table->longtext('reason')->nullable();
+			$table->longtext('system_notes')->nullable();
+			$table->timestamps();
+		});
 	}
 
 	/**

@@ -30,15 +30,15 @@ class SystemMessages extends Controller
 
 	
 
-            /**
-             * Baboon Script By [it v 1.6.38]
-             * Display a listing of the resource.
-             * @return \Illuminate\Http\Response
-             */
-            public function index(SystemMessagesDataTable $systemmessages)
-            {
-               return $systemmessages->render('admin.systemmessages.index',['title'=>trans('admin.systemmessages')]);
-            }
+	/**
+	 * Baboon Script By [it v 1.6.38]
+	 * Display a listing of the resource.
+	 * @return \Illuminate\Http\Response
+	 */
+	public function index(SystemMessagesDataTable $systemmessages)
+	{
+		return $systemmessages->render('admin.systemmessages.index',['title'=>trans('admin.systemmessages')]);
+	}
 
 
             /**
@@ -61,12 +61,12 @@ class SystemMessages extends Controller
             public function store(SystemMessagesRequest $request)
             {
                 $data = $request->except("_token", "_method");
-            			  		$systemmessages = SystemMessage::create($data); 
+            			  		$systemmessages = SystemMessage::create($data);
 
-			return successResponseJson([
-				"message" => trans("admin.added"),
-				"data" => $systemmessages,
-			]);
+				return successResponseJson([
+					"message" => trans("admin.added"),
+					"data" => $systemmessages,
+				]);
 			 }
 
             /**
