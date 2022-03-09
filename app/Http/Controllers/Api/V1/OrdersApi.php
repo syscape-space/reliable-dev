@@ -28,41 +28,39 @@ class OrdersApi extends Controller{
 		"user_id",
 	];
 
-            /**
-             * Display the specified releationshop.
-             * Baboon Api Script By [it v 1.6.37]
-             * @return array to assign with index & show methods
-             */
-            public function arrWith(){
-               return ['department_id','country_id','city_id','user_id',];
-            }
+    /**
+     * Display the specified releationshop.
+     * Baboon Api Script By [it v 1.6.37]
+     * @return array to assign with index & show methods
+     */
+    public function arrWith(){
+        return ['department_id','country_id','city_id','user_id',];
+    }
 
 
-            /**
-             * Baboon Api Script By [it v 1.6.37]
-             * Display a listing of the resource. Api
-             * @return \Illuminate\Http\Response
-             */
-            public function index()
-            {
-            	$Order = Order::select($this->selectColumns)->with($this->arrWith())->orderBy("id","desc")->paginate(15);
-               return successResponseJson(["data"=>$Order]);
-            }
+    /**
+     * Baboon Api Script By [it v 1.6.37]
+     * Display a listing of the resource. Api
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $Order = Order::select($this->selectColumns)->with($this->arrWith())->orderBy("id","desc")->paginate(15);
+        return successResponseJson(["data"=>$Order]);
+    }
 
 
-            /**
-             * Baboon Api Script By [it v 1.6.37]
-             * Store a newly created resource in storage. Api
-             * @return \Illuminate\Http\Response
-             */
+    /**
+     * Baboon Api Script By [it v 1.6.37]
+     * Store a newly created resource in storage. Api
+     * @return \Illuminate\Http\Response
+     */
     public function store(OrdersRequest $request)
     {
     	$data = $request->except("_token");
-    	
-              $data["user_id"] = auth()->id(); 
+        $data["user_id"] = auth()->id(); 
         $Order = Order::create($data); 
-
-		  $Order = Order::with($this->arrWith())->find($Order->id,$this->selectColumns);
+		$Order = Order::with($this->arrWith())->find($Order->id,$this->selectColumns);
         return successResponseJson([
             "message"=>trans("admin.added"),
             "data"=>$Order
@@ -70,62 +68,62 @@ class OrdersApi extends Controller{
     }
 
 
-            /**
-             * Display the specified resource.
-             * Baboon Api Script By [it v 1.6.37]
-             * @param  int  $id
-             * @return \Illuminate\Http\Response
-             */
-            public function show($id)
-            {
-                $Order = Order::with($this->arrWith())->find($id,$this->selectColumns);
-            	if(is_null($Order) || empty($Order)){
-            	 return errorResponseJson([
-            	  "message"=>trans("admin.undefinedRecord")
-            	 ]);
-            	}
+        /**
+     * Display the specified resource.
+     * Baboon Api Script By [it v 1.6.37]
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        $Order = Order::with($this->arrWith())->find($id,$this->selectColumns);
+        if(is_null($Order) || empty($Order)){
+            return errorResponseJson([
+            "message"=>trans("admin.undefinedRecord")
+            ]);
+        }
 
-                 return successResponseJson([
-              "data"=> $Order
-              ]);  ;
+            return successResponseJson([
+        "data"=> $Order
+        ]);  ;
+    }       
+
+
+    /**
+     * Baboon Api Script By [it v 1.6.37]
+     * update a newly created resource in storage.
+     * @return \Illuminate\Http\Response
+     */
+    public function updateFillableColumns() {
+            $fillableCols = [];
+            foreach (array_keys((new OrdersRequest)->attributes()) as $fillableUpdate) {
+            if (!is_null(request($fillableUpdate))) {
+                $fillableCols[$fillableUpdate] = request($fillableUpdate);
             }
-
-
-            /**
-             * Baboon Api Script By [it v 1.6.37]
-             * update a newly created resource in storage.
-             * @return \Illuminate\Http\Response
-             */
-            public function updateFillableColumns() {
-				       $fillableCols = [];
-				       foreach (array_keys((new OrdersRequest)->attributes()) as $fillableUpdate) {
-  				        if (!is_null(request($fillableUpdate))) {
-						  $fillableCols[$fillableUpdate] = request($fillableUpdate);
-						}
-				       }
-  				     return $fillableCols;
-  	     		}
-
-            public function update(OrdersRequest $request,$id)
-            {
-            	$Order = Order::find($id);
-            	if(is_null($Order) || empty($Order)){
-            	 return errorResponseJson([
-            	  "message"=>trans("admin.undefinedRecord")
-            	 ]);
-  			       }
-
-            	$data = $this->updateFillableColumns();
-                 
-              $data["user_id"] = auth()->id(); 
-              Order::where("id",$id)->update($data);
-
-              $Order = Order::with($this->arrWith())->find($id,$this->selectColumns);
-              return successResponseJson([
-               "message"=>trans("admin.updated"),
-               "data"=> $Order
-               ]);
             }
+            return $fillableCols;
+    }
+
+        public function update(OrdersRequest $request,$id)
+        {
+            $Order = Order::find($id);
+            if(is_null($Order) || empty($Order)){
+                return errorResponseJson([
+                "message"=>trans("admin.undefinedRecord")
+                ]);
+                }
+
+            $data = $this->updateFillableColumns();
+                
+            $data["user_id"] = auth()->id(); 
+            Order::where("id",$id)->update($data);
+
+            $Order = Order::with($this->arrWith())->find($id,$this->selectColumns);
+            return successResponseJson([
+            "message"=>trans("admin.updated"),
+            "data"=> $Order
+            ]);
+        }
 
             /**
              * Baboon Api Script By [it v 1.6.37]

@@ -23,33 +23,33 @@ class SubscriptionFeesApi extends Controller{
 		"comment",
 	];
 
-            /**
-             * Display the specified releationshop.
-             * Baboon Api Script By [it v 1.6.37]
-             * @return array to assign with index & show methods
-             */
-            public function arrWith(){
-               return ['user_id',];
-            }
+    /**
+     * Display the specified releationshop.
+     * Baboon Api Script By [it v 1.6.37]
+     * @return array to assign with index & show methods
+     */
+    public function arrWith(){
+        return ['user_id',];
+    }
 
 
-            /**
-             * Baboon Api Script By [it v 1.6.37]
-             * Display a listing of the resource. Api
-             * @return \Illuminate\Http\Response
-             */
-            public function index()
-            {
-            	$SubscriptionFee = SubscriptionFee::select($this->selectColumns)->with($this->arrWith())->orderBy("id","desc")->paginate(15);
-               return successResponseJson(["data"=>$SubscriptionFee]);
-            }
+    /**
+     * Baboon Api Script By [it v 1.6.37]
+     * Display a listing of the resource. Api
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $SubscriptionFee = SubscriptionFee::select($this->selectColumns)->with($this->arrWith())->orderBy("id","desc")->paginate(15);
+        return successResponseJson(["data"=>$SubscriptionFee]);
+    }
 
 
-            /**
-             * Baboon Api Script By [it v 1.6.37]
-             * Store a newly created resource in storage. Api
-             * @return \Illuminate\Http\Response
-             */
+    /**
+     * Baboon Api Script By [it v 1.6.37]
+     * Store a newly created resource in storage. Api
+     * @return \Illuminate\Http\Response
+     */
     public function store(SubscriptionFeesRequest $request)
     {
     	$data = $request->except("_token");
@@ -65,25 +65,25 @@ class SubscriptionFeesApi extends Controller{
     }
 
 
-            /**
-             * Display the specified resource.
-             * Baboon Api Script By [it v 1.6.37]
-             * @param  int  $id
-             * @return \Illuminate\Http\Response
-             */
-            public function show($id)
-            {
-                $SubscriptionFee = SubscriptionFee::with($this->arrWith())->find($id,$this->selectColumns);
-            	if(is_null($SubscriptionFee) || empty($SubscriptionFee)){
-            	 return errorResponseJson([
-            	  "message"=>trans("admin.undefinedRecord")
-            	 ]);
-            	}
+    /**
+     * Display the specified resource.
+     * Baboon Api Script By [it v 1.6.37]
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        $SubscriptionFee = SubscriptionFee::with($this->arrWith())->find($id,$this->selectColumns);
+        if(is_null($SubscriptionFee) || empty($SubscriptionFee)){
+            return errorResponseJson([
+            "message"=>trans("admin.undefinedRecord")
+            ]);
+        }
 
-                 return successResponseJson([
-              "data"=> $SubscriptionFee
-              ]);  ;
-            }
+            return successResponseJson([
+        "data"=> $SubscriptionFee
+        ]);  ;
+    }
 
 
             /**
@@ -92,14 +92,14 @@ class SubscriptionFeesApi extends Controller{
              * @return \Illuminate\Http\Response
              */
             public function updateFillableColumns() {
-				       $fillableCols = [];
-				       foreach (array_keys((new SubscriptionFeesRequest)->attributes()) as $fillableUpdate) {
-  				        if (!is_null(request($fillableUpdate))) {
-						  $fillableCols[$fillableUpdate] = request($fillableUpdate);
-						}
-				       }
-  				     return $fillableCols;
-  	     		}
+                $fillableCols = [];
+                foreach (array_keys((new SubscriptionFeesRequest)->attributes()) as $fillableUpdate) {
+                if (!is_null(request($fillableUpdate))) {
+                    $fillableCols[$fillableUpdate] = request($fillableUpdate);
+                }
+                }
+                return $fillableCols;
+            }
 
             public function update(SubscriptionFeesRequest $request,$id)
             {
