@@ -40,6 +40,8 @@ function () {
 		Route::group(['middleware' => 'guest'], function () {
 			Route::post('login', 'Auth\AuthAndLogin@login')->name('api.login');
 			Route::post('register', 'Auth\Register@register')->name('api.register');
+
+			Route::apiResource("careers", "CareerApi", ["as" => "api.careers"]);
 		});
 
 
@@ -109,7 +111,7 @@ function () {
 			Route::post("balancerecharges/multi_delete","BalanceRechargesApi@multi_delete"); 
 			Route::apiResource("balancewithdrawals","BalanceWithdrawalsApi", ["as" => "api.balancewithdrawals"]); 
 			Route::post("balancewithdrawals/multi_delete","BalanceWithdrawalsApi@multi_delete");
-			Route::apiResource("careers", "CareerApi", ["as" => "api.careers"]);
+			
 
 			//Auth-Api-End//
 		});
