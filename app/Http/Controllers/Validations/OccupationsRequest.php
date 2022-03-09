@@ -25,12 +25,12 @@ class OccupationsRequest extends FormRequest {
 	 */
 	protected function onCreate() {
 		return [
-             'occupation_name_ar'=>'required|string',
-             'occupation_name_en'=>'required|string',
-             'licenses'=>'required|string|in:enable,disable',
-             'experiences'=>'required|string|in:enable,disable',
-             'qualifications'=>'required|string|in:enable,disable',
-             'commercial_records'=>'required|string|in:enable,disable',
+			'occupation_name_ar'=>'required|string',
+			'occupation_name_en'=>'required|string',
+			'licenses'=>'required|string|in:enable,disable',
+			'experiences'=>'required|string|in:enable,disable',
+			'qualifications'=>'required|string|in:enable,disable',
+			'commercial_records'=>'required|string|in:enable,disable',
 		];
 	}
 

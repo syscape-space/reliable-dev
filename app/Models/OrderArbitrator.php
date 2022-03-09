@@ -53,9 +53,9 @@ class OrderArbitrator extends Model {
 		parent::boot();
 		// if you disable constraints should by run this static method to Delete children data
 		static ::deleting(function ($orderarbitrator) {
-				//$orderarbitrator->order_id()->delete();
-				//$orderarbitrator->order_id()->delete();
-			});
+			//$orderarbitrator->order_id()->delete();
+			//$orderarbitrator->order_id()->delete();
+		});
 	}
 
 }

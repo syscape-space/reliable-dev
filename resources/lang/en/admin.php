@@ -398,5 +398,15 @@
 		"amount"	=>		"المبلغ",
 		"user_id"	=>		"المستخدم",
 		"balancewithdrawals"	=>		"عمليات سحب الرصيد",
+		'support_messages' => 'Support Messages',
+		'supportmessages' => 'Support Messages',
+		'careers' => 'Careers',
+		'career' => 'Career',
+		'address' => 'Address',
+		'qualification' => 'Qualification',
+		'experience' => 'Experience',
+		'description' => 'Description',
+		'start_at' => 'Start at',
+		'end_at' => 'End at',
 
 ];

@@ -16,13 +16,13 @@ class CreateOrderTypesTable extends Migration
     {
         Schema::create('order_types', function (Blueprint $table) {
             $table->bigIncrements('id');
-$table->foreignId("admin_id")->constrained("admins")->onUpdate("cascade")->onDelete("cascade");
+            $table->foreignId("admin_id")->constrained("admins")->onUpdate("cascade")->onDelete("cascade");
             $table->string('type_name_ar');
             $table->string('type_name_en');
             $table->longtext('type_desc_ar')->nullable();
             $table->longtext('type_desc_en')->nullable();
             $table->string('type_icon')->nullable();
-            $table->enum('type_status',['show','hide']);
+            $table->enum('type_status', ['show','hide']);
 			$table->timestamps();
         });
     }

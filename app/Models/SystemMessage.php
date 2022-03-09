@@ -11,10 +11,10 @@ protected $table    = 'system_messages';
 protected $fillable = [
 		'id',
 		'admin_id',
-        'special_for',
+      'special_for',
 
-        'message_ar',
-        'message_en',
+      'message_ar',
+      'message_en',
 		'created_at',
 		'updated_at',
 	];
@@ -25,10 +25,10 @@ protected $fillable = [
     * @return void
     */
    protected static function boot() {
-      parent::boot();
+         parent::boot();
       // if you disable constraints should by run this static method to Delete children data
          static::deleting(function($systemmessage) {
-         });
+      });
    }
 		
 }

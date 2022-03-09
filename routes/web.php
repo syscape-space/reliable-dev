@@ -13,6 +13,12 @@ use Spatie\Honeypot\ProtectAgainstSpam;
 | contains the "web" middleware group. Now create something great!
 |
  */
+
+
+Route::get('/', function(){
+	return view('welcome');
+});
+
 Route::group(['middleware' => 'auth'],
 
 	function () {
@@ -21,7 +27,6 @@ Route::group(['middleware' => 'auth'],
 
 Route::middleware(ProtectAgainstSpam::class)->group(function () {
 	Auth::routes(['verify' => true]);
-
 });
 
 // Route::get('/{vue_capture?}', function (){
