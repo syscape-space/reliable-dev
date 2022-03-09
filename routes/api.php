@@ -14,9 +14,17 @@ use Illuminate\Support\Facades\Route;
 // your api is integerated but if you want reintegrate no problem
 // to configure jwt-auth visit this link https://jwt-auth.readthedocs.io/en/docs/
 
-Route::group(['middleware' => ['ApiLang', 'cors'], 'prefix' => 'v2', 'namespace' => 'Api\V2'],function(){
+Route::group(['middleware' => ['ApiLang', 'cors'], 'prefix' => 'v2', 'namespace' => 'Api\V2'], function(){
     Route::post('login', 'AuthController@login')->name('api.login');
     Route::post('register', 'AuthController@register')->name('api.register');
+
+	
+	Route::group(['middleware' => 'guest'], function () {
+		Route::apiResource('careers', 'CareerApi', ['as' => 'api.careers']);
+
+		
+	});
+	
 });
 
 
@@ -41,7 +49,7 @@ function () {
 			Route::post('login', 'Auth\AuthAndLogin@login')->name('api.login');
 			Route::post('register', 'Auth\Register@register')->name('api.register');
 
-			Route::apiResource("careers", "CareerApi", ["as" => "api.careers"]);
+			
 		});
 
 
