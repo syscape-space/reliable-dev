@@ -9,7 +9,6 @@ use Yajra\DataTables\Services\DataTable;
 class CareerDataTable extends DataTable
 {
     	
-
      /**
      * dataTable to render Columns.
      * Auto Ajax Method By Baboon Script [it v 1.6.38]
@@ -66,26 +65,32 @@ class CareerDataTable extends DataTable
 					'extend' => 'print',
 					'className' => 'btn btn-outline',
 					'text' => '<i class="fa fa-print"></i> '.trans('admin.print')
-					],	[
+				],	
+				[
 				'extend' => 'excel',
 				'className' => 'btn btn-outline',
 				'text' => '<i class="fa fa-file-excel"> </i> '.trans('admin.export_excel')
-				],	[
+				],	
+				[
 				'extend' => 'csv',
 				'className' => 'btn btn-outline',
 				'text' => '<i class="fa fa-file-excel"> </i> '.trans('admin.export_csv')
-				],	[
+				],
+				[
 					'extend' => 'pdf',
 					'className' => 'btn btn-outline',
 					'text' => '<i class="fa fa-file-pdf"> </i> '.trans('admin.export_pdf')
-				],	[
+				],
+				[
 				'extend' => 'reload',
 				'className' => 'btn btn-outline',
 				'text' => '<i class="fa fa-sync-alt"></i> '.trans('admin.reload')
-				],	[
+				],	
+				[
 					'text' => '<i class="fa fa-trash"></i> '.trans('admin.delete'),
 					'className'    => 'btn btn-outline deleteBtn',
-				], 	[
+				], 	
+				[
 					'text' => '<i class="fa fa-plus"></i> '.trans('admin.add'),
 					'className'    => 'btn btn-primary',
 					'action'    => 'function(){
@@ -94,21 +99,9 @@ class CareerDataTable extends DataTable
 				],
 			],
 			'initComplete' => "function () {
-
-
 		
-		". filterElement('1,3,1,4', 'input') . "
-
-					//special_forspecial_for,message_ar,message_en2
-		". filterElement('2', 'select', [
-			'orders'=>trans('admin.orders'),
-			'orderoffers'=>trans('admin.orderoffers'),
-			'order_arbitrator_invoices'=>trans('admin.order_arbitrator_invoices'),
-			'accounts'=>trans('admin.accounts'),
-			'tickets'=>trans('admin.tickets'),
-		]) . "
-
-
+				". filterElement('1,2,3,4,5,6', 'input') . "
+				
 			}",
 			'order' => [[1, 'desc']],
 
@@ -138,7 +131,7 @@ class CareerDataTable extends DataTable
 				]
 			]);
 
-	return $html;
+			return $html;
 
 	}
 
@@ -152,73 +145,83 @@ class CareerDataTable extends DataTable
 
 	    protected function getColumns()
 	    {
-	        return [
-	       	
- [
-                'name' => 'checkbox',
-                'data' => 'checkbox',
-                'title' => '<div  class="icheck-danger">
-                  <input type="checkbox" class="select-all" id="select-all"  onclick="select_all()" >
-                  <label for="select-all"></label>
-                </div>',
-                'orderable'      => false,
-                'searchable'     => false,
-                'exportable'     => false,
-                'printable'      => false,
-                'width'          => '10px',
-                'aaSorting'      => 'none'
-            ],
-[
-                'name' => 'id',
-                'data' => 'id',
-                'title' => trans('admin.record_id'),
-                'width'          => '10px',
-                'aaSorting'      => 'none'
-            ],
+	        return 
+			[
 				[
-                 'name'=>'support_messages.department_id',
-                 'data'=>'department_id',
-                 'title'=>trans('admin.department_id'),
-		    ],
+					'name' => 'checkbox',
+					'data' => 'checkbox',
+					'title' => '<div  class="icheck-danger">
+					<input type="checkbox" class="select-all" id="select-all" onclick="select_all()" >
+					<label for="select-all"></label>
+					</div>',
+					'orderable'      => false,
+					'searchable'     => false,
+					'exportable'     => false,
+					'printable'      => false,
+					'width'          => '10px',
+					'aaSorting'      => 'none'
+				],
 				[
-                 'name'=>'message_ar',
-                 'data'=>'message_ar',
-                 'title'=>trans('admin.message_ar'),
-		    ],
+					'name' => 'id',
+					'data' => 'id',
+					'title' => trans('admin.record_id'),
+					'width'          => '10px',
+					'aaSorting'      => 'none'
+				],
 				[
-                 'name'=>'message_en',
-                 'data'=>'message_en',
-                 'title'=>trans('admin.message_en'),
-		    ],
-            [
-	                'name' => 'created_at',
-	                'data' => 'created_at',
-	                'title' => trans('admin.created_at'),
-	                'exportable' => false,
-	                'printable'  => false,
-	                'searchable' => false,
-	                'orderable'  => false,
-	            ],
-	                    [
-	                'name' => 'updated_at',
-	                'data' => 'updated_at',
-	                'title' => trans('admin.updated_at'),
-	                'exportable' => false,
-	                'printable'  => false,
-	                'searchable' => false,
-	                'orderable'  => false,
-	            ],
-	                    [
-	                'name' => 'actions',
-	                'data' => 'actions',
-	                'title' => trans('admin.actions'),
-	                'exportable' => false,
-	                'printable'  => false,
-	                'searchable' => false,
-	                'orderable'  => false,
-	            ],
-    	 ];
-			}
+					'name'=>'careers.address',
+					'data'=>'address',
+					'title'=>trans('admin.address'),
+				],
+				[
+					'name'=>'careers.qualification',
+					'data'=>'qualification',
+					'title'=>trans('admin.qualification'),
+				],
+				[
+					'name'=>'experience',
+					'data'=>'experience',
+					'title'=>trans('admin.experience'),
+				],
+				[
+					'name'=>'start_at',
+					'data'=>'start_at',
+					'title'=>trans('admin.start_at'),
+				],
+				[
+					'name'=>'end_at',
+					'data'=>'end_at',
+					'title'=>trans('admin.end_at'),
+				],
+				[
+					'name' => 'created_at',
+					'data' => 'created_at',
+					'title' => trans('admin.created_at'),
+					'exportable' => false,
+					'printable'  => false,
+					'searchable' => false,
+					'orderable'  => false,
+				],
+				[
+					'name' => 'updated_at',
+					'data' => 'updated_at',
+					'title' => trans('admin.updated_at'),
+					'exportable' => false,
+					'printable'  => false,
+					'searchable' => false,
+					'orderable'  => false,
+				],
+				[
+					'name' => 'actions',
+					'data' => 'actions',
+					'title' => trans('admin.actions'),
+					'exportable' => false,
+					'printable'  => false,
+					'searchable' => false,
+					'orderable'  => false,
+				],
+    	 	];
+		}
 
 	    /**
 	     * Get filename for export.
@@ -227,7 +230,7 @@ class CareerDataTable extends DataTable
 	     */
 	    protected function filename()
 	    {
-	        return 'supportmessages_' . time();
+	        return 'careers_' . time();
 	    }
     	
 }

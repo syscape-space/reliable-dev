@@ -91,6 +91,7 @@ class CareerController extends Controller
             'start_at' => 'required|date|after_or_equal:today',
             'end_at' => 'required|date|after:today'
         ]);
+        
         if(is_null($career) || empty($career)){
             return backWithError(trans("admin.undefinedRecord"), aurl("careers"));
         }

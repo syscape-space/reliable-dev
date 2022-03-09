@@ -10,23 +10,23 @@
 				<span class="sr-only"></span>
 			</a>
 			<div class="dropdown-menu" role="menu">
-				<a href="{{aurl('supportmessages')}}" class="dropdown-item"  style="color:#343a40">
+				<a href="{{aurl('careers')}}" class="dropdown-item"  style="color:#343a40">
 				<i class="fas fa-list"></i> {{trans('admin.show_all')}}</a>
-				<a class="dropdown-item"  style="color:#343a40" href="{{aurl('supportmessages/'.$supportmessage->id.'/edit')}}">
+				<a class="dropdown-item"  style="color:#343a40" href="{{aurl('careers/' . $career->id.'/edit')}}">
 					<i class="fas fa-edit"></i> {{trans('admin.edit')}}
 				</a>
-				<a class="dropdown-item"  style="color:#343a40" href="{{aurl('systemmessages/create')}}">
+				<a class="dropdown-item"  style="color:#343a40" href="{{aurl('careers/create')}}">
 					<i class="fas fa-plus"></i> {{trans('admin.create')}}
 				</a>
 				<div class="dropdown-divider"></div>
-				<a data-toggle="modal" data-target="#deleteRecord{{$supportmessage->id}}" class="dropdown-item"  style="color:#343a40" href="#">
+				<a data-toggle="modal" data-target="#deleteRecord{{$career->id}}" class="dropdown-item"  style="color:#343a40" href="#">
 					<i class="fas fa-trash"></i> {{trans('admin.delete')}}
 				</a>
 			</div>
 		</div>
 		</h3>
 		@push('js')
-		<div class="modal fade" id="deleteRecord{{$supportmessage->id}}">
+		<div class="modal fade" id="deleteRecord{{$career->id}}">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -34,12 +34,12 @@
 						<button class="close" data-dismiss="modal">x</button>
 					</div>
 					<div class="modal-body">
-						<i class="fa fa-exclamation-triangle"></i>  {{trans('admin.ask_del')}} {{trans('admin.id')}} ({{$supportmessage->id}})
+						<i class="fa fa-exclamation-triangle"></i>  {{trans('admin.ask_del')}} {{trans('admin.id')}} ({{$career->id}})
 					</div>
 					<div class="modal-footer">
 						{!! Form::open([
                'method' => 'DELETE',
-               'route' => ['systemmessages.destroy', $supportmessage->id]
+               'route' => ['careers.destroy', $career->id]
                ]) !!}
                 {!! Form::submit(trans('admin.approval'), ['class' => 'btn btn-danger btn-flat']) !!}
 						 <a class="btn btn-default" data-dismiss="modal">{{trans('admin.cancel')}}</a>
@@ -58,21 +58,38 @@
 	<div class="card-body">
 		<div class="row">
 			<div class="col-md-12 col-lg-12 col-xs-12">
-				<b>{{trans('admin.id')}} :</b> {{$supportmessage->id}}
+				<b>{{trans('admin.id')}} :</b> {{$career->id}}
 			</div>
 			<div class="clearfix"></div>
 			<hr />
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-				<b>{{trans('admin.message_ar')}} :</b>
-				{!! $supportmessage->message_ar !!}
+				<b>{{trans('admin.address')}} :</b>
+				{{ $career->address }}
 			</div>
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-				<b>{{trans('admin.message_en')}} :</b>
-				{!! $supportmessage->message_en !!}
+				<b>{{trans('admin.qualification')}} :</b>
+				{{ $career->qualification }}
+			</div>
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<b>{{trans('admin.experience')}} :</b>
+				{{ $career->experience }}
 			</div>
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-				<b>{{trans('admin.department_id')}} :</b>
-				{{ $supportmessage->department->{"department_name_" . app()->getLocale()} }}
+				<b>{{trans('admin.description')}} :</b>
+				{{ $career->description }}
+			</div>
+			
+			
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+			</div>
+
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+				<b>{{trans('admin.start_at')}} :</b>
+				{{ $career->start_at }}
+			</div>
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+				<b>{{trans('admin.end_at')}} :</b>
+				{{ $career->end_at }}
 			</div>
 			<!-- /.row -->
 		</div>
