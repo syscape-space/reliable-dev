@@ -21,8 +21,7 @@ Route::group(['middleware' => ['ApiLang', 'cors'], 'prefix' => 'v2', 'namespace'
 	
 	Route::group(['middleware' => 'guest'], function () {
 		Route::apiResource('careers', 'CareerApi', ['as' => 'api.careers']);
-
-		
+		Route::get('our-services', 'OurServiceController@index');
 	});
 	
 });

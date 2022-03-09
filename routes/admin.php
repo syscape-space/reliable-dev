@@ -124,7 +124,9 @@ function () {
 
 			Route::resource('careers', 'Admin\CareerController');
 			Route::post('careers/multi_delete','Admin\CareerController@multi_delete');
-
+			Route::as('admin.')->group(function (){
+                Route::resource('our-services','Admin\OurServiceController');
+            });
 			////////AdminRoutes/*End*///////////////
 		});
 
