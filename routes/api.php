@@ -13,7 +13,10 @@ use Illuminate\Support\Facades\Route;
  */
 // your api is integerated but if you want reintegrate no problem
 // to configure jwt-auth visit this link https://jwt-auth.readthedocs.io/en/docs/
-
+Route::group(['middleware' => ['ApiLang', 'cors'], 'prefix' => 'v2', 'namespace' => 'Api\V2'],function(){
+    Route::post('login', 'AuthController@login')->name('api.login');
+    Route::post('register', 'AuthController@register')->name('api.register');
+});
 Route::group(['middleware' => ['ApiLang', 'cors'], 'prefix' => 'v1', 'namespace' => 'Api\V1'],
 
 function () {
@@ -22,14 +25,14 @@ function () {
 		Route::post("cities/multi_delete", "CitiesApi@multi_delete");
 
 		Route::get('/', function () {
-
+		    echo "HI";
 			});
 		// Insert your Api Here Start //
-		Route::group(['middleware' => 'guest'], function () {
-				Route::post('login', 'Auth\AuthAndLogin@login')->name('api.login');
-				Route::post('register', 'Auth\Register@register')->name('api.register');
-			});
-
+// 		Route::group(['middleware' => 'guest'], function () {
+// 				Route::post('login', 'Auth\AuthAndLogin@login')->name('api.login');
+// 				Route::post('register', 'Auth\Register@register')->name('api.register');
+// 			});
+        
 		Route::group(['middleware' => 'auth:api'], function () {
 				Route::get('account', 'Auth\AuthAndLogin@account')->name('api.account');
 				Route::post('logout', 'Auth\AuthAndLogin@logout')->name('api.logout');
