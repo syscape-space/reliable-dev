@@ -61,9 +61,11 @@ class AuthController extends Controller
 	}
 
 	public function account() {
-        $this->validate(\request(), [
+        $val = Validator::make(\request(), [
             'token' => 'required'
         ]);
+        if($val->fails())
+            return errorResponseJson(["errors"=>$val->errors()->all(),'message'=>'البيانات غير كاملة']);
 
         $user = JWTAuth::authenticate(\request()->token);
 
