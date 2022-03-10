@@ -93,6 +93,7 @@ class AuthController extends Controller
 		return successResponseJson(['data' => $this->respondWithToken($token)]);
 	}
 	public function register(Request $register) {
+	    
 	    $val = Validator::make(request()->all(),[
 	        'name' => 'required|alpha',
 			'email' => 'required|email|unique:users,email',
