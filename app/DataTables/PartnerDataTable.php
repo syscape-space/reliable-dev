@@ -1,12 +1,12 @@
 <?php
 namespace App\DataTables;
-use App\Models\Career;
+use App\Models\Partner;
 use Yajra\DataTables\DataTables;
 use Yajra\DataTables\Services\DataTable;
 // Auto DataTable By Baboon Script
 // Baboon Maker has been Created And Developed By [it v 1.6.38]
 // Copyright Reserved [it v 1.6.38]
-class CareerDataTable extends DataTable
+class PartnerDataTable extends DataTable
 {
     	
      /**
@@ -17,7 +17,8 @@ class CareerDataTable extends DataTable
     public function dataTable(DataTables $dataTables, $query)
     {
         return datatables($query)
-            ->addColumn('actions', 'admin.careers.buttons.actions')
+            ->addColumn('actions', 'admin.partners.buttons.actions')
+			// ->addColumn('link', '{{$link}}')
             // ->addColumn('address', '{{ $address }}')
    			->addColumn('created_at', '{{ date("Y-m-d H:i:s", strtotime($created_at)) }}')   		
 			->addColumn('updated_at', '{{ date("Y-m-d H:i:s", strtotime($updated_at)) }}')            
@@ -38,7 +39,7 @@ class CareerDataTable extends DataTable
      */
 	public function query()
     {
-        return Career::query()->select("careers.*");
+        return Partner::query()->select("partners.*");
 
     }
 
@@ -100,7 +101,7 @@ class CareerDataTable extends DataTable
 			],
 			'initComplete' => "function () {
 		
-				". filterElement('1,2,3,4,5,6', 'input') . "
+				". filterElement('1,2', 'input') . "
 				
 			}",
 			'order' => [[1, 'desc']],
@@ -169,30 +170,20 @@ class CareerDataTable extends DataTable
 					'aaSorting'      => 'none'
 				],
 				[
-					'name'=>'careers.address',
-					'data'=>'address',
-					'title'=>trans('admin.address'),
+					'name'=>'partners.name',
+					'data'=>'name',
+					'title'=>trans('admin.name'),
 				],
-				[
-					'name'=>'careers.qualification',
-					'data'=>'qualification',
-					'title'=>trans('admin.qualification'),
-				],
-				[
-					'name'=>'careers.experience',
-					'data'=>'experience',
-					'title'=>trans('admin.experience'),
-				],
-				[
-					'name'=>'careers.start_at',
-					'data'=>'start_at',
-					'title'=>trans('admin.start_at'),
-				],
-				[
-					'name'=>'careers.end_at',
-					'data'=>'end_at',
-					'title'=>trans('admin.end_at'),
-				],
+				// [
+				// 	'name'=>'partners.logo',
+				// 	'data'=>'logo',
+				// 	'title'=>trans('admin.logo'),
+				// ],
+				// [
+				// 	'name'=>'partners.link',
+				// 	'data'=>'link',
+				// 	'title'=>trans('admin.link'),
+				// ],
 				[
 					'name' => 'created_at',
 					'data' => 'created_at',
@@ -230,7 +221,7 @@ class CareerDataTable extends DataTable
 	     */
 	    protected function filename()
 	    {
-	        return 'careers_' . time();
+	        return 'partners_' . time();
 	    }
     	
 }

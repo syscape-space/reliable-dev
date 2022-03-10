@@ -69,9 +69,9 @@ class Users extends Controller {
 		}
 
 		return successResponseJson([
-				"message" => trans("admin.added"),
-				"data"    => $users,
-			]);
+			"message" => trans("admin.added"),
+			"data"    => $users,
+		]);
 	}
 
 	/**
@@ -90,19 +90,19 @@ class Users extends Controller {
 		return is_null($users) || empty($users)?
 		backWithError(trans("admin.undefinedRecord"), aurl("users")):
 		view('admin.users.show', [
-				'title'                    => trans('admin.show').' / '.trans('admin.'.$users->membership_type).' - '.$users->name,
-				'users'                    => $users,
-				'experiences'              => $experiences->paginate(15),
-				'userlicenses'             => $userlicenses->paginate(15),
-				'qualifications'           => $qualifications->paginate(15),
-				'commercial_records'       => $commercial_records->paginate(15),
-				'jobs'                     => $jobs->paginate(15),
-				'experiences_count'        => $experiences->count(),
-				'userlicenses_count'       => $userlicenses->count(),
-				'qualifications_count'     => $qualifications->count(),
-				'commercial_records_count' => $commercial_records->count(),
-				'jobs_count'               => $jobs->count(),
-			]);
+			'title'                    => trans('admin.show').' / '.trans('admin.'.$users->membership_type).' - '.$users->name,
+			'users'                    => $users,
+			'experiences'              => $experiences->paginate(15),
+			'userlicenses'             => $userlicenses->paginate(15),
+			'qualifications'           => $qualifications->paginate(15),
+			'commercial_records'       => $commercial_records->paginate(15),
+			'jobs'                     => $jobs->paginate(15),
+			'experiences_count'        => $experiences->count(),
+			'userlicenses_count'       => $userlicenses->count(),
+			'qualifications_count'     => $qualifications->count(),
+			'commercial_records_count' => $commercial_records->count(),
+			'jobs_count'               => $jobs->count(),
+		]);
 	}
 
 	/**
@@ -115,9 +115,9 @@ class Users extends Controller {
 		return is_null($users) || empty($users)?
 		backWithError(trans("admin.undefinedRecord"), aurl("users")):
 		view('admin.users.edit', [
-				'title' => trans('admin.edit').' - '.trans('admin.'.$users->membership_type),
-				'users' => $users,
-			]);
+			'title' => trans('admin.edit').' - '.trans('admin.'.$users->membership_type),
+			'users' => $users,
+		]);
 	}
 
 	/**

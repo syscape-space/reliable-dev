@@ -408,5 +408,7 @@
 		'description' => 'Description',
 		'start_at' => 'Start at',
 		'end_at' => 'End at',
-
+		'partners' => 'Partners',
+		'partner' => 'Partner',
+		'link' => 'Link'
 ];
