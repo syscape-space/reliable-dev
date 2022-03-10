@@ -61,7 +61,13 @@ class AuthController extends Controller
 	}
 
 	public function account() {
-		return successResponseJson(['data' => $this->auth()->user()]);
+        $this->validate(\request(), [
+            'token' => 'required'
+        ]);
+
+        $user = JWTAuth::authenticate(\request()->token);
+
+        return successResponseJson(['user' => $user]);
 	}
 
 	/**
