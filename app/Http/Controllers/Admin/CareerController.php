@@ -129,7 +129,7 @@ class CareerController extends Controller
 				it()->delete('career', $id);
 				$career->delete();
 			}
-			return redirectWithSuccess(aurl("supportmessages"),trans('admin.deleted'));
+			return redirectWithSuccess(aurl("careers"),trans('admin.deleted'));
 		}else {
 			$career = Career::find($data);
 			if(is_null($career) || empty($career)){

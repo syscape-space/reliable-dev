@@ -597,5 +597,7 @@ return [
 	'description' 							   => 'الوصف',
 	'start_at' 								   => 'يبدأ في',
 	'end_at' 								   => 'ينتهي في',
-
+	'partners' => 'شركاء',
+	'partner' => 'شريك',
+	'link' => 'رابط'
 ];

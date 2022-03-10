@@ -124,12 +124,17 @@ function () {
 
 			Route::resource('careers', 'Admin\CareerController');
 			Route::post('careers/multi_delete','Admin\CareerController@multi_delete');
-
+<<<<<<< Updated upstream
 			Route::as('admin.')->group(function (){
                 Route::resource('our-services','Admin\OurServiceController');
             });
+=======
 
 			Route::resource('partners', 'Admin\PartnerController');
 			Route::post('partners/multi_delete','Admin\PartnerController@multi_delete');
+
+>>>>>>> Stashed changes
+			////////AdminRoutes/*End*///////////////
+		});
 
 	});

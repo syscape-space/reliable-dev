@@ -20,10 +20,15 @@ Route::group(['middleware' => ['ApiLang', 'cors'], 'prefix' => 'v2', 'namespace'
 
 	
 	Route::group(['middleware' => 'guest'], function () {
+<<<<<<< Updated upstream
 		Route::apiResource('careers', 'CareerApi', ['as' => 'api.careers']);
 		Route::get('our-services', 'OurServiceController@index');
+=======
 		Route::get('careers', 'CareerApi@index', ['as' => 'api.careers']);
 		Route::get('partners', 'PartnerApi@index', ['as' => 'api.partners']);
+
+		
+>>>>>>> Stashed changes
 	});
 	
 });
