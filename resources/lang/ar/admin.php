@@ -600,5 +600,6 @@ return [
 	'partners' => 'شركاء',
 	'partner' => 'شريك',
 	'link' => 'رابط',
-	'successfully_sent' => 'تم الإرسال بنجاح'
+	'successfully_sent' => 'تم الإرسال بنجاح',
+	'careerrequests' => 'طلبات الوظائف',
 ];

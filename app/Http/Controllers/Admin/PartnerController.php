@@ -103,7 +103,8 @@ class PartnerController extends Controller
         }
 
         if($request->hasFile('logo')){
-            unlink(public_path('partners/' . $partner->logo));
+            if(file_exists(public_path('partners/' . $partner->logo)))
+                unlink(public_path('partners/' . $partner->logo));
             $file = request()->file('logo');
             $fileMime = $file->getClientOriginalExtension();
             $fileUrl = Str::random(16) . ".$fileMime";
@@ -132,7 +133,9 @@ class PartnerController extends Controller
 			return backWithSuccess(trans('admin.undefinedRecord'), aurl("partners"));
 		}
 		// it()->delete('partner', $id);
-        unlink(public_path('partners/' . $partner->logo));
+        if(file_exists(public_path('partners/' . $partner->logo)))
+            unlink(public_path('partners/' . $partner->logo));
+
 		$partner->delete();
 		return redirectWithSuccess(aurl("partners"), trans('admin.deleted'));
     }
@@ -146,9 +149,10 @@ class PartnerController extends Controller
 				if(is_null($partner) || empty($partner)){
 					return backWithError(trans('admin.undefinedRecord'), aurl("partners"));
 				}
-                    	
+
 				// it()->delete('career', $id);
-                unlink(public_path('partners/' . $partner->logo));
+                if(file_exists(public_path('partners/' . $partner->logo)))
+                    unlink(public_path('partners/' . $partner->logo));
 				$partner->delete();
 			}
 			return redirectWithSuccess(aurl("partners"),trans('admin.deleted'));
@@ -157,9 +161,10 @@ class PartnerController extends Controller
 			if(is_null($partner) || empty($partner)){
 				return backWithError(trans('admin.undefinedRecord'),aurl("partners"));
 			}
-                    
+
 			// it()->delete('partner', $data);
-            unlink(public_path('partners/' . $partner->logo));
+            if(file_exists(public_path('partners/' . $partner->logo)))
+                unlink(public_path('partners/' . $partner->logo));
 			$partner->delete();
 			return redirectWithSuccess(aurl("partners"),trans('admin.deleted'));
 		}

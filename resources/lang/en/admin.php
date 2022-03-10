@@ -411,5 +411,6 @@
 		'partners' => 'Partners',
 		'partner' => 'Partner',
 		'link' => 'Link',
-		'successfully_sent' => 'Successfully Sent'
+		'successfully_sent' => 'Successfully Sent',
+		'careerrequests' => 'Career Requests',
 ];
