@@ -45,15 +45,8 @@ function () {
 // 				Route::post('register', 'Auth\Register@register')->name('api.register');
 // 			});
 
-		Route::group(['middleware' => 'guest'], function () {
-			Route::post('login', 'Auth\AuthAndLogin@login')->name('api.login');
-			Route::post('register', 'Auth\Register@register')->name('api.register');
 
-			
-		});
-
-
-		Route::group(['middleware' => 'auth:api'], function () {
+		Route::group(['middleware' => 'jwt.auth'], function () {
 			Route::get('account', 'Auth\AuthAndLogin@account')->name('api.account');
 			Route::post('logout', 'Auth\AuthAndLogin@logout')->name('api.logout');
 			Route::post('refresh', 'Auth\AuthAndLogin@refresh')->name('api.refresh');
