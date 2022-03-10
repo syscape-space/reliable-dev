@@ -61,7 +61,7 @@ class AuthController extends Controller
 	}
 
 	public function account() {
-        $val = Validator::make(\request(), [
+        $val = Validator::make(\request()->all(), [
             'token' => 'required'
         ]);
         if($val->fails())
