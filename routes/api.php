@@ -24,7 +24,10 @@ Route::group(['middleware' => ['ApiLang', 'cors'], 'prefix' => 'v2', 'namespace'
 		Route::get('careers', 'CareerApi@index', ['as' => 'api.careers']);
 		Route::get('partners', 'PartnerApi@index', ['as' => 'api.partners']);
 	});
-	
+	Route::group(['middleware' => 'jwt-midd'], function () {
+	    Route::get('account', 'AuthController@account')->name('api.account');
+	});
+
 });
 
 
@@ -46,7 +49,7 @@ function () {
 // 			});
 
 
-		Route::group(['middleware' => 'jwt.auth'], function () {
+		Route::group(['middleware' => 'jwt-midd'], function () {
 			Route::get('account', 'Auth\AuthAndLogin@account')->name('api.account');
 			Route::post('logout', 'Auth\AuthAndLogin@logout')->name('api.logout');
 			Route::post('refresh', 'Auth\AuthAndLogin@refresh')->name('api.refresh');
