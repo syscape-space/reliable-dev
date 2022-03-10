@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\DataTables\PartnerDataTable;
 use App\Models\Partner;
 use Illuminate\Http\Request;
+use Str;
 
 
 class PartnerController extends Controller
@@ -50,12 +51,15 @@ class PartnerController extends Controller
 
         // $request->file('logo')->move();
 
-        $partner = Partner::create($data);
+        if($request->hasFile('logo')){
+            $file = request()->file('logo');
+            $fileMime = $file->getClientOriginalExtension();
+            $fileUrl = Str::random(16) . ".$fileMime";
+            request()->file('logo')->move('partners', $fileUrl);
+            $data['logo'] = $fileUrl;
+        }
 
-        if (request()->hasFile('logo')) {
-			$partner->logo = it()->upload('logo', 'partners');
-			$partner->save();
-		}
+        $partner = Partner::create($data);
 
         return successResponseJson([
             "message" => trans("admin.added"),
@@ -98,10 +102,19 @@ class PartnerController extends Controller
             return backWithError(trans("admin.undefinedRecord"), aurl("partners"));
         }
 
-        if (request()->hasFile('logo')) {
-			it()->delete($partner->logo);
-			$data['logo'] = it()->upload('logo', 'partners');
-		}
+        if($request->hasFile('logo')){
+            unlink(public_path('partners/' . $partner->logo));
+            $file = request()->file('logo');
+            $fileMime = $file->getClientOriginalExtension();
+            $fileUrl = Str::random(16) . ".$fileMime";
+            request()->file('logo')->move('partners', $fileUrl);
+            $data['logo'] = $fileUrl;
+        }
+
+        // if (request()->hasFile('logo')) {
+		// 	it()->delete($partner->logo);
+		// 	$data['logo'] = it()->upload('logo', 'partners');
+		// }
 
         Partner::where('id', $id)->update($data);
         $partner = Partner::find($id);
@@ -118,7 +131,8 @@ class PartnerController extends Controller
 		if(is_null($partner) || empty($partner)){
 			return backWithSuccess(trans('admin.undefinedRecord'), aurl("partners"));
 		}
-		it()->delete('partner', $id);
+		// it()->delete('partner', $id);
+        unlink(public_path('partners/' . $partner->logo));
 		$partner->delete();
 		return redirectWithSuccess(aurl("partners"), trans('admin.deleted'));
     }
@@ -133,7 +147,8 @@ class PartnerController extends Controller
 					return backWithError(trans('admin.undefinedRecord'), aurl("partners"));
 				}
                     	
-				it()->delete('career', $id);
+				// it()->delete('career', $id);
+                unlink(public_path('partners/' . $partner->logo));
 				$partner->delete();
 			}
 			return redirectWithSuccess(aurl("partners"),trans('admin.deleted'));
@@ -143,7 +158,8 @@ class PartnerController extends Controller
 				return backWithError(trans('admin.undefinedRecord'),aurl("partners"));
 			}
                     
-			it()->delete('partner', $data);
+			// it()->delete('partner', $data);
+            unlink(public_path('partners/' . $partner->logo));
 			$partner->delete();
 			return redirectWithSuccess(aurl("partners"),trans('admin.deleted'));
 		}

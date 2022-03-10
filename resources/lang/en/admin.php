@@ -410,5 +410,6 @@
 		'end_at' => 'End at',
 		'partners' => 'Partners',
 		'partner' => 'Partner',
-		'link' => 'Link'
+		'link' => 'Link',
+		'successfully_sent' => 'Successfully Sent'
 ];
