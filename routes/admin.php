@@ -132,4 +132,6 @@ function () {
 			Route::resource('partners', 'Admin\PartnerController');
 			Route::post('partners/multi_delete','Admin\PartnerController@multi_delete');
 
+		});
+
 	});
