@@ -1037,7 +1037,7 @@ admin()->user()->role("systemmessages_show"))
 <!--userjobs_end_route-->
 
 <!--userjobs_start_route-->
-<li class="nav-item {{active_link('userjobs','menu-open')}} ">
+<li class="nav-item {{active_link('supportmessages','menu-open')}} ">
   <a href="#" class="nav-link {{active_link('userjobs','active')}}">
     <i class="nav-icon fa fa-user-tie"></i>
     <p>
@@ -1065,7 +1065,7 @@ admin()->user()->role("systemmessages_show"))
 <!--userjobs_end_route-->
 
 <!--userjobs_start_route-->
-<li class="nav-item {{active_link('userjobs','menu-open')}} ">
+<li class="nav-item {{active_link('careers','menu-open')}} ">
   <a href="#" class="nav-link {{active_link('userjobs','active')}}">
     <i class="nav-icon fa fa-user-tie"></i>
     <p>
@@ -1083,6 +1083,34 @@ admin()->user()->role("systemmessages_show"))
     </li>
     <li class="nav-item">
       <a href="{{ aurl('careers/create') }}" class="nav-link">
+        <i class="fas fa-plus nav-icon"></i>
+        <p>{{trans('admin.create')}} </p>
+      </a>
+    </li>
+  </ul>
+  {{-- ./Support Messages --}}
+</li>
+<!--userjobs_end_route-->
+
+<!--userjobs_start_route-->
+<li class="nav-item {{active_link('partners','menu-open')}} ">
+  <a href="#" class="nav-link {{active_link('partners','active')}}">
+    <i class="nav-icon fa fa-user-tie"></i>
+    <p>
+      {{trans('admin.partners')}}
+      <i class="right fas fa-angle-left"></i>
+    </p>
+  </a>
+  {{-- Support Messages --}}
+  <ul class="nav nav-treeview">
+    <li class="nav-item">
+      <a href="{{aurl('partners')}}" class="nav-link  {{active_link('partners','active')}}">
+        <i class="fa fa-user-tie nav-icon"></i>
+        <p>{{trans('admin.partners')}} </p>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="{{ aurl('partners/create') }}" class="nav-link">
         <i class="fas fa-plus nav-icon"></i>
         <p>{{trans('admin.create')}} </p>
       </a>
