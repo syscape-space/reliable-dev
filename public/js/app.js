@@ -19514,7 +19514,8 @@ __webpack_require__.r(__webpack_exports__);
     return {
       email: "",
       password: "",
-      errors: null
+      errors: null,
+      base_url: base_url
     };
   },
   methods: {
@@ -20512,7 +20513,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     style: {
       "width": "100px"
     },
-    src: _ctx.base_url + '/assets/images/login-1-logo.svg',
+    src: $data.base_url + '/assets/images/login-1-logo.svg',
     alt: ""
   }, null, 8
   /* PROPS */
@@ -20555,7 +20556,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       "position": "absolute",
       "right": "10px"
     },
-    src: _ctx.base_url + '/assets/images/login-user.svg',
+    src: $data.base_url + '/assets/images/login-user.svg',
     alt: ""
   }, null, 8
   /* PROPS */
@@ -20575,7 +20576,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       "position": "absolute",
       "right": "10px"
     },
-    src: _ctx.base_url + '/assets/images/login-pass.svg',
+    src: $data.base_url + '/assets/images/login-pass.svg',
     alt: ""
   }, null, 8
   /* PROPS */
@@ -20588,7 +20589,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     style: {
       "width": "20px"
     },
-    src: _ctx.base_url + '/assets/images/login-facebook.svg',
+    src: $data.base_url + '/assets/images/login-facebook.svg',
     alt: ""
   }, null, 8
   /* PROPS */
@@ -20596,7 +20597,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     style: {
       "width": "19px"
     },
-    src: _ctx.base_url + '/assets/images/google-llc.png',
+    src: $data.base_url + '/assets/images/google-llc.png',
     alt: ""
   }, null, 8
   /* PROPS */
@@ -20604,7 +20605,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     style: {
       "width": "150px"
     },
-    src: _ctx.base_url + '/assets/images/login-logo.svg',
+    src: $data.base_url + '/assets/images/login-1-logo.svg',
     alt: ""
   }, null, 8
   /* PROPS */

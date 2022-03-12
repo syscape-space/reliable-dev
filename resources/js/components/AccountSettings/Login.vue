@@ -67,7 +67,7 @@
         </div>
         <div class="col-md-6 login-page">
           <div class="text-center mt-5">
-            <img style="width: 150px;" :src="base_url+'/assets/images/login-logo.svg'" alt="">
+            <img style="width: 150px;" :src="base_url+'/assets/images/login-1-logo.svg'" alt="">
           </div>
         </div>
       </div>
@@ -84,6 +84,7 @@ export default {
       email: "",
       password: "",
       errors: null,
+      base_url:base_url,
     };
   },
   methods:{
