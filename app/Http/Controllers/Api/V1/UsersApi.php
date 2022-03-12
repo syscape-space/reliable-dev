@@ -116,9 +116,9 @@ class UsersApi extends Controller{
             	 ]);
             	}
 
-                 return successResponseJson([
-              "data"=> $User
-              ]);  ;
+                return successResponseJson([
+                    "data"=> $User
+                ]);
             }
 
 

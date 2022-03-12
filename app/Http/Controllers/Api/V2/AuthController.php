@@ -73,7 +73,7 @@ class AuthController extends Controller
 	 */
 	public function login(Request $login) {
 	    $val = Validator::make(request()->all(),[
-            'email' => 'required|email',
+            'id_number' => 'required|exists:users',
 			'password' => [
 				'required',
 				'string', Password::min(6)->mixedCase()->numbers()->symbols()->uncompromised(),
@@ -82,7 +82,7 @@ class AuthController extends Controller
         if($val->fails())
             return errorResponseJson(["errors"=>$val->errors()->all(),'message'=>'البيانات غير كاملة']);
             
-		$credentials = request(['email', 'password']);
+		$credentials = request(['id_number', 'password']);
 
 		try {
 			if (!$token = JWTAuth::attempt($credentials)) {
@@ -99,10 +99,13 @@ class AuthController extends Controller
 	    $val = Validator::make(request()->all(),[
 	        'name' => 'required|alpha',
 			'email' => 'required|email|unique:users,email',
+			'mobile' => 'required|unique:users,mobile',
+			'id_number' => 'required|unique:users',
 			'password' => [
 				'required',
 				'string', Password::min(6)->mixedCase()->numbers()->symbols()->uncompromised(),
 			],
+
 	        ]);
         if($val->fails())
             return errorResponseJson(["errors"=>$val->errors()->all(),'message'=>'البيانات غير كاملة']);
