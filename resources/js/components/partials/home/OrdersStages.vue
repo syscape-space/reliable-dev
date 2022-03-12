@@ -93,3 +93,21 @@
       </div>
     </section>
 </template>
+
+<script>
+import api from "../../../utils/api";
+
+export default {
+  data(){
+    return{
+      list : [] ,
+      base_url:base_url
+    }
+  },
+  mounted() {
+    
+  },
+  methods: {
+  },
+};
+</script>

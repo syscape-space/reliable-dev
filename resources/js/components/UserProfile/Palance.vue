@@ -125,3 +125,22 @@
       </div>
     </section>
 </template>
+<script>
+import api from "../../utils/api";
+
+export default {
+  data(){
+    return{
+      name : "" , 
+      base_url : base_url
+    }
+  },
+  mounted() {
+    if( localStorage.getItem("token") === "" ){
+                this.$router.push({ name: "Login" });
+    }
+  },
+  methods: {
+  },
+};
+</script>

@@ -25,6 +25,11 @@
 </template>
 <script>
 export default {
+  data(){
+    return{
+      base_url : base_url
+    }
+  },
     methods:{
         goToLogin(){
             this.$router.push({ name: "Login" });

@@ -43,6 +43,11 @@
 </template>
 <script>
 export default {
+  data(){
+    return{
+      base_url : base_url
+    }
+  },
   methods:{
     verify(){
       this.$router.push({ name: "Success" });

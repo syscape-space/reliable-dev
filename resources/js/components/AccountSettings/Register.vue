@@ -140,7 +140,8 @@ export default {
       mobile: "",
       email: "",
       password: "",
-      errors: null
+      errors: null , 
+      base_url : base_url
     };
   },
   methods: {

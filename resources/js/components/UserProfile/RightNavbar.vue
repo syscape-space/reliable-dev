@@ -35,7 +35,7 @@
             </div>
             <ul class="px-0 list-unstyled text-center dash-list mt-0">
               <li class="active">
-                <router-link to="/u_index">
+                <router-link :to="{ name : 'profilePage' }">
                   <img
                     :src="base_url+'/assets/images/dash-home.svg'"
                     style="width: 18px"
@@ -46,7 +46,7 @@
                 </router-link>
               </li>
               <li>
-                <router-link to="/u_profile">
+                <router-link :to="{ name : 'u_indexPage' }">
                   <img
                     :src="base_url+'/assets/images/dash-user.svg'"
                     style="width: 16px"
@@ -57,7 +57,7 @@
                 </router-link>
               </li>
               <li>
-                <router-link to="/u_palance">
+                <router-link :to="{ name : 'palance' }">
                   <img
                     :src="base_url+'/assets/images/dash-balance.svg'"
                     style="width: 19px"
@@ -104,7 +104,8 @@ import api from "../../utils/api";
 export default {
   data(){
     return{
-      name : ""
+      name : "" ,
+      base_url : base_url
     }
   },
   mounted() {

@@ -12,7 +12,9 @@ import u_indexPage from '../views/UserProfilePages/u_indexPage.vue'
 import profilePage from '../views/UserProfilePages/profilePage.vue'
 import employmentApplications from '../views/UserProfilePages/employmentApplications.vue'
 import palance from '../views/UserProfilePages/palance.vue'
-const prefix = '/reliable/public/app';
+import offerOrder from '../views/UserProfilePages/offerOrder.vue'
+import DocumentRequest from '../views/UserProfilePages/documentRequest.vue'
+const prefix = '/reliable-dev/public/app';
 const routes = [
     {
         path : prefix+'/' ,
@@ -37,13 +39,19 @@ const routes = [
         path : prefix+'/u_index' , component : profilePage , name : "profilePage"
     },
     {
-        path : prefix+'/u_profile' , component : u_indexPage
+        path : prefix+'/u_profile' , component : u_indexPage , name : "u_indexPage"
     },
     {
         path : prefix+'/u_employment_applocations' , component : employmentApplications
     },
     {
-        path : prefix+'/u_palance' , component : palance
+        path : prefix+'/u_palance' , component : palance , name : "palance"
+    },
+    {
+        path : prefix+'/u_offers_order' , component : offerOrder , name : "offerOrder"
+    },
+    {
+        path : prefix+'/u_document_request' , component : DocumentRequest , name : "DocumentRequest"
     },
 ]
 const router = createRouter({

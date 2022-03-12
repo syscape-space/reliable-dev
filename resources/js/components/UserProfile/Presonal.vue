@@ -10,7 +10,7 @@
                 <input
                   class="input-personal mt-1 w-100"
                   type="text"
-                  id="name"
+                  v-model="username"
                   placeholder="محمد مصطفى  على"
                 />
               </div>
@@ -18,7 +18,7 @@
                 <label style="font-size: 13px">البريد الالكتروني</label>
                 <input
                   class="input-personal mt-1 w-100"
-                  id="email"
+                  v-model="email"
                   type="text"
                   placeholder="...البريد الالكتروني"
                 />
@@ -27,7 +27,7 @@
                 <label style="font-size: 13px">رقم الهاتف</label>
                 <input
                   class="input-personal mt-1 w-100"
-                  id="mobile"
+                  v-model="mobile"
                   type="text"
                   placeholder="...رقم الهاتف"
                 />
@@ -164,7 +164,7 @@
                 </div>
               </div>
               <div class="col-md-12 text-center">
-                <button class="save-btn" >حفظ التغييرات</button>
+                <button class="save-btn" @click.prevent="updateInfo()">حفظ التغييرات</button>
               </div>
             </div>
           </form>
@@ -178,7 +178,10 @@ import api from "../../utils/api";
 export default {
   data(){
     return{
-      name : ""
+      username : "" ,
+      email : "" ,
+      mobile : "" ,
+      base_url : base_url
     }
   },
   mounted() {
@@ -192,9 +195,11 @@ export default {
       api
         .get("/account?token=" + localStorage.getItem("token") )
         .then((response) => {
-          document.getElementById("name").value = response.data.user.name;
-          document.getElementById("email").value = response.data.user.email ;
-          document.getElementById("mobile").value = "0"+response.data.user.mobile ;
+          // document.getElementById("name").value = response.data.user.name;
+          this.username = response.data.user.name;
+          this.email = response.data.user.email ;
+          this.mobile = "0"+response.data.user.mobile ;
+          console.log( response.data.user );
         })
         // error.response.data.errors
         .catch((e) => {

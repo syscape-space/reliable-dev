@@ -1,5 +1,5 @@
 <template>
-     <section class="py-5 position-relative">
+     <section class="py-5 position-relative" id="serviceProductionID">
        <img class="h1-it" :src="base_url+'/assets/images/h1.png'" alt="">
       <div class="container">
         <h3 class="text-center mt-5">مقدمي الخدمة</h3>
@@ -15,168 +15,19 @@
         <div class="mt-5">
           <div>
             <div id="slider" class="owl-carousel owl-theme"  style="display: flex;">
-              <div style="min-width: 250px" class="user-ab">
+              <div style="min-width: 250px" class="user-ab" v-for="item in list" :key="item.id">
                 <div class="d-flex">
                   <span
                     class="position-relative ms-2"
                     style="display: inline-block"
                   >
-                    <img style="width: 50px" :src="base_url+'/assets/images/user.svg'" alt="" />
+                  <!--  '/photo_profile' +  item.photo_profile-->
+                    <img style="width: 50px" :src="base_url + '/assets/images/user.svg'  " alt="" />
                     <i class="online-icon fas fa-circle"></i>
                   </span>
                   <span>
-                    <span class="d-block">محمد مصطفي</span>
-                    <span><small>محام عقارات</small></span>
-                  </span>
-                </div>
-                <div class="d-flex align-items-center justify-content-between">
-                  <span class="" style="font-size: 12px">
-                    <span>4.3</span>
-                    <span>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star orng-c"></i>
-                      <i class="fas fa-star orng-c"></i>
-                      <i class="fas fa-star orng-c"></i>
-                      <i class="fas fa-star orng-c"></i>
-                    </span>
-                  </span>
-                  <span>
-                    <button class="order-btn">اطلب الخدمة</button>
-                  </span>
-                </div>
-              </div>
-              <div style="min-width: 250px" class="user-ab">
-                <div class="d-flex">
-                  <span
-                    class="position-relative ms-2"
-                    style="display: inline-block"
-                  >
-                    <img style="width: 50px" :src="base_url+'/assets/images/user.svg'" alt="" />
-                    <i class="online-icon fas fa-circle"></i>
-                  </span>
-                  <span>
-                    <span class="d-block">محمد مصطفي</span>
-                    <span><small>محام عقارات</small></span>
-                  </span>
-                </div>
-                <div class="d-flex align-items-center justify-content-between">
-                  <span class="" style="font-size: 12px">
-                    <span>4.3</span>
-                    <span>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star orng-c"></i>
-                      <i class="fas fa-star orng-c"></i>
-                      <i class="fas fa-star orng-c"></i>
-                      <i class="fas fa-star orng-c"></i>
-                    </span>
-                  </span>
-                  <span>
-                    <button class="order-btn">اطلب الخدمة</button>
-                  </span>
-                </div>
-              </div>
-              <div style="min-width: 250px" class="user-ab">
-                <div class="d-flex">
-                  <span
-                    class="position-relative ms-2"
-                    style="display: inline-block"
-                  >
-                    <img style="width: 50px" :src="base_url+'/assets/images/user.svg'" alt="" />
-                    <i class="online-icon fas fa-circle"></i>
-                  </span>
-                  <span>
-                    <span class="d-block">محمد مصطفي</span>
-                    <span><small>محام عقارات</small></span>
-                  </span>
-                </div>
-                <div class="d-flex align-items-center justify-content-between">
-                  <span class="" style="font-size: 12px">
-                    <span>4.3</span>
-                    <span>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star orng-c"></i>
-                      <i class="fas fa-star orng-c"></i>
-                      <i class="fas fa-star orng-c"></i>
-                      <i class="fas fa-star orng-c"></i>
-                    </span>
-                  </span>
-                  <span>
-                    <button class="order-btn">اطلب الخدمة</button>
-                  </span>
-                </div>
-              </div>
-              <div style="min-width: 250px" class="user-ab">
-                <div class="d-flex">
-                  <span
-                    class="position-relative ms-2"
-                    style="display: inline-block"
-                  >
-                    <img style="width: 50px" :src="base_url+'/assets/images/user.svg'" alt="" />
-                    <i class="online-icon fas fa-circle"></i>
-                  </span>
-                  <span>
-                    <span class="d-block">محمد مصطفي</span>
-                    <span><small>محام عقارات</small></span>
-                  </span>
-                </div>
-                <div class="d-flex align-items-center justify-content-between">
-                  <span class="" style="font-size: 12px">
-                    <span>4.3</span>
-                    <span>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star orng-c"></i>
-                      <i class="fas fa-star orng-c"></i>
-                      <i class="fas fa-star orng-c"></i>
-                      <i class="fas fa-star orng-c"></i>
-                    </span>
-                  </span>
-                  <span>
-                    <button class="order-btn">اطلب الخدمة</button>
-                  </span>
-                </div>
-              </div>
-              <div style="min-width: 250px" class="user-ab">
-                <div class="d-flex">
-                  <span
-                    class="position-relative ms-2"
-                    style="display: inline-block"
-                  >
-                    <img style="width: 50px" :src="base_url+'/assets/images/user.svg'" alt="" />
-                    <i class="online-icon fas fa-circle"></i>
-                  </span>
-                  <span>
-                    <span class="d-block">محمد مصطفي</span>
-                    <span><small>محام عقارات</small></span>
-                  </span>
-                </div>
-                <div class="d-flex align-items-center justify-content-between">
-                  <span class="" style="font-size: 12px">
-                    <span>4.3</span>
-                    <span>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star orng-c"></i>
-                      <i class="fas fa-star orng-c"></i>
-                      <i class="fas fa-star orng-c"></i>
-                      <i class="fas fa-star orng-c"></i>
-                    </span>
-                  </span>
-                  <span>
-                    <button class="order-btn">اطلب الخدمة</button>
-                  </span>
-                </div>
-              </div>
-              <div style="min-width: 250px" class="user-ab">
-                <div class="d-flex">
-                  <span
-                    class="position-relative ms-2"
-                    style="display: inline-block"
-                  >
-                    <img style="width: 50px" :src="base_url+'/assets/images/user.svg'" alt="" />
-                    <i class="online-icon fas fa-circle"></i>
-                  </span>
-                  <span>
-                    <span class="d-block">محمد مصطفي</span>
-                    <span><small>محام عقارات</small></span>
+                    <span class="d-block"> {{ item.name }} </span>
+                    <span><small> {{ item.bio }} </small></span>
                   </span>
                 </div>
                 <div class="d-flex align-items-center justify-content-between">
@@ -202,11 +53,35 @@
     </section>
 </template>
 <script>
+import api from "../../../utils/api";
 export  default {
   data(){
     return{
-      base_url:base_url
+      base_url:base_url ,
+      list : []
     };
   },
+  mounted() {
+    
+    this.getAllServiceProduction();
+  },
+  methods: {
+    getAllServiceProduction(){
+      api
+        .get("/vendors")
+        .then((response) => {
+          console.log(response.data.data);
+          this.list = response.data.data.data ;
+          if( this.list.length === 0 ){
+            document.getElementById('serviceProductionID').style.display = "none";
+          }
+        })
+        // error.response.data.errors
+        .catch((e) => {
+          // this.errors = e.response.data.errors;
+          console.log(e.response.data.errors);
+        });
+    }
+  }
 }
 </script>

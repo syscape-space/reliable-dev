@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="24" viewBox="0 0 100 24">
+  <g id="Group_1042" data-name="Group 1042" transform="translate(-1210 -765)">
+    <g id="Layer_2" data-name="Layer 2" transform="translate(1210 765)">
+      <g id="icons_Q2" data-name="icons Q2" transform="translate(3 1.5)">
+        <rect id="Rectangle_1591" data-name="Rectangle 1591" width="10" height="2" rx="1" transform="translate(4 5.5)" fill="#2b7b74"/>
+        <rect id="Rectangle_1592" data-name="Rectangle 1592" width="10" height="2" rx="1" transform="translate(4 9.5)" fill="#2b7b74"/>
+        <rect id="Rectangle_1593" data-name="Rectangle 1593" width="6" height="2" rx="1" transform="translate(4 13.5)" fill="#2b7b74"/>
+        <path id="Path_48030" data-name="Path 48030" d="M22,5V22H8V5H22m1-2H7A1,1,0,0,0,6,4V23a1,1,0,0,0,1,1H23a1,1,0,0,0,1-1V4A1,1,0,0,0,23,3Z" transform="translate(-6 -3)" fill="#2b7b74"/>
+      </g>
+    </g>
+    <g id="Group_1041" data-name="Group 1041">
+      <text id="Easy_to_Use" data-name="Easy to Use" transform="translate(1310 783)" fill="#2b7b74" font-size="18" font-family="Helvetica-Bold, Helvetica" font-weight="700"><tspan x="-72.009" y="0">PDF File</tspan></text>
+      <rect id="Rectangle_1590" data-name="Rectangle 1590" width="24" height="24" transform="translate(1210 765)" fill="none"/>
+    </g>
+  </g>
+</svg>

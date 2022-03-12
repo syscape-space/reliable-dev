@@ -87,7 +87,8 @@ import api from "../../utils/api";
 export default {
   data(){
     return{
-      name : ""
+      name : "" ,
+      base_url : base_url
     }
   },
   mounted() {

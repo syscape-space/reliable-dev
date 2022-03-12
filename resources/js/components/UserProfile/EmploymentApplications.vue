@@ -194,3 +194,12 @@
       </div>
     </section>
 </template>
+<script>
+export default {
+  data(){
+    return{
+      base_url:base_url
+    };
+  },
+}
+</script>

@@ -6,7 +6,12 @@
 
 <script>
 export default {
-  name: "Verify"
+  name: "Verify" ,
+  data(){
+    return {
+      base_url : base_url
+    }
+  }
 }
 </script>
 
