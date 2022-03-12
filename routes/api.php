@@ -55,7 +55,7 @@ function () {
 // 			});
 
 
-		Route::group(['middleware' => 'jwt-midd'], function () {
+		Route::group(['middleware' => 'jwt.auth'], function () {
 			Route::get('account', 'Auth\AuthAndLogin@account')->name('api.account');
 			Route::post('logout', 'Auth\AuthAndLogin@logout')->name('api.logout');
 			Route::post('refresh', 'Auth\AuthAndLogin@refresh')->name('api.refresh');
@@ -121,7 +121,7 @@ function () {
 			Route::post("balancerecharges/multi_delete","BalanceRechargesApi@multi_delete"); 
 			Route::apiResource("balancewithdrawals","BalanceWithdrawalsApi", ["as" => "api.balancewithdrawals"]); 
 			Route::post("balancewithdrawals/multi_delete","BalanceWithdrawalsApi@multi_delete");
-			
+			Route::resource('departments','DepartmentController')->only('index');
 
 			//Auth-Api-End//
 		});

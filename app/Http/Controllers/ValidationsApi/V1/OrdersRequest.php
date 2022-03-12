@@ -33,11 +33,12 @@ class OrdersRequest extends FormRequest {
              'city_id'=>'sometimes|nullable|integer|exists:cities,id',
              'execution_time'=>'sometimes|nullable|numeric',
              'amount'=>'required|numeric',
-             'order_status'=>'required|string|in:under_review,open,closed',
+//             'order_status'=>'required|string|in:under_review,open,closed',
              'receive_offers'=>'required|string|in:yes,no',
              'assigning_arbitration'=>'required|string|in:yes,no',
              'decisions_refused_reason'=>'sometimes|nullable|string',
-             'user_id'=>'required|integer|exists:users,id',
+//             'user_id'=>'required|integer|exists:users,id',
+            'order_type_id' =>  'required',
 		];
 	}
 

@@ -45,7 +45,10 @@ class OrdersApi extends Controller{
      */
     public function index()
     {
-        $Order = Order::select($this->selectColumns)->with($this->arrWith())->orderBy("id","desc")->paginate(15);
+        $Order = Order::select($this->selectColumns)->where(function ($q){
+            if (\request()->my)
+                $q->where('user_id',auth('api')->id());
+        })->with($this->arrWith())->orderBy("id","desc")->paginate(15);
         return successResponseJson(["data"=>$Order]);
     }
 
@@ -58,7 +61,7 @@ class OrdersApi extends Controller{
     public function store(OrdersRequest $request)
     {
     	$data = $request->except("_token");
-        $data["user_id"] = auth()->id(); 
+        $data["user_id"] = auth('api')->id();
         $Order = Order::create($data); 
 		$Order = Order::with($this->arrWith())->find($Order->id,$this->selectColumns);
         return successResponseJson([
