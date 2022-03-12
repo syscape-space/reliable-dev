@@ -22,7 +22,7 @@ const routes = [
         path : prefix+'/login' , component : loginPage , name : "Login"
     },
     {
-        path : prefix+'/register' , component : Register
+        path : prefix+'/register' , component : Register,name:"Register"
     },
     // start of verify test route ==> if clicked will go to success component this for test only
     {

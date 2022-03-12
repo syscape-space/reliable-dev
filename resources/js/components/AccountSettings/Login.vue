@@ -10,7 +10,7 @@
             </div>
             <div class="register text-center  ">
               <p class="my-4 ">ليس لديك حساب؟ 
-                <router-link to="/register" 
+                <router-link :to="{name:'Register'}"
                   href="#"
                   style="color: #048e81;"  
                 class="">قم بانشاء حساب الان</router-link></p>

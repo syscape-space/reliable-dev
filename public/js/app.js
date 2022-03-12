@@ -20518,7 +20518,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, null, 8
   /* PROPS */
   , _hoisted_6)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_8, [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
-    to: "/register",
+    to: {
+      name: 'Register'
+    },
     href: "#",
     style: {
       "color": "#048e81"
@@ -24083,7 +24085,8 @@ var routes = [{
   name: "Login"
 }, {
   path: prefix + '/register',
-  component: _views_AccountPages_registerPage_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+  component: _views_AccountPages_registerPage_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+  name: "Register"
 }, // start of verify test route ==> if clicked will go to success component this for test only
 {
   path: prefix + '/verify',
