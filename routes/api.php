@@ -18,7 +18,7 @@ Route::group(['middleware' => ['ApiLang', 'cors'], 'prefix' => 'v2', 'namespace'
     Route::post('login', 'AuthController@login')->name('api.login');
     Route::post('register', 'AuthController@register')->name('api.register');
 
-	Route::put('update-profile/{id}', 'UserController@update');
+	Route::put('update-profile/{id}', 'UpdateUserProfileController@update');
 	
 	Route::group(['middleware' => 'guest'], function () {
 		Route::get('our-services', 'OurServiceController@index');

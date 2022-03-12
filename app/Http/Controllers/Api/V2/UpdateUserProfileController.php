@@ -11,7 +11,7 @@ use Validator;
 // Auto Controller Maker By Baboon Script
 // Baboon Maker has been Created And Developed By  [it v 1.6.37]
 // Copyright Reserved  [it v 1.6.37]
-class UserController extends Controller{
+class UpdateUserProfileController extends Controller{
 	protected $selectColumns = [
 		"id",
 		"first_name",
