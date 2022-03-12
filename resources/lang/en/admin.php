@@ -413,4 +413,5 @@
 		'link' => 'Link',
 		'successfully_sent' => 'Successfully Sent',
 		'careerrequests' => 'Career Requests',
+		'show_attached' => 'Show Attached',
 ];

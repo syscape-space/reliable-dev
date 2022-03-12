@@ -26,7 +26,7 @@
 		</div>
 		</h3>
 		@push('js')
-		<div class="modal fade" id="deleteRecord{{$careerrequest->id}}">
+		<div class="modal fade" id="deleteRecord{{$careerRequest->id}}">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -58,7 +58,7 @@
 	<div class="card-body">
 		<div class="row">
 			<div class="col-md-12 col-lg-12 col-xs-12">
-				<b>{{trans('admin.id')}} :</b> {{$career->id}}
+				<b>{{trans('admin.id')}} :</b> {{$careerRequest->id}}
 			</div>
 			<div class="clearfix"></div>
 			<hr />
@@ -76,7 +76,7 @@
 			</div>
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 				<b>{{trans('admin.qualification')}} :</b>
-				<a href="{{ url($careerRequest->attached_url) }}">Show attached</a>
+				<a href="{{ asset('career_requests/' . $careerRequest->attached_url) }}">{{trans('admin.show_attached')}}</a>
 			</div>
 			
 		
