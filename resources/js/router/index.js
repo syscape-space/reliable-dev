@@ -16,7 +16,8 @@ const prefix = '/reliable/public/app';
 const routes = [
     {
         path : prefix+'/' ,
-        component : indexPage
+        component : indexPage,
+        name:'home'
     } ,
     {
         path : prefix+'/login' , component : loginPage , name : "Login"

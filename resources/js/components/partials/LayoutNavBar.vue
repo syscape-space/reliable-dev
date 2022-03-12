@@ -17,7 +17,7 @@
     <div class="collapse navbar-collapse" id="collapsibleNavId">
       <ul class="navbar-nav ms-auto mt-2 mt-lg-0 w-100">
         <li class="nav-item active">
-          <router-link to="/" class="nav-link">الرئيسية</router-link>
+          <router-link :to="{name:'home'}" class="nav-link">الرئيسية</router-link>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">كيف يعمل</a>

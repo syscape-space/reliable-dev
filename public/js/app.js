@@ -22405,7 +22405,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     /* STABLE */
 
   }), _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
-    to: "/",
+    to: {
+      name: 'home'
+    },
     "class": "nav-link"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
@@ -24078,7 +24080,8 @@ __webpack_require__.r(__webpack_exports__);
 var prefix = '/reliable/public/app';
 var routes = [{
   path: prefix + '/',
-  component: _views_indexPage_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  component: _views_indexPage_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+  name: 'home'
 }, {
   path: prefix + '/login',
   component: _views_AccountPages_loginPage_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
