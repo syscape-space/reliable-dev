@@ -31,6 +31,6 @@ Route::middleware(ProtectAgainstSpam::class)->group(function () {
 	Auth::routes(['verify' => true]);
 });
 
-// Route::get('/{vue_capture?}', function (){
-//     return view('app.index');
-// })->where('vue_capture', '[\/\w\.\-\ \&\=]*');
+ Route::get('app/{vue_capture?}', function (){
+     return view('app.index');
+ })->where('vue_capture', '[\/\w\.\-\ \&\=]*');

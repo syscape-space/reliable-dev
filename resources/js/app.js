@@ -1,11 +1,14 @@
-import Home from "./components/Home";
-
-require('./bootstrap');
-import { createApp } from 'vue';
+import { createApp } from 'vue'
+import App from './App.vue'
 import router from './router'
-import App from './components/App.vue';
+import store from './store'
 
-const app = createApp({});
-app.use(router);
-app.component('app',App);
-app.mount('#app');
+
+import "./bootstrap"
+var app=  createApp(App).use(store).use(router).mount('#app')
+
+import './assets/css/style.css';
+import './assets/css/bootstrap.min.css';
+import './assets/css/owl.theme.default.min.css';
+import './assets/css/owl.carousel.min.css';
+

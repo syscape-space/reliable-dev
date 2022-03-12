@@ -1,7 +1,7 @@
 <template>
   <footer class="text-start ">
     <div style="min-height: 200px;" class="p-4">
-      <img style="width: 100px;" :src="base_url+'/images/white-logo.svg'" alt="">
+      <img style="width: 100px;" :src="base_url+'/assets/images/white-logo.svg'" alt="">
     </div>
     <div>
     </div>
@@ -16,7 +16,7 @@ export default {
   name: "LayoutFooter",
   data(){
     return{
-      base_url:base_url,
+      
     };
   }
 }

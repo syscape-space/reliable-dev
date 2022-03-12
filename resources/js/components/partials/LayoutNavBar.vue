@@ -2,9 +2,9 @@
   <nav
       class="navbar navbar-expand-xl navbar-dark|light bg-primary|secondary|success|danger|warning|info|light|dark"
   >
-    <a class="navbar-brand" href="#">
-      <img :src="base_url+'/images/logo.svg'" alt="" />
-    </a>
+    <router-link to="/" class="navbar-brand">
+      <img :src="base_url+'/assets/images/logo.svg'" alt="" />
+    </router-link>
     <button
         class="navbar-toggler d-xl-none"
         type="button"
@@ -17,7 +17,7 @@
     <div class="collapse navbar-collapse" id="collapsibleNavId">
       <ul class="navbar-nav ms-auto mt-2 mt-lg-0 w-100">
         <li class="nav-item active">
-          <a class="nav-link" href="#">الرئيسية</a>
+          <router-link to="/" class="nav-link">الرئيسية</router-link>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">كيف يعمل</a>
@@ -44,7 +44,7 @@
           <a class="nav-link btn-1" href="#">طلب خدمة</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link btn-2" href="#">الدخول</a>
+          <router-link :to="{name:'Login'}" class="nav-link btn-2">الدخول</router-link>
         </li>
       </ul>
     </div>
@@ -56,9 +56,9 @@ export default {
   name: "LayoutNavBar",
   data(){
     return{
-      base_url:base_url,
+      base_url:base_url
     };
-  }
+  },
 }
 </script>
 

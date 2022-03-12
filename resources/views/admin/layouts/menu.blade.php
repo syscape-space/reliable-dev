@@ -1118,5 +1118,27 @@ admin()->user()->role("systemmessages_show"))
   </ul>
   {{-- ./Support Messages --}}
 </li>
-<!--userjobs_end_route-->
+<li class="nav-item {{active_link('our_services','menu-open')}} ">
+  <a href="#" class="nav-link {{active_link('our_services','active')}}">
+    <i class="nav-icon fa fa-user-tie"></i>
+    <p>
+      {{trans('admin.our_services')}}
+      <i class="right fas fa-angle-left"></i>
+    </p>
+  </a>
+  <ul class="nav nav-treeview">
+    <li class="nav-item">
+      <a href="{{aurl('our_services')}}" class="nav-link  {{active_link('our_services','active')}}">
+        <i class="fa fa-user-tie nav-icon"></i>
+        <p>{{trans('admin.our_services')}} </p>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="{{ aurl('our_services/create') }}" class="nav-link">
+        <i class="fas fa-plus nav-icon"></i>
+        <p>{{trans('admin.create')}} </p>
+      </a>
+    </li>
+  </ul>
+</li>
 

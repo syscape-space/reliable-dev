@@ -58,9 +58,9 @@ export default {
   name: "SearchServiceSection",
   data(){
     return{
-      base_url:base_url,
+      base_url:base_url
     };
-  }
+  },
 }
 </script>
 

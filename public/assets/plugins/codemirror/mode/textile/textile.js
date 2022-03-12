@@ -106,7 +106,7 @@
       return togglePhraseModifier(stream, state, "span", /%/, 1);
 
     if (ch === "@")
-      return togglePhraseModifier(stream, state, "code", /@/, 1);
+      return togglePhraseModifier(stream, state, "code", /../, 1);
 
     if (ch === "!") {
       var type = togglePhraseModifier(stream, state, "image", /(?:\([^\)]+\))?!/, 1);

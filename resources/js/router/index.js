@@ -1,16 +1,49 @@
 import { createWebHistory, createRouter } from "vue-router";
-import Home from "../components/Home";
-import Verify from "../components/Verify";
-import Layout from "../components/Layout";
+import indexPage from '../views/indexPage.vue';
 
-const prefix = '/reliable/public';
+// Account Settings
+import loginPage from '../views/AccountPages/loginPage.vue'
+import Register from '../views/AccountPages/registerPage.vue'
+import Verify from '../views/AccountPages/verifyPage.vue'
+import Success from '../views/AccountPages/successPage.vue'
+
+// Users Profile
+import u_indexPage from '../views/UserProfilePages/u_indexPage.vue'
+import profilePage from '../views/UserProfilePages/profilePage.vue'
+import employmentApplications from '../views/UserProfilePages/employmentApplications.vue'
+import palance from '../views/UserProfilePages/palance.vue'
+const prefix = '/reliable/public/app';
 const routes = [
-    { path: prefix+'/verify', component: Verify },
-    { path: prefix+'/',component: Layout,
-        children: [
-            { path: '', component: Home },
-        ],
-    }
+    {
+        path : prefix+'/' ,
+        component : indexPage
+    } ,
+    {
+        path : prefix+'/login' , component : loginPage , name : "Login"
+    },
+    {
+        path : prefix+'/register' , component : Register
+    },
+    // start of verify test route ==> if clicked will go to success component this for test only
+    {
+        path : prefix+'/verify' , component : Verify
+    },
+    {
+        path : prefix+'/success' , component : Success , name : "Success"
+    },
+    // end of verify test route ==> if clicked will go to success component this for test only
+    {
+        path : prefix+'/u_index' , component : profilePage , name : "profilePage"
+    },
+    {
+        path : prefix+'/u_profile' , component : u_indexPage
+    },
+    {
+        path : prefix+'/u_employment_applocations' , component : employmentApplications
+    },
+    {
+        path : prefix+'/u_palance' , component : palance
+    },
 ]
 const router = createRouter({
     history: createWebHistory(),

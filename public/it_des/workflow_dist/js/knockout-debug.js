@@ -1505,7 +1505,7 @@ ko.exportSymbol('selectExtensions', ko.selectExtensions);
 ko.exportSymbol('selectExtensions.readValue', ko.selectExtensions.readValue);
 ko.exportSymbol('selectExtensions.writeValue', ko.selectExtensions.writeValue);
 ko.expressionRewriting = (function () {
-    var restoreCapturedTokensRegex = /\@ko_token_(\d+)\@/g;
+    var restoreCapturedTokensRegex = /\@ko_token_(\d+)\../g;
     var javaScriptReservedWords = ["true", "false"];
 
     // Matches something that can be assigned to--either an isolated identifier or something ending with a property accessor
