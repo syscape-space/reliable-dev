@@ -14,7 +14,7 @@ import employmentApplications from '../views/UserProfilePages/employmentApplicat
 import palance from '../views/UserProfilePages/palance.vue'
 import offerOrder from '../views/UserProfilePages/offerOrder.vue'
 import DocumentRequest from '../views/UserProfilePages/documentRequest.vue'
-const prefix = '/reliable-dev/public/app';
+const prefix = '/reliable/public/app';
 const routes = [
     {
         path : prefix+'/' ,
