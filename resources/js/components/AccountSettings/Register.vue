@@ -52,6 +52,20 @@
           </div>
           <div class="auth-login mb-4 text-center position-relative">
             <input
+              type="number"
+              class="pe-5 form-control"
+              placeholder="id number"
+              v-model="id_number"
+            />
+            <img
+              class="img-lllo"
+              style="width: 20px; position: absolute; right: 10px"
+              :src="base_url+'/assets/images/login-user.svg'"
+              alt=""
+            />
+          </div>
+          <div class="auth-login mb-4 text-center position-relative">
+            <input
               type="text"
               class="pe-5 form-control"
               placeholder="رقم الجوال"
@@ -140,6 +154,7 @@ export default {
       mobile: "",
       email: "",
       password: "",
+      id_number : "" ,
       errors: null , 
       base_url : base_url
     };
@@ -153,6 +168,7 @@ export default {
           name : this.name ,
           mobile: this.mobile,
           email: this.email,
+          id_number : this.id_number ,
           password: this.password,
         } )
         .then((response) => {

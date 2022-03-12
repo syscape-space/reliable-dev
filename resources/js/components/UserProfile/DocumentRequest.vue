@@ -2,54 +2,52 @@
     <section class="main-pc ">
           <div class="container-fluid">
               <div class="row">
-                <div class="col-lg-4 d-block d-lg-none ">
-                    <div class="content text-center pt-1 ">
-                        <p class="num">01</p>
-                        <img :src="base_url+'/assets/images/logo.svg' " alt="logo" class="mt-5 pt-5">
-                        <p class="title">اختيار نوع الخدمة</p>
-                        <p class="sup-title">  انشاء طلب جديد</p>
-                        <p class="dis">   
-                          عند اختيار خدمة سيظهر هنا تعليما الخدمة وشرح  
-                          <br>   مع الفيديو بالأسفل
-                        </p>
-                        <div class="vid  p-5">
-                            <p class="vid-title text-right ">
-                              مشاهده شرح طلب الخدمة
-                            </p>
-                           <div class="center">
-                              <div class="img">
-                                  <img :src="base_url+'/assets/images/man.svg'" alt="#" class="back-man">
-                                  <div class="overlay">
-                                      <a href="#">
-                                          <div class="dis">
-                                            <img :src="base_url+'/assets/images/play-button.svg'" alt="#">
-                                          </div>
-                                      </a>
-                                  </div>
-                              </div>
-                           </div>
-                           <div class="info m-5">
-                               <div class="row">
-                                   <div class="col-4">
-                                       <img :src="base_url + '/assets/images/open-book.svg'" alt="#">
-                                   </div>
-                                   <div class="col-8">
-                                      <p>
-                                         <a href="#" target="_blank">
-                                          الدليل الارشادي لطلب للخدمة
-                                         </a>
-                                      </p>
-                                  </div>
-                               </div>
-                           </div>
-                        </div>
-                    </div>
-                </div>
+                <div class="col-lg-4 d-none d-lg-block">
+                      <div class="content text-center pt-1 ">
+                          <p class="num">01</p>
+                          <img :src="base_url + '/assets/images/logo.svg'" alt="logo" class="mt-5 pt-5">
+                          <p class="title">اختيار نوع الخدمة</p>
+                          <p class="sup-title">  انشاء طلب جديد</p>
+                          <p class="dis">   
+                            عند اختيار خدمة سيظهر هنا تعليما الخدمة وشرح  
+                            <br>   مع الفيديو بالأسفل
+                          </p>
+                          <div class="vid  p-5">
+                              <p class="vid-title text-right ">
+                                مشاهده شرح طلب الخدمة
+                              </p>
+                             <div class="center">
+                                <div class="img">
+                                    <img :src="base_url + '/assets/images/man.svg'" alt="#" class="back-man">
+                                    <div class="overlay">
+                                        <a href="#">
+                                            <div class="dis">
+                                              <img :src="base_url + '/assets/images/play-button.svg'" alt="#">
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                             </div>
+                             <div class="info m-5">
+                                 <div class="row">
+                                     <div class="col-4">
+                                         <img :src="base_url + '/assets/images/open-book.svg'" alt="#">
+                                     </div>
+                                     <div class="col-8">
+                                        <p>
+                                           <a href="#" target="_blank">
+                                            الدليل الارشادي لطلب للخدمة
+                                           </a>
+                                        </p>
+                                    </div>
+                                 </div>
+                             </div>
+                          </div>
+                      </div>
+                  </div>
                   <div class="col-lg-8 ">
                     <div class="row">
-                        <div class="col-lg-5">
-                            <br>
-                        </div>
+                        
                         <div class="col-lg-7">
                             <form dir="rtl">
                                 <div class="data  pt-5 text-right ">
@@ -401,7 +399,7 @@
                                                         يتطلب شحن الرصيد لاكمال عملية السداد
                                                      </p>
                                                      <p class="red pr-2 mb-2" >
-                                                        <img :src="base_url + '/assets/images/money.svg'" alt="#" class="ml-2">
+                                                        <img :src="base_url + '/assets/images/  money.svg'" alt="#" class="ml-2">
                                                         سيتم احتساب رسوم الخصم والشحن 
                                                      </p>
                                                    </div>
@@ -454,51 +452,11 @@
                                     </div>
                                 </form>
                                 </div>
+                                <div class="col-lg-5">
+                            <br>
+                        </div>
                             </div>
                         </div>
-                  <div class="col-lg-4 d-none d-lg-block">
-                      <div class="content text-center pt-1 " id="xnxx">
-                          <p class="num">01</p>
-                          <img :src="base_url + '/assets/images/logo.svg'" alt="logo" class="mt-5 pt-5">
-                          <p class="title">اختيار نوع الخدمة</p>
-                          <p class="sup-title">  انشاء طلب جديد</p>
-                          <p class="dis">   
-                            عند اختيار خدمة سيظهر هنا تعليما الخدمة وشرح  
-                            <br>   مع الفيديو بالأسفل
-                          </p>
-                          <div class="vid  p-5">
-                              <p class="vid-title text-right ">
-                                مشاهده شرح طلب الخدمة
-                              </p>
-                             <div class="center">
-                                <div class="img">
-                                    <img :src="base_url + '/assets/images/man.svg'" alt="#" class="back-man">
-                                    <div class="overlay">
-                                        <a href="#">
-                                            <div class="dis">
-                                              <img :src="base_url + '/assets/images/play-button.svg'" alt="#">
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                             </div>
-                             <div class="info m-5">
-                                 <div class="row">
-                                     <div class="col-4">
-                                         <img :src="base_url + '/assets/images/open-book.svg'" alt="#">
-                                     </div>
-                                     <div class="col-8">
-                                        <p>
-                                           <a href="#" target="_blank">
-                                            الدليل الارشادي لطلب للخدمة
-                                           </a>
-                                        </p>
-                                    </div>
-                                 </div>
-                             </div>
-                          </div>
-                      </div>
-                  </div>
               </div>
           </div>
       </section>

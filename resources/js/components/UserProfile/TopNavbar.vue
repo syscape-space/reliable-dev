@@ -103,6 +103,7 @@ export default {
         .get("/account?token=" + localStorage.getItem("token") )
         .then((response) => {
           this.name = response.data.user.name
+          console.log(response.data.user)
         })
         // error.response.data.errors
         .catch((e) => {
