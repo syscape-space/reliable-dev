@@ -1087,6 +1087,12 @@ admin()->user()->role("systemmessages_show"))
         <p>{{trans('admin.create')}} </p>
       </a>
     </li>
+    <li class="nav-item">
+      <a href="{{aurl('careerrequests')}}" class="nav-link  {{active_link('careerrequests','active')}}">
+        <i class="fa fa-user-tie nav-icon"></i>
+        <p>{{trans('admin.careerrequests')}} </p>
+      </a>
+    </li>
   </ul>
   {{-- ./Support Messages --}}
 </li>

@@ -24,6 +24,9 @@ Route::group(['middleware' => ['ApiLang', 'cors'], 'prefix' => 'v2', 'namespace'
 		Route::get('careers', 'CareerApi@index');
 		Route::get('partners', 'PartnerApi@index');
 		Route::post('career-requests', 'CareerRequestApi@store');
+
+		Route::get('vendors', 'VendorController@index');
+		Route::get('vendors/{id}', 'VendorController@show');
 	});
 	Route::group(['middleware' => 'jwt-midd'], function () {
 	    Route::get('account', 'AuthController@account')->name('api.account');

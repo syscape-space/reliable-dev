@@ -8,6 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class CareerRequest extends Model
 {
     use HasFactory;
-
     protected $guarded = ['id'];
 }

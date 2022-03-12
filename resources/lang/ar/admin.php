@@ -602,4 +602,5 @@ return [
 	'link' => 'رابط',
 	'successfully_sent' => 'تم الإرسال بنجاح',
     'our_services'  =>  'خدماتنا',
+	'careerrequests' => 'طلبات الوظائف',
 ];
