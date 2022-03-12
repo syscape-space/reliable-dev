@@ -59,16 +59,6 @@ class UpdateUserProfileController extends Controller{
         return ['company_id',];
     }
 
-    public function updateFillableColumns() {
-        $fillableCols = [];
-        foreach (array_keys((new UsersRequest)->attributes()) as $fillableUpdate) {
-           if (!is_null(request($fillableUpdate))) {
-           $fillableCols[$fillableUpdate] = request($fillableUpdate);
-         }
-        }
-        return $fillableCols;
-    }
-
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
@@ -76,8 +66,7 @@ class UpdateUserProfileController extends Controller{
             'middle_name'=>'required|string',
             'last_name'=>'required|string',
             'name'=>'required|string',
-            'email'=>'required|email|unique:users,email',
-            'email_verify'=>'required|string|in:pending,verified',
+            'email'=>'required|email|unique:users,email,' . $id,
             'mobile'=>'sometimes|nullable|numeric',
             'mobile_verify'=>'required|string|in:pending,verified',
             'email_verify_code'=>'sometimes|nullable|numeric',
