@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="_20_Background_Mask_" data-name="20 (Background/Mask)" width="24" height="24" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="_20" data-name="20" clip-path="url(#clip-path)">
+    <g id="Group" transform="translate(3.303 3.601)">
+      <path id="Vector" d="M15.118,7.989l1.94-6.71A1,1,0,0,0,15.677.1L.577,7.089a1,1,0,0,0,0,1.81l15.1,6.99a1,1,0,0,0,1.38-1.19Z" fill="#fff" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.2" stroke-dasharray="0 0"/>
+      <path id="Vector-2" data-name="Vector" d="M0,0H7" transform="translate(17.697 7.999) rotate(180)" fill="#0995eb" stroke="#2178ae" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.2" stroke-dasharray="0 0"/>
+    </g>
+  </g>
+</svg>

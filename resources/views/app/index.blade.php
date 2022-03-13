@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="{{asset('/')}}/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="{{asset('/')}}/css/owl.theme.default.min.css"/>
     <link rel="stylesheet" href="{{asset('/')}}/css/owl.carousel.min.css"/>
+    <link rel="stylesheet" href="{{asset('/')}}/css/style.css"/>
+    <link rel="stylesheet" href="{{asset('/')}}/css/layout.css"/>
     <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
@@ -15,6 +17,7 @@
             rel="stylesheet"
     />
     <link rel="stylesheet" href="./css/style.css"/>
+    <link rel="stylesheet" href="./css/layout.css"/>
     <title>title</title>
 </head>
 
