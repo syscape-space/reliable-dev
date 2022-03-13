@@ -19484,7 +19484,10 @@ __webpack_require__.r(__webpack_exports__);
   name: "App",
   setup: function setup() {
     return {
-      title: "welcome to vue page <3"
+      title: "welcome to vue page <3",
+      _t: function _t(key) {
+        return _.get(window.trans, key, key);
+      }
     };
   }
 });
@@ -25615,7 +25618,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   var _component_LayoutFooter = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("LayoutFooter");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Navbar)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_HomeHeader), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_SearchServiceSection), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_HowItWork), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Features), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ServiceProduction), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_NewJobs), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_MawthoqServices), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ServiceExplain), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_OrdersStages), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_MawthoqPartners), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_MawthoqApp), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_LayoutFooter)], 64
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Navbar), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.home")), 1
+  /* TEXT */
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_HomeHeader), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_SearchServiceSection), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_HowItWork), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Features), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ServiceProduction), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_NewJobs), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_MawthoqServices), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ServiceExplain), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_OrdersStages), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_MawthoqPartners), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_MawthoqApp), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_LayoutFooter)], 64
   /* STABLE_FRAGMENT */
   );
 }
@@ -25645,7 +25650,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var app = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createApp)(_App_vue__WEBPACK_IMPORTED_MODULE_1__["default"]).use(_store__WEBPACK_IMPORTED_MODULE_3__["default"]).use(_router__WEBPACK_IMPORTED_MODULE_2__["default"]).mount('#app');
+var vue_app = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createApp)(_App_vue__WEBPACK_IMPORTED_MODULE_1__["default"]).use(_store__WEBPACK_IMPORTED_MODULE_3__["default"]).use(_router__WEBPACK_IMPORTED_MODULE_2__["default"]).mount('#app');
 
 
 

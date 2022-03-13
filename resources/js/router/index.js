@@ -20,7 +20,7 @@ const routes = [
         path : prefix+'/' ,
         component : indexPage,
         name:'home'
-    } ,
+    },
     {
         path : prefix+'/login' , component : loginPage , name : "Login"
     },

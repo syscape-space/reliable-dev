@@ -26,6 +26,19 @@
 </div>
 <script>
     const base_url = '{{url('/')}}';
+    window.trans = <?php
+    // copy all translations from /resources/lang/CURRENT_LOCALE/* to global JS variable
+    $lang_files = File::files(resource_path() . '/lang/' . app()->getLocale());
+    $trans = [];
+    foreach ($lang_files as $f) {
+        $filename = pathinfo($f)['filename'];
+        $trans[$filename] = trans($filename);
+    }
+    echo json_encode($trans);
+    ?>;
+    function _t(key){
+        return window.trans;
+    }
 </script>
 <script src="{{ asset('js/app.js') }}"></script>
 <script src="{{asset('/')}}/js/jquery-3.3.1.min.js"></script>

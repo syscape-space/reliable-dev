@@ -9,6 +9,9 @@ export default {
   name: "App",
   setup: () => ({
     title: "welcome to vue page <3",
+    _t:(key) => {
+      return _.get(window.trans, key, key);
+    },
   })
 }
 </script>
