@@ -185,9 +185,7 @@ export default {
     }
   },
   mounted() {
-    if( localStorage.getItem("token") === "" ){
-                this.$router.push({ name: "Login" });
-    }
+    
     this.currentUser();
   },
   methods: {

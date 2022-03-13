@@ -29,7 +29,7 @@
                 </div>
               </div>
               <div class="auth-login mb-4 text-center  position-relative">
-                <input type="text" class="pe-5 form-control" placeholder="   البريد الالكتروني" v-model="email"> <!-- Phone number -->
+                <input type="number" class="pe-5 form-control" placeholder="   رقم التحقق" v-model="id_number"> <!-- Phone number -->
                 <img class="img-lllo" style="width: 20px; position: absolute; right: 10px;"
                 :src="base_url+'/assets/images/login-user.svg'" alt="">
               </div>
@@ -81,7 +81,7 @@ export default {
   components : { Navbar } ,
   data() {
     return {
-      email: "",
+      id_number: "",
       password: "",
       errors: null,
       base_url:base_url,
@@ -91,7 +91,7 @@ export default {
     loginFun() {
           api
             .post("/login", {
-              email: this.email,
+              id_number: this.id_number,
               password: this.password,
             })
             .then((response) => {
