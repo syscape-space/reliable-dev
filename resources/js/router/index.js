@@ -27,13 +27,7 @@ const prefix = '/reliable/public/app';
 // guard function 
 function guardMyroute(to, from, next)
 {
-    var isAuthenticated= false;
-     
     if(localStorage.getItem('token'))
-    isAuthenticated = true;
-    else
-    isAuthenticated= false;
-    if(isAuthenticated) 
     {
     next(); 
     } 
