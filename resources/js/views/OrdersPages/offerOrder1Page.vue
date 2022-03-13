@@ -2,17 +2,17 @@
 
     <OrderRightNavbar/>
     <TopNavbar/>
-    <ShowOrders/>
+    <OfferOrder1/>
     
     
 </template>
 <script>
 import OrderRightNavbar from '../../components/Orders/OrderRightNavbar'
 import TopNavbar from '../../components/UserProfile/TopNavbar'
-import ShowOrders from '../../components/Orders/ShowOrders'
+import OfferOrder1 from '../../components/Orders/OfferOrder1'
 
 export default {
-    components : { OrderRightNavbar , TopNavbar , ShowOrders  },
+    components : { OrderRightNavbar , TopNavbar , OfferOrder1  },
     mounted(){
          
     },

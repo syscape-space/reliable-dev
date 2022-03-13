@@ -1,0 +1,201 @@
+<template>
+    <div class="header-top" style="background-color: #f6f6f6">
+      <div class="container">
+        <ul class="list-unstyled d-flex m-0">
+          <li class="ms-4 position-relative">
+            <a
+              href="#"
+              role="button"
+              id="dropdownMenuLink"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              ><img :src="base_url + '/assets/images/notification-nav.svg'" alt="" srcset="" />
+              <span class="red-circle"></span>
+            </a>
+            <ul class="dropdown-menu rri_o" aria-labelledby="dropdownMenuLink">
+              <li>
+                <a class="dropdown-item" href="#">
+                  <div class="d-flex align-iyems-center o_noti">
+                    <div>
+                      <img
+                        class="ms-3"
+                        style="width: 40px; height: 40px; border-radius: 50%"
+                        :src="base_url + '/assets/images/user.svg'"
+                        alt=""
+                      />
+                    </div>
+                    <div class="flex-grow-1">
+                      <div class="btw-flex w-100">
+                        <span style="color: #2b7b74">محمد مصطفي</span>
+                        <span class=" ">
+                          <img :src="base_url + '/assets/images/o_cclo.svg'" alt="" />
+                          <span style="color: #0995eb">منذ 30 دقيقة</span>
+                        </span>
+                      </div>
+                      <p class="text-end my-1">
+                        قام بتقديم عرض علي منشورك اليوم
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">
+                  <div class="d-flex align-iyems-center o_noti">
+                    <div>
+                      <img
+                        class="ms-3"
+                        style="width: 40px; height: 40px; border-radius: 50%"
+                        :src="base_url + '/assets/images/user.svg'"
+                        alt=""
+                      />
+                    </div>
+                    <div class="flex-grow-1">
+                      <div class="btw-flex w-100">
+                        <span style="color: #2b7b74">محمد مصطفي</span>
+                        <span class=" ">
+                          <img :src="base_url + '/assets/images/o_cclo.svg'" alt="" />
+                          <span style="color: #0995eb">منذ 30 دقيقة</span>
+                        </span>
+                      </div>
+                      <p class="text-end my-1">
+                        قام بتقديم عرض علي منشورك اليوم
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">
+                  <div class="d-flex align-iyems-center o_noti">
+                    <div>
+                      <img
+                        class="ms-3"
+                        style="width: 40px; height: 40px; border-radius: 50%"
+                        :src="base_url + '/assets/images/user.svg'"
+                        alt=""
+                      />
+                    </div>
+                    <div class="flex-grow-1">
+                      <div class="btw-flex w-100">
+                        <span style="color: #2b7b74">محمد مصطفي</span>
+                        <span class=" ">
+                          <img :src="base_url + '/assets/images/o_cclo.svg'" alt="" />
+                          <span style="color: #0995eb">منذ 30 دقيقة</span>
+                        </span>
+                      </div>
+                      <p class="text-end my-1">
+                        قام بتقديم عرض علي منشورك اليوم
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="ms-5 position-relative">
+            <a href="#"
+              ><img :src="base_url + '/assets/images/nav-message.svg'" alt="" srcset="" />
+              <span class="red-circle"></span>
+            </a>
+          </li>
+          <li class="d-flex">
+            <div class="ms-2 position-relative">
+              <input
+                style="font-size: 13px; padding: 8px 30px"
+                type="text"
+                class="border-0 rounded"
+                placeholder="...بحث"
+              />
+              <img
+                style="width: 15px; position: absolute; right: 7px; top: 10px"
+                :src="base_url + '/assets/images/nav-search.svg'"
+                alt=""
+              />
+              <img
+                style="width: 15px; position: absolute; left: 7px; top: 10px"
+                :src="base_url + '/assets/images/nav-input.svg'"
+                alt=""
+              />
+            </div>
+            <button
+              style="
+                border: 0;
+                background-color: #048e81;
+                color: #fff;
+                font-size: 12px;
+                padding: 0 40px;
+              "
+              class="rounded"
+            >
+              بحث
+            </button>
+          </li>
+          <li style="margin-right: auto">
+            <div class="d-flex">
+              <button
+                style="
+                  background-color: #0995eb;
+                  color: #fff;
+                  font-size: 12px;
+                  padding: 0 40px;
+                "
+                class="ms-3 border-0 rounded"
+              >
+                طلب جديد
+              </button>
+              <div class="dropdown">
+                <a
+                  style="background-color: #fff"
+                  class="btn dropdown-toggle"
+                  href="#"
+                  role="button"
+                  id="dropdownMenuLink"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <img
+                    style="width: 25px; margin-left: 5px"
+                    :src="base_url + '/assets/images/dash-user.png'"
+                    alt=""
+                    srcset=""
+                  />
+                  <span class="ms-5" style="color: #048e81; font-size: 13px"
+                    >محمد مصطفى على</span
+                  >
+                </a>
+
+                <ul
+                  class="dropdown-menu profile"
+                  aria-labelledby="dropdownMenuLink"
+                >
+                  <li>
+                    <a class="dropdown-item" href="#">تعديل الملف الشخصي</a>
+                  </li>
+                  <li><a class="dropdown-item" href="#">الطلبات</a></li>
+                  <li>
+                    <a class="dropdown-item" href="#">المحفظة</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#">الدعم الفني</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item logout" href="#">تسجيل خروج</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+</template>
+<script>
+export default {
+  data(){
+    return{
+      base_url:base_url
+    };
+  },
+}
+</script>

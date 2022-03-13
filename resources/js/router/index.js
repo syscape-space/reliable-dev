@@ -17,6 +17,9 @@ import DocumentRequest from '../views/UserProfilePages/documentRequest.vue'
 
 // Orders 
 import showOrdersPage from '../views/OrdersPages/showOrdersPage'
+import offerOrder1Page from '../views/OrdersPages/offerOrder1Page'
+import offerOrder2Page from '../views/OrdersPages/offerOrder2Page'
+import offerOrder3Page from '../views/OrdersPages/offerOrder3Page'
 
 
 const prefix = '/reliable/public/app';
@@ -82,6 +85,15 @@ const routes = [
     {
         path : prefix+'/o_index' , beforeEnter : guardMyroute , component : showOrdersPage , name : "showOrdersPage"
     },
+    {
+        path : prefix+'/o_offer_order1' , beforeEnter : guardMyroute , component  : offerOrder1Page , name : "offerOrder1Page"
+    },
+    {
+        path : prefix+'/o_offer_order2' , beforeEnter : guardMyroute , component  : offerOrder2Page , name : "offerOrder2Page"
+    },
+    {
+        path : prefix+'/o_offer_order3' , beforeEnter : guardMyroute , component  : offerOrder3Page , name : "offerOrder3Page"
+    }
 ]
 const router = createRouter({
     history: createWebHistory(),
