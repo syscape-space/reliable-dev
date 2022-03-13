@@ -1,7 +1,6 @@
 <template>
     <div class="container">
         <Navbar/>
-      {{$root._t("app.home")}}
     </div>
     <HomeHeader/>
     <SearchServiceSection/>
