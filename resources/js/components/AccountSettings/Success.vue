@@ -7,9 +7,11 @@
             </div>
             <div class="register text-center  ">
               
-              <h3 class="my-5 fw-bold">تم التحقق بنجاح </h3>
+              <h3 class="my-5 fw-bold">  {{ $root._t("app.verification_done") }} </h3>
               <div style="max-width: 350px;" class="mx-auto">
-                <button class="login-btn " style="margin-top: 200px;" @click.prevent="goToLogin()">   تسجيل الدخول </button>
+                <button class="login-btn " style="margin-top: 200px;" @click.prevent="goToLogin()">   
+                  {{ $root._t("app.login") }}  
+                </button>
               </div>
             
             </div>

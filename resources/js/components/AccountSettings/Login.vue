@@ -9,18 +9,18 @@
               <img style="width: 100px;" :src="base_url+'/assets/images/login-1-logo.svg'" alt="">
             </div>
             <div class="register text-center  ">
-              <p class="my-4 ">ليس لديك حساب؟ 
+              <p class="my-4 "> {{ $root._t("app.do_you_have_account") }}
                 <router-link :to="{name:'Register'}"
                   href="#"
                   style="color: #048e81;"  
-                class="">قم بانشاء حساب الان</router-link></p>
-              <h3 class="mb-4"> تسجيل الدخول</h3>
+                class=""> {{ $root._t("app.create_account_now") }} </router-link></p>
+              <h3 class="mb-4">  {{ $root._t("app.login") }} </h3>
             
             </div>
             <form action="" class="login-form text-center" style="max-width: 400px;margin: auto;">
               <small class="d-inline-block mb-4 text-end mx-auto" 
-                style="max-width: 300px; color: #0995eb;">اتبع التعليمات لتسهيل عملية التسجيل وستكون كذلك
-                قادرة على استكشاف الداخل.
+                style="max-width: 300px; color: #0995eb;">
+                {{ $root._t("app.folow_instructions") }}
               </small>
               <!--- Error Will Validate Here -->
               <div class="errors">
@@ -40,25 +40,25 @@
               </div>
               <div class="mt-3 d-flex align-items-center justify-content-between">
                 <div>
-                  <label for="">نسيت كلمة المرور ؟</label>
+                  <label for=""> {{ $root._t("app.do_you_forget_password") }}  </label>
                 </div>
                 <div class="">
-                  <label for="">تذكرني</label>
+                  <label for=""> {{ $root._t("app.remember_me") }} </label>
                   <input type="checkbox" style="vertical-align: middle;">
                 </div>
               </div>
               <div>
-                <button class="login-btn" @click.prevent="loginFun()">الدخول الان</button>
+                <button class="login-btn" @click.prevent="loginFun()"> {{ $root._t("app.login_now") }} </button>
               </div>
               <div class="social-btn d-flex align-items-center justify-content-between" >
                 <button>
-                  فيس بوك 
+                  {{ $root._t("app.facebook") }} 
                   <img 
                       style="width: 20px;"
                       :src="base_url+'/assets/images/login-facebook.svg'" alt="">
                 </button>
                 <button>
-                  جوجل
+                  {{ $root._t("app.google") }} 
                   <img style="width: 19px;" :src="base_url+'/assets/images/google-llc.png'" alt="">
                 </button>
               </div>

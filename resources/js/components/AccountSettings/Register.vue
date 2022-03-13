@@ -14,10 +14,10 @@
         </div>
         <div class="register text-center">
           <p class="my-4">
-            ليس لديك حساب؟
-            <a href="#" style="color: #048e81" class="">قم بانشاء حساب الان</a>
+              {{ $root._t("app.do_you_have_account") }}
+            <a href="#" style="color: #048e81" class=""> {{ $root._t("app.create_account_now") }} </a>
           </p>
-          <h3 class="mb-4">تسجيل الدخول</h3>
+          <h3 class="mb-4"> {{ $root._t("app.login") }} </h3>
         </div>
         <form
           action=""
@@ -27,8 +27,8 @@
           <small
             class="d-inline-block mb-4 text-end mx-auto"
             style="max-width: 300px; color: #0995eb"
-            >اتبع التعليمات لتسهيل عملية التسجيل وستكون كذلك قادرة على استكشاف
-            الداخل.
+            >
+            {{ $root._t("app.folow_instructions") }}
           </small>
           <!--- Error Will Validate Here -->
           <div class="errors">
@@ -108,13 +108,13 @@
           </div>
 
           <div>
-            <button class="login-btn" @click.prevent="registerFun()">انشاء حساب</button>
+            <button class="login-btn" @click.prevent="registerFun()"> {{ $root._t("app.create_account") }} </button>
           </div>
           <div
             class="social-btn d-flex align-items-center justify-content-between"
           >
             <button>
-              فيس بوك
+              {{ $root._t("app.facebook") }}
               <img
                 style="width: 20px"
                 :src="base_url+'/assets/images/login-facebook.svg'"
@@ -122,7 +122,7 @@
               />
             </button>
             <button>
-              جوجل
+              {{ $root._t("app.google") }}
               <img
                 style="width: 19px"
                 :src="base_url+'/assets/images/google-llc.png'"

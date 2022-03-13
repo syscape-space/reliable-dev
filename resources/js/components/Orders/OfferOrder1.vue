@@ -2,7 +2,12 @@
     <section class="personal-section mt-2">
       <div class="personal">
         <div class="personal-info">
-          <span>الرئيسية / المشاريع / القسم الرئيسي / القسم الفرعي</span>
+
+          <span> {{ $root._t("app.home") }} /
+             {{ $root._t("app.projects") }} /
+              {{ $root._t("app.main_category") }}  /
+                {{ $root._t("app.sub_category") }} </span>
+
           <div class="row w-100 mx-0 px-0">
             <div class="col-lg-9">
               <div class="row w-100 mx-0 px-0">

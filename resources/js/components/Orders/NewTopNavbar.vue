@@ -81,11 +81,12 @@
                         <span style="color: #2b7b74">محمد مصطفي</span>
                         <span class=" ">
                           <img :src="base_url + '/assets/images/o_cclo.svg'" alt="" />
-                          <span style="color: #0995eb">منذ 30 دقيقة</span>
+                          <span style="color: #0995eb">{{ $root._t("app.login") }}</span>
                         </span>
                       </div>
                       <p class="text-end my-1">
-                        قام بتقديم عرض علي منشورك اليوم
+                        
+                        {{ $root._t("app.login") }}
                       </p>
                     </div>
                   </div>
@@ -128,7 +129,7 @@
               "
               class="rounded"
             >
-              بحث
+              {{ $root._t("app.search") }}
             </button>
           </li>
           <li style="margin-right: auto">
@@ -142,7 +143,8 @@
                 "
                 class="ms-3 border-0 rounded"
               >
-                طلب جديد
+                
+                {{ $root._t("app.new_order") }}
               </button>
               <div class="dropdown">
                 <a
@@ -170,17 +172,17 @@
                   aria-labelledby="dropdownMenuLink"
                 >
                   <li>
-                    <a class="dropdown-item" href="#">تعديل الملف الشخصي</a>
+                    <a class="dropdown-item" href="#"> {{ $root._t("app.edit_profile") }}  </a>
                   </li>
-                  <li><a class="dropdown-item" href="#">الطلبات</a></li>
+                  <li><a class="dropdown-item" href="#">{{ $root._t("app.orders") }}</a></li>
                   <li>
-                    <a class="dropdown-item" href="#">المحفظة</a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="#">الدعم الفني</a>
+                    <a class="dropdown-item" href="#"> {{ $root._t("app.card") }} </a>
                   </li>
                   <li>
-                    <a class="dropdown-item logout" href="#">تسجيل خروج</a>
+                    <a class="dropdown-item" href="#"> {{ $root._t("app.customer_service") }} </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item logout" href="#"> {{ $root._t("app.logout") }} </a>
                   </li>
                 </ul>
               </div>
