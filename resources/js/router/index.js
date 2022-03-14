@@ -14,6 +14,7 @@ import employmentApplications from '../views/UserProfilePages/employmentApplicat
 import palance from '../views/UserProfilePages/palance.vue'
 import offerOrder from '../views/UserProfilePages/offerOrder.vue'
 import DocumentRequest from '../views/UserProfilePages/documentRequest.vue'
+import ChatPage from '../views/UserProfilePages/chatPage.vue'
 
 // Orders 
 import showOrdersPage from '../views/OrdersPages/showOrdersPage'
@@ -74,6 +75,9 @@ const routes = [
     },
     {
         path : prefix+'/u_document_request' , beforeEnter : guardMyroute , component : DocumentRequest , name : "DocumentRequest"
+    },
+    {
+        path : prefix+'/u_chat' , beforeEnter : guardMyroute , component : ChatPage , name : "ChatPage"
     },
     // orders pages routes
     {
