@@ -7,7 +7,7 @@
           <img style="max-width: 50px;" 
              class="w-100" :src="base_url+'/assets/images/green-circleElement.svg'" alt="">
         </div>
-        <h3 class="text-center mt-5">الوظائف الحديثة</h3>
+        <h3 class="text-center mt-5">{{ $root._t("app.newJobs") }}</h3>
         <h6 class="text-center my-2" style="color: #048e81">
           يطرح اخر الوظائف المتاحة
         </h6>
@@ -29,12 +29,12 @@
                 />
               </div>
               <div class="text-center">
-                <h6 class="text-center"> {{ item.qualification }}} </h6>
+                <h6 class="text-center"> {{ item.qualification }} </h6>
                 <h6 class="text-center" style="color: #048e81">
                   <small>دوام كامل</small>
                 </h6>
                 <div>
-                  <button class="offer-btn">قدم عرضك الان</button>
+                  <button class="offer-btn">{{ $root._t("app.produceYourOfferNow") }}</button>
                 </div>
               </div>
             </div>
@@ -46,7 +46,7 @@
             class="offer-btn mt-3"
             style="color: #ffffff; background-color: #048e81"
           >
-            اكتشف كل الوظائف
+            {{ $root._t("app.descoverAllJobs") }}
           </button>
         </div>
       </div>

@@ -2,10 +2,10 @@
     <section class="py-5 position-relative" id="partnersDiv">
       <img class="h2-it" :src="base_url+'/assets/images/h2.png'" alt="">
       <div class="container py-5">
-        <h3 class="text-center ">شركاء موثوق</h3>
+        <h3 class="text-center ">{{ $root._t("app.mawthoqPartners") }}</h3>
         <div class="mb-5 pb-3">
           <h6 class="text-center my-2" style="color: #048e81">
-            لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سي
+            {{ $root._t("app.shortText") }}
           </h6>
         </div>
         <div>

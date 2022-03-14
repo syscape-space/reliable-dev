@@ -18,51 +18,51 @@
                     background-color: transparent;
                   "
                 >
-                  <h6 style="font-size: 13px" class="">بطاقة مشروع</h6>
-                  <h6 style="font-size: 13px">القسم الرئيسي - القسم الفرعي</h6>
+                  <h6 style="font-size: 13px" class=""> {{ $root._t("app.projectCard") }} </h6>
+                  <h6 style="font-size: 13px">{{ $root._t("app.main_category") }} - {{ $root._t("app.sub_category") }} </h6>
                   <ul class="list-unstyled px-0 f-12 text-end mt-4">
                     <li class="mb-3 f-12">
-                      <span>حالة المشروع</span>
+                      <span> {{ $root._t("app.projectStatus") }} </span>
                       <button
                         class="o_btn d-inline-block px-3 py-2 rounded"
                         style="margin-right: 15px; background-color: #0995eb"
                       >
-                        قيد التنفيذ
+                        {{ $root._t("app.executeNow") }}
                       </button>
                     </li>
                     <li class="mb-3">
                       <span style="min-width: 60px" class="d-inline-block"
-                        >تاريخ النشر</span
+                        > {{ $root._t("app.publishDate") }} </span
                       >
                       <span
                         style="margin-right: 15px; color: #0995eb"
                         class="fw-bold"
-                        >منذ 20 ساعة</span
+                        > {{ $root._t("app.hours20Ago") }} </span
                       >
                     </li>
                     <li class="mb-3">
                       <span style="min-width: 60px" class="d-inline-block"
-                        >مده التنفيذ</span
+                        > {{ $root._t("app.executionTime") }} </span
                       >
                       <span
                         style="margin-right: 15px; color: #0995eb"
                         class="fw-bold"
-                        >يوم 1</span
+                        > {{ $root._t("app.oneDay") }} </span
                       >
                     </li>
                     <li class="mb-3">
                       <span style="min-width: 60px" class="d-inline-block"
-                        >عدد العروض</span
+                        > {{ $root._t("app.offersNum") }} </span
                       >
                       <span
                         style="margin-right: 15px; color: #0995eb"
                         class="fw-bold"
-                        >عدد 15 عرض</span
+                        > {{ $root._t("app.num15Offer") }} </span
                       >
                     </li>
                     <li class="mb-3">
                       <span style="min-width: 60px" class="d-inline-block"
-                        >صاحب المشروع</span
+                        > {{ $root._t("app.projectOwner") }} </span
                       >
                     </li>
                     <li class="mb-3 mt-4 text-center">
@@ -85,7 +85,7 @@
                       <span
                         style="color: #2b7b74"
                         class="mb-2 d-inline-block text-center"
-                        >محامي عام
+                        >{{ $root._t("app.attorneyGeneral") }}
                       </span>
                     </li>
                     <li class="text-center">
@@ -98,7 +98,7 @@
                         "
                         class="border-0 rounded"
                       >
-                        إغلاق المشروع
+                        {{ $root._t("app.closeProject") }}
                       </button>
                     </li>
                   </ul>
@@ -107,17 +107,20 @@
             </div>
             <div class="col-lg-6">
               <div class="row w-100 mx-0 px-0">
-                <span>الرئيسية / المشاريع / القسم الرئيسي / القسم الفرعي</span>
+                <span>{{ $root._t("app.home") }} /
+                   {{ $root._t("app.projects") }} / 
+                  {{ $root._t("app.main_category") }} / 
+                   {{ $root._t("app.sub_category") }} </span>
                 <div class="col-md-4 my-4" style="color: #aeaeae">
                   <div class="cir-prog" style="border-color: #048e81">
                     <img :src="base_url + '/assets/images/o_hand.svg'" alt="" />
                   </div>
                   <div class="fw-bold o-num text-center" style="color: #048e81">
-                    01
+                    {{ $root._t("app.number1") }}
                   </div>
                   <div>
                     <h6 class="o-txt-steps text-center" style="color: #0995eb">
-                      مرحلة التفاوض
+                      {{ $root._t("app.negotiatePhase") }}
                     </h6>
                   </div>
                 </div>
@@ -125,31 +128,25 @@
                   <div class="cir-prog">
                     <img :src="base_url + '/assets/images/o_exe.svg'" alt="" />
                   </div>
-                  <div class="fw-bold o-num text-center">02</div>
+                  <div class="fw-bold o-num text-center"> {{ $root._t("app.number2") }} </div>
                   <div>
-                    <h6 class="o-txt-steps text-center">مرحلة التنفيذ</h6>
+                    <h6 class="o-txt-steps text-center"> {{ $root._t("app.executionPhase") }} </h6>
                   </div>
                 </div>
                 <div class="col-md-4 my-4" style="color: #aeaeae">
                   <div class="cir-prog">
                     <img :src="base_url + '/assets/images/o_roket.svg'" alt="" />
                   </div>
-                  <div class="fw-bold o-num text-center">03</div>
+                  <div class="fw-bold o-num text-center">{{ $root._t("app.number3") }}</div>
                   <div>
-                    <h6 class="o-txt-steps text-center">الانهاء</h6>
+                    <h6 class="o-txt-steps text-center"> {{ $root._t("app.ending") }} </h6>
                   </div>
                 </div>
               </div>
               <div>
-                <h5 class="fw-bold g-color">تفاصيل المشروع</h5>
+                <h5 class="fw-bold g-color"> {{ $root._t("app.projectDetails") }} </h5>
                 <p style="font-size: 12px">
-                  لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج
-                  أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار
-                  ماجنا أليكيوا . يوت لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور
-                  أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت
-                  لابوري ات دولار ماجنا أليكيوا . يوت لوريم ايبسوم دولار سيت
-                  أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور
-                  أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت
+                  {{ $root._t("app.longText") }}
                 </p>
                 <div
                 class="mt-4"
@@ -160,11 +157,11 @@
                     color: #2b7b74;
                     border-radius: 4px; "
                 ><p class="m-0">
-                    ميزانية المشروع : <span class="me-4"> $ 500 - $ 200 </span>
+                    {{ $root._t("app.projectPudget") }}  : <span class="me-4"> {{ $root._t("app.from200To500") }} </span>
                   </p>
                 </div>
                 <div class="discuss-deal mt-4">
-                  <h5>النقاش</h5>
+                  <h5> {{ $root._t("app.discuss") }} </h5>
                   <div class="notes-discuss my-3 me-3 d-flex">
                     <div class="btn-discuss position-relative">
                       <button
@@ -173,7 +170,7 @@
                       padding: 9px 50px;
                       background-color: transparent;
                       font-size: 12px; " 
-                      class=" ">نقاش الصفقة</button>
+                      class=" "> {{ $root._t("app.bargainTalk") }} </button>
                       <img 
                       style="top: 50%;
                       right: 0;
@@ -188,7 +185,7 @@
                       padding: 9px 50px;
                       background-color: transparent;
                       font-size: 12px; " 
-                      class=" ">ملاحظات</button>
+                      class=" "> {{ $root._t("app.notes") }} </button>
                       <img 
                       style="top: 50%;
                       right: 0;
@@ -200,15 +197,15 @@
                     
                   </div>
                   <div class="comments position-relative">
-                    <p><span class="ms-3">05:01</span>  مرحبا كيف حالك اليوم </p>
+                    <p><span class="ms-3"> {{ $root._t("app.time") }} </span> {{ $root._t("app.howAreU") }} </p>
                     <img :src="base_url + '/assets/images/comment1_1.png'" alt="">
                   </div>
                   <div class="comments position-relative">
-                    <p><span class="ms-3">05:01</span>مرحبا كيف حالك اليوم </p>
+                    <p><span class="ms-3"> {{ $root._t("app.time") }} </span>{{ $root._t("app.howAreU") }} </p>
                     <img :src="base_url + '/assets/images/comment1_2.png'" alt="">
                   </div>
                   <div class="comments position-relative">
-                    <p><span class="ms-3">05:01</span>مرحبا كيف حالك اليوم </p>
+                    <p><span class="ms-3"> {{ $root._t("app.time") }} </span>{{ $root._t("app.howAreU") }} </p>
                     <img :src="base_url + '/assets/images/comment1_1.png'" alt="">
                   </div>
                 </div>
@@ -248,7 +245,7 @@
                     background-color: transparent;
                   "
                 >
-                  <h6 style="font-size: 13px" class="">بيانات مقدم الخدمة</h6>
+                  <h6 style="font-size: 13px" class=""> {{ $root._t("app.serviceProducerData") }} </h6>
 
                   <ul class="list-unstyled px-0 f-12 text-end mt-4">
                     <li class="mb-3 mt-4 text-center">
@@ -271,57 +268,57 @@
                       <span
                         style="color: #2b7b74"
                         class="mb-2 d-inline-block text-center"
-                        >محامي عام
+                        >{{ $root._t("app.attorneyGeneral") }}
                       </span>
                     </li>
                     <li class="mb-3 f-12">
-                      <span>حالة المشروع</span>
+                      <span> {{ $root._t("app.projectStatus") }} </span>
                       <button
                         class="o_btn d-inline-block px-3 py-2 rounded"
                         style="margin-right: 15px"
                       >
-                        مكتمل
+                        {{ $root._t("app.complete") }}
                       </button>
                     </li>
                     <li class="mb-3">
                       <span style="min-width: 60px" class="d-inline-block"
-                        >الميزانية
+                        >{{ $root._t("app.budget") }}
                       </span>
                       <span
                         style="margin-right: 15px; color: #0995eb"
                         class="fw-bold"
-                        >200 دولار</span
+                        >200 {{ $root._t("app.Dolar") }}</span
                       >
                     </li>
                     <li class="mb-3">
                       <span style="min-width: 60px" class="d-inline-block"
-                        >مده التنفيذ</span
+                        >{{ $root._t("app.executionTime") }}</span
                       >
                       <span
                         style="margin-right: 15px; color: #0995eb"
                         class="fw-bold"
-                        >5 أيام</span
+                        >{{ $root._t("app.days5") }}</span
                       >
                     </li>
                     <li class="mb-3">
                       <span style="min-width: 60px" class="d-inline-block"
-                        >تاريخ الصفحة</span
+                        >{{ $root._t("app.pageDate") }}</span
                       >
                       <span
                         style="margin-right: 15px; color: #0995eb"
                         class="fw-bold"
-                        >25/2/2022</span
+                        >{{ $root._t("app.dateDetails") }}</span
                       >
                     </li>
                     <li class="mb-3">
                       <span style="min-width: 60px" class="d-inline-block"
-                        >بدء تنفيذ منذ</span
+                        > {{ $root._t("app.startingExecutionAge") }} </span
                       >
                       <span
                         style="margin-right: 15px; color: #0995eb"
                         class="fw-bold"
                       >
-                        شهر و5 أيام</span
+                        {{ $root._t("app.startingExecutionDate") }} </span
                       >
                     </li>
                   </ul>
@@ -339,7 +336,7 @@
                     alt=""
                     srcset=""
                   /> <br>
-                      عقد
+                      {{ $root._t("app.contract") }}
                     </button>
                   </div>
                   <div class="recive-report position-relative">
@@ -353,7 +350,7 @@
                     srcset=""
                   />
                     <br>
-                      استلام
+                      {{ $root._t("app.recieve") }}
                     </button>
                    
                   </div>
@@ -370,13 +367,13 @@
                       alt=""
                       srcset=""
                     /> <br>
-                    ابلاغ
+                    {{ $root._t("app.report") }}
                     </button>
                     
                   </div>
                 </div>
                 <button class="mohkam-btn">
-                  طلب محكم
+                  {{ $root._t("app.tightOrder") }}
                 </button>
               </div>
             </div>

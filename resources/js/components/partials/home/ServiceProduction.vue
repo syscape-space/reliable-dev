@@ -2,14 +2,14 @@
      <section class="py-5 position-relative" id="serviceProductionID">
        <img class="h1-it" :src="base_url+'/assets/images/h1.png'" alt="">
       <div class="container">
-        <h3 class="text-center mt-5">مقدمي الخدمة</h3>
+        <h3 class="text-center mt-5">{{ $root._t("app.serviceProducers") }}</h3>
         <h6 class="text-center my-2" style="color: #048e81">
-          مقدمي الخدمة الأفضل لهذا الاسبوع
+          {{ $root._t("app.bestServiceProduceThisWeek") }}
         </h6>
         <div class="mt-5">
           <div class="d-flex align-items-center justify-content-between">
-            <h4>مقدمي الخدمة</h4>
-            <h6 style="color: #0995eb">اكتشف كل مقدمي الخدمة</h6>
+            <h4>{{ $root._t("app.serviceProducers") }}</h4>
+            <h6 style="color: #0995eb">{{ $root._t("app.descoverServiceProducers") }}</h6>
           </div>
         </div>
         <div class="mt-5">
@@ -32,7 +32,7 @@
                 </div>
                 <div class="d-flex align-items-center justify-content-between">
                   <span class="" style="font-size: 12px">
-                    <span>4.3</span>
+                    <span>{{ $root._t("app.foutPointThree") }}</span>
                     <span>
                       <i class="fas fa-star"></i>
                       <i class="fas fa-star orng-c"></i>
@@ -42,7 +42,7 @@
                     </span>
                   </span>
                   <span>
-                    <button class="order-btn">اطلب الخدمة</button>
+                    <button class="order-btn">{{ $root._t("app.serviceRequest") }}</button>
                   </span>
                 </div>
               </div>

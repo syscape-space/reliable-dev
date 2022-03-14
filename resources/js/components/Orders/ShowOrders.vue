@@ -2,7 +2,10 @@
     <section class="personal-section mt-2">
       <div class="personal">
         <div class="personal-info">
-          <span>الرئيسية / المشاريع / القسم الرئيسي / القسم الفرعي</span>
+          <span>{{ $root._t("app.home") }} /
+             {{ $root._t("app.projects") }} /
+              {{ $root._t("app.main_category") }} /
+               {{ $root._t("app.sub_category") }}</span>
           <div class="row w-100 mx-0 px-0">
             <div class="col-lg-9">
               <div class="row w-100 mx-0 px-0">
@@ -13,7 +16,7 @@
                   <div 
                     class="fw-bold o-num text-center"
                     style="color: #048e81;;">
-                    01
+                    {{ $root._t("app.number1") }}
                   </div>
                   <div>
                     <h6 class="o-txt text-center" style="color: #0995EB; ">
@@ -26,11 +29,11 @@
                     <img :src="base_url + '/assets/images/o_exe.svg'" alt="">
                   </div>
                   <div class="fw-bold o-num text-center">
-                    02
+                    {{ $root._t("app.number2") }}
                   </div>
                   <div>
                     <h6 class="o-txt text-center" >
-                      التنفيذ
+                      {{ $root._t("app.execution") }}
                     </h6>
                   </div>
                 </div>
@@ -39,26 +42,26 @@
                     <img :src="base_url + '/assets/images/o_roket.svg'" alt="">
                   </div>
                   <div class="fw-bold o-num text-center">
-                    03
+                    {{ $root._t("app.number3") }}
                   </div>
                   <div>
                     <h6 class="o-txt text-center" >
-                      الانهاء
+                      {{ $root._t("app.ending") }}
                     </h6>
                   </div>
                 </div>
               </div>
               <div>
-                <h5 class="fw-bold g-color">تفاصيل المشروع</h5>
+                <h5 class="fw-bold g-color">{{ $root._t("app.projectDetails") }}</h5>
                 <p style="font-size:12px">
-                  لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت  لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت  لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت 
+                 {{ $root._t("app.longText") }}
                 </p>
               </div>
               <div 
                 class="py-2 px-3 d-inline-block rounded f-14"
                 style="color: #2B7B74;background-color: #EBFFFD;">
                 <span class="ms-3 fw-bold">ميزانية المشروع</span>
-                <span>500 $ - 200 $</span>
+                <span>{{ $root._t("app.from200To500") }}</span>
               </div>
               <div class="my-4 btw-flex">
                 <span>العروض التقديمية</span>
@@ -66,7 +69,7 @@
                   <button
                     class="btn-offer text-white mx-2"
                      style="background-color: #0995EB;">الاحدث</button>
-                  <button class="btn-offer">الاقدم</button>
+                  <button class="btn-offer">{{ $root._t("app.old") }}</button>
                 </span>
               </div>
               <div class="p-3" style="background-color: #F9F9F9;">
@@ -76,39 +79,39 @@
                       <img 
                       style="width: 15px;" 
                       class="ms-1"
-                      :src="base_url + '/assets/images/o_clock.svg'" alt=""> <span>منذ 4 ساعات</span>
+                      :src="base_url + '/assets/images/o_clock.svg'" alt=""> <span>{{ $root._t("app.fourHoursAgo") }}</span>
                     </span>
                     <span class="ms-3">
                       <img 
                       style="width: 20px;" 
                       class="ms-1"
-                      :src="base_url + '/assets/images/o_eye.svg'" alt=""> <span>عدد 5 اعمال</span>
+                      :src="base_url + '/assets/images/o_eye.svg'" alt=""> <span>{{ $root._t("app.numFiveWorks") }}</span>
                     </span>
                     <span class="ms-3">
                       <img 
                       style="width: 20px;" 
                       class="ms-1"
-                      :src="base_url + '/assets/images/o_offer.svg'" alt=""> <span>مقدم 5 عروض</span>
+                      :src="base_url + '/assets/images/o_offer.svg'" alt=""> <span>{{ $root._t("app.produce5Offers") }}</span>
                     </span>
                     <span class="ms-3">
                       <img 
                       style="width: 14px;" 
                       class="ms-1"
-                      :src="base_url + '/assets/images/o_map.svg'" alt=""> <span>السعودية</span>
+                      :src="base_url + '/assets/images/o_map.svg'" alt=""> <span>{{ $root._t("app.saudiAribia") }}</span>
                     </span>
                   </div>
                   <div class="my-2" style="font-size: 12px;">
                     <span class="o-box ms-2">
                       <img 
                       style="width: 15px;" class="ms-1" :src="base_url + '/assets/images/o_delever.svg'" alt="">
-                      <span>مده التسليم:</span>
-                      <span class="me-2">14 يوم</span>
+                      <span>{{ $root._t("app.deliveryTime") }}:</span>
+                      <span class="me-2">{{ $root._t("app.days14") }}</span>
                     </span>
                     <span class="o-box o-box2">
                       <img 
                       style="width: 15px;" class="ms-1" :src="base_url + '/assets/images/o_payment.svg'" alt="">
-                      <span>:المبلغ:</span>
-                      <span class="me-2">100 $</span>
+                      <span>:{{ $root._t("app.theAmount") }}:</span>
+                      <span class="me-2">{{ $root._t("app.handred") }}</span>
                     </span>
                   </div>
                 </div>
@@ -118,7 +121,7 @@
                   </div>
                   <div class="col-md-9">
                     <p class="py-3 f-12" >
-                      لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت  لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت  لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت 
+                      {{ $root._t("app.longText") }}
                     </p>
                   </div>
                 </div>
@@ -128,36 +131,36 @@
               <div>
                 <div class="bg-users f-14 p-3 text-center" 
                 style="background-image: linear-gradient(to bottom, #FF584D20, #802C2710); border-radius: 8px; background-color: transparent;">
-                  <h6 style="font-size: 13px;"  class="">بطاقة مشروع</h6>
-                  <h6 style="font-size: 13px;" >القسم الرئيسي  - القسم الفرعي</h6>
+                  <h6 style="font-size: 13px;"  class="">{{ $root._t("app.projectCard") }}</h6>
+                  <h6 style="font-size: 13px;" >{{ $root._t("app.main_category") }}  - {{ $root._t("app.sub_category") }}</h6>
                   <ul class="list-unstyled px-0 f-12 text-end mt-4">
                     <li class="mb-3 f-12">
-                      <span>حالة المشروع</span>
+                      <span>{{ $root._t("app.projectStatus") }}</span>
                       <button
                         class="o_btn d-inline-block px-3 py-2 rounded"
                         style="margin-right: 15px;"
-                        >مفتوح</button>
+                        >{{ $root._t("app.open") }}</button>
                     </li>
                     <li class="mb-3">
-                      <span style="min-width: 60px;" class="d-inline-block">تاريخ النشر</span>
+                      <span style="min-width: 60px;" class="d-inline-block">{{ $root._t("app.publishDate") }}</span>
                      <span 
                         style="margin-right: 15px;color: #0995EB;"
-                        class="fw-bold ">منذ 20 ساعة</span>
+                        class="fw-bold ">{{ $root._t("app.ago") }} 20 {{ $root._t("app.hours") }} </span>
                     </li>
                     <li class="mb-3">
-                      <span style="min-width: 60px;" class="d-inline-block">مده التنفيذ</span>
+                      <span style="min-width: 60px;" class="d-inline-block">{{ $root._t("app.executionTime") }}</span>
                      <span 
                         style="margin-right: 15px;color: #0995EB;"
-                        class="fw-bold ">يوم 1</span>
+                        class="fw-bold ">{{ $root._t("app.day") }} 1</span>
                     </li>
                     <li class="mb-3">
-                      <span style="min-width: 60px;" class="d-inline-block">عدد العروض</span>
+                      <span style="min-width: 60px;" class="d-inline-block">{{ $root._t("app.offersNum") }}</span>
                      <span 
                         style="margin-right: 15px;color: #0995EB;"
-                        class="fw-bold ">عدد 15 عرض</span>
+                        class="fw-bold ">{{ $root._t("app.count") }} 15 {{ $root._t("app.offer") }}</span>
                     </li>
                     <li class="mb-3">
-                      <span style="min-width: 60px;" class="d-inline-block">صاحب المشروع</span>
+                      <span style="min-width: 60px;" class="d-inline-block">{{ $root._t("app.projectOwner") }}</span>
                     
                     </li>
                     <li class="mb-3 mt-4 text-center">
@@ -172,7 +175,7 @@
                         <i class="fas fa-star"></i>
                       </div>
                       <span class="text-center ">محمد مصطفي</span> <br>
-                      <span style="color: #2B7B74;" class="mb-2 d-inline-block text-center">محامي عام </span>
+                      <span style="color: #2B7B74;" class="mb-2 d-inline-block text-center">{{ $root._t("app.attorneyGeneral") }} </span>
                     
                     </li>
                   </ul>
@@ -186,14 +189,14 @@
                   <div class="text-white">
                     <img  :src="base_url + '/assets/images/sm-logo-w.svg'" alt=""> <br>
                     <span style="font-size: 10px;">
-                      <span>ضمان 100% لأموالك</span> 
-                      <span style="margin-top: -3px; display: block;">وطلباتك بنفس الوقت</span>
+                      <span>{{ $root._t("app.guarantee100%") }}</span> 
+                      <span style="margin-top: -3px; display: block;">{{ $root._t("app.yourOrderAtTheSameTime") }}</span>
                     </span>
                   </div>
                 </div>
               </div>
               <div class="p-2 mt-4 f-12" style="background-color: #E9EFEE;">
-                <span class="ms-2 fw-bold">شاركه الان</span>
+                <span class="ms-2 fw-bold">{{ $root._t("app.shareNow") }}</span>
                 <span>
                   <a href="" class="me-1">
                     <img style="width: 16px;" :src="base_url + '/assets/images/o_face.svg'" alt="">

@@ -4,36 +4,32 @@
       <div class="container py-5">
         <div class="row w-100 mx-0 px-0">
           <div class="col-md-6">
-            <h6>كيف يعمل</h6>
+            <h6>{{ $root._t("app.howItWork") }}</h6>
             <h3 style="max-width: 500px" class="mb-5">
-              قم بالاشتراك واطلب الخدمة بشكل امن وسريع مع السرية التامة
+              {{ $root._t("app.subscribeNowAdvice") }}
             </h3>
             <div class="d-flex mb-3 pos-rel">
-              <span class="number ms-4"> 1 </span>
+              <span class="number ms-4"> {{ $root._t("app.one") }} </span>
               <div>
-                <h5 class="add-order-gr">أضف طلبك</h5>
+                <h5 class="add-order-gr">{{ $root._t("app.addYourRequest") }}</h5>
                 <p style="font-size: 12px">
-                  لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج
-                  أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار
-                  ماجنا أليكيوا . يوت
+                  {{ $root._t("app.longText") }}
                 </p>
               </div>
             </div>
             <div class="d-flex mb-3 pos-rel">
-              <span class="number ms-4"> 2 </span>
+              <span class="number ms-4"> {{ $root._t("app.two") }} </span>
               <div>
-                <h5 class="add-order-gr">أضف طلبك</h5>
-                <p style="font-size: 12px">اختر العرض المناسب</p>
+                <h5 class="add-order-gr">{{ $root._t("app.addYourRequest") }}</h5>
+                <p style="font-size: 12px">{{ $root._t("app.chooseYourOffer") }}</p>
               </div>
             </div>
             <div class="d-flex mb-3 pos-rel">
-              <span class="number ms-4"> 3 </span>
+              <span class="number ms-4"> {{ $root._t("app.three") }} </span>
               <div>
-                <h5 class="add-order-gr">ناقش المستشارين والخبراء</h5>
+                <h5 class="add-order-gr">{{ $root._t("app.DiscussAdvisorsAndExperts") }}</h5>
                 <p style="font-size: 12px">
-                  لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج
-                  أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار
-                  ماجنا أليكيوا . يوت
+                  {{ $root._t("app.longText") }}
                 </p>
               </div>
             </div>

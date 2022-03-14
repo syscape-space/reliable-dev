@@ -5,19 +5,16 @@
           <div class="col-md-4 mb-3">
             <div class="gr-c mb-3">
               <img style="width: 25px" :src="base_url+'/assets/images/green-gavel.svg'" alt="" />
-              <span>التنفيذ</span>
+              <span>{{ $root._t("app.execution") }}</span>
             </div>
             <div>
-              <h6>طلب اصدار امر حضانة</h6>
+              <h6> {{ $root._t("app.requestToIssueCustodyOrder") }} </h6>
               <p class="f-12">
-                لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور دولار سيت أميت
-                ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور لوريم
-                ايبسوم دولار سيت أميت ,كونسيكتيتور دولار سيت أميت ,كونسيكتيتور
-                أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور
+                {{ $root._t("app.longText") }}
               </p>
               <a href="" class="mt-5 bl-c">
                 <small>
-                  <span class="ms-2">شرح الخدمة</span
+                  <span class="ms-2">{{ $root._t("app.serviceExplain") }}</span
                   ><span>
                     <img
                       style="margin-left: 6px; width: 20px"
@@ -30,19 +27,16 @@
           <div class="col-md-4 mb-3">
             <div class="gr-c mb-3">
               <img style="width: 25px" :src="base_url+'/assets/images/green-gavel.svg'" alt="" />
-              <span>التنفيذ</span>
+              <span>{{ $root._t("app.execution") }}</span>
             </div>
             <div>
-              <h6>طلب اصدار امر حضانة</h6>
+              <h6>{{ $root._t("app.requestToIssueCustodyOrder") }}</h6>
               <p class="f-12">
-                لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور دولار سيت أميت
-                ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور لوريم
-                ايبسوم دولار سيت أميت ,كونسيكتيتور دولار سيت أميت ,كونسيكتيتور
-                أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور
+                {{ $root._t("app.longText") }}
               </p>
               <a href="" class="mt-5 bl-c">
                 <small>
-                  <span class="ms-2">شرح الخدمة</span
+                  <span class="ms-2">{{ $root._t("app.serviceExplain") }}</span
                   ><span>
                     <img
                       style="margin-left: 6px; width: 20px"
@@ -55,19 +49,16 @@
           <div class="col-md-4 mb-3">
             <div class="gr-c mb-3">
               <img style="width: 25px" :src="base_url+'/assets/images/green-gavel.svg'" alt="" />
-              <span>التنفيذ</span>
+              <span>{{ $root._t("app.execution") }}</span>
             </div>
             <div>
-              <h6>طلب اصدار امر حضانة</h6>
+              <h6>{{ $root._t("app.requestToIssueCustodyOrder") }}</h6>
               <p class="f-12">
-                لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور دولار سيت أميت
-                ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور لوريم
-                ايبسوم دولار سيت أميت ,كونسيكتيتور دولار سيت أميت ,كونسيكتيتور
-                أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور
+                {{ $root._t("app.longText") }}
               </p>
               <a href="" class="mt-5 bl-c">
                 <small>
-                  <span class="ms-2">شرح الخدمة</span
+                  <span class="ms-2">{{ $root._t("app.serviceExplain") }}</span
                   ><span>
                     <img
                       style="margin-left: 6px; width: 20px"

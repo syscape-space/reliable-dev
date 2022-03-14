@@ -11,7 +11,7 @@
               <img :src="base_url+'/images/serv.svg'" alt="" />
               <select name="service"  class="form-control border-0"
                       style="font-size: 13px;">
-                <option value="">اختر الخدمة</option>
+                <option value="">{{ $root._t("app.chooseService") }}</option>
               </select>
               <img :src="base_url+'/images/down.svg'" alt="" />
             </div>
@@ -24,7 +24,7 @@
               <img :src="base_url+'/images/spec.svg'" alt="" />
               <select name="" class="form-control border-0"
                       style="font-size: 13px;">
-                <option value="">اختر التخصص</option>
+                <option value="">{{ $root._t("app.chooseSpecialist") }}</option>
               </select>
               <img :src="base_url+'/images/down.svg'" alt="" />
             </div>
@@ -37,7 +37,7 @@
               <img :src="base_url+'/images/map.svg'" alt="" />
               <select name="" class="form-control border-0"
                       style="font-size: 13px;">
-                <option value="">اختر الموقع الجغرافي</option>
+                <option value="">{{ $root._t("app.chooseGeographLocation") }}</option>
               </select>
               <img :src="base_url+'/images/down.svg'" alt="" />
             </div>
@@ -45,7 +45,7 @@
           <div
               class="col-md-3 d-flex align-items-center justify-content-center search-section"
           >
-            <button class="search-btn">ابحث</button>
+            <button class="search-btn">{{ $root._t("app.search") }}</button>
           </div>
         </div>
       </div>

@@ -1,10 +1,10 @@
 <template>
     <section class="py-5" style="background-color: #EEEEEE;">
       <div class="container">
-        <h3 class="text-center ">تعرف علي مراحل الطلبات ونتائجها</h3>
+        <h3 class="text-center ">{{ $root._t("app.knowOrdersPhases") }}</h3>
         <div class="mb-5">
           <h6 class="text-center my-2" style="color: #048e81">
-            لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سي
+            {{ $root._t("app.shortText") }}
           </h6>
         </div>
         <div class="accordion" id="accordionExample">
@@ -18,7 +18,7 @@
                 aria-expanded="true"
                 aria-controls="collapseOne"
               >
-                ما الفرق بين تسجيل وكالة و اصدار وكالة الكترونية؟
+                {{ $root._t("app.differentBetweenAgancyAndElectronicAgency") }}
               </button>
             </h2>
             <div
@@ -28,10 +28,7 @@
               data-bs-parent="#accordionExample"
             >
               <div class="accordion-body">
-                لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور دولار سيت أميت
-                ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور لوريم
-                ايبسوم دولار سيت أميت ,كونسيكتيتور دولار سيت أميت ,كونسيكتيتور
-                أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور
+                {{ $root._t("app.longText") }}
               </div>
             </div>
           </div>
@@ -45,7 +42,7 @@
                 aria-expanded="false"
                 aria-controls="collapseTwo"
               >
-                ما الفرق بين تسجيل وكالة و اصدار وكالة الكترونية؟
+                {{ $root._t("app.differentBetweenAgancyAndElectronicAgency") }}
               </button>
             </h2>
             <div
@@ -55,10 +52,7 @@
               data-bs-parent="#accordionExample"
             >
               <div class="accordion-body">
-                لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور دولار سيت أميت
-                ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور لوريم
-                ايبسوم دولار سيت أميت ,كونسيكتيتور دولار سيت أميت ,كونسيكتيتور
-                أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور
+                {{ $root._t("app.longText") }}
               </div>
             </div>
           </div>
@@ -72,7 +66,7 @@
                 aria-expanded="false"
                 aria-controls="collapseThree"
               >
-                ما الفرق بين تسجيل وكالة و اصدار وكالة الكترونية؟
+                {{ $root._t("app.differentBetweenAgancyAndElectronicAgency") }}
               </button>
             </h2>
             <div
@@ -82,10 +76,7 @@
               data-bs-parent="#accordionExample"
             >
               <div class="accordion-body">
-                لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور دولار سيت أميت
-                ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور لوريم
-                ايبسوم دولار سيت أميت ,كونسيكتيتور دولار سيت أميت ,كونسيكتيتور
-                أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور
+                {{ $root._t("app.longText") }}
               </div>
             </div>
           </div>
