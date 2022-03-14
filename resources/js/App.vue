@@ -12,6 +12,7 @@ export default {
     _t:(key) => {
       return _.get(window.trans, key, key);
     },
+    lang_loc:window.lang_loc,
   })
 }
 </script>

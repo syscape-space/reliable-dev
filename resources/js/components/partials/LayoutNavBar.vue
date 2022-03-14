@@ -46,6 +46,10 @@
         <li class="nav-item">
           <router-link :to="{name:'Login'}" class="nav-link btn-2">{{ $root._t("app.enter") }}</router-link>
         </li>
+        <li class="nav-item">
+          <a v-if="$root.lang_loc == 'en'" href="./lang?loc=ar"  class="nav-link btn-2">العربية</a>
+          <a v-else href="./lang?loc=en"  class="nav-link btn-2">English</a>
+        </li>
       </ul>
     </div>
   </nav>

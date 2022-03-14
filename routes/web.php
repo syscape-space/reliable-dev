@@ -31,6 +31,12 @@ Route::middleware(ProtectAgainstSpam::class)->group(function () {
 	Auth::routes(['verify' => true]);
 });
 
- Route::get('app/{vue_capture?}', function (){
-     return view('app.index');
- })->where('vue_capture', '[\/\w\.\-\ \&\=]*');
+Route::middleware('app-lang')->group(function (){
+    Route::get('/lang',function (){
+       session(['lang_loc'=>request('loc')]);
+       return redirect()->back();
+    });
+    Route::get('app/{vue_capture?}', function (){
+        return view('app.index');
+    })->where('vue_capture', '[\/\w\.\-\ \&\=]*');
+});

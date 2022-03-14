@@ -1,6 +1,7 @@
 <?php
 namespace App\Http;
 
+use App\Http\Middleware\AppLang;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel {
@@ -70,5 +71,6 @@ class Kernel extends HttpKernel {
 		'Lang' => \Langnonymous\Lang\Lang::class,
 		'AdminRole' => \App\Http\Middleware\AdminRole::class,
 		'ApiLang' => \App\Http\Middleware\ApiLang::class,
+        'app-lang'=> AppLang::class,
 	];
 }

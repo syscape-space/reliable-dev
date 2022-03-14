@@ -19487,7 +19487,8 @@ __webpack_require__.r(__webpack_exports__);
       title: "welcome to vue page <3",
       _t: function _t(key) {
         return _.get(window.trans, key, key);
-      }
+      },
+      lang_loc: window.lang_loc
     };
   }
 });
@@ -29160,6 +29161,19 @@ var _hoisted_22 = {
 var _hoisted_23 = {
   "class": "nav-item"
 };
+var _hoisted_24 = {
+  "class": "nav-item"
+};
+var _hoisted_25 = {
+  key: 0,
+  href: "./lang?loc=ar",
+  "class": "nav-link btn-2"
+};
+var _hoisted_26 = {
+  key: 1,
+  href: "./lang?loc=en",
+  "class": "nav-link btn-2"
+};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
 
@@ -29222,7 +29236,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
     /* STABLE */
 
-  })])])])]);
+  })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_24, [_ctx.$root.lang_loc == 'en' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("a", _hoisted_25, "العربية")) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("a", _hoisted_26, "English"))])])])]);
 }
 
 /***/ }),
