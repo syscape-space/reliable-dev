@@ -15,16 +15,17 @@ $last_replay_tickets_get = App\Models\Ticket::where('ticket_status','opened')->o
   </a>
   <div class="dropdown-menu dropdown-menu-lg messages  {{ app('l') == 'ar'?'dropdown-menu-right':'dropdown-menu-left' }}">
     @foreach($last_replay_tickets_get as $last_ticket)
-@php
-$replay = App\Models\TicketReplay::where('ticket_id',$last_ticket->id)
-      //->where('user_id','>',0)
-      ->orderBy('id','desc')->limit(1)->first();
-if ($replay){
-    $tadmin_replay = $replay->admin_id()->first();
-  $tuser_replay = $replay->user_id()->first();
-}
+    @php
+    $replay = App\Models\TicketReplay::where('ticket_id',$last_ticket->id)
+          //->where('user_id','>',0)
+          ->orderBy('id','desc')->limit(1)->first();
+    if ($replay){
+        $tadmin_replay = $replay->admin_id()->first();
+      $tuser_replay = $replay->user_id()->first();
+    }
 
-@endphp
+    @endphp
+    @if($replay)
     <a href="{{ aurl('tickets/'.$last_ticket->id) }}" class="dropdown-item">
       <!-- Message Start -->
       <div class="media">
@@ -50,6 +51,7 @@ if ($replay){
       </div>
       <!-- Message End -->
     </a>
+    @endif
     @endforeach
     <div class="dropdown-divider"></div>
     <a href="{{ aurl('tickets') }}" class="dropdown-item dropdown-footer">{{ trans('admin.show_all') }}</a>
