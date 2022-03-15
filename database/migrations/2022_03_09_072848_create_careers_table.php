@@ -18,7 +18,6 @@ class CreateCareersTable extends Migration
             $table->text('address');
             $table->string('qualification');
             $table->string('experience');
-            $table->text('description');
             $table->date('start_at');
             $table->date('end_at');
             $table->timestamps();

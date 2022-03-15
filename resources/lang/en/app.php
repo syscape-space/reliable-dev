@@ -177,7 +177,7 @@ return [
     'addNewRequest' => 'Create a new request' ,
     'actionOfAddingRequest' => 'When choosing a service, a service instruction and an explanation will appear here' ,
     'withVideoBelow' => 'With the video below' ,
-    'watchServiceRequestExplain' => 'مشاهده شرح طلب الخدمة' ,
+    'watchServiceRequestExplain' => 'View the service request explanation' ,
     'guideForServiceRequest' => 'Guidelines for requesting the service' ,
     'from' => ' from ' ,
     'steps' => ' step ' ,

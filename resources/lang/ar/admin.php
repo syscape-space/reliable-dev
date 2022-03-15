@@ -593,7 +593,7 @@ return [
 	'career'                                   => 'وظيفة',
 	'address' 								   => 'العنوان',
 	'qualification' 				           => 'المؤهل',
-	'experience' 							   => 'الخبرة',
+	'experience' 							   => 'الشروط والخبرات',
 	'description' 							   => 'الوصف',
 	'start_at' 								   => 'يبدأ في',
 	'end_at' 								   => 'ينتهي في',

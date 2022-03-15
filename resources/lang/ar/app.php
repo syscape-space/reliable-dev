@@ -320,5 +320,5 @@ return [
     'dealNow' => 'التفاوض الان' ,
     'expired' => 'منتهى' ,
     // Profile 4
-    'portFilteringForOthers' => '{{ $root._t("app.portFilteringForOthers") }}'
+    'portFilteringForOthers' => 'ترشيخ المنفذ بالنسبة للاخرين'
 ];

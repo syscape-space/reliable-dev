@@ -17,7 +17,6 @@ class CareerApi extends Controller{
 		"address",
 		"qualification",
         "experience",
-		"description",
         "start_at",
         "end_at"
 	];

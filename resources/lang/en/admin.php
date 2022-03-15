@@ -404,7 +404,7 @@
 		'career' => 'Career',
 		'address' => 'Address',
 		'qualification' => 'Qualification',
-		'experience' => 'Experience',
+		'experience' => 'Terms and experience',
 		'description' => 'Description',
 		'start_at' => 'Start at',
 		'end_at' => 'End at',

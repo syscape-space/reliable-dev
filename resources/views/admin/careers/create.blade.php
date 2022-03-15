@@ -49,12 +49,6 @@
 </div>
 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
     <div class="form-group">
-		{!! Form::label('description',trans('admin.description')) !!}
-		{!! Form::textarea('description', old('description'), ['class'=>'form-control','placeholder' => trans('admin.description')]) !!}
-	</div>
-</div>
-<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-    <div class="form-group">
 		{!! Form::label('start_at',trans('admin.start_at')) !!}
 		{!! Form::date('start_at', old('start_at'), ['class'=>'form-control','placeholder' => trans('admin.start_at')]) !!}
 	</div>
