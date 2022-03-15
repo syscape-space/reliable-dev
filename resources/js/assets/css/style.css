@@ -73,7 +73,7 @@ select:hover {
   font-size: 14px;
 }
 header {
-  background-image: url("../images/header.png");
+  background-image: url("../images/header.png") !important;
   min-height: 450px;
   background-size: cover;
 }

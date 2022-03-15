@@ -29,9 +29,9 @@
                 />
               </div>
               <div class="text-center">
-                <h6 class="text-center"> {{ item.qualification }} </h6>
+                <h6 class="text-center"> {{ item.address }} </h6>
                 <h6 class="text-center" style="color: #048e81">
-                  <small>دوام كامل</small>
+                  <small>{{ item.qualification }}</small>
                 </h6>
                 <div>
                   <button class="offer-btn">{{ $root._t("app.produceYourOfferNow") }}</button>

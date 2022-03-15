@@ -16,7 +16,7 @@ export default {
   name: "HomeHeader",
   data(){
     return{
-      base_url:base_url
+      base_url:base_url ,
     };
   },
 }

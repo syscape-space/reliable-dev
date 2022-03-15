@@ -21,8 +21,7 @@
                     class="position-relative ms-2"
                     style="display: inline-block"
                   >
-                  <!--  '/photo_profile' +  item.photo_profile-->
-                    <img style="width: 50px" :src="base_url + '/assets/images/user.svg'  " alt="" />
+                    <img style="width: 100% ; heigth: 100%;" :src="base_url + '/storage/' +  item.photo_profile  " alt="" />
                     <i class="online-icon fas fa-circle"></i>
                   </span>
                   <span>
@@ -58,7 +57,7 @@ export  default {
   data(){
     return{
       base_url:base_url ,
-      list : []
+      list : [] 
     };
   },
   mounted() {

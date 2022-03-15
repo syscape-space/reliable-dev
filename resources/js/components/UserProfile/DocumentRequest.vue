@@ -5,7 +5,7 @@
                 <div class="col-lg-4 d-none d-lg-block">
                       <div class="content text-center pt-1 ">
                           <p class="num">{{ $root._t("app.number1") }}</p>
-                          <img :src="base_url + '/assets/images/logo.svg'" alt="logo" class="mt-5 pt-5">
+                          <img :src="base_url + '/assets/assets/images/logo.svg'" alt="logo" class="mt-5 pt-5">
                           <p class="title">{{ $root._t("app.chooseServiceType") }}</p>
                           <p class="sup-title">  {{ $root._t("app.addNewRequest") }}</p>
                           <p class="dis">   
@@ -18,11 +18,11 @@
                               </p>
                              <div class="center">
                                 <div class="img">
-                                    <img :src="base_url + '/assets/images/man.svg'" alt="#" class="back-man">
+                                    <img :src="base_url + '/assets/assets/images/man.svg'" alt="#" class="back-man">
                                     <div class="overlay">
                                         <a href="#">
                                             <div class="dis">
-                                              <img :src="base_url + '/assets/images/play-button.svg'" alt="#">
+                                              <img :src="base_url + '/assets/assets/images/play-button.svg'" alt="#">
                                             </div>
                                         </a>
                                     </div>
@@ -31,7 +31,7 @@
                              <div class="info m-5">
                                  <div class="row">
                                      <div class="col-4">
-                                         <img :src="base_url + '/assets/images/open-book.svg'" alt="#">
+                                         <img :src="base_url + '/assets/assets/images/open-book.svg'" alt="#">
                                      </div>
                                      <div class="col-8">
                                         <p>
@@ -81,7 +81,7 @@
                                                                 </p>
                                                             </div>
                                                             <div class="col-2 text-center">
-                                                                <img :src="base_url + '/assets/images/Page.svg'" alt="#">
+                                                                <img :src="base_url + '/assets/assets/images/Page.svg'" alt="#">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -101,7 +101,7 @@
                                                                 </p>
                                                             </div>
                                                             <div class="col-2 text-center">
-                                                                <img :src="base_url + '/assets/images/Page.svg'" alt="#">
+                                                                <img :src="base_url + '/assets/assets/images/Page.svg'" alt="#">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -121,7 +121,7 @@
                                                                 </p>
                                                             </div>
                                                             <div class="col-2 text-center">
-                                                                <img :src="base_url + '/assets/images/Page.svg'" alt="#">
+                                                                <img :src="base_url + '/assets/assets/images/Page.svg'" alt="#">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -141,7 +141,7 @@
                                                                 </p>
                                                             </div>
                                                             <div class="col-2 text-center">
-                                                                <img :src="base_url + '/assets/images/Page.svg'" alt="#">
+                                                                <img :src="base_url + '/assets/assets/images/Page.svg'" alt="#">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -170,7 +170,7 @@
                                                             </p>
                                                         </div>
                                                         <div class="col-2 text-center">
-                                                            <img :src="base_url + '/assets/images/Page.svg'" alt="#">
+                                                            <img :src="base_url + '/assets/assets/images/Page.svg'" alt="#">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -222,7 +222,7 @@
                                                             <div class="row">
                                                                 <div class="col-12">
                                                                 <p class="mt-0 pt-0">
-                                                                    <img :src="base_url + '/assets/images/right-mark.svg'" alt="#" class="right-mark">
+                                                                    <img :src="base_url + '/assets/assets/images/right-mark.svg'" alt="#" class="right-mark">
                                                                     {{ $root._t("app.thisServiceFeature") }} 
                                                                 </p>
                                                             </div>
@@ -260,7 +260,7 @@
                                                             <div class="row">
                                                                 <div class="col-12">
                                                                 <p class="mt-0 pt-0">
-                                                                    <img :src="base_url + '/assets/images/right-mark.svg'" alt="#" class="right-mark">
+                                                                    <img :src="base_url + '/assets/assets/images/right-mark.svg'" alt="#" class="right-mark">
                                                                 {{ $root._t("app.all") }}
                                                                 </p>
                                                             </div>
@@ -303,7 +303,7 @@
                                                     <input class="form-control w-100" type="text" placeholder=" الجنسيه........">
                                                 </div>
                                                 <div class="form-group col-md-3 text-center icons">
-                                                    <img :src="base_url + '/assets/images/icons.svg'" alt="#" class="d-inline-block">
+                                                    <img :src="base_url + '/assets/assets/images/icons.svg'" alt="#" class="d-inline-block">
                                                 </div>
                                             </div>
                                             <div class="form-row">
@@ -317,7 +317,7 @@
                                                     <input class="form-control w-100" type="text" placeholder=" الجنسيه........">
                                                 </div>
                                                 <div class="form-group col-md-3 text-center icons">
-                                                    <img :src="base_url + '/assets/images/icons.svg'" alt="#" class="d-inline-block">
+                                                    <img :src="base_url + '/assets/assets/images/icons.svg'" alt="#" class="d-inline-block">
                                                 </div>
                                             </div>
                                             <hr>
@@ -328,7 +328,7 @@
                                                             <div class="row">
                                                                 <div class="col-12">
                                                                 <p class="mt-0 pt-0">
-                                                                    <img :src="base_url + '/assets/images/right-mark.svg'" alt="#" class="right-mark">
+                                                                    <img :src="base_url + '/assets/assets/images/right-mark.svg'" alt="#" class="right-mark">
                                                                     {{ $root._t("app.acceptDataAndMakeSure") }}
                                                                 </p>
                                                             </div>
@@ -368,14 +368,14 @@
                                                     <div class='attach d-inline-block'>
                                                       <label for='input-file'>
                                                         {{ $root._t("app.attchments") }}
-                                                        <img :src="base_url + '/assets/images/file.svg'" alt="#">
+                                                        <img :src="base_url + '/assets/assets/images/file.svg'" alt="#">
                                                       </label>
                                                       <input id='input-file' type='file' />
                                                     </div>
                                                     <div class='sounds d-inline-block mr-3'>
                                                         <label for='input-file'>
                                                             {{ $root._t("app.sendVoiceFile") }}
-                                                          <img :src="base_url + '/assets/images/audio-file.svg'" alt="#">
+                                                          <img :src="base_url + '/assets/assets/images/audio-file.svg'" alt="#">
                                                         </label>
                                                         <input id='input-file' type='file' />
                                                       </div>
@@ -386,18 +386,18 @@
                                                <div class="row mt-5">
                                                    <div class="col-8">
                                                     <p class="red pr-2 mb-2" >
-                                                        <img :src="base_url + '/assets/images/22-mobile.svg'" alt="#" class="ml-2">
+                                                        <img :src="base_url + '/assets/assets/images/22-mobile.svg'" alt="#" class="ml-2">
                                                         {{ $root._t("app.recharge") }}
                                                      </p>
                                                      <p class="red pr-2 mb-2" >
-                                                        <img :src="base_url + '/assets/images/  money.svg'" alt="#" class="ml-2">
+                                                        <img :src="base_url + '/assets/assets/images/  money.svg'" alt="#" class="ml-2">
                                                         {{ $root._t("app.calculateDiscound") }}
                                                      </p>
                                                    </div>
                                                    <div class="col-4">
                                                        <div class="btn grad btn-primary">
                                                         حفظ طلبك كمسوده
-                                                        <img :src="base_url + '/assets/images/bookmark.svg'" alt="#" class="mr-2">
+                                                        <img :src="base_url + '/assets/assets/images/bookmark.svg'" alt="#" class="mr-2">
                                                        </div>
                                                    </div>
                                                </div>
@@ -415,20 +415,20 @@
                                                     </a>
                                                    </p>
                                                    <div class="pay-way d-inline-block paypal">
-                                                     <img :src="base_url + '/assets/images/paypal.svg'" alt="#">
+                                                     <img :src="base_url + '/assets/assets/images/paypal.svg'" alt="#">
                                                      {{ $root._t("app.paypal") }}
                                                    </div>
                                                    <div class="pay-way d-inline-block mr-5 card">
-                                                    <img :src="base_url + '/assets/images/credit-card.svg'" alt="#">
+                                                    <img :src="base_url + '/assets/assets/images/credit-card.svg'" alt="#">
                                                     {{ $root._t("app.numOfDays") }} ..............
                                                   </div>
                                                   <br>
                                                   <div class="pay-way d-inline-block other">
-                                                    <img :src="base_url + '/assets/images/5.svg'" alt="#">
+                                                    <img :src="base_url + '/assets/assets/images/5.svg'" alt="#">
                                                    {{ $root._t("app.numOfDays") }} ..............
                                                   </div>
                                                   <div class="pay-way d-inline-block mr-5 bank">
-                                                   <img :src="base_url + '/assets/images/bank.svg'" alt="#">
+                                                   <img :src="base_url + '/assets/assets/images/bank.svg'" alt="#">
                                                    {{ $root._t("app.bankTransfer") }}
                                                  </div>
                                                </div>
