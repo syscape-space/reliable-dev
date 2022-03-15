@@ -19,8 +19,11 @@ $last_replay_tickets_get = App\Models\Ticket::where('ticket_status','opened')->o
 $replay = App\Models\TicketReplay::where('ticket_id',$last_ticket->id)
       //->where('user_id','>',0)
       ->orderBy('id','desc')->limit(1)->first();
-$tadmin_replay = $replay->admin_id()->first() ?? null;
-$tuser_replay = $replay->user_id()->first() ?? null;
+if ($replay){
+    $tadmin_replay = $replay->admin_id()->first();
+  $tuser_replay = $replay->user_id()->first();
+}
+
 @endphp
     <a href="{{ aurl('tickets/'.$last_ticket->id) }}" class="dropdown-item">
       <!-- Message Start -->
