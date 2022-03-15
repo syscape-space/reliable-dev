@@ -4,25 +4,25 @@
               <div class="row">
                 <div class="col-lg-4 d-none d-lg-block">
                       <div class="content text-center pt-1 ">
-                          <p class="num">01</p>
-                          <img :src="base_url + '/assets/images/logo.svg'" alt="logo" class="mt-5 pt-5">
-                          <p class="title">اختيار نوع الخدمة</p>
-                          <p class="sup-title">  انشاء طلب جديد</p>
+                          <p class="num">{{ $root._t("app.number1") }}</p>
+                          <img :src="base_url + '/assets/assets/images/logo.svg'" alt="logo" class="mt-5 pt-5">
+                          <p class="title">{{ $root._t("app.chooseServiceType") }}</p>
+                          <p class="sup-title">  {{ $root._t("app.addNewRequest") }}</p>
                           <p class="dis">   
-                            عند اختيار خدمة سيظهر هنا تعليما الخدمة وشرح  
-                            <br>   مع الفيديو بالأسفل
+                            {{ $root._t("app.thisServiceFeature") }}  
+                            <br>  {{ $root._t("app.withVideoBelow") }} 
                           </p>
                           <div class="vid  p-5">
                               <p class="vid-title text-right ">
-                                مشاهده شرح طلب الخدمة
+                                {{ $root._t("app.watchServiceRequestExplain") }} 
                               </p>
                              <div class="center">
                                 <div class="img">
-                                    <img :src="base_url + '/assets/images/man.svg'" alt="#" class="back-man">
+                                    <img :src="base_url + '/assets/assets/images/man.svg'" alt="#" class="back-man">
                                     <div class="overlay">
                                         <a href="#">
                                             <div class="dis">
-                                              <img :src="base_url + '/assets/images/play-button.svg'" alt="#">
+                                              <img :src="base_url + '/assets/assets/images/play-button.svg'" alt="#">
                                             </div>
                                         </a>
                                     </div>
@@ -31,12 +31,12 @@
                              <div class="info m-5">
                                  <div class="row">
                                      <div class="col-4">
-                                         <img :src="base_url + '/assets/images/open-book.svg'" alt="#">
+                                         <img :src="base_url + '/assets/assets/images/open-book.svg'" alt="#">
                                      </div>
                                      <div class="col-8">
                                         <p>
                                            <a href="#" target="_blank">
-                                            الدليل الارشادي لطلب للخدمة
+                                            {{ $root._t("app.guideForServiceRequest") }} 
                                            </a>
                                         </p>
                                     </div>
@@ -52,7 +52,7 @@
                             <form dir="rtl">
                                 <div class="data  pt-5 text-right ">
                                     <p class="st">
-                                        خطوه <span class="st-num">1</span> <span class="color">من 6</span>
+                                        {{ $root._t("app.steps") }}  <span class="st-num">1</span> <span class="color">{{ $root._t("app.from") }}  6</span>
                                     </p>
                                     <div class="progress mb-5" dir="rtl">
                                         <div class="progress-bar" role="progressbar" style="width: 16.667%" aria-valuemin="0" aria-valuemax="100"></div>
@@ -62,22 +62,13 @@
                                             <div class="select">
                                                 <div class="option selected">
                                                     <div class="head">
-                                                        <!-- <p class="d-inline-block name selected pr-1" for="rat1">
-                                                            طلب توثيق
-                                                        </p>
-                                                        <label class="radio d-inline-block">
-                                                            <input class="radio-input" type="radio" id="rat1" name="radio">
-                                                            <span class="radio-checkmark-box">
-                                                            <span class="radio-checkmark"></span>
-                                                            </span>
-                                                        </label> -->
                                                         <div class="form-check form-check-inline">
                                                             <input type="radio" class="form-check-input" id="exampleCheck1" name="choose" checked>
-                                                            <label class="form-check-label name selected pr-2" for="exampleCheck1">طلب توثيق  </label>
+                                                            <label class="form-check-label name selected pr-2" for="exampleCheck1">{{ $root._t("app.documentRequest") }}   </label>
                                                         </div>
                                                         <div class="form-check form-check-inline">
                                                             <input type="radio" class="form-check-input" id="exampleCheck2" name="choose">
-                                                            <label class="form-check-label name  pr-2" for="exampleCheck2"> الطلب ملحلق بطلب رقم  </label>
+                                                            <label class="form-check-label name  pr-2" for="exampleCheck2"> {{ $root._t("app.requestWithNum") }}   </label>
                                                         </div>
                                                         <div class="form-check form-check-inline">
                                                             <input type="text" class="form-control order-num" placeholder="ادخل رقم الطلب...." >
@@ -86,11 +77,11 @@
                                                             <div class="row">
                                                                 <div class="col-10">
                                                                 <p>
-                                                                    تتيح هذه الخدمة تقديم طلب من مقدمي الخدمات لجميع القضايا والاستشارات
+                                                                    {{ $root._t("app.thisServiceFeature") }} 
                                                                 </p>
                                                             </div>
                                                             <div class="col-2 text-center">
-                                                                <img :src="base_url + '/assets/images/Page.svg'" alt="#">
+                                                                <img :src="base_url + '/assets/assets/images/Page.svg'" alt="#">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -106,11 +97,11 @@
                                                             <div class="row">
                                                                 <div class="col-10">
                                                                 <p>
-                                                                    تتيح هذه الخدمة تقديم طلب من مقدمي الخدمات لجميع القضايا والاستشارات
+                                                                    {{ $root._t("app.thisServiceFeature") }} 
                                                                 </p>
                                                             </div>
                                                             <div class="col-2 text-center">
-                                                                <img :src="base_url + '/assets/images/Page.svg'" alt="#">
+                                                                <img :src="base_url + '/assets/assets/images/Page.svg'" alt="#">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -126,11 +117,11 @@
                                                             <div class="row">
                                                                 <div class="col-10">
                                                                 <p>
-                                                                    تتيح هذه الخدمة تقديم طلب من مقدمي الخدمات لجميع القضايا والاستشارات
+                                                                    {{ $root._t("app.thisServiceFeature") }} 
                                                                 </p>
                                                             </div>
                                                             <div class="col-2 text-center">
-                                                                <img :src="base_url + '/assets/images/Page.svg'" alt="#">
+                                                                <img :src="base_url + '/assets/assets/images/Page.svg'" alt="#">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -146,11 +137,11 @@
                                                             <div class="row">
                                                                 <div class="col-10">
                                                                 <p>
-                                                                    تتيح هذه الخدمة تقديم طلب من مقدمي الخدمات لجميع القضايا والاستشارات
+                                                                    {{ $root._t("app.thisServiceFeature") }} 
                                                                 </p>
                                                             </div>
                                                             <div class="col-2 text-center">
-                                                                <img :src="base_url + '/assets/images/Page.svg'" alt="#">
+                                                                <img :src="base_url + '/assets/assets/images/Page.svg'" alt="#">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -159,7 +150,7 @@
                                             </div>
                                         <div class="btns text-center">
                                             <div class="btn page1 btn-primary big cont mb-5" data-progress="2" data-page="2">
-                                                المتابعه
+                                                {{ $root._t("app.follow") }} 
                                             </div>
                                         </div>
                                         </div>
@@ -175,11 +166,11 @@
                                                         <div class="row">
                                                             <div class="col-10">
                                                             <p>
-                                                                تتيح هذه الخدمة تقديم طلب من مقدمي الخدمات لجميع القضايا والاستشارات
+                                                                {{ $root._t("app.thisServiceFeature") }} 
                                                             </p>
                                                         </div>
                                                         <div class="col-2 text-center">
-                                                            <img :src="base_url + '/assets/images/Page.svg'" alt="#">
+                                                            <img :src="base_url + '/assets/assets/images/Page.svg'" alt="#">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -189,38 +180,38 @@
                                         <div class="page2 page d-none">
                                             <div class="laws">
                                                 <p>
-                                                    شروط الخدمة
+                                                    {{ $root._t("app.serviceConditions") }} 
                                                 </p>
                                                 <ul>
                                                     <li>
-                                                        تتيح هذه الخدمة تقديم طلب من مقدمي الخدمات لجميع القضايا والاستشارات
+                                                        {{ $root._t("app.thisServiceFeature") }} 
                                                     </li>
                                                     <li>
-                                                        تتيح هذه الخدمة تقديم طلب من مقدمي الخدمات لجميع القضايا والاستشارات
+                                                        {{ $root._t("app.thisServiceFeature") }} 
                                                     </li>
                                                     <li>
-                                                        تتيح هذه الخدمة تقديم طلب من مقدمي الخدمات لجميع القضايا والاستشارات
+                                                        {{ $root._t("app.thisServiceFeature") }} 
                                                     </li>
                                                     <li>
-                                                        تتيح هذه الخدمة تقديم طلب من مقدمي الخدمات لجميع القضايا والاستشارات
+                                                        {{ $root._t("app.thisServiceFeature") }} 
                                                     </li>
                                                     <li>
-                                                        تتيح هذه الخدمة تقديم طلب من مقدمي الخدمات لجميع القضايا والاستشارات
+                                                       {{ $root._t("app.thisServiceFeature") }} 
                                                     </li>
                                                     <li>
-                                                        تتيح هذه الخدمة تقديم طلب من مقدمي الخدمات لجميع القضايا والاستشارات
+                                                        {{ $root._t("app.thisServiceFeature") }} 
                                                     </li>
                                                     <li>
-                                                        تتيح هذه الخدمة تقديم طلب من مقدمي الخدمات لجميع القضايا والاستشارات
+                                                        {{ $root._t("app.thisServiceFeature") }} 
                                                     </li>
                                                     <li>
-                                                        تتيح هذه الخدمة تقديم طلب من مقدمي الخدمات لجميع القضايا والاستشارات
+                                                        {{ $root._t("app.thisServiceFeature") }} 
                                                     </li>
                                                     <li>
-                                                        تتيح هذه الخدمة تقديم طلب من مقدمي الخدمات لجميع القضايا والاستشارات
+                                                        {{ $root._t("app.thisServiceFeature") }} 
                                                     </li>
                                                     <li>
-                                                        تتيح هذه الخدمة تقديم طلب من مقدمي الخدمات لجميع القضايا والاستشارات
+                                                        {{ $root._t("app.thisServiceFeature") }} 
                                                     </li>
                                                 </ul>
                                             </div>
@@ -231,8 +222,8 @@
                                                             <div class="row">
                                                                 <div class="col-12">
                                                                 <p class="mt-0 pt-0">
-                                                                    <img :src="base_url + '/assets/images/right-mark.svg'" alt="#" class="right-mark">
-                                                                    تتيح هذه الخدمة تقديم طلب من مقدمي الخدمات لجميع القضايا والاستشارات
+                                                                    <img :src="base_url + '/assets/assets/images/right-mark.svg'" alt="#" class="right-mark">
+                                                                    {{ $root._t("app.thisServiceFeature") }} 
                                                                 </p>
                                                             </div>
                                                         </div>
@@ -244,23 +235,23 @@
                                         </div>
                                         <div class="page3 page mt-3 d-none">
                                             <p class="red">
-                                                اختر القسم المناسب
+                                                {{ $root._t("app.chooseYourCategory") }}
                                             </p>
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
                                                 <select id="inputState" class="form-control">
-                                                    <option selected>اختر القسم الرئيسى</option>
+                                                    <option selected>{{ $root._t("app.chooseMainCategory") }}</option>
                                                     <option>...</option>
                                                 </select>
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                 <select id="inputState" class="form-control">
-                                                    <option selected>اختر القسم الفرعى</option>
+                                                    <option selected>{{ $root._t("app.chooseSubCategory") }}</option>
                                                     <option>...</option>
                                                 </select>                                            </div>
                                             </div>
                                             <p class="red mt-3">
-                                                حدد مقدم الخدمة <span> ( سيتم عرض الطلب حسب اختيارك )  </span>
+                                                {{ $root._t("app.selectServiceProducer") }} <span> ( {{ $root._t("app.actionOfSelectionOfServiceProducer") }} )  </span>
                                             </p>
                                             <div class="select mb-4">
                                                 <div class="option selected ">
@@ -269,8 +260,8 @@
                                                             <div class="row">
                                                                 <div class="col-12">
                                                                 <p class="mt-0 pt-0">
-                                                                    <img :src="base_url + '/assets/images/right-mark.svg'" alt="#" class="right-mark">
-                                                                الجميع
+                                                                    <img :src="base_url + '/assets/assets/images/right-mark.svg'" alt="#" class="right-mark">
+                                                                {{ $root._t("app.all") }}
                                                                 </p>
                                                             </div>
                                                         </div>
@@ -282,7 +273,7 @@
                                             <div class="form-row">
                                                 <div class="form-group col-md-12">
                                                 <select id="inputState" class="form-control">
-                                                    <option selected>اختر  المدينه</option>
+                                                    <option selected>{{ $root._t("app.selectCity") }}</option>
                                                     <option>...</option>
                                                 </select>
                                                 </div>
@@ -295,11 +286,11 @@
                                         <div class="page4  page mt-3 d-none">
                                             <div class="form-check form-check-inline">
                                                 <input type="radio" class="form-check-input" id="exampleCheck81" name="choos" >
-                                                <label class="form-check-label name red pr-2" for="exampleCheck81"> بيانات المدعي علية  </label>
+                                                <label class="form-check-label name red pr-2" for="exampleCheck81"> {{ $root._t("app.dataOfPlaintiff") }}  </label>
                                             </div>
                                             <div class="form-check form-check-inline">
                                                 <input type="radio" class="form-check-input" id="exampleCheck80" name="choos" >
-                                                <label class="form-check-label name red pr-2" for="exampleCheck80"> هل يوجد اطراف في الضية  </label>
+                                                <label class="form-check-label name red pr-2" for="exampleCheck80"> {{ $root._t("app.thereIsSides") }}  </label>
                                             </div>
                                             <div class="form-row">
                                                 <div class="form-group col-md-3">
@@ -312,7 +303,7 @@
                                                     <input class="form-control w-100" type="text" placeholder=" الجنسيه........">
                                                 </div>
                                                 <div class="form-group col-md-3 text-center icons">
-                                                    <img :src="base_url + '/assets/images/icons.svg'" alt="#" class="d-inline-block">
+                                                    <img :src="base_url + '/assets/assets/images/icons.svg'" alt="#" class="d-inline-block">
                                                 </div>
                                             </div>
                                             <div class="form-row">
@@ -326,7 +317,7 @@
                                                     <input class="form-control w-100" type="text" placeholder=" الجنسيه........">
                                                 </div>
                                                 <div class="form-group col-md-3 text-center icons">
-                                                    <img :src="base_url + '/assets/images/icons.svg'" alt="#" class="d-inline-block">
+                                                    <img :src="base_url + '/assets/assets/images/icons.svg'" alt="#" class="d-inline-block">
                                                 </div>
                                             </div>
                                             <hr>
@@ -337,8 +328,8 @@
                                                             <div class="row">
                                                                 <div class="col-12">
                                                                 <p class="mt-0 pt-0">
-                                                                    <img :src="base_url + '/assets/images/right-mark.svg'" alt="#" class="right-mark">
-                                                                    الموافقة علي صحة البيانات وان لا يكون مقدم الخدمة خصمك
+                                                                    <img :src="base_url + '/assets/assets/images/right-mark.svg'" alt="#" class="right-mark">
+                                                                    {{ $root._t("app.acceptDataAndMakeSure") }}
                                                                 </p>
                                                             </div>
                                                         </div>
@@ -350,41 +341,41 @@
                                         </div>
                                         <div class="page5 page mt-3 d-none">
                                             <div class="form-check">
-                                                <label class="form-check-label name red pr-2 mb-2" for="exampleCheck81">   المدة المقترحة للطلب  </label>
+                                                <label class="form-check-label name red pr-2 mb-2" for="exampleCheck81">   {{ $root._t("app.suggestTimeForRequest") }}  </label>
                                                 <input type="number" class="form-control" id="exampleCheck81" placeholder="عدد الأيام...." >
                                             </div>
                                             <p class="red pt-4 mb-0">
-                                                قابل للتفاوض ؟
+                                                {{ $root._t("app.Negotiable") }}
                                             </p>
                                             <div class="form-check form-check-inline">
                                                 <input type="radio" class="form-check-input" id="exampleCheck8000" name="chos" >
-                                                <label class="form-check-label name  pr-2" for="exampleCheck8000"> نعم  </label>
+                                                <label class="form-check-label name  pr-2" for="exampleCheck8000"> {{ $root._t("app.yes") }}  </label>
                                             </div>
                                             <div class="form-check form-check-inline">
                                                 <input type="radio" class="form-check-input" id="exampleCheck800" name="chos" >
-                                                <label class="form-check-label name  pr-2" for="exampleCheck800"> لا  </label>
+                                                <label class="form-check-label name  pr-2" for="exampleCheck800"> {{ $root._t("app.no") }}  </label>
                                             </div>
                                             <div class="form-check textare">
-                                                <label class="form-check-label name red pr-2 mb-2" for="exampleCheck81">  التفاصيل  </label>
+                                                <label class="form-check-label name red pr-2 mb-2" for="exampleCheck81">  {{ $root._t("app.details") }}  </label>
                                                 <textarea class="form-control textare-count" id="exampleCheck81" maxlength="1000" placeholder="اكتب التفاصيل هنا...." rows="4" ></textarea>
                                                 <span class="remain"><span  id="totalChars">0</span>/1000</span>
                                             </div>
                                             <p class="red mt-3">
-                                                ارفاق ملفات <span> ( اختر الملف الذي تريد ارفاقه مع طلبك )  </span>
+                                                {{ $root._t("app.attachingFile") }} <span> ( {{ $root._t("app.chooseFile") }} )  </span>
                                             </p>
                                             <div class="form-check form-check-inline">
                                                 <div class="variants">
                                                     <div class='attach d-inline-block'>
                                                       <label for='input-file'>
-                                                        مرفقات
-                                                        <img :src="base_url + '/assets/images/file.svg'" alt="#">
+                                                        {{ $root._t("app.attchments") }}
+                                                        <img :src="base_url + '/assets/assets/images/file.svg'" alt="#">
                                                       </label>
                                                       <input id='input-file' type='file' />
                                                     </div>
                                                     <div class='sounds d-inline-block mr-3'>
                                                         <label for='input-file'>
-                                                            ارفاق ملف صوتي
-                                                          <img :src="base_url + '/assets/images/audio-file.svg'" alt="#">
+                                                            {{ $root._t("app.sendVoiceFile") }}
+                                                          <img :src="base_url + '/assets/assets/images/audio-file.svg'" alt="#">
                                                         </label>
                                                         <input id='input-file' type='file' />
                                                       </div>
@@ -395,58 +386,59 @@
                                                <div class="row mt-5">
                                                    <div class="col-8">
                                                     <p class="red pr-2 mb-2" >
-                                                        <img :src="base_url + '/assets/images/22-mobile.svg'" alt="#" class="ml-2">
-                                                        يتطلب شحن الرصيد لاكمال عملية السداد
+                                                        <img :src="base_url + '/assets/assets/images/22-mobile.svg'" alt="#" class="ml-2">
+                                                        {{ $root._t("app.recharge") }}
                                                      </p>
                                                      <p class="red pr-2 mb-2" >
-                                                        <img :src="base_url + '/assets/images/  money.svg'" alt="#" class="ml-2">
-                                                        سيتم احتساب رسوم الخصم والشحن 
+                                                        <img :src="base_url + '/assets/assets/images/  money.svg'" alt="#" class="ml-2">
+                                                        {{ $root._t("app.calculateDiscound") }}
                                                      </p>
                                                    </div>
                                                    <div class="col-4">
                                                        <div class="btn grad btn-primary">
                                                         حفظ طلبك كمسوده
-                                                        <img :src="base_url + '/assets/images/bookmark.svg'" alt="#" class="mr-2">
+                                                        <img :src="base_url + '/assets/assets/images/bookmark.svg'" alt="#" class="mr-2">
                                                        </div>
                                                    </div>
                                                </div>
                                                <div class="total mt-3">
-                                                   <p> الاجمالى : <span>1 $</span> </p>
-                                                   <p> الرسوم : <span>1 $</span> </p>
+                                                   <p> {{ $root._t("app.total") }} : <span>1 $</span> </p>
+                                                   <p> {{ $root._t("app.fee") }} : <span>1 $</span> </p>
                                                    <hr>
-                                                   <p> الاجمالى : <span class="red">1 $</span> </p>
+                                                   <p> {{ $root._t("app.total") }} : <span class="red">1 $</span> </p>
                                                </div>
                                                <div class="pay mt-4">
                                                    <p class="pay-title">
-                                                    ادفع بامان من خلال احدي الوسائل التالية او <a href="#">
-                                                        عدل سلة المشتريات
+                                                    {{ $root._t("app.payWithAman") }} 
+                                                    <a href="#">
+                                                       {{ $root._t("app.editCardOfShopping") }}
                                                     </a>
                                                    </p>
                                                    <div class="pay-way d-inline-block paypal">
-                                                     <img :src="base_url + '/assets/images/paypal.svg'" alt="#">
-                                                     PayPal
+                                                     <img :src="base_url + '/assets/assets/images/paypal.svg'" alt="#">
+                                                     {{ $root._t("app.paypal") }}
                                                    </div>
                                                    <div class="pay-way d-inline-block mr-5 card">
-                                                    <img :src="base_url + '/assets/images/credit-card.svg'" alt="#">
-                                                    عدد الايام.....
+                                                    <img :src="base_url + '/assets/assets/images/credit-card.svg'" alt="#">
+                                                    {{ $root._t("app.numOfDays") }} ..............
                                                   </div>
                                                   <br>
                                                   <div class="pay-way d-inline-block other">
-                                                    <img :src="base_url + '/assets/images/5.svg'" alt="#">
-                                                    عدد الايام.....
+                                                    <img :src="base_url + '/assets/assets/images/5.svg'" alt="#">
+                                                   {{ $root._t("app.numOfDays") }} ..............
                                                   </div>
                                                   <div class="pay-way d-inline-block mr-5 bank">
-                                                   <img :src="base_url + '/assets/images/bank.svg'" alt="#">
-                                                   تحويل بنكي
+                                                   <img :src="base_url + '/assets/assets/images/bank.svg'" alt="#">
+                                                   {{ $root._t("app.bankTransfer") }}
                                                  </div>
                                                </div>
                                         </div>
                                         <div class="btns text-center mb-5">
                                         <div class="btn btn-primary page1 small cont " data-progress="2" data-page="2">
-                                            التالى
+                                            {{ $root._t("app.next") }}
                                         </div>
                                         <div class="btn btn-secondary small conta-back">
-                                            العودة
+                                            {{ $root._t("app.previous") }}
                                         </div>
                                         </div>
                                     </div>

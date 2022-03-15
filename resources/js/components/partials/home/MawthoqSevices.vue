@@ -6,16 +6,16 @@
           <img style="max-width: 50px;" 
              class="w-100" :src="base_url+'/assets/images/green-circleElement.svg'" alt="">
         </div>
-        <h3 class="text-center mt-5">الخدمات التي يقدمها موثوق</h3>
+        <h3 class="text-center mt-5">{{ $root._t("app.mawthoqServices") }}</h3>
         <div class=" ">
           <h6 class="text-center my-2" style="color: #048e81">
-            لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سي
+            {{ $root._t("app.shortText") }}
           </h6>
           <a
             href=""
             class="text-dark d-flex align-items-center justify-content-end sev-top"
           >
-            <span> تصفح كل الخدمات </span>
+            <span> {{ $root._t("app.surfAllServices") }} </span>
             <span>
               <img
                 class="me-2"

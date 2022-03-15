@@ -42,7 +42,7 @@
                     alt=""
                     srcset=""
                   />
-                  <span>الرئيسية</span>
+                  <span>{{ $root._t("app.home") }} </span>
                 </router-link>
               </li>
               <li>
@@ -53,7 +53,7 @@
                     alt=""
                     srcset=""
                   />
-                  <span>حسابى</span>
+                  <span>{{ $root._t("app.myAccount") }} </span>
                 </router-link>
               </li>
               <li>
@@ -64,7 +64,7 @@
                     alt=""
                     srcset=""
                   />
-                  <span>الرصيد</span>
+                  <span>{{ $root._t("app.myBalance") }} </span>
                 </router-link>
               </li>
               <li>
@@ -75,7 +75,7 @@
                     alt=""
                     srcset=""
                   />
-                  <span>مشاريعى</span>
+                  <span>{{ $root._t("app.myProjects") }} </span>
                 </a>
               </li>
               <li>
@@ -86,11 +86,11 @@
                     alt=""
                     srcset=""
                   />
-                  <span>تذكارى</span>
+                  <span>{{ $root._t("app.memorial") }}</span>
                 </a>
               </li>
               <li>
-                <a href="#"> موثق </a>
+                <a href="#"> {{ $root._t("app.appName") }} </a>
               </li>
             </ul>
           </div>

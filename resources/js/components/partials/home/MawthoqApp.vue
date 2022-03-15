@@ -8,8 +8,8 @@
       </div>
       <div class="col-md-6 d-flex align-items-center justify-content-center">
         <div class="pd-10 text-center">
-          <h2 class=" gr-c my-3">تطبيق موثوق</h2>
-          <p class="gr-c pb-5">لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سي</p>
+          <h2 class=" gr-c my-3">{{ $root._t("app.mawthoqApp") }}</h2>
+          <p class="gr-c pb-5">{{ $root._t("app.shortText") }}</p>
           <div class="pt-5 my-5">
             <a href="" class="mx-2">
               <img style="width: 150px;" :src="base_url+'/assets/images/google.svg'" alt="">

@@ -14,12 +14,20 @@ import employmentApplications from '../views/UserProfilePages/employmentApplicat
 import palance from '../views/UserProfilePages/palance.vue'
 import offerOrder from '../views/UserProfilePages/offerOrder.vue'
 import DocumentRequest from '../views/UserProfilePages/documentRequest.vue'
+import ChatPage from '../views/UserProfilePages/chatPage.vue'
+import Ticket1 from '../views/UserProfilePages/ticket1Page.vue'
+import Ticket2 from '../views/UserProfilePages/ticket2Page.vue'
+import Users from '../views/UserProfilePages/usersPage.vue'
+import NotificationPage from '../views/OrdersPages/notificationPage.vue'
 
 // Orders 
 import showOrdersPage from '../views/OrdersPages/showOrdersPage'
 import offerOrder1Page from '../views/OrdersPages/offerOrder1Page'
 import offerOrder2Page from '../views/OrdersPages/offerOrder2Page'
 import offerOrder3Page from '../views/OrdersPages/offerOrder3Page'
+import Profile2 from '../views/OrdersPages/profile2Page.vue'
+import Profile3 from '../views/OrdersPages/profile3Page.vue'
+import Profile4 from '../views/OrdersPages/profile4Page.vue'
 
 
 const prefix = '/reliable/public/app';
@@ -75,6 +83,19 @@ const routes = [
     {
         path : prefix+'/u_document_request' , beforeEnter : guardMyroute , component : DocumentRequest , name : "DocumentRequest"
     },
+    {
+        path : prefix+'/u_chat' , beforeEnter : guardMyroute , component : ChatPage , name : "ChatPage"
+    },
+    {
+        path : prefix+'/u_ticket1' , beforeEnter : guardMyroute , component : Ticket1 , name : "Ticket1"
+    },
+    {
+        path : prefix+'/u_ticket2' , beforeEnter : guardMyroute , component : Ticket2 , name : "Ticket2"
+    },
+    {
+        path : prefix+'/u_users' , beforeEnter : guardMyroute , component : Users , name : "Users"
+    },
+    
     // orders pages routes
     {
         path : prefix+'/o_index' , beforeEnter : guardMyroute , component : showOrdersPage , name : "showOrdersPage"
@@ -87,7 +108,19 @@ const routes = [
     },
     {
         path : prefix+'/o_offer_order3' , beforeEnter : guardMyroute , component  : offerOrder3Page , name : "offerOrder3Page"
-    }
+    },
+    {
+        path : prefix+'/u_notification' , beforeEnter : guardMyroute , component : NotificationPage , name : "NotificationPage"
+    },
+    {
+        path : prefix+'/u_profile2' , beforeEnter : guardMyroute , component : Profile2 , name : "Profile2"
+    },
+    {
+        path : prefix+'/u_profile3' , beforeEnter : guardMyroute , component : Profile3 , name : "Profile3"
+    },
+    {
+        path : prefix+'/u_profile4' , beforeEnter : guardMyroute , component : Profile4 , name : "Profile4"
+    },
 ]
 const router = createRouter({
     history: createWebHistory(),

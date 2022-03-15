@@ -3,10 +3,10 @@
       <div class="personal">
         <div class="personal-info">
           <div class="btw-flex">
-            <h6 class="my-4">رصيد حسابك</h6>
+            <h6 class="my-4">{{ $root._t("app.accountCharge") }}</h6>
             <div class="">
-              <button class="bl-btn">سحب رصيد</button>
-              <button class="bl-btn" style="background-color: #0995EB;">شحن رصيد</button>
+              <button class="bl-btn">{{ $root._t("app.balanceWithdrawal") }}</button>
+              <button class="bl-btn" style="background-color: #0995EB;">{{ $root._t("app.chargeBalance") }}</button>
             </div>
           </div>
           <div class="bl-money p-4">
@@ -15,17 +15,14 @@
                 <div class="btw-flex lf-bor py-4">
                   <img :src="base_url+'/assets/images/balance-money.svg'" alt="">
                   <div class="text-center">
-                    <div class="mb-2">الرصيد الكلي</div> 
+                    <div class="mb-2">{{ $root._t("app.totalBalace") }}</div> 
                     <span style="font-size: 28px;color: #339858;">1500 $</span>
                   </div>
                 </div>
               </div>
               <div class="col-md-8">
                 <p class="py-3">
-                  صفحة الرصيد تحتوي على ملخص للرصيد الموجود في حسابك سواء الذي 
-                  قمت بشحنه أو قمت ببدئ صفقات به أو حتى ربحته من بيع أحد الخدمات 
-                  أو تنفيذ المشاريع ، مع العلم أنه يمكنك استرداد المبالغ المشحونة أو أجزاء 
-                  منها في حالة لم تجد المنفذ المناسب لأعمالك في أي وقت على نفذلي
+                  {{ $root._t("app.longText") }}
                 </p>
               </div>
             </div>
@@ -38,7 +35,7 @@
                 </div>
                 <div>
                   <h6 class="text-center">
-                    الرصيد القابل للسحب
+                    {{ $root._t("app.balanceAbleToWithdrawal") }}
                   </h6>
                   <div style="color: #3BB234;font-size: 25px;" class="text-center">
                     500 $
@@ -53,7 +50,7 @@
                 </div>
                 <div>
                   <h6 class="text-center">
-                    الرصيد المعلق
+                    {{ $root._t("app.suspendedBalance") }}
                   </h6>
                   <div style="color: #3BB234;font-size: 25px;" class="text-center">
                     500 $
@@ -68,7 +65,7 @@
                 </div>
                 <div>
                   <h6 class="text-center">
-                    الرصيد المتاح
+                    {{ $root._t("app.availableBalance") }}
                   </h6>
                   <div style="color: #3BB234;font-size: 25px;" class="text-center">
                     500 $
@@ -78,7 +75,7 @@
             </div>
           </div>
           <div class="d-flex align-items-center justify-content-between my-2">
-            <span>حساب فواتيرك</span>
+            <span> {{ $root._t("app.fawaterkAccount") }}</span>
             <a href="" style="color: #2B7B74;">مشاهده كل فواتيري</a>
           </div>
           <div>
@@ -88,7 +85,7 @@
                   50 $
                 </span>
                 <span class="me-3">
-                  تم شحن رصيدك بنجاح
+                  {{ $root._t("app.rechargingSuccessfully") }}
                 </span>
               </span>
               <span class="inv-c bg-white">
@@ -101,7 +98,7 @@
                   50 $
                 </span>
                 <span class="me-3">
-                  تم الخصم لطلب رقم 2500 قيد التنفيذ
+                  {{ $root._t("app.discoundDone") }}
                  </span>
               </span>
              
@@ -111,12 +108,12 @@
                 <span class=" text-white inv-c">
                   50 $
                 </span>
-                <span class="me-3">تم دفع فاتورة الطلب رقم 2500 بنجاح</span>
+                <span class="me-3">{{ $root._t("app.requestAmountPayed") }}</span>
               </span>
               <span class="">
                 <button class="btn-inn">
                   <img :src="base_url+'/assets/images/balance-invoice.svg'" alt="">
-                  فاتورة
+                  {{ $root._t("app.fatoorah") }}
                 </button>
               </span>
             </div>

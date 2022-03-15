@@ -17,7 +17,7 @@
 </template>
 <script>
 
-import Navbar from '../components/partials/LayoutNavBar'
+import Navbar from '../components/partials/LayoutNavBar.vue'
 import HomeHeader from '../components/partials/home/HomeHeader.vue'
 import SearchServiceSection from '../components/partials/home/SearchServiceSection.vue'
 import HowItWork from '../components/partials/home/HowItWork.vue'

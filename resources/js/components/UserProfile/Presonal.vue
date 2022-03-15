@@ -2,11 +2,11 @@
     <section class="personal-section mt-2">
       <div class="personal">
         <div class="personal-info">
-          <h6 class="my-4">بياناتك الشخصية</h6>
+          <h6 class="my-4">{{ $root._t("app.presonalData") }}</h6>
           <form action="">
             <div class="row w-100 mx-0 px-0">
               <div class="mb-3 col-md-12">
-                <label style="font-size: 13px">الأسم بالكامل</label>
+                <label style="font-size: 13px">{{ $root._t("app.fullname") }}</label>
                 <input
                   class="input-personal mt-1 w-100"
                   type="text"
@@ -15,7 +15,7 @@
                 />
               </div>
               <div class="mb-3 col-md-12">
-                <label style="font-size: 13px">البريد الالكتروني</label>
+                <label style="font-size: 13px">{{ $root._t("app.email") }}</label>
                 <input
                   class="input-personal mt-1 w-100"
                   v-model="email"
@@ -24,7 +24,7 @@
                 />
               </div>
               <div class="mb-3 col-md-12">
-                <label style="font-size: 13px">رقم الهاتف</label>
+                <label style="font-size: 13px">{{ $root._t("app.mobile") }}</label>
                 <input
                   class="input-personal mt-1 w-100"
                   v-model="mobile"
@@ -34,7 +34,7 @@
               </div>
               <div class="mb-3 col-md-6">
                 <div class="content-col">
-                  <label style="font-size: 13px">رفع مر فقات السجل التجاري</label>
+                  <label style="font-size: 13px">{{ $root._t("app.uploadAttchmentOfCommercialRegister") }}</label>
                   <input
                     class="input-personal mt-1 w-100"
                     type="text"
@@ -47,7 +47,7 @@
               </div>
               <div class="mb-3 col-md-6">
                 <div class="content-col">
-                  <label style="font-size: 13px">اضافه تاريخ انتهاء السجل</label>
+                  <label style="font-size: 13px">{{ $root._t("app.addDateOfEndingOfCommercialRegister") }}</label>
                   <input
                     class="input-personal mt-1 w-100"
                     type="text"
@@ -60,7 +60,7 @@
               </div>
               <div class="mb-3 col-md-6">
                 <div class="content-col">
-                  <label style="font-size: 13px">رفع الرخصه</label>
+                  <label style="font-size: 13px">{{ $root._t("app.uploadLicense") }}</label>
                   <input
                     class="input-personal mt-1 w-100"
                     type="text"
@@ -73,7 +73,7 @@
               </div>
               <div class="mb-3 col-md-6">
                 <div class="content-col">
-                  <label style="font-size: 13px">تاريخ انتهاء الرخصة</label>
+                  <label style="font-size: 13px">{{ $root._t("app.dateOfEndingLicense") }}</label>
                   <input
                     class="input-personal mt-1 w-100"
                     type="text"
@@ -86,7 +86,7 @@
               </div>
               <div class="mb-3 col-md-6">
                 <div class="content-col">
-                  <label style="font-size: 13px">الجنسية</label>
+                  <label style="font-size: 13px">{{ $root._t("app.nationality") }}</label>
                   <input
                     class="input-personal mt-1 w-100"
                     type="text"
@@ -96,7 +96,7 @@
               </div>
               <div class="mb-3 col-md-6">
                 <div class="content-col">
-                  <label style="font-size: 13px">تاريخ الميلاد</label>
+                  <label style="font-size: 13px">{{ $root._t("app.dateOfBirth") }}</label>
                   <input
                     class="input-personal mt-1 w-100"
                     type="text"
@@ -105,11 +105,11 @@
                 </div>
               </div>
               <div class="mb-3 col-md-12">
-                <h6 class="pt-4">بيانات الموقع</h6>
+                <h6 class="pt-4">{{ $root._t("app.websiteData") }}</h6>
               </div>
               <div class="mb-3 col-md-6 mt-3">
                 <div class="content-col">
-                  <label style="font-size: 13px">التخصص</label>
+                  <label style="font-size: 13px">{{ $root._t("app.specialist") }}</label>
                   <input
                     class="input-personal mt-1 w-100"
                     type="text"
@@ -119,7 +119,7 @@
               </div>
               <div class="mb-3 col-md-6 mt-3">
                 <div class="content-col">
-                  <label style="font-size: 13px">المسمى الوظيفي</label>
+                  <label style="font-size: 13px">{{ $root._t("app.jobTitle") }}</label>
                   <input
                     class="input-personal mt-1 w-100"
                     type="text"
@@ -128,7 +128,7 @@
                 </div>
               </div>
               <div class="mb-3 col-md-12">
-                <label style="font-size: 13px">نبذة</label>
+                <label style="font-size: 13px">{{ $root._t("app.brief") }}</label>
 
                 <textarea
                   class="input-personal mt-1 w-100"
@@ -141,7 +141,7 @@
                 ></textarea>
               </div>
               <div class="mb-3 col-md-12">
-                <label style="font-size: 13px">المهارات الشخصية</label>
+                <label style="font-size: 13px">{{ $root._t("app.skills") }}</label>
                 <input
                   class="input-personal mt-1 w-100"
                   type="text"
@@ -149,22 +149,22 @@
                 />
               </div>
               <div class="mb-3 col-md-12">
-                <label style="font-size: 13px">نوع الحساب</label>
+                <label style="font-size: 13px">{{ $root._t("app.accountType") }}</label>
               </div>
               <div class="mb-3 col-md-12">
                 <div class="d-flex align-items-center">
                   <div class="ms-3">
                     <input type="checkbox">
-                    <label for="">منفذ مشاريع - بائع خدمات</label>
+                    <label for="">{{ $root._t("app.projectExecuter") }} - {{ $root._t("app.serviceSeller") }}</label>
                   </div>
                   <div>
                     <input type="checkbox">
-                    <label for="">متاح للتوظيف حالياً</label>
+                    <label for="">{{ $root._t("app.avaliableForJobs") }}</label>
                   </div>
                 </div>
               </div>
               <div class="col-md-12 text-center">
-                <button class="save-btn" @click.prevent="updateInfo()">حفظ التغييرات</button>
+                <button class="save-btn" @click.prevent="updateInfo()">{{ $root._t("app.saveChanges") }}</button>
               </div>
             </div>
           </form>

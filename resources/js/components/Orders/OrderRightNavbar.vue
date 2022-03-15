@@ -6,7 +6,7 @@
             
             <div class="text-center py-4">
               <div class="image-user position-relative d-inline-block">
-                <img style="width: 100px;" :src="base_url + '/assets/images/white-logo.svg'" alt="" srcset="" />
+                <img style="width: 100px;" :src="base_url + '/assets/assets/images/white-logo.svg'" alt="" srcset="" />
                 
               </div>
             
@@ -15,27 +15,27 @@
               <li class=" active">
                 <a href="#" id="panelsStayOpen-headingOne">
                   <img
-                    :src="base_url + '/assets/images/o_new.svg'"
+                    :src="base_url + '/assets/assets/images/o_new.svg'"
                     style="width: 18px"
                     alt=""
                     srcset=""
                   />
-                  <span  type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">الطلبات الجديدة</span>
+                  <span  type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">{{ $root._t("app.newOrders") }}</span>
                 </a>
                 <div id="panelsStayOpen-collapseOne" class=" collapse show" aria-labelledby="panelsStayOpen-headingOne">
                   <div class="">
                     <ul class="list-unstyled">
                       <li class="mt-2">
-                        <a href="">المسودات</a>
+                        <a href="">{{ $root._t("app.drafts") }}</a>
                       </li>
                       <li class="mt-2">
-                        <a href="">الانتظار</a>
+                        <a href="">{{ $root._t("app.waitting") }}</a>
                       </li>
                       <li class="mt-2">
-                        <a href="">العروض</a>
+                        <a href="">{{ $root._t("app.offers") }}</a>
                       </li>
                       <li class="mt-2">
-                        <a href="">مرفوض</a>
+                        <a href="">{{ $root._t("app.rejected") }}</a>
                       </li>
                     </ul>
                   </div>
@@ -44,27 +44,27 @@
               <li class=" active">
                 <a href="#" id="panelsStayOpen-headingTwo">
                   <img
-                    :src="base_url + '/assets/images/o_under.svg'"
+                    :src="base_url + '/assets/assets/images/o_under.svg'"
                     style="width: 18px"
                     alt=""
                     srcset=""
                   />
-                  <span  type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true" aria-controls="panelsStayOpen-collapseTwo">تحت التنفيذ </span>
+                  <span  type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true" aria-controls="panelsStayOpen-collapseTwo">  {{ $root._t("app.underExecuting") }} </span>
                 </a>
                 <div id="panelsStayOpen-collapseTwo" class=" collapse show" aria-labelledby="panelsStayOpen-headingTwo">
                   <div class="">
                     <ul class="list-unstyled">
                       <li class="mt-2">
-                        <a href="">المسودات</a>
+                        <a href="">{{ $root._t("app.drafts") }}</a>
                       </li>
                       <li class="mt-2">
-                        <a href="">الانتظار</a>
+                        <a href="">{{ $root._t("app.waitting") }}</a>
                       </li>
                       <li class="mt-2">
-                        <a href="">العروض</a>
+                        <a href="">{{ $root._t("app.offers") }}</a>
                       </li>
                       <li class="mt-2">
-                        <a href="">مرفوض</a>
+                        <a href="">{{ $root._t("app.rejected") }}</a>
                       </li>
                     </ul>
                   </div>

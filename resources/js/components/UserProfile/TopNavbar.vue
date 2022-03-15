@@ -43,7 +43,7 @@
               "
               class="rounded"
             >
-              بحث
+              {{ $root._t("app.search") }} 
             </button>
           </li>
           <li style="margin-right: auto">

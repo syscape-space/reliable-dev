@@ -17,34 +17,38 @@
     <div class="collapse navbar-collapse" id="collapsibleNavId">
       <ul class="navbar-nav ms-auto mt-2 mt-lg-0 w-100">
         <li class="nav-item active">
-          <router-link :to="{name:'home'}" class="nav-link">الرئيسية</router-link>
+          <router-link :to="{name:'home'}" class="nav-link">{{ $root._t("app.home") }}</router-link>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">كيف يعمل</a>
+          <a class="nav-link" href="#">{{ $root._t("app.howToWork") }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">لماذا نحن</a>
+          <a class="nav-link" href="#">{{ $root._t("app.whyWe") }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">مقدمي الخدمة</a>
+          <a class="nav-link" href="#">{{ $root._t("app.serviceProducers") }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">الوظائف الحديثة</a>
+          <a class="nav-link" href="#">{{ $root._t("app.newJobs") }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">الأسئلة الشائعة</a>
+          <a class="nav-link" href="#">{{ $root._t("app.commonQuestions") }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">الأسئلة الشائعة</a>
+          <a class="nav-link" href="#">{{ $root._t("app.commonQuestions") }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">تواصل معنا</a>
+          <a class="nav-link" href="#">{{ $root._t("app.contactUs") }}</a>
         </li>
         <li class="nav-item me-auto">
-          <a class="nav-link btn-1" href="#">طلب خدمة</a>
+          <a class="nav-link btn-1" href="#">{{ $root._t("app.serviceRequest") }}</a>
         </li>
         <li class="nav-item">
-          <router-link :to="{name:'Login'}" class="nav-link btn-2">الدخول</router-link>
+          <router-link :to="{name:'Login'}" class="nav-link btn-2">{{ $root._t("app.enter") }}</router-link>
+        </li>
+        <li class="nav-item">
+          <a v-if="$root.lang_loc == 'en'" href="./lang?loc=ar"  class="nav-link btn-2">العربية</a>
+          <a v-else href="./lang?loc=en"  class="nav-link btn-2">English</a>
         </li>
       </ul>
     </div>
