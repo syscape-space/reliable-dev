@@ -9,7 +9,7 @@
               id="dropdownMenuLink"
               data-bs-toggle="dropdown"
               aria-expanded="false"
-              ><img :src="base_url + '/assets/images/notification-nav.svg'" alt="" srcset="" />
+              ><img :src="base_url + '/assets/assets/images/notification-nav.svg'" alt="" srcset="" />
               <span class="red-circle"></span>
             </a>
             <ul class="dropdown-menu rri_o" aria-labelledby="dropdownMenuLink">
@@ -20,7 +20,7 @@
                       <img
                         class="ms-3"
                         style="width: 40px; height: 40px; border-radius: 50%"
-                        :src="base_url + '/assets/images/user.svg'"
+                        :src="base_url + '/assets/assets/images/user.svg'"
                         alt=""
                       />
                     </div>
@@ -28,7 +28,7 @@
                       <div class="btw-flex w-100">
                         <span style="color: #2b7b74">محمد مصطفي</span>
                         <span class=" ">
-                          <img :src="base_url + '/assets/images/o_cclo.svg'" alt="" />
+                          <img :src="base_url + '/assets/assets/images/o_cclo.svg'" alt="" />
                           <span style="color: #0995eb">منذ 30 دقيقة</span>
                         </span>
                       </div>
@@ -46,7 +46,7 @@
                       <img
                         class="ms-3"
                         style="width: 40px; height: 40px; border-radius: 50%"
-                        :src="base_url + '/assets/images/user.svg'"
+                        :src="base_url + '/assets/assets/images/user.svg'"
                         alt=""
                       />
                     </div>
@@ -54,7 +54,7 @@
                       <div class="btw-flex w-100">
                         <span style="color: #2b7b74">محمد مصطفي</span>
                         <span class=" ">
-                          <img :src="base_url + '/assets/images/o_cclo.svg'" alt="" />
+                          <img :src="base_url + '/assets/assets/images/o_cclo.svg'" alt="" />
                           <span style="color: #0995eb">منذ 30 دقيقة</span>
                         </span>
                       </div>
@@ -72,7 +72,7 @@
                       <img
                         class="ms-3"
                         style="width: 40px; height: 40px; border-radius: 50%"
-                        :src="base_url + '/assets/images/user.svg'"
+                        :src="base_url + '/assets/assets/images/user.svg'"
                         alt=""
                       />
                     </div>
@@ -80,7 +80,7 @@
                       <div class="btw-flex w-100">
                         <span style="color: #2b7b74">محمد مصطفي</span>
                         <span class=" ">
-                          <img :src="base_url + '/assets/images/o_cclo.svg'" alt="" />
+                          <img :src="base_url + '/assets/assets/images/o_cclo.svg'" alt="" />
                           <span style="color: #0995eb">{{ $root._t("app.login") }}</span>
                         </span>
                       </div>
@@ -96,7 +96,7 @@
           </li>
           <li class="ms-5 position-relative">
             <a href="#"
-              ><img :src="base_url + '/assets/images/nav-message.svg'" alt="" srcset="" />
+              ><img :src="base_url + '/assets/assets/images/nav-message.svg'" alt="" srcset="" />
               <span class="red-circle"></span>
             </a>
           </li>
@@ -110,12 +110,12 @@
               />
               <img
                 style="width: 15px; position: absolute; right: 7px; top: 10px"
-                :src="base_url + '/assets/images/nav-search.svg'"
+                :src="base_url + '/assets/assets/images/nav-search.svg'"
                 alt=""
               />
               <img
                 style="width: 15px; position: absolute; left: 7px; top: 10px"
-                :src="base_url + '/assets/images/nav-input.svg'"
+                :src="base_url + '/assets/assets/images/nav-input.svg'"
                 alt=""
               />
             </div>
@@ -158,7 +158,7 @@
                 >
                   <img
                     style="width: 25px; margin-left: 5px"
-                    :src="base_url + '/assets/images/dash-user.png'"
+                    :src="base_url + '/assets/assets/images/dash-user.png'"
                     alt=""
                     srcset=""
                   />

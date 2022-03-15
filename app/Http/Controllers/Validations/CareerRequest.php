@@ -27,7 +27,6 @@ class CareerRequest extends FormRequest {
 			'address' => 'required|max:255',
 			'qualification' => 'required|max:255',
 			'experience' => 'required',
-			'description' => 'required',
 			'start_at' => 'required|date|after_of_equal:today',
 			'end_at' => 'required|date|after:today'
 		];
@@ -39,7 +38,6 @@ class CareerRequest extends FormRequest {
 			'address' => 'required|max:255',
 			'qualification' => 'required|max:255',
 			'experience' => 'required',
-			'description' => 'required',
 			'start_at' => 'required|date|after_of_equal:today',
 			'end_at' => 'required|date|after:today'
 		];
@@ -61,7 +59,6 @@ class CareerRequest extends FormRequest {
 			'address' => trans('admin.address'),
 			'qualification' => trans('admin.qualification'),
 			'experience' => trans('admin.experience'),
-			'description' => trans('admin.description'),
 			'start_at' => trans('admin.start_at'),
 			'end_at' => trans('admin.end_at')
 		];

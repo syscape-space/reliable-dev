@@ -11,7 +11,7 @@
         <div>
           <div id="slider3" class="owl-carousel owl-theme"  style="display: flex;">
             <div class="images-slider-ss text-center" v-for="item in list" :key="item.id">
-              <img style="width: 150px; margin-bottom:12px" :src="base_url+'/assets/images/t1.svg'" alt="">
+              <img style="width: 150px; margin-bottom:12px" :src="base_url + '/partners/' +  item.logo" alt="">
               <h5>{{ item.name }}</h5>
             </div>
           </div>

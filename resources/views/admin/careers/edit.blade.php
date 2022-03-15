@@ -81,12 +81,6 @@
 </div>
 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
     <div class="form-group">
-        {!! Form::label('description',trans('admin.description'),['class'=>'control-label']) !!}
-        {!! Form::textarea('description', $career->description ,['class'=>'form-control','placeholder'=>trans('admin.description')]) !!}
-    </div>
-</div>
-<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-    <div class="form-group">
         {!! Form::label('start_at',trans('admin.start_at'),['class'=>'control-label']) !!}
         {!! Form::date('start_at', $career->start_at ,['class'=>'form-control','placeholder'=>trans('admin.start_at')]) !!}
     </div>

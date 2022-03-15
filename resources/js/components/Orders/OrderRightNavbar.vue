@@ -6,7 +6,7 @@
             
             <div class="text-center py-4">
               <div class="image-user position-relative d-inline-block">
-                <img style="width: 100px;" :src="base_url + '/assets/images/white-logo.svg'" alt="" srcset="" />
+                <img style="width: 100px;" :src="base_url + '/assets/assets/images/white-logo.svg'" alt="" srcset="" />
                 
               </div>
             
@@ -15,7 +15,7 @@
               <li class=" active">
                 <a href="#" id="panelsStayOpen-headingOne">
                   <img
-                    :src="base_url + '/assets/images/o_new.svg'"
+                    :src="base_url + '/assets/assets/images/o_new.svg'"
                     style="width: 18px"
                     alt=""
                     srcset=""
@@ -44,7 +44,7 @@
               <li class=" active">
                 <a href="#" id="panelsStayOpen-headingTwo">
                   <img
-                    :src="base_url + '/assets/images/o_under.svg'"
+                    :src="base_url + '/assets/assets/images/o_under.svg'"
                     style="width: 18px"
                     alt=""
                     srcset=""

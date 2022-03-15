@@ -116,7 +116,6 @@ return [
     'underExecuting' => ' Under implementation ' ,
     // showOrders
     'produce5Offers' => ' Submitted 5 offers ' ,
-    'ago' => ' since ' ,
     'hours' => ' hours ' ,
     'day' => ' day ' ,
     'count' => 'number' ,
@@ -178,7 +177,7 @@ return [
     'addNewRequest' => 'Create a new request' ,
     'actionOfAddingRequest' => 'When choosing a service, a service instruction and an explanation will appear here' ,
     'withVideoBelow' => 'With the video below' ,
-    'watchServiceRequestExplain' => 'مشاهده شرح طلب الخدمة' ,
+    'watchServiceRequestExplain' => 'View the service request explanation' ,
     'guideForServiceRequest' => 'Guidelines for requesting the service' ,
     'from' => ' from ' ,
     'steps' => ' step ' ,
@@ -223,7 +222,7 @@ return [
     // emplyment application 
     'seeProfile' => 'View profile' ,
     'filterServiceProducers' => 'Service Provider Filter' ,
-    'classifications' => 'Categories' ,
+    'classifications' => 'Classifications' ,
     'firstClass' => ' first classification ' ,
     'evaluation' => 'Evaluation' ,
     // palance
@@ -279,4 +278,46 @@ return [
     'myAccount' => 'My Account' ,
     'myBalance' => 'my balance' ,
     'memorial' => 'memorial' ,
+    // Chat
+    'ticketDetails' => 'Ticket Details' ,
+    'welcomeToday' => 'Hello how are you today.' ,
+    'canIHelpYou' => 'Fine, How are you! How can I help you' ,
+    'reply' => 'Alhamdulillah, I had a problem receiving my credit' ,
+    // Ticket 1
+    'donnotHaveTicket' => "You don't have tickets" ,
+    'newTicket' => 'new ticket' ,
+    // Ticket 2 
+    'youHave' => 'You Have' ,
+    'Tickets' => 'Tickets' ,
+    'ago' => 'Ago' ,
+    'almost' => 'Almost' ,
+    'goodMorning' => 'Good morning how are you mohammed today' ,
+    'ticketNum' => 'ticket number' ,
+    'month' => 'Month',
+    // Notification
+    'action' => 'Submitted an offer on your post today' ,
+    'minute' => 'minute' ,
+    // Profile 2
+    'countries' => 'Al Riyadh, Saudi Arabia' ,
+    'aboutMe' => 'brief about me' ,
+    'works' => 'Business' ,
+    'evaluations' => 'Reviews' ,
+    'hiring' => 'Recruit' ,
+    'twoYears' => 'two years' ,
+    'officeMembership' => 'membership' ,
+    'mawthoqAccount' => 'Account' ,
+    'profile' => 'Profile personly' ,
+    'completedByRatio' => 'complete' ,
+    'Specialties' => 'Specialties' ,
+    'specialty' => 'specialty' ,
+    'submittedReviews' => 'Submitted reviews' ,
+    'availabilityNow' => 'Availability now',
+    'connect' => 'Connected' ,
+    'executed' => 'Executed On Mawthoq' ,
+    // Profile 3
+    'requestAddressHere' => 'Request address here' ,
+    'dealNow' => 'negotiate now' ,
+    'expired' => 'Finished' ,
+    // Profile 4
+    'portFilteringForOthers' => 'Port filtering for others'
 ];

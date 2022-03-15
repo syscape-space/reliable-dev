@@ -9,7 +9,7 @@
         <div class="mt-5">
           <div class="d-flex align-items-center justify-content-between">
             <h4>{{ $root._t("app.serviceProducers") }}</h4>
-            <h6 style="color: #0995eb">{{ $root._t("app.descoverServiceProducers") }}</h6>
+            <router-link :to="{name:'Users'}" style="color: #0995eb">{{ $root._t("app.descoverServiceProducers") }}</router-link>
           </div>
         </div>
         <div class="mt-5">
@@ -21,8 +21,7 @@
                     class="position-relative ms-2"
                     style="display: inline-block"
                   >
-                  <!--  '/photo_profile' +  item.photo_profile-->
-                    <img style="width: 50px" :src="base_url + '/assets/images/user.svg'  " alt="" />
+                    <img style="width: 100% ; heigth: 100%;" :src="base_url + '/storage/' +  item.photo_profile  " alt="" />
                     <i class="online-icon fas fa-circle"></i>
                   </span>
                   <span>
@@ -58,7 +57,7 @@ export  default {
   data(){
     return{
       base_url:base_url ,
-      list : []
+      list : [] 
     };
   },
   mounted() {

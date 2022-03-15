@@ -279,4 +279,46 @@ return [
     'myAccount' => 'حسابي' ,
     'myBalance' => 'رصيدى' ,
     'memorial' => 'تذكارى' ,
+    // Chat
+    'ticketDetails' => 'تفاصيل التذكرة' ,
+    'welcomeToday' => 'مرحبا كيف حالك اليوم.' ,
+    'canIHelpYou' => 'بخير كيف حالك! وكيف يمكنني مساعدتك' ,
+    'reply' => 'الحمدلله لقد واجهتني مشكله في استلام رصيدي الخاص' ,
+    // Ticket 1
+    'donnotHaveTicket' => 'ليس لديك تذاكر' ,
+    'newTicket' => 'تذكرة جديدة' ,
+    // Ticket 2 
+    'youHave' => 'لديك' ,
+    'Tickets' => 'تذكره' ,
+    'ago' => 'منذ' ,
+    'almost' => 'تقريبا' ,
+    'goodMorning' => 'صباح الخير كيفك محمد اليوم' ,
+    'ticketNum' => 'تذكره رقم' ,
+    'month' => 'شهر' ,
+    // Notification
+    'action' => 'قام بتقديم عرض علي منشورك اليوم' ,
+    'minute' => 'دقيقه' ,
+    // Profile 2
+    'countries' => 'الرياض, السعودية' ,
+    'aboutMe' => 'نبذه عني' ,
+    'works' => 'الاعمال' ,
+    'evaluations' => 'التقييمات' ,
+    'hiring' => 'توظيف' ,
+    'twoYears' => 'سنتين' ,
+    'officeMembership' => ' عضويه مكتب' ,
+    'mawthoqAccount' => 'حساب موثوق' ,
+    'profile' => 'الملف الشخصي' ,
+    'completedByRatio' => 'مكتمل بنسبة' ,
+    'Specialties' => 'تخصصات' ,
+    'specialty' => 'تخصص' ,
+    'submittedReviews' => 'التقييمات المقدمة' ,
+    'availabilityNow' => 'حالة التواجد الان',
+    'connect' => 'متصل' ,
+    'executed' => 'منفذ علي موثوق' ,
+    // Profile 3
+    'requestAddressHere' => 'عنوان الطلب هنا' ,
+    'dealNow' => 'التفاوض الان' ,
+    'expired' => 'منتهى' ,
+    // Profile 4
+    'portFilteringForOthers' => 'ترشيخ المنفذ بالنسبة للاخرين'
 ];

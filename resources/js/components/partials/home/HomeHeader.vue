@@ -1,5 +1,5 @@
 <template>
-  <header
+  <header id="headMain"
       class="text-center text-white d-flex align-items-center justify-content-center flex-column"
   >
     <h4 style="font-weight: 300">{{ $root._t("app.appName") }}</h4>
@@ -16,12 +16,11 @@ export default {
   name: "HomeHeader",
   data(){
     return{
-      base_url:base_url
+      base_url:base_url ,
     };
   },
 }
 </script>
 
 <style scoped>
-
 </style>
