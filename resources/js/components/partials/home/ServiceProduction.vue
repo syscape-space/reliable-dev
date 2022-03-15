@@ -9,7 +9,7 @@
         <div class="mt-5">
           <div class="d-flex align-items-center justify-content-between">
             <h4>{{ $root._t("app.serviceProducers") }}</h4>
-            <h6 style="color: #0995eb">{{ $root._t("app.descoverServiceProducers") }}</h6>
+            <router-link :to="{name:'Users'}" style="color: #0995eb">{{ $root._t("app.descoverServiceProducers") }}</router-link>
           </div>
         </div>
         <div class="mt-5">
