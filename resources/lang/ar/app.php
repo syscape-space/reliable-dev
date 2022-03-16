@@ -241,7 +241,10 @@ return [
     'fatoorah' => 'فاتورة' ,
     // presonal 
     'presonalData' => 'البيانات الشخصيه' ,
-    'fullname' => 'الاسم بالكامل' ,
+    'firstname' => 'الاسم الاول' ,
+    'midname' => 'الاسم الاوسط' ,
+    'lastname' => 'الاسم الاخير' ,
+    'profileImage' => 'الصوره الشخصيه' ,
     'email' => 'البريد الالكترونى' ,
     'mobile' => 'رقم الهاتف' ,
     'uploadAttchmentOfCommercialRegister' => 'رفه مرفقات التسجيل التجارى' ,

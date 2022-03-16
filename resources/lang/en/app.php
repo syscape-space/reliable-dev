@@ -240,7 +240,10 @@ return [
     'fatoorah' => 'invoice' ,
     // presonal 
     'presonalData' => 'Personal data' ,
-    'fullname' => 'fullname' ,
+    'firstname' => 'first name' ,
+    'midname' => 'middle name' ,
+    'lastname' => 'last name' ,
+    'profileImage' => 'profile image' ,
     'email' => 'email' ,
     'mobile' => 'mobile' ,
     'uploadAttchmentOfCommercialRegister' => 'Upload commercial attachments' ,
