@@ -34,9 +34,7 @@
         <li class="nav-item">
           <a class="nav-link" href="#">{{ $root._t("app.commonQuestions") }}</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">{{ $root._t("app.commonQuestions") }}</a>
-        </li>
+      
         <li class="nav-item">
           <a class="nav-link" href="#">{{ $root._t("app.contactUs") }}</a>
         </li>
