@@ -74,7 +74,7 @@ class UsersRequest extends FormRequest {
              'middle_name'=>'required|string',
              'last_name'=>'required|string',
              'name'=>'required|string',
-             'email'=>'required|email|unique:users,email',
+             'email'=>'required|email',
              'email_verify'=>'required|string|in:pending,verified',
              'mobile'=>'sometimes|nullable|numeric',
              'mobile_verify'=>'required|string|in:pending,verified',
