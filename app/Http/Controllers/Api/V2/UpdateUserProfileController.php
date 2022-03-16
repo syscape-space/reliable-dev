@@ -116,7 +116,9 @@ class UpdateUserProfileController extends Controller{
         $data = $validator->valid();
     
         $data["user_id"] = auth()->id();
-
+        if (\request()->password){
+            $data['password'] = bcrypt(\request()->password);
+        }
         if($request->hasFile('photo_profile')){
             if(file_exists(public_path('photo_profile/' . $user->photo_profile)))
                 unlink(public_path('photo_profile/' . $user->photo_profile));
