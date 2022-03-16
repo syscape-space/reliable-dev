@@ -4,12 +4,12 @@
   <div class="small-box bg-success">
     <div class="inner">
       <h3>{{ App\Models\AdminGroup::count() }}</h3>
-      <p>{{ trans('admin.admingroups') }}</p>
+      <p>العملاء</p>
     </div>
     <div class="icon">
       <i class="fas fa-users"></i>
     </div>
-    <a href="{{ aurl('admingroups') }}" class="small-box-footer">{{ trans('admin.admingroups') }} <i class="fas fa-arrow-circle-right"></i></a>
+    <a href="{{ aurl('admingroups') }}" class="small-box-footer">العملاء <i class="fas fa-arrow-circle-right"></i></a>
   </div>
 </div>
 <!--admingroups_end-->
@@ -19,12 +19,12 @@
   <div class="small-box bg-success">
     <div class="inner">
       <h3>{{ App\Models\Admin::count() }}</h3>
-      <p>{{ trans('admin.admins') }}</p>
+      <p> المشرفين</p>
     </div>
     <div class="icon">
       <i class="fas fa-users"></i>
     </div>
-    <a href="{{ aurl('admins') }}" class="small-box-footer">{{ trans('admin.admins') }} <i class="fas fa-arrow-circle-right"></i></a>
+    <a href="{{ aurl('admins') }}" class="small-box-footer"> المشرفين <i class="fas fa-arrow-circle-right"></i></a>
   </div>
 </div>
 <!--admins_end-->

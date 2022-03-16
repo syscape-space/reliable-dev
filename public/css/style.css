@@ -1,4 +1,4 @@
-/* 
+/*
 * Bootstrap v5.x
 */
 /* *** Global ***/
@@ -398,7 +398,7 @@ select {
 /* *** ********* AUTH * *** ** * * * * */
 
 .login-page {
-  background-image: url("../images/login.png");
+  background-image: url("../images/login.png") !important;
   background-size: cover;
   min-height: 100vh;
 }
@@ -954,7 +954,7 @@ select {
 
 
 .item-chat li.sec-list {
-  
+
   text-align: right;
 }
 .item-chat li.sec-list div{
