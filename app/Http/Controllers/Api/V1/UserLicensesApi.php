@@ -37,7 +37,10 @@ class UserLicensesApi extends Controller{
              */
             public function index()
             {
-            	$UserLicense = UserLicense::select($this->selectColumns)->with($this->arrWith())->orderBy("id","desc")->paginate(15);
+                $this->validate(\request(),[
+                    'user_id'   =>  'required|exists:users,id'
+                ]);
+            	$UserLicense = UserLicense::select($this->selectColumns)->where('user_id',\request('user_id'))->with($this->arrWith())->orderBy("id","desc")->paginate(15);
                return successResponseJson(["data"=>$UserLicense]);
             }
 
