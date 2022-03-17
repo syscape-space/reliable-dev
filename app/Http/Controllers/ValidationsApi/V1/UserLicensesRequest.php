@@ -26,7 +26,7 @@ class UserLicensesRequest extends FormRequest {
 	protected function onCreate() {
 		return [
              'license_name'=>'required|string',
-             'license_file'=>'required|file|image|pdf',
+             'license_file'=>'required|file|pdf',
              'user_id'=>'required|integer|exists:users,id',
              'license_end_at'=>'',
              'comment'=>'sometimes|nullable|string',
@@ -37,7 +37,7 @@ class UserLicensesRequest extends FormRequest {
 	protected function onUpdate() {
 		return [
              'license_name'=>'required|string',
-             'license_file'=>'required|file|image|pdf',
+             'license_file'=>'required|file|pdf',
              'user_id'=>'required|integer|exists:users,id',
              'license_end_at'=>'',
              'comment'=>'sometimes|nullable|string',
