@@ -151,6 +151,9 @@ export default {
   data() {
     return {
       name : "" ,
+      firstname : "" ,
+      midname : "" ,
+      lastname : "" ,
       mobile: "",
       email: "",
       password: "",
@@ -163,9 +166,28 @@ export default {
      
     registerFun() {
 
+      let Fullname = this.name ;
+      let ourNameSplitter = Fullname.split(" ");
+      if( ourNameSplitter.length === 1){
+        this.firstname = ourNameSplitter[0];
+        this.midname = null ;
+        this.lastname = null ;
+      }else if( ourNameSplitter.length === 2 ){
+        this.firstname = ourNameSplitter[0];
+        this.midname = ourNameSplitter[1];
+        this.lastname = null ;
+      }else{
+        this.firstname = ourNameSplitter[0];
+        this.midname = ourNameSplitter[1];
+        this.lastname = ourNameSplitter[2];
+      }
+
       axios
         .post("https://law-mawthuq.com/reliable/public/api/v2/register", {
           name : this.name ,
+          first_name : this.firstname ,
+          middle_name : this.midname , 
+          last_name : this.lastname ,
           mobile: this.mobile,
           email: this.email,
           id_number : this.id_number ,

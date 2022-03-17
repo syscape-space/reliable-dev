@@ -36,7 +36,7 @@
           <div class="col-lg-4">
             <div class="contain contain-3" style="background-color: #363848">
               <div class="our-project pt-2">
-                <img class="me-4 " style="width: 20px; " :src="base_url+'/assets/images/pull-balanc.svg'" alt="" srcset="">
+                <img class="me-4 " style="width: 20px; " :src="base_url+'/assets/images/pull-balanc.svg'">
                 <span class="text-light me-2" 
                 style="font-size: 14px;">{{ $root._t("app.balanceCanGet") }}</span>
               </div>
@@ -198,7 +198,7 @@
 export default {
   data(){
     return{
-      base_url:base_url
+      base_url : base_url
     };
   },
 }
