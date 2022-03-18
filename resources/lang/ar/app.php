@@ -323,5 +323,11 @@ return [
     'dealNow' => 'التفاوض الان' ,
     'expired' => 'منتهى' ,
     // Profile 4
-    'portFilteringForOthers' => 'ترشيخ المنفذ بالنسبة للاخرين'
+    'portFilteringForOthers' => 'ترشيخ المنفذ بالنسبة للاخرين' ,
+    // License Show
+    'licenseNameOrLicenseNumber' => 'اسم الترخيص / رقم الرخصة' ,
+    'license' => 'الترخيص' ,
+    'licenseExpirdDate' => 'تاريخ نهاية الترخيص' ,
+    'addLicenseBtn' => 'اضافه رخصه'
+    
 ];

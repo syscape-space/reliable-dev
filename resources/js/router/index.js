@@ -7,6 +7,10 @@ import Register from '../views/AccountPages/registerPage.vue'
 import Verify from '../views/AccountPages/verifyPage.vue'
 import Success from '../views/AccountPages/successPage.vue'
 
+// License
+import licenseShowPage from '../views/LicensePages/licenseShowPage.vue'
+import addLicensePage from '../views/LicensePages/addLicensePage.vue'
+
 // Users Profile
 import u_indexPage from '../views/UserProfilePages/u_indexPage.vue'
 import profilePage from '../views/UserProfilePages/profilePage.vue'
@@ -56,6 +60,13 @@ const routes = [
     },
     {
         path : prefix+'/register' , component : Register,name:"Register"
+    },
+    // License Pages Routes
+    {
+        path : prefix+'/add_license' , beforeEnter : guardMyroute , component : addLicensePage,name:"addLicensePage"
+    }, 
+    {
+        path : prefix+'/license_show' , beforeEnter : guardMyroute , component : licenseShowPage,name:"licenseShowPage"
     },
     // start of verify test route ==> if clicked will go to success component this for test only
     {
