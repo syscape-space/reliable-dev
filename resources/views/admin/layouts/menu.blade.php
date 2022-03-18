@@ -511,6 +511,12 @@ admin()->user()->role("systemmessages_show"))
             <p>{{trans('admin.add_vendor')}} </p>
           </a>
         </li>
+        <li class="nav-item">
+          <a href="" class="nav-link ">
+            <i class="fas fa-plus nav-icon"></i>
+            <p> اضافة ترخيص</p>
+          </a>
+        </li>
       </ul>
     </li>
     <li class="nav-item  {{ in_array(request('membership_type'),['user'])?'menu-open':'' }} ">

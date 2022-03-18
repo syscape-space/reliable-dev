@@ -21,7 +21,11 @@
                     class="position-relative ms-2"
                     style="display: inline-block"
                   >
-                    <img style="width: 100% ; heigth: 100%;" :src="base_url + '/storage/' +  item.photo_profile  " alt="" />
+                    <img style="width: 50px;
+    opacity: 1;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;" :src="base_url + '/storage/' +  item.photo_profile  " alt="" />
                     <i class="online-icon fas fa-circle"></i>
                   </span>
                   <span>
@@ -57,11 +61,11 @@ export  default {
   data(){
     return{
       base_url:base_url ,
-      list : [] 
+      list : []
     };
   },
   mounted() {
-    
+
     this.getAllServiceProduction();
   },
   methods: {

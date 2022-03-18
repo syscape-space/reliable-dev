@@ -602,6 +602,7 @@ return [
 	'link' => 'رابط',
 	'successfully_sent' => 'تم الإرسال بنجاح',
     'our_services'  =>  'خدماتنا',
+    'license'  =>  'التراخيص',
 	'careerrequests' => 'طلبات الوظائف',
 	'show_attached' => 'مشاهدة المرفق',
 ];
