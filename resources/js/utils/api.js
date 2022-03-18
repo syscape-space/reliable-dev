@@ -1,7 +1,7 @@
 import axios from "axios";
 
 let api = axios.create({
-	baseURL: 'http://law-mawthuq.com/reliable/public/api/v2',
+	baseURL: 'https://law-mawthuq.com/reliable/public/api/v2',
 	withCredentials: false ,
 	'Content-Type': 'multipart/form-data' ,
 	Authorization: "Bearer " + localStorage.getItem("token"),

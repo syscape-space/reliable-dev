@@ -322,5 +322,10 @@ return [
     'dealNow' => 'negotiate now' ,
     'expired' => 'Finished' ,
     // Profile 4
-    'portFilteringForOthers' => 'Port filtering for others'
+    'portFilteringForOthers' => 'Port filtering for others' ,
+    // License Show
+    'licenseNameOrLicenseNumber' => 'License Name / License number' ,
+    'license' => 'License' ,
+    'licenseExpirdDate' => 'License Expired Date' ,
+    'addLicenseBtn' => 'Add License'
 ];
