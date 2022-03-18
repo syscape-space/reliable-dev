@@ -6,6 +6,12 @@ use Illuminate\Support\Facades\Route;
 Route::group(['prefix' => app('admin'), 'middleware' => 'Lang'],
 
 function () {
+
+	Route::view('license', 'admin.users.license-create');
+	Route::view('license/show', 'admin.users.license-show');
+
+
+
 		Route::get('lock/screen', 'Admin\AdminAuthenticated@lock_screen');
 		Route::get('theme/{id}', 'Admin\Dashboard@theme');
 		Route::group(['middleware' => 'admin_guest'], function () {
@@ -115,8 +121,8 @@ function () {
 			Route::post('systemmessages/multi_delete', 'Admin\SystemMessages@multi_delete');
 			Route::resource('balancerecharges', 'Admin\BalanceRecharges');
 			Route::post('balancerecharges/multi_delete', 'Admin\BalanceRecharges@multi_delete');
-			Route::resource('balancewithdrawals','Admin\BalanceWithdrawals'); 
-			Route::post('balancewithdrawals/multi_delete','Admin\BalanceWithdrawals@multi_delete'); 
+			Route::resource('balancewithdrawals','Admin\BalanceWithdrawals');
+			Route::post('balancewithdrawals/multi_delete','Admin\BalanceWithdrawals@multi_delete');
 
 
 			Route::resource('supportmessages', 'Admin\SupportMessageController');

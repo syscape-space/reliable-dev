@@ -6,7 +6,7 @@
           <strong>{{ error }}</strong>
         </div>
       </div>
-      <div class="personal-info">
+      <div class="personal-info" style="    padding: 0 20px;">
         <h6 class="my-4">{{ $root._t("app.presonalData") }}</h6>
         <form action="" enctype="multipart/form-data">
           <div class="row w-100 mx-0 px-0">
@@ -55,7 +55,7 @@
                 placeholder="profile image"
               />
             </div>
-            <div class="mb-3 col-md-12">
+            <div class="mb-3 col-md-3">
               <label style="font-size: 13px">{{ $root._t("app.email") }}</label>
               <input
                 class="input-personal mt-1 w-100"
@@ -64,7 +64,7 @@
                 placeholder="...البريد الالكتروني"
               />
             </div>
-            <div class="mb-3 col-md-12">
+            <div class="mb-3 col-md-3">
               <label style="font-size: 13px">{{
                 $root._t("app.mobile")
               }}</label>
@@ -75,7 +75,7 @@
                 placeholder="...رقم الهاتف"
               />
             </div>
-            <div class="mb-3 col-md-6">
+            <div class="mb-3 col-md-3">
               <div class="content-col">
                 <label style="font-size: 13px">{{
                   $root._t("app.uploadAttchmentOfCommercialRegister")
@@ -94,7 +94,7 @@
                 /></a>
               </div>
             </div>
-            <div class="mb-3 col-md-6">
+            <div class="mb-3 col-md-3">
               <div class="content-col">
                 <label style="font-size: 13px">{{
                   $root._t("app.addDateOfEndingOfCommercialRegister")
@@ -113,7 +113,7 @@
                 /></a>
               </div>
             </div>
-            <div class="mb-3 col-md-6">
+            <div class="mb-3 col-md-3">
               <div class="content-col">
                 <label style="font-size: 13px">{{
                   $root._t("app.uploadLicense")
@@ -133,7 +133,7 @@
                 </a>
               </div>
             </div>
-            <div class="mb-3 col-md-6">
+            <div class="mb-3 col-md-3">
               <div class="content-col">
                 <label style="font-size: 13px">{{
                   $root._t("app.dateOfEndingLicense")
@@ -153,7 +153,7 @@
                 </a>
               </div>
             </div>
-            <div class="mb-3 col-md-6">
+            <div class="mb-3 col-md-3">
               <div class="content-col">
                 <label style="font-size: 13px">{{
                   $root._t("app.nationality")
@@ -166,7 +166,7 @@
                 />
               </div>
             </div>
-            <div class="mb-3 col-md-6">
+            <div class="mb-3 col-md-3">
               <div class="content-col">
                 <label style="font-size: 13px">{{
                   $root._t("app.dateOfBirth")
@@ -182,7 +182,7 @@
             <div class="mb-3 col-md-12">
               <h6 class="pt-4">{{ $root._t("app.websiteData") }}</h6>
             </div>
-            <div class="mb-3 col-md-6 mt-3">
+            <div class="mb-3 col-md-3 ">
               <div class="content-col">
                 <label style="font-size: 13px">{{
                   $root._t("app.specialist")
@@ -195,7 +195,7 @@
                 />
               </div>
             </div>
-            <div class="mb-3 col-md-6 mt-3">
+            <div class="mb-3 col-md-3 ">
               <div class="content-col">
                 <label style="font-size: 13px">{{
                   $root._t("app.jobTitle")
@@ -207,6 +207,17 @@
                   placeholder="...المسمى الوظيفي"
                 />
               </div>
+            </div>
+            <div class="mb-3 col-md-3">
+              <label style="font-size: 13px">{{
+                $root._t("app.skills")
+              }}</label>
+              <input
+                class="input-personal mt-1 w-100"
+                type="text"
+                v-model="skills"
+                placeholder="...المهارات الشخصية"
+              />
             </div>
             <div class="mb-3 col-md-12">
               <label style="font-size: 13px">{{ $root._t("app.brief") }}</label>
@@ -222,17 +233,7 @@
                 v-model="brief"
               ></textarea>
             </div>
-            <div class="mb-3 col-md-12">
-              <label style="font-size: 13px">{{
-                $root._t("app.skills")
-              }}</label>
-              <input
-                class="input-personal mt-1 w-100"
-                type="text"
-                v-model="skills"
-                placeholder="...المهارات الشخصية"
-              />
-            </div>
+
             <div class="mb-3 col-md-12">
               <label style="font-size: 13px">{{
                 $root._t("app.accountType")

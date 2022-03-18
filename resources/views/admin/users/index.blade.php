@@ -1,6 +1,33 @@
 @extends('admin.index')
 @section('content')
+<div class="d-flex flex-wrap">
+	<button class="btn btn-sm m-1 btn-primary" type="button" name="button">
+	<i class="fas fa-building"></i> 	الشركات
+		<span class=" mr-2 badge bg-light text-dark">10</span>
+	</button>
+	<button class="btn btn-sm m-1 btn-primary" type="button" name="button">
+		<i class="fas fa-user"></i> افراد
+		<span class="badge bg-light text-info">10</span>
+	</button>
+	<button class="btn btn-sm m-1 btn-success" type="button" name="button">
+		<i class="fas fa-dot-circle"></i> مفعل
+		<span class=" mr-2 badge bg-light text-dark">10</span>
+	</button>
+	<button class="btn btn-sm m-1 btn-danger" type="button" name="button">
+		<i class="fas fa-dot-circle"></i> غير مفعل
+		<span class=" mr-2 badge bg-light text-dark">10</span>
+	</button>
+	<button class="btn btn-sm m-1 btn-danger" type="button" name="button">
+		<i class="fas fa-ban"></i> منتهي الترخيص
+		<span class=" mr-2 badge bg-light text-dark">10</span>
+	</button>
+	<button class="btn btn-sm m-1 btn-danger" type="button" name="button">
+		<i class="fas fa-hand-paper"></i> موقف
+		<span class=" mr-2 badge bg-light text-dark">10</span>
+	</button>
+</div>
 {!! Form::open(["method" => "post","url" => [aurl('/users/multi_delete')]]) !!}
+
 <div class="card card-dark">
 	<div class="card-header">
 		<h3 class="card-title">{{!empty($title)?$title:''}}</h3>
@@ -46,4 +73,3 @@
 {!! $dataTable->scripts() !!}
 @endpush
 		@endsection
-		
