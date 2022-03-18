@@ -39,13 +39,9 @@
           <div class="col-lg-4">
             <div class="contain contain-3" style="background-color: #363848">
               <div class="our-project pt-2">
-<<<<<<< HEAD
                 <img class="me-4 " style="width: 20px; " :src="base_url+'/assets/images/pull-balanc.svg'" alt="" srcset="">
                 <span class="text-light me-2"
-=======
-                <img class="me-4 " style="width: 20px; " :src="base_url+'/assets/images/pull-balanc.svg'">
-                <span class="text-light me-2" 
->>>>>>> f4f0f9acb46b8abb9262e6d92441764c1408363f
+
                 style="font-size: 14px;">{{ $root._t("app.balanceCanGet") }}</span>
               </div>
               <p class="text-center fs-4 my-2 text-light">500</p>
