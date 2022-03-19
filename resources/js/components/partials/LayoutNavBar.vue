@@ -26,7 +26,7 @@
           <a class="nav-link" href="#">{{ $root._t("app.whyWe") }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">{{ $root._t("app.serviceProducers") }}</a>
+          <router-link :to="{ name : 'Users' }" class="nav-link" href="#">{{ $root._t("app.serviceProducers") }}</router-link>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">{{ $root._t("app.newJobs") }}</a>

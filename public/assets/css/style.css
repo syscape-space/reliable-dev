@@ -1003,3 +1003,16 @@ select {
   border-radius: 11px;
   margin: 5px;
 }
+
+.search-cc {
+  background-color: #048e81;
+  border-color: #048e81;
+  color: #fff;
+}
+.search-cc::placeholder {
+  color: #fff;
+}
+
+.page-link {
+  color: #048e81;
+}

@@ -141,6 +141,8 @@ function () {
 			Route::get('careerrequests', 'Admin\CareerRequestController@index');
 			Route::get('careerrequests/{id}', 'Admin\CareerRequestController@show');
 			Route::post('careerrequests/multi_delete','Admin\CareerRequestController@multi_delete');
+		
 		});
 
 	});
+	

@@ -42,7 +42,7 @@
                         <div class="prof-mawthoq  text-center flex-column justify-content-end"
                           style="background-color: #C9FFE1;">
                           <div class="text-center w-100">
-                            <img :src="base_url + '/assets/assets/images/prf-verf.svg'" alt=""> 
+                            <img :src="base_url + '/assets/images/prf-verf.svg'" alt=""> 
                           </div>
                           <div class="w-100" style="color: #26A25C;">
                             {{ $root._t("app.mawthoqAccount") }}
