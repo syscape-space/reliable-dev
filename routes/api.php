@@ -30,6 +30,7 @@ Route::group(['middleware' => ['ApiLang', 'cors'], 'prefix' => 'v2', 'namespace'
 
 		Route::get('vendors', 'VendorController@index');
 		Route::get('vendors/{id}', 'VendorController@show');
+		
 
 
 	});
@@ -50,6 +51,8 @@ function () {
 
 		Route::apiResource("cities", "CitiesApi", ["as" => "api.cities"]);
 		Route::post("cities/multi_delete", "CitiesApi@multi_delete");
+
+		Route::get('vendor_profile/{id}', 'VendorController@vendorProfile');
 
 
 		Route::get('/', function () {
