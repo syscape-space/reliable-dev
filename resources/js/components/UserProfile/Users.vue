@@ -57,24 +57,26 @@
             <div class="col-md-9">
               <div class="row w-100 mx-0 px-0">
                 <div class="col-md-4 mb-3"  v-for="item in filterdList" :key="item.id">
-                  <div class="p-3 bg-users text-center">
-                    <div class="text-center" v-if="item.photo_profile">
-                      <img class="uses-img" :src="base_url + '/storage/' +  item.photo_profile  " alt="">
+                  <form>
+                    <div class="p-3 bg-users text-center">
+                      <div class="text-center" v-if="item.photo_profile">
+                        <img class="uses-img" :src="base_url + '/storage/' +  item.photo_profile  " alt="">
+                      </div>
+                      <div class="text-center" v-else>
+                        <img class="uses-img" :src="base_url + '/assets/images/emptyUser.png'" alt="">
+                      </div>
+                      <div class="text-center"> 
+                        <i class="fas fa-star yellow"></i>
+                        <i class="fas fa-star yellow"></i>
+                        <i class="fas fa-star yellow"></i>
+                        <i class="fas fa-star yellow"></i>
+                        <i class="fas fa-star"></i>
+                      </div>
+                      <span class="text-center ">{{ item.name }}</span> <br>
+                      <span style="color: #2B7B74;" class="mb-2 d-inline-block text-center">{{ item.bio }} </span>
+                      <button @click.prevent="getProfile2( item.id )" class="btn-users">{{ $root._t("app.seeProfile") }}</button>
                     </div>
-                    <div class="text-center" v-else>
-                      <img class="uses-img" :src="base_url + '/assets/images/emptyUser.png'" alt="">
-                    </div>
-                    <div class="text-center"> 
-                      <i class="fas fa-star yellow"></i>
-                      <i class="fas fa-star yellow"></i>
-                      <i class="fas fa-star yellow"></i>
-                      <i class="fas fa-star yellow"></i>
-                      <i class="fas fa-star"></i>
-                    </div>
-                    <span class="text-center ">{{ item.name }}</span> <br>
-                    <span style="color: #2B7B74;" class="mb-2 d-inline-block text-center">{{ item.bio }} </span>
-                    <button @click.prevent="getProfile2()" class="btn-users">{{ $root._t("app.seeProfile") }}</button>
-                  </div>
+                  </form>
                 </div>
               </div>
             </div>
@@ -158,17 +160,9 @@ export  default {
         });
     } ,
 
-    getProfile2(){
-      api
-        .get("http://localhost/reliable/api/v1/vendor_profile")
-        .then((response) => {
-          console.log(response);
-        })
-        // error.response.data.errors
-        .catch((e) => {
-          // this.errors = e.response.data.errors;
-          console.log(e.response.data.errors);
-        });
+    getProfile2( id ){
+      localStorage.setItem("uId", id);
+      this.$router.push({ name: "Profile4" });
     }
     
   }

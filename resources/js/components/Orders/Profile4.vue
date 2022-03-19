@@ -19,7 +19,7 @@
                         <img
                           style="width: 60px; height: 60px"
                           class="uses-img"
-                          :src="base_url + '/assets/images/user.svg'"
+                          :src="base_url + '/storage/' + image"
                           alt=""
                         />
                       </div>
@@ -30,7 +30,7 @@
                         <i class="fas fa-star yellow"></i>
                         <i class="fas fa-star"></i>
                       </div>
-                      <span class="text-center">محمد مصطفي</span> <br />
+                      <span class="text-center"> {{ username }} </span> <br />
                       <span
                         style="color: #0995eb"
                         class=" d-inline-block text-center"
@@ -182,13 +182,37 @@
 </template>
 <script>
 import UnderNavbar from '../Orders/underNavbar.vue' ;
+import api from "../../utils/api";
 export default {
+  mounted(){
+    this.getProfile2();
+  },
   data(){
     return{
-      base_url:base_url 
+      base_url:base_url ,
+      username : "" ,
+      image : null ,
     };
   },
-  components : {UnderNavbar}
+  components : {UnderNavbar} ,
+  methods:{
+    getProfile2(){
+      let userId = localStorage.getItem("uId");
+      let mainRoute = "http://localhost/reliable/public/api/v1/vendor_profile/" + userId ;
+      api
+        .get(mainRoute)
+        .then((response) => {
+          this.username = response.data.userData[0].name ;
+          this.image = response.data.userData[0].photo_profile ;
+          console.log(response.data.userData[0])
+        })
+        // error.response.data.errors
+        .catch((e) => {
+          // this.errors = e.response.data.errors;
+          console.log(e.response.data.errors);
+        });
+    }
+  }
 }
 </script>
 <style scoped>
