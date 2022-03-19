@@ -30,7 +30,7 @@
                 class="mt-3"
                 style="color: #fff; font-size: 16px; margin-bottom: 0px"
               >
-                {{ name }}
+                {{ user.name }}
               </h4>
             </div>
             <ul class="px-0 list-unstyled text-center dash-list mt-0">
@@ -57,7 +57,7 @@
                 </router-link>
               </li>
               <li>
-                <router-link :to="{ name : 'palance' }">
+                <router-link :to="{ name : 'Balance' }">
                   <img
                     :src="base_url+'/assets/images/dash-balance.svg'"
                     style="width: 19px"
@@ -105,7 +105,8 @@ export default {
   data(){
     return{
       name : "" ,
-      base_url : base_url
+      base_url : base_url,
+      user:{},
     }
   },
   mounted() {
@@ -114,9 +115,9 @@ export default {
   methods: {
     currentUser() {
       api
-        .get("/account?token=" + localStorage.getItem("token") )
+        .get("/v1/account")
         .then((response) => {
-          this.name = response.data.user.name
+          this.user = response.data.data;
         })
         // error.response.data.errors
         .catch((e) => {

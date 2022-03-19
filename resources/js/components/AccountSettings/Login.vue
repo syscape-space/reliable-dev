@@ -90,7 +90,7 @@ export default {
   methods:{
     loginFun() {
           api
-            .post("/login", {
+            .post("/v2/login", {
               id_number: this.id_number,
               password: this.password,
             })

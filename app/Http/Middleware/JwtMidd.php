@@ -36,10 +36,10 @@ class JwtMidd
             JWTAuth::setToken(\request('token'));
             $user = JWTAuth::authenticate(\request('token'));
             if(!$user){
-                return errorResponseJson(["message"=>$e->getMessage(),'message'=>'invalid token']);
+                return errorResponseJson(['message'=>'invalid token']);
             }
         }catch(\Exeption $e){
-            return errorResponseJson(["message"=>$e->getMessage(),'message'=>'البيانات غير كاملة']);
+            return errorResponseJson(["message"=>$e->getMessage()]);
         }
         return $next($request);
     }

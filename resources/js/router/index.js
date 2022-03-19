@@ -15,7 +15,7 @@ import addLicensePage from '../views/LicensePages/addLicensePage.vue' // wait fo
 import u_indexPage from '../views/UserProfilePages/u_indexPage.vue'
 import profilePage from '../views/UserProfilePages/profilePage.vue' // done
 import employmentApplications from '../views/UserProfilePages/employmentApplications.vue'
-import palance from '../views/UserProfilePages/palance.vue'
+import Balance from '../views/UserProfilePages/Balance.vue'
 import offerOrder from '../views/UserProfilePages/offerOrder.vue'
 import DocumentRequest from '../views/UserProfilePages/documentRequest.vue'
 import ChatPage from '../views/UserProfilePages/chatPage.vue'
@@ -34,7 +34,7 @@ import Profile3 from '../views/OrdersPages/profile3Page.vue'
 import Profile4 from '../views/OrdersPages/profile4Page.vue'
 
 
-const prefix = '/reliable/public/app';
+const prefix = '/reliable/public';
 
 // guard function 
 function guardMyroute(to, from, next)
@@ -86,7 +86,7 @@ const routes = [
         path : prefix+'/u_employment_applocations' , beforeEnter : guardMyroute , component : employmentApplications
     },
     {
-        path : prefix+'/u_palance' , beforeEnter : guardMyroute , component : palance , name : "palance"
+        path : prefix+'/user-balance' , beforeEnter : guardMyroute , component : Balance , name : "Balance"
     },
     {
         path : prefix+'/u_offers_order' , beforeEnter : guardMyroute , component : offerOrder , name : "offerOrder"
