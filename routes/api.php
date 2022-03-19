@@ -1,4 +1,6 @@
 <?php
+
+use App\Http\Controllers\Api\V1\VendorController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,10 +31,13 @@ Route::group(['middleware' => ['ApiLang', 'cors'], 'prefix' => 'v2', 'namespace'
 		Route::get('vendors', 'VendorController@index');
 		Route::get('vendors/{id}', 'VendorController@show');
 
+
 	});
 	Route::group(['middleware' => 'jwt-midd'], function () {
 	    Route::get('account', 'AuthController@account')->name('api.account');
 	});
+
+	
 
 });
 
@@ -40,6 +45,8 @@ Route::group(['middleware' => ['ApiLang', 'cors'], 'prefix' => 'v2', 'namespace'
 Route::group(['middleware' => ['ApiLang', 'cors'], 'prefix' => 'v1', 'namespace' => 'Api\V1'],
 
 function () {
+
+		
 
 		Route::apiResource("cities", "CitiesApi", ["as" => "api.cities"]);
 		Route::post("cities/multi_delete", "CitiesApi@multi_delete");
@@ -54,8 +61,14 @@ function () {
 // 				Route::post('register', 'Auth\Register@register')->name('api.register');
 // 			});
 
+		Route::get("/vendor_profile" , [VendorController::class , "getProfile"]);
+		/**
+		 * 
+		 */
+
 
 		Route::group(['middleware' => 'jwt.auth'], function () {
+			
 			Route::get('account', 'Auth\AuthAndLogin@account')->name('api.account');
 			Route::post('logout', 'Auth\AuthAndLogin@logout')->name('api.logout');
 			Route::post('refresh', 'Auth\AuthAndLogin@refresh')->name('api.refresh');
@@ -127,3 +140,7 @@ function () {
 		});
 		// Insert your Api Here End //
 	});
+
+
+	
+

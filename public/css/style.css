@@ -1,4 +1,4 @@
-/*
+/* 
 * Bootstrap v5.x
 */
 /* *** Global ***/
@@ -73,7 +73,7 @@ select:hover {
   font-size: 14px;
 }
 header {
-  background-image: url("https://law-mawthuq.com/reliable/public/images/header.png") ;
+  background-image: url("../images/header.png");
   min-height: 450px;
   background-size: cover;
 }
@@ -398,7 +398,7 @@ select {
 /* *** ********* AUTH * *** ** * * * * */
 
 .login-page {
-  background-image: url("../images/login.png") !important;
+  background-image: url("../images/login.png");
   background-size: cover;
   min-height: 100vh;
 }
@@ -539,7 +539,7 @@ select {
   background-color: #2b7b74;
   background-image: url(../images/back-balanc.svg);
   width: 100%;
-  height: 120px !important;
+  height: 141px;
   border-radius: 7px;
 }
 .contain-2 {
@@ -954,7 +954,7 @@ select {
 
 
 .item-chat li.sec-list {
-
+  
   text-align: right;
 }
 .item-chat li.sec-list div{
@@ -1002,4 +1002,17 @@ select {
   padding-bottom: 9px;
   border-radius: 11px;
   margin: 5px;
+}
+
+.search-cc {
+  background-color: #048e81;
+  border-color: #048e81;
+  color: #fff;
+}
+.search-cc::placeholder {
+  color: #fff;
+}
+
+.page-link {
+  color: #048e81;
 }

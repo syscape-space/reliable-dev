@@ -11,7 +11,7 @@
               <div class="row w-100 mx-0 px-0">
                 <div class="col-md-4 my-4" style="color: #AEAEAE;">
                   <div class="cir-prog" style="border-color: #048e81;">
-                    <img :src="base_url + '/assets/assets/images/o_hand.svg'" alt="">
+                    <img :src="base_url + '/assets/images/o_hand.svg'" alt="">
                   </div>
                   <div 
                     class="fw-bold o-num text-center"
@@ -26,7 +26,7 @@
                 </div>
                 <div class="col-md-4 my-4" style="color: #AEAEAE;">
                   <div class="cir-prog">
-                    <img :src="base_url + '/assets/assets/images/o_exe.svg'" alt="">
+                    <img :src="base_url + '/assets/images/o_exe.svg'" alt="">
                   </div>
                   <div class="fw-bold o-num text-center">
                     {{ $root._t("app.number2") }}
@@ -39,7 +39,7 @@
                 </div>
                 <div class="col-md-4 my-4" style="color: #AEAEAE;">
                   <div class="cir-prog">
-                    <img :src="base_url + '/assets/assets/images/o_roket.svg'" alt="">
+                    <img :src="base_url + '/assets/images/o_roket.svg'" alt="">
                   </div>
                   <div class="fw-bold o-num text-center">
                     {{ $root._t("app.number3") }}
@@ -79,37 +79,37 @@
                       <img 
                       style="width: 15px;" 
                       class="ms-1"
-                      :src="base_url + '/assets/assets/images/o_clock.svg'" alt=""> <span>{{ $root._t("app.fourHoursAgo") }}</span>
+                      :src="base_url + '/assets/images/o_clock.svg'" alt=""> <span>{{ $root._t("app.fourHoursAgo") }}</span>
                     </span>
                     <span class="ms-3">
                       <img 
                       style="width: 20px;" 
                       class="ms-1"
-                      :src="base_url + '/assets/assets/images/o_eye.svg'" alt=""> <span>{{ $root._t("app.numFiveWorks") }}</span>
+                      :src="base_url + '/assets/images/o_eye.svg'" alt=""> <span>{{ $root._t("app.numFiveWorks") }}</span>
                     </span>
                     <span class="ms-3">
                       <img 
                       style="width: 20px;" 
                       class="ms-1"
-                      :src="base_url + '/assets/assets/images/o_offer.svg'" alt=""> <span>{{ $root._t("app.produce5Offers") }}</span>
+                      :src="base_url + '/assets/images/o_offer.svg'" alt=""> <span>{{ $root._t("app.produce5Offers") }}</span>
                     </span>
                     <span class="ms-3">
                       <img 
                       style="width: 14px;" 
                       class="ms-1"
-                      :src="base_url + '/assets/assets/images/o_map.svg'" alt=""> <span>{{ $root._t("app.saudiAribia") }}</span>
+                      :src="base_url + '/assets/images/o_map.svg'" alt=""> <span>{{ $root._t("app.saudiAribia") }}</span>
                     </span>
                   </div>
                   <div class="my-2" style="font-size: 12px;">
                     <span class="o-box ms-2">
                       <img 
-                      style="width: 15px;" class="ms-1" :src="base_url + '/assets/assets/images/o_delever.svg'" alt="">
+                      style="width: 15px;" class="ms-1" :src="base_url + '/assets/images/o_delever.svg'" alt="">
                       <span>{{ $root._t("app.deliveryTime") }}:</span>
                       <span class="me-2">{{ $root._t("app.days14") }}</span>
                     </span>
                     <span class="o-box o-box2">
                       <img 
-                      style="width: 15px;" class="ms-1" :src="base_url + '/assets/assets/images/o_payment.svg'" alt="">
+                      style="width: 15px;" class="ms-1" :src="base_url + '/assets/images/o_payment.svg'" alt="">
                       <span>:{{ $root._t("app.theAmount") }}:</span>
                       <span class="me-2">{{ $root._t("app.handred") }}</span>
                     </span>
@@ -117,7 +117,7 @@
                 </div>
                 <div class="row w-100 mx-0 px-0">
                   <div class="col-md-3 text-center d-flex align-items-center justify-content-between" style="border-left: 3px solid #ddd;">
-                    <img :src="base_url + '/assets/assets/images/user.svg'" alt="">
+                    <img :src="base_url + '/assets/images/user.svg'" alt="">
                   </div>
                   <div class="col-md-9">
                     <p class="py-3 f-12" >
@@ -165,7 +165,7 @@
                     </li>
                     <li class="mb-3 mt-4 text-center">
                       <div class="text-center mb-2">
-                        <img style="width: 50px;height: 50px;" class="uses-img" :src="base_url + '/assets/assets/images/user.svg'" alt="">
+                        <img style="width: 50px;height: 50px;" class="uses-img" :src="base_url + '/assets/images/user.svg'" alt="">
                       </div>
                       <div class="text-center"> 
                         <i class="fas fa-star yellow"></i>
@@ -184,10 +184,10 @@
               <div class="div-save p-2 mt-4 ">
                 <div class="d-flex align-items-center">
                   <div>
-                    <img style="width: 40px;margin-left: 8px;" :src="base_url + '/assets/assets/images/o_save.svg'" alt="">
+                    <img style="width: 40px;margin-left: 8px;" :src="base_url + '/assets/images/o_save.svg'" alt="">
                   </div>
                   <div class="text-white">
-                    <img  :src="base_url + '/assets/assets/images/sm-logo-w.svg'" alt=""> <br>
+                    <img  :src="base_url + '/assets/images/sm-logo-w.svg'" alt=""> <br>
                     <span style="font-size: 10px;">
                       <span>{{ $root._t("app.guarantee100%") }}</span> 
                       <span style="margin-top: -3px; display: block;">{{ $root._t("app.yourOrderAtTheSameTime") }}</span>
@@ -199,19 +199,19 @@
                 <span class="ms-2 fw-bold">{{ $root._t("app.shareNow") }}</span>
                 <span>
                   <a href="" class="me-1">
-                    <img style="width: 16px;" :src="base_url + '/assets/assets/images/o_face.svg'" alt="">
+                    <img style="width: 16px;" :src="base_url + '/assets/images/o_face.svg'" alt="">
                   </a>
                   <a href="" class="me-1">
-                    <img style="width: 20px;" :src="base_url + '/assets/assets/images/o_linked.svg'" alt="">
+                    <img style="width: 20px;" :src="base_url + '/assets/images/o_linked.svg'" alt="">
                   </a>
                   <a href="" class="me-1">
-                    <img style="width: 20px;" :src="base_url + '/assets/assets/images/o_twitter.svg'" alt="">
+                    <img style="width: 20px;" :src="base_url + '/assets/images/o_twitter.svg'" alt="">
                   </a>
                   <a href="" class="me-1">
-                    <img style="width: 20px;" :src="base_url + '/assets/assets/images/o_youtube.svg'" alt="">
+                    <img style="width: 20px;" :src="base_url + '/assets/images/o_youtube.svg'" alt="">
                   </a>
                   <a href="" class="me-1">
-                    <img style="width: 20px;" :src="base_url + '/assets/assets/images/o_copy.svg'" alt="">
+                    <img style="width: 20px;" :src="base_url + '/assets/images/o_copy.svg'" alt="">
                   </a>
                 </span>
               </div>

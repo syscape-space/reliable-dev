@@ -16,12 +16,17 @@ use Spatie\Honeypot\ProtectAgainstSpam;
 |
  */
 
-
 Route::get('/', function(){
 	return view('welcome');
 });
 Route::get('/provider', function(){
 	return view('front.user.provider.provider');
+});
+Route::get('/service_provider1', function(){
+	return view('front.user.provider.serviceProviders1');
+});
+Route::get('/service_provider2', function(){
+	return view('front.user.provider.serviceProviders2');
 });
 
 Route::group(['middleware' => 'auth'],

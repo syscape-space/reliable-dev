@@ -1,7 +1,7 @@
 <template>
     <section class="requsts-sec mt-4  ">
       <div class="container text-center pt-5">
-        <img style="max-width: 90%;width: 250px;" :src="base_url + '/assets/assets/images/ticket.png'" alt="">
+        <img style="max-width: 90%;width: 250px;" :src="base_url + '/assets/images/ticket.png'" alt="">
       </div>
       <div>
         <h2 

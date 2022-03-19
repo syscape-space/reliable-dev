@@ -231,6 +231,7 @@ class Users extends Controller {
 		return response(['items' => $users], 200);
 
 	}
+	
 
 	public function get_arbitrators() {
 		$users = [];

@@ -3,7 +3,7 @@
       <div class="px-5">
         <div class="have-ticket d-flex justify-content-between">
           <div class="count-ticket">
-            <img style="width: 50px" :src="base_url + '/assets/assets/images/login-1-logo.svg'" alt="" />
+            <img style="width: 50px" :src="base_url + '/assets/images/login-1-logo.svg'" alt="" />
             <span style="color: #048e81; font-size: 14px" class="me-4"
               >{{ $root._t("app.youHave") }} 24 {{ $root._t("app.Tickets") }}</span
             >
@@ -26,7 +26,7 @@
             class="your-ticket list-unstyled d-flex rounded m-0 w-100 py-2 px-3"
             style="    background-image: linear-gradient(to right,#048e8114, #0995eb21);align-items: center;"
           >
-            <li><img :src="base_url + '/assets/assets/images/time.svg'" alt="" /></li>
+            <li><img :src="base_url + '/assets/images/time.svg'" alt="" /></li>
             
             <li> <span class="me-3" >{{ $root._t("app.ago") }} {{ $root._t("app.month") }} {{ $root._t("app.almost") }} </span> </li>
             <li><div
@@ -43,14 +43,14 @@
                 
                 border-radius: 50%;
                 background-color: #e0fffc75;
-              "><img style="height: 50px; width: 50px;" :src="base_url + '/assets/assets/images/morning.svg'" alt="" />
+              "><img style="height: 50px; width: 50px;" :src="base_url + '/assets/images/morning.svg'" alt="" />
             </div></li>
             <li> 
               <span class="mx-3" >{{ $root._t("app.goodMorning") }}</span>
             </li>
             <li style="margin-right: auto;">
               <div class="number-ticket d-flex">
-                <img style="width: 20px;" :src="base_url + '/assets/assets/images/morning1.svg'" alt="">
+                <img style="width: 20px;" :src="base_url + '/assets/images/morning1.svg'" alt="">
                 <span class="mx-3">{{ $root._t("app.ticketNum") }} 1</span>
               </div>
             </li>
@@ -59,7 +59,7 @@
             class="your-ticket list-unstyled d-flex rounded m-0 w-100 py-2 px-3"
             style="    background-image: linear-gradient(to right,#048e8114, #0995eb21);align-items: center;"
           >
-            <li><img :src="base_url + '/assets/assets/images/time.svg'" alt="" /></li>
+            <li><img :src="base_url + '/assets/images/time.svg'" alt="" /></li>
             
             <li> <span class="me-3" >{{ $root._t("app.ago") }} {{ $root._t("app.month") }} {{ $root._t("app.almost") }} </span> </li>
             <li><div
@@ -76,14 +76,14 @@
                 
                 border-radius: 50%;
                 background-color: #e0fffc75;
-              "><img style="height: 50px; width: 50px;" :src="base_url + '/assets/assets/images/morning.svg'" alt="" />
+              "><img style="height: 50px; width: 50px;" :src="base_url + '/assets/images/morning.svg'" alt="" />
             </div></li>
             <li> 
               <span class="mx-3" >{{ $root._t("app.goodMorning") }}</span>
             </li>
             <li style="margin-right: auto;">
               <div class="number-ticket d-flex">
-                <img style="width: 20px;" :src="base_url + '/assets/assets/images/morning1.svg'" alt="">
+                <img style="width: 20px;" :src="base_url + '/assets/images/morning1.svg'" alt="">
                 <span class="mx-3">{{ $root._t("app.ticketNum") }} 2</span>
               </div>
             </li>
@@ -92,7 +92,7 @@
             class="your-ticket list-unstyled d-flex rounded m-0 w-100 py-2 px-3"
             style="    background-image: linear-gradient(to right,#048e8114, #0995eb21);align-items: center;"
           >
-            <li><img :src="base_url + '/assets/assets/images/time.svg'" alt="" /></li>
+            <li><img :src="base_url + '/assets/images/time.svg'" alt="" /></li>
             
             <li> <span class="me-3" >{{ $root._t("app.ago") }} {{ $root._t("app.month") }} {{ $root._t("app.almost") }} </span> </li>
             <li><div
@@ -109,14 +109,14 @@
                 
                 border-radius: 50%;
                 background-color: #e0fffc75;
-              "><img style="height: 50px; width: 50px;" :src="base_url + '/assets/assets/images/morning.svg'" alt="" />
+              "><img style="height: 50px; width: 50px;" :src="base_url + '/assets/images/morning.svg'" alt="" />
             </div></li>
             <li> 
               <span class="mx-3" >{{ $root._t("app.goodMorning") }}</span>
             </li>
             <li style="margin-right: auto;">
               <div class="number-ticket d-flex">
-                <img style="width: 20px;" :src="base_url + '/assets/assets/images/morning1.svg'" alt="">
+                <img style="width: 20px;" :src="base_url + '/assets/images/morning1.svg'" alt="">
                 <span class="mx-3">{{ $root._t("app.ticketNum") }} 3</span>
               </div>
             </li>
@@ -125,7 +125,7 @@
             class="your-ticket list-unstyled d-flex rounded m-0 w-100 py-2 px-3"
             style="    background-image: linear-gradient(to right,#048e8114, #0995eb21);align-items: center;"
           >
-            <li><img :src="base_url + '/assets/assets/images/time.svg'" alt="" /></li>
+            <li><img :src="base_url + '/assets/images/time.svg'" alt="" /></li>
             
             <li> <span class="me-3" >{{ $root._t("app.ago") }} {{ $root._t("app.month") }} {{ $root._t("app.almost") }} </span> </li>
             <li><div
@@ -142,14 +142,14 @@
                 
                 border-radius: 50%;
                 background-color: #e0fffc75;
-              "><img style="height: 50px; width: 50px;" :src="base_url + '/assets/assets/images/morning.svg'" alt="" />
+              "><img style="height: 50px; width: 50px;" :src="base_url + '/assets/images/morning.svg'" alt="" />
             </div></li>
             <li> 
               <span class="mx-3" >{{ $root._t("app.goodMorning") }}</span>
             </li>
             <li style="margin-right: auto;">
               <div class="number-ticket d-flex">
-                <img style="width: 20px;" :src="base_url + '/assets/assets/images/morning1.svg'" alt="">
+                <img style="width: 20px;" :src="base_url + '/assets/images/morning1.svg'" alt="">
                 <span class="mx-3">{{ $root._t("app.ticketNum") }} 4</span>
               </div>
             </li>

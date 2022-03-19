@@ -2,18 +2,18 @@ import { createWebHistory, createRouter } from "vue-router";
 import indexPage from '../views/indexPage.vue';
 
 // Account Settings
-import loginPage from '../views/AccountPages/loginPage.vue'
-import Register from '../views/AccountPages/registerPage.vue'
-import Verify from '../views/AccountPages/verifyPage.vue'
-import Success from '../views/AccountPages/successPage.vue'
+import loginPage from '../views/AccountPages/loginPage.vue' // done
+import Register from '../views/AccountPages/registerPage.vue' // done
+import Verify from '../views/AccountPages/verifyPage.vue' 
+import Success from '../views/AccountPages/successPage.vue' 
 
 // License
 import licenseShowPage from '../views/LicensePages/licenseShowPage.vue'
-import addLicensePage from '../views/LicensePages/addLicensePage.vue'
+import addLicensePage from '../views/LicensePages/addLicensePage.vue' // wait for user_job
 
 // Users Profile
 import u_indexPage from '../views/UserProfilePages/u_indexPage.vue'
-import profilePage from '../views/UserProfilePages/profilePage.vue'
+import profilePage from '../views/UserProfilePages/profilePage.vue' // done
 import employmentApplications from '../views/UserProfilePages/employmentApplications.vue'
 import palance from '../views/UserProfilePages/palance.vue'
 import offerOrder from '../views/UserProfilePages/offerOrder.vue'
