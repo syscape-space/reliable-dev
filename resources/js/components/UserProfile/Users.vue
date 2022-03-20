@@ -162,8 +162,6 @@ export  default {
     } ,
 
     getProfile2( id ){
-      // localStorage.setItem("uId", id);
-      // this.$router.push("/reliable/public/u_profile4/"+id);
       this.uId = id ;
       this.$router.push({ name: 'Profile4' , params: { uId: id } })
       

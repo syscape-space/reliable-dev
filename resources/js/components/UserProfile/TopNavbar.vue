@@ -64,7 +64,7 @@
                   srcset=""
                 />
                 <span class="ms-5" style="color: #048e81; font-size: 13px"
-                  > {{ name }} </span
+                  > {{ user.name }} </span
                 >
               </a>
 
@@ -88,19 +88,33 @@ export default {
   data(){
     return{
       name : "" ,
-      base_url : base_url
+      base_url : base_url ,
+      user:{},
     }
   },
   mounted() {
     this.currentUser();
   },
   methods: {
+    // currentUser() {
+    //   api
+    //     .get("/account?token=" + localStorage.getItem("token") )
+    //     .then((response) => {
+    //       this.name = response.data.user.name
+    //       console.log(response.data.user)
+    //     })
+    //     // error.response.data.errors
+    //     .catch((e) => {
+    //       this.errors = e.response.data.errors;
+    //       console.log(e.response);
+    //     });
+    // },
     currentUser() {
       api
-        .get("/account?token=" + localStorage.getItem("token") )
+        .get("/v1/account")
         .then((response) => {
-          this.name = response.data.user.name
-          console.log(response.data.user)
+          this.user = response.data.data;
+          console.log(response.data.data)
         })
         // error.response.data.errors
         .catch((e) => {

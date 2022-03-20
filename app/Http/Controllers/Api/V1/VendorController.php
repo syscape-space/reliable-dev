@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
+use App\Models\Ticket;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -21,8 +22,10 @@ class VendorController extends Controller
                 ->where('users.id' , '=' , $id)
                 ->get(['users.*', 'countries.country_name_ar' , 'cities.city_name_ar']);
 
+         
+
             return response()->json([
-                "userData" => $users , 
+                "userData" => $users 
             ] , 200) ;
     }
 
