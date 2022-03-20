@@ -8,24 +8,7 @@
           <h6 class="my-4">{{ $root._t("app.accountCharge") }}</h6>
           <div class="">
             <button class="bl-btn">{{ $root._t("app.balanceWithdrawal") }}</button>
-            <button class="bl-btn" style="background-color: #0995EB;"  data-bs-toggle="modal" data-bs-target="#exampleModalCenter">{{ $root._t("app.chargeBalance") }}</button>
-            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    <h5 class="modal-title" id="staticBackdropLabel">شحن رصيد</h5>
-                  </div>
-                  <div class="modal-body">
-                    ...
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Understood</button>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <recharge-balance-modal/>
           </div>
         </div>
         <div class="bl-money p-4">
@@ -146,6 +129,7 @@
 import RightNavbar from '../../components/UserProfile/RightNavbar'
 import TopNavbar from '../../components/UserProfile/TopNavbar'
 import api from "../../utils/api";
+import RechargeBalanceModal from "../../components/RechargeBalanceModal";
 
 export default {
   data(){
@@ -153,7 +137,7 @@ export default {
       user:{}
     };
   },
-  components: {RightNavbar, TopNavbar},
+  components: {RechargeBalanceModal, RightNavbar, TopNavbar},
   mounted() {
     this.currentUser();
   },

@@ -25,17 +25,14 @@ class BalanceRechargesRequest extends FormRequest {
 	 */
 	protected function onCreate() {
 		return [
-             'user_id'=>'required|integer|exists:users,id',
              'amount'=>'required|numeric',
              'charge_by'=>'required|string|in:mada,sadad,bank_transfer',
-             'transfer_name'=>'sometimes|nullable|string',
-             'operation_number'=>'sometimes|nullable|string',
-             'bank_name'=>'sometimes|nullable|string',
-             'transfer_image'=>'sometimes|nullable|file|image',
+             'transfer_name'=>'min:5|required_if:charge_by,bank_transfer|string',
+             'operation_number'=>'required_if:charge_by,bank_transfer|string',
+             'bank_name'=>'required_if:charge_by,bank_transfer|string',
+             'transfer_image'=>'required_if:charge_by,bank_transfer|image',
              'user_note'=>'sometimes|nullable|string',
              'charge_status'=>'sometimes|nullable|string|in:pending,done,rejected',
-             'reason'=>'sometimes|nullable|string',
-             'system_notes'=>'sometimes|nullable|string',
 		];
 	}
 
@@ -84,12 +81,6 @@ class BalanceRechargesRequest extends FormRequest {
 		];
 	}
 
-	/**
-	 * Baboon Script By [it v 1.6.38]
-	 * response redirect if fails or failed request
-	 *
-	 * @return redirect
-	 */
 	public function response(array $errors) {
 		return $this->ajax() || $this->wantsJson() ?
 		response([

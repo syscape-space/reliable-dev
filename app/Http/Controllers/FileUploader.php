@@ -3,14 +3,14 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Files;
 use Illuminate\Filesystem\Filesystem;
+use Illuminate\Support\Facades\Storage;
 use Intervention\Image\ImageManager;
 use Intervention\Image\ImageManagerStatic as Image;
-use Storage;
 
 class FileUploader extends Controller {
 
 	public static function default() {
-		return config('filesystems.default');
+		return 'cloud';
 	}
 	public static function sizes() {
 		return [
@@ -75,7 +75,7 @@ class FileUploader extends Controller {
 		$size       = self::GetSize($file->getSize());
 		$size_bytes = $file->getSize();
 		$mimtype    = $file->getMimeType();
-		$full_path  = $file->store($path);
+		$full_path  = $file->store($path,['disk'=>'cloud']);
 		$hashname   = $file->hashName();
 		if ($typeid != 'icon') {
 

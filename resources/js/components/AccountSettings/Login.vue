@@ -102,7 +102,6 @@ export default {
               // route for u_index page
               this.$router.push({ name: "profilePage" });
             })
-            // error.response.data.errors
             .catch((e) => {
               this.errors = e.response.data.errors;
               // if (e.response.data.errors) {
