@@ -33,6 +33,9 @@ import Profile2 from '../views/OrdersPages/profile2Page.vue'
 import Profile3 from '../views/OrdersPages/profile3Page.vue'
 import Profile4 from '../views/OrdersPages/profile4Page.vue'
 
+// Tickets
+import addTicket from '../views/TicketsPages/createTecket.vue'
+
 
 const prefix = '/reliable/public';
 
@@ -130,7 +133,11 @@ const routes = [
         path : prefix+'/u_profile3' , beforeEnter : guardMyroute , component : Profile3 , name : "Profile3"
     },
     {
-        path : prefix+'/u_profile4' , beforeEnter : guardMyroute , component : Profile4 , name : "Profile4" , props: true
+        path : prefix+'/u_profile4' , beforeEnter : guardMyroute , component : Profile4 , name : "Profile4" 
+    },
+    // Tickets pages routes
+    {
+        path : prefix+'/u_new_ticket' , beforeEnter : guardMyroute , component : addTicket , name : "addTicket" 
     },
 ]
 const router = createRouter({
