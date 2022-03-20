@@ -18,13 +18,13 @@
                 <img :src="base_url+'/assets/images/balance-money.svg'" alt="">
                 <div class="text-center">
                   <div class="mb-2">{{ $root._t("app.totalBalace") }}</div>
-                  <span style="font-size: 28px;color: #339858;">{{user.current_balance}} $</span>
+                  <span style="font-size: 28px;color: #339858;">{{ user.current_balance }} $</span>
                 </div>
               </div>
             </div>
             <div class="col-md-8">
               <p class="py-3">
-                {{ $root._t("app.longText") }}
+                هو الرصيد الكلي للحساب اذا كان متاح او معلق
               </p>
             </div>
           </div>
@@ -40,7 +40,7 @@
                   {{ $root._t("app.balanceAbleToWithdrawal") }}
                 </h6>
                 <div style="color: #3BB234;font-size: 25px;" class="text-center" v-if="user">
-                  {{parseFloat(user.current_balance) - parseFloat(user.suspended_balance)}} $
+                  {{ parseFloat(user.current_balance) - parseFloat(user.suspended_balance) }} $
                 </div>
               </div>
             </div>
@@ -55,7 +55,7 @@
                   {{ $root._t("app.suspendedBalance") }}
                 </h6>
                 <div style="color: #3BB234;font-size: 25px;" class="text-center">
-                  {{user.suspended_balance}} $
+                  {{ user.suspended_balance }} $
                 </div>
               </div>
             </div>
@@ -70,7 +70,7 @@
                   {{ $root._t("app.availableBalance") }}
                 </h6>
                 <div style="color: #3BB234;font-size: 25px;" class="text-center">
-                  {{user.current_balance}} $
+                  {{ user.current_balance }} $
                 </div>
               </div>
             </div>
@@ -81,44 +81,21 @@
           <a href="" style="color: #2B7B74;">مشاهده كل فواتيري</a>
         </div>
         <div>
-          <div class="bl-money py-2 btw-flex px-2 mb-2">
+          <template v-for="charge in charges">
+            <div class="bl-money py-2 btw-flex px-2 mb-2" v-if="charge.charge_status === 'done'" >
               <span>
-                <span class=" text-white inv-c">
-                  50 $
+                <span class=" text-white inv-c" style="min-width: 90px">
+                  {{ parseInt( charge.amount ) }} $
                 </span>
                 <span class="me-3">
                   {{ $root._t("app.rechargingSuccessfully") }}
                 </span>
               </span>
-            <span class="inv-c bg-white">
+              <span class="inv-c bg-white">
                 <img class="" :src="base_url+'/assets/images/balance-paypal.svg'" alt="">
               </span>
-          </div>
-          <div class="bl-money py-2 btw-flex px-2 mb-2">
-              <span>
-                <span class=" text-white inv-c">
-                  50 $
-                </span>
-                <span class="me-3">
-                  {{ $root._t("app.discoundDone") }}
-                 </span>
-              </span>
-
-          </div>
-          <div class="bl-money py-2 btw-flex px-2 mb-2">
-              <span>
-                <span class=" text-white inv-c">
-                  50 $
-                </span>
-                <span class="me-3">{{ $root._t("app.requestAmountPayed") }}</span>
-              </span>
-            <span class="">
-                <button class="btn-inn">
-                  <img :src="base_url+'/assets/images/balance-invoice.svg'" alt="">
-                  {{ $root._t("app.fatoorah") }}
-                </button>
-              </span>
-          </div>
+            </div>
+          </template>
         </div>
       </div>
     </div>
@@ -132,9 +109,10 @@ import api from "../../utils/api";
 import RechargeBalanceModal from "../../components/RechargeBalanceModal";
 
 export default {
-  data(){
+  data() {
     return {
-      user:{}
+      user: {},
+      charges: [],
     };
   },
   components: {RechargeBalanceModal, RightNavbar, TopNavbar},
@@ -154,6 +132,16 @@ export default {
             console.log(e.response);
           });
     },
+    rechargeRequests() {
+      api.get('/v1/balancerecharges').then(res => {
+        this.charges = res.data.data;
+      }).catch(e => {
+        //  TODO
+      })
+    }
   },
+  created() {
+    this.rechargeRequests();
+  }
 }
 </script>

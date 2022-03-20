@@ -54,8 +54,31 @@
               </div>
             </div>
             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-              <div>
+              <div class="p-2">
                 <b>بيانات البطاقة الائتمانية</b>
+                <div class="form-body">
+                  <div class="row">
+                    <div class="col-md-6 form-group">
+                      <label for="credit-amount">بقيمة</label>
+                      <input name="amount" id="credit-amount" v-model="form.amount" class="form-control">
+                    </div>
+                    <div class="col-md-6 form-group">
+                      <label for="credit_number">رقم البطاقة</label>
+                      <input name="credit_number" id="credit_number" v-model="form.credit_number" class="form-control">
+                    </div>
+                    <div class="col-md-6 form-group">
+                      <label for="exp_date">تاريخ الانتهاء</label>
+                      <input name="exp_date" id="exp_date" v-model="form.exp_date" class="form-control">
+                    </div>
+                    <div class="col-md-6 form-group">
+                      <label for="csv">csv</label>
+                      <input name="csv" id="csv" v-model="form.csv" class="form-control">
+                    </div>
+                    <div class="col-md-12 form-group p-2">
+                      <button type="button" class="btn btn-success btn-sm" @click="$swal('تحت التطوير')" data-bs-dismiss="modal">ارسال</button>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
