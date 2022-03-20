@@ -33,8 +33,9 @@ import Profile2 from '../views/OrdersPages/profile2Page.vue'
 import Profile3 from '../views/OrdersPages/profile3Page.vue'
 import Profile4 from '../views/OrdersPages/profile4Page.vue'
 
+const env = "local";
 
-const prefix = '/reliable/public';
+const prefix = env == "local" ? '':'/reliable/public';
 
 // guard function 
 function guardMyroute(to, from, next)
