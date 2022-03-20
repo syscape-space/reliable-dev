@@ -21,7 +21,7 @@ class VendorController extends Controller
 
             return response()->json([
                 "userData" => $users , 
-            ]) ;
+            ] , 200) ;
     }
 
 

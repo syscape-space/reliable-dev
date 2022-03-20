@@ -204,7 +204,7 @@ export default {
         .then((response) => {
           this.username = response.data.userData[0].name ;
           this.image = response.data.userData[0].photo_profile ;
-          console.log(response.data.userData[0])
+          console.log(response.data.userData[0]);
         })
         // error.response.data.errors
         .catch((e) => {

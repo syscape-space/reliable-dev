@@ -51,7 +51,7 @@ function guardMyroute(to, from, next)
 // our routes
 const routes = [
     {
-        path : prefix+'/' ,
+        path : prefix+'/home' ,
         component : indexPage,
         name:'home'
     },

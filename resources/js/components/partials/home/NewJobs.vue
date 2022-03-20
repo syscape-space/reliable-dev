@@ -70,7 +70,7 @@ export default {
   methods: {
     allJobs() {
       api
-        .get("/careers")
+        .get("v2/careers")
         .then((response) => {
           console.log(response.data.data);
           this.list = response.data.data.data ;
@@ -81,7 +81,7 @@ export default {
         // error.response.data.errors
         .catch((e) => {
           // this.errors = e.response.data.errors;
-          console.log(e.response.data.errors);
+          console.log(e.response);
         });
     },
   },
