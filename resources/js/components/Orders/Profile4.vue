@@ -34,7 +34,7 @@
                       <span
                         style="color: #0995eb"
                         class=" d-inline-block text-center"
-                        >{{ $root._t("app.countries") }}
+                        > {{ countryName }}
                       </span><br>
                       <span
                         style="color: #2b7b74"
@@ -192,6 +192,7 @@ export default {
       base_url:base_url ,
       username : "" ,
       image : null ,
+      countryName : ""
     };
   },
   components : {UnderNavbar} ,
@@ -204,6 +205,7 @@ export default {
         .then((response) => {
           this.username = response.data.userData[0].name ;
           this.image = response.data.userData[0].photo_profile ;
+          this.countryName = response.data.userData[0].country_name_ar ;
           console.log(response.data.userData[0]);
         })
         // error.response.data.errors

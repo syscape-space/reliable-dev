@@ -19994,7 +19994,8 @@ __webpack_require__.r(__webpack_exports__);
     return {
       base_url: base_url,
       username: "",
-      image: null
+      image: null,
+      countryName: ""
     };
   },
   components: {
@@ -20009,6 +20010,7 @@ __webpack_require__.r(__webpack_exports__);
       _utils_api__WEBPACK_IMPORTED_MODULE_1__["default"].get(mainRoute).then(function (response) {
         _this.username = response.data.userData[0].name;
         _this.image = response.data.userData[0].photo_profile;
+        _this.countryName = response.data.userData[0].country_name_ar;
         console.log(response.data.userData[0]);
       }) // error.response.data.errors
       ["catch"](function (e) {
@@ -26916,7 +26918,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* PROPS */
   , _hoisted_10)]), _hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.username), 1
   /* TEXT */
-  ), _hoisted_13, _hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.countries")), 1
+  ), _hoisted_13, _hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.countryName), 1
   /* TEXT */
   ), _hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.attorneyGeneral")), 1
   /* TEXT */
@@ -35153,7 +35155,7 @@ function guardMyroute(to, from, next) {
 
 
 var routes = [{
-  path: prefix + '/home',
+  path: prefix + '/',
   component: _views_indexPage_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
   name: 'home'
 }, {
