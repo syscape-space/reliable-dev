@@ -71,7 +71,7 @@ export  default {
   methods: {
     getAllServiceProduction(){
       api
-        .get("/vendors")
+        .get("v2/vendors")
         .then((response) => {
           console.log(response.data.data);
           this.list = response.data.data.data ;

@@ -13,7 +13,26 @@ export default {
       return _.get(window.trans, key, key);
     },
     lang_loc:window.lang_loc,
-  })
+  }),
+  methods:{
+    alertErrors(errors){
+      let html = "<h4 style='text-align: right'>بيانات غير صحيحة :</h4><p style='justify-content: right;text-align:right;'>"+errors.join('<br>')+"</p>";
+      this.$swal({
+        icon: 'error',
+        title: 'عذراً ...',
+        html:html,
+      });
+    },
+    alertSuccess(message){
+      this.$swal({
+        position: 'top-end',
+        icon: 'success',
+        title: message,
+        showConfirmButton: false,
+        timer: 1500
+      });
+    }
+  }
 }
 </script>
 

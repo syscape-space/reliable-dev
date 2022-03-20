@@ -7,6 +7,7 @@ return [
     'do_you_have_account' => ' ليس لديك حساب ؟ ' ,
     'create_account_now'=> 'قم بانشاء حساب الان ' ,
     'login' => 'تسجيل الدخول' ,
+    'register'  =>  'انشاء حساب',
     'folow_instructions' => 'اتبع التعليمات لتسهيل عمليه التسجيل وستكون كذلك قادره على استكشاف الداخل' ,
     'do_you_forget_password' => ' نسيت كلمه المرور ؟ ' ,
     'login_now' => ' الدخول الان ' ,
@@ -15,6 +16,7 @@ return [
     'password' => ' رمز المرور ' ,
     'facebook' => ' فيس بوك ' ,
     'google' => ' جوجل ' ,
+    'already_have_account'  =>  'لديك حساب بالفعل',
     // register 
     'create_account' => ' انشاء حساب ' ,
     // success
@@ -281,7 +283,7 @@ return [
     // Right Navbar
     'myAccount' => 'حسابي' ,
     'myBalance' => 'رصيدى' ,
-    'memorial' => 'تذكارى' ,
+    'memorial' => 'تذاكرى' ,
     // Chat
     'ticketDetails' => 'تفاصيل التذكرة' ,
     'welcomeToday' => 'مرحبا كيف حالك اليوم.' ,

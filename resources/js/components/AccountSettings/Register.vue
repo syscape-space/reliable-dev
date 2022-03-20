@@ -14,10 +14,10 @@
         </div>
         <div class="register text-center">
           <p class="my-4">
-              {{ $root._t("app.do_you_have_account") }}
-            <a href="#" style="color: #048e81" class=""> {{ $root._t("app.create_account_now") }} </a>
+              {{ $root._t("app.already_have_account") }} ?
+            <router-link :to="{name:'Login'}" style="color: #048e81" class=""> {{ $root._t("app.login") }} </router-link>
           </p>
-          <h3 class="mb-4"> {{ $root._t("app.login") }} </h3>
+          <h3 class="mb-4"> {{ $root._t("app.register") }} </h3>
         </div>
         <form
           action=""
@@ -144,6 +144,7 @@
 <script>
 import axios from "axios";
 import Navbar from "../../components/partials/LayoutNavBar.vue";
+import api from "../../utils/api";
 
 export default {
   components: { Navbar },
@@ -182,8 +183,8 @@ export default {
         this.lastname = ourNameSplitter[2];
       }
 
-      axios
-        .post("https://law-mawthuq.com/reliable/public/api/v2/register", {
+      api
+        .post("/v2/register", {
           name : this.name ,
           first_name : this.firstname ,
           middle_name : this.midname , 

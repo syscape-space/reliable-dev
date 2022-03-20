@@ -138,8 +138,14 @@ export  default {
   data(){
     return{
       base_url:base_url ,
+<<<<<<< HEAD
       list : [] ,
       search : ''
+=======
+      list : [] , 
+      search : '' ,
+      uId : "" 
+>>>>>>> refs/remotes/origin/main
     };
   },
   mounted() {
@@ -156,7 +162,7 @@ export  default {
   methods: {
     getAllServiceProduction(){
       api
-        .get("/vendors")
+        .get("v2/vendors")
         .then((response) => {
           console.log(response.data.data);
           this.list = response.data.data.data ;
@@ -172,10 +178,20 @@ export  default {
     } ,
 
     getProfile2( id ){
+<<<<<<< HEAD
       localStorage.setItem("uId", id);
       this.$router.push({ name: "Profile4" });
     }
 
+=======
+      // localStorage.setItem("uId", id);
+      // this.$router.push("/reliable/public/u_profile4/"+id);
+      this.uId = id ;
+      this.$router.push({ name: 'Profile4' , params: { uId: id } })
+      
+    } 
+    
+>>>>>>> refs/remotes/origin/main
   }
 }
 </script>

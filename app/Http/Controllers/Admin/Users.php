@@ -152,7 +152,6 @@ class Users extends Controller {
 			$data['photo_profile'] = it()->upload('photo_profile', 'users');
 		}
 		User::where('id', $id)->update($data);
-
 		$users = User::find($id);
 		return successResponseJson([
 				"message" => trans("admin.updated"),

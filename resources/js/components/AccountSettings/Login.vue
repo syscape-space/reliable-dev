@@ -90,7 +90,7 @@ export default {
   methods:{
     loginFun() {
           api
-            .post("/login", {
+            .post("/v2/login", {
               id_number: this.id_number,
               password: this.password,
             })
@@ -102,7 +102,6 @@ export default {
               // route for u_index page
               this.$router.push({ name: "profilePage" });
             })
-            // error.response.data.errors
             .catch((e) => {
               this.errors = e.response.data.errors;
               // if (e.response.data.errors) {

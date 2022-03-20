@@ -63,7 +63,7 @@ export default {
   methods: {
     allOurServices() {
       api
-        .get("/our-services")
+        .get("https://law-mawthuq.com/reliable/public/api/v2/our-services")
         .then((response) => {
           console.log(response.data.data);
           this.list = response.data.data ;
@@ -74,7 +74,7 @@ export default {
         // error.response.data.errors
         .catch((e) => {
           // this.errors = e.response.data.errors;
-          console.log(e.response.data.errors);
+          console.log(e.response);
         });
     },
   },

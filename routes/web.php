@@ -16,9 +16,6 @@ use Spatie\Honeypot\ProtectAgainstSpam;
 |
  */
 
-Route::get('/', function(){
-	return view('welcome');
-});
 Route::get('/provider', function(){
 	return view('front.user.provider.provider');
 });
@@ -34,17 +31,14 @@ Route::group(['middleware' => 'auth'],
 	function () {
 		Route::any('logout', 'Auth\LoginController@logout')->name('web.logout');
 	});
-
-Route::middleware(ProtectAgainstSpam::class)->group(function () {
-	Auth::routes(['verify' => true]);
-});
+//
+//Route::middleware(ProtectAgainstSpam::class)->group(function () {
+//	Auth::routes(['verify' => true]);
+//});
 
 Route::middleware('app-lang')->group(function (){
     Route::get('/lang',function (){
        session(['lang_loc'=>request('loc')]);
        return redirect()->back();
     });
-    Route::get('app/{vue_capture?}', function (){
-        return view('app.index');
-    })->where('vue_capture', '[\/\w\.\-\ \&\=]*');
 });
