@@ -36,7 +36,7 @@ export default {
   methods: {
     allJobs() {
       api
-        .get("/partners")
+        .get("https://law-mawthuq.com/reliable/public/api/v2/partners")
         .then((response) => {
           console.log(response.data.data);
           this.list = response.data.data.data ;

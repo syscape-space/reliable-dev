@@ -130,7 +130,7 @@ const routes = [
         path : prefix+'/u_profile3' , beforeEnter : guardMyroute , component : Profile3 , name : "Profile3"
     },
     {
-        path : prefix+'/u_profile4' , beforeEnter : guardMyroute , component : Profile4 , name : "Profile4"
+        path : prefix+'/u_profile4' , beforeEnter : guardMyroute , component : Profile4 , name : "Profile4" , props: true
     },
 ]
 const router = createRouter({

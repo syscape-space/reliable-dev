@@ -15,13 +15,15 @@ class VendorController extends Controller
     }
 
     public function vendorProfile($id){
-        $users = DB::table('users')
-            ->where('id' , '=' , $id)
-            ->get();
+
+         $users = User::join('countries', 'users.country_id', '=', 'countries.id')
+                ->join('cities' , 'countries.id' , '=' , 'cities.country_id')
+                ->where('users.id' , '=' , $id)
+                ->get(['users.*', 'countries.country_name_ar' , 'cities.city_name_ar']);
 
             return response()->json([
                 "userData" => $users , 
-            ]) ;
+            ] , 200) ;
     }
 
 

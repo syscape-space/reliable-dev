@@ -72,11 +72,6 @@ select:hover {
   text-align: center;
   font-size: 14px;
 }
-header {
-  background-image: url("../images/header.png");
-  min-height: 450px;
-  background-size: cover;
-}
 .title {
   font-size: 40px;
 }
