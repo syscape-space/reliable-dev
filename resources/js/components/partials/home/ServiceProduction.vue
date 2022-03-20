@@ -15,7 +15,7 @@
         <div class="mt-5">
           <div>
             <div id="slider" class="owl-carousel owl-theme"  style="display: flex;">
-              <div style="min-width: 250px" class="user-ab" v-for="item in list" :key="item.id">
+              <div style="min-width: 250px;margin-left: 24px;" class="user-ab" v-for="item in list" :key="item.id">
                 <div class="d-flex">
                   <span
                     class="position-relative ms-2"
@@ -34,7 +34,7 @@
                   </span>
                 </div>
                 <div class="d-flex align-items-center justify-content-between">
-                  <span class="" style="font-size: 12px">
+                  <span class="" style="font-size: 12px;margin-top: -17px;">
                     <span>{{ $root._t("app.foutPointThree") }}</span>
                     <span>
                       <i class="fas fa-star"></i>
@@ -44,7 +44,7 @@
                       <i class="fas fa-star orng-c"></i>
                     </span>
                   </span>
-                  <span>
+                  <span style="margin-top: 17px;">
                     <button class="order-btn">{{ $root._t("app.serviceRequest") }}</button>
                   </span>
                 </div>

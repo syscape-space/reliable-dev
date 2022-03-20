@@ -56,7 +56,7 @@ function () {
 
 		// My Routes [ Mostafa Gamal ]
 		Route::get('vendor_profile/{id}', 'VendorController@vendorProfile');
-		Route::get('my_tickets' , 'TicketController@getMyTickets');
+		Route::get('my_tickets/{id}' , 'TicketController@getMyTickets');
 
 		
 

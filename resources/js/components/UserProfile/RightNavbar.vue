@@ -79,7 +79,7 @@
                 </a>
               </li>
               <li>
-                <router-link :to="{ name : 'Balance' }" >
+                <router-link :to="{ name : 'Ticket2' , params: { myId: user.id } }" >
                   <img
                     :src="base_url+'/assets/images/dash-remem.svg'"
                     style="width: 18px"
