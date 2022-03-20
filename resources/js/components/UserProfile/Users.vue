@@ -5,7 +5,7 @@
         <li class="ms-4 my-1 position-relative m-d-none">
             <a href="" style="color: #048e81;">
               <img
-                src="./images/dash-mawthq.svg"
+                :src="base_url+'/assets/images/dash-mawthq.svg'"
                 class="ms-2"
                 alt=""
                 srcset=""
