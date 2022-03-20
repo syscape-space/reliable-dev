@@ -283,7 +283,7 @@ return [
     // Right Navbar
     'myAccount' => 'حسابي' ,
     'myBalance' => 'رصيدى' ,
-    'memorial' => 'تذكارى' ,
+    'memorial' => 'تذاكرى' ,
     // Chat
     'ticketDetails' => 'تفاصيل التذكرة' ,
     'welcomeToday' => 'مرحبا كيف حالك اليوم.' ,

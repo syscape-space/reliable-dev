@@ -79,7 +79,7 @@
                 </a>
               </li>
               <li>
-                <a href="#">
+                <router-link :to="{ name : 'Balance' }" >
                   <img
                     :src="base_url+'/assets/images/dash-remem.svg'"
                     style="width: 18px"
@@ -87,7 +87,7 @@
                     srcset=""
                   />
                   <span>{{ $root._t("app.memorial") }}</span>
-                </a>
+                </router-link>
               </li>
               <li>
                 <a href="#"> {{ $root._t("app.appName") }} </a>

@@ -19995,22 +19995,25 @@ __webpack_require__.r(__webpack_exports__);
       base_url: base_url,
       username: "",
       image: null,
-      countryName: ""
+      countryName: "",
+      cityName: ""
     };
   },
   components: {
     UnderNavbar: _Orders_underNavbar_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
+  props: ['uId'],
   methods: {
     getProfile2: function getProfile2() {
       var _this = this;
 
-      var userId = localStorage.getItem("uId");
-      var mainRoute = "http://localhost/reliable/public/api/v1/vendor_profile/" + userId;
+      var userId = this.$route.params.uId;
+      var mainRoute = "v1/vendor_profile/" + userId;
       _utils_api__WEBPACK_IMPORTED_MODULE_1__["default"].get(mainRoute).then(function (response) {
         _this.username = response.data.userData[0].name;
         _this.image = response.data.userData[0].photo_profile;
         _this.countryName = response.data.userData[0].country_name_ar;
+        _this.cityName = response.data.userData[0].city_name_ar;
         console.log(response.data.userData[0]);
       }) // error.response.data.errors
       ["catch"](function (e) {
@@ -20406,7 +20409,8 @@ __webpack_require__.r(__webpack_exports__);
     return {
       base_url: base_url,
       list: [],
-      search: ''
+      search: '',
+      uId: ""
     };
   },
   mounted: function mounted() {
@@ -20439,9 +20443,14 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     getProfile2: function getProfile2(id) {
-      localStorage.setItem("uId", id);
+      // localStorage.setItem("uId", id);
+      // this.$router.push("/reliable/public/u_profile4/"+id);
+      this.uId = id;
       this.$router.push({
-        name: "Profile4"
+        name: 'Profile4',
+        params: {
+          uId: id
+        }
       });
     }
   }
@@ -26920,7 +26929,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* TEXT */
   ), _hoisted_13, _hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.countryName), 1
   /* TEXT */
-  ), _hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.attorneyGeneral")), 1
+  ), _hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.cityName), 1
   /* TEXT */
   ), _hoisted_18, _hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
     style: {
@@ -31470,11 +31479,8 @@ var _hoisted_17 = {
   href: "#"
 };
 var _hoisted_18 = ["src"];
-var _hoisted_19 = {
-  href: "#"
-};
-var _hoisted_20 = ["src"];
-var _hoisted_21 = {
+var _hoisted_19 = ["src"];
+var _hoisted_20 = {
   href: "#"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -31583,18 +31589,29 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* PROPS */
   , _hoisted_18), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.myProjects")), 1
   /* TEXT */
-  )])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-    src: $data.base_url + '/assets/images/dash-remem.svg',
-    style: {
-      "width": "18px"
-    },
-    alt: "",
-    srcset: ""
-  }, null, 8
-  /* PROPS */
-  , _hoisted_20), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.memorial")), 1
-  /* TEXT */
-  )])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", _hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.appName")), 1
+  )])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+    to: {
+      name: 'Balance'
+    }
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+        src: $data.base_url + '/assets/images/dash-remem.svg',
+        style: {
+          "width": "18px"
+        },
+        alt: "",
+        srcset: ""
+      }, null, 8
+      /* PROPS */
+      , _hoisted_19), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.memorial")), 1
+      /* TEXT */
+      )];
+    }),
+    _: 1
+    /* STABLE */
+
+  })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", _hoisted_20, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.appName")), 1
   /* TEXT */
   )])])])])])]);
 }
@@ -35277,7 +35294,8 @@ var routes = [{
   path: prefix + '/u_profile4',
   beforeEnter: guardMyroute,
   component: _views_OrdersPages_profile4Page_vue__WEBPACK_IMPORTED_MODULE_24__["default"],
-  name: "Profile4"
+  name: "Profile4",
+  props: true
 }];
 var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_25__.createRouter)({
   history: (0,vue_router__WEBPACK_IMPORTED_MODULE_25__.createWebHistory)(),
