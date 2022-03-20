@@ -16,9 +16,6 @@ use Spatie\Honeypot\ProtectAgainstSpam;
 |
  */
 
-Route::get('/', function(){
-	return view('welcome');
-});
 Route::get('/provider', function(){
 	return view('front.user.provider.provider');
 });

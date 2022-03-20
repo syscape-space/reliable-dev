@@ -30,6 +30,10 @@ class Handler extends ExceptionHandler {
 	];
 
 	protected function invalidJson($request, ValidationException $exception) {
+	    $errors = [];
+	    foreach ($exception->errors() as $e)
+	        foreach ($e as $sub)
+	            $errors[] = $sub;
 		return response()->json([
 			'status' => false,
 			'StatusCode' => $exception->status,
@@ -37,6 +41,7 @@ class Handler extends ExceptionHandler {
 			'explainError' => 'The request was well-formed but was unable to be followed due to semantic errors.',
 			'message' => 'The given data is invalid',
 			'errors' => $exception->errors(),
+			'errors_messages' => $errors,
 		], $exception->status);
 	}
 
