@@ -79,7 +79,7 @@
                 </a>
               </li>
               <li>
-                <router-link :to="{ name : 'Ticket2' , params: { myId: user.id } }" >
+                <a @click.prevent="goToTazkarty(user.id)" style="color:#fff; cursor: pointer;">
                   <img
                     :src="base_url+'/assets/images/dash-remem.svg'"
                     style="width: 18px"
@@ -87,7 +87,7 @@
                     srcset=""
                   />
                   <span>{{ $root._t("app.memorial") }}</span>
-                </router-link>
+                </a>
               </li>
               <li>
                 <a href="#"> {{ $root._t("app.appName") }} </a>
@@ -125,6 +125,10 @@ export default {
           console.log(e.response);
         });
     },
+    goToTazkarty(id){
+      localStorage.setItem("myIdTazkarty", id);
+      this.$router.push({ name: "Ticket2" });
+    }
   },
 };
 </script>

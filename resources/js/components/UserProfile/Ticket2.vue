@@ -9,6 +9,7 @@
             >
           </div>
           <button
+          @click.prevent="goToAddTicket()"
             style="
               border: 0;
               background-color: #0995eb;
@@ -76,7 +77,7 @@ export default {
   },
   methods:{
     gettingMyTickets(){
-      let myIdSource = this.$route.params.myId ;
+      let myIdSource = localStorage.getItem("myIdTazkarty");
       api
         .get("v1/my_tickets/" + myIdSource)
         .then((response) => {
@@ -90,6 +91,9 @@ export default {
           this.errors = e.response.data.errors;
           console.log(e.response);
         });
+    },
+    goToAddTicket(){
+      this.$router.push({ name: "addTicket" });
     }
   } ,
   
