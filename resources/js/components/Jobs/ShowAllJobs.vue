@@ -116,10 +116,10 @@ export default {
   methods: {
     getAllJobs() {
       api
-        .get("v1/all_jobs/")
+        .get("v1/all_jobs")
         .then((response) => {
         this.list = response.data.jobs ;
-          console.log(response.data.jobs);
+          console.log(response);
         })
         // error.response.data.errors
         .catch((e) => {

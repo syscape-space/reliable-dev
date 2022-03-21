@@ -63,7 +63,7 @@ export default {
   methods: {
     allOurServices() {
       api
-        .get("https://law-mawthuq.com/reliable/public/api/v2/our-services")
+        .get("v2/our-services")
         .then((response) => {
           console.log(response.data.data);
           this.list = response.data.data ;

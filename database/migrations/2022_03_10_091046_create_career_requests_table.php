@@ -18,6 +18,7 @@ class CreateCareerRequestsTable extends Migration
             $table->string('name')->index();
             $table->string('email')->index();
             $table->string('mobile')->index();
+            $table->string('country') ;
             $table->string('attached_url');
             $table->timestamps();
         });

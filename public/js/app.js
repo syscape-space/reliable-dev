@@ -19736,6 +19736,12 @@ __webpack_require__.r(__webpack_exports__);
       jobDetails: "",
       publishedAt: "",
       qualification: "",
+      file: null,
+      errors: null,
+      applier_name: "",
+      applier_mobile: "",
+      applier_email: "",
+      applier_country: "",
       experience: ""
     };
   },
@@ -19753,6 +19759,29 @@ __webpack_require__.r(__webpack_exports__);
       }) // error.response.data.errors
       ["catch"](function (e) {
         console.log(e.response);
+      });
+    },
+    onChange: function onChange(e) {
+      this.file = e.target.files[0];
+    },
+    applyNow: function applyNow(e) {
+      var _this2 = this;
+
+      e.preventDefault();
+      var jobId = localStorage.getItem("jobId");
+      var data = new FormData();
+      data.append("name", this.applier_name);
+      data.append("email", this.applier_email);
+      data.append("mobile", this.applier_mobile);
+      data.append("country", this.applier_country);
+      data.append("file", this.file);
+      _utils_api__WEBPACK_IMPORTED_MODULE_0__["default"].post("v1/apply_now", data).then(function (response) {
+        alert('Applied Successfully');
+        console.log(response);
+      }) // error.response.data.errors
+      ["catch"](function (e) {
+        _this2.errors = e.response.data.errors;
+        console.log(e.response.data.errors);
       });
     }
   }
@@ -19787,9 +19816,9 @@ __webpack_require__.r(__webpack_exports__);
     getAllJobs: function getAllJobs() {
       var _this = this;
 
-      _utils_api__WEBPACK_IMPORTED_MODULE_0__["default"].get("v1/all_jobs/").then(function (response) {
+      _utils_api__WEBPACK_IMPORTED_MODULE_0__["default"].get("v1/all_jobs").then(function (response) {
         _this.list = response.data.jobs;
-        console.log(response.data.jobs);
+        console.log(response);
       }) // error.response.data.errors
       ["catch"](function (e) {
         console.log(e.response);
@@ -20951,7 +20980,7 @@ __webpack_require__.r(__webpack_exports__);
     allJobs: function allJobs() {
       var _this = this;
 
-      _utils_api__WEBPACK_IMPORTED_MODULE_0__["default"].get("https://law-mawthuq.com/reliable/public/api/v2/partners").then(function (response) {
+      _utils_api__WEBPACK_IMPORTED_MODULE_0__["default"].get("v2/partners").then(function (response) {
         console.log(response.data.data);
         _this.list = response.data.data.data;
 
@@ -20996,7 +21025,7 @@ __webpack_require__.r(__webpack_exports__);
     allOurServices: function allOurServices() {
       var _this = this;
 
-      _utils_api__WEBPACK_IMPORTED_MODULE_0__["default"].get("https://law-mawthuq.com/reliable/public/api/v2/our-services").then(function (response) {
+      _utils_api__WEBPACK_IMPORTED_MODULE_0__["default"].get("v2/our-services").then(function (response) {
         console.log(response.data.data);
         _this.list = response.data.data;
 
@@ -22844,40 +22873,41 @@ var _hoisted_14 = {
   }
 };
 var _hoisted_15 = {
-  "class": "row w-100 mx-0 px-0"
+  "class": "errors"
 };
 var _hoisted_16 = {
-  "class": "col-md-12 mb-2"
+  "class": "row w-100 mx-0 px-0"
 };
 var _hoisted_17 = {
+  "class": "col-md-12 mb-2"
+};
+var _hoisted_18 = {
   "for": ""
 };
-
-var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"col-md-6 mb-2\"><input type=\"text\" class=\"form-control\" placeholder=\"محمد مصطفي علي\" style=\"padding:10px;background-color:#FCFCFC;border:1px solid #C1C1C1;\"></div><div class=\"col-md-6 mb-2\"><input type=\"text\" class=\"form-control\" placeholder=\"...رقم الجوال\" style=\"padding:10px;background-color:#FCFCFC;border:1px solid #C1C1C1;\"></div><div class=\"col-md-6 mb-2\"><input type=\"text\" class=\"form-control\" placeholder=\"...البريد الالكتروني\" style=\"padding:10px;background-color:#FCFCFC;border:1px solid #C1C1C1;\"></div><div class=\"col-md-6 mb-2\"><input type=\"text\" class=\"form-control\" placeholder=\"...المدينة\" style=\"padding:10px;background-color:#FCFCFC;border:1px solid #C1C1C1;\"></div>", 4);
-
+var _hoisted_19 = {
+  "class": "col-md-6 mb-2"
+};
+var _hoisted_20 = {
+  "class": "col-md-6 mb-2"
+};
+var _hoisted_21 = {
+  "class": "col-md-6 mb-2"
+};
 var _hoisted_22 = {
-  "class": "col-md-12 mb-3 f-14"
+  "class": "col-md-6 mb-2"
 };
 var _hoisted_23 = {
-  "for": ""
+  "class": "col-md-12 mb-3 f-14"
 };
 var _hoisted_24 = {
-  "class": "btw-flex"
+  "for": ""
 };
 var _hoisted_25 = {
+  "class": "btw-flex"
+};
+var _hoisted_26 = {
   "class": "position-relative"
 };
-
-var _hoisted_26 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-  style: {
-    "width": "141px"
-  },
-  type: "file",
-  "class": "abs-file"
-}, null, -1
-/* HOISTED */
-);
-
 var _hoisted_27 = {
   style: {
     "color": "#048E81"
@@ -22915,11 +22945,94 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* TEXT */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.experiences")) + " : " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.experience), 1
   /* TEXT */
-  )])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", _hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.applyNowForThisJob")), 1
+  )])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("- Error Will Validate Here "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.errors, function (error) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+      "class": "alert alert-danger",
+      key: error
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("strong", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(error), 1
+    /* TEXT */
+    )]);
+  }), 128
+  /* KEYED_FRAGMENT */
+  ))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
+    onSubmit: _cache[5] || (_cache[5] = function () {
+      return $options.applyNow && $options.applyNow.apply($options, arguments);
+    }),
+    enctype: "multipart/form-data"
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", _hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.applyNowForThisJob")), 1
   /* TEXT */
-  )]), _hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_22, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", _hoisted_23, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.files")), 1
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "text",
+    "class": "form-control",
+    placeholder: "محمد مصطفي علي",
+    "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+      return $data.applier_name = $event;
+    }),
+    style: {
+      "padding": "10px",
+      "background-color": "#FCFCFC",
+      "border": "1px solid #C1C1C1"
+    }
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.applier_name]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "text",
+    "class": "form-control",
+    placeholder: "...رقم الجوال",
+    "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
+      return $data.applier_mobile = $event;
+    }),
+    style: {
+      "padding": "10px",
+      "background-color": "#FCFCFC",
+      "border": "1px solid #C1C1C1"
+    }
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.applier_mobile]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "text",
+    "class": "form-control",
+    placeholder: "...البريد الالكتروني",
+    "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
+      return $data.applier_email = $event;
+    }),
+    style: {
+      "padding": "10px",
+      "background-color": "#FCFCFC",
+      "border": "1px solid #C1C1C1"
+    }
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.applier_email]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_22, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "text",
+    "class": "form-control",
+    placeholder: "...المدينة",
+    "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
+      return $data.applier_country = $event;
+    }),
+    style: {
+      "padding": "10px",
+      "background-color": "#FCFCFC",
+      "border": "1px solid #C1C1C1"
+    }
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.applier_country]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_23, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", _hoisted_24, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.files")), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_24, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_25, [_hoisted_26, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_27, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.uploadYouCv")), 1
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_25, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_26, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    style: {
+      "width": "141px"
+    },
+    type: "file",
+    id: "selectImage",
+    onChange: _cache[4] || (_cache[4] = function () {
+      return $options.onChange && $options.onChange.apply($options, arguments);
+    }),
+    accept: "image/png, image/gif, image/jpeg",
+    name: "image"
+  }, null, 32
+  /* HYDRATE_EVENTS */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_27, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.uploadYouCv")), 1
   /* TEXT */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
     style: {
@@ -22931,7 +23044,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* PROPS */
   , _hoisted_28)])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_29, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", _hoisted_30, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.applyNow")), 1
   /* TEXT */
-  )])])])])]);
+  )])])], 32
+  /* HYDRATE_EVENTS */
+  )])])]);
 }
 
 /***/ }),
@@ -34773,8 +34888,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       "color": "#ffffff",
       "background-color": "#048e81"
     },
-    onClick: _cache[0] || (_cache[0] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
-      return $options.goToShowAllJobs && $options.goToShowAllJobs.apply($options, arguments);
+    onClick: _cache[0] || (_cache[0] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function ($event) {
+      return $options.goToShowAllJobs();
     }, ["prevent"]))
   }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.descoverAllJobs")), 1
   /* TEXT */
@@ -36645,7 +36760,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 
-var env = "production"; // can be local or production
+var env = "local"; // can be local or production
 
 var api = axios__WEBPACK_IMPORTED_MODULE_0___default().create({
   baseURL: env == "local" ? "http://localhost/reliable/public/api" : 'https://law-mawthuq.com/reliable/public/api',
@@ -36950,7 +37065,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/back-balanc-2.svg?89065f7f54baaf29134d1164bbf14c1b");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/back-balanc-2.svg?a228a333dc69ea0194edd04c659f1159");
 
 /***/ }),
 
@@ -36965,7 +37080,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/back-balanc-3.svg?caed72d8b21253f97c4cd362df3383c9");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/back-balanc-3.svg?f341d1ee850598ffbbede6041d7a61be");
 
 /***/ }),
 
@@ -36980,7 +37095,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/back-balanc.svg?8af87834c5c458ae53318b6450165e74");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/back-balanc.svg?e556cebabe1edad1f37ad77633cc5ce1");
 
 /***/ }),
 
@@ -36995,7 +37110,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/down-aa.svg?18e78566fbeeb0877ba36c6bba2e0e6f");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/down-aa.svg?8dd8757f382e730836421681014eb111");
 
 /***/ }),
 
@@ -37025,7 +37140,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/o_ensure.svg?b0662af65916747fc6f191b9a8cb6cec");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/o_ensure.svg?8f99174aeda31c627fccc04d99a2880a");
 
 /***/ }),
 
@@ -37040,7 +37155,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/up-aa.svg?fc1e7cd7a19c100b79423d804df3b85d");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/up-aa.svg?a56984cc9812396b9afd787884fda79b");
 
 /***/ }),
 
