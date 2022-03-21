@@ -1,4 +1,7 @@
 <?php
+
+use App\Http\Controllers\Api\V2\UpdateUserProfileController;
+use App\Http\Controllers\Front\ProfileController;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\File;
@@ -16,29 +19,36 @@ use Spatie\Honeypot\ProtectAgainstSpam;
 |
  */
 
-Route::get('/provider', function(){
+Route::get('/provider', function () {
 	return view('front.user.provider.provider');
 });
-Route::get('/service_provider1', function(){
+Route::get('/service_provider1', function () {
 	return view('front.user.provider.serviceProviders1');
 });
-Route::get('/service_provider2', function(){
+Route::get('/service_provider2', function () {
 	return view('front.user.provider.serviceProviders2');
 });
 
-Route::group(['middleware' => 'auth'],
+Route::group(
+	['middleware' => 'auth'],
 
 	function () {
 		Route::any('logout', 'Auth\LoginController@logout')->name('web.logout');
-	});
+	}
+);
 //
 //Route::middleware(ProtectAgainstSpam::class)->group(function () {
 //	Auth::routes(['verify' => true]);
 //});
 
-Route::middleware('app-lang')->group(function (){
-    Route::get('/lang',function (){
-       session(['lang_loc'=>request('loc')]);
-       return redirect()->back();
-    });
+Route::middleware('app-lang')->group(function () {
+	Route::get('/lang', function () {
+		session(['lang_loc' => request('loc')]);
+		return redirect()->back();
+	});
 });
+
+// Route::resource('profile', UpdateUserProfileController::class);
+Route::get('/profile', [UpdateUserProfileController::class, 'index']);
+Route::post('/profile', [UpdateUserProfileController::class, 'update']);
+// Route::post('/profile', [ProfileController::class, 'updatePersonalInfo'])->name('profile.personal.update');
