@@ -19552,11 +19552,9 @@ __webpack_require__.r(__webpack_exports__);
         var token = response.data.data.access_token; // saving token to localSorage 
 
         localStorage.setItem("token", token);
-        alert("Loggened Successfully"); // route for u_index page
+        alert("Loggened Successfully vu"); // route for u_index page
 
-        _this.$router.push({
-          name: "profilePage"
-        });
+        window.location.replace(_this.base_url + '/profile?id=' + response.data.data.user.id); // this.$router.push({ name: "profilePage" });
       })["catch"](function (e) {
         _this.errors = e.response.data.errors; // if (e.response.data.errors) {
         //   this.errors = e.response.data.errors;
@@ -36634,7 +36632,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 
-var env = "local"; // can be local or production
+var env = "production"; // can be local or production
 
 var api = axios__WEBPACK_IMPORTED_MODULE_0___default().create({
   baseURL: env == "local" ? "http://localhost/reliable/public/api" : 'https://law-mawthuq.com/reliable/public/api',

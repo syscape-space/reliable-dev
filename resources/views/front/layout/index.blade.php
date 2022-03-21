@@ -12,9 +12,9 @@
     <link href='http://fonts.googleapis.com/earlyaccess/droidarabickufi.css' rel='stylesheet' type='text/css' />
 
 
-    <link rel="stylesheet" href="fonts/font-awsome-pro/css/pro.min.css">
-    <link rel="stylesheet" href="fonts/feather.css">
-    <link rel="stylesheet" href="fonts/fontawesome.css">
+    <link rel="stylesheet" href="./fonts/font-awsome-pro/css/pro.min.css">
+    <link rel="stylesheet" href="./fonts/feather.css">
+    <link rel="stylesheet" href="./fonts/fontawesome.css">
     <link rel="stylesheet" href="./css/style.css" />
     <style>
         body {
@@ -46,7 +46,7 @@
                 </div>
                 <div class="text-center py-4">
                     <div class="image-user position-relative d-inline-block">
-                        <img src="./images/dash-user.png" alt="" srcset="" />
+                        <img src="{{(!empty($user) && !empty($user->photo_profile)) ? it()->url($user->photo_profile) : asset('assets/images/dash-user.png')}}" alt="" width="90px" height="90px" srcset="" style="border-radius: 45px;" />
                         <img style="position: absolute; bottom: 0; left: 0" src="./images/dash-edit.svg" alt="" srcset="" />
                     </div>
                     <h4 class="mt-3" style="color: #fff; font-size: 16px; margin-bottom: 0px">

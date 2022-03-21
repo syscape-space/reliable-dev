@@ -6,7 +6,7 @@
     @if (\Session::has('success'))
     <div class="alert alert-success">{!! \Session::get('success') !!}</div>
     @endif
-    @if(!empty($subscribtion_end) && $subscribtion_end)
+    @if(!empty($subscribtion_end) && !empty($user->subscribe_end_at) && $subscribtion_end)
     <div class="alert alert-warning" role="alert">
         يرجي تجديد الاشتراك
     </div>
@@ -76,7 +76,7 @@
                         <div class="form-group">
                             {!! Form::label('mobile',trans('admin.mobile'),['class'=>' control-label mt-3 mb-1']) !!}
                             <span class="text-danger">*</span>
-                            {!! Form::text('mobile',$user->mobile,['class'=>'form-control','placeholder'=>trans('admin.mobile'), ($user->mobile_verify == 'verified' ? 'readonly':'')=>'']) !!}
+                            {!! Form::text('mobile',$user->mobile,['class'=>'form-control','placeholder'=>trans('admin.mobile'), 'readonly'=>'']) !!}
                         </div>
                     </div>
                     <div class="col-sm-12  col-lg-6 col-xl-4">
@@ -111,15 +111,17 @@
                     <div class="col-sm-12  col-lg-6 col-xl-4">
                         <div class="form-group">
                             {!! Form::label('account_type',trans('admin.account_type'), ['class'=>'mt-3 mb-1']) !!}
-                            {!! Form::select('account_type',['individual'=>trans('admin.individual'),'company'=>trans('admin.company'),],$user->account_type,['class'=>'form-control select2', 'disabled'=>'disabled', 'placeholder'=>trans('admin.choose')]) !!}
+                            {!! Form::select('account_type',['individual'=>trans('admin.individual'),'company'=>trans('admin.company'),],$user->account_type,['class'=>'form-control select2', (!empty($user->account_type) ? 'disabled': '') => '', 'placeholder'=>trans('admin.choose')]) !!}
                         </div>
                     </div>
+                    @if($user->subscribe_end_at)
                     <div class="col-sm-12  col-lg-6 col-xl-4">
                         <div class="form-group">
                             {!! Form::label('subscribe_end_at',trans('admin.subscribe_end_at'), ['class'=>'mt-3 mb-1']) !!}
                             {!! Form::text('subscribe_end_at',$user->subscribe_end_at,['class'=>'form-control datepicker','placeholder'=>trans('admin.subscribe_end_at'),'readonly'=>'readonly']) !!}
                         </div>
                     </div>
+                    @endif
 
                     <div class="col-md-12">
                         <div class="form-group">

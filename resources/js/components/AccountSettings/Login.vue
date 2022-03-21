@@ -98,9 +98,10 @@ export default {
               let token = response.data.data.access_token ;
               // saving token to localSorage 
               localStorage.setItem("token", token );
-              alert("Loggened Successfully");
+              alert("Loggened Successfully vu");
               // route for u_index page
-              this.$router.push({ name: "profilePage" });
+              window.location.replace(this.base_url+'/profile?id='+response.data.data.user.id);
+              // this.$router.push({ name: "profilePage" });
             })
             .catch((e) => {
               this.errors = e.response.data.errors;
