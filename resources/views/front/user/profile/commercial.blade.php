@@ -1,5 +1,5 @@
 <div class="col-12 col-md-8">
-    @if(!empty($commercial_end) && $commercial_end)
+    @if(!empty($commercial_status) && $commercial_status == "end")
     <div class="alert alert-warning" role="alert">
         <strong>السجل منتهي</strong> يرجي تجديد السجل
     </div>
@@ -41,7 +41,7 @@
                         <div class="col-md-4 mt-4">
                             <!-- <div class="form-group"> -->
                             <!-- <label class="mt-2 mb-2" for="address_2"> </label> -->
-                            <img src="{{empty($commercial) ? $commercial->commercial_file : 'https://sjl.const-tech.biz/HRM/public/uploads/users/thumb/sar11.png' }}" class="d-block mt-2" height="100px" />
+                            <img src="{{!empty($commercial) ? $commercial->commercial_file : 'https://sjl.const-tech.biz/HRM/public/uploads/users/thumb/sar11.png' }}" class="d-block mt-2" height="100px" />
                             <!-- </div> -->
                         </div>
                     </div>

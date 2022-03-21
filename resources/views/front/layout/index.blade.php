@@ -184,18 +184,20 @@
                                 <a class="nav-link list-group-item list-group-item-action {{!empty($type) && $type == 'account-settings' ? 'active' : ''}}" id="account-settings-tab" data-toggle="pill" href="{{aurl('../../profile?id='.$user->id.'&type=account-settings')}}" role="tab" aria-controls="account-settings" aria-selected="true"> <span class="f-w-500"><i class="feather icon-disc m-r-10 h5 "></i>إعدادت الحساب </span> <span class="float-right"><i class="feather icon-chevron-right"></i></span> </a>
                                 <!-- <a class="nav-link list-group-item list-group-item-action active" id="user-edit-account-tab" data-toggle="pill" href="#user-edit-account" role="tab" aria-controls="user-edit-account" aria-selected="true"> <span class="f-w-500"><i class="feather icon-user m-r-10 h5 "></i>معلومات شخصية </span> <span class="float-right"><i class="feather icon-chevron-right"></i></span> </a> -->
                                 <a class="nav-link list-group-item list-group-item-action  d-flex justify-content-between {{!empty($type) && $type == 'commercial' ? 'active' : ''}}" id="user-profile-logo-tab" data-toggle="pill" href="{{aurl('../../profile?id='.$user->id.'&type=commercial')}}" role="tab" aria-controls="user-profile-logo" aria-selected="false"> <span class="f-w-500"><i class="feather icon-image m-r-10 h5 "></i>السجلات التجارية </span> <span class="float-right">
-                                        @if(!empty($commercial_end) && $commercial_end)
+                                        @if(!empty($commercial_status) && $commercial_status == "end")
                                         <span class="{{!empty($type) && $type == 'commercial' ? 'text-white' : 'text-danger'}}">منتهي</span>
-                                        @else
+                                        @endif
+                                        @if(!empty($commercial_status) && $commercial_status == "active")
                                         <span class="{{!empty($type) && $type == 'commercial' ? 'text-white' : 'text-success'}}">نشيط</span>
                                         @endif
                                         </i></span> </a>
                                 <i class="feather icon-chevron-right"></i></span> </a>
                                 <a class="nav-link list-group-item list-group-item-action d-flex justify-content-between {{!empty($type) && $type == 'license' ? 'active' : ''}}" id="user-profile-logo-tab" data-toggle="pill" href="{{aurl('../../profile?id='.$user->id.'&type=license')}}" role="tab" aria-controls="user-profile-logo" aria-selected="false"> <span class="f-w-500"><i class="feather icon-image m-r-10 h5 "></i>الرخصة المهنية </span>
                                     <span class="float-right">
-                                        @if(!empty($license_end) && $license_end)
+                                        @if(!empty($license_status) && $license_status == "end")
                                         <span class="{{!empty($type) && $type == 'license' ? 'text-white' : 'text-danger'}}">منتهي</span>
-                                        @else
+                                        @endif
+                                        @if(!empty($license_status) && $license_status == "active")
                                         <span class="{{!empty($type) && $type == 'license' ? 'text-white' : 'text-success'}}">نشيط</span>
                                         @endif
                                         <i class="feather icon-chevron-right">

@@ -1,5 +1,5 @@
 <div class="col-12 col-md-8">
-    @if(!empty($license_end) && $license_end)
+    @if(!empty($license_status) && $license_status == "end")
     <div class="alert alert-warning" role="alert">
         <strong>الرخصة منتهية</strong> يرجي تجديد الرخصة
     </div>

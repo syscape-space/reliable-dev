@@ -22,20 +22,31 @@ class UpdateUserProfileController extends Controller
     public function index(Request $request)
     {
         $user_id = $request->query('id');
+        $user = User::find($user_id ?? 0);
+        if (is_null($user) || empty($user)) {
+            return redirect('/')->with('error', trans("admin.undefinedRecord"));
+        }
+
         $type = $request->query('type');
         $license =  UserLicense::where('user_id', $user_id)->first();
         $commercial = UserCommercial::where('user_id', $user_id)->first();
         $user = User::find($user_id);
         $subscribtion_end = Carbon::parse($user->subscribe_end_at)->isPast();
-        $license_end = Carbon::parse($license->license_end_at ?? '')->isPast();
-        $commercial_end = Carbon::parse($commercial->commercial_end_at)->isPast();
+        $license_status = "unset";
+        if (!is_null($license) && !empty($license)) {
+            $license_status = Carbon::parse($license->license_end_at ?? '')->isPast() ? "end" : "active";
+        }
+        $commercial_status = "unset";
+        if (!is_null($commercial) && !empty($commercial)) {
+            $commercial_status = Carbon::parse($commercial->commercial_end_at)->isPast() ? "end" : "active";
+        }
         return view('front.user.profile.mainProfile', [
             "base_url" => 'https://localhost:8000/public/storage/',
             "type" => $type,
             "user" => $user,
             "subscribtion_end" => $subscribtion_end,
-            "license_end" => $license_end,
-            "commercial_end" => $commercial_end,
+            "license_status" => $license_status,
+            "commercial_status" => $commercial_status,
             "license" => $license,
             "commercial" => $commercial
         ]);
