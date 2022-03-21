@@ -19,14 +19,7 @@ use Spatie\Honeypot\ProtectAgainstSpam;
 |
  */
 
-<<<<<<< HEAD
-// Route::get('/', function(){
-// 	return view('welcome');
-// });
 Route::get('/provider', function () {
-=======
-Route::get('/provider', function(){
->>>>>>> 8d91b6639b78a78807397c0ea5b8e0c65b231469
 	return view('front.user.provider.provider');
 });
 Route::get('/service_provider1', function () {
