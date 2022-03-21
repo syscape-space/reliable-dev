@@ -41,7 +41,6 @@
                         <div class="col-md-4 mt-4">
                             <!-- <div class="form-group"> -->
                             <!-- <label class="mt-2 mb-2" for="address_2"> </label> -->
-                            <label for="">{{$base_url. $license->license_file }}</label>
                             <img src="{{!empty($license) ? $license->license_file : 'https://sjl.const-tech.biz/HRM/public/uploads/users/thumb/sar11.png' }}" class="d-block mt-2" height="100px" />
                             <!-- </div> -->
                         </div>
