@@ -27,7 +27,7 @@ class UpdateUserProfileController extends Controller
         $commercial = UserCommercial::where('user_id', $user_id)->first();
         $user = User::find($user_id);
         $subscribtion_end = Carbon::parse($user->subscribe_end_at)->isPast();
-        $license_end = Carbon::parse($license->license_end_at)->isPast();
+        $license_end = Carbon::parse($license->license_end_at ?? '')->isPast();
         $commercial_end = Carbon::parse($commercial->commercial_end_at)->isPast();
         return view('front.user.profile.mainProfile', [
             "base_url" => 'https://localhost:8000/public/storage/',
