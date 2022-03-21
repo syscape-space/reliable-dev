@@ -62,6 +62,7 @@ function () {
 		Route::get('get_specific_ticket/{id}' , 'TicketController@getSpecificTicket');
 		Route::get('all_jobs' , 'JobsController@getAllJobs') ;
 		Route::get('get_this_job_details/{id}' , 'JobsController@getThisJobDetails');
+		Route::post('apply_now' , 'JobsController@makeApply');
 
 		
 

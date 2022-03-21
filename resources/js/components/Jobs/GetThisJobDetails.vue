@@ -40,53 +40,63 @@
               </li>
             </ul>
           </div>
-          <div class="row w-100 mx-0 px-0">
-            <div class="col-md-12 mb-2">
-              <label for="">
-                {{ $root._t("app.applyNowForThisJob") }}
-              </label>
-            </div>
-            <div class="col-md-6 mb-2">
-              <input type="text" class="form-control" placeholder="محمد مصطفي علي" 
-              style="padding: 10px;background-color: #FCFCFC;border: 1px solid #C1C1C1;">
-            </div>
-            <div class="col-md-6 mb-2">
-              <input type="text" class="form-control" placeholder="...رقم الجوال" 
-              style="padding: 10px;background-color: #FCFCFC;border: 1px solid #C1C1C1;">
-            </div>
-            <div class="col-md-6 mb-2">
-              <input type="text" class="form-control" placeholder="...البريد الالكتروني" 
-              style="padding: 10px;background-color: #FCFCFC;border: 1px solid #C1C1C1;">
-            </div>
-            <div class="col-md-6 mb-2">
-              <input type="text" class="form-control" placeholder="...المدينة" 
-              style="padding: 10px;background-color: #FCFCFC;border: 1px solid #C1C1C1;">
-            </div>
-            <div class="col-md-12 mb-3 f-14 ">
-                <label for="">{{ $root._t("app.files") }}</label>
-
-                <div class="btw-flex">
-                  <div class="position-relative">
-                    <input style="width: 141px;" type="file" class="abs-file">
-                    <div style="color: #048E81;" class="add-o-file  f-12">
-                      <span>{{ $root._t("app.uploadYouCv") }}</span>
-                      <img style="width: 12px;" :src="base_url + '/assets/images/o_file.svg'" alt="">
-                    </div>
-                  </div>
-                  
-                </div>
-            </div>
-            <div class="col-md-12 text-center mb-3">
-              <button class="rounded" style="
-                            border: 0;
-                            background-color: #FF584D;
-                            color: #fff;
-                            font-size: 12px;
-                            padding: 10px 40px;">
-                  {{ $root._t("app.applyNow") }}
-                </button>
+          <!--- Error Will Validate Here -->
+          <div class="errors">
+            <div class="alert alert-danger" v-for="error in errors" :key="error">
+              <strong>{{ error }}</strong>
             </div>
           </div>
+          <form @submit="applyNow" enctype="multipart/form-data">
+            <div class="row w-100 mx-0 px-0">
+              <div class="col-md-12 mb-2">
+                <label for="">
+                  {{ $root._t("app.applyNowForThisJob") }}
+                </label>
+              </div>
+              <div class="col-md-6 mb-2">
+                <input type="text" class="form-control" placeholder="محمد مصطفي علي" v-model="applier_name"
+                style="padding: 10px;background-color: #FCFCFC;border: 1px solid #C1C1C1;">
+              </div>
+              <div class="col-md-6 mb-2">
+                <input type="text" class="form-control" placeholder="...رقم الجوال" v-model="applier_mobile"
+                style="padding: 10px;background-color: #FCFCFC;border: 1px solid #C1C1C1;">
+              </div>
+              <div class="col-md-6 mb-2">
+                <input type="text" class="form-control" placeholder="...البريد الالكتروني" v-model="applier_email"
+                style="padding: 10px;background-color: #FCFCFC;border: 1px solid #C1C1C1;">
+              </div>
+              <div class="col-md-6 mb-2">
+                <input type="text" class="form-control" placeholder="...المدينة" v-model="applier_country"
+                style="padding: 10px;background-color: #FCFCFC;border: 1px solid #C1C1C1;">
+              </div>
+              <div class="col-md-12 mb-3 f-14 ">
+                  <label for="">{{ $root._t("app.files") }}</label>
+
+                  <div class="btw-flex">
+                    <div class="position-relative">
+                      <input style="width: 141px;" type="file" id="selectImage" v-on:change="onChange" accept="image/png, image/gif, image/jpeg" name="image" />
+                      <div style="color: #048E81;" class="add-o-file  f-12">
+                        <span>{{ $root._t("app.uploadYouCv") }}</span>
+                        <img style="width: 12px;" :src="base_url + '/assets/images/o_file.svg'" alt="">
+                      </div>
+                    </div>
+                    
+                  </div>
+              </div>
+              <div class="col-md-12 text-center mb-3">
+                <button class="rounded" style="
+                              border: 0;
+                              background-color: #FF584D;
+                              color: #fff;
+                              font-size: 12px;
+                              padding: 10px 40px;"
+                              >
+                    {{ $root._t("app.applyNow") }}
+                  
+                  </button>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
     </section>
@@ -103,6 +113,12 @@ export default {
       jobDetails : "" ,
       publishedAt : "" ,
       qualification : "" ,
+      file : null ,
+      errors: null,
+      applier_name : "" ,
+      applier_mobile : "" ,
+      applier_email : "" ,
+      applier_country : "" ,
       experience : ""
     };
   },
@@ -121,6 +137,30 @@ export default {
         // error.response.data.errors
         .catch((e) => {
           console.log(e.response);
+        });
+    } ,
+    onChange(e) {
+                this.file = e.target.files[0];
+            },
+    applyNow(e){
+       e.preventDefault();
+      let jobId = localStorage.getItem("jobId");
+      let data = new FormData();
+      data.append("name", this.applier_name);
+      data.append("email", this.applier_email);
+      data.append("mobile", this.applier_mobile);
+      data.append("country" , this.applier_country);
+      data.append("file", this.file);
+      api
+        .post("v1/apply_now" , data)
+        .then((response) => {
+          alert('Applied Successfully');
+          console.log(response);
+        })
+        // error.response.data.errors
+        .catch((e) => {
+           this.errors = e.response.data.errors;
+          console.log(e.response.data.errors);
         });
     }
   },
