@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\ValidationsApi\V1\TicketsRequest;
+use App\Models\Files;
 
 class TicketController extends Controller
 {
@@ -53,11 +54,37 @@ class TicketController extends Controller
         $newTicket->ticket_status = "opened" ;
         $newTicket->save();
 
+        // $addNewAttchOfTicket = new Files();
+        // $addNewAttchOfTicket->user_id = $request->user_id ;
+        // $addNewAttchOfTicket->file = $request->file ;
+        // $addNewAttchOfTicket->full_path ;
+        // $addNewAttchOfTicket->type_file ;
+        // $addNewAttchOfTicket->type_id ;
+        // $addNewAttchOfTicket->path ;
+        // $addNewAttchOfTicket->ext ;
+        // $addNewAttchOfTicket->name ;
+        // $addNewAttchOfTicket->size ;
+        // $addNewAttchOfTicket->size_bytes ;
+        // $addNewAttchOfTicket->mimtype ;
+
+        
 
         return response()->json([
-                    "depts" => "saved"
+                    "depts" => "saved" 
                 ] , 200) ;
 
         
     }
+
+    public function getSpecificTicket($id){
+        $tickets = Ticket::join('users', 'tickets.user_id', '=', 'users.id')
+                ->join('ticket_departments' , 'ticket_departments.id' , '=' , 'tickets.ticket_department_id' )
+                ->where('tickets.id' , '=' , $id)
+                ->get(['users.*', 'tickets.*' , 'ticket_departments.department_name_ar']);
+
+        return response()->json([
+            "tickets" => $tickets 
+        ] , 200) ;
+    }
 }
+

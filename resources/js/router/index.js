@@ -7,6 +7,10 @@ import Register from '../views/AccountPages/registerPage.vue' // done
 import Verify from '../views/AccountPages/verifyPage.vue' 
 import Success from '../views/AccountPages/successPage.vue' 
 
+// Jobs 
+import ShowAllJobsPage from '../views/JobPages/showAllJobs.vue' 
+import GetThisJobDetails from '../views/JobPages/getThisJobDetails.vue' 
+
 // License
 import licenseShowPage from '../views/LicensePages/licenseShowPage.vue'
 import addLicensePage from '../views/LicensePages/addLicensePage.vue' // wait for user_job
@@ -52,6 +56,7 @@ function guardMyroute(to, from, next)
     }
 }
 // our routes
+    // Account Settings
 const routes = [
     {
         path : prefix+'/' ,
@@ -63,6 +68,13 @@ const routes = [
     },
     {
         path : prefix+'/register' , component : Register,name:"Register"
+    },
+    // Jobs
+    {
+        path : prefix+'/all_jobs' , beforeEnter : guardMyroute , component : ShowAllJobsPage,name:"ShowAllJobsPage"
+    },
+    {
+        path : prefix+'/job_details' , beforeEnter : guardMyroute , component : GetThisJobDetails,name:"GetThisJobDetails"
     },
     // License Pages Routes
     {
@@ -98,7 +110,7 @@ const routes = [
         path : prefix+'/u_document_request' , beforeEnter : guardMyroute , component : DocumentRequest , name : "DocumentRequest"
     },
     {
-        path : prefix+'/u_chat' , beforeEnter : guardMyroute , component : ChatPage , name : "ChatPage"
+        path : prefix+'/u_ticket_details' , beforeEnter : guardMyroute , component : ChatPage , name : "ChatPage"
     },
     {
         path : prefix+'/u_ticket1' , beforeEnter : guardMyroute , component : Ticket1 , name : "Ticket1"

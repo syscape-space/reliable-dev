@@ -45,6 +45,7 @@
           <button
             class="offer-btn mt-3"
             style="color: #ffffff; background-color: #048e81"
+            @click.prevent="goToShowAllJobs"
           >
             {{ $root._t("app.descoverAllJobs") }}
           </button>
@@ -84,6 +85,9 @@ export default {
           console.log(e.response);
         });
     },
+    goToShowAllJobs (){
+      this.$router.push({ name: "ShowAllJobsPage" });
+    }
   },
 };
 </script>

@@ -52,8 +52,12 @@
             </li>
             <li style="margin-right: auto;">
               <div class="number-ticket d-flex">
-                <img style="width: 20px;" :src="base_url + '/assets/images/morning1.svg'" alt="">
-                <span class="mx-3">{{ $root._t("app.ticketNum") }} {{ count }}</span>
+                <img style="width: 20px;" :src="base_url + './assets/images/morning1.svg'" alt="">
+                <span class="mx-3"> 
+                  <button class="save-btn" @click.prevent="goToTicketDetails(item.id)">
+                    {{ $root._t("app.ticketDetails") }}
+                  </button>
+                </span>
               </div>
             </li>
           </ul>
@@ -83,7 +87,6 @@ export default {
         .then((response) => {
           this.ticketsCount = response.data.myTicketsCount ;
           this.list = response.data.tickets
-          this.count++ 
           console.log(response.data)
         })
         // error.response.data.errors
@@ -94,6 +97,10 @@ export default {
     },
     goToAddTicket(){
       this.$router.push({ name: "addTicket" });
+    },
+    goToTicketDetails( ticketId ){
+      let thisTicketId = localStorage.setItem("thisTicketId", ticketId);
+      this.$router.push({ name: "ChatPage" });
     }
   } ,
   

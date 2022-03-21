@@ -2,7 +2,7 @@
     <section class="personal-section mt-2">
       <div class="personal">
         <div class="personal-info">
-          <h6 class="my-4">اضافه تذكره</h6>
+          <h6 class="my-4">{{ $root._t("app.ticketDetails") }}</h6>
           <form action="" enctype="multipart/form-data">
             <div class="row w-100 mx-0 px-0">
              
@@ -15,7 +15,7 @@
 
               <div class="mb-3 col-md-4">
                 <div class="content-col">
-                  <label style="font-size: 13px">عنوان التذكره</label>
+                  <label style="font-size: 13px">{{ $root._t("app.ticketTitle") }}</label>
                   <input
                     class="input-personal mt-1 w-100"
                     type="text"
@@ -26,7 +26,7 @@
               </div>
               <div class="mb-3 col-md-4">
                 <div class="content-col">
-                  <label style="font-size: 13px">اختار القسم</label>
+                  <label style="font-size: 13px">{{ $root._t("app.chooseDepartment") }}</label>
                     <select  class="input-personal mt-1 w-100" v-model="ticketDepartment">
                         <option :value="item.id" v-for="item in list" :key="item.id"> {{ item.department_name_ar }} </option>
                     </select>
@@ -34,29 +34,30 @@
               </div>
               <div class="mb-3 col-md-4">
                 <div class="content-col">
-                  <label style="font-size: 13px">ارفاق ملفات</label>
+                  <label style="font-size: 13px">{{ $root._t("app.uploadFiles") }}</label>
                   <input
                     class="input-personal mt-1 w-100"
                     type="file"
+                    @change="onSelectedImage"
                   />
                 </div>
               </div>
               <div class="mb-3 col-md-12">
                 <div class="content-col">
-                  <label style="font-size: 13px">التذكره مرتبطه ب</label>
+                  <label style="font-size: 13px">{{ $root._t("app.relatedTo") }}</label>
                     <select  class="input-personal mt-1 w-100" v-model="ticketLinked">
-                        <option value="order" > طلب </option>
-                        <option value="offer" > عرض </option>
-                        <option value="charge" > شحن رصيد </option>
-                        <option value="received_money" > سحب رصيد </option>
-                        <option value="account" > حساب </option>
-                        <option value="other" > اخرى </option>
+                        <option value="order" > {{ $root._t("app.order") }} </option>
+                        <option value="offer" > {{ $root._t("app.preview") }} </option>
+                        <option value="charge" > {{ $root._t("app.charge") }} </option>
+                        <option value="received_money" > {{ $root._t("app.recieveMony") }} </option>
+                        <option value="account" > {{ $root._t("app.account") }} </option>
+                        <option value="other" > {{ $root._t("app.other") }} </option>
                     </select>
                 </div>
               </div>
               <div class="mb-3 col-md-12">
                 <div class="content-col">
-                  <label style="font-size: 13px">المحتوى</label>
+                  <label style="font-size: 13px">{{ $root._t("app.content") }}</label>
                   <textarea
                       class="input-personal mt-1 w-100"
                       name="" id="" cols="30" rows="10" v-model="ticketContent">
@@ -91,7 +92,8 @@ export default {
       ticketLinked : "" ,
       ticketContent : "" ,
       ticketStatus : "opened" ,
-      ticketDepartment : ""
+      ticketDepartment : "" ,
+      file : null
 
     };
   },
@@ -112,6 +114,9 @@ export default {
           console.log(e);
         });
     } , 
+    onSelectedImage(event) {
+      this.file = event.target.files[0];
+    },
     addNewTicket(){
         let formData = new FormData();
         formData.append("ticket_title", this.ticketTitle);
@@ -119,12 +124,14 @@ export default {
         formData.append("user_id", localStorage.getItem("myIdTazkarty") );
         formData.append("ticket_department_id", this.ticketDepartment);
         formData.append("ticket_content", this.ticketContent);
+        formData.append("file", this.file);
 
         api
         .post("v1/new_ticket" , formData)
         .then((response) => {
           console.log(response)
           alert("Ticket Added Successfully");
+          this.$router.push({ name: "Ticket2" });
         })
         // error.response.data.errors
         .catch((e) => {

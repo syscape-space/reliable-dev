@@ -330,6 +330,29 @@ return [
     'licenseNameOrLicenseNumber' => 'اسم الترخيص / رقم الرخصة' ,
     'license' => 'الترخيص' ,
     'licenseExpirdDate' => 'تاريخ نهاية الترخيص' ,
-    'addLicenseBtn' => 'اضافه رخصه'
+    'addLicenseBtn' => 'اضافه رخصه' ,
+    // Add Ticket
+    'addNewTicket' => 'اضافه تذكره' ,
+    'ticketTitle' => 'عنوان التذكره' ,
+    'chooseDepartment' => 'اختار القسم' ,
+    'uploadFiles' => 'ارفاق ملفات' ,
+    'relatedTo' => 'التذكره مرتبطه ب' ,
+    'order' => 'طلب' ,
+    'preview' => 'عرض' ,
+    'charge' => 'شحن رصيد' ,
+    'recieveMony' => 'سحب رصيد' ,
+    'account' => 'حساب' ,
+    'other' => 'اخرى' ,
+    'content' => 'المحتوى' ,
+    // Get This Job Details
+    'jobDetails' => 'تفاصيل الوظيفة' ,
+    'publishAt' => 'وقت نشر الوظيفة' ,
+    'shareJob' => 'مشاركة الوظيفة' ,
+    'applingDetails' => 'تفاصيل التقديم' ,
+    'qulification' => 'المؤهل' ,
+    'experiences' => 'الخبرات' ,
+    'applyNowForThisJob' => 'قم بالتقديم علي الوظيفة الان' ,
+    'uploadYouCv' => 'ارفاق السيرة الذاتية' ,
+    'applyNow' => 'التقديم الان' ,
     
 ];

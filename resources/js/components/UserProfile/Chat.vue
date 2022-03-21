@@ -1,15 +1,32 @@
 <template>
     <section class="requsts-sec mt-4">
       <div class="chat-clinet" style="max-width: 1000px;margin: auto;">
-        <ul class="chat-list list-unstyled d-flex ">
+        <ul class="chat-list d-flex ">
           <li class="me-2">{{ $root._t("app.ticketDetails") }}</li>
           <li class="d-flex me-5">
-            <img style="width:40px" :src="base_url + '/assets/images/morning.svg'" alt="">
-            <p style="font-size: 13px;" class="me-1 m-0">أحمد اسلام <br>
-               <span style="color: rgb(165, 164, 164);" >{{ $root._t("app.appName") }} </span> </p>
+            <img style="width:40px ;" :src="base_url + '/storage/' +  profileImage  " alt="">
+            <p style="font-size: 13px;     margin-top: 10px !important;" class="me-1 m-0"> {{ username }} <br>
+               <span style="color: rgb(165, 164, 164);" > </span> </p>
+          </li><br>
+          <li class="d-flex me-5">
+            <p style="font-size: 13px;" class="me-1 m-0"> عنوان التذكره <br>
+               <span style="color: rgb(165, 164, 164);" > {{ ticketTitle }} </span> </p>
+          </li>
+          <li class="d-flex me-5">
+            <p style="font-size: 13px;" class="me-1 m-0"> التذكرة مرتبطة ب <br>
+               <span style="color: rgb(165, 164, 164);" > {{ RelatedTo }} </span> </p>
+          </li>
+          <li class="d-flex me-5">
+            <p style="font-size: 13px;" class="me-1 m-0"> قسم الدعم الفنى <br>
+               <span style="color: rgb(165, 164, 164);" > {{ department }} </span> </p>
+          </li>
+          <li class="d-flex me-5">
+            <p style="font-size: 13px;" class="me-1 m-0"> محتوى التذكره <br>
+               <span style="color: rgb(165, 164, 164);" > {{ ticketContent }} </span> </p>
           </li>
           <li class="d-flex me-auto ms-3" >
             <img class="mx-4" :src="base_url + '/assets/images/chate2.svg'" alt="">
+            <!-- getting this ticket details --> 
             <img :src="base_url + '/assets/images/chate.svg'" alt="">
           </li>
         </ul>
@@ -87,12 +104,43 @@
     </section>
 </template>
 <script>
+import api from "../../utils/api";
 export default {
+  mounted(){
+    this.gettingTicketDetails()
+  },
   data(){
     return{
-      base_url:base_url
+      base_url:base_url ,
+      profileImage : "" ,
+      username : "" ,
+      ticketTitle : "" ,
+      RelatedTo : "" ,
+      department : "" ,
+      ticketContent : "" 
     };
   },
+  methods:{
+    gettingTicketDetails(){
+      let ticketId = localStorage.getItem("thisTicketId");
+      api
+        .get("v1/get_specific_ticket/" + ticketId)
+        .then((response) => {
+          this.profileImage = response.data.tickets[0].photo_profile;
+          this.username = response.data.tickets[0].name;
+          this.ticketTitle = response.data.tickets[0].ticket_title ;
+          this.RelatedTo = response.data.tickets[0].ticket_linked ;
+          this.department = response.data.tickets[0].department_name_ar ;
+          this.ticketContent = response.data.tickets[0].ticket_content ;
+          console.log(response.data.tickets)
+        })
+        // error.response.data.errors
+        .catch((e) => {
+          this.errors = e.response.data.errors;
+          console.log(e.response);
+        });
+    }
+  }
 }
 </script>
 <style scoped>
