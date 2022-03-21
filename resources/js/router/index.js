@@ -42,7 +42,7 @@ const env = "production";
 import addTicket from '../views/TicketsPages/createTecket.vue'
 
 
-const prefix = env == "local" ? '':'/reliable/public';
+const prefix = env === "local" ? '':'/reliable/public';
 
 // guard function 
 function guardMyroute(to, from, next)
