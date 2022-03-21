@@ -42,7 +42,7 @@ const env = "production";
 import addTicket from '../views/TicketsPages/createTecket.vue'
 
 
-const prefix = env == "local" ? '':'/reliable/public';
+const prefix = env === "local" ? '':'/reliable/public';
 
 // guard function 
 function guardMyroute(to, from, next)
@@ -108,7 +108,7 @@ const routes = [
         path : prefix+'/u_offers_order' , beforeEnter : guardMyroute , component : offerOrder , name : "offerOrder"
     },
     {
-        path : prefix+'/u_document_request' , beforeEnter : guardMyroute , component : DocumentRequest , name : "DocumentRequest"
+        path : prefix+'/make-order' , beforeEnter : guardMyroute , component : DocumentRequest , name : "DocumentRequest"
     },
     {
         path : prefix+'/u_ticket_details' , beforeEnter : guardMyroute , component : ChatPage , name : "ChatPage"

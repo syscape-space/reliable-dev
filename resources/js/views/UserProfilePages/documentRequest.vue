@@ -11,9 +11,7 @@ import DocumentRequest from '../../components/UserProfile/DocumentRequest.vue'
 export default {
     components : { RightNavbar , TopNavbar , DocumentRequest } ,
     mounted(){
-        if( localStorage.getItem("token") === "" ){
-             this.$router.push({ name: "Login" });
-         }
+
     }
 }
 </script>
