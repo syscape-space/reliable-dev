@@ -22,8 +22,10 @@
             <app></app>
         </div>
     </div>
+    </div>
     <script>
         const base_url = '{{url(' / ')}}';
+        const cloud_url = '{{url(' / cloud ')}}';
         window.lang_loc = '{{app()->getLocale()}}';
         window.trans = <?php
                         // copy all translations from /resources/lang/CURRENT_LOCALE/* to global JS variable

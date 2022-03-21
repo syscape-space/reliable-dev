@@ -30,6 +30,8 @@ Route::group(['middleware' => ['ApiLang', 'cors'], 'prefix' => 'v2', 'namespace'
 
 		Route::get('vendors', 'VendorController@index');
 		Route::get('vendors/{id}', 'VendorController@show');
+
+		
 		
 
 
@@ -52,7 +54,16 @@ function () {
 		Route::apiResource("cities", "CitiesApi", ["as" => "api.cities"]);
 		Route::post("cities/multi_delete", "CitiesApi@multi_delete");
 
+		// My Routes [ Mostafa Gamal ]
 		Route::get('vendor_profile/{id}', 'VendorController@vendorProfile');
+		Route::get('my_tickets/{id}' , 'TicketController@getMyTickets');
+		Route::get('all_depts' , 'TicketController@getAllDepts');
+		Route::post('new_ticket' , 'TicketController@addNewTicket');
+		Route::get('get_specific_ticket/{id}' , 'TicketController@getSpecificTicket');
+		Route::get('all_jobs' , 'JobsController@getAllJobs') ;
+		Route::get('get_this_job_details/{id}' , 'JobsController@getThisJobDetails');
+
+		
 
 
 		Route::get('/', function () {

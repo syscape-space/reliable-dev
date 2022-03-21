@@ -13,7 +13,7 @@ return [
 		|
 	*/
 
-	'default' => env('FILESYSTEM_DRIVER', 'local'),
+	'default' => env('FILESYSTEM_DRIVER', 'cloud'),
 
 	/*
 		|--------------------------------------------------------------------------
@@ -26,7 +26,7 @@ return [
 		|
 	*/
 
-	'cloud' => env('FILESYSTEM_CLOUD', 's3'),
+	'cloud' => env('FILESYSTEM_CLOUD', 'cloud'),
 
 	/*
 		|--------------------------------------------------------------------------
@@ -57,6 +57,12 @@ return [
 			'url' => env('APP_URL') . '/storage',
 			'visibility' => '',
 		],
+        'cloud' =>[
+            'driver' => 'local',
+            'root' => base_path('/cloud'),
+            'url' => env('APP_URL') . '/cloud',
+            'visibility' => 'public',
+        ],
 		's3' => [
 			'driver' => 's3',
 			'key' => env('AWS_ACCESS_KEY_ID'),

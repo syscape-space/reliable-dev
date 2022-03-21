@@ -39,7 +39,7 @@
                       <span
                         style="color: #2b7b74"
                         class="mb-2 d-inline-block text-center"
-                        >{{ $root._t("app.attorneyGeneral") }}
+                        >{{ cityName }}
                       </span> <br>
                       <span
                         style="color: #ff584d"
@@ -192,20 +192,23 @@ export default {
       base_url:base_url ,
       username : "" ,
       image : null ,
-      countryName : ""
+      countryName : "" ,
+      cityName : ""
     };
   },
   components : {UnderNavbar} ,
+  props :['uId'] ,
   methods:{
     getProfile2(){
-      let userId = localStorage.getItem("uId");
-      let mainRoute = "http://localhost/reliable/public/api/v1/vendor_profile/" + userId ;
+      let userId = this.$route.params.uId ;
+      let mainRoute = "v1/vendor_profile/" + userId ;
       api
         .get(mainRoute)
         .then((response) => {
           this.username = response.data.userData[0].name ;
           this.image = response.data.userData[0].photo_profile ;
           this.countryName = response.data.userData[0].country_name_ar ;
+          this.cityName = response.data.userData[0].city_name_ar ;
           console.log(response.data.userData[0]);
         })
         // error.response.data.errors

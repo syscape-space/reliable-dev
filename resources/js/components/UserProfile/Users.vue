@@ -2,6 +2,11 @@
 <div class="top-header" style="background-color: #f6f6f6 ; width:100%" >
       <div class="container">
         <ul class="list-unstyled d-flex m-0">
+        <li class="ms-4 my-1 position-relative m-d-none">
+            <a href="" style="color: #048e81;">
+              الرئيسية
+            </a>
+          </li>
           <li class="ms-4 position-relative">
             <a href="#"
               ><img :src="base_url+'/assets/images/notification-nav.svg'" alt="" srcset="" />
@@ -44,7 +49,7 @@
               "
               class="rounded"
             >
-              {{ $root._t("app.search") }} 
+              {{ $root._t("app.search") }}
             </button>
           </li>
         </ul>
@@ -65,7 +70,7 @@
                       <div class="text-center" v-else>
                         <img class="uses-img" :src="base_url + '/assets/images/emptyUser.png'" alt="">
                       </div>
-                      <div class="text-center"> 
+                      <div class="text-center">
                         <i class="fas fa-star yellow"></i>
                         <i class="fas fa-star yellow"></i>
                         <i class="fas fa-star yellow"></i>
@@ -128,11 +133,12 @@ export  default {
     return{
       base_url:base_url ,
       list : [] , 
-      search : '' 
+      search : '' ,
+      uId : "" 
     };
   },
   mounted() {
-    
+
     this.getAllServiceProduction();
   },
   computed : {
@@ -161,10 +167,9 @@ export  default {
     } ,
 
     getProfile2( id ){
-      localStorage.setItem("uId", id);
-      this.$router.push({ name: "Profile4" });
+      this.uId = id ;
+      this.$router.push({ name: 'Profile4' , params: { uId: id } })
     }
-    
   }
 }
 </script>
