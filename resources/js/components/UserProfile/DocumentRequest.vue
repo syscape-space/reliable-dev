@@ -61,27 +61,35 @@
                   </div>
                 </div>
                 <div class="data data1  text-right ">
+                  <div class="">
+                      <span>
+                        ملحق بطلب رقم
+                      </span>
+                      <input  style="width: 80px;" placeholder="#">
+                  </div>
                   <div class="select">
-                    <div class="option mt-4" v-for="department in departments">
-                      <div class="head">
-                        <div class="form-check form-check-inline">
-                          <input type="radio" class="form-check-input" id="exampleCheck3" name="choose">
-                          <label class="form-check-label name  pr-2" for="exampleCheck3">{{department.department_name_ar}}</label>
-                        </div>
-                        <div class="details  mt-3">
-                          <div class="row">
-                            <div class="col-10">
-                              <p>
-                                {{ $root._t("app.thisServiceFeature") }}
-                              </p>
-                            </div>
-                            <div class="col-2 text-center">
-                              <img :src="base_url + '/assets/images/Page.svg'" alt="#">
+                    <template v-for="department in departments">
+                      <div class="option mt-4" v-if="department.enable_post === 'yes' && department.department_status === 'show'" >
+                        <div class="head">
+                          <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" :value="department.id" :id="'department-input-'+department.id" name="department_id">
+                            <label class="form-check-label name  pr-2" :for="'department-input-'+department.id">{{department.department_name_ar}}</label>
+                          </div>
+                          <div class="details  mt-3">
+                            <div class="row">
+                              <div class="col-10">
+                                <p>
+                                  {{ department.department_desc_ar }}
+                                </p>
+                              </div>
+                              <div class="col-2 text-center">
+                                <img :src="base_url + '/assets/images/Page.svg'" alt="#">
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </template>
                   </div>
                   <div class="btns text-center">
                     <div class="btn page1 btn-primary big cont mb-5" data-progress="2" data-page="2">

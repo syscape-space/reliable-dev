@@ -45,7 +45,7 @@
           <button
             class="offer-btn mt-3"
             style="color: #ffffff; background-color: #048e81"
-            @click.prevent="goToShowAllJobs"
+            @click.prevent="goToShowAllJobs()"
           >
             {{ $root._t("app.descoverAllJobs") }}
           </button>
