@@ -6,7 +6,7 @@
             
             <div class="text-center py-4">
               <div class="image-user position-relative d-inline-block">
-                <img :src="base_url+'/assets/images/dash-user.png'" alt="" srcset="" />
+                <img :src="base_url+ '/storage/' +  user.photo_profile" alt="" srcset="" />
                 <img
                   style="position: absolute; bottom: 0; left: 0"
                   :src="base_url+'/assets/images/dash-edit.svg'"
@@ -22,8 +22,11 @@
               </h4>
             </div>
              <div class="pt-4 text-center mawtheq-head d-flex justify-content-center">
-                    <p class="m-0 bg-transparent text-white border px-3" style="width:auto">
-                        مقدم خدمة
+                    <p class="m-0 bg-transparent text-white border px-3" style="width:auto" v-if="user.membership_type === null">
+                        بدون عضويه
+                    </p>
+                     <p class="m-0 bg-transparent text-white border px-3" style="width:auto" v-else>
+                        {{ user.membership_type }}
                     </p>
                 </div>
             <div
@@ -123,7 +126,8 @@ export default {
     return{
       name : "" ,
       base_url : base_url,
-      user:{},
+      
+      user:[],
     }
   },
   mounted() {
@@ -135,6 +139,7 @@ export default {
         .get("/v1/account")
         .then((response) => {
           this.user = response.data.data;
+          console.log(response.data.data.photo_profile);
         })
         // error.response.data.errors
         .catch((e) => {
