@@ -425,6 +425,7 @@ export default {
       formData.append('audio_file',this.form.audio_file);
       api.post('/v1/orders',formData).then(res=>{
         this.$root.alertSuccess('تم الارسال بنجاح');
+        console.log(res);
         this.$router.push({name:"ShowAllOrders"});
       }).catch(e=>{
         this.$root.alertErrors(e.response.data.errors_messages);

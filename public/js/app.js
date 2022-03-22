@@ -20610,6 +20610,8 @@ __webpack_require__.r(__webpack_exports__);
       _utils_api__WEBPACK_IMPORTED_MODULE_0__["default"].post('/v1/orders', formData).then(function (res) {
         _this4.$root.alertSuccess('تم الارسال بنجاح');
 
+        console.log(res);
+
         _this4.$router.push({
           name: "ShowAllOrders"
         });

@@ -28,6 +28,7 @@ class OrdersRequest extends FormRequest {
              'order_title'=>'required|string|max:191',
              'order_content'=>'required|string',
              'department_id'=>'required|integer|exists:departments,id',
+             'main_order_id'=>'sometimes|integer|exists:orders,id',
              'choose_service_provider'=>'required|string|in:all,by_city,by_filter,by_occupation',
              'country_id'=>'sometimes|nullable',
              'city_id'=>'sometimes|nullable',
@@ -88,6 +89,7 @@ class OrdersRequest extends FormRequest {
              'assigning_arbitration'=>trans('admin.assigning_arbitration'),
              'decisions_refused_reason'=>trans('admin.decisions_refused_reason'),
              'user_id'=>trans('admin.user_id'),
+             'main_order_id'=>"رقم الطلب الملحق",
 		];
 	}
 

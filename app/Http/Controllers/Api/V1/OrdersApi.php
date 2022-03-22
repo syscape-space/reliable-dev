@@ -61,7 +61,6 @@ class OrdersApi extends Controller{
     public function store(OrdersRequest $request)
     {
     	$data = $request->except("_token");
-    	return $data;
         $data["user_id"] = auth('api')->id();
         $Order = Order::create($data); 
 		$Order = Order::with($this->arrWith())->find($Order->id,$this->selectColumns);
