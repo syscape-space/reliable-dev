@@ -47,8 +47,10 @@ Route::middleware('app-lang')->group(function () {
 		return redirect()->back();
 	});
 });
-
+Route::resource('orders','Front\OrderController');
 // Route::resource('profile', UpdateUserProfileController::class);
 Route::get('/profile', [UpdateUserProfileController::class, 'index']);
 Route::post('/profile', [UpdateUserProfileController::class, 'update']);
+Route::post('/profile/license', [UpdateUserProfileController::class, 'storeLicense']);
+Route::post('/profile/commercial', [UpdateUserProfileController::class, 'storeCommercial']);
 // Route::post('/profile', [ProfileController::class, 'updatePersonalInfo'])->name('profile.personal.update');
