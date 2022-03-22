@@ -169,9 +169,21 @@
                       <div class="details selected bordr mt-3">
                         <div class="row">
                           <div class="col-12">
-                            <p class="mt-0 pt-0">
-                              <img :src="base_url + '/assets/images/right-mark.svg'" alt="#" class="right-mark">
+                            <p class="mt-0 pt-0" style="cursor: pointer" @click="form.choose_service_provider = 'all'">
+                              <i class="fa fa-check-circle text-success" v-if=" form.choose_service_provider  === 'all'"></i>
                               {{ $root._t("app.all") }}
+                              <span class="text-success" v-if=" form.choose_service_provider  === 'all'">سيتم اختيار مقدمي الخدمة من كل التخصصات و المدن</span>
+                            </p>
+                            <p class="mt-0 pt-0" style="cursor: pointer" @click="form.choose_service_provider = 'by_city'">
+                              <i class="fa fa-check-circle text-success" v-if=" form.choose_service_provider  === 'by_city'"></i>
+                              بالمدينة
+                              <span class="text-success" v-if=" form.choose_service_provider  === 'by_city'">سيتم اختيار مقدمي الخدمة من المدينة المحددة</span>
+                              <b class="text-danger" v-if=" form.choose_service_provider  === 'by_city' && form.city_id  === null">الرجاء اختيار مدينة</b>
+                            </p>
+                            <p class="mt-0 pt-0" style="cursor: pointer" @click="form.choose_service_provider = 'by_occupation'">
+                              <i class="fa fa-check-circle text-success" v-if=" form.choose_service_provider  === 'by_occupation'"></i>
+                              بالتخصص
+                              <span class="text-success" v-if=" form.choose_service_provider  === 'by_occupation'">سيتم اختيار مقدمي الخدمة من نفس تخصص القسم المحدد</span>
                             </p>
                           </div>
                         </div>
@@ -180,7 +192,7 @@
                   </div>
 
                 </div>
-                <div class="form-row">
+                <div class="form-row" v-if="form.choose_service_provider === 'by_city'">
                   <div class="form-group col-md-12">
                     <select id="inputState" v-model="form.city_id" class="form-control">
                       <option :value="null">{{ $root._t("app.selectCity") }}</option>
@@ -197,12 +209,12 @@
               </div>
               <div class="  mt-3" v-if="step === 4">
                 <div class="form-check form-check-inline">
-                  <input type="radio" class="form-check-input" id="exampleCheck81" name="choos">
-                  <label class="form-check-label name red pr-2" for="exampleCheck81">
+                  <input type="radio" class="form-check-input" id="exampleCheck8s1"  v-model="form.entities_count" value="1" name="choos">
+                  <label class="form-check-label name red pr-2" for="exampleCheck8s1">
                     {{ $root._t("app.dataOfPlaintiff") }} </label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input type="radio" class="form-check-input" id="exampleCheck80" name="choos">
+                  <input type="radio" class="form-check-input" id="exampleCheck80" v-model="form.entities_count" value="2"  name="choos">
                   <label class="form-check-label name red pr-2" for="exampleCheck80">
                     {{ $root._t("app.thereIsSides") }} </label>
                 </div>
@@ -216,7 +228,7 @@
                   <div class="form-group col-md-3 ">
                     <input class="form-control w-100" v-model="entity.nationality" type="text" placeholder=" الجنسيه........">
                   </div>
-                  <div v-if="form.entities.length - 1 === index" class="form-group col-md-3 text-center icons">
+                  <div v-if="form.entities.length - 1 === index && form.entities_count > 1" class="form-group col-md-3 text-center icons">
                     <img style="cursor: pointer" @click="form.entities.push({name:'',id_number:'',nationality:''})" :src="base_url + '/assets/images/icons.svg'" alt="#" class="d-inline-block">
                   </div>
                 </div>
@@ -227,8 +239,9 @@
                       <div class="details selected bordr mt-3">
                         <div class="row">
                           <div class="col-12">
-                            <p class="mt-0 pt-0">
-                              <img :src="base_url + '/assets/images/right-mark.svg'" alt="#" class="right-mark">
+                            <p class="mt-0 pt-0" style="cursor: pointer" @click="form.check_invalid_entities_data =! form.check_invalid_entities_data">
+                              <i class="fa fa-times-circle text-danger" v-if="! form.check_invalid_entities_data"></i>
+                              <i class="fa fa-check-circle text-success" v-else></i>
                               {{ $root._t("app.acceptDataAndMakeSure") }}
                             </p>
                           </div>
@@ -241,21 +254,26 @@
               </div>
               <div class="mt-3" v-if="step === 5">
                 <div class="form-check">
-                  <label class="form-check-label name red pr-2 mb-2" for="exampleCheck81">
+                  <label class="form-check-label name red pr-2 mb-2" for="exampleCheckss81">
                     {{ $root._t("app.suggestTimeForRequest") }} </label>
-                  <input type="number" class="form-control" id="exampleCheck81" placeholder="عدد الأيام....">
+                  <input type="number" v-model="form.execution_time" class="form-control" id="exampleCheckss81" placeholder="مدة الانجاز....">
+                </div>
+                <div class="form-check">
+                  <label class="form-check-label name red pr-2 mb-2" for="order_title_input">
+                    عنوان الطلب </label>
+                  <input type="text" v-model="form.order_title" class="form-control" id="order_title_input" placeholder="...">
                 </div>
                 <p class="red pt-4 mb-0">
                   {{ $root._t("app.Negotiable") }}
                 </p>
                 <div class="form-check form-check-inline">
-                  <input type="radio" class="form-check-input" id="exampleCheck8000" name="chos">
+                  <input type="radio" class="form-check-input" v-model="form.negotiable" value="yes" id="exampleCheck8000" name="chos">
                   <label class="form-check-label name  pr-2" for="exampleCheck8000"> {{
                       $root._t("app.yes")
                     }} </label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input type="radio" class="form-check-input" id="exampleCheck800" name="chos">
+                  <input type="radio" class="form-check-input" v-model="form.negotiable" value="no" id="exampleCheck800" name="chos">
                   <label class="form-check-label name  pr-2" for="exampleCheck800"> {{
                       $root._t("app.no")
                     }}
@@ -264,9 +282,9 @@
                 <div class="form-check textare">
                   <label class="form-check-label name red pr-2 mb-2" for="exampleCheck81">
                     {{ $root._t("app.details") }} </label>
-                  <textarea class="form-control textare-count" id="exampleCheck81" maxlength="1000"
+                  <textarea class="form-control textare-count" v-model="form.order_content" id="exampleCheck81" maxlength="1000"
                             placeholder="اكتب التفاصيل هنا...." rows="4"></textarea>
-                  <span class="remain"><span id="totalChars">0</span>/1000</span>
+                  <span class="remain"><span id="totalChars">{{form.order_content.length}}</span>/1000</span>
                 </div>
                 <p class="red mt-3">
                   {{ $root._t("app.attachingFile") }} <span> ( {{ $root._t("app.chooseFile") }} )  </span>
@@ -278,14 +296,14 @@
                         {{ $root._t("app.attchments") }}
                         <img :src="base_url + '/assets/images/file.svg'" alt="#">
                       </label>
-                      <input id='input-file' type='file'/>
+                      <input id='attachments_input' ref="attachments_input" multiple  @change="uploadAttachments()" type='file'/>
                     </div>
                     <div class='sounds d-inline-block mr-3'>
                       <label for='input-file'>
                         {{ $root._t("app.sendVoiceFile") }}
                         <img :src="base_url + '/assets/images/audio-file.svg'" alt="#">
                       </label>
-                      <input id='input-file' type='file'/>
+                      <input id='input-file' ref="audio_file_input" @change="uploadAudioFile()" type='file'/>
                     </div>
                   </div>
                 </div>
@@ -295,11 +313,7 @@
                   <div class="col-8">
                     <p class="red pr-2 mb-2">
                       <img :src="base_url + '/assets/images/22-mobile.svg'" alt="#" class="ml-2">
-                      {{ $root._t("app.recharge") }}
-                    </p>
-                    <p class="red pr-2 mb-2">
-                      <img :src="base_url + '/assets/images/money.svg'" alt="#" class="ml-2">
-                      {{ $root._t("app.calculateDiscound") }}
+                      سيتم الخصم من رصيدك رسوم اشترك اضافة طلب جديد
                     </p>
                   </div>
                   <div class="col-4">
@@ -310,42 +324,14 @@
                   </div>
                 </div>
                 <div class="total mt-3">
-                  <p> {{ $root._t("app.total") }} : <span>1 $</span></p>
-                  <p> {{ $root._t("app.fee") }} : <span>1 $</span></p>
-                  <hr>
-                  <p> {{ $root._t("app.total") }} : <span class="red">1 $</span></p>
-                </div>
-                <div class="pay mt-4">
-                  <p class="pay-title">
-                    {{ $root._t("app.payWithAman") }}
-                    <a href="#">
-                      {{ $root._t("app.editCardOfShopping") }}
-                    </a>
-                  </p>
-                  <div class="pay-way d-inline-block paypal">
-                    <img :src="base_url + '/assets/images/paypal.svg'" alt="#">
-                    {{ $root._t("app.paypal") }}
-                  </div>
-                  <div class="pay-way d-inline-block mr-5 card">
-                    <img :src="base_url + '/assets/images/credit-card.svg'" alt="#">
-                    {{ $root._t("app.numOfDays") }} ..............
-                  </div>
-                  <br>
-                  <div class="pay-way d-inline-block other">
-                    <img :src="base_url + '/assets/images/5.svg'" alt="#">
-                    {{ $root._t("app.numOfDays") }} ..............
-                  </div>
-                  <div class="pay-way d-inline-block mr-5 bank">
-                    <img :src="base_url + '/assets/images/bank.svg'" alt="#">
-                    {{ $root._t("app.bankTransfer") }}
-                  </div>
+                  <p> {{ $root._t("app.fee") }} : <span>{{$root.settings.minimum_amount_add_order}} $</span></p>
                 </div>
               </div>
               <div class="btns text-center mb-5" v-if="step !== 1">
                 <div class="btn btn-primary page1 small cont " v-if="step < 6" @click="step++">
                   {{ $root._t("app.next") }}
                 </div>
-                <div class="btn btn-success page1 small cont " v-else>
+                <div class="btn btn-success page1 small cont " @click="submitOrder()" v-else>
                   أكتمال الطلب
                 </div>
                 <div class="btn btn-secondary small conta-back" @click="step--">
@@ -376,17 +362,34 @@ export default {
       cities:[],
       form:{
         main_order_id:null,
+        execution_time:null,
         type_id:null,
         city_id:null,
+        negotiable:"no",
         sub_department_id:null,
         department_id:null,
+        order_content:'',
+        order_title:'',
+        choose_service_provider:'all', // can be by_city - all - by_occupation - by_filter
         entities :[
             {name:'',id_number:'',nationality:''}
         ],
+        entities_count:1,
+        check_invalid_entities_data:false,
+        attachments:[],
+        audio_file:null
       }
     };
   },
   methods: {
+    uploadAttachments(){
+      this.form.attachments = this.$refs.attachments_input.files;
+      this.$forceUpdate();
+    },
+    uploadAudioFile(){
+      this.form.audio_file = this.$refs.audio_file_input.files[0];
+      this.$forceUpdate();
+    },
     getDepartments() {
       api.get('/v1/departments').then(res => {
         this.departments = res.data.data;
@@ -402,6 +405,31 @@ export default {
         this.cities = res.data.data;
       })
     },
+    submitOrder(){
+      var formData = new FormData();
+      formData.append('main_order_id',this.form.main_order_id);
+      formData.append('amount',this.$root.settings.minimum_amount_add_order);
+      formData.append('execution_time',this.form.execution_time);
+      formData.append('order_type_id',this.form.type_id);
+      if (this.form.city_id)
+      formData.append('city_id',this.form.city_id);
+      formData.append('negotiable',this.form.negotiable);
+      formData.append('department_id',this.form.sub_department_id);
+      formData.append('order_content',this.form.order_content);
+      formData.append('order_title',this.form.order_title);
+      formData.append('choose_service_provider',this.form.choose_service_provider);
+      formData.append('entities',this.form.entities);
+      formData.append('entities_count',this.form.entities_count);
+      formData.append('check_invalid_entities_data',this.form.check_invalid_entities_data);
+      formData.append('attachments',this.form.attachments);
+      formData.append('audio_file',this.form.audio_file);
+      api.post('/v1/orders',formData).then(res=>{
+        this.$root.alertSuccess('تم الارسال بنجاح');
+        this.$router.push({name:""});
+      }).catch(e=>{
+        this.$root.alertErrors(e.response.data.errors_messages);
+      })
+    }
   },
   created() {
     this.getDepartments();
