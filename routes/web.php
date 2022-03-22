@@ -47,7 +47,7 @@ Route::middleware('app-lang')->group(function () {
 		return redirect()->back();
 	});
 });
-
+Route::resource('orders', 'Front\OrderController');
 // Route::resource('profile', UpdateUserProfileController::class);
 // Route::group(['middleware' => 'auth'], function () {
 Route::get('/profile', [UpdateUserProfileController::class, 'index']);
@@ -57,4 +57,5 @@ Route::post('/profile/commercial', [UpdateUserProfileController::class, 'storeCo
 Route::post('/profile/experience', [UpdateUserProfileController::class, 'storeExperience']);
 Route::post('/profile/qualification', [UpdateUserProfileController::class, 'storeQualification']);
 // });
+// Route::post('/profile', [ProfileController::class, 'updatePersonalInfo'])->name('profile.personal.update');
 // Route::post('/profile', [ProfileController::class, 'updatePersonalInfo'])->name('profile.personal.update');
