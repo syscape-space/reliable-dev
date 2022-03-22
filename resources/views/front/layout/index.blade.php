@@ -38,12 +38,7 @@
     <section>
         <div class="dash">
             <div class="head-dash">
-                <div class="pt-4 text-center mawtheq-head d-flex justify-content-center">
-                    <p class="m-0">
-                        <img src="./images/dash-mawthq.svg" class="ms-2" alt="" srcset="" />
-                        موثق
-                    </p>
-                </div>
+               
                 <div class="text-center py-4">
                     <div class="image-user position-relative d-inline-block">
                         <img src="{{(!empty($user) && !empty($user->photo_profile)) ? it()->url($user->photo_profile) : asset('assets/images/dash-user.png')}}" alt="" width="90px" height="90px" srcset="" style="border-radius: 45px;" />
@@ -52,6 +47,17 @@
                     <h4 class="mt-3" style="color: #fff; font-size: 16px; margin-bottom: 0px">
                         {{ !empty($user) ? $user->first_name." ".$user->middle_name." ".$user->last_name : 'username'}}
                     </h4>
+                </div>
+                <div class="pt-4 text-center mawtheq-head d-flex justify-content-center">
+                    <p class="m-0 bg-transparent text-white border px-3" style="width:auto">
+                        مقدم خدمة
+                    </p>
+                </div>
+                <div class="pt-4 text-center mawtheq-head d-flex justify-content-center">
+                    <p class="m-0">
+                        <img src="./images/dash-mawthq.svg" class="ms-2" alt="" srcset="" />
+                        موثق
+                    </p>
                 </div>
                 <ul class="px-0 list-unstyled text-center dash-list mt-0">
                     <li class="">

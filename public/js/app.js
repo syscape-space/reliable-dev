@@ -36807,7 +36807,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var env = "production"; // Tickets
+var env = "local"; // Tickets
 
 
 var prefix = env === "local" ? '' : '/reliable/public'; // guard function 
