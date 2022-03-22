@@ -59,7 +59,8 @@ class UpdateUserProfileController extends Controller
         $specialties = Specialtie::all();
         return view('front.user.profile.mainProfile', [
             //CHANGE ME
-            "base_url" => 'https://law-mawthuq.com/reliable/public', //'http://localhost:8000',
+            // "base_url" => 'https://law-mawthuq.com/reliable/public',
+            "base_url" => 'http://localhost:8000',
             "type" => $type,
             "user" => $user,
             "subscribtion_end" => $subscribtion_end,

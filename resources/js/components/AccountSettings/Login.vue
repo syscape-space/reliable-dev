@@ -101,8 +101,8 @@ export default {
               localStorage.setItem("logginedUser", response.data.data.user.id);
               alert("Loggened Successfully");
               // route for u_index page
-              window.location.replace(this.base_url+'/profile?id='+response.data.data.user.id);
-              // this.$router.push({ name: "profilePage" });
+              // window.location.replace(this.base_url+'/profile?id='+response.data.data.user.id);
+              this.$router.push({ name: "profilePage" });
             })
             .catch((e) => {
               this.errors = e.response.data.errors;
