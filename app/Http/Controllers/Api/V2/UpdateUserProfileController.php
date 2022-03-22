@@ -10,8 +10,10 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Models\User;
 use App\Models\UserCommercial;
+use App\Models\UserExperience;
 use App\Models\UserJob;
 use App\Models\UserLicense;
+use App\Models\UserQualification;
 use Exception;
 use Illuminate\Support\Facades\Validator;
 use Prophecy\Call\Call;
@@ -22,6 +24,11 @@ use Prophecy\Call\Call;
 // Copyright Reserved  [it v 1.6.37]
 class UpdateUserProfileController extends Controller
 {
+
+    // public function __construct()
+    // {
+    //     $this->middleware('');
+    // }
 
     public function index(Request $request)
     {
@@ -34,6 +41,8 @@ class UpdateUserProfileController extends Controller
 
         $license =  UserLicense::where('user_id', $user_id)->first();
         $commercial = UserCommercial::where('user_id', $user_id)->first();
+        $experience = UserExperience::where('user_id', $user_id)->first();
+        $qualification = UserQualification::where('user_id', $user_id)->first();
         $subscribtion_end = $this->isPast($user->subscribe_end_at);
 
         $license_status = "unset";
@@ -49,7 +58,8 @@ class UpdateUserProfileController extends Controller
         //spe
         $specialties = Specialtie::all();
         return view('front.user.profile.mainProfile', [
-            "base_url" => 'https://localhost:8000/public/storage/',
+            //CHANGE ME
+            "base_url" => 'https://law-mawthuq.com/reliable/public', //'http://localhost:8000',
             "type" => $type,
             "user" => $user,
             "subscribtion_end" => $subscribtion_end,
@@ -58,6 +68,8 @@ class UpdateUserProfileController extends Controller
             "license" => $license,
             "commercial" => $commercial,
             "specialties" => $specialties,
+            "experience" => $experience,
+            "qualification" => $qualification
         ]);
     }
 
@@ -176,8 +188,9 @@ class UpdateUserProfileController extends Controller
             $data['password'] = bcrypt(\request()->password);
         }
         if ($request->hasFile('photo_profile')) {
-            if (file_exists(public_path('photo_profile/' . $user->photo_profile)))
+            if (file_exists(public_path('photo_profile/' . $user->photo_profile))) {
                 unlink(public_path('photo_profile/' . $user->photo_profile));
+            }
             $file = request()->file('photo_profile');
             $fileMime = $file->getClientOriginalExtension();
             $fileUrl = Str::random(16) . ".$fileMime";
@@ -288,6 +301,92 @@ class UpdateUserProfileController extends Controller
                 if (request()->hasFile('commercial_file')) {
                     $userCommercial->commercial_file = it()->upload('commercial_file', 'usercommercials/' . $userCommercial->user_id);
                     $userCommercial->save();
+                }
+                return redirect()->back()->with('success', trans("admin.updated"));
+            }
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+    }
+
+    public function storeExperience(Request $request)
+    {
+        $data = $request->only("experience_name", "experience_file", "user_id", 'specialtie_id');
+        $validator = Validator::make($data, [
+            'experience_name'     => 'required|string',
+            'experience_file'   => 'required|file',
+            'user_id'           => 'required|integer|exists:users,id',
+            'specialtie_id'  => 'required|integer|exists:specialties,id',
+        ]);
+        if ($validator->fails()) {
+            return redirect()->back()->withInput($data)->with('error', 'البيانات غير كاملة');
+        }
+        $job = UserJob::where('specialtie_id', $data['specialtie_id'])->where('user_id', $data['user_id'])->first();
+        if (is_null($job) || empty($job)) {
+            return redirect()->back()->withInput($data)->with('error', 'برجاء اضافة وظيفة في هذا التخصص قبل اضافة شهادة الخبرة');
+        }
+        $experience              = UserExperience::where('user_id', $data['user_id'])->first();
+        $data['experience_file'] = "";
+        $data['occupation_id'] = $job->occupation_id;
+        $data['user_job_id'] = $job->id;
+        try {
+            if ($experience) {
+                // update
+                if (request()->hasFile('experience_file')) {
+                    it()->delete($experience->experience_file);
+                    $data['experience_file'] = it()->upload('experience_file', 'userexperiences/' . $experience->user_id);
+                }
+                UserExperience::where('id', $experience->id)->update($data);
+                return redirect()->back()->with('success', trans("admin.updated"));
+            } else {
+                // create
+                $userExperience        = UserExperience::create($data);
+                if (request()->hasFile('experience_file')) {
+                    $userExperience->experience_file = it()->upload('experience_file', 'userexperiences/' . $userExperience->user_id);
+                    $userExperience->save();
+                }
+                return redirect()->back()->with('success', trans("admin.updated"));
+            }
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+    }
+
+    public function storeQualification(Request $request)
+    {
+        $data = $request->only("qualification_name", "qualification_file", "user_id", 'specialtie_id');
+        $validator = Validator::make($data, [
+            'qualification_name'     => 'required|string',
+            'qualification_file'   => 'required|file',
+            'user_id'           => 'required|integer|exists:users,id',
+            'specialtie_id'  => 'required|integer|exists:specialties,id',
+        ]);
+        if ($validator->fails()) {
+            return redirect()->back()->withInput($data)->with('error', 'البيانات غير كاملة');
+        }
+        $job = UserJob::where('specialtie_id', $data['specialtie_id'])->where('user_id', $data['user_id'])->first();
+        if (is_null($job) || empty($job)) {
+            return redirect()->back()->withInput($data)->with('error', 'برجاء اضافة وظيفة في هذا التخصص قبل اضافة المؤهل');
+        }
+        $qualification              = UserQualification::where('user_id', $data['user_id'])->first();
+        $data['qualification_file'] = "";
+        $data['occupation_id'] = $job->occupation_id;
+        $data['user_job_id'] = $job->id;
+        try {
+            if ($qualification) {
+                // update
+                if (request()->hasFile('qualification_file')) {
+                    it()->delete($qualification->qualification_file);
+                    $data['qualification_file'] = it()->upload('qualification_file', 'userqualifications/' . $qualification->user_id);
+                }
+                UserQualification::where('id', $qualification->id)->update($data);
+                return redirect()->back()->with('success', trans("admin.updated"));
+            } else {
+                // create
+                $userQualification        = UserQualification::create($data);
+                if (request()->hasFile('qualification_file')) {
+                    $userQualification->qualification_file = it()->upload('qualification_file', 'userqualifications/' . $userQualification->user_id);
+                    $userQualification->save();
                 }
                 return redirect()->back()->with('success', trans("admin.updated"));
             }
