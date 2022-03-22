@@ -98,6 +98,7 @@ export default {
               let token = response.data.data.access_token ;
               // saving token to localSorage 
               localStorage.setItem("token", token );
+              localStorage.setItem("logginedUser", response.data.data.user.id);
               alert("Loggened Successfully");
               // route for u_index page
               this.$router.push({ name: "profilePage" });
