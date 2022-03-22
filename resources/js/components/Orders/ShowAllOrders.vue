@@ -45,7 +45,7 @@
             </div>
           </div>
         </div>
-        <div class="p-3 mt-3" style="background-color: #f9f9f9" v-for="item in list" :key="item.id">
+        <div class="p-3 mt-3" style="background-color: #f9f9f9" v-for="item in list2" :key="item.id">
           <div class="">
             <div class="mb-2 text-start" style="font-size: 12px">
               <span class="ms-3">
@@ -74,7 +74,8 @@
                   :src="base_url + '/assets/images/o_map.svg'"
                   alt=""
                 />
-                <span>{{ item.country_id["country_name_ar"] }}</span>
+                <!--  -->
+                <span>{{ item.country_id.country_name_ar }}</span>
               </span>
               <span class="my-2" style="font-size: 12px">
                 <span class="o-box ms-2">
@@ -113,7 +114,7 @@
                   <span
                     style="color: #2b7b74"
                     class="mb-2 d-inline-block text-center"
-                    >{{ item.user_id["name"] }}
+                    >{{ item.user_id.name }}
                   </span>
                 </div>
 
@@ -121,7 +122,7 @@
                   <span
                     style="color: #2b7b74"
                     class="mb-2 d-inline-block text-center"
-                    >{{ item.department_id["department_desc_ar"] }}
+                    >{{ item.department_id.department_name_ar }}
                   </span>
                 </div>
               </div>
@@ -197,21 +198,21 @@
 import api from "../../utils/api";
 export default {
   mounted() {
-    this.getMyOrders();
+    this.getMyOrders2();
   },
   data() {
     return {
       base_url: base_url,
-      list : [] ,
+      list2 : [] ,
     };
   },
   methods: {
-    getMyOrders() {
+    getMyOrders2() {
       api
-        .get("v1/orders?my=1")
+        .get("v1/orders")
         .then((response) => {
-          this.list = response.data.data.data;
-          console.log(response);
+          this.list2 = response.data.data.data;
+          console.log(response.data.data.data[0].country_id.country_name_ar);
         })
         .catch((e) => {
           console.log(e.response);
