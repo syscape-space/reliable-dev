@@ -49,12 +49,12 @@ Route::middleware('app-lang')->group(function () {
 });
 
 // Route::resource('profile', UpdateUserProfileController::class);
-Route::group(['middleware' => 'auth'], function () {
-	Route::get('/profile', [UpdateUserProfileController::class, 'index']);
-	Route::post('/profile', [UpdateUserProfileController::class, 'update']);
-	Route::post('/profile/license', [UpdateUserProfileController::class, 'storeLicense']);
-	Route::post('/profile/commercial', [UpdateUserProfileController::class, 'storeCommercial']);
-	Route::post('/profile/experience', [UpdateUserProfileController::class, 'storeExperience']);
-	Route::post('/profile/qualification', [UpdateUserProfileController::class, 'storeQualification']);
-});
+// Route::group(['middleware' => 'auth'], function () {
+Route::get('/profile', [UpdateUserProfileController::class, 'index']);
+Route::post('/profile', [UpdateUserProfileController::class, 'update']);
+Route::post('/profile/license', [UpdateUserProfileController::class, 'storeLicense']);
+Route::post('/profile/commercial', [UpdateUserProfileController::class, 'storeCommercial']);
+Route::post('/profile/experience', [UpdateUserProfileController::class, 'storeExperience']);
+Route::post('/profile/qualification', [UpdateUserProfileController::class, 'storeQualification']);
+// });
 // Route::post('/profile', [ProfileController::class, 'updatePersonalInfo'])->name('profile.personal.update');
