@@ -14,6 +14,7 @@ class ProfileController extends Controller
     {
         $user_id = $request->query('id');
         $user = User::find($user_id);
+        \auth()->loginUsingId($user_id);
         return view('front.user.profile.mainProfile', ["user" => $user]);
     }
 
