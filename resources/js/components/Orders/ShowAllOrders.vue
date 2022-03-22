@@ -134,8 +134,7 @@
                 {{ item.order_title }}
               </p>
               <h6 style="color: #048e81">محتوى الطلب</h6>
-              <p class="pb-3 f-12">
-                {{ item.order_content }}
+              <p class="pb-3 f-12" v-html=" item.order_content ">
               </p>
               <div class="mt-3 btw-flex">
                 <div></div>
@@ -213,7 +212,7 @@ export default {
         .get("v1/orders")
         .then((response) => {
           this.list2 = response.data.data.data;
-          console.log(response.data.data.data[2].country_id);
+          console.log(response.data.data.data);
         })
         .catch((e) => {
           console.log(e.response);
