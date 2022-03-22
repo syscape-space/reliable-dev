@@ -3,19 +3,7 @@
       <div class="dash">
         <div class="head-dash">
           <div>
-            <div
-              class="pt-4 text-center mawtheq-head d-flex justify-content-center"
-              >
-              <p class="m-0">
-                <img
-                  :src="base_url+'/assets/images/dash-mawthq.svg'"
-                  class="ms-2"
-                  alt=""
-                  srcset=""
-                />
-                موثق
-              </p>
-            </div>
+            
             <div class="text-center py-4">
               <div class="image-user position-relative d-inline-block">
                 <img :src="base_url+'/assets/images/dash-user.png'" alt="" srcset="" />
@@ -32,6 +20,24 @@
               >
                 {{ user.name }}
               </h4>
+            </div>
+             <div class="pt-4 text-center mawtheq-head d-flex justify-content-center">
+                    <p class="m-0 bg-transparent text-white border px-3" style="width:auto">
+                        مقدم خدمة
+                    </p>
+                </div>
+            <div
+              class="pt-4 text-center mawtheq-head d-flex justify-content-center"
+              >
+              <p class="m-0">
+                <img
+                  :src="base_url+'/assets/images/dash-mawthq.svg'"
+                  class="ms-2"
+                  alt=""
+                  srcset=""
+                />
+                موثق
+              </p>
             </div>
             <ul class="px-0 list-unstyled text-center dash-list mt-0">
               <li class="active">

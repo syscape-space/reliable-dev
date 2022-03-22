@@ -46,7 +46,7 @@ $last_replay_tickets_get = App\Models\Ticket::where('ticket_status','opened')->o
                {{ !empty($tadmin_replay)?$tadmin_replay->name:$tuser_replay->name }} :  {{ mb_substr($replay->replay, 0, 40, 'utf8') }} ...
             </bdi>
           </p>
-          <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> {{ $replay->created_at->diffForHumans() }}</p>
+          {{-- <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> {{ $replay->created_at->diffForHumans() }}</p> --}}
         </div>
       </div>
       <!-- Message End -->

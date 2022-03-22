@@ -38,46 +38,13 @@
          >may 21</span></p> 
         </div>
         <ul class="item-chat list-unstyled text-start px-0" >
-          <li > 
-            <div class="d-flex mb-3">
-               <p class="m-0" >أحمد اسلام</p>  
-              <img style="width: 30px; margin-right: 5px;" :src="base_url + '/assets/images/morning.svg'" alt=""> <br>
-            </div>  
-            <span>
+          <li class="sec-list" v-for="item in list" :key="item.id"> 
+
+            
+            <span>{{ item.replay }} 
               <br>              
               <small>05:12</small>
 
-            </span>
-          </li>
-          <li class="sec-list" > 
-            <div class="d-flex mb-3">
-              <img style="width: 30px;" :src="base_url + '/assets/images/morning.svg'" alt=""> <br>
-               <p class="m-0 me-2"  >أحمد اسلام</p>  
-            </div>  
-            <span>{{ $root._t("app.welcomeToday") }} 😁
-              <br>              
-              <small>05:12</small>
-
-            </span>
-          </li>
-          <li > 
-            <div class="d-flex mb-3">
-               <p class="m-0" >أحمد اسلام</p>  
-              <img style="width: 30px; margin-right: 5px;" :src="base_url + '/assets/images/morning.svg'" alt=""> <br>
-            </div>  
-            <span>{{ $root._t("app.canIHelpYou") }}
-              <br>                
-              <small>05:12</small>
-            </span>
-          </li>
-          <li class="sec-list" > 
-            <div class="d-flex mb-3">
-              <img style="width: 30px;" :src="base_url + '/assets/images/morning.svg'" alt=""> <br>
-               <p class="m-0 me-2"  >أحمد اسلام</p>  
-            </div>  
-            <span>{{ $root._t("app.reply") }}
-              <br>                
-              <small>05:12</small>
             </span>
           </li>
           
@@ -107,7 +74,8 @@
 import api from "../../utils/api";
 export default {
   mounted(){
-    this.gettingTicketDetails()
+    this.gettingTicketDetails();
+    this.getAllReplysOfThisTicket();
   },
   data(){
     return{
@@ -117,7 +85,8 @@ export default {
       ticketTitle : "" ,
       RelatedTo : "" ,
       department : "" ,
-      ticketContent : "" 
+      ticketContent : "" ,
+      list : []
     };
   },
   methods:{
@@ -133,6 +102,20 @@ export default {
           this.department = response.data.tickets[0].department_name_ar ;
           this.ticketContent = response.data.tickets[0].ticket_content ;
           console.log(response.data.tickets)
+        })
+        // error.response.data.errors
+        .catch((e) => {
+          this.errors = e.response.data.errors;
+          console.log(e.response);
+        });
+    },
+    getAllReplysOfThisTicket(){
+      let ticketId = localStorage.getItem("thisTicketId");
+      api
+        .get("v1/get_all_replys_of_this_ticket/" + ticketId)
+        .then((response) => {
+          this.list = response.data.ticketReplys
+          console.log(response.data)
         })
         // error.response.data.errors
         .catch((e) => {

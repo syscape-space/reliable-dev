@@ -49,7 +49,7 @@
                         <div class="form-group">
                             {!! Form::label('name',trans('admin.name'),['class'=>' control-label mt-3 mb-1']) !!}
                             <span class="text-danger">*</span>
-                            {!! Form::text('name',$user->name,['class'=>'form-control','placeholder'=>trans('admin.name')]) !!}
+                            {!! Form::text('name',$user->name,['class'=>'form-control','placeholder'=>trans('admin.name'), 'readonly'=>'readonly']) !!}
                         </div>
                     </div>
                     <div class="col-sm-12  col-lg-6 col-xl-4">

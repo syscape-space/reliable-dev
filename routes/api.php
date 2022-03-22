@@ -63,7 +63,7 @@ function () {
 		Route::get('all_jobs' , 'JobsController@getAllJobs') ;
 		Route::get('get_this_job_details/{id}' , 'JobsController@getThisJobDetails');
 		Route::post('apply_now' , 'JobsController@makeApply');
-		Route::get('get_my_orders/{id}' , 'MyOrdersController@getMyOrders');
+		Route::get('get_all_replys_of_this_ticket/{id}' , "TicketReplyController@getAllReplysOfThisTicket");
 
 		
 
