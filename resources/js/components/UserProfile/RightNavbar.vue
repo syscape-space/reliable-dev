@@ -90,6 +90,17 @@
                 </a>
               </li>
               <li>
+                <router-link :to="{ name : 'MyOrder' }" style="color:#fff; cursor: pointer;">
+                  <img
+                    :src="base_url+'/assets/images/dash-remem.svg'"
+                    style="width: 18px"
+                    alt=""
+                    srcset=""
+                  />
+                  <span>طلباتى</span>
+                </router-link>
+              </li>
+              <li>
                 <a href="#"> {{ $root._t("app.appName") }} </a>
               </li>
             </ul>

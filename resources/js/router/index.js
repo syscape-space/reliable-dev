@@ -36,6 +36,8 @@ import offerOrder3Page from '../views/OrdersPages/offerOrder3Page'
 import Profile2 from '../views/OrdersPages/profile2Page.vue'
 import Profile3 from '../views/OrdersPages/profile3Page.vue'
 import Profile4 from '../views/OrdersPages/profile4Page.vue'
+import MyOrder from '../views/OrdersPages/myOrder.vue'
+
 
 const env = "production";
 // Tickets
@@ -147,6 +149,9 @@ const routes = [
     },
     {
         path : prefix+'/u_profile4' , beforeEnter : guardMyroute , component : Profile4 , name : "Profile4" 
+    },
+    {
+        path : prefix+'/my_orders' , beforeEnter : guardMyroute , component : MyOrder , name : "MyOrder" 
     },
     // Tickets pages routes
     {
