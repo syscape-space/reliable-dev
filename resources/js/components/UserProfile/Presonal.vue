@@ -299,7 +299,7 @@ export default {
   methods: {
     currentUser() {
       api
-        .get("/account?token=" + localStorage.getItem("token"))
+        .get("v2/account?token=" + localStorage.getItem("token"))
         .then((response) => {
           // document.getElementById("name").value = response.data.user.name;
           this.firstname = response.data.user.first_name;
@@ -320,6 +320,7 @@ export default {
       this.profileImage = event.target.files[0];
     },
     updateInfo() {
+      let myId = localStorage.getItem("myIdTazkarty");
       let formData = new FormData();
       formData.append("_method", "PUT");
       formData.append("first_name", this.firstname);
@@ -329,12 +330,13 @@ export default {
       formData.append("email", this.email);
       formData.append("email_verify", "pending");
       formData.append("mobile_verify", "pending");
+      formData.append("photo_profile", this.profileImage);
       formData.append("add_offer", "enable");
       formData.append("name", this.firstname + " " + this.midname + " " + this.lastname);
 
       api
         .post(
-          "http://law-mawthuq.com/reliable/public/api/v1/users/" + this.uId,
+          "v1/users/" + myId,
           formData
         )
         .then((response) => {

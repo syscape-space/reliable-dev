@@ -75,7 +75,8 @@
                   alt=""
                 />
                 <!--  -->
-                <span>{{ item.country_id.country_name_ar }}</span>
+                <span v-if="item.country_id === null"> غير مسجل للبلد </span>
+                <span v-else> {{ item.country_id.country_name_ar }} </span>
               </span>
               <span class="my-2" style="font-size: 12px">
                 <span class="o-box ms-2">
@@ -212,7 +213,7 @@ export default {
         .get("v1/orders")
         .then((response) => {
           this.list2 = response.data.data.data;
-          console.log(response.data.data.data[0].country_id.country_name_ar);
+          console.log(response.data.data.data[2].country_id);
         })
         .catch((e) => {
           console.log(e.response);
