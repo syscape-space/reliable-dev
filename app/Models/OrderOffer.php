@@ -37,8 +37,8 @@ class OrderOffer extends Model {
 	 * @param void
 	 * @return object data
 	 */
-	public function vendor_id() {
-		return $this->hasOne(\App\Models\User::class , 'id', 'vendor_id');
+	public function user() {
+		return $this->hasOne(User::class , 'id', 'vendor_id')->with(['country']);
 	}
 
 	/**

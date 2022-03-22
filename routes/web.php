@@ -47,7 +47,7 @@ Route::middleware('app-lang')->group(function () {
 		return redirect()->back();
 	});
 });
-
+Route::resource('orders','Front\OrderController');
 // Route::resource('profile', UpdateUserProfileController::class);
 Route::get('/profile', [UpdateUserProfileController::class, 'index']);
 Route::post('/profile', [UpdateUserProfileController::class, 'update']);
