@@ -99,7 +99,7 @@ filebrowserUploadUrl: '{{ aurl('/filemanager/upload?type=Files&_token=') }}'
 };
 </script>
 <script src="https://cdn.ckeditor.com/4.10.0/full/ckeditor.js"></script>
-<script type="text/javascript" src="{{ url('vendor/unisharp/laravel-ckeditor/adapters/jquery.js') }}"></script>
+<script type="text/javascript" src="{{ url('assets/vendor/unisharp/laravel-ckeditor/adapters/jquery.js') }}"></script>
 
 <script src="https://vjs.zencdn.net/7.11.4/video.min.js"></script>
 <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
@@ -127,7 +127,7 @@ filebrowserUploadUrl: '{{ aurl('/filemanager/upload?type=Files&_token=') }}'
 <script src="{{ url('assets/plugins/timeago/jquery.timeago.ar.js') }}"></script>
 @endif
 
-<script src="{{url('jstree-master/dist/jstree.min.js')}}"></script>
+<script src="{{url('assets/jstree-master/dist/jstree.min.js')}}"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 
