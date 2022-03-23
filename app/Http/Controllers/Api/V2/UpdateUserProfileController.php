@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Api\V2;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\ValidationsApi\V1\UserLicensesRequest;
 use App\Http\Controllers\ValidationsApi\V1\UsersRequest;
+use App\Models\City;
+use App\Models\Country;
 use App\Models\Specialtie;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
@@ -15,6 +17,7 @@ use App\Models\UserJob;
 use App\Models\UserLicense;
 use App\Models\UserQualification;
 use Exception;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Prophecy\Call\Call;
 // use Validator;
@@ -25,18 +28,17 @@ use Prophecy\Call\Call;
 class UpdateUserProfileController extends Controller
 {
 
-    // public function __construct()
-    // {
-    //     $this->middleware('');
-    // }
-
     public function index(Request $request)
     {
-        $user_id = $request->query('id');
-        $type = $request->query('type');
+        $user_id = Auth::user()->id;
         $user = User::find($user_id ?? 0);
         if (is_null($user) || empty($user)) {
-            return redirect('/')->with('error', trans("admin.undefinedRecord"));
+            return redirect('/');
+            // return errorResponseJson([
+            //     "message" => trans("admin.undefinedRecord"),
+            //     "data"    => trans("admin.undefinedRecord"),
+            // ]);
+            // return redirect('/')->with('error', trans("admin.undefinedRecord"));
         }
 
         $license =  UserLicense::where('user_id', $user_id)->first();
@@ -57,11 +59,10 @@ class UpdateUserProfileController extends Controller
 
         //spe
         $specialties = Specialtie::all();
-        return view('front.user.profile.mainProfile', [
-            //CHANGE ME
-            // "base_url" => 'https://law-mawthuq.com/reliable/public',
-            "base_url" => 'http://localhost:8000',
-            "type" => $type,
+
+        $countries = Country::all();
+        $cities = City::all();
+        return successResponseJson([
             "user" => $user,
             "subscribtion_end" => $subscribtion_end,
             "license_status" => $license_status,
@@ -70,7 +71,9 @@ class UpdateUserProfileController extends Controller
             "commercial" => $commercial,
             "specialties" => $specialties,
             "experience" => $experience,
-            "qualification" => $qualification
+            "qualification" => $qualification,
+            "countries" => $countries,
+            "cities" => $cities,
         ]);
     }
 
@@ -129,8 +132,13 @@ class UpdateUserProfileController extends Controller
 
     public function update(Request $request)
     {
-        $id = $request->query('id');
-        $data = request()->except(['_token']);
+        $user = Auth::user();
+        if (is_null($user) || empty($user)) {
+            return redirect('/');
+        }
+        $id = $user->id;
+        $data = $request->all();
+        // return successResponseJson(["message" => join(", ", $data)]);
         $validator = Validator::make($data, [
             'first_name' => 'required|string',
             'middle_name' => 'required|string',
@@ -167,19 +175,20 @@ class UpdateUserProfileController extends Controller
             'password' => 'sometimes|nullable|string',
             'current_balance' => 'sometimes|nullable|numeric',
             'suspended_balance' => 'sometimes|nullable|numeric',
-            'country_id' => 'required|numeric',
-            'city_id' => 'required|numeric',
+            'country_id' => 'required|numeric|exists:countries,id',
+            'city_id' => 'required|numeric|exists:cities,id',
 
         ]);
 
         if ($validator->fails()) {
-            // return redirect()->back()->withInput($data)->with('error', 'البيانات غير كاملة');
-            return redirect()->back()->withInput($data)->with('error', join(",", $validator->errors()->all()));
+            return errorResponseJson(["message" => "البيانات غير كاملة"]);
+            // return redirect()->back()->withInput($data)->with('error', join(",", $validator->errors()->all()));
         }
 
         $user = User::find($id);
         if (is_null($user) || empty($user)) {
-            return redirect()->back()->with('error', trans("admin.undefinedRecord"));
+            return errorResponseJson(["message" => trans("admin.undefinedRecord")]);
+            // return redirect()->back()->with('error', trans("admin.undefinedRecord"));
         }
 
         $data = $validator->validated();
@@ -201,37 +210,37 @@ class UpdateUserProfileController extends Controller
 
         User::where("id", $id)->update($data);
 
-        $user = User::with($this->arrWith())->find($id, $this->selectColumns);
+        // $user = User::with($this->arrWith())->find($id, $this->selectColumns);
 
-        return redirect()->back()->with('success', trans("admin.updated"));
-        // return successResponseJson([
-        //     "message" => trans("admin.updated"),
-        //     "data" => $user
-        // ]);
+        // return redirect()->back()->with('success', trans("admin.updated"));
+        return successResponseJson(["message" => trans("admin.updated")]);
     }
 
     public function storeLicense(Request $request)
     {
-        $data                 = $request->only("license_name", "license_file", "user_id", 'license_end_at', 'specialtie_id', 'comment');
+        $data = $request->only('license_name', 'license_file', 'user_id', 'license_end_at', 'specialtie_id', 'comment');
         $validator = Validator::make($data, [
             'license_name'   => 'required|string',
             'license_file'   => 'required|file',
             'user_id'        => 'required|integer|exists:users,id',
-            'license_end_at' => '',
+            'license_end_at' => 'sometimes|nullable',
             'specialtie_id'  => 'required|integer|exists:specialties,id',
             'comment'        => 'sometimes|nullable|string',
         ]);
         if ($validator->fails()) {
-            return redirect()->back()->withInput($data)->with('error', 'البيانات غير كاملة');
+            // return successResponseJson($validator->errors()->all());
+            return errorResponseJson(["message" => 'البيانات غير كاملة']);
+            // return redirect()->back()->withInput($data)->with('error', 'البيانات غير كاملة');
         }
         if ($this->isPast($data['license_end_at'])) {
-            return redirect()->back()->withInput($data)->with('error', 'تاريخ انتهاء الرخصة غير صالح');
+            return errorResponseJson(["message" => 'تاريخ انتهاء الرخصة غير صالح']);
         }
         $job = UserJob::where('specialtie_id', $data['specialtie_id'])->where('user_id', $data['user_id'])->first();
         if (is_null($job) || empty($job)) {
-            return redirect()->back()->withInput($data)->with('error', 'برجاء اضافة وظيفة في هذا التخصص قبل اضافة الرخصة');
+            return errorResponseJson(["message" => 'برجاء اضافة وظيفة في هذا التخصص قبل اضافة الرخصة']);
+            // return redirect()->back()->withInput($data)->with('error', 'برجاء اضافة وظيفة في هذا التخصص قبل اضافة الرخصة');
         }
-        $license              = UserLicense::where('user_id', $data['user_id'])->first();
+        $license  = UserLicense::where('user_id', $data['user_id'])->first();
         $data['license_file'] = "";
         $data['occupation_id'] = $job->occupation_id;
         $data['user_job_id'] = $job->id;
@@ -243,27 +252,24 @@ class UpdateUserProfileController extends Controller
                     $data['license_file'] = it()->upload('license_file', 'userlicenses/' . $license->user_id);
                 }
                 UserLicense::where('id', $license->id)->update($data);
-                return redirect()->back()->with('success', trans("admin.updated"));
+                return successResponseJson(["message" => trans("admin.updated")]);
             } else {
                 // create
-                $userlicenses         = UserLicense::create($data);
+                $userlicenses = UserLicense::create($data);
                 if (request()->hasFile('license_file')) {
                     $userlicenses->license_file = it()->upload('license_file', 'userlicenses/' . $userlicenses->user_id);
                     $userlicenses->save();
                 }
-                return redirect()->back()->with('success', trans("admin.updated"));
+                return successResponseJson(["message" => trans("admin.updated")]);
             }
         } catch (Exception $e) {
-            return redirect()->back()->with('error', $e->getMessage()); //trans("admin.undefinedRecord"));
+            return errorResponseJson(["message" => $e->getMessage()]);
         }
-        // return successResponseJson([
-        //     "message" => trans("admin.added"),
-        //     "data"    => $userlicenses,
-        // ]);
     }
 
     public function storeCommercial(Request $request)
     {
+        $uncompletedInfo = "البيانات غير كاملة";
         $data = $request->only("commercial_id", "commercial_file", "user_id", 'commercial_end_at', 'specialtie_id', 'comment');
         $validator = Validator::make($data, [
             'commercial_id'     => 'required|string',
@@ -274,14 +280,14 @@ class UpdateUserProfileController extends Controller
             'specialtie_id'  => 'required|integer|exists:specialties,id',
         ]);
         if ($validator->fails()) {
-            return redirect()->back()->withInput($data)->with('error', 'البيانات غير كاملة');
+            return errorResponseJson(['message' => $uncompletedInfo]);
         }
         if ($this->isPast($data['commercial_end_at'])) {
-            return redirect()->back()->withInput($data)->with('error', 'تاريخ انتهاء السجل غير صالح');
+            return errorResponseJson(['message' => 'تاريخ انتهاء السجل غير صالح']);
         }
         $job = UserJob::where('specialtie_id', $data['specialtie_id'])->where('user_id', $data['user_id'])->first();
         if (is_null($job) || empty($job)) {
-            return redirect()->back()->withInput($data)->with('error', 'برجاء اضافة وظيفة في هذا التخصص قبل اضافة السجل');
+            return errorResponseJson(['message' => 'برجاء اضافة وظيفة في هذا التخصص قبل اضافة السجل']);
         }
         $commercial              = UserCommercial::where('user_id', $data['user_id'])->first();
         $data['commercial_file'] = "";
@@ -303,15 +309,16 @@ class UpdateUserProfileController extends Controller
                     $userCommercial->commercial_file = it()->upload('commercial_file', 'usercommercials/' . $userCommercial->user_id);
                     $userCommercial->save();
                 }
-                return redirect()->back()->with('success', trans("admin.updated"));
+                return successResponseJson(['message' => trans("admin.updated")]);
             }
         } catch (Exception $e) {
-            return redirect()->back()->with('error', $e->getMessage());
+            return errorResponseJson(['message' => $e->getMessage()]);
         }
     }
 
     public function storeExperience(Request $request)
     {
+        $uncompletedInfo = "البيانات غير كاملة";
         $data = $request->only("experience_name", "experience_file", "user_id", 'specialtie_id');
         $validator = Validator::make($data, [
             'experience_name'     => 'required|string',
@@ -320,13 +327,13 @@ class UpdateUserProfileController extends Controller
             'specialtie_id'  => 'required|integer|exists:specialties,id',
         ]);
         if ($validator->fails()) {
-            return redirect()->back()->withInput($data)->with('error', 'البيانات غير كاملة');
+            return errorResponseJson(['message' => "البيانات غير كاملة"]);
         }
         $job = UserJob::where('specialtie_id', $data['specialtie_id'])->where('user_id', $data['user_id'])->first();
         if (is_null($job) || empty($job)) {
-            return redirect()->back()->withInput($data)->with('error', 'برجاء اضافة وظيفة في هذا التخصص قبل اضافة شهادة الخبرة');
+            return errorResponseJson(['message' => 'برجاء اضافة وظيفة في هذا التخصص قبل اضافة شهادة الخبرة']);
         }
-        $experience              = UserExperience::where('user_id', $data['user_id'])->first();
+        $experience  = UserExperience::where('user_id', $data['user_id'])->first();
         $data['experience_file'] = "";
         $data['occupation_id'] = $job->occupation_id;
         $data['user_job_id'] = $job->id;
@@ -338,7 +345,7 @@ class UpdateUserProfileController extends Controller
                     $data['experience_file'] = it()->upload('experience_file', 'userexperiences/' . $experience->user_id);
                 }
                 UserExperience::where('id', $experience->id)->update($data);
-                return redirect()->back()->with('success', trans("admin.updated"));
+                return successResponseJson(['message' => trans("admin.updated")]);
             } else {
                 // create
                 $userExperience        = UserExperience::create($data);
@@ -346,15 +353,16 @@ class UpdateUserProfileController extends Controller
                     $userExperience->experience_file = it()->upload('experience_file', 'userexperiences/' . $userExperience->user_id);
                     $userExperience->save();
                 }
-                return redirect()->back()->with('success', trans("admin.updated"));
+                return successResponseJson(['message' => trans("admin.updated")]);
             }
         } catch (Exception $e) {
-            return redirect()->back()->with('error', $e->getMessage());
+            return errorResponseJson(['message' => 'e:' . $e->getMessage()]);
         }
     }
 
     public function storeQualification(Request $request)
     {
+        $uncompletedInfo = "البيانات غير كاملة";
         $data = $request->only("qualification_name", "qualification_file", "user_id", 'specialtie_id');
         $validator = Validator::make($data, [
             'qualification_name'     => 'required|string',
@@ -363,11 +371,11 @@ class UpdateUserProfileController extends Controller
             'specialtie_id'  => 'required|integer|exists:specialties,id',
         ]);
         if ($validator->fails()) {
-            return redirect()->back()->withInput($data)->with('error', 'البيانات غير كاملة');
+            return errorResponseJson(['message' => $uncompletedInfo]);
         }
         $job = UserJob::where('specialtie_id', $data['specialtie_id'])->where('user_id', $data['user_id'])->first();
         if (is_null($job) || empty($job)) {
-            return redirect()->back()->withInput($data)->with('error', 'برجاء اضافة وظيفة في هذا التخصص قبل اضافة المؤهل');
+            return errorResponseJson(['message' => 'برجاء اضافة وظيفة في هذا التخصص قبل اضافة المؤهل']);
         }
         $qualification              = UserQualification::where('user_id', $data['user_id'])->first();
         $data['qualification_file'] = "";
@@ -381,7 +389,7 @@ class UpdateUserProfileController extends Controller
                     $data['qualification_file'] = it()->upload('qualification_file', 'userqualifications/' . $qualification->user_id);
                 }
                 UserQualification::where('id', $qualification->id)->update($data);
-                return redirect()->back()->with('success', trans("admin.updated"));
+                return successResponseJson(['message' => trans("admin.updated")]);
             } else {
                 // create
                 $userQualification        = UserQualification::create($data);
@@ -389,10 +397,10 @@ class UpdateUserProfileController extends Controller
                     $userQualification->qualification_file = it()->upload('qualification_file', 'userqualifications/' . $userQualification->user_id);
                     $userQualification->save();
                 }
-                return redirect()->back()->with('success', trans("admin.updated"));
+                return successResponseJson(['message' => trans("admin.updated")]);
             }
         } catch (Exception $e) {
-            return redirect()->back()->with('error', $e->getMessage());
+            return errorResponseJson(['message' => $e->getMessage()]);
         }
     }
 }

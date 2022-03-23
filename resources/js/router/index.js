@@ -37,15 +37,14 @@ import Profile2 from '../views/OrdersPages/profile2Page.vue'
 import Profile3 from '../views/OrdersPages/profile3Page.vue'
 import Profile4 from '../views/OrdersPages/profile4Page.vue'
 import MyOrder from '../views/OrdersPages/myOrder.vue'
-import ShowAllOrders from '../views/OrdersPages/ShowAllOrders.vue'
+import ShowAllOrders from '../views/OrdersPages/showAllOrders.vue'
 
 
-const env = "production";
 // Tickets
 import addTicket from '../views/TicketsPages/createTecket.vue'
 
 
-const prefix = env === "local" ? '':'/reliable';
+const prefix = APP_PREFIX;
 
 // guard function 
 function guardMyroute(to, from, next)
@@ -73,6 +72,7 @@ const routes = [
     {
         path : prefix+'/' ,
         component : indexPage,
+        beforeEnter : checkIfLogin ,
         name:'home'
     },
     {
