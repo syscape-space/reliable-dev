@@ -57,8 +57,8 @@ Route::group(
 		Route::get('all_jobs', 'JobsController@getAllJobs');
 		Route::get('get_this_job_details/{id}', 'JobsController@getThisJobDetails');
 		Route::post('apply_now', 'JobsController@makeApply');
-		Route::get('get_my_orders/{id}', 'MyOrdersController@getMyOrders');
-
+		Route::get('get_all_replys_of_this_ticket/{id}', "TicketReplyController@getAllReplysOfThisTicket");
+		Route::post('add_comment_for_this_ticket/{ticket_id}', 'TicketController@addCommentForThisTicket');
 
 
 
@@ -78,6 +78,7 @@ Route::group(
 
 
 		Route::group(['middleware' => 'jwt.auth'], function () {
+			Route::get('settings', 'SettingController@index');
 			Route::get('account', 'Auth\AuthAndLogin@account')->name('api.account');
 			Route::post('logout', 'Auth\AuthAndLogin@logout')->name('api.logout');
 			Route::post('refresh', 'Auth\AuthAndLogin@refresh')->name('api.refresh');

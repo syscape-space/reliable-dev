@@ -3,22 +3,10 @@
       <div class="dash">
         <div class="head-dash">
           <div>
-            <div
-              class="pt-4 text-center mawtheq-head d-flex justify-content-center"
-              >
-              <p class="m-0">
-                <img
-                  :src="base_url+'/assets/images/dash-mawthq.svg'"
-                  class="ms-2"
-                  alt=""
-                  srcset=""
-                />
-                موثق
-              </p>
-            </div>
+            
             <div class="text-center py-4">
               <div class="image-user position-relative d-inline-block">
-                <img :src="base_url+'/assets/images/dash-user.png'" alt="" srcset="" />
+                <img :src="base_url+ '/storage/' +  user.photo_profile" alt="" srcset="" />
                 <img
                   style="position: absolute; bottom: 0; left: 0"
                   :src="base_url+'/assets/images/dash-edit.svg'"
@@ -32,6 +20,27 @@
               >
                 {{ user.name }}
               </h4>
+            </div>
+             <div class="pt-4 text-center mawtheq-head d-flex justify-content-center">
+                    <p class="m-0 bg-transparent text-white border px-3" style="width:auto" v-if="user.membership_type === null">
+                      {{ $root._t("app.withoutMemberShip") }}
+                    </p>
+                     <p class="m-0 bg-transparent text-white border px-3" style="width:auto" v-else>
+                        {{ $root._t("app."+user.membership_type) }}
+                    </p>
+                </div>
+            <div
+              class="pt-4 text-center mawtheq-head d-flex justify-content-center"
+              >
+              <p class="m-0">
+                <img
+                  :src="base_url+'/assets/images/dash-mawthq.svg'"
+                  class="ms-2"
+                  alt=""
+                  srcset=""
+                />
+                موثق
+              </p>
             </div>
             <ul class="px-0 list-unstyled text-center dash-list mt-0">
               <li class="active">
@@ -97,7 +106,7 @@
                     alt=""
                     srcset=""
                   />
-                  <span>طلباتى</span>
+                  <span> {{ $root._t("app.myOrders") }} </span>
                 </router-link>
               </li>
               <li>
@@ -117,7 +126,8 @@ export default {
     return{
       name : "" ,
       base_url : base_url,
-      user:{},
+      
+      user:[],
     }
   },
   mounted() {
@@ -129,6 +139,7 @@ export default {
         .get("/v1/account")
         .then((response) => {
           this.user = response.data.data;
+          console.log(response.data.data.photo_profile);
         })
         // error.response.data.errors
         .catch((e) => {

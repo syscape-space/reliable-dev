@@ -351,4 +351,18 @@ return [
     'applyNowForThisJob' => 'Apply Now' ,
     'uploadYouCv' => 'Upload Cv' ,
     'applyNow' => 'Apply' ,
+    'under_review' => 'Under Review' ,
+    'refused' => 'Refused' ,
+    'open' => 'Open' ,
+    'present' => 'Present' ,
+    'myOrders' => 'my Orders' ,
+    'orderTitleHere' => 'Order Title' ,
+    'orderContent' => 'Order Content' ,
+    'withoutMemberShip' => 'Without Membership' ,
+    'vendor' => 'Vendor' ,
+    'user' => 'User' ,
+    'employee' => 'Employee' ,
+    'saudiAribianCompleteName' => 'Kingdom Saudi Arabia' ,
+    'filter' => 'Filter' ,
+    'notRegisterCountry' => 'غير مسجل للبلد'
 ];

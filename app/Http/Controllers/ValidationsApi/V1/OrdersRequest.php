@@ -28,14 +28,15 @@ class OrdersRequest extends FormRequest {
              'order_title'=>'required|string|max:191',
              'order_content'=>'required|string',
              'department_id'=>'required|integer|exists:departments,id',
+            //  'main_order_id'=>'sometimes|exists:orders,id',
              'choose_service_provider'=>'required|string|in:all,by_city,by_filter,by_occupation',
-             'country_id'=>'sometimes|nullable|integer|exists:countries,id',
-             'city_id'=>'sometimes|nullable|integer|exists:cities,id',
+             'country_id'=>'sometimes|nullable',
+             'city_id'=>'sometimes|nullable',
              'execution_time'=>'sometimes|nullable|numeric',
              'amount'=>'required|numeric',
 //             'order_status'=>'required|string|in:under_review,open,closed',
-             'receive_offers'=>'required|string|in:yes,no',
-             'assigning_arbitration'=>'required|string|in:yes,no',
+             'receive_offers'=>'sometimes|string|in:yes,no',
+             'assigning_arbitration'=>'sometimes|string|in:yes,no',
              'decisions_refused_reason'=>'sometimes|nullable|string',
 //             'user_id'=>'required|integer|exists:users,id',
             'order_type_id' =>  'required',
@@ -88,6 +89,7 @@ class OrdersRequest extends FormRequest {
              'assigning_arbitration'=>trans('admin.assigning_arbitration'),
              'decisions_refused_reason'=>trans('admin.decisions_refused_reason'),
              'user_id'=>trans('admin.user_id'),
+             'main_order_id'=>"رقم الطلب الملحق",
 		];
 	}
 

@@ -37,6 +37,7 @@ import Profile2 from '../views/OrdersPages/profile2Page.vue'
 import Profile3 from '../views/OrdersPages/profile3Page.vue'
 import Profile4 from '../views/OrdersPages/profile4Page.vue'
 import MyOrder from '../views/OrdersPages/myOrder.vue'
+import ShowAllOrders from '../views/OrdersPages/ShowAllOrders.vue'
 
 
 const env = "production";
@@ -44,18 +45,26 @@ const env = "production";
 import addTicket from '../views/TicketsPages/createTecket.vue'
 
 
-const prefix = env === "local" ? '':'/reliable/public';
+const prefix = env === "local" ? '':'/reliable';
 
 // guard function 
 function guardMyroute(to, from, next)
 {
     if(localStorage.getItem('token'))
     {
-    next(); 
+        next(); 
     } 
     else
     {
     next(prefix+'/login');
+    }
+}
+
+function checkIfLogin(to, from, next){
+    if(localStorage.getItem('token')){
+        next(prefix+'/u_index');
+    }else{
+        next();
     }
 }
 // our routes
@@ -64,13 +73,14 @@ const routes = [
     {
         path : prefix+'/' ,
         component : indexPage,
+        beforeEnter : checkIfLogin ,
         name:'home'
     },
     {
-        path : prefix+'/login' , component : loginPage , name : "Login"
+        path : prefix+'/login' , component : loginPage , beforeEnter : checkIfLogin , name : "Login"
     },
     {
-        path : prefix+'/register' , component : Register,name:"Register"
+        path : prefix+'/register' , component : Register, beforeEnter : checkIfLogin ,name:"Register"
     },
     // Jobs
     {
@@ -152,6 +162,9 @@ const routes = [
     },
     {
         path : prefix+'/my_orders' , beforeEnter : guardMyroute , component : MyOrder , name : "MyOrder" 
+    },
+    {
+        path : prefix+'/show_all_orders' , beforeEnter : guardMyroute , component : ShowAllOrders , name : "ShowAllOrders" 
     },
     // Tickets pages routes
     {

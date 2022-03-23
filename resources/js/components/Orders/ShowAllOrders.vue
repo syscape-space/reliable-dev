@@ -19,7 +19,6 @@
               type="text"
               name=""
               id=""
-              v-model="search"
             />
           </div>
           <div>
@@ -32,7 +31,7 @@
                 aria-expanded="false"
               >
                 <i class="fas fa-filter"></i>
-                {{ $root._t("app.filter") }}
+                فلتر
               </button>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="#">Action</a></li>
@@ -46,7 +45,7 @@
             </div>
           </div>
         </div>
-        <div class="p-3 mt-3" style="background-color: #f9f9f9" v-for="item in  filterdList" :key="item.id">
+        <div class="p-3 mt-3" style="background-color: #f9f9f9" v-for="item in list2" :key="item.id">
           <div class="">
             <div class="mb-2 text-start" style="font-size: 12px">
               <!-- <span class="ms-3">
@@ -56,31 +55,29 @@
                   :src="base_url + '/assets/images/o_clock.svg'"
                   alt=""
                 />
-                <span>{{ $root._t("app.ago") }} {{ item.created_at }} {{ $root._t("app.hours") }}</span>
+                <span>منذ 4 ساعات</span>
               </span> -->
 
-             <span class="ms-3">
-                
-              <span v-if="item.country_id['country_name_en'] === 'Kingdom Saudi Arabia' "> {{ $root._t("app.saudiAribianCompleteName") }} </span>
-                <img
-                  style="width: 14px"
-                  class="ms-1"
-                  :src="base_url + '/assets/images/o_map.svg'"
-                  alt=""
-                />
-              </span>
-              
-              
-               <span class="ms-3">
-                <span>{{ $root._t("app.present") }} 0 {{ $root._t("app.offers") }}</span>
+              <span class="ms-3">
                 <img
                   style="width: 20px"
                   class="ms-1"
                   :src="base_url + '/assets/images/o_offer.svg'"
                   alt=""
                 />
+                <span>{{ $root._t("app.present") }} 0 {{ $root._t("app.offers") }}</span>
               </span>
-
+              <span class="ms-3">
+                <img
+                  style="width: 14px"
+                  class="ms-1"
+                  :src="base_url + '/assets/images/o_map.svg'"
+                  alt=""
+                />
+                <!--  -->
+                <span v-if="item.country_id === null"> {{ $root._t("app.notRegisterCountry") }} </span>
+                <span v-else> {{ $root._t("app.saudiAribianCompleteName") }}</span>
+              </span>
               <span class="my-2" style="font-size: 12px">
                 <span class="o-box ms-2">
                   <img
@@ -118,7 +115,7 @@
                   <span
                     style="color: #2b7b74"
                     class="mb-2 d-inline-block text-center"
-                    >{{ item.user_id["name"] }}
+                    >{{ item.user_id.name }}
                   </span>
                 </div>
 
@@ -126,19 +123,18 @@
                   <span
                     style="color: #2b7b74"
                     class="mb-2 d-inline-block text-center"
-                    >{{ item.department_id["department_desc_ar"] }}
+                    >{{ item.department_id.department_name_ar }}
                   </span>
                 </div>
               </div>
             </div>
             <div class="col-md-9">
-              <h6 style="color: #048e81"> {{ $root._t("app.orderTitleHere") }} </h6>
+              <h6 style="color: #048e81">{{ $root._t("app.orderTitleHere") }}</h6>
               <p class="pb-3 f-12">
                 {{ item.order_title }}
               </p>
-              <h6 style="color: #048e81"> {{ $root._t("app.orderContent") }} </h6>
-              <p class="pb-3 f-12">
-                {{ item.order_content }}
+              <h6 style="color: #048e81">{{ $root._t("app.orderContent") }}</h6>
+              <p class="pb-3 f-12" v-html=" item.order_content ">
               </p>
               <div class="mt-3 btw-flex">
                 <div></div>
@@ -169,7 +165,7 @@
                     "
                     class="rounded"
                   >
-                   {{ $root._t("app."+item.order_status) }}
+                   {{ $root._t("app."+item.order_status) }} 
                   </button>
                 </div>
               </div>
@@ -177,7 +173,7 @@
           </div>
         </div>
 
-        <nav aria-label="Page navigation example" id="pagesCount">
+        <nav aria-label="Page navigation example">
           <ul class="pagination justify-content-center mt-2">
             <li class="page-item">
               <a class="page-link" href="#" aria-label="Previous">
@@ -201,35 +197,21 @@
 <script>
 import api from "../../utils/api";
 export default {
-  
+  mounted() {
+    this.getMyOrders2();
+  },
   data() {
     return {
       base_url: base_url,
-      list : [] ,
-      id : "" ,
-      search : '' ,
+      list2 : [] ,
     };
   },
-  mounted() {
-    this.getMyOrders();
-  },
-  computed : {
-    filterdList:function(){
-      return this.list.filter( (list) => {
-        return list.order_title.match(this.search)
-      })
-    }
-  } ,
   methods: {
-    getMyOrders() {
+    getMyOrders2() {
       api
-        .get("v1/orders?my=1")
+        .get("v1/orders")
         .then((response) => {
-          this.list = response.data.data.data;
-          
-          if(this.list.length === 0){
-            document.getElementById('pagesCount').style.display = "none";
-          }
+          this.list2 = response.data.data.data;
           console.log(response.data.data.data);
         })
         .catch((e) => {
