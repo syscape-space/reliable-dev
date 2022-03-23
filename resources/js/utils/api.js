@@ -1,7 +1,7 @@
 import axios from "axios";
 const env = "local" // can be local or production
 let api = axios.create({
-	baseURL: ( env == "local" ? "http://localhost/reliable/public/api" : 'https://law-mawthuq.com/reliable/public/api'),
+	baseURL: ( env == "local" ? "http://localhost/reliable/api" : 'https://law-mawthuq.com/reliable/api'),
 	withCredentials: false ,
 	'Content-Type': 'multipart/form-data' ,
 	Authorization: "Bearer " + localStorage.getItem("token"),

@@ -65,8 +65,8 @@
     <link rel="stylesheet" href="{{ url('assets') }}/plugins/toastr/toastr.min.css">
     <!-- Cairo Font -->
     <link rel="stylesheet" href="{{ url('assets') }}/css/cairo.css">
-    <link rel="stylesheet" href="{{url('jstree-master/dist')}}/themes/default/style.min.css" />
-<link rel="stylesheet" href="{{url('jstree-master/dist')}}/themes/proton/style.min.css" />
+    <link rel="stylesheet" href="{{url('assets/jstree-master/dist')}}/themes/default/style.min.css" />
+<link rel="stylesheet" href="{{url('assets/jstree-master/dist')}}/themes/proton/style.min.css" />
 
 
     <style type="text/css">
