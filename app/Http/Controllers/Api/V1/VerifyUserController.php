@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\IdentityRequest;
 use App\Models\Identity;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -41,14 +42,20 @@ class VerifyUserController extends Controller
         }
 
         if ($front_side_url && $back_side_url && $selfi_url) {
-            Identity::create([
-                'front_side' => $front_side_url,
-                'back_side' => $back_side_url,
-                'selfie' => $selfie_url,
-                'user_id' => $user_id,
-                'comment' => $request->comment,
-            ]);
-            return successResponseJson(['message' => 'تم رفع الهوية بنجاح سيتم التحقق منها في اقرب منها']);
+            try {
+                Identity::create([
+                    'front_side' => $front_side_url,
+                    'back_side' => $back_side_url,
+                    'selfie' => $selfie_url,
+                    'user_id' => $user_id,
+                    'comment' => $request->comment,
+                ]);
+                return successResponseJson(['message' => 'تم رفع الهوية بنجاح سيتم التحقق منها في اقرب منها']);
+            } catch (Exception $e) {
+                return errorResponseJson(['message' => $e->getMessage()]);
+            }
+        } else {
+            return errorResponseJson(['message' => 'هناك خطأ من فضلك حاول مرة اخري لاحقا']);
         }
     }
 }

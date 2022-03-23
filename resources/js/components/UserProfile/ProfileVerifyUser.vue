@@ -118,6 +118,10 @@ import api from '../../utils/api';
 
         methods: {
 
+           checkIdentityStatus() {
+
+           },
+
             verify() {
                 this.loading = true;
                 if(this.front_side && this.back_side && this.selfie) {
