@@ -52,11 +52,19 @@ function guardMyroute(to, from, next)
 {
     if(localStorage.getItem('token'))
     {
-    next(); 
+        next(); 
     } 
     else
     {
     next(prefix+'/login');
+    }
+}
+
+function checkIfLogin(to, from, next){
+    if(localStorage.getItem('token')){
+        next(prefix+'/u_index');
+    }else{
+        next();
     }
 }
 // our routes
@@ -68,10 +76,10 @@ const routes = [
         name:'home'
     },
     {
-        path : prefix+'/login' , component : loginPage , name : "Login"
+        path : prefix+'/login' , component : loginPage , beforeEnter : checkIfLogin , name : "Login"
     },
     {
-        path : prefix+'/register' , component : Register,name:"Register"
+        path : prefix+'/register' , component : Register, beforeEnter : checkIfLogin ,name:"Register"
     },
     // Jobs
     {
