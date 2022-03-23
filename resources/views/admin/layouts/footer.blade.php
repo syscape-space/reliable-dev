@@ -29,8 +29,8 @@ don't forget to remove me
 <!-- ./wrapper -->
 
 <!-- jQuery UI 1.11.4 -->
-<script src="{{ url('assets') }}/plugins/jquery-ui/jquery-ui.min.js"></script>
-<script src="{{ url('assets') }}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="{{ cuteAsset('assets') }}/plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src="{{ cuteAsset('assets') }}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
 $(document).ready(function(){
@@ -38,37 +38,37 @@ $.widget.bridge('uibutton', $.ui.button);
 });
 </script>
 <!-- DataTables -->
-<script src="{{url("assets/plugins/datatables/jquery.dataTables.min.js")}}"></script>
-<script src="{{url("assets/plugins/datatables/selecta_all_checkbtn.js")}}"></script>
-<script src="{{url("assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js")}}"></script>
-<script src="{{url("assets/plugins/datatables-buttons/js/dataTables.buttons.min.js")}}"></script>
-<script src="{{url("assets/plugins/datatables-buttons/js/buttons.bootstrap4.min.js")}}"></script>
-<script src="{{url("assets/plugins/datatables-buttons/js/buttons.html5.min.js")}}"></script>
-<script src="{{url("assets/plugins/datatables-buttons/js/buttons.print.min.js")}}"></script>
-<script src="{{url("assets/plugins/datatables-buttons/js/buttons.flash.min.js")}}"></script>
-<script src="{{url("assets/plugins/datatables-buttons/js/buttons.colVis.min.js")}}"></script>
-<script src="{{url("assets/plugins/datatables-buttons/js/buttons.server-side.js")}}"></script>
+<script src="{{cuteAsset("assets/plugins/datatables/jquery.dataTables.min.js")}}"></script>
+<script src="{{cuteAsset("assets/plugins/datatables/selecta_all_checkbtn.js")}}"></script>
+<script src="{{cuteAsset("assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js")}}"></script>
+<script src="{{cuteAsset("assets/plugins/datatables-buttons/js/dataTables.buttons.min.js")}}"></script>
+<script src="{{cuteAsset("assets/plugins/datatables-buttons/js/buttons.bootstrap4.min.js")}}"></script>
+<script src="{{cuteAsset("assets/plugins/datatables-buttons/js/buttons.html5.min.js")}}"></script>
+<script src="{{cuteAsset("assets/plugins/datatables-buttons/js/buttons.print.min.js")}}"></script>
+<script src="{{cuteAsset("assets/plugins/datatables-buttons/js/buttons.flash.min.js")}}"></script>
+<script src="{{cuteAsset("assets/plugins/datatables-buttons/js/buttons.colVis.min.js")}}"></script>
+<script src="{{cuteAsset("assets/plugins/datatables-buttons/js/buttons.server-side.js")}}"></script>
 
 
 <!-- moment -->
-<script src="{{ url('assets') }}/plugins/moment/moment.min.js"></script>
+<script src="{{ cuteAsset('assets') }}/plugins/moment/moment.min.js"></script>
 <!-- Summernote -->
-<script src="{{ url('assets') }}/plugins/summernote/summernote-bs4.min.js"></script>
+<script src="{{ cuteAsset('assets') }}/plugins/summernote/summernote-bs4.min.js"></script>
 <!-- overlayScrollbars -->
-<script src="{{ url('assets') }}/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<script src="{{ cuteAsset('assets') }}/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- Tempusdominus Bootstrap 4 -->
-<script src="{{ url('assets') }}/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<script src="{{ cuteAsset('assets') }}/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
 <!-- sweetalert2 App -->
-<script src="{{ url('assets') }}/plugins/sweetalert2/sweetalert2.min.js"></script>
+<script src="{{ cuteAsset('assets') }}/plugins/sweetalert2/sweetalert2.min.js"></script>
 <!-- date-range-picker -->
-<script src="{{ url('assets') }}/plugins/daterangepicker/daterangepicker.js"></script>
+<script src="{{ cuteAsset('assets') }}/plugins/daterangepicker/daterangepicker.js"></script>
 <!-- bootstrap-colorpicker App -->
-<script src="{{ url('assets') }}/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
+<script src="{{ cuteAsset('assets') }}/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
 
 <!-- Select2 -->
-<script src="{{ url('assets') }}/plugins/select2/js/select2.full.min.js"></script>
+<script src="{{ cuteAsset('assets') }}/plugins/select2/js/select2.full.min.js"></script>
 <!-- AdminLTE App -->
-<script src="{{ url('assets') }}/js/adminlte.js"></script>
+<script src="{{ cuteAsset('assets') }}/js/adminlte.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script type="text/javascript">
 var config = {
@@ -88,7 +88,7 @@ $('.card').addClass('card-dark');
 @endif
 @endif
 </script>
-<script src="{{ url('assets') }}/js/demo.js"></script>
+<script src="{{ cuteAsset('assets') }}/js/demo.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
 <script>
 var options = {
@@ -99,7 +99,7 @@ filebrowserUploadUrl: '{{ aurl('/filemanager/upload?type=Files&_token=') }}'
 };
 </script>
 <script src="https://cdn.ckeditor.com/4.10.0/full/ckeditor.js"></script>
-<script type="text/javascript" src="{{ url('assets/vendor/unisharp/laravel-ckeditor/adapters/jquery.js') }}"></script>
+<script type="text/javascript" src="{{ cuteAsset('assets/vendor/unisharp/laravel-ckeditor/adapters/jquery.js') }}"></script>
 
 <script src="https://vjs.zencdn.net/7.11.4/video.min.js"></script>
 <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
@@ -107,27 +107,27 @@ filebrowserUploadUrl: '{{ aurl('/filemanager/upload?type=Files&_token=') }}'
 <!-- END THEME LAYOUT SCRIPTS -->
 @if(empty(request()->segment(2)))
 <!-- ChartJS -->
-<script src="{{ url('assets') }}/plugins/chart.js/Chart.min.js"></script>
+<script src="{{ cuteAsset('assets') }}/plugins/chart.js/Chart.min.js"></script>
 <!-- Sparkline -->
-<script src="{{ url('assets') }}/plugins/sparklines/sparkline.js"></script>
+<script src="{{ cuteAsset('assets') }}/plugins/sparklines/sparkline.js"></script>
 <!-- JQVMap -->
-<script src="{{ url('assets') }}/plugins/jqvmap/jquery.vmap.min.js"></script>
-<script src="{{ url('assets') }}/plugins/jqvmap/maps/jquery.vmap.world.js"></script>
+<script src="{{ cuteAsset('assets') }}/plugins/jqvmap/jquery.vmap.min.js"></script>
+<script src="{{ cuteAsset('assets') }}/plugins/jqvmap/maps/jquery.vmap.world.js"></script>
 <!-- jQuery Knob Chart -->
-<script src="{{ url('assets') }}/plugins/jquery-knob/jquery.knob.min.js"></script>
+<script src="{{ cuteAsset('assets') }}/plugins/jquery-knob/jquery.knob.min.js"></script>
 
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{ url('assets') }}/js/pages/dashboard.js"></script>
+<script src="{{ cuteAsset('assets') }}/js/pages/dashboard.js"></script>
 @endif
 
-<script src="{{url('assets/plugins/dropzone/min/dropzone.min.js')}}" type="text/javascript"></script>
+<script src="{{cuteAsset('assets/plugins/dropzone/min/dropzone.min.js')}}" type="text/javascript"></script>
 
-<script src="{{ url('assets/plugins/timeago/jquery.timeago.min.js') }}"></script>
+<script src="{{ cuteAsset('assets/plugins/timeago/jquery.timeago.min.js') }}"></script>
 @if(app('l') == 'ar')
-<script src="{{ url('assets/plugins/timeago/jquery.timeago.ar.js') }}"></script>
+<script src="{{ cuteAsset('assets/plugins/timeago/jquery.timeago.ar.js') }}"></script>
 @endif
 
-<script src="{{url('assets/jstree-master/dist/jstree.min.js')}}"></script>
+<script src="{{cuteAsset('assets/jstree-master/dist/jstree.min.js')}}"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 

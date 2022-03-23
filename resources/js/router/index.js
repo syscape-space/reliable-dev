@@ -40,12 +40,11 @@ import MyOrder from '../views/OrdersPages/myOrder.vue'
 import ShowAllOrders from '../views/OrdersPages/ShowAllOrders.vue'
 
 
-const env = "production";
 // Tickets
 import addTicket from '../views/TicketsPages/createTecket.vue'
 
 
-const prefix = env === "local" ? '':'/reliable';
+const prefix = APP_PREFIX;
 
 // guard function 
 function guardMyroute(to, from, next)

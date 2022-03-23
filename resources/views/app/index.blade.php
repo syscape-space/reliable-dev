@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="{{asset('/')}}/css/layout.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="./css/layout.css" />
+    <link rel="stylesheet" href="{{cuteAsset('/assets')}}/css/style.css" />
+    <link rel="stylesheet" href="{{cuteAsset('/assets')}}/css/layout.css" />
     <title>title</title>
 </head>
 
@@ -23,6 +23,8 @@
         </div>
     </div>
     <script>
+        const APP_URL = '{{env('APP_URL')}}';
+        const APP_PREFIX = '{{env('APP_PREFIX')}}';
         const base_url = '{{url('/')}}';
         const cloud_url = '{{url('/cloud')}}';
         window.lang_loc = '{{app()->getLocale()}}';
@@ -41,12 +43,12 @@
             return window.trans;
         }
     </script>
-    <script src="{{ url('public/js/app.js') }}"></script>
-    <script src="{{asset('/')}}/js/jquery-3.3.1.min.js"></script>
-    <script src="{{asset('/')}}/js/popper.min.js"></script>
-    <script src="{{asset('/')}}/js/bootstrap.min.js"></script>
-    <script src="{{asset('/')}}/js/owl.carousel.min.js"></script>
-    <script src="{{asset('/')}}/js/main.js"></script>
+    <script src="{{ cuteAsset('/js/app.js') }}"></script>
+    <script src="{{cuteAsset('/')}}/js/jquery-3.3.1.min.js"></script>
+    <script src="{{cuteAsset('/')}}/js/popper.min.js"></script>
+    <script src="{{cuteAsset('/')}}/js/bootstrap.min.js"></script>
+    <script src="{{cuteAsset('/')}}/js/owl.carousel.min.js"></script>
+    <script src="{{cuteAsset('/')}}/js/main.js"></script>
 </body>
 
 </html>

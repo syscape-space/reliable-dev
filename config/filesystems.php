@@ -51,7 +51,8 @@ return [
 			'root' => storage_path('app/public'),
 			'url' => env('APP_URL') . '/storage',
 			'visibility' => '',
-		], 'public' => [
+		],
+        'public' => [
 			'driver' => 'public',
 			'root' => storage_path('app/public'),
 			'url' => env('APP_URL') . '/storage',
@@ -59,8 +60,8 @@ return [
 		],
         'cloud' =>[
             'driver' => 'local',
-            'root' => base_path('/cloud'),
-            'url' => env('APP_URL') . '/cloud',
+            'root' => base_path('/public/cloud'),
+            'url' => env('ASSET_URL'). '/cloud',
             'visibility' => 'public',
         ],
 		's3' => [
