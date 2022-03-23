@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\ValidationsApi\V1\TicketsRequest;
 use App\Models\Files;
+use App\Models\TicketReplay;
 
 class TicketController extends Controller
 {
@@ -54,19 +55,6 @@ class TicketController extends Controller
         $newTicket->ticket_status = "opened" ;
         $newTicket->save();
 
-        // $addNewAttchOfTicket = new Files();
-        // $addNewAttchOfTicket->user_id = $request->user_id ;
-        // $addNewAttchOfTicket->file = $request->file ;
-        // $addNewAttchOfTicket->full_path ;
-        // $addNewAttchOfTicket->type_file ;
-        // $addNewAttchOfTicket->type_id ;
-        // $addNewAttchOfTicket->path ;
-        // $addNewAttchOfTicket->ext ;
-        // $addNewAttchOfTicket->name ;
-        // $addNewAttchOfTicket->size ;
-        // $addNewAttchOfTicket->size_bytes ;
-        // $addNewAttchOfTicket->mimtype ;
-
         
 
         return response()->json([
@@ -84,6 +72,23 @@ class TicketController extends Controller
 
         return response()->json([
             "tickets" => $tickets 
+        ] , 200) ;
+    }
+
+    public function addCommentForThisTicket(Request $request , $id){
+        $validated = $request->validate([
+            'replay' => 'required'
+        ]);
+
+        $newComment = new TicketReplay();
+        $newComment->ticket_id = $request->ticket_id ;
+        $newComment->user_id = $request->user_id ;
+        $newComment->admin_id = $request->admin_id ;
+        $newComment->replay  = $request->replay ;
+        $newComment->save();
+
+        return response()->json([
+            "depts" => "saved"  
         ] , 200) ;
     }
 }

@@ -73,6 +73,7 @@ const routes = [
     {
         path : prefix+'/' ,
         component : indexPage,
+        beforeEnter : checkIfLogin ,
         name:'home'
     },
     {
