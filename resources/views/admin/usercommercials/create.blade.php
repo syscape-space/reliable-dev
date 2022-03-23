@@ -75,7 +75,7 @@
 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
     <div class="form-group">
         {!! Form::label('comment',trans('admin.comment'),['class'=>'control-label']) !!}
-            {!! Form::textarea('comment[]',old('comment'),['class'=>'form-control','placeholder'=>trans('admin.comment')]) !!}
+            {!! Form::textarea('comment',old('comment'),['class'=>'form-control','placeholder'=>trans('admin.comment')]) !!}
     </div>
 </div>
 

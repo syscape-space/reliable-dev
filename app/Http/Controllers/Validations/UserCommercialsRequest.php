@@ -27,7 +27,7 @@ class UserCommercialsRequest extends FormRequest {
 			'commercial_file'   => 'required|file',
 			'commercial_end_at' => 'required|date',
 			'user_id'           => 'required|integer|exists:users,id',
-			'comment'           => 'sometimes|nullable|string',
+			'comment'           => 'string',
 		];
 	}
 
@@ -37,7 +37,7 @@ class UserCommercialsRequest extends FormRequest {
 			'commercial_file'   => 'required|file',
 			'commercial_end_at' => 'required|date',
 			'user_id'           => 'required|integer|exists:users,id',
-			'comment'           => 'sometimes|nullable|string',
+			'comment'           => 'string',
 		];
 	}
 
