@@ -1,354 +1,237 @@
 <template>
-  <section class="personal-section mt-2">
-    <div class="personal">
-      <div class="errors" id="errors">
-        <div class="alert alert-danger" v-for="error in errors" :key="error">
-          <strong>{{ error }}</strong>
-        </div>
-      </div>
-      <div class="personal-info" style="    padding: 0 20px;">
-        <h6 class="my-4">{{ $root._t("app.presonalData") }}</h6>
-        <form action="" enctype="multipart/form-data">
-          <div class="row w-100 mx-0 px-0">
-            <div class="mb-3 col-md-3">
-              <label style="font-size: 13px">{{
-                $root._t("app.firstname")
-              }}</label>
-              <input
-                class="input-personal mt-1 w-100"
-                type="text"
-                v-model="firstname"
-                placeholder="First name"
-              />
-            </div>
-            <div class="mb-3 col-md-3">
-              <label style="font-size: 13px">{{
-                $root._t("app.midname")
-              }}</label>
-              <input
-                class="input-personal mt-1 w-100"
-                type="text"
-                v-model="midname"
-                placeholder="middle name"
-              />
-            </div>
-            <div class="mb-3 col-md-3">
-              <label style="font-size: 13px">{{
-                $root._t("app.lastname")
-              }}</label>
-              <input
-                class="input-personal mt-1 w-100"
-                type="text"
-                v-model="lastname"
-                placeholder="last name"
-              />
-            </div>
-            <div class="mb-3 col-md-3">
-              <label style="font-size: 13px">{{
-                $root._t("app.profileImage")
-              }}</label>
-              <input
-                class="input-personal mt-1 w-100"
-                type="file"
-                @change="onSelectedImage"
-                accept="image/png, image/gif, image/jpeg"
-                placeholder="profile image"
-              />
-            </div>
-            <div class="mb-3 col-md-3">
-              <label style="font-size: 13px">{{ $root._t("app.email") }}</label>
-              <input
-                class="input-personal mt-1 w-100"
-                v-model="email"
-                type="text"
-                placeholder="...البريد الالكتروني"
-              />
-            </div>
-            <div class="mb-3 col-md-3">
-              <label style="font-size: 13px">{{
-                $root._t("app.mobile")
-              }}</label>
-              <input
-                class="input-personal mt-1 w-100"
-                v-model="mobile"
-                type="text"
-                placeholder="...رقم الهاتف"
-              />
-            </div>
-            <div class="mb-3 col-md-3">
-              <div class="content-col">
-                <label style="font-size: 13px">{{
-                  $root._t("app.uploadAttchmentOfCommercialRegister")
-                }}</label>
-                <input
-                  class="input-personal mt-1 w-100"
-                  type="text"
-                  v-model="AttchmentOfCommercialRegister"
-                  placeholder="...رفع مر فقات السجل التجاري"
-                />
-                <a href=""
-                  ><img
-                    :src="base_url + '/assets/images/input-info.svg'"
-                    alt=""
-                    srcset=""
-                /></a>
-              </div>
-            </div>
-            <div class="mb-3 col-md-3">
-              <div class="content-col">
-                <label style="font-size: 13px">{{
-                  $root._t("app.addDateOfEndingOfCommercialRegister")
-                }}</label>
-                <input
-                  class="input-personal mt-1 w-100"
-                  type="text"
-                  v-model="DateOfEndingOfCommercialRegister"
-                  placeholder="...اضافه تاريخ انتهاء السجل"
-                />
-                <a href=""
-                  ><img
-                    :src="base_url + '/assets/images/input-birth.svg'"
-                    alt=""
-                    srcset=""
-                /></a>
-              </div>
-            </div>
-            <div class="mb-3 col-md-3">
-              <div class="content-col">
-                <label style="font-size: 13px">{{
-                  $root._t("app.uploadLicense")
-                }}</label>
-                <input
-                  class="input-personal mt-1 w-100"
-                  type="text"
-                  v-model="uploadLicense"
-                  placeholder="...رفع الرخصه"
-                />
-                <a href=""
-                  ><img
-                    :src="base_url + '/assets/images/input-info.svg'"
-                    alt=""
-                    srcset=""
-                  />
-                </a>
-              </div>
-            </div>
-            <div class="mb-3 col-md-3">
-              <div class="content-col">
-                <label style="font-size: 13px">{{
-                  $root._t("app.dateOfEndingLicense")
-                }}</label>
-                <input
-                  class="input-personal mt-1 w-100"
-                  type="text"
-                  v-model="dateOfEndingLicense"
-                  placeholder="...تاريخ انتهاء الرخصة"
-                />
-                <a href=""
-                  ><img
-                    :src="base_url + '/assets/images/input-birth.svg'"
-                    alt=""
-                    srcset=""
-                  />
-                </a>
-              </div>
-            </div>
-            <div class="mb-3 col-md-3">
-              <div class="content-col">
-                <label style="font-size: 13px">{{
-                  $root._t("app.nationality")
-                }}</label>
-                <input
-                  class="input-personal mt-1 w-100"
-                  type="text"
-                  v-model="nationality"
-                  placeholder="...رقم الهاتف"
-                />
-              </div>
-            </div>
-            <div class="mb-3 col-md-3">
-              <div class="content-col">
-                <label style="font-size: 13px">{{
-                  $root._t("app.dateOfBirth")
-                }}</label>
-                <input
-                  class="input-personal mt-1 w-100"
-                  type="text"
-                  v-model="dateOfBirth"
-                  placeholder="...تاريخ الميلاد"
-                />
-              </div>
-            </div>
-            <div class="mb-3 col-md-12">
-              <h6 class="pt-4">{{ $root._t("app.websiteData") }}</h6>
-            </div>
-            <div class="mb-3 col-md-3 ">
-              <div class="content-col">
-                <label style="font-size: 13px">{{
-                  $root._t("app.specialist")
-                }}</label>
-                <input
-                  class="input-personal mt-1 w-100"
-                  type="text"
-                  v-model="specialist"
-                  placeholder="...التخصص"
-                />
-              </div>
-            </div>
-            <div class="mb-3 col-md-3 ">
-              <div class="content-col">
-                <label style="font-size: 13px">{{
-                  $root._t("app.jobTitle")
-                }}</label>
-                <input
-                  class="input-personal mt-1 w-100"
-                  type="text"
-                  v-model="jobTitle"
-                  placeholder="...المسمى الوظيفي"
-                />
-              </div>
-            </div>
-            <div class="mb-3 col-md-3">
-              <label style="font-size: 13px">{{
-                $root._t("app.skills")
-              }}</label>
-              <input
-                class="input-personal mt-1 w-100"
-                type="text"
-                v-model="skills"
-                placeholder="...المهارات الشخصية"
-              />
-            </div>
-            <div class="mb-3 col-md-12">
-              <label style="font-size: 13px">{{ $root._t("app.brief") }}</label>
 
-              <textarea
-                class="input-personal mt-1 w-100"
-                type="text"
-                placeholder="...نبذة"
-                name=""
-                id=""
-                cols="30"
-                rows="10"
-                v-model="brief"
-              ></textarea>
-            </div>
+  <section class="requsts-sec mt-4 outside ">
+    <div class="pc-container">
+      <div class="pcoded-content" style="    font-size: 14px;">
 
-            <div class="mb-3 col-md-12">
-              <label style="font-size: 13px">{{
-                $root._t("app.accountType")
-              }}</label>
-            </div>
-            <div class="mb-3 col-md-12">
-              <div class="d-flex align-items-center">
-                <div class="ms-3">
-                  <input type="checkbox" />
-                  <label for=""
-                    >{{ $root._t("app.projectExecuter") }} -
-                    {{ $root._t("app.serviceSeller") }}</label
-                  >
+        <!-- Side Menu Profile Sections  -->
+        <div class="row w-100 mx-0 px-0 ">
+          <div class="col-12 col-md-4 mb-5">
+            <div class="card user-card user-card-1">
+              <div class="card-body pb-0">
+                <div class="float-right">
+                  <span class="badge badge-light-success"><em class="icon ni ni-check-circle"></em> نشيط</span>
                 </div>
-                <div>
-                  <input type="checkbox" />
-                  <label for="">{{ $root._t("app.avaliableForJobs") }}</label>
+                <div class="media user-about-block align-items-center mt-0 mb-3">
+                  <div class="position-relative d-inline-block">
+                    <img src="https://sjl.const-tech.biz/HRM/public/uploads/users/thumb/sar11.png" alt=""
+                      class="d-block img-radius img-fluid wid-80">
+                    <span class="icon-img">
+                      <i class="fas fa-certificate text-success bg-icon"></i><i
+                        class="fas fa-check front-icon text-white"></i>
+                    </span>
+                  </div>
+                  <div class="media-body ml-3">
+                    <h6 class="mb-1">
+                      ALCO SEC </h6>
+                    <p class="mb-0 text-muted">@ admin </p>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="col-md-12 text-center">
-              <button class="save-btn" @click.prevent="updateInfo()">
-                {{ $root._t("app.saveChanges") }}
-              </button>
+              <ul class="list-group list-group-flush px-0">
+                <li class="list-group-item"> <span class="f-w-500"><i class="feather icon-mail m-r-10"></i>بريد
+                    الالكتروني </span> <a href="mailto:{{user?.email}}" class="text-body"> {{user?.email}} </a>
+                </li>
+                <li class="list-group-item"> <span class="f-w-500"><i class="feather icon-phone-call m-r-10"></i> هاتف
+                  </span> <a href="#" class="text-body">{{user?.mobile}}</a> </li>
+              </ul>
+              <div class="nav flex-column nav-pills list-group list-group-flush list-pills" id="user-set-tab"
+                role="tablist" aria-orientation="vertical">
+                <!-- <a class="nav-link list-group-item list-group-item-action" :class="{active: activeLink == 'account_settings'}" @click="openAccountSettings()" href="#">Account Setting</a> -->
+                <a class="nav-link list-group-item list-group-item-action"
+                  :class="{active: activeLink == 'account_settings'}" @click="activeLink = 'account_settings'" href="#">
+                  <span class="f-w-500"><i class="feather icon-disc m-r-10 h5 "></i>إعدادت الحساب </span> <span
+                    class="float-right"><i class="feather icon-chevron-right"></i></span> </a>
+                <a class="nav-link list-group-item list-group-item-action"
+                  :class="{active: activeLink == 'verify_user'}" @click="activeLink = 'verify_user'" href="#">
+                  <span class="f-w-500"><i class="feather icon-disc m-r-10 h5 "></i>تحقق الهوية </span> <span
+                    class="float-right"><i class="feather icon-chevron-right"></i></span> </a>
+                <!-- <a class="nav-link list-group-item list-group-item-action active" id="user-edit-account-tab" data-toggle="pill" href="#user-edit-account" role="tab" aria-controls="user-edit-account" aria-selected="true"> <span class="f-w-500"><i class="feather icon-user m-r-10 h5 "></i>معلومات شخصية </span> <span class="float-right"><i class="feather icon-chevron-right"></i></span> </a> -->
+                <a class="nav-link list-group-item list-group-item-action  d-flex justify-content-between"
+                  :class="{active: activeLink == 'commercial'}" @click="activeLink = 'commercial'" href="#"> <span
+                    class="f-w-500"><i class="feather icon-image m-r-10 h5 ">
+                    </i>السجلات التجارية </span> <span class="float-right">
+                    <p v-if="commercial_status != 'unset'" class="p-0 m-0" :class="{'text-danger': commercial_status == 'end', 'text-success': commercial_status == 'active', 'text-white': activeLink == 'commercial'}" v-text="commercial_status == 'active' ? 'نشيط' : 'منتهي'"></p>
+
+                  </span> </a>
+                <!-- <i class="feather icon-chevron-right"></i></span> </a> -->
+                <a class="nav-link list-group-item list-group-item-action d-flex justify-content-between"
+                  :class="{active: activeLink == 'license'}" @click="activeLink = 'license'" href="#"> <span
+                    class="f-w-500"><i class="feather icon-image m-r-10 h5 "></i>الرخصة المهنية </span>
+                  <span class="float-right">
+                    <p v-if="license_status != 'unset'" class="p-0 m-0" :class="{'text-danger': license_status == 'end', 'text-success': license_status == 'active', 'text-white': activeLink == 'license'}" v-text="license_status == 'active' ? 'نشيط' : 'منتهي'"></p>
+                    <i class="feather icon-chevron-right">
+                    </i></span> </a>
+                <a class="nav-link list-group-item list-group-item-action"
+                  :class="{active: activeLink == 'qualification'}" @click="activeLink = 'qualification'" href="#"> <span
+                    class="f-w-500"><i class="feather icon-image m-r-10 h5 "></i>المؤهلات </span> <span
+                    class="float-right"><i class="feather icon-chevron-right"></i></span> </a>
+                <a class="nav-link list-group-item list-group-item-action" :class="{active: activeLink == 'experience'}"
+                  @click="activeLink = 'experience'" href="#"> <span class="f-w-500"><i
+                      class="feather icon-image m-r-10 h5 "></i>الخبرات </span> <span class="float-right"><i
+                      class="feather icon-chevron-right"></i></span> </a>
+                <!-- <a class="nav-link list-group-item list-group-item-action" id="user-companyinfo-tab" data-toggle="pill" href="#user-companyinfo" role="tab" aria-controls="user-companyinfo" aria-selected="false"> <span class="f-w-500"><i class="feather icon-file-text m-r-10 h5 "></i>معلومات الشركة </span> <spa n class="float-right"><i class="feather icon-chevron-right"></i></span> </a> -->
+                <a class="nav-link list-group-item list-group-item-action"
+                  :class="{active: activeLink == 'change_password'}" @click="activeLink = 'change_password'" href="#">
+                  <span class="f-w-500"><i class="feather icon-shield m-r-10 h5 "></i>تغيير كلمة المرور </span> <span
+                    class="float-right"><i class="feather icon-chevron-right"></i></span> </a>
+              </div>
             </div>
           </div>
-        </form>
+          <!-- @yield('content') -->
+          <div class="col-12 col-md-8">
+            
+            <!-- Start Account Settings -->
+
+
+
+
+            <!-- End Account Settings -->
+            
+            <div v-if="loading" class="w-100 h-100 d-flex justify-content-center align-items-center">
+              <div class="spinner-border spinner-secondary" role="status">
+              </div>
+            </div>
+
+            <!-- Start License  -->
+            <profile-personal :user="user" :subscribtion_end="subscribtion_end" :countries="countries" :cities="cities" v-if="!loading && activeLink == 'account_settings'" @refersh="handleRefresh"></profile-personal>
+            <profile-license :user_id="user?.id" :license="license" :license_status="license_status"  :specialties="specialties" v-if="!loading && activeLink == 'license'" @refersh="handleRefresh"></profile-license>
+            <profile-commercial :user_id="user?.id" :commercial="commercial" :commercial_status="commercial_status"  :specialties="specialties" v-if="!loading && activeLink == 'commercial'" @refersh="handleRefresh"></profile-commercial>
+            <profile-experience :user_id="user?.id" :experience="experience" :specialties="specialties" v-if="!loading && activeLink == 'experience'" @refersh="handleRefresh"></profile-experience>
+            <profile-qualification :user_id="user?.id" :qualification="qualification" :specialties="specialties" v-if="!loading && activeLink == 'qualification'" @refersh="handleRefresh"></profile-qualification>
+            <profile-change-password v-if="!loading && activeLink == 'change_password'"></profile-change-password>
+            <profile-verify-user v-if="!loading && activeLink == 'verify_user'"></profile-verify-user>
+          <!-- End License -->
+
+        </div>
+        <!-- [ Main Content ] end -->
       </div>
     </div>
+    </div>
+
   </section>
+  <!-- End Side Section -->
+
 </template>
 <script>
-import api from "../../utils/api";
+  import api from "../../utils/api";
+  import profileLicense from "./ProfileLicense.vue";
+  import profilePersonal from "./ProfilePersonal.vue";
+  import profileCommercial from "./ProfileCommercial.vue";
+  import profileExperience from "./ProfileExperiance.vue";
+  import profileQualification from "./ProfileQualification.vue";
+  import profileChangePassword from "./ProfileChangePassword.vue";
+  import profileVerifyUser from "./ProfileVerifyUser.vue";
 
-export default {
-  data() {
-    return {
-      username: "",
-      firstname: "",
-      midname: "",
-      lastname: "",
-      profileImage: null,
-      email: "",
-      mobile: "",
-      AttchmentOfCommercialRegister: "",
-      DateOfEndingOfCommercialRegister: "",
-      uploadLicense: "",
-      dateOfEndingLicense: "",
-      nationality: "",
-      dateOfBirth: "",
-      specialist: "",
-      jobTitle: "",
-      brief: "",
-      skills: "",
-      uId: "",
-      errors: null,
-      base_url: base_url,
-    };
-  },
-  mounted() {
-    this.currentUser();
-  },
-  methods: {
-    currentUser() {
-      api
-        .get("/account?token=" + localStorage.getItem("token"))
-        .then((response) => {
-          // document.getElementById("name").value = response.data.user.name;
-          this.firstname = response.data.user.first_name;
-          this.lastname = response.data.user.last_name;
-          this.midname = response.data.user.middle_name;
-          this.email = response.data.user.email;
-          this.mobile = "0" + response.data.user.mobile;
-          this.uId = response.data.user.id;
-          console.log(response.data.user);
-        })
-        // error.response.data.errors
-        .catch((e) => {
-          this.errors = e.response.data.errors;
-          console.log(e.response);
-        });
+  export default {
+   
+    components: {
+       'profile-license': profileLicense,
+       'profile-personal': profilePersonal,
+       'profile-commercial': profileCommercial,
+       'profile-experience': profileExperience,
+       'profile-qualification': profileQualification,
+       'profile-change-password': profileChangePassword,
+       'profile-verify-user': profileVerifyUser,
     },
-    onSelectedImage(event) {
-      this.profileImage = event.target.files[0];
+    data() {
+      return {
+        activeLink: "",
+        editable: false,
+        user: null,
+        subscribtion_end: false,
+        license_status: 'unset',
+        commercial_status: 'unset',
+        license: null,
+        commercial: null,
+        countries: [],
+        cities: [],
+        specialties: [],
+        experience: null,
+        qualification: null,
+        loading: false,
+        errors: null,
+        base_url: base_url,
+      };
     },
-    updateInfo() {
-      let formData = new FormData();
-      formData.append("_method", "PUT");
-      formData.append("first_name", this.firstname);
-      formData.append("middle_name", this.midname);
-      formData.append("last_name", this.lastname);
-      formData.append("photo_profile", this.profileImage);
-      formData.append("email", this.email);
-      formData.append("email_verify", "pending");
-      formData.append("mobile_verify", "pending");
-      formData.append("add_offer", "enable");
-      formData.append("name", this.firstname + " " + this.midname + " " + this.lastname);
+    mounted() {
+      this.currentUser();
 
-      api
-        .post(
-          "http://law-mawthuq.com/reliable/public/api/v1/users/" + this.uId,
-          formData
-        )
-        .then((response) => {
-          this.currentUser();
-          document.getElementById("errors").style.display = "none";
-          alert("data is updated");
-          console.log(response);
-        })
-        // error.response.data.errors
-        .catch((e) => {
-          this.errors = e.response.data.errors;
-          console.log(e);
-        });
     },
-  },
-};
+    
+    methods: {
+
+      handleRefresh() {
+        console.log('refresh------------------');
+        this.currentUser(true);
+      },
+
+      currentUser(refersh = false) {
+        this.loading = !refersh;
+        api
+          .get("/profile?token=" + localStorage.getItem("token"))
+          .then((response) => {
+            this.loading = false;
+            this.user = response.data.user;
+            this.subscribtion_end = response.data.subscribtion_end;
+            this.license_status = response.data.license_status;
+            this.commercial_status = response.data.commercial_status;
+            this.license = response.data.license;
+            this.commercial = response.data.commercial;
+            this.specialties = response.data.specialties;
+            this.experience = response.data.experience;
+            this.qualification = response.data.qualification;
+            this.countries = response.data.countries;
+            this.cities = response.data.cities;
+            if(this.activeLink == '') {
+              this.activeLink = "account_settings"
+            }
+          })
+          .catch((e) => {
+            this.loading = false;
+            this.errors = e.response.data.errors;
+            console.log('error: ', e.response);
+          });
+      },
+
+     
+
+      exist(attr) {
+        return typeof (attr) !== 'undefined' && attr !== null;
+      },
+      onSelectedImage(event) {
+        this.profileImage = event.target.files[0];
+      },
+      updateInfo() {
+        let formData = new FormData();
+        formData.append("_method", "PUT");
+        formData.append("first_name", this.firstname);
+        formData.append("middle_name", this.midname);
+        formData.append("last_name", this.lastname);
+        formData.append("photo_profile", this.profileImage);
+        formData.append("email", this.email);
+        formData.append("email_verify", "pending");
+        formData.append("mobile_verify", "pending");
+        formData.append("add_offer", "enable");
+        formData.append("name", this.firstname + " " + this.midname + " " + this.lastname);
+
+        api
+          .post(
+            "http://law-mawthuq.com/reliable/public/api/v1/users/" + this.uId,
+            formData
+          )
+          .then((response) => {
+            this.currentUser();
+            document.getElementById("errors").style.display = "none";
+            alert("data is updated");
+            console.log(response);
+          })
+          // error.response.data.errors
+          .catch((e) => {
+            this.errors = e.response.data.errors;
+            console.log(e);
+          });
+      },
+    },
+  };
 </script>
