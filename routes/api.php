@@ -76,9 +76,9 @@ Route::group(
 		 * 
 		 */
 
-
+        Route::get('settings','SettingController@index');
 		Route::group(['middleware' => 'jwt.auth'], function () {
-			Route::get('settings', 'SettingController@index');
+
 			Route::get('account', 'Auth\AuthAndLogin@account')->name('api.account');
 			Route::post('logout', 'Auth\AuthAndLogin@logout')->name('api.logout');
 			Route::post('refresh', 'Auth\AuthAndLogin@refresh')->name('api.refresh');
