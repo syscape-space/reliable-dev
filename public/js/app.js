@@ -20603,7 +20603,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this5 = this;
 
       var formData = new FormData();
-      formData.append('main_order_id', this.form.main_order_id);
+      if (this.form.main_order_id) formData.append('main_order_id', this.form.main_order_id);
       formData.append('amount', this.$root.settings.minimum_amount_add_order);
       formData.append('execution_time', this.form.execution_time);
       formData.append('order_type_id', this.form.type_id);
@@ -37272,7 +37272,7 @@ __webpack_require__.r(__webpack_exports__);
 var env = "production"; // Tickets
 
 
-var prefix = env === "local" ? '' : '/reliable/public'; // guard function 
+var prefix = env === "local" ? '' : '/reliable'; // guard function 
 
 function guardMyroute(to, from, next) {
   if (localStorage.getItem('token')) {
