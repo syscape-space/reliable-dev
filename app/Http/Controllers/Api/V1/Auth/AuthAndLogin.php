@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers\Api\V1\Auth;
 
 use App\Http\Controllers\Controller;
@@ -6,22 +7,26 @@ use App\Http\Controllers\ValidationsApi\V1\Auth\ChangePasswordRequest;
 use App\Http\Controllers\ValidationsApi\V1\Auth\LoginRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Tymon\JWTAuth\Exceptions\JWTException;
 
 // Auto Configured by (IT) Baboon maker (phpanonymous/it package)
 
-class AuthAndLogin extends Controller {
+class AuthAndLogin extends Controller
+{
 
 	/**
 	 * Create a new AuthController instance.
 	 *
 	 * @return void
 	 */
-	public function __construct() {
-//		$this->middleware('auth:api', ['except' => ['login']]);
+	public function __construct()
+	{
+		//		$this->middleware('auth:api', ['except' => ['login']]);
 	}
 
-	private function auth() {
+	private function auth()
+	{
 		return auth()->guard('api');
 	}
 	/**
@@ -31,11 +36,12 @@ class AuthAndLogin extends Controller {
 	 *
 	 * @return \Illuminate\Http\JsonResponse
 	 */
-	protected function respondWithToken($token) {
+	protected function respondWithToken($token)
+	{
 		return [
 			'access_token' => $token,
 			'token_type'   => 'Bearer',
-			'expires_in'   => $this->auth()->factory()->getTTL()*60,
+			'expires_in'   => $this->auth()->factory()->getTTL() * 60,
 			'user'         => $this->auth()->user(),
 		];
 	}
@@ -45,7 +51,8 @@ class AuthAndLogin extends Controller {
 	 *
 	 * @return \Illuminate\Http\JsonResponse
 	 */
-	public function me() {
+	public function me()
+	{
 		return successResponseJson(['data' => $this->auth()->user()]);
 	}
 
@@ -54,7 +61,8 @@ class AuthAndLogin extends Controller {
 	 *
 	 * @return \Illuminate\Http\JsonResponse
 	 */
-	public function logout() {
+	public function logout()
+	{
 		$this->auth()->logout();
 		return successResponseJson(['message' => 'Successfully logged out']);
 	}
@@ -64,11 +72,13 @@ class AuthAndLogin extends Controller {
 	 *
 	 * @return \Illuminate\Http\JsonResponse
 	 */
-	public function refresh() {
+	public function refresh()
+	{
 		return successResponseJson(['data' => $this->respondWithToken($this->auth()->refresh())]);
 	}
 
-	public function account() {
+	public function account()
+	{
 		return successResponseJson(['data' => $this->auth()->user()]);
 	}
 
@@ -77,7 +87,8 @@ class AuthAndLogin extends Controller {
 	 * Login Auth
 	 * @return \Illuminate\Http\JsonResponse
 	 */
-	public function login(LoginRequest $login) {
+	public function login(LoginRequest $login)
+	{
 		$credentials = request(['email', 'password']);
 
 		try {
@@ -96,13 +107,29 @@ class AuthAndLogin extends Controller {
 	 *
 	 * @return \Illuminate\Http\JsonResponse
 	 */
-	public function change_password(ChangePasswordRequest $changepassword) {
+	public function change_password(ChangePasswordRequest $changepassword)
+	{
 		User::where('id', $this->auth()->user()->id)->update([
-				'password' => bcrypt(request('new_password')),
-			]);
+			'password' => bcrypt(request('new_password')),
+		]);
 		return successResponseJson([
-				'message' => trans('main.password_changed'),
-			]);
+			'message' => trans('passwords.reset'),
+		]);
 	}
 
+	/**
+	 * verify password
+	 *
+	 * @return \Illuminate\Http\JsonResponse
+	 */
+	public function verify_password(Request $request)
+	{
+		$data = $request->only('current_password');
+		if (!$data['current_password'] || !Hash::check($data['current_password'], $this->auth()->user()->password)) {
+			return errorResponseJson(['message' => 'كلمة مرور غير صحيحة',]);
+		}
+		return successResponseJson([
+			'message' => 'تم التحقق بنجاج',
+		]);
+	}
 }

@@ -37,6 +37,7 @@
          border-radius: 20px; "
          >may 21</span></p> 
         </div>
+
         <ul class="item-chat list-unstyled text-start px-0" >
           <li class="sec-list" v-for="item in list" :key="item.id"> 
 
@@ -49,20 +50,23 @@
           </li>
           
         </ul>
+         <!--- Error Will Validate Here -->
+          <div class="errors">
+            <div class="alert alert-danger" v-for="error in errors" :key="error">
+              <strong>{{ error }}</strong>
+            </div>
+          </div>
         <div style="background-color: #FAFAFA;" class="mt-3 d-flex align-items-center mb-3">
           <div class="d-flex align-items-center w-100 p-2  ">
             <span style="display: inline-block; padding-left: 8px; border-left: 2px solid #ddd;">
               <img :src="base_url + '/assets/images/file.png'" alt="">
             </span>
             <span class="flex-grow-1">
-              <input type="text" placeholder=".....اكتب تعليقك هنا" class="form-control bg-transparent border-0">
+              <input type="text" placeholder=".....اكتب تعليقك هنا" class="form-control bg-transparent border-0" v-model="comment">
             </span>
             <span>
-              <img :src="base_url + '/assets/images/Frame2.png'" alt="">
-            </span>
-            <span>
-              <button class="bg-transparent border-0">
-                <img :src="base_url + '/assets/images/telegram.png'" alt="">
+              <button class="bg-transparent border-0" >
+                <img :src="base_url + '/assets/images/telegram.png'" @click.prevent="addCommentForThisTicket()">
               </button>
             </span>
           </div>
@@ -86,6 +90,8 @@ export default {
       RelatedTo : "" ,
       department : "" ,
       ticketContent : "" ,
+      comment : "" ,
+      errors : null ,
       list : []
     };
   },
@@ -121,6 +127,31 @@ export default {
         .catch((e) => {
           this.errors = e.response.data.errors;
           console.log(e.response);
+        });
+    } ,
+    addCommentForThisTicket($id){
+      
+      let ticketId = localStorage.getItem("thisTicketId");
+
+      let formData = new FormData();
+      formData.append("ticket_id", ticketId);
+      formData.append("user_id", localStorage.getItem("myIdTazkarty") );
+      formData.append("admin_id", 1);
+      formData.append("replay", this.comment);
+      
+        api
+        .post("v1/add_comment_for_this_ticket/" +ticketId , formData  )
+        .then((response) => {
+          this.getAllReplysOfThisTicket();
+          console.log("comment is saved");
+          this.comment = "" ;
+          // alert("Ticket Added Successfully");
+          // this.$router.push({ name: "Ticket2" });
+        })
+        // error.response.data.errors
+        .catch((e) => {
+          this.errors = e.response.data.errors;
+          console.log(e.response.data.errors);
         });
     }
   }

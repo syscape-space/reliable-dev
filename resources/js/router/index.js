@@ -37,7 +37,7 @@ import Profile2 from '../views/OrdersPages/profile2Page.vue'
 import Profile3 from '../views/OrdersPages/profile3Page.vue'
 import Profile4 from '../views/OrdersPages/profile4Page.vue'
 import MyOrder from '../views/OrdersPages/myOrder.vue'
-import ShowAllOrders from '../views/OrdersPages/ShowAllOrders.vue'
+import ShowAllOrders from '../views/OrdersPages/showAllOrders.vue'
 
 
 // Tickets
@@ -51,11 +51,19 @@ function guardMyroute(to, from, next)
 {
     if(localStorage.getItem('token'))
     {
-    next(); 
+        next(); 
     } 
     else
     {
     next(prefix+'/login');
+    }
+}
+
+function checkIfLogin(to, from, next){
+    if(localStorage.getItem('token')){
+        next(prefix+'/u_index');
+    }else{
+        next();
     }
 }
 // our routes
@@ -64,13 +72,14 @@ const routes = [
     {
         path : prefix+'/' ,
         component : indexPage,
+        beforeEnter : checkIfLogin ,
         name:'home'
     },
     {
-        path : prefix+'/login' , component : loginPage , name : "Login"
+        path : prefix+'/login' , component : loginPage , beforeEnter : checkIfLogin , name : "Login"
     },
     {
-        path : prefix+'/register' , component : Register,name:"Register"
+        path : prefix+'/register' , component : Register, beforeEnter : checkIfLogin ,name:"Register"
     },
     // Jobs
     {

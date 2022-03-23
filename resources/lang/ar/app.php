@@ -362,9 +362,9 @@ return [
     'orderTitleHere' => 'عنوان الطلب هنا' ,
     'orderContent' => 'محتوى الطلب' ,
     'withoutMemberShip' => 'بدون عضويه' ,
-    'vendor' => 'الادمن' ,
-    'user' => 'مستخدم عادى' ,
-    'employee' => 'موظف' ,
+    'vendor' => 'مقدم الخدمه' ,
+    'user' => 'عميل' ,
+    'employee' => 'محكم' ,
     'saudiAribianCompleteName' => 'المملكه العربيه السعوديه' , 
     'filter' => 'فلتر' ,
     'notRegisterCountry' => 'غير مسجل للبلد'
