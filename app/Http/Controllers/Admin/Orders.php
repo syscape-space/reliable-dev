@@ -201,6 +201,7 @@ class Orders extends Controller {
 	}
 
 	public function update(OrdersRequest $request, $id) {
+	    
 		// Check Record Exists
 		$orders = Order::find($id);
 		if (is_null($orders) || empty($orders)) {
