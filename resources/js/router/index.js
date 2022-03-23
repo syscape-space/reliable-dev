@@ -37,7 +37,7 @@ import Profile2 from '../views/OrdersPages/profile2Page.vue'
 import Profile3 from '../views/OrdersPages/profile3Page.vue'
 import Profile4 from '../views/OrdersPages/profile4Page.vue'
 import MyOrder from '../views/OrdersPages/myOrder.vue'
-import ShowAllOrders from '../views/OrdersPages/ShowAllOrders.vue'
+import ShowAllOrders from '../views/OrdersPages/showAllOrders.vue'
 
 
 const env = "production";
