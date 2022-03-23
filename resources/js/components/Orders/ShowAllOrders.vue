@@ -14,7 +14,7 @@
               class="text-white fas fa-search"
             ></i>
             <input
-              placeholder="... بحث"
+              :placeholder="$root._t('app.search')"
               class="search-cc form-control pe-4"
               type="text"
               name=""
@@ -76,7 +76,7 @@
                 />
                 <!--  -->
                 <span v-if="item.country_id === null"> {{ $root._t("app.notRegisterCountry") }} </span>
-                <span v-else> {{ $root._t("app."+item.country_id.country_name_en) }}</span>
+                <span v-else> {{ $root._t("app.saudiAribianCompleteName") }}</span>
               </span>
               <span class="my-2" style="font-size: 12px">
                 <span class="o-box ms-2">
