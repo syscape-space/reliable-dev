@@ -106,7 +106,7 @@
                 style="font-size: 13px; padding: 8px 30px"
                 type="text"
                 class="border-0 rounded"
-                placeholder="...بحث"
+                :placeholder="$root._t('app.search')"
               />
               <img
                 style="width: 15px; position: absolute; right: 7px; top: 10px"

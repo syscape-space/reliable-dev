@@ -14,7 +14,7 @@
               class="text-white fas fa-search"
             ></i>
             <input
-              placeholder="... بحث"
+              :placeholder="$root._t('app.search')"
               class="search-cc form-control pe-4"
               type="text"
               name=""
