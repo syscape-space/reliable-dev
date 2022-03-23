@@ -147,7 +147,7 @@
                       <option :value="null" selected>{{ $root._t("app.chooseMainCategory") }}</option>
                       <template v-for="department in departments">
                         <option v-if="department.parent === null && department.enable_post === 'yes'"
-                                :value="department.id">{{ department.department_name_ar }}.
+                                :value="department.id">{{ department.department_name_ar }}
                         </option>
                       </template>
                     </select>
@@ -157,7 +157,7 @@
                       <option :value="null" selected>{{ $root._t("app.chooseSubCategory") }}</option>
                       <template v-for="department in departments">
                         <option :value="department.id" v-if="department.parent == form.department_id">
-                          {{ department.department_name_ar }}.
+                          {{ department.department_name_ar }}
                         </option>
                       </template>
                     </select>

@@ -1,14 +1,15 @@
 <template>
-    <NewTopNavbar/>
-    
+    <RightNavbar/>
+    <TopNavbar/>
     <ShowAllOrders/>
 </template>
 <script>
-import NewTopNavbar from '../../components/Orders/NewTopNavbar.vue'
+import RightNavbar from '../../components/UserProfile/RightNavbar.vue'
+import TopNavbar from '../../components/UserProfile/TopNavbar.vue'
 import ShowAllOrders from '../../components/Orders/ShowAllOrders.vue'
 
 export default {
-    components : { NewTopNavbar , ShowAllOrders} ,
+    components : { RightNavbar , TopNavbar , ShowAllOrders} ,
     mounted(){
         if( localStorage.getItem("token") === "" ){
              this.$router.push({ name: "Login" });

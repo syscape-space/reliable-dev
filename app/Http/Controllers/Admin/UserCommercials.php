@@ -53,9 +53,11 @@ class UserCommercials extends Controller {
 	 * @return \Illuminate\Http\Response Or Redirect
 	 */
 	public function store(UserCommercialsRequest $request) {
-		$data                    = $request->except("_token", "_method");
-		$data['commercial_file'] = "";
-		$usercommercials         = UserCommercial::create($data);
+    
+		$request->merge([
+		    'commercial_file'=>''
+		    ]);
+		$usercommercials= UserCommercial::create($request->all());
 		if (request()->hasFile('commercial_file')) {
 			$usercommercials->commercial_file = it()->upload('commercial_file', 'usercommercials/'.$usercommercials->user_id);
 			$usercommercials->save();

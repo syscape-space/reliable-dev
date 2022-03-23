@@ -1,31 +1,61 @@
 @extends('admin.index')
 @section('content')
+@if(request('membership_type')=="vendor")
 <div class="d-flex flex-wrap">
-	<button class="btn btn-sm m-1 btn-primary" type="button" name="button">
+	<a href="{{route('users.index',['membership_type'=>'vendor','account_type'=>'company'])}}" class="btn btn-sm m-1 btn-primary">
 	<i class="fas fa-building"></i> 	الشركات
-		<span class=" mr-2 badge bg-light text-dark">10</span>
-	</button>
-	<button class="btn btn-sm m-1 btn-primary" type="button" name="button">
+		<span class=" mr-2 badge bg-light text-dark">{{App\Models\User::where('account_type','company')->where('membership_type','vendor')->count()}}</span>
+	</a>
+	<a href="{{route('users.index',['membership_type'=>'vendor','account_type'=>'individual'])}}" class="btn btn-sm m-1 btn-primary" >
 		<i class="fas fa-user"></i> افراد
-		<span class="badge bg-light text-info">10</span>
-	</button>
-	<button class="btn btn-sm m-1 btn-success" type="button" name="button">
+		<span class="badge bg-light text-info">{{App\Models\User::where('account_type','individual')->where('membership_type','vendor')->count()}}</span>
+	</a>
+	<a href="{{route('users.index',['membership_type'=>'vendor','status'=>'active'])}}" class="btn btn-sm m-1 btn-success" >
 		<i class="fas fa-dot-circle"></i> مفعل
-		<span class=" mr-2 badge bg-light text-dark">10</span>
-	</button>
-	<button class="btn btn-sm m-1 btn-danger" type="button" name="button">
+		<span class=" mr-2 badge bg-light text-dark">{{App\Models\User::where('account_status','active')->where('membership_type','vendor')->count()}}</span>
+	</a>
+	<a href="{{route('users.index',['membership_type'=>'vendor','status'=>'pending'])}}" class="btn btn-sm m-1 btn-danger" >
 		<i class="fas fa-dot-circle"></i> غير مفعل
-		<span class=" mr-2 badge bg-light text-dark">10</span>
-	</button>
-	<button class="btn btn-sm m-1 btn-danger" type="button" name="button">
+		<span class=" mr-2 badge bg-light text-dark">{{App\Models\User::where('account_status','pending')->where('membership_type','vendor')->count()}}</span>
+	</a>
+	<a href="{{route('users.index',['membership_type'=>'vendor','status'=>'refused'])}}" class="btn btn-sm m-1 btn-danger" >
 		<i class="fas fa-ban"></i> منتهي الترخيص
-		<span class=" mr-2 badge bg-light text-dark">10</span>
-	</button>
-	<button class="btn btn-sm m-1 btn-danger" type="button" name="button">
+		<span class=" mr-2 badge bg-light text-dark">{{App\Models\User::where('account_status','refused')->where('membership_type','vendor')->count()}}</span>
+	</a>
+	<a href="{{route('users.index',['membership_type'=>'vendor','status'=>'ban'])}}" class="btn btn-sm m-1 btn-danger" >
 		<i class="fas fa-hand-paper"></i> موقف
-		<span class=" mr-2 badge bg-light text-dark">10</span>
-	</button>
+		<span class=" mr-2 badge bg-light text-dark">{{App\Models\User::where('account_status','ban')->where('membership_type','vendor')->count()}}</span>
+	</a>
 </div>
+@elseif(request('membership_type')=="user")
+<div class="d-flex flex-wrap">
+	<a href="{{route('users.index',['membership_type'=>'user','account_type'=>'company'])}}" class="btn btn-sm m-1 btn-primary">
+	<i class="fas fa-building"></i> 	الشركات
+		<span class=" mr-2 badge bg-light text-dark">{{App\Models\User::where('account_type','company')->where('membership_type','user')->count()}}</span>
+	</a>
+	<a href="{{route('users.index',['membership_type'=>'user','account_type'=>'individual'])}}" class="btn btn-sm m-1 btn-primary" >
+		<i class="fas fa-user"></i> افراد
+		<span class="badge bg-light text-info">{{App\Models\User::where('account_type','individual')->where('membership_type','user')->count()}}</span>
+	</a>
+	<a href="{{route('users.index',['membership_type'=>'user','status'=>'active'])}}" class="btn btn-sm m-1 btn-success" >
+		<i class="fas fa-dot-circle"></i> مفعل
+		<span class=" mr-2 badge bg-light text-dark">{{App\Models\User::where('account_status','active')->where('membership_type','user')->count()}}</span>
+	</a>
+	<a href="{{route('users.index',['membership_type'=>'user','status'=>'pending'])}}" class="btn btn-sm m-1 btn-danger" >
+		<i class="fas fa-dot-circle"></i> غير مفعل
+		<span class=" mr-2 badge bg-light text-dark">{{App\Models\User::where('account_status','pending')->where('membership_type','user')->count()}}</span>
+	</a>
+	<a href="{{route('users.index',['membership_type'=>'user','status'=>'refused'])}}" class="btn btn-sm m-1 btn-danger" >
+		<i class="fas fa-ban"></i> منتهي الترخيص
+		<span class=" mr-2 badge bg-light text-dark">{{App\Models\User::where('account_status','refused')->where('membership_type','user')->count()}}</span>
+	</a>
+	<a href="{{route('users.index',['membership_type'=>'user','status'=>'ban'])}}" class="btn btn-sm m-1 btn-danger" >
+		<i class="fas fa-hand-paper"></i> موقف
+		<span class=" mr-2 badge bg-light text-dark">{{App\Models\User::where('account_status','ban')->where('membership_type','user')->count()}}</span>
+	</a>
+</div>
+@else
+@endif
 {!! Form::open(["method" => "post","url" => [aurl('/users/multi_delete')]]) !!}
 
 <div class="card card-dark">

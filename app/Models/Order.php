@@ -1,5 +1,7 @@
 <?php
 namespace App\Models;
+
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 // Auto Models By Baboon Script
@@ -169,6 +171,11 @@ class Order extends Model {
 				//$order->department_id()->delete();
 				//$order->department_id()->delete();
 			});
+	}
+
+	public function getCreatedAtAttribute($date)
+	{
+		return Carbon::parse($date)->format('d-M-Y H:i:s');
 	}
 
 }

@@ -14,11 +14,12 @@
               class="text-white fas fa-search"
             ></i>
             <input
-              placeholder="... بحث"
+              :placeholder="$root._t('app.search')"
               class="search-cc form-control pe-4"
               type="text"
               name=""
               id=""
+              v-model="search"
             />
           </div>
           <div>
@@ -31,7 +32,7 @@
                 aria-expanded="false"
               >
                 <i class="fas fa-filter"></i>
-                فلتر
+                {{ $root._t("app.filter") }}
               </button>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="#">Action</a></li>
@@ -45,37 +46,41 @@
             </div>
           </div>
         </div>
-        <div class="p-3 mt-3" style="background-color: #f9f9f9" v-for="item in list" :key="item.id">
+        <div class="p-3 mt-3" style="background-color: #f9f9f9" v-for="item in  filterdList" :key="item.id">
           <div class="">
             <div class="mb-2 text-start" style="font-size: 12px">
-              <span class="ms-3">
+              <!-- <span class="ms-3">
                 <img
                   style="width: 15px"
                   class="ms-1"
                   :src="base_url + '/assets/images/o_clock.svg'"
                   alt=""
                 />
-                <span>منذ 4 ساعات</span>
-              </span>
+                <span>{{ $root._t("app.ago") }} {{ item.created_at }} {{ $root._t("app.hours") }}</span>
+              </span> -->
 
-              <span class="ms-3">
-                <img
-                  style="width: 20px"
-                  class="ms-1"
-                  :src="base_url + '/assets/images/o_offer.svg'"
-                  alt=""
-                />
-                <span>مقدم 5 عروض</span>
-              </span>
-              <span class="ms-3">
+             <span class="ms-3">
+                
+              <span v-if="item.country_id['country_name_en'] === 'Kingdom Saudi Arabia' "> {{ $root._t("app.saudiAribianCompleteName") }} </span>
                 <img
                   style="width: 14px"
                   class="ms-1"
                   :src="base_url + '/assets/images/o_map.svg'"
                   alt=""
                 />
-                <span>{{ item.country_id["country_name_ar"] }}</span>
               </span>
+              
+              
+               <span class="ms-3">
+                <span>{{ $root._t("app.present") }} 0 {{ $root._t("app.offers") }}</span>
+                <img
+                  style="width: 20px"
+                  class="ms-1"
+                  :src="base_url + '/assets/images/o_offer.svg'"
+                  alt=""
+                />
+              </span>
+
               <span class="my-2" style="font-size: 12px">
                 <span class="o-box ms-2">
                   <img
@@ -84,8 +89,8 @@
                     :src="base_url + '/assets/images/o_delever.svg'"
                     alt=""
                   />
-                  <span>مده التسليم:</span>
-                  <span class="me-2">14 يوم</span>
+                  <span> {{ $root._t("app.deliveryTime") }} :</span>
+                  <span class="me-2"> 0 {{ $root._t("app.day") }}</span>
                 </span>
                 <span>
                   <i class="fas fa-ellipsis-v"></i>
@@ -127,11 +132,11 @@
               </div>
             </div>
             <div class="col-md-9">
-              <h6 style="color: #048e81">عنوان الطلب هنا</h6>
+              <h6 style="color: #048e81"> {{ $root._t("app.orderTitleHere") }} </h6>
               <p class="pb-3 f-12">
                 {{ item.order_title }}
               </p>
-              <h6 style="color: #048e81">محتوى الطلب</h6>
+              <h6 style="color: #048e81"> {{ $root._t("app.orderContent") }} </h6>
               <p class="pb-3 f-12">
                 {{ item.order_content }}
               </p>
@@ -149,7 +154,7 @@
                     "
                     class="rounded"
                   >
-                    التفاوض الان
+                    {{ $root._t("app.negotiateNow") }}
                   </button>
                 </div>
                 <div class="text-center">
@@ -164,7 +169,7 @@
                     "
                     class="rounded"
                   >
-                   {{ item.order_status }}  
+                   {{ $root._t("app."+item.order_status) }}
                   </button>
                 </div>
               </div>
@@ -172,7 +177,7 @@
           </div>
         </div>
 
-        <nav aria-label="Page navigation example">
+        <nav aria-label="Page navigation example" id="pagesCount">
           <ul class="pagination justify-content-center mt-2">
             <li class="page-item">
               <a class="page-link" href="#" aria-label="Previous">
@@ -196,22 +201,36 @@
 <script>
 import api from "../../utils/api";
 export default {
-  mounted() {
-    this.getMyOrders();
-  },
+  
   data() {
     return {
       base_url: base_url,
       list : [] ,
+      id : "" ,
+      search : '' ,
     };
   },
+  mounted() {
+    this.getMyOrders();
+  },
+  computed : {
+    filterdList:function(){
+      return this.list.filter( (list) => {
+        return list.order_title.match(this.search)
+      })
+    }
+  } ,
   methods: {
     getMyOrders() {
       api
         .get("v1/orders?my=1")
         .then((response) => {
           this.list = response.data.data.data;
-          console.log(response);
+          
+          if(this.list.length === 0){
+            document.getElementById('pagesCount').style.display = "none";
+          }
+          console.log(response.data.data.data);
         })
         .catch((e) => {
           console.log(e.response);

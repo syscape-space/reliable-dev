@@ -1,18 +1,16 @@
 <template>
 
-    <OrderRightNavbar/>
-    <TopNavbar/>
+    <NewTopNavbar/>
     <ShowOrders/>
     
     
 </template>
 <script>
-import OrderRightNavbar from '../../components/Orders/OrderRightNavbar'
-import TopNavbar from '../../components/UserProfile/TopNavbar'
+import NewTopNavbar from '../../components/Orders/NewTopNavbar.vue'
 import ShowOrders from '../../components/Orders/ShowOrders'
 
 export default {
-    components : { OrderRightNavbar , TopNavbar , ShowOrders  },
+    components : { NewTopNavbar  , ShowOrders  },
     mounted(){
          
     },

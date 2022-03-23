@@ -37,6 +37,7 @@ class Users extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function index(UsersDataTable $users) {
+	    
 		$account_type = !empty(request('account_type'))?trans('admin.'.request('account_type')):trans('admin.all');
 		return $users->render('admin.users.index', ['title' => trans('admin.users').' / '.trans('admin.'.request('membership_type')).' / '.$account_type]);
 	}
@@ -138,6 +139,7 @@ class Users extends Controller {
 
 	public function update(UsersRequest $request, $id) {
 		// Check Record Exists
+
 		$users = User::find($id);
 		if (is_null($users) || empty($users)) {
 			return backWithError(trans("admin.undefinedRecord"), aurl("users"));

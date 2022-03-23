@@ -28,7 +28,7 @@ class OrdersRequest extends FormRequest {
              'order_title'=>'required|string|max:191',
              'order_content'=>'required|string',
              'department_id'=>'required|integer|exists:departments,id',
-             'main_order_id'=>'sometimes|exists:orders,id',
+            //  'main_order_id'=>'sometimes|exists:orders,id',
              'choose_service_provider'=>'required|string|in:all,by_city,by_filter,by_occupation',
              'country_id'=>'sometimes|nullable',
              'city_id'=>'sometimes|nullable',
