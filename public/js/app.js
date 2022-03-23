@@ -37483,7 +37483,7 @@ __webpack_require__.r(__webpack_exports__);
 var env = "production"; // can be local or production
 
 var api = axios__WEBPACK_IMPORTED_MODULE_0___default().create({
-  baseURL: env == "local" ? "http://localhost/reliable/public/api" : 'https://law-mawthuq.com/reliable/public/api',
+  baseURL: env == "local" ? "http://localhost/reliable/api" : 'https://law-mawthuq.com/reliable/api',
   withCredentials: false,
   'Content-Type': 'multipart/form-data',
   Authorization: "Bearer " + localStorage.getItem("token"),
