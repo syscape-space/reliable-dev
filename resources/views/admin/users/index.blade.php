@@ -40,7 +40,6 @@
             </a>
             <a href="{{ route('users.index', ['membership_type' => 'vendor', 'status' => 'ban']) }}"
                 class="btn btn-sm m-1 btn-danger">
-				{{today()->format("Y-m-d")}}
 				سجل تجاري منتهي
                 <span
                     class=" mr-2 badge bg-light text-dark">{{ App\Models\UserCommercial::where('commercial_end_at','<=',today()->format("Y-m-d"))->count() }}</span>
