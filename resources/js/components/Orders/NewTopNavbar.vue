@@ -78,7 +78,7 @@
                     </div>
                     <div class="flex-grow-1">
                       <div class="btw-flex w-100">
-                        <span style="color: #2b7b74">محمد مصطفي</span>
+                        <span style="color: #2b7b74">{{ user.name }}</span>
                         <span class=" ">
                           <img :src="base_url + '/assets/images/o_cclo.svg'" alt="" />
                           <span style="color: #0995eb">{{ $root._t("app.login") }}</span>
@@ -163,7 +163,7 @@
                     srcset=""
                   />
                   <span class="ms-5" style="color: #048e81; font-size: 13px"
-                    >محمد مصطفى على</span
+                    >{{ user.name }}</span
                   >
                 </a>
 
@@ -193,11 +193,33 @@
     </div>
 </template>
 <script>
+import api from "../../utils/api";
+
 export default {
   data(){
     return{
-      base_url:base_url
-    };
+      name : "" ,
+      base_url : base_url ,
+      user:{},
+    }
   },
-}
+  mounted() {
+    this.currentUser();
+  },
+  methods: {
+    currentUser() {
+      api
+        .get("/v1/account")
+        .then((response) => {
+          this.user = response.data.data;
+          console.log(response.data.data)
+        })
+        // error.response.data.errors
+        .catch((e) => {
+          this.errors = e.response.data.errors;
+          console.log(e.response);
+        });
+    },
+  },
+};
 </script>

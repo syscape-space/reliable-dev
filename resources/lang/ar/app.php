@@ -354,5 +354,18 @@ return [
     'applyNowForThisJob' => 'قم بالتقديم علي الوظيفة الان' ,
     'uploadYouCv' => 'ارفاق السيرة الذاتية' ,
     'applyNow' => 'التقديم الان' ,
+    'under_review' => 'تحت المراجعه' ,
+    'present' => 'مقدم' ,
+    'myOrders' => 'طلباتى' ,
+    'orderTitleHere' => 'عنوان الطلب هنا' ,
+    'orderContent' => 'محتوى الطلب' ,
+    'withoutMemberShip' => 'بدون عضويه' ,
+    'vendor' => 'الادمن' ,
+    'user' => 'مستخدم عادى' ,
+    'employee' => 'موظف' ,
+    'saudiAribianCompleteName' => 'المملكه العربيه السعوديه' , 
+    'filter' => 'فلتر' ,
+
+
     
 ];

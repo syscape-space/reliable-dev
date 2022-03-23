@@ -23,10 +23,10 @@
             </div>
              <div class="pt-4 text-center mawtheq-head d-flex justify-content-center">
                     <p class="m-0 bg-transparent text-white border px-3" style="width:auto" v-if="user.membership_type === null">
-                        بدون عضويه
+                      {{ $root._t("app.withoutMemberShip") }}
                     </p>
                      <p class="m-0 bg-transparent text-white border px-3" style="width:auto" v-else>
-                        {{ user.membership_type }}
+                        {{ $root._t("app."+user.membership_type) }}
                     </p>
                 </div>
             <div
@@ -106,7 +106,7 @@
                     alt=""
                     srcset=""
                   />
-                  <span>طلباتى</span>
+                  <span> {{ $root._t("app.myOrders") }} </span>
                 </router-link>
               </li>
               <li>
