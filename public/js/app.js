@@ -21679,17 +21679,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _components_Orders_ShowAllOrders_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../components/Orders/ShowAllOrders.vue */ "./resources/js/components/Orders/ShowAllOrders.vue");
-/* harmony import */ var _components_partials_LayoutNavBar_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/partials/LayoutNavBar.vue */ "./resources/js/components/partials/LayoutNavBar.vue");
-// import RightNavbar from '../../components/UserProfile/RightNavbar.vue'
-// import TopNavbar from '../../components/UserProfile/TopNavbar.vue'
- // import NewTopNavbar from '../../components/Orders/NewTopNavbar.vue'
+/* harmony import */ var _components_UserProfile_RightNavbar_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../components/UserProfile/RightNavbar.vue */ "./resources/js/components/UserProfile/RightNavbar.vue");
+/* harmony import */ var _components_UserProfile_TopNavbar_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/UserProfile/TopNavbar.vue */ "./resources/js/components/UserProfile/TopNavbar.vue");
+/* harmony import */ var _components_Orders_ShowAllOrders_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/Orders/ShowAllOrders.vue */ "./resources/js/components/Orders/ShowAllOrders.vue");
 
+
+ // import NewTopNavbar from '../../components/Orders/NewTopNavbar.vue'
+// import Navbar from '../../components/partials/LayoutNavBar.vue'
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    Navbar: _components_partials_LayoutNavBar_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    ShowAllOrders: _components_Orders_ShowAllOrders_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+    RightNavbar: _components_UserProfile_RightNavbar_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    TopNavbar: _components_UserProfile_TopNavbar_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    ShowAllOrders: _components_Orders_ShowAllOrders_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   mounted: function mounted() {
     if (localStorage.getItem("token") === "") {
@@ -34243,13 +34245,7 @@ var _hoisted_23 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   "class": "dropdown-item",
   href: "#"
-}, "Action")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  "class": "dropdown-item",
-  href: "#"
-}, "Another action")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  "class": "dropdown-item",
-  href: "#"
-}, "Something else here")])], -1
+}, "Logout")])], -1
 /* HOISTED */
 );
 
@@ -36402,15 +36398,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
-var _hoisted_1 = {
-  "class": "container"
-};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  var _component_Navbar = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Navbar");
+  var _component_RightNavbar = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("RightNavbar");
+
+  var _component_TopNavbar = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("TopNavbar");
 
   var _component_ShowAllOrders = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("ShowAllOrders", true);
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <RightNavbar/>\r\n    <TopNavbar/> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <NewTopNavbar/> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Navbar)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ShowAllOrders)], 64
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_RightNavbar), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_TopNavbar), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <NewTopNavbar/> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ShowAllOrders)], 64
   /* STABLE_FRAGMENT */
   );
 }
@@ -37352,6 +37347,14 @@ function guardMyroute(to, from, next) {
   } else {
     next(prefix + '/login');
   }
+}
+
+function checkIfLogin(to, from, next) {
+  if (localStorage.getItem('token')) {
+    next(prefix + '/u_index');
+  } else {
+    next();
+  }
 } // our routes
 // Account Settings
 
@@ -37363,10 +37366,12 @@ var routes = [{
 }, {
   path: prefix + '/login',
   component: _views_AccountPages_loginPage_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+  beforeEnter: checkIfLogin,
   name: "Login"
 }, {
   path: prefix + '/register',
   component: _views_AccountPages_registerPage_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+  beforeEnter: checkIfLogin,
   name: "Register"
 }, // Jobs
 {
