@@ -45,13 +45,13 @@
 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
     <div class="form-group">
         {!! Form::label('type_desc_ar',trans('admin.type_desc_ar'),['class'=>'control-label']) !!}
-            {!! Form::textarea('type_desc_ar',old('type_desc_ar'),['class'=>'form-control','placeholder'=>trans('admin.type_desc_ar')]) !!}
+            {!! Form::textarea('type_desc_ar',old('type_desc_ar'),['class'=>'form-control','placeholder'=>trans('admin.type_desc_ar'),'id'=>'type_desc_ar']) !!}
     </div>
 </div>
 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
     <div class="form-group">
-        {!! Form::label('type_desc_en',trans('admin.type_desc_en'),['class'=>'control-label']) !!}
-            {!! Form::textarea('type_desc_en',old('type_desc_en'),['class'=>'form-control','placeholder'=>trans('admin.type_desc_en')]) !!}
+        {!! Form::label('ss',trans('admin.type_desc_en'),['class'=>'control-label']) !!}
+            {!! Form::textarea('type_desc_en',old('type_desc_en'),['class'=>'form-control','placeholder'=>trans('admin.type_desc_en'),'id'=>'type_desc_en']) !!}
     </div>
 </div>
 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12 type_icon">
@@ -83,4 +83,15 @@
 <button type="submit" name="add_back" class="btn btn-success btn-flat"><i class="fa fa-plus"></i> {{ trans('admin.add_back') }}</button>
 {!! Form::close() !!}	</div>
 </div>
+@push('js')
+<script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+<script type="text/javascript">
+	CKEDITOR.replace( 'type_desc_ar',{
+		enterMode : CKEDITOR.ENTER_BR
+	});
+	CKEDITOR.replace( 'type_desc_en',{
+		enterMode : CKEDITOR.ENTER_BR
+	});
+</script>
+@endpush
 @endsection

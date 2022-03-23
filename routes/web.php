@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\V2\UpdateUserProfileController;
 use App\Http\Controllers\Front\ProfileController;
+use App\Models\FAQ;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\File;
@@ -56,6 +57,10 @@ Route::post('/profile/license', [UpdateUserProfileController::class, 'storeLicen
 Route::post('/profile/commercial', [UpdateUserProfileController::class, 'storeCommercial']);
 Route::post('/profile/experience', [UpdateUserProfileController::class, 'storeExperience']);
 Route::post('/profile/qualification', [UpdateUserProfileController::class, 'storeQualification']);
+Route::get('/faqs', function(){
+	$faqs=FAQ::all();
+	return view('front.faqs.faqs',compact('faqs'));
+});
 // });
 // Route::post('/profile', [ProfileController::class, 'updatePersonalInfo'])->name('profile.personal.update');
 // Route::post('/profile', [ProfileController::class, 'updatePersonalInfo'])->name('profile.personal.update');

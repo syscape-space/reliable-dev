@@ -1,5 +1,5 @@
-@include('front.user.provider.rightNavbar')
-@include('front.user.provider.topNavbar')
+@include('front.layout.rightNavbar')
+@include('front.layout.topNavbar')
 
 <section class="personal-section mt-2">
     <div class="personal">
