@@ -49,7 +49,7 @@
         <div class="p-3 mt-3" style="background-color: #f9f9f9" v-for="item in  filterdList" :key="item.id">
           <div class="">
             <div class="mb-2 text-start" style="font-size: 12px">
-              <span class="ms-3">
+              <!-- <span class="ms-3">
                 <img
                   style="width: 15px"
                   class="ms-1"
@@ -57,7 +57,7 @@
                   alt=""
                 />
                 <span>{{ $root._t("app.ago") }} {{ item.created_at }} {{ $root._t("app.hours") }}</span>
-              </span>
+              </span> -->
 
              <span class="ms-3">
                 
@@ -90,7 +90,7 @@
                     alt=""
                   />
                   <span> {{ $root._t("app.deliveryTime") }} :</span>
-                  <span class="me-2">14 {{ $root._t("app.day") }}</span>
+                  <span class="me-2"> 0 {{ $root._t("app.day") }}</span>
                 </span>
                 <span>
                   <i class="fas fa-ellipsis-v"></i>

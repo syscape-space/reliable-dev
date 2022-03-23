@@ -48,7 +48,7 @@
         <div class="p-3 mt-3" style="background-color: #f9f9f9" v-for="item in list2" :key="item.id">
           <div class="">
             <div class="mb-2 text-start" style="font-size: 12px">
-              <span class="ms-3">
+              <!-- <span class="ms-3">
                 <img
                   style="width: 15px"
                   class="ms-1"
@@ -56,7 +56,7 @@
                   alt=""
                 />
                 <span>منذ 4 ساعات</span>
-              </span>
+              </span> -->
 
               <span class="ms-3">
                 <img
@@ -65,7 +65,7 @@
                   :src="base_url + '/assets/images/o_offer.svg'"
                   alt=""
                 />
-                <span>مقدم 5 عروض</span>
+                <span>{{ $root._t("app.present") }} 0 {{ $root._t("app.offers") }}</span>
               </span>
               <span class="ms-3">
                 <img
@@ -75,8 +75,8 @@
                   alt=""
                 />
                 <!--  -->
-                <span v-if="item.country_id === null"> غير مسجل للبلد </span>
-                <span v-else> {{ item.country_id.country_name_ar }} </span>
+                <span v-if="item.country_id === null"> {{ $root._t("app.notRegisterCountry") }} </span>
+                <span v-else> {{ $root._t("app."+item.country_id.country_name_en) }}</span>
               </span>
               <span class="my-2" style="font-size: 12px">
                 <span class="o-box ms-2">
@@ -86,8 +86,8 @@
                     :src="base_url + '/assets/images/o_delever.svg'"
                     alt=""
                   />
-                  <span>مده التسليم:</span>
-                  <span class="me-2">14 يوم</span>
+                  <span> {{ $root._t("app.deliveryTime") }} :</span>
+                  <span class="me-2"> 0 {{ $root._t("app.day") }}</span>
                 </span>
                 <span>
                   <i class="fas fa-ellipsis-v"></i>
@@ -129,11 +129,11 @@
               </div>
             </div>
             <div class="col-md-9">
-              <h6 style="color: #048e81">عنوان الطلب هنا</h6>
+              <h6 style="color: #048e81">{{ $root._t("app.orderTitleHere") }}</h6>
               <p class="pb-3 f-12">
                 {{ item.order_title }}
               </p>
-              <h6 style="color: #048e81">محتوى الطلب</h6>
+              <h6 style="color: #048e81">{{ $root._t("app.orderContent") }}</h6>
               <p class="pb-3 f-12" v-html=" item.order_content ">
               </p>
               <div class="mt-3 btw-flex">
@@ -150,7 +150,7 @@
                     "
                     class="rounded"
                   >
-                    التفاوض الان
+                    {{ $root._t("app.negotiateNow") }}
                   </button>
                 </div>
                 <div class="text-center">
@@ -165,7 +165,7 @@
                     "
                     class="rounded"
                   >
-                   {{ item.order_status }}  
+                   {{ $root._t("app."+item.order_status) }} 
                   </button>
                 </div>
               </div>

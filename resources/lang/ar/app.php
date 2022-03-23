@@ -355,6 +355,8 @@ return [
     'uploadYouCv' => 'ارفاق السيرة الذاتية' ,
     'applyNow' => 'التقديم الان' ,
     'under_review' => 'تحت المراجعه' ,
+    'refused' => 'مرفوض' ,
+    'open' => 'مفتوح' ,
     'present' => 'مقدم' ,
     'myOrders' => 'طلباتى' ,
     'orderTitleHere' => 'عنوان الطلب هنا' ,
@@ -365,6 +367,7 @@ return [
     'employee' => 'موظف' ,
     'saudiAribianCompleteName' => 'المملكه العربيه السعوديه' , 
     'filter' => 'فلتر' ,
+    'notRegisterCountry' => 'غير مسجل للبلد'
 
 
     

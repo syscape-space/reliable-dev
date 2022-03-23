@@ -352,6 +352,8 @@ return [
     'uploadYouCv' => 'Upload Cv' ,
     'applyNow' => 'Apply' ,
     'under_review' => 'Under Review' ,
+    'refused' => 'Refused' ,
+    'open' => 'Open' ,
     'present' => 'Present' ,
     'myOrders' => 'my Orders' ,
     'orderTitleHere' => 'Order Title' ,
@@ -362,4 +364,5 @@ return [
     'employee' => 'Employee' ,
     'saudiAribianCompleteName' => 'Kingdom Saudi Arabia' ,
     'filter' => 'Filter' ,
+    'notRegisterCountry' => 'غير مسجل للبلد'
 ];
