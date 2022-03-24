@@ -41,6 +41,10 @@ class OrderOffer extends Model {
 		return $this->hasOne(User::class , 'id', 'vendor_id')->with(['country']);
 	}
 
+	public function vendor_id() {
+		return $this->belongsTo(User::class , 'id');
+	}
+
 	/**
 	 * order_id relation method
 	 * @param void

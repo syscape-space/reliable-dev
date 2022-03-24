@@ -373,6 +373,8 @@ return [
     'undefined' => "loading" ,
     'attchFile' => 'ملف مرفق' ,
     'presentation' => 'العروض التقديميه' ,
+    'oderValue' => 'قيمه العرض' ,
+    'admin' => 'الاداره' ,
 
     
 ];

@@ -35,9 +35,9 @@ class OrderOffersRequest extends FormRequest {
 		return [
 			'order_id'                            => 'required|integer|exists:orders,id',
 			'vendor_id'                           => 'required|integer|exists:users,id',
-			'vendor_comment'                      => 'sometimes|nullable|string',
-			'price'                               => 'sometimes|nullable|numeric|UserHaveBalance:'.$this->user_id(),
-			'execution_time'                      => 'sometimes|nullable|integer',
+			'vendor_comment'                      => 'required|nullable|string',
+			'price'                               => 'required|nullable|numeric|UserHaveBalance:'.$this->user_id(),
+			'execution_time'                      => 'required|nullable|integer',
 			'offer_status'                        => 'required|in:pending,approved,refused,cancelled|OrderHadApprovedOffer:'.request('order_id'),
 			'requester_rate'                      => 'sometimes|nullable|string|in:1,2,3,4,5',
 			'requester_feedback'                  => 'sometimes|nullable|string',
