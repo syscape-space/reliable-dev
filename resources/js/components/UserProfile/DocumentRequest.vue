@@ -57,7 +57,7 @@
                     class="color">{{ $root._t("app.from") }}  6</span>
                 </p>
                 <div class="progress mb-5" dir="rtl">
-                  <div class="progress-bar" role="progressbar" :style="'background-color:' '#0995EB';  'width: '+step*16.667+'%'" aria-valuemin="0"
+                  <div class="progress-bar" role="progressbar" :style="'background-color:#0995EB; width: '+step*16.667+'%'" aria-valuemin="0"
                        aria-valuemax="100"></div>
                 </div>
               </div>
