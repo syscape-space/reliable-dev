@@ -70,7 +70,7 @@
 
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                 <li>
-                  <a class="dropdown-item" href="#">Logout</a>
+                  <a class="dropdown-item" @click.prevent="logout()" style="cursor: pointer;">Logout</a>
                 </li>
               </ul>
             </div>
@@ -94,19 +94,6 @@ export default {
     this.currentUser();
   },
   methods: {
-    // currentUser() {
-    //   api
-    //     .get("/account?token=" + localStorage.getItem("token") )
-    //     .then((response) => {
-    //       this.name = response.data.user.name
-    //       console.log(response.data.user)
-    //     })
-    //     // error.response.data.errors
-    //     .catch((e) => {
-    //       this.errors = e.response.data.errors;
-    //       console.log(e.response);
-    //     });
-    // },
     currentUser() {
       api
         .get("/v1/account")
@@ -120,6 +107,27 @@ export default {
           console.log(e.response);
         });
     },
+    logout(){
+      api
+        .post("/v1/logout")
+        .then((response) => {
+          
+          // this.user = response.data.data;
+          localStorage.removeItem('thisTicketId'); // thisTicketId
+          localStorage.removeItem('token'); // token
+          localStorage.removeItem('myIdTazkarty'); // myIdTazkarty
+          localStorage.removeItem('logginedUser'); // logginedUser
+
+          alert("thanks for using our website");
+          this.$router.push({ name: "home" });
+          console.log(response)
+        })
+        // error.response.data.errors
+        .catch((e) => {
+          // this.errors = e.response.data.errors;
+          console.log(e.response);
+        });
+    }
   },
 };
 </script>

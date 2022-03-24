@@ -21551,19 +21551,6 @@ __webpack_require__.r(__webpack_exports__);
     this.currentUser();
   },
   methods: {
-    // currentUser() {
-    //   api
-    //     .get("/account?token=" + localStorage.getItem("token") )
-    //     .then((response) => {
-    //       this.name = response.data.user.name
-    //       console.log(response.data.user)
-    //     })
-    //     // error.response.data.errors
-    //     .catch((e) => {
-    //       this.errors = e.response.data.errors;
-    //       console.log(e.response);
-    //     });
-    // },
     currentUser: function currentUser() {
       var _this = this;
 
@@ -21573,6 +21560,32 @@ __webpack_require__.r(__webpack_exports__);
       }) // error.response.data.errors
       ["catch"](function (e) {
         _this.errors = e.response.data.errors;
+        console.log(e.response);
+      });
+    },
+    logout: function logout() {
+      var _this2 = this;
+
+      _utils_api__WEBPACK_IMPORTED_MODULE_0__["default"].post("/v1/logout").then(function (response) {
+        // this.user = response.data.data;
+        localStorage.removeItem('thisTicketId'); // thisTicketId
+
+        localStorage.removeItem('token'); // token
+
+        localStorage.removeItem('myIdTazkarty'); // myIdTazkarty
+
+        localStorage.removeItem('logginedUser'); // logginedUser
+
+        alert("thanks for using our website");
+
+        _this2.$router.push({
+          name: "home"
+        });
+
+        console.log(response);
+      }) // error.response.data.errors
+      ["catch"](function (e) {
+        // this.errors = e.response.data.errors;
         console.log(e.response);
       });
     }
@@ -36715,17 +36728,10 @@ var _hoisted_22 = {
     "font-size": "13px"
   }
 };
-
-var _hoisted_23 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", {
+var _hoisted_23 = {
   "class": "dropdown-menu",
   "aria-labelledby": "dropdownMenuLink"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  "class": "dropdown-item",
-  href: "#"
-}, "Logout")])], -1
-/* HOISTED */
-);
-
+};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
     src: $data.base_url + '/assets/images/notification-nav.svg',
@@ -36775,7 +36781,15 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* PROPS */
   , _hoisted_21), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_22, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.user.name), 1
   /* TEXT */
-  )]), _hoisted_23])])])])]);
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_23, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    "class": "dropdown-item",
+    onClick: _cache[0] || (_cache[0] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function ($event) {
+      return $options.logout();
+    }, ["prevent"])),
+    style: {
+      "cursor": "pointer"
+    }
+  }, "Logout")])])])])])])]);
 }
 
 /***/ }),
@@ -40121,7 +40135,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/**\r\n * Owl Carousel v2.3.4\r\n * Copyright 2013-2018 David Deutsch\r\n * Licensed under: SEE LICENSE IN https://github.com/OwlCarousel2/OwlCarousel2/blob/master/LICENSE\r\n */\r\n .owl-carousel,.owl-carousel .owl-item{-webkit-tap-highlight-color:transparent;position:relative}.owl-carousel{display:none;width:100%;z-index:1}.owl-carousel .owl-stage{position:relative;touch-action:manipulation;-moz-backface-visibility:hidden}.owl-carousel .owl-stage:after{content:\".\";display:block;clear:both;visibility:hidden;line-height:0;height:0}.owl-carousel .owl-stage-outer{position:relative;overflow:hidden;-webkit-transform:translate3d(0,0,0)}.owl-carousel .owl-item,.owl-carousel .owl-wrapper{-webkit-backface-visibility:hidden;-moz-backface-visibility:hidden;-ms-backface-visibility:hidden;-webkit-transform:translate3d(0,0,0);-moz-transform:translate3d(0,0,0);-ms-transform:translate3d(0,0,0)}.owl-carousel .owl-item{min-height:1px;float:left;-webkit-backface-visibility:hidden;-webkit-touch-callout:none}.owl-carousel .owl-item img{display:block;width:100%}.owl-carousel .owl-dots.disabled,.owl-carousel .owl-nav.disabled{display:none}.no-js .owl-carousel,.owl-carousel.owl-loaded{display:block}.owl-carousel .owl-dot,.owl-carousel .owl-nav .owl-next,.owl-carousel .owl-nav .owl-prev{cursor:pointer;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.owl-carousel .owl-nav button.owl-next,.owl-carousel .owl-nav button.owl-prev,.owl-carousel button.owl-dot{background:0 0;color:inherit;border:none;padding:0!important;font:inherit}.owl-carousel.owl-loading{opacity:0;display:block}.owl-carousel.owl-hidden{opacity:0}.owl-carousel.owl-refresh .owl-item{visibility:hidden}.owl-carousel.owl-drag .owl-item{touch-action:pan-y;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.owl-carousel.owl-grab{cursor:move;cursor:-webkit-grab;cursor:grab}.owl-carousel.owl-rtl{direction:rtl}.owl-carousel.owl-rtl .owl-item{float:right}.owl-carousel .animated{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-fill-mode:both;animation-fill-mode:both}.owl-carousel .owl-animated-in{z-index:0}.owl-carousel .owl-animated-out{z-index:1}.owl-carousel .fadeOut{-webkit-animation-name:fadeOut;animation-name:fadeOut}@-webkit-keyframes fadeOut{0%{opacity:1}100%{opacity:0}}@keyframes fadeOut{0%{opacity:1}100%{opacity:0}}.owl-height{transition:height .5s ease-in-out}.owl-carousel .owl-item .owl-lazy{opacity:0;transition:opacity .4s ease}.owl-carousel .owl-item .owl-lazy:not([src]),.owl-carousel .owl-item .owl-lazy[src^=\"\"]{max-height:0}.owl-carousel .owl-item img.owl-lazy{transform-style:preserve-3d}.owl-carousel .owl-video-wrapper{position:relative;height:100%;background:#000}.owl-carousel .owl-video-play-icon{position:absolute;height:80px;width:80px;left:50%;top:50%;margin-left:-40px;margin-top:-40px;background:url() no-repeat;cursor:pointer;z-index:1;-webkit-backface-visibility:hidden;transition:transform .1s ease}.owl-carousel .owl-video-play-icon:hover{transform:scale(1.3,1.3)}.owl-carousel .owl-video-playing .owl-video-play-icon,.owl-carousel .owl-video-playing .owl-video-tn{display:none}.owl-carousel .owl-video-tn{opacity:0;height:100%;background-position:center center;background-repeat:no-repeat;background-size:contain;transition:opacity .4s ease}.owl-carousel .owl-video-frame{position:relative;z-index:1;height:100%;width:100%}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "/**\r\n * Owl Carousel v2.3.4\r\n * Copyright 2013-2018 David Deutsch\r\n * Licensed under: SEE LICENSE IN https://github.com/OwlCarousel2/OwlCarousel2/blob/master/LICENSE\r\n */\r\n\r\n.owl-carousel,\r\n.owl-carousel .owl-item {\r\n    -webkit-tap-highlight-color: transparent;\r\n    position: relative\r\n}\r\n\r\n.owl-carousel {\r\n    display: none;\r\n    width: 100%;\r\n    z-index: 1\r\n}\r\n\r\n.owl-carousel .owl-stage {\r\n    position: relative;\r\n    touch-action: manipulation;\r\n    -moz-backface-visibility: hidden\r\n}\r\n\r\n.owl-carousel .owl-stage:after {\r\n    content: \".\";\r\n    display: block;\r\n    clear: both;\r\n    visibility: hidden;\r\n    line-height: 0;\r\n    height: 0\r\n}\r\n\r\n.owl-carousel .owl-stage-outer {\r\n    position: relative;\r\n    overflow: hidden;\r\n    -webkit-transform: translate3d(0, 0, 0)\r\n}\r\n\r\n.owl-carousel .owl-item,\r\n.owl-carousel .owl-wrapper {\r\n    -webkit-backface-visibility: hidden;\r\n    -moz-backface-visibility: hidden;\r\n    -ms-backface-visibility: hidden;\r\n    -webkit-transform: translate3d(0, 0, 0);\r\n    -moz-transform: translate3d(0, 0, 0);\r\n    -ms-transform: translate3d(0, 0, 0)\r\n}\r\n\r\n.owl-carousel .owl-item {\r\n    min-height: 1px;\r\n    float: left;\r\n    -webkit-backface-visibility: hidden;\r\n    -webkit-touch-callout: none\r\n}\r\n\r\n.owl-carousel .owl-item img {\r\n    display: block;\r\n    width: 100%\r\n}\r\n\r\n.owl-carousel .owl-dots.disabled,\r\n.owl-carousel .owl-nav.disabled {\r\n    display: none\r\n}\r\n\r\n.no-js .owl-carousel,\r\n.owl-carousel.owl-loaded {\r\n    display: block\r\n}\r\n\r\n.owl-carousel .owl-dot,\r\n.owl-carousel .owl-nav .owl-next,\r\n.owl-carousel .owl-nav .owl-prev {\r\n    cursor: pointer;\r\n    -webkit-user-select: none;\r\n    -moz-user-select: none;\r\n    -ms-user-select: none;\r\n    user-select: none\r\n}\r\n\r\n.owl-carousel .owl-nav button.owl-next,\r\n.owl-carousel .owl-nav button.owl-prev,\r\n.owl-carousel button.owl-dot {\r\n    background: 0 0;\r\n    color: inherit;\r\n    border: none;\r\n    padding: 0!important;\r\n    font: inherit\r\n}\r\n\r\n.owl-carousel.owl-loading {\r\n    opacity: 0;\r\n    display: block\r\n}\r\n\r\n.owl-carousel.owl-hidden {\r\n    opacity: 0\r\n}\r\n\r\n.owl-carousel.owl-refresh .owl-item {\r\n    visibility: hidden\r\n}\r\n\r\n.owl-carousel.owl-drag .owl-item {\r\n    touch-action: pan-y;\r\n    -webkit-user-select: none;\r\n    -moz-user-select: none;\r\n    -ms-user-select: none;\r\n    user-select: none\r\n}\r\n\r\n.owl-carousel.owl-grab {\r\n    cursor: move;\r\n    cursor: -webkit-grab;\r\n    cursor: grab\r\n}\r\n\r\n.owl-carousel.owl-rtl {\r\n    direction: rtl\r\n}\r\n\r\n.owl-carousel.owl-rtl .owl-item {\r\n    float: right\r\n}\r\n\r\n.owl-carousel .animated {\r\n    -webkit-animation-duration: 1s;\r\n            animation-duration: 1s;\r\n    -webkit-animation-fill-mode: both;\r\n            animation-fill-mode: both\r\n}\r\n\r\n.owl-carousel .owl-animated-in {\r\n    z-index: 0\r\n}\r\n\r\n.owl-carousel .owl-animated-out {\r\n    z-index: 1\r\n}\r\n\r\n.owl-carousel .fadeOut {\r\n    -webkit-animation-name: fadeOut;\r\n            animation-name: fadeOut\r\n}\r\n\r\n@-webkit-keyframes fadeOut {\r\n    0% {\r\n        opacity: 1\r\n    }\r\n    100% {\r\n        opacity: 0\r\n    }\r\n}\r\n\r\n@keyframes fadeOut {\r\n    0% {\r\n        opacity: 1\r\n    }\r\n    100% {\r\n        opacity: 0\r\n    }\r\n}\r\n\r\n.owl-height {\r\n    transition: height .5s ease-in-out\r\n}\r\n\r\n.owl-carousel .owl-item .owl-lazy {\r\n    opacity: 0;\r\n    transition: opacity .4s ease\r\n}\r\n\r\n.owl-carousel .owl-item .owl-lazy:not([src]),\r\n.owl-carousel .owl-item .owl-lazy[src^=\"\"] {\r\n    max-height: 0\r\n}\r\n\r\n.owl-carousel .owl-item img.owl-lazy {\r\n    transform-style: preserve-3d\r\n}\r\n\r\n.owl-carousel .owl-video-wrapper {\r\n    position: relative;\r\n    height: 100%;\r\n    background: #000\r\n}\r\n\r\n.owl-carousel .owl-video-play-icon {\r\n    position: absolute;\r\n    height: 80px;\r\n    width: 80px;\r\n    left: 50%;\r\n    top: 50%;\r\n    margin-left: -40px;\r\n    margin-top: -40px;\r\n    cursor: pointer;\r\n    z-index: 1;\r\n    -webkit-backface-visibility: hidden;\r\n    transition: transform .1s ease\r\n}\r\n\r\n.owl-carousel .owl-video-play-icon:hover {\r\n    transform: scale(1.3, 1.3)\r\n}\r\n\r\n.owl-carousel .owl-video-playing .owl-video-play-icon,\r\n.owl-carousel .owl-video-playing .owl-video-tn {\r\n    display: none\r\n}\r\n\r\n.owl-carousel .owl-video-tn {\r\n    opacity: 0;\r\n    height: 100%;\r\n    background-position: center center;\r\n    background-repeat: no-repeat;\r\n    background-size: contain;\r\n    transition: opacity .4s ease\r\n}\r\n\r\n.owl-carousel .owl-video-frame {\r\n    position: relative;\r\n    z-index: 1;\r\n    height: 100%;\r\n    width: 100%\r\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -68656,7 +68670,7 @@ var index = {
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"_args":[["axios@0.21.4","C:\\\\xampp\\\\htdocs\\\\reliable"]],"_development":true,"_from":"axios@0.21.4","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"axios@0.21.4","name":"axios","escapedName":"axios","rawSpec":"0.21.4","saveSpec":null,"fetchSpec":"0.21.4"},"_requiredBy":["#DEV:/"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_spec":"0.21.4","_where":"C:\\\\xampp\\\\htdocs\\\\reliable","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
+module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"Promise based HTTP client for the browser and node.js","main":"index.js","scripts":{"test":"grunt test","start":"node ./sandbox/server.js","build":"NODE_ENV=production grunt build","preversion":"npm test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json","postversion":"git push && git push --tags","examples":"node ./examples/server.js","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","fix":"eslint --fix lib/**/*.js"},"repository":{"type":"git","url":"https://github.com/axios/axios.git"},"keywords":["xhr","http","ajax","promise","node"],"author":"Matt Zabriskie","license":"MIT","bugs":{"url":"https://github.com/axios/axios/issues"},"homepage":"https://axios-http.com","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"jsdelivr":"dist/axios.min.js","unpkg":"dist/axios.min.js","typings":"./index.d.ts","dependencies":{"follow-redirects":"^1.14.0"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}]}');
 
 /***/ })
 

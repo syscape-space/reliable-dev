@@ -364,5 +364,6 @@ return [
     'employee' => 'Employee' ,
     'saudiAribianCompleteName' => 'Kingdom Saudi Arabia' ,
     'filter' => 'Filter' ,
-    'notRegisterCountry' => 'غير مسجل للبلد'
+    'notRegisterCountry' => 'غير مسجل للبلد' ,
+    'undefined' => 'loading'
 ];

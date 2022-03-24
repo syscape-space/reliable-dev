@@ -61,10 +61,15 @@ class AuthAndLogin extends Controller
 	 *
 	 * @return \Illuminate\Http\JsonResponse
 	 */
+
 	public function logout()
 	{
+
 		$this->auth()->logout();
+
+		// delete all sessions in application for logout based on senario af app
 		return successResponseJson(['message' => 'Successfully logged out']);
+
 	}
 
 	/**
