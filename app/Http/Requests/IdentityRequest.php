@@ -25,9 +25,9 @@ class IdentityRequest extends FormRequest
     {
         return [
             'front_side' => 'required|file',
-            'back_side' => 'required|file',
-            'selfie' => 'required|file',
-            'comment' => 'nullable|string'
+            // 'back_side' => 'required|file',
+            // 'selfie' => 'required|file',
+            // 'comment' => 'nullable'
         ];
     }
 
@@ -40,8 +40,8 @@ class IdentityRequest extends FormRequest
     {
         return [
             'front_side.required' => 'مطلوب صورة الوجه الأمامي من بطاقة تعريف الهوية الوطنية',
-            'back_side.required' => 'مطلوب صورة الوجه الخلفي من بطاقة تعريف الهوية الوطنية',
-            'selfie.required' => 'برجاء ارفاق صورة وانت تحمل الهوية الوطنية الخاصة بك',
+            // 'back_side.required' => 'مطلوب صورة الوجه الخلفي من بطاقة تعريف الهوية الوطنية',
+            // 'selfie.required' => 'برجاء ارفاق صورة وانت تحمل الهوية الوطنية الخاصة بك',
         ];
     }
 }

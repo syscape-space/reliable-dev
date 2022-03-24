@@ -9,24 +9,14 @@
           <div class="col-12 col-md-4 mb-5">
             <div class="card user-card user-card-1">
               <div class="card-body pb-0">
-                <div class="float-right">
-                  <span class="badge badge-light-success"><em class="icon ni ni-check-circle"></em> نشيط</span>
-                </div>
-                <div class="media user-about-block align-items-center mt-0 mb-3">
-                  <div class="position-relative d-inline-block">
-                    <img src="https://sjl.const-tech.biz/HRM/public/uploads/users/thumb/sar11.png" alt=""
+                <div class="d-flex py-3 justify-content-between align-items-start">
+                  <div>
+                    <img :src="user?.photo_profile != null ? base_url+ '/storage/' +  user?.photo_profile : base_url+'/assets/images/dash-user.png'" alt=""
                       class="d-block img-radius img-fluid wid-80">
-                    <span class="icon-img">
-                      <i class="fas fa-certificate text-success bg-icon"></i><i
-                        class="fas fa-check front-icon text-white"></i>
-                    </span>
                   </div>
-                  <div class="media-body ml-3">
-                    <h6 class="mb-1">
-                      ALCO SEC </h6>
-                    <p class="mb-0 text-muted">@ admin </p>
-                  </div>
+                  <span class="text-success" v-if="user_is_verified"><i class="fas fa-certificate text-success bg-icon"></i> نشيط</span>
                 </div>
+               
               </div>
               <ul class="list-group list-group-flush px-0">
                 <li class="list-group-item"> <span class="f-w-500"><i class="feather icon-mail m-r-10"></i>بريد
@@ -140,6 +130,7 @@
         editable: false,
         user: null,
         subscribtion_end: false,
+        user_is_verified: false,
         license_status: 'unset',
         commercial_status: 'unset',
         license: null,
@@ -162,7 +153,6 @@
     methods: {
 
       handleRefresh() {
-        console.log('refresh------------------');
         this.currentUser(true);
       },
 
@@ -181,6 +171,7 @@
             this.specialties = response.data.specialties;
             this.experience = response.data.experience;
             this.qualification = response.data.qualification;
+            this.user_is_verified = response.data.user_is_verified;
             this.countries = response.data.countries;
             this.cities = response.data.cities;
             if(this.activeLink == '') {
@@ -194,44 +185,12 @@
           });
       },
 
-     
-
       exist(attr) {
         return typeof (attr) !== 'undefined' && attr !== null;
       },
       onSelectedImage(event) {
         this.profileImage = event.target.files[0];
-      },
-      updateInfo() {
-        let formData = new FormData();
-        formData.append("_method", "PUT");
-        formData.append("first_name", this.firstname);
-        formData.append("middle_name", this.midname);
-        formData.append("last_name", this.lastname);
-        formData.append("photo_profile", this.profileImage);
-        formData.append("email", this.email);
-        formData.append("email_verify", "pending");
-        formData.append("mobile_verify", "pending");
-        formData.append("add_offer", "enable");
-        formData.append("name", this.firstname + " " + this.midname + " " + this.lastname);
-
-        api
-          .post(
-            "http://law-mawthuq.com/reliable/public/api/v1/users/" + this.uId,
-            formData
-          )
-          .then((response) => {
-            this.currentUser();
-            document.getElementById("errors").style.display = "none";
-            alert("data is updated");
-            console.log(response);
-          })
-          // error.response.data.errors
-          .catch((e) => {
-            this.errors = e.response.data.errors;
-            console.log(e);
-          });
-      },
+      }
     },
   };
 </script>
