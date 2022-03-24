@@ -30,7 +30,7 @@
                   </span>
                   <span>
                     <span class="d-block"> {{ item.name }} </span>
-                    <span><small> {{ item.bio }} </small></span>
+                    <span style="white-space: nowrap; text-overflow: ellipsis; width: 166px; display: inline-block; overflow: hidden;"><small> {{ item.bio }} </small></span>
                   </span>
                 </div>
                 <div class="d-flex align-items-center justify-content-between">
