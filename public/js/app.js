@@ -40597,23 +40597,35 @@ var routes = [{
   path: prefix + '/',
   component: _views_indexPage_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
   beforeEnter: checkIfLogin,
-  name: 'home'
+  name: 'home',
+  meta: {
+    title: 'Reliable'
+  }
 }, {
   path: prefix + '/login',
   component: _views_AccountPages_loginPage_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
   beforeEnter: checkIfLogin,
-  name: "Login"
+  name: "Login",
+  meta: {
+    title: 'Login'
+  }
 }, {
   path: prefix + '/register',
   component: _views_AccountPages_registerPage_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
   beforeEnter: checkIfLogin,
-  name: "Register"
+  name: "Register",
+  meta: {
+    title: 'Register'
+  }
 }, // Jobs
 {
   path: prefix + '/all_jobs',
   beforeEnter: guardMyroute,
   component: _views_JobPages_showAllJobs_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
-  name: "ShowAllJobsPage"
+  name: "ShowAllJobsPage",
+  meta: {
+    title: 'All Jobs'
+  }
 }, {
   path: prefix + '/job_details',
   beforeEnter: guardMyroute,
@@ -40624,133 +40636,212 @@ var routes = [{
   path: prefix + '/add_license',
   beforeEnter: guardMyroute,
   component: _views_LicensePages_addLicensePage_vue__WEBPACK_IMPORTED_MODULE_8__["default"],
-  name: "addLicensePage"
+  name: "addLicensePage",
+  meta: {
+    title: 'Add License'
+  }
 }, {
   path: prefix + '/license_show',
   beforeEnter: guardMyroute,
   component: _views_LicensePages_licenseShowPage_vue__WEBPACK_IMPORTED_MODULE_7__["default"],
-  name: "licenseShowPage"
+  name: "licenseShowPage",
+  meta: {
+    title: 'License'
+  }
 }, // start of verify test route ==> if clicked will go to success component this for test only
 {
   path: prefix + '/verify',
   beforeEnter: guardMyroute,
-  component: _views_AccountPages_verifyPage_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+  component: _views_AccountPages_verifyPage_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+  meta: {
+    title: 'Verify'
+  }
 }, {
   path: prefix + '/success',
   beforeEnter: guardMyroute,
   component: _views_AccountPages_successPage_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
-  name: "Success"
+  name: "Success",
+  meta: {
+    title: 'Success'
+  }
 }, // end of verify test route ==> if clicked will go to success component this for test only
 {
   path: prefix + '/u_index',
   beforeEnter: guardMyroute,
   component: _views_UserProfilePages_profilePage_vue__WEBPACK_IMPORTED_MODULE_10__["default"],
-  name: "profilePage"
+  name: "profilePage",
+  meta: {
+    title: 'Profile'
+  }
 }, {
   path: prefix + '/u_profile',
   beforeEnter: guardMyroute,
   component: _views_UserProfilePages_u_indexPage_vue__WEBPACK_IMPORTED_MODULE_9__["default"],
-  name: "u_indexPage"
+  name: "u_indexPage",
+  meta: {
+    title: 'Profile'
+  }
 }, {
   path: prefix + '/u_employment_applocations',
   beforeEnter: guardMyroute,
-  component: _views_UserProfilePages_employmentApplications_vue__WEBPACK_IMPORTED_MODULE_11__["default"]
+  component: _views_UserProfilePages_employmentApplications_vue__WEBPACK_IMPORTED_MODULE_11__["default"],
+  meta: {
+    title: 'Employment Applications'
+  }
 }, {
   path: prefix + '/user-balance',
   beforeEnter: guardMyroute,
   component: _views_UserProfilePages_Balance_vue__WEBPACK_IMPORTED_MODULE_12__["default"],
-  name: "Balance"
+  name: "Balance",
+  meta: {
+    title: 'Balance'
+  }
 }, {
   path: prefix + '/u_offers_order',
   beforeEnter: guardMyroute,
   component: _views_UserProfilePages_offerOrder_vue__WEBPACK_IMPORTED_MODULE_13__["default"],
-  name: "offerOrder"
+  name: "offerOrder",
+  meta: {
+    title: 'Offer Orders'
+  }
 }, {
   path: prefix + '/make-order',
   beforeEnter: guardMyroute,
   component: _views_UserProfilePages_documentRequest_vue__WEBPACK_IMPORTED_MODULE_14__["default"],
-  name: "DocumentRequest"
+  name: "DocumentRequest",
+  meta: {
+    title: 'make order'
+  }
 }, {
   path: prefix + '/u_ticket_details',
   beforeEnter: guardMyroute,
   component: _views_UserProfilePages_chatPage_vue__WEBPACK_IMPORTED_MODULE_15__["default"],
-  name: "ChatPage"
+  name: "ChatPage",
+  meta: {
+    title: 'Chat'
+  }
 }, {
   path: prefix + '/u_ticket1',
   beforeEnter: guardMyroute,
   component: _views_UserProfilePages_ticket1Page_vue__WEBPACK_IMPORTED_MODULE_16__["default"],
-  name: "Ticket1"
+  name: "Ticket1",
+  meta: {
+    title: 'Ticket'
+  }
 }, {
   path: prefix + '/u_ticket2',
   beforeEnter: guardMyroute,
   component: _views_UserProfilePages_ticket2Page_vue__WEBPACK_IMPORTED_MODULE_17__["default"],
-  name: "Ticket2"
+  name: "Ticket2",
+  meta: {
+    title: 'Ticket'
+  }
 }, {
   path: prefix + '/u_users',
   beforeEnter: guardMyroute,
   component: _views_UserProfilePages_usersPage_vue__WEBPACK_IMPORTED_MODULE_18__["default"],
-  name: "Users"
+  name: "Users",
+  meta: {
+    title: 'Users'
+  }
 }, // orders pages routes
 {
   path: prefix + '/o_index',
   beforeEnter: guardMyroute,
   component: _views_OrdersPages_showOrdersPage__WEBPACK_IMPORTED_MODULE_20__["default"],
-  name: "showOrdersPage"
+  name: "showOrdersPage",
+  meta: {
+    title: 'Orders'
+  }
 }, {
   path: prefix + '/o_offer_order1',
   beforeEnter: guardMyroute,
   component: _views_OrdersPages_offerOrder1Page_vue__WEBPACK_IMPORTED_MODULE_21__["default"],
-  name: "offerOrder1Page"
+  name: "offerOrder1Page",
+  meta: {
+    title: 'Offers'
+  }
 }, {
   path: prefix + '/o_offer_order2',
   beforeEnter: guardMyroute,
   component: _views_OrdersPages_offerOrder2Page__WEBPACK_IMPORTED_MODULE_22__["default"],
-  name: "offerOrder2Page"
+  name: "offerOrder2Page",
+  meta: {
+    title: 'Offers'
+  }
 }, {
   path: prefix + '/o_offer_order3',
   beforeEnter: guardMyroute,
   component: _views_OrdersPages_offerOrder3Page__WEBPACK_IMPORTED_MODULE_23__["default"],
-  name: "offerOrder3Page"
+  name: "offerOrder3Page",
+  meta: {
+    title: 'Orders'
+  }
 }, {
   path: prefix + '/u_notification',
   beforeEnter: guardMyroute,
   component: _views_OrdersPages_notificationPage_vue__WEBPACK_IMPORTED_MODULE_19__["default"],
-  name: "NotificationPage"
+  name: "NotificationPage",
+  meta: {
+    title: 'Notification'
+  }
 }, {
   path: prefix + '/u_profile2',
   beforeEnter: guardMyroute,
   component: _views_OrdersPages_profile2Page_vue__WEBPACK_IMPORTED_MODULE_24__["default"],
-  name: "Profile2"
+  name: "Profile2",
+  meta: {
+    title: 'Profile'
+  }
 }, {
   path: prefix + '/u_profile3',
   beforeEnter: guardMyroute,
   component: _views_OrdersPages_profile3Page_vue__WEBPACK_IMPORTED_MODULE_25__["default"],
-  name: "Profile3"
+  name: "Profile3",
+  meta: {
+    title: 'Profile'
+  }
 }, {
   path: prefix + '/u_profile4',
   beforeEnter: guardMyroute,
   component: _views_OrdersPages_profile4Page_vue__WEBPACK_IMPORTED_MODULE_26__["default"],
-  name: "Profile4"
+  name: "Profile4",
+  meta: {
+    title: 'Profile'
+  }
 }, {
   path: prefix + '/my_orders',
   beforeEnter: guardMyroute,
   component: _views_OrdersPages_myOrder_vue__WEBPACK_IMPORTED_MODULE_27__["default"],
-  name: "MyOrder"
+  name: "MyOrder",
+  meta: {
+    title: 'My Orders'
+  }
 }, {
   path: prefix + '/show_all_orders',
   beforeEnter: guardMyroute,
   component: _views_OrdersPages_showAllOrders_vue__WEBPACK_IMPORTED_MODULE_28__["default"],
-  name: "ShowAllOrders"
+  name: "ShowAllOrders",
+  meta: {
+    title: 'Orders'
+  }
 }, // Tickets pages routes
 {
   path: prefix + '/u_new_ticket',
   beforeEnter: guardMyroute,
   component: _views_TicketsPages_createTecket_vue__WEBPACK_IMPORTED_MODULE_29__["default"],
-  name: "addTicket"
+  name: "addTicket",
+  meta: {
+    title: 'Add Ticket'
+  }
 }];
 var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_30__.createRouter)({
   history: (0,vue_router__WEBPACK_IMPORTED_MODULE_30__.createWebHistory)(),
   routes: routes
+});
+router.beforeEach(function (to, from, next) {
+  document.title = to.meta.title;
+  next();
 });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (router);
 
