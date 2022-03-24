@@ -229,8 +229,7 @@
                       <div class="text-center mb-2">
                         <img style="width: 50px;height: 50px;" class="uses-img" :src="base_url + '/assets/images/user.svg'" alt="">
                       </div>
-                      <span class="text-center ">محمد مصطفي</span> <br>
-                      <span style="color: #2B7B74;" class="mb-2 d-inline-block text-center"> {{ $root._t("app.attorneyGeneral") }} </span>
+                      <span class="text-center "> {{ orderOwnerName }} </span> <br>
                     
                     </li>
                   </ul>
@@ -291,6 +290,7 @@ export default {
       order_details : '' ,
       order_status : '' ,
       execution_time_num : '' ,
+      orderOwnerName : ''
     };
   },
   methods:{
@@ -301,7 +301,9 @@ export default {
           .then((response) => {
            this.deptname = response.data.data['department_id'].department_name_ar 
            this.order_details = response.data.data.order_content 
-           this.order_status = response.data.data.execution_time
+           this.order_status = response.data.data.order_status
+           this.execution_time_num = response.data.data.execution_time
+           this.orderOwnerName = response.data.data['user_id'].name
             
           //  let splittingOrderContent = response.data.data.data[1].order_content.split(" ") ;
             console.log( response.data.data);

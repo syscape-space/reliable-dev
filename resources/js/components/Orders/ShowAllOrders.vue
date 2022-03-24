@@ -134,8 +134,10 @@
                 <p class="pb-3 f-12">
                   {{ item.order_title }}
                 </p>
+                <!-- v-html=" item.order_content.split(' ')[0]" -->
                 <h6 style="color: #048e81">{{ $root._t("app.orderContent") }}</h6>
-                <p class="pb-3 f-12" v-html=" item.order_content.split(' ')[0]">
+                <p class="pb-3 f-12">
+                  {{ item.order_content.substring(0,40)+".." }}
                 </p>
               </div>
               <div class="mt-3 btw-flex">
@@ -216,7 +218,7 @@ export default {
           this.list2 = response.data.data.data;
           
           let splittingOrderContent = response.data.data.data[1].order_content.split(" ") ;
-          console.log( response.data.data.data[1].order_content.split(" ").length );
+          console.log( response.data.data.data[1].order_content.str_limit(1) );
         })
         .catch((e) => {
           console.log(e.response);
