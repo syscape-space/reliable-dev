@@ -31,8 +31,7 @@ class UpdateUserProfileController extends Controller
 
     public function index(Request $request)
     {
-        $user_id = Auth::user()->id;
-        $user = User::find($user_id ?? 0);
+        $user = Auth::user();
         if (is_null($user) || empty($user)) {
             return redirect('/');
             // return errorResponseJson([
@@ -42,6 +41,7 @@ class UpdateUserProfileController extends Controller
             // return redirect('/')->with('error', trans("admin.undefinedRecord"));
         }
 
+        $user_id = $user->id;
         $license =  UserLicense::where('user_id', $user_id)->first();
         $commercial = UserCommercial::where('user_id', $user_id)->first();
         $experience = UserExperience::where('user_id', $user_id)->first();
@@ -89,6 +89,18 @@ class UpdateUserProfileController extends Controller
     private function isPast($date)
     {
         return Carbon::parse($date ?? '')->isPast();
+    }
+
+    public function getMembership()
+    {
+        $user = Auth::user();
+        if (is_null($user) || empty($user)) {
+            return successResponseJson(['has_membership' => false]);
+        }
+        if ($user->membership_type != null) {
+            return successResponseJson(['has_membership' => true]);
+        }
+        return successResponseJson(['has_membership' => false]);
     }
 
     protected $selectColumns = [
