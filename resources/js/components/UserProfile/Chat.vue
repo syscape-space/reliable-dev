@@ -38,16 +38,31 @@
          >may 21</span></p> 
         </div>
 
-        <ul class="item-chat list-unstyled text-start px-0" >
-          <li class="sec-list" v-for="item in list" :key="item.id"> 
+        <ul class="item-chat list-unstyled text-start px-0" v-for="item in list" :key="item.id">
+          <li v-if="item.admin_id != null "> 
+            <div class="d-flex mb-3">
+               <p class="m-0" > {{ $root._t("app.admin") }} </p>  
+              <!-- <img style="width: 30px; margin-right: 5px;" src="./images/morning.svg" alt=""> <br> -->
+            </div>  
+            <span> {{ item.replay }}
+              <br>              
+              <small>05:12</small>
 
-            
+            </span>
+          </li>
+          <li class="sec-list" v-else> 
+            <div class="d-flex mb-3">
+              <!-- <img style="width: 30px;" src="./images/morning.svg" alt=""> <br> -->
+               <p class="m-0 me-2"  > {{ item.name }} </p>  
+            </div>  
             <span>{{ item.replay }} 
               <br>              
               <small>05:12</small>
 
             </span>
           </li>
+
+          
           
         </ul>
          <!--- Error Will Validate Here -->
@@ -136,7 +151,6 @@ export default {
       let formData = new FormData();
       formData.append("ticket_id", ticketId);
       formData.append("user_id", localStorage.getItem("myIdTazkarty") );
-      formData.append("admin_id", 1);
       formData.append("replay", this.comment);
       
         api

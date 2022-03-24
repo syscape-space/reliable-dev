@@ -177,7 +177,7 @@
           </div>
         </div>
 
-        <nav aria-label="Page navigation example">
+        <nav aria-label="Page navigation example" id="pagesCount">
           <ul class="pagination justify-content-center mt-2">
             <li class="page-item">
               <a class="page-link" href="#" aria-label="Previous">
@@ -203,6 +203,7 @@ import api from "../../utils/api";
 export default {
   mounted() {
     this.getMyOrders2();
+    document.getElementById('pagesCount').style.display = "none";
   },
   data() {
     return {
@@ -216,9 +217,13 @@ export default {
         .get("v1/orders")
         .then((response) => {
           this.list2 = response.data.data.data;
+          if(this.list2.length === 0){
+            document.getElementById('pagesCount').style.display = "none";
+          }else{
+            document.getElementById('pagesCount').style.display = "block";
+          }
           
-          let splittingOrderContent = response.data.data.data[1].order_content.split(" ") ;
-          console.log( response.data.data.data[1].order_content.str_limit(1) );
+          console.log( response.data.data.data );
         })
         .catch((e) => {
           console.log(e.response);
