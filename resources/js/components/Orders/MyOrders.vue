@@ -138,7 +138,7 @@
               </p>
               <h6 style="color: #048e81"> {{ $root._t("app.orderContent") }} </h6>
               <p class="pb-3 f-12">
-                {{ item.order_content }}
+                {{ item.order_content.split(' ')[0] }}
               </p>
               <div class="mt-3 btw-flex">
                 <div></div>

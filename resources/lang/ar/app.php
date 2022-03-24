@@ -369,6 +369,8 @@ return [
     'filter' => 'فلتر' ,
     'notRegisterCountry' => 'غير مسجل للبلد' ,
     'undefined' => "loading" ,
+    'attchFile' => 'ملف مرفق' ,
+    'presentation' => 'العروض التقديميه' ,
 
     
 ];
