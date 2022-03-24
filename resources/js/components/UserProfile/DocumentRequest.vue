@@ -5,41 +5,37 @@
         <div class="col-lg-4 d-none d-lg-block">
           <div class="content text-center pt-1 ">
             <p class="num">{{ $root._t("app.number1") }}</p>
-            <img :src="base_url + '/assets/images/logo.svg'" alt="logo" class="mt-5 pt-5">
+            <img style="width: 100px;" :src="base_url + 'public/assets/images/white-logo.svg'" alt="logo" class="mt-5 pt-5">
             <p class="title">{{ $root._t("app.chooseServiceType") }}</p>
             <p class="sup-title"> {{ $root._t("app.addNewRequest") }}</p>
-            <p class="dis">
+            <p class="dis" style="font-size: 16px;font-weight: 300;">
               {{ $root._t("app.thisServiceFeature") }}
               <br> {{ $root._t("app.withVideoBelow") }}
             </p>
             <div class="vid  p-5">
-              <p class="vid-title text-right ">
+              <p class="vid-title text-center px-0 ">
                 {{ $root._t("app.watchServiceRequestExplain") }}
               </p>
               <div class="center">
                 <div class="img">
-                  <img :src="base_url + '/assets/images/man.svg'" alt="#" class="back-man">
+
                   <div class="overlay">
                     <a href="#">
                       <div class="dis">
-                        <img :src="base_url + '/assets/images/play-button.svg'" alt="#">
+                        <img :src="base_url + 'public/assets/images/play-button.svg'" alt="#">
                       </div>
                     </a>
                   </div>
                 </div>
               </div>
               <div class="info m-5">
-                <div class="row">
-                  <div class="col-4">
-                    <img :src="base_url + '/assets/images/open-book.svg'" alt="#">
-                  </div>
-                  <div class="col-8">
-                    <p>
+                <div class="pb-2 h-100 d-flex align-items-center justify-content-center">
+                    <img style="top: 3px; margin-left: 5px; vertical-align: middle;" :src="base_url + 'public/assets/images/open-book.svg'" alt="#">
+                    <p class="my-0">
                       <a href="#" target="_blank">
                         {{ $root._t("app.guideForServiceRequest") }}
                       </a>
                     </p>
-                  </div>
                 </div>
               </div>
             </div>
@@ -48,7 +44,7 @@
         <div class="col-lg-8 ">
           <div class="row">
 
-            <div class="col-lg-7">
+            <div class="col-lg-9">
               <div class="data  pt-5 text-right ">
                 <p class="st">
                   {{ $root._t("app.steps") }} <span class="st-num">{{ step }}</span> <span
@@ -64,7 +60,7 @@
                       <span>
                         ملحق بطلب رقم
                       </span>
-                  <input style="width: 80px;" v-model="form.main_order_id" placeholder="#">
+                  <input style="width: 78px; margin-right: 10px;" v-model="form.main_order_id" placeholder="#">
                 </div>
                 <div class="select">
                   <template v-for="type in types.data">
@@ -76,7 +72,7 @@
                           <label class="form-check-label name  pr-2"
                                  :for="'type-input-'+type.id">{{ type.type_name_ar }}</label>
                         </div>
-                        <div class="details  mt-3">
+                        <div class="details  mt-3 py-2">
                           <div class="row">
                             <div class="col-10">
                               <p>
@@ -84,7 +80,7 @@
                               </p>
                             </div>
                             <div class="col-2 text-center">
-                              <img :src="base_url + '/assets/images/Page.svg'" alt="#">
+                              <img style="width:22px" :src="base_url + 'public/assets/images/Page.svg'" alt="#">
                             </div>
                           </div>
                         </div>
@@ -274,7 +270,7 @@
                 <div v-if="form.entities.length - 1 === index && form.entities_count > 1"
                      class="form-group col-md-3 text-center icons">
                   <img style="cursor: pointer" @click="form.entities.push({name:'',id_number:'',nationality:''})"
-                       :src="base_url + '/assets/images/icons.svg'" alt="#" class="d-inline-block">
+                       :src="base_url + 'public/assets/images/icons.svg'" alt="#" class="d-inline-block">
                 </div>
               </div>
               <hr>
@@ -345,7 +341,7 @@
                   <div class='attach d-inline-block'>
                     <label for='input-file'>
                       {{ $root._t("app.attchments") }}
-                      <img :src="base_url + '/assets/images/file.svg'" alt="#">
+                      <img :src="base_url + 'public/assets/images/file.svg'" alt="#">
                     </label>
                     <input id='attachments_input' ref="attachments_input" multiple @change="uploadAttachments()"
                            type='file'/>
@@ -353,7 +349,7 @@
                   <div class='sounds d-inline-block mr-3'>
                     <label for='input-file'>
                       {{ $root._t("app.sendVoiceFile") }}
-                      <img :src="base_url + '/assets/images/audio-file.svg'" alt="#">
+                      <img :src="base_url + 'public/assets/images/audio-file.svg'" alt="#">
                     </label>
                     <input id='input-file' ref="audio_file_input" @change="uploadAudioFile()" type='file'/>
                   </div>
@@ -364,14 +360,14 @@
               <div class="row mt-5">
                 <div class="col-8">
                   <p class="red pr-2 mb-2">
-                    <img :src="base_url + '/assets/images/22-mobile.svg'" alt="#" class="ml-2">
+                    <img :src="base_url + 'public/assets/images/22-mobile.svg'" alt="#" class="ml-2">
                     سيتم الخصم من رصيدك رسوم اشترك اضافة طلب جديد
                   </p>
                 </div>
                 <div class="col-4">
                   <div class="btn grad btn-primary">
                     حفظ طلبك كمسوده
-                    <img :src="base_url + '/assets/images/bookmark.svg'" alt="#" class="mr-2">
+                    <img :src="base_url + 'public/assets/images/bookmark.svg'" alt="#" class="mr-2">
                   </div>
                 </div>
               </div>
@@ -503,5 +499,27 @@ export default {
 }
 </script>
 <style scoped>
-
+  .main-pc .col-lg-4 .content {
+    background-size: cover;
+    height: 100vh;
+  }
+  .main-pc .data1 .head .form-check-input {
+    height: 15px !important;
+    width: 15px;
+}
+.form-check .form-check-input {
+    float: revert;
+    margin-left: 6px;
+}
+.main-pc .col-lg-4 .content .center .img .overlay img {
+    position: relative;
+    top: 0;
+}
+.main-pc .col-lg-4 .content .center .img {
+    position: relative;
+    width: 400px;
+    height: 67px;
+    border-radius: 100px;
+    overflow: hidden;
+}
 </style>

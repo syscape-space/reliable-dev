@@ -367,8 +367,10 @@ return [
     'employee' => 'محكم' ,
     'saudiAribianCompleteName' => 'المملكه العربيه السعوديه' , 
     'filter' => 'فلتر' ,
-    'notRegisterCountry' => 'غير مسجل للبلد'
-
+    'notRegisterCountry' => 'غير مسجل للبلد' ,
+    'undefined' => "loading" ,
+    'attchFile' => 'ملف مرفق' ,
+    'presentation' => 'العروض التقديميه' ,
 
     
 ];

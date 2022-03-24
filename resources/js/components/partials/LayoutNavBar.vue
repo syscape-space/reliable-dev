@@ -32,7 +32,7 @@
           <a class="nav-link" href="#">{{ $root._t("app.newJobs") }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">{{ $root._t("app.commonQuestions") }}</a>
+          <a href="./faqs"  class="nav-link btn-2">{{ $root._t("app.commonQuestions") }}</a>
         </li>
       
         <li class="nav-item">

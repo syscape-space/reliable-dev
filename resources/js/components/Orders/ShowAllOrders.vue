@@ -129,13 +129,15 @@
               </div>
             </div>
             <div class="col-md-9">
-              <h6 style="color: #048e81">{{ $root._t("app.orderTitleHere") }}</h6>
-              <p class="pb-3 f-12">
-                {{ item.order_title }}
-              </p>
-              <h6 style="color: #048e81">{{ $root._t("app.orderContent") }}</h6>
-              <p class="pb-3 f-12" v-html=" item.order_content ">
-              </p>
+              <div class="clicker" @click.prevent="showThisOrderDetails(item.id)" style="cursor: pointer;">
+                <h6 style="color: #048e81">{{ $root._t("app.orderTitleHere") }}</h6>
+                <p class="pb-3 f-12">
+                  {{ item.order_title }}
+                </p>
+                <h6 style="color: #048e81">{{ $root._t("app.orderContent") }}</h6>
+                <p class="pb-3 f-12" v-html=" item.order_content.split(' ')[0]">
+                </p>
+              </div>
               <div class="mt-3 btw-flex">
                 <div></div>
                 <div class="text-center">
@@ -212,12 +214,18 @@ export default {
         .get("v1/orders")
         .then((response) => {
           this.list2 = response.data.data.data;
-          console.log(response.data.data.data);
+          
+          let splittingOrderContent = response.data.data.data[1].order_content.split(" ") ;
+          console.log( response.data.data.data[1].order_content.split(" ").length );
         })
         .catch((e) => {
           console.log(e.response);
         });
     },
+    showThisOrderDetails($id){
+      localStorage.setItem("thisOrderId", $id);
+      this.$router.push({ name: "offerOrder1Page" });
+    }
   },
 };
 </script>

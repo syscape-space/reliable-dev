@@ -82,7 +82,7 @@
         </div>
         <div>
           <template v-for="charge in charges">
-            <div class="bl-money py-2 btw-flex px-2 mb-2" v-if="charge.charge_status === 'done'" >
+            <div class="bl-money py-2 btw-flex px-2 mb-2" v-if="charge.charge_status === 'done' " >
               <span>
                 <span class=" text-white inv-c" style="min-width: 90px">
                   {{ parseInt( charge.amount ) }} $

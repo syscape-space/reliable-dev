@@ -1,5 +1,5 @@
-@include('front.user.provider.rightNavbar')
-@include('front.user.provider.topNavbar')
+@include('front.layout.rightNavbar')
+@include('front.layout.topNavbar')
 <section class="personal-section mt-2">
     <div class="personal">
         <div class="personal-info">
@@ -141,7 +141,7 @@
                                         class="d-inline-block">{{ __('app.publishDate') }}</span>
                                     <span style="margin-right: 15px;color: #0995EB;"
                                         class="fw-bold ">{{-- {{ __("app.ago") }} 20 {{ __("app.hours") }} --}}
-                                        {{ $order->created_at->diffForHumans() }}</span>
+                                        {{ $order->created_at }}</span>
                                 </li>
                                 <li class="mb-3">
                                     <span style="min-width: 60px;"

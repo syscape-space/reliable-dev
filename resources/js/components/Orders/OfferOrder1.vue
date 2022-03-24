@@ -4,9 +4,8 @@
         <div class="personal-info">
 
           <span> {{ $root._t("app.home") }} /
-             {{ $root._t("app.projects") }} /
-              {{ $root._t("app.main_category") }}  /
-                {{ $root._t("app.sub_category") }} </span>
+             {{ $root._t("app.orders") }} /
+              {{ deptname }}   </span>
 
           <div class="row w-100 mx-0 px-0">
             <div class="col-lg-9">
@@ -56,7 +55,7 @@
               <div>
                 <h5 class="fw-bold g-color">  {{ $root._t("app.projectDetails") }} </h5>
                 <p style="font-size:12px">
-                  {{ $root._t("app.longText") }}                
+                  {{ order_details }}                
                 </p>
               </div>
               <h6> {{ $root._t("app.attchFile") }} </h6>
@@ -195,14 +194,14 @@
                 <div class="bg-users f-14 p-3 text-center" 
                 style="background-image: linear-gradient(to bottom, #FF584D20, #802C2710); border-radius: 8px; background-color: transparent;">
                   <h6 style="font-size: 13px;"  class=""> {{ $root._t("app.projectCard") }} </h6>
-                  <h6 style="font-size: 13px;" > {{ $root._t("app.main_category") }}  - {{ $root._t("app.sub_category") }}</h6>
+                  <h6 style="font-size: 13px;" > {{ deptname }} </h6>
                   <ul class="list-unstyled px-0 f-12 text-end mt-4">
                     <li class="mb-3 f-12">
                       <span> {{ $root._t("app.projectStatus") }} </span>
                       <button
                         class="o_btn d-inline-block px-3 py-2 rounded"
                         style="margin-right: 15px;"
-                        > {{ $root._t("app.open") }} </button>
+                        > {{ $root._t("app."+order_status) }} </button>
                     </li>
                     <li class="mb-3">
                       <span style="min-width: 60px;" class="d-inline-block"> {{ $root._t("app.publishDate") }} </span>
@@ -214,7 +213,7 @@
                       <span style="min-width: 60px;" class="d-inline-block"> {{ $root._t("app.executionTime") }} </span>
                      <span 
                         style="margin-right: 15px;color: #0995EB;"
-                        class="fw-bold "> {{ $root._t("app.oneDay") }} </span>
+                        class="fw-bold ">  {{ execution_time_num }} {{ $root._t("app.day") }} </span>
                     </li>
                     <li class="mb-3">
                       <span style="min-width: 60px;" class="d-inline-block"> {{ $root._t("app.offersNum") }} </span>
@@ -229,13 +228,6 @@
                     <li class="mb-3 mt-4 text-center">
                       <div class="text-center mb-2">
                         <img style="width: 50px;height: 50px;" class="uses-img" :src="base_url + '/assets/images/user.svg'" alt="">
-                      </div>
-                      <div class="text-center"> 
-                        <i class="fas fa-star yellow"></i>
-                        <i class="fas fa-star yellow"></i>
-                        <i class="fas fa-star yellow"></i>
-                        <i class="fas fa-star yellow"></i>
-                        <i class="fas fa-star"></i>
                       </div>
                       <span class="text-center ">محمد مصطفي</span> <br>
                       <span style="color: #2B7B74;" class="mb-2 d-inline-block text-center"> {{ $root._t("app.attorneyGeneral") }} </span>
@@ -286,11 +278,38 @@
     </section>
 </template>
 <script>
+import api from "../../utils/api";
 export default {
+  mounted(){
+    this.gettingOrderDetails();
+  },
   data(){
     return{
-      base_url:base_url
+      base_url:base_url ,
+      list : [] ,
+      deptname : '' ,
+      order_details : '' ,
+      order_status : '' ,
+      execution_time_num : '' ,
     };
   },
+  methods:{
+    gettingOrderDetails(){
+      let thisorderId = localStorage.getItem("thisOrderId"); 
+      api
+          .get("v1/orders/" + thisorderId)
+          .then((response) => {
+           this.deptname = response.data.data['department_id'].department_name_ar 
+           this.order_details = response.data.data.order_content 
+           this.order_status = response.data.data.execution_time
+            
+          //  let splittingOrderContent = response.data.data.data[1].order_content.split(" ") ;
+            console.log( response.data.data);
+          })
+          .catch((e) => {
+            console.log(e.response);
+          });
+    }
+  }
 }
 </script>

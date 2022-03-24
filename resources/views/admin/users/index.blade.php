@@ -1,3 +1,4 @@
+
 @extends('admin.index')
 @section('content')
     @if (request('membership_type') == 'vendor')
