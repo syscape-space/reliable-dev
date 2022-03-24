@@ -5,15 +5,15 @@
         <div class="col-lg-4 d-none d-lg-block">
           <div class="content text-center pt-1 ">
             <p class="num">{{ $root._t("app.number1") }}</p>
-            <img style="width: 100px;" :src="base_url + 'public/assets/images/white-logo.svg'" alt="logo" class="mt-5 pt-5">
+            <img style="width: 100px;" :src="base_url + '/public/assets/images/white-logo.svg'" alt="logo" class="mt-5 pt-5">
             <p class="title">{{ $root._t("app.chooseServiceType") }}</p>
             <p class="sup-title"> {{ $root._t("app.addNewRequest") }}</p>
-            <p class="dis" style="font-size: 16px;font-weight: 300;">
+            <p class="dis" style="font-size: 14px;font-weight: 300;">
               {{ $root._t("app.thisServiceFeature") }}
               <br> {{ $root._t("app.withVideoBelow") }}
             </p>
-            <div class="vid  p-5">
-              <p class="vid-title text-center px-0 ">
+            <div class="vid  px-5 py-2">
+              <p class="vid-title text-end px-0 ">
                 {{ $root._t("app.watchServiceRequestExplain") }}
               </p>
               <div class="center">
@@ -22,20 +22,21 @@
                   <div class="overlay">
                     <a href="#">
                       <div class="dis">
-                        <img :src="base_url + 'public/assets/images/play-button.svg'" alt="#">
+                        <img :src="base_url + '/public/assets/images/play-button.svg'" alt="#">
                       </div>
                     </a>
                   </div>
                 </div>
               </div>
               <div class="info m-5">
-                <div class="pb-2 h-100 d-flex align-items-center justify-content-center">
-                    <img style="top: 3px; margin-left: 5px; vertical-align: middle;" :src="base_url + 'public/assets/images/open-book.svg'" alt="#">
+                <div class="pb-2 px-3 h-100 d-flex align-items-center justify-content-center">
                     <p class="my-0">
                       <a href="#" target="_blank">
                         {{ $root._t("app.guideForServiceRequest") }}
                       </a>
                     </p>
+                    <img style="top: 3px; margin-left: 5px; vertical-align: middle;margin-right:auto" :src="base_url + '/public/assets/images/open-book.svg'" alt="#">
+
                 </div>
               </div>
             </div>
@@ -51,7 +52,7 @@
                     class="color">{{ $root._t("app.from") }}  6</span>
                 </p>
                 <div class="progress mb-5" dir="rtl">
-                  <div class="progress-bar" role="progressbar" :style="'width: '+step*16.667+'%'" aria-valuemin="0"
+                  <div class="progress-bar" role="progressbar" :style="'background-color:' '#0995EB';  'width: '+step*16.667+'%'" aria-valuemin="0"
                        aria-valuemax="100"></div>
                 </div>
               </div>
@@ -79,8 +80,8 @@
                                 {{ type.type_desc_ar }}
                               </p>
                             </div>
-                            <div class="col-2 text-center">
-                              <img style="width:22px" :src="base_url + 'public/assets/images/Page.svg'" alt="#">
+                            <div class="col-2 text-start">
+                              <img style="width:22px" :src="base_url + '/public/assets/images/Page.svg'" alt="#">
                             </div>
                           </div>
                         </div>
@@ -270,7 +271,7 @@
                 <div v-if="form.entities.length - 1 === index && form.entities_count > 1"
                      class="form-group col-md-3 text-center icons">
                   <img style="cursor: pointer" @click="form.entities.push({name:'',id_number:'',nationality:''})"
-                       :src="base_url + 'public/assets/images/icons.svg'" alt="#" class="d-inline-block">
+                       :src="base_url + '/public/assets/images/icons.svg'" alt="#" class="d-inline-block">
                 </div>
               </div>
               <hr>
@@ -341,7 +342,7 @@
                   <div class='attach d-inline-block'>
                     <label for='input-file'>
                       {{ $root._t("app.attchments") }}
-                      <img :src="base_url + 'public/assets/images/file.svg'" alt="#">
+                      <img :src="base_url + '/public/assets/images/file.svg'" alt="#">
                     </label>
                     <input id='attachments_input' ref="attachments_input" multiple @change="uploadAttachments()"
                            type='file'/>
@@ -349,7 +350,7 @@
                   <div class='sounds d-inline-block mr-3'>
                     <label for='input-file'>
                       {{ $root._t("app.sendVoiceFile") }}
-                      <img :src="base_url + 'public/assets/images/audio-file.svg'" alt="#">
+                      <img :src="base_url + '/public/assets/images/audio-file.svg'" alt="#">
                     </label>
                     <input id='input-file' ref="audio_file_input" @change="uploadAudioFile()" type='file'/>
                   </div>
@@ -360,14 +361,14 @@
               <div class="row mt-5">
                 <div class="col-8">
                   <p class="red pr-2 mb-2">
-                    <img :src="base_url + 'public/assets/images/22-mobile.svg'" alt="#" class="ml-2">
+                    <img :src="base_url + '/public/assets/images/22-mobile.svg'" alt="#" class="ml-2">
                     سيتم الخصم من رصيدك رسوم اشترك اضافة طلب جديد
                   </p>
                 </div>
                 <div class="col-4">
                   <div class="btn grad btn-primary">
                     حفظ طلبك كمسوده
-                    <img :src="base_url + 'public/assets/images/bookmark.svg'" alt="#" class="mr-2">
+                    <img :src="base_url + '/public/assets/images/bookmark.svg'" alt="#" class="mr-2">
                   </div>
                 </div>
               </div>
@@ -521,5 +522,49 @@ export default {
     height: 67px;
     border-radius: 100px;
     overflow: hidden;
+}
+.main-pc .data .select .option .details {
+    background-color: #F3F3F3;
+    padding: 14px 12px 13px !important;
+    font-size: 13px;
+    border-radius: 5px;
+}
+
+.main-pc .col-lg-4 .content .info p a {
+    font-weight: bold;
+    font-size: 12px;
+}
+.main-pc .data .select .option .details {
+    background-color: #F3F3F3;
+    padding: 14px 12px 13px !important;
+    font-size: 13px;
+    border-radius: 5px;
+}
+.main-pc .col-lg-4 .content .info {
+    background-color: #fff;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+    height: 48px;
+    width: 100%;
+    margin: 30px 0 !important;
+}
+.main-pc .col-lg-4 .content p.vid-title {
+    font-size: 13px;
+}
+.main-pc .col-lg-4 .content .center .img[data-v-6a84a0f0] {
+    position: relative;
+    width: 400px;
+    height: 200px;
+    border-radius: 19px;
+    overflow: hidden;
+}
+.main-pc .col-lg-4 .content .center .img .overlay img[data-v-6a84a0f0] {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    left: 50%;
 }
 </style>

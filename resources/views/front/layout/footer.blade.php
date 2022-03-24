@@ -14,6 +14,14 @@
 <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('assets/js/main.js') }}"></script>
+
+<script type="text/javascript">
+  $(function(){
+    $(document).on('click','#headingOne', function() {
+        $(this).siblings().toggleClass('collapse')
+    })
+  })
+</script>
 @yield('css')
 </body>
 

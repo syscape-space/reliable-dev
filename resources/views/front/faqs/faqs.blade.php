@@ -41,13 +41,15 @@
             border: 1px solid #ddd;
             border-top: none;
         }
-
+.red-circle {
+  border-radius: 50% !important
+}
     </style>
     <link rel="stylesheet" href="{{asset('assets/css/faq.css')}}" />
 
 @endsection
 @section('content_page')
-    <div class="col-12 px-0">
+    <div class="col-12 px-0" style="min-height:70vh">
         <div class="col-12 px-0 row main-nafez-box-styles">
             <div class="accordion col-12 px-0 row px-0" id="accordionExample">
                 <div class="col-12 pt-4 mb-lg-4">
