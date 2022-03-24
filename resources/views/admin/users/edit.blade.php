@@ -1,37 +1,38 @@
 @extends('admin.index')
 @section('content')
-@include("admin.layouts.components.submit_form_ajax")
+@include("admin.layouts.components.submit_form_ajax",["form"=>"#users"])
+
 @include('admin.ajax',[
-    'typeForm'=>'edit',
-    'selectID'=>'country_id',
-    'parentValue'=>$users->country_id,
-    'outputClass'=>'city_id',
-    'selectedvalue'=>$users->city_id,
-    'url'=>aurl('users/get/city/id'),
+'typeForm'=>'edit',
+'selectID'=>'country_id',
+'parentValue'=>$users->country_id,
+'outputClass'=>'city_id',
+'selectedvalue'=>$users->city_id,
+'url'=>aurl('users/get/city/id'),
 ])
 <div class="card card-dark">
     <div class="card-header">
         <h3 class="card-title">
-        <div class="">
-            <span>{{!empty($title)?$title:''}}</span>
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <span class="caret"></span>
-                <span class="sr-only"></span>
-            </a>
-            <div class="dropdown-menu" role="menu">
-                <a href="{{aurl('users')}}" class="dropdown-item" style="color:#343a40">
-                <i class="fas fa-list"></i> {{trans('admin.show_all')}} </a>
-                <a href="{{aurl('users/'.$users->id)}}" class="dropdown-item" style="color:#343a40">
-                <i class="fa fa-eye"></i> {{trans('admin.show')}} </a>
-                <a class="dropdown-item" style="color:#343a40" href="{{aurl('users/create')}}">
-                    <i class="fa fa-plus"></i> {{trans('admin.create')}}
+            <div class="">
+                <span>{{!empty($title)?$title:''}}</span>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span>
+                    <span class="sr-only"></span>
                 </a>
-                <div class="dropdown-divider"></div>
-                <a data-toggle="modal" data-target="#deleteRecord{{$users->id}}" class="dropdown-item" style="color:#343a40" href="#">
-                    <i class="fa fa-trash"></i> {{trans('admin.delete')}}
-                </a>
+                <div class="dropdown-menu" role="menu">
+                    <a href="{{aurl('users')}}" class="dropdown-item" style="color:#343a40">
+                        <i class="fas fa-list"></i> {{trans('admin.show_all')}} </a>
+                    <a href="{{aurl('users/'.$users->id)}}" class="dropdown-item" style="color:#343a40">
+                        <i class="fa fa-eye"></i> {{trans('admin.show')}} </a>
+                    <a class="dropdown-item" style="color:#343a40" href="{{aurl('users/create')}}">
+                        <i class="fa fa-plus"></i> {{trans('admin.create')}}
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a data-toggle="modal" data-target="#deleteRecord{{$users->id}}" class="dropdown-item" style="color:#343a40" href="#">
+                        <i class="fa fa-trash"></i> {{trans('admin.delete')}}
+                    </a>
+                </div>
             </div>
-        </div>
         </h3>
         @push('js')
         <div class="modal fade" id="deleteRecord{{$users->id}}">
@@ -42,7 +43,7 @@
                         <button class="close" data-dismiss="modal">x</button>
                     </div>
                     <div class="modal-body">
-                        <i class="fa fa-exclamation-triangle"></i>   {{trans('admin.ask_del')}} {{trans('admin.id')}}  ({{$users->id}})
+                        <i class="fa fa-exclamation-triangle"></i> {{trans('admin.ask_del')}} {{trans('admin.id')}} ({{$users->id}})
                     </div>
                     <div class="modal-footer">
                         {!! Form::open([
@@ -66,7 +67,7 @@
     <div class="card-body">
 
         {!! Form::open(['url'=>aurl('/users/'.$users->id),'method'=>'put','id'=>'users','files'=>true,'class'=>'form-horizontal form-row-seperated']) !!}
-            <div class="row">
+        <div class="row">
             <div class="col-md-3 col-lg-3 col-sm-3 col-xs-12">
                 <div class="form-group">
                     {!! Form::label('first_name',trans('admin.first_name'),['class'=>' control-label']) !!}
@@ -85,16 +86,16 @@
                     {!! Form::text('last_name',$users->last_name,['class'=>'form-control','placeholder'=>trans('admin.last_name')]) !!}
                 </div>
             </div>
-@push('js')
-<script type="text/javascript">
-$(document).on('keyup','#first_name,#middle_name,#last_name',function(){
- var first_name = $('#first_name').val();
- var middle_name = $('#middle_name').val();
- var last_name = $('#last_name').val();
-  $('#name').val(first_name+' '+middle_name+' '+last_name);
-});
-</script>
-@endpush
+            @push('js')
+            <script type="text/javascript">
+                $(document).on('keyup', '#first_name,#middle_name,#last_name', function() {
+                    var first_name = $('#first_name').val();
+                    var middle_name = $('#middle_name').val();
+                    var last_name = $('#last_name').val();
+                    $('#name').val(first_name + ' ' + middle_name + ' ' + last_name);
+                });
+            </script>
+            @endpush
             <div class="col-md-3 col-lg-3 col-sm-3 col-xs-12">
                 <div class="form-group">
                     {!! Form::label('name',trans('admin.name'),['class'=>' control-label']) !!}
@@ -156,26 +157,26 @@ $(document).on('keyup','#first_name,#middle_name,#last_name',function(){
                 </div>
             </div>
             <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12 photo_profile">
-    <div class="row">
-        <div class="col-md-9">
-            <div class="form-group">
-                <label for="'photo_profile'">{{ trans('admin.photo_profile') }}</label>
-                <div class="input-group">
-                    <div class="custom-file">
-                        {!! Form::file('photo_profile',['class'=>'custom-file-input','placeholder'=>trans('admin.photo_profile'),"accept"=>it()->acceptedMimeTypes("image"),"id"=>"photo_profile"]) !!}
-                        {!! Form::label('photo_profile',trans('admin.photo_profile'),['class'=>'custom-file-label']) !!}
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="form-group">
+                            <label for="'photo_profile'">{{ trans('admin.photo_profile') }}</label>
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    {!! Form::file('photo_profile',['class'=>'custom-file-input','placeholder'=>trans('admin.photo_profile'),"accept"=>it()->acceptedMimeTypes("image"),"id"=>"photo_profile"]) !!}
+                                    {!! Form::label('photo_profile',trans('admin.photo_profile'),['class'=>'custom-file-label']) !!}
+                                </div>
+                                <div class="input-group-append">
+                                    <span class="input-group-text" id="">{{ trans('admin.upload') }}</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="input-group-append">
-                        <span class="input-group-text" id="">{{ trans('admin.upload') }}</span>
+                    <div class="col-md-2" style="padding-top: 30px;">
+                        @include("admin.show_image",["image"=>$users->photo_profile])
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-2" style="padding-top: 30px;">
-            @include("admin.show_image",["image"=>$users->photo_profile])
-        </div>
-    </div>
-</div>
             <div class="col-md-4 col-lg-4 col-sm-4 col-xs-12">
                 <div class="form-group">
                     {!! Form::label('password',trans('admin.password')) !!}
@@ -253,22 +254,22 @@ $(document).on('keyup','#first_name,#middle_name,#last_name',function(){
                     {!! Form::select('account_status',['pending'=>trans('admin.pending'),'active'=>trans('admin.active'),'refused'=>trans('admin.refused'),'ban'=>trans('admin.ban'),],$users->account_status,['class'=>'form-control select2','placeholder'=>trans('admin.choose')]) !!}
                 </div>
             </div>
-@push('js')
-<script type="text/javascript">
-$(document).on('change','#account_status', function(){
- var account_status = $('#account_status option:selected').val();
- if(account_status == 'refused'){
-    $('.refused_reason').removeClass('hidden');
-    $('.ban').addClass('hidden');
- }else if(account_status == 'ban'){
-    $('.ban').removeClass('hidden');
-    $('.refused_reason').addClass('hidden');
- }else{
-    $('.refused_reason,.ban').addClass('hidden');
- }
-});
-</script>
-@endpush
+            @push('js')
+            <script type="text/javascript">
+                $(document).on('change', '#account_status', function() {
+                    var account_status = $('#account_status option:selected').val();
+                    if (account_status == 'refused') {
+                        $('.refused_reason').removeClass('hidden');
+                        $('.ban').addClass('hidden');
+                    } else if (account_status == 'ban') {
+                        $('.ban').removeClass('hidden');
+                        $('.refused_reason').addClass('hidden');
+                    } else {
+                        $('.refused_reason,.ban').addClass('hidden');
+                    }
+                });
+            </script>
+            @endpush
             <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12 ban {{ $users->account_status != 'ban'?'hidden':'' }}">
                 <!-- Date range -->
                 <div class="form-group">
@@ -328,25 +329,25 @@ $(document).on('change','#account_status', function(){
                 </div>
             </div>
             @endif
-@push('js')
-<script type="text/javascript">
-$(document).on('change','#add_offer,#add_request',function(){
-    var add_request = $('#add_request option:selected').val();
-    var add_offer = $('#add_offer option:selected').val();
-    if(add_offer == 'disable'){
-        $('.disable_adding_offer_reason').removeClass('hidden');
-    }else{
-        $('.disable_adding_offer_reason').addClass('hidden');
-    }
+            @push('js')
+            <script type="text/javascript">
+                $(document).on('change', '#add_offer,#add_request', function() {
+                    var add_request = $('#add_request option:selected').val();
+                    var add_offer = $('#add_offer option:selected').val();
+                    if (add_offer == 'disable') {
+                        $('.disable_adding_offer_reason').removeClass('hidden');
+                    } else {
+                        $('.disable_adding_offer_reason').addClass('hidden');
+                    }
 
-    if(add_request == 'disable'){
-        $('.disable_adding_request_reason').removeClass('hidden');
-    }else{
-        $('.disable_adding_request_reason').addClass('hidden');
-    }
-});
-</script>
-@endpush
+                    if (add_request == 'disable') {
+                        $('.disable_adding_request_reason').removeClass('hidden');
+                    } else {
+                        $('.disable_adding_request_reason').addClass('hidden');
+                    }
+                });
+            </script>
+            @endpush
             <div class="col-md-4 col-lg-4 col-sm-4 col-xs-12">
                 <div class="form-group">
                     {!! Form::label('add_offer',trans('admin.add_offer')) !!}
