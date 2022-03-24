@@ -7,6 +7,7 @@ use App\Http\Controllers\ValidationsApi\V1\UserLicensesRequest;
 use App\Http\Controllers\ValidationsApi\V1\UsersRequest;
 use App\Models\City;
 use App\Models\Country;
+use App\Models\Identity;
 use App\Models\Specialtie;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
@@ -47,6 +48,13 @@ class UpdateUserProfileController extends Controller
         $qualification = UserQualification::where('user_id', $user_id)->first();
         $subscribtion_end = $this->isPast($user->subscribe_end_at);
 
+        // check if user is verified or not
+        $user_is_verified = false;
+        $identity = Identity::where('user_id', $user_id)->first();
+        if (!is_null($identity) && !empty($identity)) {
+            $user_is_verified = $identity->verified == 'verified';
+        }
+
         $license_status = "unset";
         if (!is_null($license) && !empty($license)) {
             $license_status = $this->isPast($license->license_end_at) ? "end" : "active";
@@ -74,6 +82,7 @@ class UpdateUserProfileController extends Controller
             "qualification" => $qualification,
             "countries" => $countries,
             "cities" => $cities,
+            "user_is_verified" => $user_is_verified,
         ]);
     }
 

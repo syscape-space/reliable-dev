@@ -76,7 +76,7 @@ Route::group(
 		 * 
 		 */
 
-        Route::get('settings','SettingController@index');
+		Route::get('settings', 'SettingController@index');
 		Route::group(['middleware' => 'jwt.auth'], function () {
 
 			Route::get('account', 'Auth\AuthAndLogin@account')->name('api.account');
@@ -85,6 +85,8 @@ Route::group(
 			Route::post('me', 'Auth\AuthAndLogin@me')->name('api.me');
 			Route::post('change/password', 'Auth\AuthAndLogin@change_password')->name('api.change_password');
 			Route::post('verify/password', 'Auth\AuthAndLogin@verify_password')->name('api.change_password');
+			Route::get('identity/check', 'VerifyUserController@checkIdentityStatus');
+			Route::post('identity/upload', 'VerifyUserController@uploadIdentity');
 			//Auth-Api-Start//
 			Route::apiResource("occupations", "OccupationsApi", ["as" => "api.occupations"]);
 			Route::post("occupations/multi_delete", "OccupationsApi@multi_delete");
