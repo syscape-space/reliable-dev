@@ -16,7 +16,7 @@ class OurServiceDataTable extends DataTable
         return datatables($query)
             ->addColumn('actions', 'admin.our-service.buttons.actions')
             ->addColumn('logo', function ($d){
-                return '<img src="'.url($d->logo).'">';
+                return '<img height=80 src="'.it()->url($d->logo).'">';
             })
             // ->addColumn('address', '{{ $address }}')
    			->addColumn('created_at', '{{ date("Y-m-d H:i:s", strtotime($created_at)) }}')   		
