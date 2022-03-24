@@ -1,10 +1,10 @@
 <template>
     <section class="py-5 position-relative " id="servicesDiv">
-      <img class="h1-it" :src="base_url+'/assets/images/h1.png'" alt="">
+      <img class="h1-it" :src="base_url+'/public/assets/images/h1.png'" alt="">
       <div class="container">
         <div class="text-start">
           <img style="max-width: 50px;" 
-             class="w-100" :src="base_url+'/assets/images/green-circleElement.svg'" alt="">
+             class="w-100" :src="base_url+'/public/assets/images/green-circleElement.svg'" alt="">
         </div>
         <h3 class="text-center mt-5">{{ $root._t("app.mawthoqServices") }}</h3>
         <div class=" ">
@@ -20,7 +20,7 @@
               <img
                 class="me-2"
                 style="width: 20px"
-                :src="base_url+'/assets/images/blue-arrow.svg'"
+                :src="base_url+'/public/assets/images/blue-arrow.svg'"
                 alt=""
               />
             </span>
@@ -33,7 +33,7 @@
           >
             <a href="#" class="our-sev active" v-for="item in list" :key="item.id">
               <div class="w-100">
-                <img style="width: 20px" :src="base_url+'/assets/images/tan.svg'" alt="" />
+                <img style="width: 20px" :src="base_url+'/public/assets/images/tan.svg'" alt="" />
                 <span> {{item.title  }} </span>
               </div>
             </a>
@@ -41,7 +41,7 @@
         </div>
         <div class="text-end">
           <img style="max-width: 50px;" 
-             class="w-100" :src="base_url+'/assets/images/green-circleElement.svg'" alt="">
+             class="w-100" :src="base_url+'/public/assets/images/green-circleElement.svg'" alt="">
         </div>
       </div>
     </section>

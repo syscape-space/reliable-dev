@@ -1,11 +1,11 @@
 <template>
     <section class="py-5 position-relative" id="newJobsDiv">
       
-      <img class="h2-it" :src="base_url+'/assets/images/h2.png'" alt="">
+      <img class="h2-it" :src="base_url+'/public/assets/images/h2.png'" alt="">
       <div class="container">
         <div class="text-start">
           <img style="max-width: 50px;" 
-             class="w-100" :src="base_url+'/assets/images/green-circleElement.svg'" alt="">
+             class="w-100" :src="base_url+'/public/assets/images/green-circleElement.svg'" alt="">
         </div>
         <h3 class="text-center mt-5">{{ $root._t("app.newJobs") }}</h3>
         <h6 class="text-center my-2" style="color: #048e81">
@@ -24,7 +24,7 @@
               <div class="text-center mb-2">
                 <img
                   style="width: 70px; margin-top: -20px; margin: auto"
-                  :src="base_url+'/assets/images/work.svg'"
+                  :src="base_url+'/public/assets/images/work.svg'"
                   alt=""
                 />
               </div>

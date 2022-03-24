@@ -1,6 +1,6 @@
 <template>
     <section class="py-5 position-relative" id="partnersDiv">
-      <img class="h2-it" :src="base_url+'/assets/images/h2.png'" alt="">
+      <img class="h2-it" :src="base_url+'/public/assets/images/h2.png'" alt="">
       <div class="container py-5">
         <h3 class="text-center ">{{ $root._t("app.mawthoqPartners") }}</h3>
         <div class="mb-5 pb-3">

@@ -18,19 +18,19 @@
                   </div>
                   <div class="col-md-4">
                     <span class="m-2 badge-link ">
-                      <img :src="base_url + '/assets/images/prof-badge1.svg'" alt="">
+                      <img :src="base_url + '/public/assets/images/prof-badge1.svg'" alt="">
                     </span>
                     <span class="m-2 badge-link ">
-                      <img :src="base_url + '/assets/images/prof-badge2.svg'" alt="">
+                      <img :src="base_url + '/public/assets/images/prof-badge2.svg'" alt="">
                     </span>
                     <span class="m-2 badge-link ">
-                      <img :src="base_url + '/assets/images/prof-badge3.svg'" alt="">
+                      <img :src="base_url + '/public/assets/images/prof-badge3.svg'" alt="">
                     </span>
                     <span class="m-2 badge-link ">
-                      <img :src="base_url + '/assets/images/prof-badge4.svg'" alt="">
+                      <img :src="base_url + '/public/assets/images/prof-badge4.svg'" alt="">
                     </span>
                     <span class="m-2 badge-link ">
-                      <img :src="base_url + '/assets/images/prof-badge5.svg'" alt="">
+                      <img :src="base_url + '/public/assets/images/prof-badge5.svg'" alt="">
                     </span>
                    
                   </div>
@@ -42,7 +42,7 @@
                         <div class="prof-mawthoq  text-center flex-column justify-content-end"
                           style="background-color: #C9FFE1;">
                           <div class="text-center w-100">
-                            <img :src="base_url + '/assets/images/prf-verf.svg'" alt=""> 
+                            <img :src="base_url + '/public/assets/images/prf-verf.svg'" alt=""> 
                           </div>
                           <div class="w-100" style="color: #26A25C;">
                             {{ $root._t("app.mawthoqAccount") }}
