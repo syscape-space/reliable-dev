@@ -132,14 +132,16 @@
               </div>
             </div>
             <div class="col-md-9">
-              <h6 style="color: #048e81"> {{ $root._t("app.orderTitleHere") }} </h6>
-              <p class="pb-3 f-12">
-                {{ item.order_title }}
-              </p>
-              <h6 style="color: #048e81"> {{ $root._t("app.orderContent") }} </h6>
-              <p class="pb-3 f-12">
-                {{ item.order_content.split(' ')[0] }}
-              </p>
+              <div class="clicker" @click.prevent="showThisOrderDetails(item.id)" style="cursor: pointer;">
+                <h6 style="color: #048e81"> {{ $root._t("app.orderTitleHere") }} </h6>
+                <p class="pb-3 f-12">
+                  {{ item.order_title }}
+                </p>
+                <h6 style="color: #048e81"> {{ $root._t("app.orderContent") }} </h6>
+                <p class="pb-3 f-12">
+                  {{ item.order_content.substring(0,40)+".." }}
+                </p>
+              </div>
               <div class="mt-3 btw-flex">
                 <div></div>
                 <div class="text-center">
@@ -236,6 +238,10 @@ export default {
           console.log(e.response);
         });
     },
+    showThisOrderDetails($id){
+      localStorage.setItem("thisOrderId", $id);
+      this.$router.push({ name: "offerOrder1Page" });
+    }
   },
 };
 </script>
