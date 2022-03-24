@@ -4,7 +4,7 @@
         <div class="row w-100 mx-0 px-0">
           <div class="col-md-4 mb-3">
             <div class="gr-c mb-3">
-              <img style="width: 25px" :src="base_url+'/assets/images/green-gavel.svg'" alt="" />
+              <img style="width: 25px" :src="base_url+'/public/assets/images/green-gavel.svg'" alt="" />
               <span>{{ $root._t("app.execution") }}</span>
             </div>
             <div>
@@ -18,7 +18,7 @@
                   ><span>
                     <img
                       style="margin-left: 6px; width: 20px"
-                      :src="base_url+'/assets/images/green-arrow.svg'"
+                      :src="base_url+'/public/assets/images/green-arrow.svg'"
                       alt="" /></span
                 ></small>
               </a>
@@ -26,7 +26,7 @@
           </div>
           <div class="col-md-4 mb-3">
             <div class="gr-c mb-3">
-              <img style="width: 25px" :src="base_url+'/assets/images/green-gavel.svg'" alt="" />
+              <img style="width: 25px" :src="base_url+'/public/assets/images/green-gavel.svg'" alt="" />
               <span>{{ $root._t("app.execution") }}</span>
             </div>
             <div>
@@ -40,7 +40,7 @@
                   ><span>
                     <img
                       style="margin-left: 6px; width: 20px"
-                      :src="base_url+'/assets/images/green-arrow.svg'"
+                      :src="base_url+'/public/assets/images/green-arrow.svg'"
                       alt="" /></span
                 ></small>
               </a>
@@ -48,7 +48,7 @@
           </div>
           <div class="col-md-4 mb-3">
             <div class="gr-c mb-3">
-              <img style="width: 25px" :src="base_url+'/assets/images/green-gavel.svg'" alt="" />
+              <img style="width: 25px" :src="base_url+'/public/assets/images/green-gavel.svg'" alt="" />
               <span>{{ $root._t("app.execution") }}</span>
             </div>
             <div>
@@ -62,7 +62,7 @@
                   ><span>
                     <img
                       style="margin-left: 6px; width: 20px"
-                      :src="base_url+'/assets/images/green-arrow.svg'"
+                      :src="base_url+'/public/assets/images/green-arrow.svg'"
                       alt="" /></span
                 ></small>
               </a>

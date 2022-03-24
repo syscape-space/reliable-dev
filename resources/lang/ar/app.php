@@ -357,6 +357,8 @@ return [
     'under_review' => 'تحت المراجعه' ,
     'refused' => 'مرفوض' ,
     'open' => 'مفتوح' ,
+    'closed' => 'مغلق' ,
+    'close_and_refund' => 'إغلاق واسترداد' ,
     'present' => 'مقدم' ,
     'myOrders' => 'طلباتى' ,
     'orderTitleHere' => 'عنوان الطلب هنا' ,

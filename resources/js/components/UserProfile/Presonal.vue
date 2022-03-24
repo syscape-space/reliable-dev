@@ -11,7 +11,7 @@
               <div class="card-body pb-0">
                 <div class="d-flex py-3 justify-content-between align-items-start">
                   <div>
-                    <img :src="user?.photo_profile != null ? base_url+ '/storage/' +  user?.photo_profile : base_url+'/assets/images/dash-user.png'" alt=""
+                    <img :src="user?.photo_profile != null ? base_url+ '/storage/' +  user?.photo_profile : base_url+'/public/assets/images/dash-user.png'" alt=""
                       class="d-block img-radius img-fluid wid-80">
                   </div>
                   <span class="text-success" v-if="user_is_verified"><i class="fas fa-certificate text-success bg-icon"></i> نشيط</span>

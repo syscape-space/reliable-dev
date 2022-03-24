@@ -70,7 +70,7 @@
                         <img
                           style="width: 50px; height: 50px"
                           class="uses-img"
-                          :src="base_url + '/assets/images/user.svg'"
+                          :src="base_url + '/public/assets/images/user.svg'"
                           alt=""
                         />
                       </div>
@@ -113,7 +113,7 @@
                    {{ $root._t("app.sub_category") }} </span>
                 <div class="col-md-4 my-4" style="color: #aeaeae">
                   <div class="cir-prog" style="border-color: #048e81">
-                    <img :src="base_url + '/assets/images/o_hand.svg'" alt="" />
+                    <img :src="base_url + '/public/assets/images/o_hand.svg'" alt="" />
                   </div>
                   <div class="fw-bold o-num text-center" style="color: #048e81">
                     {{ $root._t("app.number1") }}
@@ -126,7 +126,7 @@
                 </div>
                 <div class="col-md-4 my-4" style="color: #aeaeae">
                   <div class="cir-prog">
-                    <img :src="base_url + '/assets/images/o_exe.svg'" alt="" />
+                    <img :src="base_url + '/public/assets/images/o_exe.svg'" alt="" />
                   </div>
                   <div class="fw-bold o-num text-center"> {{ $root._t("app.number2") }} </div>
                   <div>
@@ -135,7 +135,7 @@
                 </div>
                 <div class="col-md-4 my-4" style="color: #aeaeae">
                   <div class="cir-prog">
-                    <img :src="base_url + '/assets/images/o_roket.svg'" alt="" />
+                    <img :src="base_url + '/public/assets/images/o_roket.svg'" alt="" />
                   </div>
                   <div class="fw-bold o-num text-center">{{ $root._t("app.number3") }}</div>
                   <div>
@@ -176,7 +176,7 @@
                       right: 0;
                       transform: translate(-50%, -50%);
                       position: absolute; width: 30px;"
-                      :src="base_url + '/assets/images/discuss.svg'" alt="" srcset="">
+                      :src="base_url + '/public/assets/images/discuss.svg'" alt="" srcset="">
                     </div>
                     <div class="btn-discuss position-relative">
                       <button
@@ -192,21 +192,21 @@
                       width: 20px;
                       transform: translate(-50%, -50%);
                       position: absolute;"
-                      :src="base_url + '/assets/images/notes.svg'" alt="" srcset="">
+                      :src="base_url + '/public/assets/images/notes.svg'" alt="" srcset="">
                     </div>
                     
                   </div>
                   <div class="comments position-relative">
                     <p><span class="ms-3"> {{ $root._t("app.time") }} </span> {{ $root._t("app.howAreU") }} </p>
-                    <img :src="base_url + '/assets/images/comment1_1.png'" alt="">
+                    <img :src="base_url + '/public/assets/images/comment1_1.png'" alt="">
                   </div>
                   <div class="comments position-relative">
                     <p><span class="ms-3"> {{ $root._t("app.time") }} </span>{{ $root._t("app.howAreU") }} </p>
-                    <img :src="base_url + '/assets/images/comment1_2.png'" alt="">
+                    <img :src="base_url + '/public/assets/images/comment1_2.png'" alt="">
                   </div>
                   <div class="comments position-relative">
                     <p><span class="ms-3"> {{ $root._t("app.time") }} </span>{{ $root._t("app.howAreU") }} </p>
-                    <img :src="base_url + '/assets/images/comment1_1.png'" alt="">
+                    <img :src="base_url + '/public/assets/images/comment1_1.png'" alt="">
                   </div>
                 </div>
                 <div 
@@ -214,17 +214,17 @@
                     class="mt-3 d-flex align-items-center mb-3">
                   <div class="d-flex align-items-center w-100 p-2  ">
                     <span style="display: inline-block; padding-left: 8px; border-left: 2px solid #ddd;">
-                      <img :src="base_url + '/assets/images/file.png'" alt="">
+                      <img :src="base_url + '/public/assets/images/file.png'" alt="">
                     </span>
                     <span class="flex-grow-1" >
                       <input type="text" placeholder=".....اكتب تعليقك هنا" class="form-control bg-transparent border-0">
                     </span>
                     <span>
-                      <img :src="base_url + '/assets/images/Frame2.png'" alt="">
+                      <img :src="base_url + '/public/assets/images/Frame2.png'" alt="">
                     </span>
                     <span>
                       <button class="bg-transparent border-0">
-                        <img :src="base_url + '/assets/images/telegram.png'" alt="">
+                        <img :src="base_url + '/public/assets/images/telegram.png'" alt="">
                       </button>
                     </span>
                   </div>
@@ -253,7 +253,7 @@
                         <img
                           style="width: 50px; height: 50px"
                           class="uses-img"
-                          :src="base_url + '/assets/images/user.svg'"
+                          :src="base_url + '/public/assets/images/user.svg'"
                           alt=""
                         />
                       </div>
@@ -332,7 +332,7 @@
                       class="border-0 rounded"
                     >
                     <img
-                    :src="base_url + '/assets/images/contract.svg'"
+                    :src="base_url + '/public/assets/images/contract.svg'"
                     alt=""
                     srcset=""
                   /> <br>
@@ -345,7 +345,7 @@
                       class="border-0 rounded"
                     >
                     <img
-                    :src="base_url + '/assets/images/recive.svg'"
+                    :src="base_url + '/public/assets/images/recive.svg'"
                     alt=""
                     srcset=""
                   />
@@ -363,7 +363,7 @@
                       class="border-0 rounded"
                     >
                     <img
-                      :src="base_url + '/assets/images/report.svg'"
+                      :src="base_url + '/public/assets/images/report.svg'"
                       alt=""
                       srcset=""
                     /> <br>

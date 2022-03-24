@@ -1,6 +1,6 @@
 <template>
      <section class="py-5 position-relative" id="serviceProductionID">
-       <img class="h1-it" :src="base_url+'/assets/images/h1.png'" alt="">
+       <img class="h1-it" :src="base_url+'/public/assets/images/h1.png'" alt="">
       <div class="container">
         <h3 class="text-center mt-5">{{ $root._t("app.serviceProducers") }}</h3>
         <h6 class="text-center my-2" style="color: #048e81">

@@ -1,6 +1,6 @@
 <template>
     <section class="mt-5 position-relative ">
-      <img class="h1-it" :src="base_url+'/assets/images/h1.png'" alt="">
+      <img class="h1-it" :src="base_url+'/public/assets/images/h1.png'" alt="">
       <div class="container py-5">
         <div class="row w-100 mx-0 px-0">
           <div class="col-md-6">
@@ -37,7 +37,7 @@
           <div class="col-md-6 text-start">
             <img 
                 class="w-100"
-                style="max-width: 60px;" :src="base_url+'/assets/images/circleElement.svg'" alt="">
+                style="max-width: 60px;" :src="base_url+'/public/assets/images/circleElement.svg'" alt="">
             <iframe
               class="w-100"
               height="315"

@@ -354,6 +354,8 @@ return [
     'under_review' => 'Under Review' ,
     'refused' => 'Refused' ,
     'open' => 'Open' ,
+    'closed' => 'Closed' ,
+    'close_and_refund' => 'Close and Refund' ,
     'present' => 'Present' ,
     'myOrders' => 'my Orders' ,
     'orderTitleHere' => 'Order Title' ,

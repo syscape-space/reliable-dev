@@ -7,7 +7,7 @@
     
 </template>
 <script>
-import OrderRightNavbar from '../../components/Orders/OrderRightNavbar'
+import OrderRightNavbar from '../../components/Orders/OrderRightNavbar.vue'
 import TopNavbar from '../../components/UserProfile/TopNavbar'
 import OfferOrder1 from '../../components/Orders/OfferOrder1.vue'
 

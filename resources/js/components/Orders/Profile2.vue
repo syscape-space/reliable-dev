@@ -19,7 +19,7 @@
                         <img
                           style="width: 60px; height: 60px"
                           class="uses-img"
-                          :src="base_url + '/assets/images/user.svg'"
+                          :src="base_url + '/public/assets/images/user.svg'"
                           alt=""
                         />
                       </div>
@@ -45,13 +45,13 @@
                         style="color: #ff584d"
                         class="mb-2 d-inline-block text-center"
                         >
-                        <img style="width: 17px;vertical-align: middle;" :src="base_url + '/assets/images/prof-heart.svg'" alt="">
+                        <img style="width: 17px;vertical-align: middle;" :src="base_url + '/public/assets/images/prof-heart.svg'" alt="">
                         <span>455</span>
                       </span>
                     </li>
                     <li class="mb-3">
                       <span style="min-width: 15px" class="d-inline-block">
-                        <img :src="base_url + '/assets/images/prof-help.svg'" alt="">
+                        <img :src="base_url + '/public/assets/images/prof-help.svg'" alt="">
                       </span>
                       <span
                         style="margin-right: 15px; color: #048e81"
@@ -61,7 +61,7 @@
                     </li>
                     <li class="mb-3">
                       <span style="min-width: 15px" class="d-inline-block">
-                        <img :src="base_url + '/assets/images/prof-case.svg'" alt="">
+                        <img :src="base_url + '/public/assets/images/prof-case.svg'" alt="">
                       </span>
                       <span
                         style="margin-right: 15px; color: #363848"
@@ -71,7 +71,7 @@
                     </li>
                     <li class="mb-3">
                       <span style="min-width: 15px" class="d-inline-block">
-                        <img :src="base_url + '/assets/images/prof-star.svg'" alt="">
+                        <img :src="base_url + '/public/assets/images/prof-star.svg'" alt="">
                       </span>
                       <span
                         style="margin-right: 15px; color: #363848"

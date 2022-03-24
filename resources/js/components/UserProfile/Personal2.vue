@@ -88,7 +88,7 @@
                 />
                 <a href=""
                   ><img
-                    :src="base_url + '/assets/images/input-info.svg'"
+                    :src="base_url + '/public/assets/images/input-info.svg'"
                     alt=""
                     srcset=""
                 /></a>
@@ -107,7 +107,7 @@
                 />
                 <a href=""
                   ><img
-                    :src="base_url + '/assets/images/input-birth.svg'"
+                    :src="base_url + '/public/assets/images/input-birth.svg'"
                     alt=""
                     srcset=""
                 /></a>
@@ -126,7 +126,7 @@
                 />
                 <a href=""
                   ><img
-                    :src="base_url + '/assets/images/input-info.svg'"
+                    :src="base_url + '/public/assets/images/input-info.svg'"
                     alt=""
                     srcset=""
                   />
@@ -146,7 +146,7 @@
                 />
                 <a href=""
                   ><img
-                    :src="base_url + '/assets/images/input-birth.svg'"
+                    :src="base_url + '/public/assets/images/input-birth.svg'"
                     alt=""
                     srcset=""
                   />

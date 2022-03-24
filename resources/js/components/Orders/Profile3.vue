@@ -19,7 +19,7 @@
                         <img
                           style="width: 60px; height: 60px"
                           class="uses-img"
-                          :src="base_url + '/assets/images/user.svg'"
+                          :src="base_url + '/public/assets/images/user.svg'"
                           alt=""
                         />
                       </div>
@@ -45,13 +45,13 @@
                         style="color: #ff584d"
                         class="mb-2 d-inline-block text-center"
                         >
-                        <img style="width: 17px;vertical-align: middle;" :src="base_url + '/assets/images/prof-heart.svg'" alt="">
+                        <img style="width: 17px;vertical-align: middle;" :src="base_url + '/public/assets/images/prof-heart.svg'" alt="">
                         <span>455</span>
                       </span>
                     </li>
                     <li class="mb-3">
                       <span style="min-width: 15px" class="d-inline-block">
-                        <img :src="base_url + '/assets/images/prof-help.svg'" alt="">
+                        <img :src="base_url + '/public/assets/images/prof-help.svg'" alt="">
                       </span>
                       <span
                         style="margin-right: 15px; color: #048e81"
@@ -61,7 +61,7 @@
                     </li>
                     <li class="mb-3">
                       <span style="min-width: 15px" class="d-inline-block">
-                        <img :src="base_url + '/assets/images/prof-case.svg'" alt="">
+                        <img :src="base_url + '/public/assets/images/prof-case.svg'" alt="">
                       </span>
                       <span
                         style="margin-right: 15px; color: #363848"
@@ -71,7 +71,7 @@
                     </li>
                     <li class="mb-3">
                       <span style="min-width: 15px" class="d-inline-block">
-                        <img :src="base_url + '/assets/images/prof-star.svg'" alt="">
+                        <img :src="base_url + '/public/assets/images/prof-star.svg'" alt="">
                       </span>
                       <span
                         style="margin-right: 15px; color: #363848"
@@ -103,20 +103,20 @@
                 <div class="">
                   <div class="mb-2 text-start" style="font-size: 12px;">
                     <span class="ms-3">
-                      <img style="width: 15px;" class="ms-1" :src="base_url + '/assets/images/o_clock.svg'" alt=""> <span>{{ $root._t("app.ago") }} 4 {{ $root._t("app.hours") }}</span>
+                      <img style="width: 15px;" class="ms-1" :src="base_url + '/public/assets/images/o_clock.svg'" alt=""> <span>{{ $root._t("app.ago") }} 4 {{ $root._t("app.hours") }}</span>
                     </span>
                     <span class="ms-3">
-                      <img style="width: 20px;" class="ms-1" :src="base_url + '/assets/images/o_eye.svg'" alt=""> <span>{{ $root._t("app.count") }} 5 {{ $root._t("app.works") }}</span>
+                      <img style="width: 20px;" class="ms-1" :src="base_url + '/public/assets/images/o_eye.svg'" alt=""> <span>{{ $root._t("app.count") }} 5 {{ $root._t("app.works") }}</span>
                     </span>
                     <span class="ms-3">
-                      <img style="width: 20px;" class="ms-1" :src="base_url + '/assets/images/o_offer.svg'" alt=""> <span>{{ $root._t("app.produce5Offers") }}</span>
+                      <img style="width: 20px;" class="ms-1" :src="base_url + '/public/assets/images/o_offer.svg'" alt=""> <span>{{ $root._t("app.produce5Offers") }}</span>
                     </span>
                     <span class="ms-3">
-                      <img style="width: 14px;" class="ms-1" :src="base_url + '/assets/images/o_map.svg'" alt=""> <span>{{ $root._t("app.saudiAribia") }}</span>
+                      <img style="width: 14px;" class="ms-1" :src="base_url + '/public/assets/images/o_map.svg'" alt=""> <span>{{ $root._t("app.saudiAribia") }}</span>
                     </span>
                     <span class="my-2" style="font-size: 12px;">
                       <span class="o-box ms-2">
-                        <img style="width: 15px;" class="ms-1" :src="base_url + '/assets/images/o_delever.svg'" alt="">
+                        <img style="width: 15px;" class="ms-1" :src="base_url + '/public/assets/images/o_delever.svg'" alt="">
                         <span>{{ $root._t("app.deliveryTime") }}:</span>
                         <span class="me-2">14 {{ $root._t("app.day") }}</span>
                       </span>
@@ -131,7 +131,7 @@
                 <div class="row w-100 mx-0 px-0 ">
                   <div class="col-md-3 text-center d-flex align-items-center justify-content-center">
                     <div  style="border-left: 3px solid #ddd;" class="px-3">
-                      <img style="width: 70px;" :src="base_url + '/assets/images/user.svg'" alt="">
+                      <img style="width: 70px;" :src="base_url + '/public/assets/images/user.svg'" alt="">
                     <div>
                       <div class="text-center">
                         <i class="fas fa-star yellow"></i>
@@ -188,20 +188,20 @@
                 <div class="">
                   <div class="mb-2 text-start" style="font-size: 12px;">
                     <span class="ms-3">
-                      <img style="width: 15px;" class="ms-1" :src="base_url + '/assets/images/o_clock.svg'" alt=""> <span>{{ $root._t("app.ago") }} 4 {{ $root._t("app.hours") }}</span>
+                      <img style="width: 15px;" class="ms-1" :src="base_url + '/public/assets/images/o_clock.svg'" alt=""> <span>{{ $root._t("app.ago") }} 4 {{ $root._t("app.hours") }}</span>
                     </span>
                     <span class="ms-3">
-                      <img style="width: 20px;" class="ms-1" :src="base_url + '/assets/images/o_eye.svg'" alt=""> <span>{{ $root._t("app.count") }} 5 {{ $root._t("app.works") }}</span>
+                      <img style="width: 20px;" class="ms-1" :src="base_url + '/public/assets/images/o_eye.svg'" alt=""> <span>{{ $root._t("app.count") }} 5 {{ $root._t("app.works") }}</span>
                     </span>
                     <span class="ms-3">
-                      <img style="width: 20px;" class="ms-1" :src="base_url + '/assets/images/o_offer.svg'" alt=""> <span>{{ $root._t("app.produce5Offers") }}</span>
+                      <img style="width: 20px;" class="ms-1" :src="base_url + '/public/assets/images/o_offer.svg'" alt=""> <span>{{ $root._t("app.produce5Offers") }}</span>
                     </span>
                     <span class="ms-3">
-                      <img style="width: 14px;" class="ms-1" :src="base_url + '/assets/images/o_map.svg'" alt=""> <span>{{ $root._t("app.saudiAribia") }}</span>
+                      <img style="width: 14px;" class="ms-1" :src="base_url + '/public/assets/images/o_map.svg'" alt=""> <span>{{ $root._t("app.saudiAribia") }}</span>
                     </span>
                     <span class="my-2" style="font-size: 12px;">
                       <span class="o-box ms-2">
-                        <img style="width: 15px;" class="ms-1" :src="base_url + '/assets/images/o_delever.svg'" alt="">
+                        <img style="width: 15px;" class="ms-1" :src="base_url + '/public/assets/images/o_delever.svg'" alt="">
                         <span>{{ $root._t("app.deliveryTime") }}:</span>
                         <span class="me-2">14 {{ $root._t("app.day") }}</span>
                       </span>
@@ -216,7 +216,7 @@
                 <div class="row w-100 mx-0 px-0 ">
                   <div class="col-md-3 text-center d-flex align-items-center justify-content-center">
                     <div  style="border-left: 3px solid #ddd;" class="px-3">
-                      <img style="width: 70px;" :src="base_url + '/assets/images/user.svg'" alt="">
+                      <img style="width: 70px;" :src="base_url + '/public/assets/images/user.svg'" alt="">
                     <div>
                       <div class="text-center">
                         <i class="fas fa-star yellow"></i>
