@@ -66,14 +66,19 @@
                 <span><img style="width: 70px;" :src="base_url + '/public/assets/images/o_pdf.svg'" alt=""></span>
               </div>
               <h6 class="mt-3"> {{ $root._t("app.addOrder") }} </h6>
+                <div class="errors">
+                  <div class="alert alert-danger" v-for="error in errors" :key="error">
+                    <strong>{{ error }}</strong>
+                  </div>
+                </div>
               <div class="row w-100 mx-0 px-0 mt-4">
                 <div class="col-md-4 mb-3 f-14 ">
                   <label class="mb-2" for=""> {{ $root._t("app.deliveryTime") }} </label>
-                  <input placeholder="....مدة التسليم" type="text" class="o_input form-control">
+                  <input placeholder="....مدة التسليم" type="number" v-model="execution_time" class="o_input form-control">
                 </div>
                 <div class="col-md-4 mb-3 f-14 ">
                   <label class="mb-2" for=""> {{ $root._t("app.oderValue") }} </label>
-                  <input placeholder="....قيمة العرض" type="text" class="o_input form-control">
+                  <input placeholder="....قيمة العرض" type="number" v-model="price" class="o_input form-control">
                 </div>
                 <div class="col-md-4 mb-3 f-14 ">
                   <label class="mb-2" for=""> {{ $root._t("app.dues") }} </label>
@@ -81,7 +86,7 @@
                 </div>
                 <div class="col-md-12 mb-3 f-14 ">
                   <label class="mb-2" for=""> {{ $root._t("app.offerDetails") }} </label>
-                  <textarea placeholder=".......تفاصيل العرض" type="text" class="o_input form-control" rows="6"></textarea>
+                  <textarea placeholder=".......تفاصيل العرض" type="text" v-model="vendor_comment" class="o_input form-control" rows="6"></textarea>
                 </div>
                 <div class="col-md-12 mb-3 f-14 ">
                   <label for=""> {{ $root._t("app.files") }} </label>
@@ -102,7 +107,8 @@
                         color: #fff;
                         font-size: 12px;
                         padding: 0 40px;
-                      " class="rounded">
+                      " class="rounded"
+                      @click.prevent="addNewOffer()">
                       {{ $root._t("app.addOrder") }}
                     </button>
                     </div>
@@ -249,26 +255,6 @@
                   </div>
                 </div>
               </div>
-              <div class="p-2 mt-4 f-12" style="background-color: #E9EFEE;">
-                <span class="ms-2 fw-bold"> {{ $root._t("app.shareNow") }} </span>
-                <span>
-                  <a href="" class="me-1">
-                    <img style="width: 16px;" :src="base_url + '/public/assets/images/o_face.svg'" alt="">
-                  </a>
-                  <a href="" class="me-1">
-                    <img style="width: 20px;" :src="base_url + '/public/assets/images/o_linked.svg'" alt="">
-                  </a>
-                  <a href="" class="me-1">
-                    <img style="width: 20px;" :src="base_url + '/public/assets/images/o_twitter.svg'" alt="">
-                  </a>
-                  <a href="" class="me-1">
-                    <img style="width: 20px;" :src="base_url + '/public/assets/images/o_youtube.svg'" alt="">
-                  </a>
-                  <a href="" class="me-1">
-                    <img style="width: 20px;" :src="base_url + '/public/assets/images/o_copy.svg'" alt="">
-                  </a>
-                </span>
-              </div>
             </div>
           </div>
           
@@ -291,7 +277,13 @@ export default {
       order_status : '' ,
       execution_time_num : '' ,
       orderOwnerName : '' ,
-      profile_image : ''
+      profile_image : '' ,
+      // vars for add offers on specific orders
+      vendor_comment : '' ,
+      price : '' ,
+      execution_time : '' ,
+      OrderRequestOwnerId : '' ,
+      errors: null,
     };
   },
   methods:{
@@ -306,6 +298,7 @@ export default {
            this.execution_time_num = response.data.data.execution_time
            this.orderOwnerName = response.data.data['user_id'].name
            this.profile_image = response.data.data['user_id'].photo_profile
+           this.OrderRequestOwnerId = response.data.data['user_id'].id
             
           //  let splittingOrderContent = response.data.data.data[1].order_content.split(" ") ;
             console.log( response.data.data);
@@ -313,6 +306,36 @@ export default {
           .catch((e) => {
             console.log(e.response);
           });
+    },
+    addNewOffer(){
+      // vars => order_id  , vendor_id , vendor_comment , price , execution_time
+        // check if offer requester is same user who loggined 
+        if( localStorage.getItem("logginedUser") === this.OrderRequestOwnerId.toString() ){
+          alert('you cannot make order , you are order owner');
+        }else{
+          let formData = new FormData();
+          formData.append("order_id", localStorage.getItem("thisOrderId"));
+          formData.append("vendor_id", localStorage.getItem("logginedUser"));
+          formData.append("vendor_comment", this.vendor_comment );
+          formData.append("price", this.price);
+          formData.append("execution_time", this.execution_time);
+          formData.append("offer_status" , "pending");
+
+            api
+              .post("v1/orderoffers" , formData)
+              .then((response) => {
+                console.log(response)
+                alert("Offer Added Successfully");
+                // this.$router.push({ name: "Ticket2" });
+              })
+              // error.response.data.errors
+              .catch((e) => {
+                this.errors = e.response.data.errors;
+                console.log(e.response.data.errors);
+              });
+        }
+
+        
     }
   }
 }

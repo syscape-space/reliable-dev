@@ -163,3 +163,4 @@ Route::post('profile/personal', [UpdateUserProfileController::class, 'update'])-
 Route::post('profile/commercial', [UpdateUserProfileController::class, 'storeCommercial'])->middleware('jwt.auth');
 Route::post('profile/experience', [UpdateUserProfileController::class, 'storeExperience'])->middleware('jwt.auth');
 Route::post('profile/qualification', [UpdateUserProfileController::class, 'storeQualification'])->middleware('jwt.auth');
+Route::get('profile/membership', [UpdateUserProfileController::class, 'getMembership'])->middleware('jwt.auth');

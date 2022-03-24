@@ -26,7 +26,7 @@
         const APP_URL = '{{env('APP_URL')}}';
         const APP_PREFIX = '{{env('APP_PREFIX')}}';
         const base_url = '{{url('/')}}';
-        const cloud_url = '{{url('/cloud')}}';
+        const cloud_url = '{{it()->url('/')}}';
         window.lang_loc = '{{app()->getLocale()}}';
         window.trans = <?php
                         // copy all translations from /resources/lang/CURRENT_LOCALE/* to global JS variable

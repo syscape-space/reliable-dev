@@ -1,6 +1,7 @@
 <template>
   <section class="main-pc ">
     <div class="container-fluid">
+      
       <div class="row">
         <div class="col-lg-4 d-none d-lg-block">
           <div class="content text-center pt-1 ">
@@ -43,6 +44,10 @@
           </div>
         </div>
         <div class="col-lg-8 ">
+          <div v-if="has_membership == false" class="mt-3 alert alert-warning d-flex justify-content-between">
+              <p class="p-0 m-0">يجب اختيار العضوية قبل انشاء طلب</p>
+              <a :href="base_url+'/u_profile'">تعديل العضوية</a>
+          </div>
           <div class="row">
 
             <div class="col-lg-9">
@@ -65,20 +70,21 @@
                 </div>
                 <div class="select">
                   <template v-for="type in types.data">
-                    <div class="option mt-4">
+                    <div class="option mt-4" >
                       <div class="head">
                         <div class="form-check form-check-inline">
                           <input type="radio" class="form-check-input" v-model="form.type_id" :value="type.id"
-                                 :id="'type-input-'+type.id" name="type_id">
+                                 :id="'type-input-'+type.id" name="type_id" :disabled="has_membership != true">
                           <label class="form-check-label name  pr-2"
                                  :for="'type-input-'+type.id">{{ type.type_name_ar }}</label>
                         </div>
                         <div class="details  mt-3 py-2">
                           <div class="row">
                             <div class="col-10">
-                              <p>
+                              <div v-html="type.type_desc_ar"></div>
+                              <!-- <p>
                                 {{ type.type_desc_ar }}
-                              </p>
+                              </p> -->
                             </div>
                             <div class="col-2 text-start">
                               <img style="width:22px" :src="base_url + '/public/assets/images/Page.svg'" alt="#">
@@ -100,38 +106,9 @@
                   <p>
                     {{ $root._t("app.serviceConditions") }}
                   </p>
-                  <ul>
-                    <li>
-                      {{ $root._t("app.thisServiceFeature") }}
-                    </li>
-                    <li>
-                      {{ $root._t("app.thisServiceFeature") }}
-                    </li>
-                    <li>
-                      {{ $root._t("app.thisServiceFeature") }}
-                    </li>
-                    <li>
-                      {{ $root._t("app.thisServiceFeature") }}
-                    </li>
-                    <li>
-                      {{ $root._t("app.thisServiceFeature") }}
-                    </li>
-                    <li>
-                      {{ $root._t("app.thisServiceFeature") }}
-                    </li>
-                    <li>
-                      {{ $root._t("app.thisServiceFeature") }}
-                    </li>
-                    <li>
-                      {{ $root._t("app.thisServiceFeature") }}
-                    </li>
-                    <li>
-                      {{ $root._t("app.thisServiceFeature") }}
-                    </li>
-                    <li>
-                      {{ $root._t("app.thisServiceFeature") }}
-                    </li>
-                  </ul>
+
+                      <div v-if="form.type_id" v-html="typeOf(form.type_id).type_desc_ar"></div>
+                  
                 </div>
               </div>
               <div class="" v-if="step === 3">
@@ -407,6 +384,7 @@ export default {
       vendor_filter: '',
       base_url: base_url,
       departments: [],
+      has_membership: null,
       types: [],
       cities: [],
       vendors: [],
@@ -462,6 +440,20 @@ export default {
         this.vendors = res.data.data;
       })
     },
+    getMembership() {
+      api.get('/profile/membership')
+      .then((response) => {
+        console.log(response);
+        this.has_membership = response.data.has_membership;
+        console.log('has_membership', this.has_membership);
+      })
+      .catch((response) => {
+        console.log('check membership error: ', response);
+      });
+    },
+    typeOf(id) {
+      return this.types.data.find((t) => t.id == id);
+    },
     submitOrder() {
       var formData = new FormData();
       if (this.form.main_order_id)
@@ -492,6 +484,7 @@ export default {
     }
   },
   created() {
+    this.getMembership();
     this.getDepartments();
     this.getTypes();
     this.getCities();
