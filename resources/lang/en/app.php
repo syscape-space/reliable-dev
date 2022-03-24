@@ -370,4 +370,6 @@ return [
     'undefined' => 'loading' ,
     'attchFile' => 'Attach File' , 
     'presentation' => 'offers Presentation' ,
+    'oderValue' => 'Order Value' ,
+    'admin' => 'الاداره' ,
 ];

@@ -214,6 +214,7 @@ export default {
   },
   mounted() {
     this.getMyOrders();
+    document.getElementById('pagesCount').style.display = "none";
   },
   computed : {
     filterdList:function(){
@@ -231,7 +232,10 @@ export default {
           
           if(this.list.length === 0){
             document.getElementById('pagesCount').style.display = "none";
+          }else{
+            document.getElementById('pagesCount').style.display = "block";
           }
+          
           console.log(response.data.data.data);
         })
         .catch((e) => {
