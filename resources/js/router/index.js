@@ -30,7 +30,6 @@ import NotificationPage from '../views/OrdersPages/notificationPage.vue'
 
 // Orders 
 import showOrdersPage from '../views/OrdersPages/showOrdersPage'
-import offerOrder1Page from '../views/OrdersPages/offerOrder1Page.vue'
 import offerOrder2Page from '../views/OrdersPages/offerOrder2Page'
 import offerOrder3Page from '../views/OrdersPages/offerOrder3Page'
 import Profile2 from '../views/OrdersPages/profile2Page.vue'
@@ -42,6 +41,7 @@ import ShowAllOrders from '../views/OrdersPages/showAllOrders.vue'
 
 // Tickets
 import addTicket from '../views/TicketsPages/createTecket.vue'
+import ShowSingleOrder from "../views/OrdersPages/ShowSingleOrder";
 
 
 const prefix = APP_PREFIX;
@@ -210,13 +210,6 @@ const routes = [{
 
     },
     {
-        path: prefix + '/o_offer_order1',
-        beforeEnter: guardMyroute,
-        component: offerOrder1Page,
-        name: "offerOrder1Page",
-        meta: {title: 'Offers'}
-    },
-    {
         path: prefix + '/o_offer_order2',
         beforeEnter: guardMyroute,
         component: offerOrder2Page,
@@ -279,6 +272,12 @@ const routes = [{
         component: addTicket,
         name: "addTicket",
         meta: {title: 'Add Ticket'}
+    },
+    {
+       path:prefix + '/order/:id',
+       props:true,
+       component:ShowSingleOrder,
+       name:'ShowSingleOrder',
     },
 ]
 const router = createRouter({

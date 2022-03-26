@@ -2,7 +2,7 @@
     <RightNavbar/>
     <TopNavbar/>
     <OfferOrder/>
-    
+
 </template>
 <script>
 import RightNavbar from '../../components/UserProfile/RightNavbar'

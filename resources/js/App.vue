@@ -12,6 +12,7 @@ export default {
   data(){
     return {
       settings:{},
+      auth_user:{}
     };
   },
   setup: () => ({
@@ -43,10 +44,16 @@ export default {
       api.get('/v1/settings').then(res=>{
         this.settings = res.data.setting;
       })
-    }
+    },
+    getAuthUser(){
+      api.get('/v1/account').then(res=>{
+        this.auth_user = res.data.data;
+      })
+    },
   },
   mounted() {
     this.getSetting();
+    this.getAuthUser();
   }
 }
 </script>
