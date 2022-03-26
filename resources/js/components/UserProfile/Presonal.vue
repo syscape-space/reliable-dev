@@ -9,9 +9,9 @@
           <div class="col-12 col-md-4 mb-5">
             <div class="card user-card user-card-1">
               <div class="card-body pb-0">
-                <div class="d-flex py-3 justify-content-between align-items-start">
+                <div class="d-flex py-3 justify-content-between align-items-start" style="min-height: 110px;">
                   <div>
-                    <img :src="user?.photo_profile != null ? base_url+ '/storage/' +  user?.photo_profile : base_url+'/public/assets/images/dash-user.png'" alt=""
+                    <img :src="user?.photo_profile != null ? cloud_url + user?.photo_profile : base_url+ '/assets/images/dash-user.png'" alt=""
                       class="d-block img-radius img-fluid wid-80">
                   </div>
                   <span class="text-success" v-if="user_is_verified"><i class="fas fa-certificate text-success bg-icon"></i> نشيط</span>
@@ -37,30 +37,37 @@
                   <span class="f-w-500"><i class="feather icon-disc m-r-10 h5 "></i>تحقق الهوية </span> <span
                     class="float-right"><i class="feather icon-chevron-right"></i></span> </a>
                 <!-- <a class="nav-link list-group-item list-group-item-action active" id="user-edit-account-tab" data-toggle="pill" href="#user-edit-account" role="tab" aria-controls="user-edit-account" aria-selected="true"> <span class="f-w-500"><i class="feather icon-user m-r-10 h5 "></i>معلومات شخصية </span> <span class="float-right"><i class="feather icon-chevron-right"></i></span> </a> -->
-                <a class="nav-link list-group-item list-group-item-action  d-flex justify-content-between"
+                
+                <a v-if="user?.membership_type != 'user'" class="nav-link list-group-item list-group-item-action  d-flex justify-content-between"
                   :class="{active: activeLink == 'commercial'}" @click="activeLink = 'commercial'" href="#"> <span
                     class="f-w-500"><i class="feather icon-image m-r-10 h5 ">
                     </i>السجلات التجارية </span> <span class="float-right">
                     <p v-if="commercial_status != 'unset'" class="p-0 m-0" :class="{'text-danger': commercial_status == 'end', 'text-success': commercial_status == 'active', 'text-white': activeLink == 'commercial'}" v-text="commercial_status == 'active' ? 'نشيط' : 'منتهي'"></p>
 
                   </span> </a>
-                <!-- <i class="feather icon-chevron-right"></i></span> </a> -->
-                <a class="nav-link list-group-item list-group-item-action d-flex justify-content-between"
+
+                <!-- license-->
+                <a v-if="user?.membership_type != 'user'" class="nav-link list-group-item list-group-item-action d-flex justify-content-between"
                   :class="{active: activeLink == 'license'}" @click="activeLink = 'license'" href="#"> <span
                     class="f-w-500"><i class="feather icon-image m-r-10 h5 "></i>الرخصة المهنية </span>
                   <span class="float-right">
                     <p v-if="license_status != 'unset'" class="p-0 m-0" :class="{'text-danger': license_status == 'end', 'text-success': license_status == 'active', 'text-white': activeLink == 'license'}" v-text="license_status == 'active' ? 'نشيط' : 'منتهي'"></p>
                     <i class="feather icon-chevron-right">
                     </i></span> </a>
-                <a class="nav-link list-group-item list-group-item-action"
+                
+                <!-- qualification -->
+                <a v-if="user?.membership_type != 'user'" class="nav-link list-group-item list-group-item-action"
                   :class="{active: activeLink == 'qualification'}" @click="activeLink = 'qualification'" href="#"> <span
                     class="f-w-500"><i class="feather icon-image m-r-10 h5 "></i>المؤهلات </span> <span
                     class="float-right"><i class="feather icon-chevron-right"></i></span> </a>
-                <a class="nav-link list-group-item list-group-item-action" :class="{active: activeLink == 'experience'}"
+                
+                <!-- experience -->
+                <a v-if="user?.membership_type != 'user'" class="nav-link list-group-item list-group-item-action" :class="{active: activeLink == 'experience'}"
                   @click="activeLink = 'experience'" href="#"> <span class="f-w-500"><i
                       class="feather icon-image m-r-10 h5 "></i>الخبرات </span> <span class="float-right"><i
                       class="feather icon-chevron-right"></i></span> </a>
-                <!-- <a class="nav-link list-group-item list-group-item-action" id="user-companyinfo-tab" data-toggle="pill" href="#user-companyinfo" role="tab" aria-controls="user-companyinfo" aria-selected="false"> <span class="f-w-500"><i class="feather icon-file-text m-r-10 h5 "></i>معلومات الشركة </span> <spa n class="float-right"><i class="feather icon-chevron-right"></i></span> </a> -->
+
+                <!-- change password                -->
                 <a class="nav-link list-group-item list-group-item-action"
                   :class="{active: activeLink == 'change_password'}" @click="activeLink = 'change_password'" href="#">
                   <span class="f-w-500"><i class="feather icon-shield m-r-10 h5 "></i>تغيير كلمة المرور </span> <span
@@ -143,6 +150,7 @@
         loading: false,
         errors: null,
         base_url: base_url,
+        cloud_url: cloud_url,
       };
     },
     mounted() {
