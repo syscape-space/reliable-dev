@@ -59,7 +59,7 @@
                 <span>{{ $root._t("app.ago") }} {{ item.created_at }} {{ $root._t("app.hours") }}</span>
               </span> -->
 
-             <span class="ms-3">
+<!--             <span class="ms-3">-->
                 
 <!--              <span v-if="item.country_id['country_name_en'] === 'Kingdom Saudi Arabia' "> {{ $root._t("app.saudiAribianCompleteName") }} </span>-->
 <!--                <img-->
