@@ -124,6 +124,7 @@ class Orders extends Controller {
 
 		$data['negotiable'] = !empty(request('negotiable')) && request('negotiable') == 'yes'?'yes':'no';
 		$data['admin_id']   = admin()->id();
+		$data['show_order_data']   = 'yes';
 		$orders             = Order::create($data);
 
 		// Update Use Balance to suspend amount
