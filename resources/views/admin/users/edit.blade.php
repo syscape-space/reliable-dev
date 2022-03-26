@@ -1,6 +1,6 @@
 @extends('admin.index')
 @section('content')
-@include("admin.layouts.components.submit_form_ajax",["form"=>"#users"])
+@include("admin.layouts.components.submit_form_ajax",["form"=>"#users",'query'=>'?membership_type='.request('membership_type')])
 
 @include('admin.ajax',[
 'typeForm'=>'edit',
@@ -348,12 +348,14 @@
                 });
             </script>
             @endpush
+            @if (request('membership_type')=='vendor')
             <div class="col-md-4 col-lg-4 col-sm-4 col-xs-12">
                 <div class="form-group">
                     {!! Form::label('add_offer',trans('admin.add_offer')) !!}
                     {!! Form::select('add_offer',['enable'=>trans('admin.enable'),'disable'=>trans('admin.disable'),],$users->add_offer,['class'=>'form-control select2','placeholder'=>trans('admin.choose')]) !!}
                 </div>
             </div>
+            @endif
             <div class="col-md-4 col-lg-4 col-sm-4 col-xs-12">
                 <div class="form-group">
                     {!! Form::label('add_request',trans('admin.add_request')) !!}

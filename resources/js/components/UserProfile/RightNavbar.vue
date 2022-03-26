@@ -6,7 +6,7 @@
             
             <div class="text-center py-4">
               <div class="image-user position-relative d-inline-block">
-                <img :src="base_url+ '/storage/' +  user.photo_profile" alt="" srcset="" />
+                <img :src="user?.photo_profile != null ? cloud_url + user?.photo_profile : base_url+ '/assets/images/dash-user.png'" alt="" srcset="" />
                 <img
                   style="position: absolute; bottom: 0; left: 0"
                   :src="base_url+'/public/assets/images/dash-edit.svg'"

@@ -66,7 +66,7 @@
                                     <span class=" row d-flex col-12  kufi collapsed font-lg-2 font-1 p-2" type="button"
                                         data-toggle="collapse" data-target="#s300" aria-expanded="true" aria-controls="s300"
                                         style="color: var(--bg-color-0)!important">
-                                        <div class="col px-0" style="line-height:1.8">
+                                        <div class="col px-0" style="line-height:1.8;color:#048e81">
                                             {{ $faq->question_ar }}
                                         </div>
                                         <div class="col-1 text-left px-0">

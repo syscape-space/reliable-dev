@@ -33,7 +33,7 @@
         </div>
         <div class="col-12 px-0 ">
            <a href="" target="_blank" class="py-2 px-3 d-block guide-link font-1">
-           <span class="far fa-question-circle ml-2 fa-pen-alt"></span> مدونة نفذلي
+           <span class="far fa-question-circle ml-2 fa-pen-alt"></span> مدونة موثوق
            </a>
         </div>
         <div class="col-12 nafezly-divider" style="min-height: 2px;"></div>
