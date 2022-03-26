@@ -49,8 +49,8 @@
               <a :href="base_url+'/u_profile'">تعديل العضوية</a>
           </div>
           <div class="row">
-
-            <div class="col-lg-9">
+		<div class="col-lg-1"></div>
+            <div class="col-lg-10">
               <div class="data  pt-5 text-right ">
                 <p class="st">
                   {{ $root._t("app.steps") }} <span class="st-num">{{ step }}</span> <span
@@ -365,7 +365,7 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-5">
+          <div class="col-lg-1">
             <br>
           </div>
         </div>
