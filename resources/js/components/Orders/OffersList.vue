@@ -1,7 +1,7 @@
 <template>
   <template v-if="offers.data && offers.data.length">
     <template v-for="offer in offers.data">
-      <div class="p-3" style="background-color: #F9F9F9;">
+      <div class="p-3" style="background-color: #F9F9F9;" v-if="offer.vendor.id == $root.auth_user.id || order.user_id.id == $root.auth_user.id">
         <div class="btw-flex">
           <div class="my-2" style="font-size: 12px;">
                     <span class="ms-3">
@@ -53,7 +53,7 @@
               {{ offer.vendor_comment }}
             </p>
           </div>
-          <div class="text-center" v-if="order && order.user_id.id == $root.auth_user.id">
+          <div class="text-center">
             <button style="
                       height: 38px;
                         border: 0;
