@@ -22375,8 +22375,8 @@ __webpack_require__.r(__webpack_exports__);
         alert('you cannot make order , you are order owner');
       } else {
         var formData = new FormData();
-        formData.append("order_id", localStorage.getItem("thisOrderId"));
-        formData.append("vendor_id", localStorage.getItem("logginedUser"));
+        formData.append("order_id", this.$props.id);
+        formData.append("vendor_id", this.$root.auth_user.id);
         formData.append("vendor_comment", this.vendor_comment);
         formData.append("price", this.price);
         formData.append("execution_time", this.execution_time);
