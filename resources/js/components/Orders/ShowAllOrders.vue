@@ -136,8 +136,7 @@
                 </p>
                 <!-- v-html=" item.order_content.split(' ')[0]" -->
                 <h6 style="color: #048e81">{{ $root._t("app.orderContent") }}</h6>
-                <p class="pb-3 f-12">
-                  {{ item.order_content.substring(0,40)+".." }}
+                <p class="pb-3 f-12" v-html="item.order_content.substring(0,40)+'..'">
                 </p>
               </div>
               <div class="mt-3 btw-flex">
@@ -230,8 +229,8 @@ export default {
         });
     },
     showThisOrderDetails($id){
-      localStorage.setItem("thisOrderId", $id);
-      this.$router.push({ name: "offerOrder1Page" });
+      // localStorage.setItem("thisOrderId", $id);
+      this.$router.push({ name: "offerOrder1Page"  , params:{ id : $id } });
     }
   },
 };

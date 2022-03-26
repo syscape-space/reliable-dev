@@ -124,7 +124,7 @@
                   <button class="btn-offer"> {{ $root._t("app.old") }} </button>
                 </span>
               </div>
-              <div class="p-3" style="background-color: #F9F9F9;">
+              <div class="p-3" style="background-color: #F9F9F9;" v-for="offersList in  offersList" :key="offersList.id">
                 <div class="btw-flex">
                   <div class="my-2" style="font-size: 12px;">
                     <span class="ms-3">
@@ -143,7 +143,8 @@
                       <img 
                       style="width: 14px;" 
                       class="ms-1"
-                      :src="base_url + '/public/assets/images/o_map.svg'" alt=""> <span> {{ $root._t("app.saudiAribia") }} </span>
+                      :src="base_url + '/public/assets/images/o_map.svg'" alt=""> 
+                      <span v-if="offersList.country_name_en === 'Kingdom Saudi Arabia' "> {{ $root._t("app.saudiAribianCompleteName")  }} </span>
                     </span>
                   </div>
                   <div class="my-2" style="font-size: 12px;">
@@ -151,13 +152,13 @@
                       <img 
                       style="width: 15px;" class="ms-1" :src="base_url + '/public/assets/images/o_delever.svg'" alt="">
                       <span> {{ $root._t("app.deliveryTime") }} :</span>
-                      <span class="me-2"> {{ $root._t("app.days14") }} </span>
+                      <span class="me-2"> {{ offersList.execution_time }} {{ $root._t("app.day") }} </span>
                     </span>
                     <span class="o-box o-box2">
                       <img 
                       style="width: 15px;" class="ms-1" :src="base_url + '/public/assets/images/o_payment.svg'" alt="">
                       <span> {{ $root._t("app.theAmount") }} </span>
-                      <span class="me-2"> {{ $root._t("app.handred") }} </span>
+                      <span class="me-2"> {{  offersList.price }} $ </span>
                     </span>
                   </div>
                 </div>
@@ -166,8 +167,11 @@
                     <img :src="base_url + '/public/assets/images/user.svg'" alt="">
                   </div>
                   <div class="col-md-9">
-                    <p class="py-3 f-12" >
-                      {{ $root._t("app.longText") }}
+                    <p class="py-3 f-12" v-if="offersList.vendor_comment === null">
+                      {{ $root._t("app.noOfferComment") }}
+                    </p>
+                    <p class="py-3 f-12" v-else>
+                      {{ offersList.vendor_comment.substring(0,40)+".." }}
                     </p>
                   </div>
                   <div class="text-center">
@@ -225,7 +229,7 @@
                       <span style="min-width: 60px;" class="d-inline-block"> {{ $root._t("app.offersNum") }} </span>
                      <span 
                         style="margin-right: 15px;color: #0995EB;"
-                        class="fw-bold "> {{ $root._t("app.num15Offer") }} </span>
+                        class="fw-bold "> {{ $root._t("app.count") }} {{ offers_count }} {{ $root._t("app.offer") }} </span>
                     </li>
                     <li class="mb-3">
                       <span style="min-width: 60px;" class="d-inline-block"> {{ $root._t("app.projectOwner") }} </span>
@@ -267,7 +271,9 @@ import api from "../../utils/api";
 export default {
   mounted(){
     this.gettingOrderDetails();
+    this.getOffers();
   },
+  props:['id'],
   data(){
     return{
       base_url:base_url ,
@@ -284,13 +290,17 @@ export default {
       execution_time : '' ,
       OrderRequestOwnerId : '' ,
       errors: null,
+      // all offers which related to this order
+      offers_count : '' ,
+      country : '' ,
+      offersList : [] ,
     };
   },
   methods:{
     gettingOrderDetails(){
-      let thisorderId = localStorage.getItem("thisOrderId"); 
+      // let thisorderId = localStorage.getItem("thisOrderId"); 
       api
-          .get("v1/orders/" + thisorderId)
+          .get("v1/orders/" + this.$props.id)
           .then((response) => {
            this.deptname = response.data.data['department_id'].department_name_ar 
            this.order_details = response.data.data.order_content 
@@ -326,6 +336,7 @@ export default {
               .then((response) => {
                 console.log(response)
                 alert("Offer Added Successfully");
+                this.getOffers();
                 // this.$router.push({ name: "Ticket2" });
               })
               // error.response.data.errors
@@ -336,6 +347,20 @@ export default {
         }
 
         
+    },
+    getOffers(){
+      api
+        .get("v1/get_offers/" + localStorage.getItem("thisOrderId") )
+        .then((response) => {
+          this.offersList = response.data.allOffers;
+
+          this.offers_count = response.data.offersCount ;
+          
+          console.log(response.data.allOffers);
+        })
+        .catch((e) => {
+          console.log(e.response);
+        });
     }
   }
 }
