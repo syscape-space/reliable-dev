@@ -210,7 +210,7 @@ const routes = [{
 
     },
     {
-        path: prefix + '/o_offer_order2',
+        path: prefix + '/o_offer_order2/:id',
         beforeEnter: guardMyroute,
         component: offerOrder2Page,
         name: "offerOrder2Page",

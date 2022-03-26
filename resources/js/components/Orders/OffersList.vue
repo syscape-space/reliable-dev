@@ -16,7 +16,7 @@
                           style="width: 20px;"
                           class="ms-1"
                           :src="base_url + '/public/assets/images/o_eye.svg'"
-                          alt=""> <span> {{ $root._t("app.numFiveWorks") }} </span>
+                          alt=""> <span> عدد 0 اعمال </span>
                     </span>
             <span class="ms-3">
                       <img
@@ -104,7 +104,7 @@ export default {
         .put("v1/accept_offer/"+id)
         .then((response) => {
           alert('approved') ;
-          this.$router.push({ name: "offerOrder2Page" , params:{offer_id:id} });
+          this.$router.push({ name: "offerOrder2Page" , params:{id:id} });
           console.log(response);
         })
         .catch((e) => {

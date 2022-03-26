@@ -386,7 +386,8 @@
 import NewTopNavbar from '../../components/Orders/NewTopNavbar'
 export default {
     components : { NewTopNavbar },
-    props:['offer_id'],
+    name: "afterAccept",
+    props:['id'],
     mounted(){
       this.gettingDataOfOrderAndOffer();
     },
@@ -398,15 +399,11 @@ export default {
   },
   methods:{
     gettingDataOfOrderAndOffer(){
-      // this.$props.offer_id
-      console.log('helo');
+      console.log(this.$props.id)
     }
   },
   computed:{
 
   },
-  mounted() {
-
-  }
 }
 </script>
