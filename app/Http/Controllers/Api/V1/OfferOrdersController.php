@@ -21,4 +21,12 @@ class OfferOrdersController extends Controller
             "offersCount" => $countOffersForThisOrder
         ] , 200) ;
     }
+
+    public function acceptOffer($id){
+        OrderOffer::where('id', $id)->update(['offer_status' => 'approved']);
+
+        return response()->json([
+            "message" => "updated"
+        ] , 200) ;
+    }
 }

@@ -60,6 +60,7 @@ Route::group(
 		Route::get('get_all_replys_of_this_ticket/{id}', "TicketReplyController@getAllReplysOfThisTicket");
 		Route::post('add_comment_for_this_ticket/{ticket_id}', 'TicketController@addCommentForThisTicket');
 		Route::get('get_offers/{order_id}' , 'OfferOrdersController@getAllOffersOfThisOrder');
+		Route::put('accept_offer/{offer_id} ' , 'OfferOrdersController@acceptOffer') ;
 
 
 

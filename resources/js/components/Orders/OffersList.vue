@@ -62,7 +62,8 @@
                         color: #fff;
                         font-size: 12px;
                         padding: 0 40px;
-                      " class="rounded">
+                      " class="rounded"
+                      @click.prevent="acceptOffer( $parent.offers.data[0].id )">
               {{ $root._t("app.acceptOffer") }}
             </button>
             <button style="
@@ -98,6 +99,18 @@ export default {
     }
   },
   methods:{
+    acceptOffer( id ){
+      api
+        .put("v1/accept_offer/"+id)
+        .then((response) => {
+          alert('approved') ;
+          this.$router.push({ name: "offerOrder2Page" });
+          console.log(response);
+        })
+        .catch((e) => {
+          console.log(e.response);
+        });
+    }
   },
   computed:{
 

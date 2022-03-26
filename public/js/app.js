@@ -20153,7 +20153,23 @@ __webpack_require__.r(__webpack_exports__);
       cloud_url: cloud_url
     };
   },
-  methods: {},
+  methods: {
+    acceptOffer: function acceptOffer(id) {
+      var _this = this;
+
+      _utils_api__WEBPACK_IMPORTED_MODULE_0__["default"].put("v1/accept_offer/" + id).then(function (response) {
+        alert('approved');
+
+        _this.$router.push({
+          name: "offerOrder2Page"
+        });
+
+        console.log(response);
+      })["catch"](function (e) {
+        console.log(e.response);
+      });
+    }
+  },
   computed: {},
   mounted: function mounted() {}
 });
@@ -27327,17 +27343,6 @@ var _hoisted_28 = {
   style: {
     "height": "38px",
     "border": "0",
-    "background-color": "#048e81",
-    "color": "#fff",
-    "font-size": "12px",
-    "padding": "0 40px"
-  },
-  "class": "rounded"
-};
-var _hoisted_29 = {
-  style: {
-    "height": "38px",
-    "border": "0",
     "background-color": "#0995EB",
     "color": "#fff",
     "font-size": "12px",
@@ -27345,7 +27350,7 @@ var _hoisted_29 = {
   },
   "class": "rounded"
 };
-var _hoisted_30 = {
+var _hoisted_29 = {
   key: 1,
   "class": "w-100 text-center"
 };
@@ -27420,16 +27425,29 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     /* PROPS */
     , _hoisted_24)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_25, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_26, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(offer.vendor_comment), 1
     /* TEXT */
-    )]), _ctx.$parent.order && _ctx.$parent.order.user_id.id == _ctx.$root.auth_user.id ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_27, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", _hoisted_28, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.acceptOffer")), 1
+    )]), _ctx.$parent.order && _ctx.$parent.order.user_id.id == _ctx.$root.auth_user.id ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_27, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+      style: {
+        "height": "38px",
+        "border": "0",
+        "background-color": "#048e81",
+        "color": "#fff",
+        "font-size": "12px",
+        "padding": "0 40px"
+      },
+      "class": "rounded",
+      onClick: _cache[0] || (_cache[0] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function ($event) {
+        return $options.acceptOffer(_ctx.$parent.offers.data[0].id);
+      }, ["prevent"]))
+    }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.acceptOffer")), 1
     /* TEXT */
-    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", _hoisted_29, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.negotiateNow")), 1
+    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", _hoisted_28, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.negotiateNow")), 1
     /* TEXT */
     )])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 64
     /* STABLE_FRAGMENT */
     );
   }), 256
   /* UNKEYED_FRAGMENT */
-  )) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("h4", _hoisted_30, "لا يوجد عروض"));
+  )) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("h4", _hoisted_29, "لا يوجد عروض"));
 }
 
 /***/ }),
