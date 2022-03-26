@@ -66,7 +66,7 @@
               <span class="ms-3 fw-bold"> {{ $root._t("app.orderFileComplete") }} </span>
               <span><img style="width: 70px;" :src="base_url + '/public/assets/images/o_pdf.svg'" alt=""></span>
             </div>
-            <template v-if="order && order.user_id.id != $root.auth_user.id">
+            <template v-if="order && order.user_id.id != $root.auth_user.id && (! summitedOffer)">
               <h6 class="mt-3"> {{ $root._t("app.addOrder") }} </h6>
               <div class="errors">
                 <div class="alert alert-danger" v-for="error in errors" :key="error">
@@ -118,6 +118,11 @@
                 </div>
               </div>
             </template>
+            <template v-if="summitedOffer">
+              <div class="alert alert-success">
+                <b>تم اضافة عرضك بنجاح</b>
+              </div>
+            </template>
             <div class="my-4 btw-flex">
               <span> {{ $root._t("app.presentation") }} </span>
               <span>
@@ -127,7 +132,7 @@
                   <button class="btn-offer"> {{ $root._t("app.old") }} </button>
                 </span>
             </div>
-            <offers-list :order_id="$props.id" />
+            <offers-list ref="offers_list"/>
           </div>
           <div class="col-md-3">
             <div>
@@ -212,6 +217,7 @@ export default {
     return{
       base_url:base_url ,
       list : [] ,
+      offers : [] ,
       deptname : '' ,
       order_details : '' ,
       order_status : '' ,
@@ -244,6 +250,7 @@ export default {
             this.OrderRequestOwnerId = response.data.data['user_id'].id
 
             //  let splittingOrderContent = response.data.data.data[1].order_content.split(" ") ;
+            this.getOffers();
             console.log( response.data.data);
           })
           .catch((e) => {
@@ -256,8 +263,8 @@ export default {
         alert('you cannot make order , you are order owner');
       }else{
         let formData = new FormData();
-        formData.append("order_id", localStorage.getItem("thisOrderId"));
-        formData.append("vendor_id", localStorage.getItem("logginedUser"));
+        formData.append("order_id", this.$props.id);
+        formData.append("vendor_id", this.$root.auth_user.id);
         formData.append("vendor_comment", this.vendor_comment );
         formData.append("price", this.price);
         formData.append("execution_time", this.execution_time);
@@ -278,7 +285,25 @@ export default {
       }
 
 
+    },
+    getOffers(){
+      api.get('/v1/orderoffers?order_id='+this.$props.id).then(res=>{
+        this.offers= res.data.data;
+      })
     }
-  }
+  },
+  computed:{
+    summitedOffer(){
+      var summited = false;
+      if (this.offers.data){
+        this.offers.data.forEach(item=>{
+          if (item.vendor && item.vendor.id == this.$root.auth_user.id){
+            summited = true;
+          }
+        })
+      }
+      return summited;
+    }
+  },
 }
 </script>
