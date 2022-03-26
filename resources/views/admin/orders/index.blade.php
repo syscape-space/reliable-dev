@@ -1,26 +1,30 @@
 @extends('admin.index')
 @section('content')
 <div class="d-flex flex-wrap">
-	<button class="btn btn-sm m-1 btn-primary" type="button" name="button">
+	<a href="{{route('orders.index')}}" class="btn btn-sm m-1 btn-primary" type="button" name="button">
 	<i class="fas fa-clipboard-list"></i> 	كل الطلبات
-		<span class=" mr-2 badge bg-light text-dark">10</span>
-	</button>
-	<button class="btn btn-sm m-1 btn-success" type="button" name="button">
+		<span class=" mr-2 badge bg-light text-dark">{{App\Models\Order::count()}}</span>
+	</a>
+	<a href="{{route('orders.index',['status'=>'open'])}}" class="btn btn-sm m-1 btn-success" type="button" name="button">
 		<i class="fas fa-check-circle"></i> مقبول
-		<span class="badge bg-light text-info">10</span>
-	</button>
-	<button class="btn btn-sm m-1 btn-danger" type="button" name="button">
+		<span class="badge bg-light text-info">{{App\Models\Order::where('order_status','open')->count()}}</span>
+	</a>
+	<a href="{{route('orders.index',['status'=>'under_review'])}}" class="btn btn-sm m-1 btn-success" type="button" name="button">
+		<i class="fas fa-check-circle"></i> في الانتظار
+		<span class="badge bg-light text-info">{{App\Models\Order::where('order_status','under_review')->count()}}</span>
+	</a>
+	<a href="{{route('orders.index',['status'=>'refused'])}}" class="btn btn-sm m-1 btn-danger" type="button" name="button">
 		<i class="fas fa-ban"></i> مرفوض
-		<span class=" mr-2 badge bg-light text-dark">10</span>
-	</button>
-	<button class="btn btn-sm m-1 btn-info" type="button" name="button">
+		<span class=" mr-2 badge bg-light text-dark">{{App\Models\Order::where('order_status','refused')->count()}}</span>
+	</a>
+	<a href="{{route('orders.index',['status'=>'open','negotiable'=>'yes'])}}" class="btn btn-sm m-1 btn-info" type="button" name="button">
 		<i class="fas fa-handshake"></i> تفاوض
-		<span class=" mr-2 badge bg-light text-dark">10</span>
-	</button>
-	<button class="btn btn-sm m-1 btn-warning" type="button" name="button">
+		<span class=" mr-2 badge bg-light text-dark">{{App\Models\Order::where('order_status','open')->where('negotiable','yes')->count()}}</span>
+	</a>
+	<a href="{{route('orders.index',['status'=>'open','arbitration'=>'yes'])}}" class="btn btn-sm m-1 btn-warning" type="button" name="button">
 		<i class="fas fa-balance-scale"></i> التحكيم
-		<span class=" mr-2 badge bg-light text-dark">10</span>
-	</button>
+		<span class=" mr-2 badge bg-light text-dark">{{App\Models\Order::where('order_status','open')->where('assigning_arbitration','yes')->count()}}</span>
+	</a>
 </div>
 {!! Form::open(["method" => "post","url" => [aurl('/orders/multi_delete')]]) !!}
 <div class="card card-dark">
