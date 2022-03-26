@@ -19,7 +19,7 @@
                    <div v-if="loading" class="w-100 h-100 d-flex justify-content-center align-items-center">
                      <div class="spinner-border spinner-secondary" role="status"></div>
                   </div>
-                   <upload-identity v-if="!loading && status == 'unset'" @refresh="handleRefresh" @error="handleError"></upload-identity>
+                   <upload-identity v-if="!loading && status == 'unset' || status == 'rejected'" :identity="identity" @refresh="handleRefresh" @error="handleError"></upload-identity>
                    <pending-identity v-if="!loading && status == 'pending'"></pending-identity>
                    <verified-identity v-if="!loading && status == 'verified'"></verified-identity>
                    <div class="col-12 my-3 py-2" v-if="!loading && status == null">
@@ -61,6 +61,7 @@ import verifiedIdentity from '../VerifyUser/verified.vue';
                 errorMsg: null,
                 success: null,
                 status: null,
+                identity: null,
                 loading: false,
             };
         },
@@ -87,6 +88,7 @@ import verifiedIdentity from '../VerifyUser/verified.vue';
                     .then((response) => {
                        console.log(response.data);
                        this.status = response.data.identity_status;
+                       this.identity = response.data.identity;
                        this.loading = false;
                        this.errorMsg = null;
                        console.log('identity.status: ', this.status);

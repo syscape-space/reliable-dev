@@ -21458,6 +21458,7 @@ __webpack_require__.r(__webpack_exports__);
       errorMsg: null,
       success: null,
       status: null,
+      identity: null,
       loading: false
     };
   },
@@ -21481,6 +21482,7 @@ __webpack_require__.r(__webpack_exports__);
       _utils_api__WEBPACK_IMPORTED_MODULE_0__["default"].get("/v1/identity/check").then(function (response) {
         console.log(response.data);
         _this.status = response.data.identity_status;
+        _this.identity = response.data.identity;
         _this.loading = false;
         _this.errorMsg = null;
         console.log('identity.status: ', _this.status);
@@ -21768,8 +21770,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utils_api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils/api */ "./resources/js/utils/api.js");
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['identity'],
   data: function data() {
     return {
+      identity: this.identity,
       errorMsg: null,
       success: null,
       loading: false,
@@ -21782,6 +21786,7 @@ __webpack_require__.r(__webpack_exports__);
       selfie: null
     };
   },
+  mounted: function mounted() {},
   methods: {
     getFrontSide: function getFrontSide(event) {
       var _this = this;
@@ -36524,13 +36529,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     textContent: (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.errorMsg)
   }, null, 8
   /* PROPS */
-  , _hoisted_4)])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [$data.loading ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_9, _hoisted_11)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), !$data.loading && $data.status == 'unset' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_upload_identity, {
+  , _hoisted_4)])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [$data.loading ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_9, _hoisted_11)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), !$data.loading && $data.status == 'unset' || $data.status == 'rejected' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_upload_identity, {
     key: 1,
+    identity: $data.identity,
     onRefresh: $options.handleRefresh,
     onError: $options.handleError
   }, null, 8
   /* PROPS */
-  , ["onRefresh", "onError"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), !$data.loading && $data.status == 'pending' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_pending_identity, {
+  , ["identity", "onRefresh", "onError"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), !$data.loading && $data.status == 'pending' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_pending_identity, {
     key: 2
   })) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), !$data.loading && $data.status == 'verified' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_verified_identity, {
     key: 3
@@ -37531,8 +37537,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
+var _hoisted_1 = {
+  key: 0,
+  "class": "alert alert-danger"
+};
+var _hoisted_2 = {
+  "class": "m-0 p-0"
+};
 
-var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
   type: "hidden",
   name: "_token",
   value: "dQ9prgyzkwCl37RD5nHZJ4r60rP9NYoupWp0k4KT"
@@ -37540,31 +37553,31 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 /* HOISTED */
 );
 
-var _hoisted_2 = {
+var _hoisted_4 = {
   "class": "col-12 px-0 row mb-4"
 };
-var _hoisted_3 = {
+var _hoisted_5 = {
   "class": "col-12 col-lg-6 my-3 py-2"
 };
-var _hoisted_4 = {
+var _hoisted_6 = {
   "class": "col-12 px-0"
 };
-var _hoisted_5 = {
+var _hoisted_7 = {
   "class": "col-12 px-0 d-flex text-center justify-content-center"
 };
-var _hoisted_6 = ["src"];
+var _hoisted_8 = ["src"];
 
-var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "col-12 px-0 pt-3 text-center font-1 naskh"
 }, " برجاء ارفاق صورة الوجه الأمامي من بطاقة تعريف الهوية الوطنية ", -1
 /* HOISTED */
 );
 
-var _hoisted_8 = {
+var _hoisted_10 = {
   "class": "col-12 px-0 pt-3 position-relative text-center"
 };
 
-var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   style: {
     "position": "absolute",
     "top": "17px",
@@ -37584,31 +37597,31 @@ var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 /* HOISTED */
 );
 
-var _hoisted_10 = {
+var _hoisted_12 = {
   "class": "col-12 col-lg-6 my-3 py-2"
 };
-var _hoisted_11 = {
+var _hoisted_13 = {
   "class": "col-12 px-0"
 };
-var _hoisted_12 = {
+var _hoisted_14 = {
   "class": "col-12 px-0 d-flex text-center justify-content-center"
 };
-var _hoisted_13 = ["src"];
+var _hoisted_15 = ["src"];
 
-var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "col-12 px-0 pt-3 text-center font-1 naskh"
 }, " برجاء ارفاق صورة الوجه الخلفي من بطاقة تعريف الهوية الوطنية ", -1
 /* HOISTED */
 );
 
-var _hoisted_15 = {
+var _hoisted_17 = {
   "class": "col-12 px-0 pt-3 position-relative text-center",
   style: {
     "cursor": "pointer"
   }
 };
 
-var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   style: {
     "position": "absolute",
     "top": "17px",
@@ -37628,31 +37641,31 @@ var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_17 = {
+var _hoisted_19 = {
   "class": "col-12 col-lg-6 my-3 py-2"
 };
-var _hoisted_18 = {
+var _hoisted_20 = {
   "class": "col-12 px-0"
 };
-var _hoisted_19 = {
+var _hoisted_21 = {
   "class": "col-12 px-0 d-flex text-center justify-content-center"
 };
-var _hoisted_20 = ["src"];
+var _hoisted_22 = ["src"];
 
-var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_23 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "col-12 px-0 pt-3 text-center font-1 naskh"
 }, " برجاء ارفاق صورة وانت تحمل الهوية الوطنية الخاصة بك ", -1
 /* HOISTED */
 );
 
-var _hoisted_22 = {
+var _hoisted_24 = {
   "class": "col-12 px-0 pt-3 position-relative text-center",
   style: {
     "cursor": "pointer"
   }
 };
 
-var _hoisted_23 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_25 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   style: {
     "position": "absolute",
     "top": "17px",
@@ -37672,16 +37685,14 @@ var _hoisted_23 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" --> ");
-
-var _hoisted_25 = {
+var _hoisted_26 = {
   "class": "col-12 col-lg-6 my-3 py-2"
 };
-var _hoisted_26 = {
+var _hoisted_27 = {
   "class": "col-12 px-0"
 };
 
-var _hoisted_27 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_28 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "col-12 px-0 d-flex text-center justify-content-center"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
   src: "https://nafezly.com/site_images/verification/id-verify-welcomenafezly.png",
@@ -37695,37 +37706,41 @@ var _hoisted_27 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_28 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_29 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "col-12 px-0 pt-3 text-center font-1 naskh"
 }, " بتقديمك لطلب توثيق الهوية فانك توافق على شروط الاستخدام و الخصوصية ", -1
 /* HOISTED */
 );
 
-var _hoisted_29 = {
+var _hoisted_30 = {
   "class": "col-12 px-0 pt-3 position-relative",
   style: {
     "cursor": "pointer"
   }
 };
-var _hoisted_30 = ["disabled"];
-var _hoisted_31 = {
+var _hoisted_31 = ["disabled"];
+var _hoisted_32 = {
   key: 0
 };
-var _hoisted_32 = {
+var _hoisted_33 = {
   key: 1,
   "class": "spinner-border spinner-border-sm me-3 ms-1",
   role: "status"
 };
-var _hoisted_33 = {
+var _hoisted_34 = {
   key: 2
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("form", {
+  var _$data$identity, _$data$identity2;
+
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [((_$data$identity = $data.identity) === null || _$data$identity === void 0 ? void 0 : _$data$identity.verified) == 'rejected' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_2, "تم رفض الهوية " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)((_$data$identity2 = $data.identity) === null || _$data$identity2 === void 0 ? void 0 : _$data$identity2.reject_reason) + " برجاء اعادة رفع الهوية", 1
+  /* TEXT */
+  )])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
     onSubmit: _cache[3] || (_cache[3] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
       return $options.verify && $options.verify.apply($options, arguments);
     }, ["prevent"])),
     ref: "verifyUserForm"
-  }, [_hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  }, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
     src: $data.front_side_url != null ? $data.front_side_url : 'https://nafezly.com/site_images/verification/id-verify-front-side.nafezly.svg',
     style: {
       "max-width": "100%",
@@ -37735,7 +37750,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "d-inline-block"
   }, null, 8
   /* PROPS */
-  , _hoisted_6)]), _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  , _hoisted_8)]), _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     type: "file",
     onChange: _cache[0] || (_cache[0] = function () {
       return $options.getFrontSide && $options.getFrontSide.apply($options, arguments);
@@ -37758,7 +37773,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     accept: "image/x-png,image/gif,image/jpeg"
   }, null, 32
   /* HYDRATE_EVENTS */
-  ), _hoisted_9])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  ), _hoisted_11])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
     src: $data.back_side_url != null ? $data.back_side_url : 'https://nafezly.com/site_images/verification/id-verify-back-side.nafezly.svg',
     style: {
       "max-width": "100%",
@@ -37768,7 +37783,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "d-inline-block"
   }, null, 8
   /* PROPS */
-  , _hoisted_13)]), _hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  , _hoisted_15)]), _hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     type: "file",
     onChange: _cache[1] || (_cache[1] = function () {
       return $options.getBackSide && $options.getBackSide.apply($options, arguments);
@@ -37791,7 +37806,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     accept: "image/x-png,image/gif,image/jpeg"
   }, null, 32
   /* HYDRATE_EVENTS */
-  ), _hoisted_16])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  ), _hoisted_18])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
     src: $data.selfie_url != null ? $data.selfie_url : 'https://nafezly.com/site_images/verification/id-verify-selfie.nafezly.svg',
     style: {
       "max-width": "100%",
@@ -37801,7 +37816,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "d-inline-block"
   }, null, 8
   /* PROPS */
-  , _hoisted_20)]), _hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_22, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  , _hoisted_22)]), _hoisted_23, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_24, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     type: "file",
     onChange: _cache[2] || (_cache[2] = function () {
       return $options.getSelfieSide && $options.getSelfieSide.apply($options, arguments);
@@ -37824,7 +37839,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     accept: "image/x-png,image/gif,image/jpeg"
   }, null, 32
   /* HYDRATE_EVENTS */
-  ), _hoisted_23])]), _hoisted_24]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_25, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_26, [_hoisted_27, _hoisted_28, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_29, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  ), _hoisted_25])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_26, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_27, [_hoisted_28, _hoisted_29, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_30, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     style: {
       "position": "absolute",
       "height": "40px",
@@ -37839,10 +37854,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "font-1 text-center py-2 mx-auto btn btn-success",
     type: "submit",
     disabled: $data.loading || $data.front_side_url == null || $data.back_side_url == null || $data.selfie_url == null
-  }, [$data.loading ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_31, " جاري تقديم الطلب...")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.loading ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_32)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), !$data.loading ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_33, "تقديم طلب التوثيق")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 8
+  }, [$data.loading ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_32, " جاري تقديم الطلب...")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.loading ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_33)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), !$data.loading ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_34, "تقديم طلب التوثيق")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 8
   /* PROPS */
-  , _hoisted_30)])])])])], 544
+  , _hoisted_31)])])])])], 544
   /* HYDRATE_EVENTS, NEED_PATCH */
+  )], 64
+  /* STABLE_FRAGMENT */
   );
 }
 

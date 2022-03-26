@@ -358,6 +358,7 @@ return [
 	"license_file"                             => "الترخيص",
 	"license_name"                             => "اسم الترخيص / رقم الرخصة",
 	"userlicenses"                             => "التراخيص",
+	"useridentity"                             => "الهوية",
 	"comment"                                  => "ملاحظات",
 	"electronic_payment_ref"                   => "مرجع عملية الدفع الالكترونية",
 	"payment_status"                           => "حالة الدفع",

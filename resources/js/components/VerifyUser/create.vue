@@ -1,4 +1,7 @@
 <template>
+<div v-if="identity?.verified == 'rejected'" class="alert alert-danger">
+        <p class="m-0 p-0">تم رفض الهوية {{identity?.reject_reason}} برجاء اعادة رفع الهوية</p>
+    </div>
 <form v-on:submit.prevent="verify" ref='verifyUserForm'>
                      <input type="hidden" name="_token" value="dQ9prgyzkwCl37RD5nHZJ4r60rP9NYoupWp0k4KT">
                      <div class="col-12 px-0 row mb-4">
@@ -48,7 +51,7 @@
                                     ارفاق ملف
                                  </div>
                               </div>
-                           </div> -->
+                           </div>
                         </div>
                         <div class="col-12 col-lg-6   my-3 py-2">
                            <div class="col-12 px-0">
@@ -76,9 +79,11 @@
 import api from '../../utils/api';
 
     export default {
+       props: ['identity'],
         
         data() {
             return {
+               identity: this.identity,
                 errorMsg: null,
                 success: null,
                 loading: false,
@@ -90,6 +95,10 @@ import api from '../../utils/api';
                 back_side: null,
                 selfie: null,
             };
+        },
+
+        mounted() {
+
         },
 
         methods: {
