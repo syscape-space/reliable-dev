@@ -1,14 +1,16 @@
 <?php
+
 use Illuminate\Support\Facades\Route;
 
-\L::Panel(app('admin'));///SetLangredirecttoadmin
-\L::LangNonymous();//RunRouteLang'namespace'=>'Admin',
-Route::group(['prefix' => app('admin'), 'middleware' => 'Lang'],
+\L::Panel(app('admin')); ///SetLangredirecttoadmin
+\L::LangNonymous(); //RunRouteLang'namespace'=>'Admin',
+Route::group(
+	['prefix' => app('admin'), 'middleware' => 'Lang'],
 
-function () {
+	function () {
 
-	Route::view('license', 'admin.users.license-create');
-	Route::view('license/show', 'admin.users.license-show');
+		Route::view('license', 'admin.users.license-create');
+		Route::view('license/show', 'admin.users.license-show');
 
 
 
@@ -26,7 +28,7 @@ function () {
 
 		Route::view('need/permission', 'admin.no_permission');
 		Route::group(['middleware' => 'admin:admin'], function () {
-			if (class_exists(\UniSharp\LaravelFilemanager\Lfm::class )) {
+			if (class_exists(\UniSharp\LaravelFilemanager\Lfm::class)) {
 				Route::group(['prefix' => 'filemanager'], function () {
 					\UniSharp\LaravelFilemanager\Lfm::routes();
 				});
@@ -62,6 +64,7 @@ function () {
 			Route::post('userqualifications/multi_delete', 'Admin\UserQualifications@multi_delete');
 			Route::resource('usercommercials', 'Admin\UserCommercials');
 			Route::post('usercommercials/multi_delete', 'Admin\UserCommercials@multi_delete');
+			Route::resource('useridentity', 'Admin\UserIdentity');
 			Route::resource('subscriptionfees', 'Admin\SubscriptionFees');
 			Route::post('subscriptionfees/multi_delete', 'Admin\SubscriptionFees@multi_delete');
 			Route::resource('faqs', 'Admin\FAQs');
@@ -121,28 +124,26 @@ function () {
 			Route::post('systemmessages/multi_delete', 'Admin\SystemMessages@multi_delete');
 			Route::resource('balancerecharges', 'Admin\BalanceRecharges');
 			Route::post('balancerecharges/multi_delete', 'Admin\BalanceRecharges@multi_delete');
-			Route::resource('balancewithdrawals','Admin\BalanceWithdrawals');
-			Route::post('balancewithdrawals/multi_delete','Admin\BalanceWithdrawals@multi_delete');
+			Route::resource('balancewithdrawals', 'Admin\BalanceWithdrawals');
+			Route::post('balancewithdrawals/multi_delete', 'Admin\BalanceWithdrawals@multi_delete');
 
 
 			Route::resource('supportmessages', 'Admin\SupportMessageController');
-			Route::post('supportmessages/multi_delete','Admin\SupportMessageController@multi_delete');
+			Route::post('supportmessages/multi_delete', 'Admin\SupportMessageController@multi_delete');
 
 			Route::resource('careers', 'Admin\CareerController');
-			Route::post('careers/multi_delete','Admin\CareerController@multi_delete');
+			Route::post('careers/multi_delete', 'Admin\CareerController@multi_delete');
 
-			Route::as('admin.')->group(function (){
-                Route::resource('our-services','Admin\OurServiceController');
-            });
+			Route::as('admin.')->group(function () {
+				Route::resource('our-services', 'Admin\OurServiceController');
+			});
 
 			Route::resource('partners', 'Admin\PartnerController');
-			Route::post('partners/multi_delete','Admin\PartnerController@multi_delete');
+			Route::post('partners/multi_delete', 'Admin\PartnerController@multi_delete');
 
 			Route::get('careerrequests', 'Admin\CareerRequestController@index');
 			Route::get('careerrequests/{id}', 'Admin\CareerRequestController@show');
-			Route::post('careerrequests/multi_delete','Admin\CareerRequestController@multi_delete');
-		
+			Route::post('careerrequests/multi_delete', 'Admin\CareerRequestController@multi_delete');
 		});
-
-	});
-	
+	}
+);

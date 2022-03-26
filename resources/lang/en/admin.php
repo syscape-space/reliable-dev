@@ -297,6 +297,7 @@ return [
 	"license_file"	=>		"الترخيص",
 	"license_name"	=>		"اسم الترخيص",
 	"userlicenses"	=>		"تراخيص المستخدمين",
+	"useridentity"                             => "الهوية",
 	"comment"	=>		"ملاحظات",
 	"electronic_payment_ref"	=>		"مرجع عملية الدفع الالكترونية",
 	"payment_status"	=>		"حالة الدفع",
