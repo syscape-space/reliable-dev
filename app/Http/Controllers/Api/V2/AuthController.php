@@ -76,7 +76,8 @@ class AuthController extends Controller
             'id_number' => 'required|exists:users',
 			'password' => [
 				'required',
-				'string', Password::min(6)->mixedCase()->numbers()->symbols()->uncompromised(),
+				'string',
+//                Password::min(6)->mixedCase()->numbers()->symbols()->uncompromised(),
 			],
 	        ]);
         if($val->fails())
