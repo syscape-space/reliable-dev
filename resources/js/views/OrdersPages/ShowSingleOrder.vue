@@ -1,6 +1,6 @@
 <template>
   <OrderRightNavbar/>
-  <TopNavbar/>
+  <NewTopNavbar/>
   <section class="personal-section mt-2">
     <div class="personal">
       <div class="personal-info">
@@ -59,14 +59,13 @@
               <p style="font-size:12px" v-html="order_details">
               </p>
             </div>
-            <h6> {{ $root._t("app.attchFile") }} </h6>
             <div
                 class="py-2 px-3 d-inline-block rounded f-14"
                 style="color: #2B7B74;background-color: #EBFFFD;">
               <span class="ms-3 fw-bold"> {{ $root._t("app.orderFileComplete") }} </span>
               <span><img style="width: 70px;" :src="base_url + '/public/assets/images/o_pdf.svg'" alt=""></span>
             </div>
-            <template v-if="order && order.user_id.id != $root.auth_user.id">
+            <template v-if="order && order.user_id.id != $root.auth_user.id && (! summitedOffer)">
               <h6 class="mt-3"> {{ $root._t("app.addOrder") }} </h6>
               <div class="errors">
                 <div class="alert alert-danger" v-for="error in errors" :key="error">
@@ -118,6 +117,11 @@
                 </div>
               </div>
             </template>
+            <template v-if="summitedOffer">
+              <div class="alert alert-success">
+                <b>تم اضافة عرضك بنجاح</b>
+              </div>
+            </template>
             <div class="my-4 btw-flex">
               <span> {{ $root._t("app.presentation") }} </span>
               <span>
@@ -127,7 +131,7 @@
                   <button class="btn-offer"> {{ $root._t("app.old") }} </button>
                 </span>
             </div>
-            <offers-list :order_id="$props.id" />
+            <offers-list ref="offers_list"/>
           </div>
           <div class="col-md-3">
             <div>
@@ -166,11 +170,14 @@
 
                   </li>
                   <li class="mb-3 mt-4 text-center">
-                    <div class="text-center mb-2">
-                      <img style="width: 50px;height: 50px;" class="uses-img" :src="base_url + '/public/storage'+ profile_image " alt="">
+                    <div class="text-center mb-2" v-if="profile_image === null">
+                      <img style="width: 50px;height: 50px;" class="uses-img" :src="base_url+'/public/assets/images/nouser.png' " alt="">
+                    </div>
+                    <div class="text-center mb-2" v-else>
+                      <img style="width: 50px;height: 50px;" class="uses-img" :src="cloud_url +  profile_image " alt="">
                     </div>
                     <span class="text-center "> {{ orderOwnerName }} </span> <br>
-
+                      
                   </li>
                 </ul>
               </div>
@@ -198,20 +205,22 @@
 </template>
 <script>
 import api from "../../utils/api";
-import TopNavbar from "../../components/UserProfile/TopNavbar";
+import NewTopNavbar from "../../components/Orders/NewTopNavbar.vue";
 import OrderRightNavbar from "../../components/Orders/OrderRightNavbar";
 import OffersList from "../../components/Orders/OffersList";
 export default {
   name:"ShowSingleOrder",
   props:['id'],
-  components: {TopNavbar,OrderRightNavbar,OffersList},
+  components: {NewTopNavbar,OrderRightNavbar,OffersList},
   mounted(){
     this.gettingOrderDetails();
   },
   data(){
     return{
       base_url:base_url ,
+      cloud_url:cloud_url ,
       list : [] ,
+      offers : [] ,
       deptname : '' ,
       order_details : '' ,
       order_status : '' ,
@@ -244,6 +253,7 @@ export default {
             this.OrderRequestOwnerId = response.data.data['user_id'].id
 
             //  let splittingOrderContent = response.data.data.data[1].order_content.split(" ") ;
+            this.getOffers();
             console.log( response.data.data);
           })
           .catch((e) => {
@@ -251,14 +261,13 @@ export default {
           });
     },
     addNewOffer(){
-      // vars => order_id  , vendor_id , vendor_comment , price , execution_time
       // check if offer requester is same user who loggined
       if( localStorage.getItem("logginedUser") === this.OrderRequestOwnerId.toString() ){
         alert('you cannot make order , you are order owner');
       }else{
         let formData = new FormData();
-        formData.append("order_id", localStorage.getItem("thisOrderId"));
-        formData.append("vendor_id", localStorage.getItem("logginedUser"));
+        formData.append("order_id", this.$props.id);
+        formData.append("vendor_id", this.$root.auth_user.id);
         formData.append("vendor_comment", this.vendor_comment );
         formData.append("price", this.price);
         formData.append("execution_time", this.execution_time);
@@ -279,7 +288,25 @@ export default {
       }
 
 
+    },
+    getOffers(){
+      api.get('/v1/orderoffers?order_id='+this.$props.id).then(res=>{
+        this.offers= res.data.data;
+      })
     }
-  }
+  },
+  computed:{
+    summitedOffer(){
+      var summited = false;
+      if (this.offers.data){
+        this.offers.data.forEach(item=>{
+          if (item.vendor && item.vendor.id == this.$root.auth_user.id){
+            summited = true;
+          }
+        })
+      }
+      return summited;
+    }
+  },
 }
 </script>

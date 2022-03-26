@@ -70,6 +70,11 @@ class OrderOffer extends Model {
 		return $this->hasOne(\App\Models\OrderOfferInvoice::class , 'offer_id', 'id');
 	}
 
+	public function getCreatedAtAttribute($value)
+	{
+		return date("d F Y H:i", strtotime($value));
+	}
+
 	/**
 	 * Static Boot method to delete or update or sort Data
 	 * @param void

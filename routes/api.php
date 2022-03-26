@@ -59,6 +59,8 @@ Route::group(
 		Route::post('apply_now', 'JobsController@makeApply');
 		Route::get('get_all_replys_of_this_ticket/{id}', "TicketReplyController@getAllReplysOfThisTicket");
 		Route::post('add_comment_for_this_ticket/{ticket_id}', 'TicketController@addCommentForThisTicket');
+		Route::get('get_offers/{order_id}' , 'OfferOrdersController@getAllOffersOfThisOrder');
+		Route::put('accept_offer/{offer_id} ' , 'OfferOrdersController@acceptOffer') ;
 
 
 
@@ -87,6 +89,7 @@ Route::group(
 			Route::post('verify/password', 'Auth\AuthAndLogin@verify_password')->name('api.change_password');
 			Route::get('identity/check', 'VerifyUserController@checkIdentityStatus');
 			Route::post('identity/upload', 'VerifyUserController@uploadIdentity');
+			Route::post('identity-action', 'VerifyUserController@takeAction');
 			//Auth-Api-Start//
 			Route::apiResource("occupations", "OccupationsApi", ["as" => "api.occupations"]);
 			Route::post("occupations/multi_delete", "OccupationsApi@multi_delete");

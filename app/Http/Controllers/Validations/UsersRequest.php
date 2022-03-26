@@ -53,7 +53,7 @@ class UsersRequest extends FormRequest {
 			'ban_end_at'                    => 'sometimes|nullable|date',
 			'system_comment'                => 'sometimes|nullable|string',
 			'subscribe_end_at'              => 'sometimes|nullable|date',
-			'add_offer'                     => 'required|string|in:enable,disable',
+			'add_offer'                     => 'string|in:enable,disable',
 			'disable_adding_offer_reason'   => 'sometimes|nullable|string',
 			'add_request'                   => 'sometimes|nullable|string|in:enable,disable',
 			'disable_adding_request_reason' => 'sometimes|nullable|string',

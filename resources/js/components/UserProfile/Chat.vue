@@ -96,6 +96,7 @@ export default {
     this.gettingTicketDetails();
     this.getAllReplysOfThisTicket();
   },
+  props:['id'], 
   data(){
     return{
       base_url:base_url ,
@@ -154,7 +155,7 @@ export default {
       formData.append("replay", this.comment);
       
         api
-        .post("v1/add_comment_for_this_ticket/" +ticketId , formData  )
+        .post("v1/add_comment_for_this_ticket/" + this.$props.id , formData  )
         .then((response) => {
           this.getAllReplysOfThisTicket();
           console.log("comment is saved");

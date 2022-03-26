@@ -477,7 +477,7 @@ export default {
       api.post('/v1/orders', formData).then(res => {
         this.$root.alertSuccess('تم الارسال بنجاح');
         console.log(res);
-        this.$router.push({name: "ShowAllOrders"});
+        this.$router.push({name: "MyOrder"});
       }).catch(e => {
         this.$root.alertErrors(e.response.data.errors_messages);
       })

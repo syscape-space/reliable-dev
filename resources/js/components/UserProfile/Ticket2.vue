@@ -100,7 +100,7 @@ export default {
     },
     goToTicketDetails( ticketId ){
       let thisTicketId = localStorage.setItem("thisTicketId", ticketId);
-      this.$router.push({ name: "ChatPage" });
+      this.$router.push({ name: "ChatPage" ,params:{id:ticketId} });
     }
   } ,
   

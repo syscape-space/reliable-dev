@@ -1,4 +1,5 @@
 <template>
+<NewTopNavbar/>
     <section class="personal-section mt-2">
       <div class="personal">
         <div class="personal-info">
@@ -155,7 +156,7 @@
                       <span style="min-width: 60px;" class="d-inline-block"> {{ $root._t("app.offersNum") }} </span>
                      <span 
                         style="margin-right: 15px;color: #0995EB;"
-                        class="fw-bold "> {{ $root._t("app.num15Offer") }} </span>
+                        class="fw-bold "> {{ $root._t("app.count") }} {{ offers_count }} {{ $root._t("app.offer") }} </span>
                     </li>
                     <li class="mb-3">
                       <span style="min-width: 60px;" class="d-inline-block"> {{ $root._t("app.projectOwner") }} </span>
@@ -199,7 +200,9 @@ export default {
   components: {OffersList},
   mounted(){
     this.gettingOrderDetails();
+    this.getOffers();
   },
+  props:['id'],
   data(){
     return{
       base_url:base_url ,
@@ -217,13 +220,17 @@ export default {
       OrderRequestOwnerId : '' ,
       order_id : null,
       errors: null,
+      // all offers which related to this order
+      offers_count : '' ,
+      country : '' ,
+      offersList : [] ,
     };
   },
   methods:{
     gettingOrderDetails(){
-      let thisorderId = localStorage.getItem("thisOrderId"); 
+      // let thisorderId = localStorage.getItem("thisOrderId"); 
       api
-          .get("v1/orders/" + thisorderId)
+          .get("v1/orders/" + this.$props.id)
           .then((response) => {
            this.deptname = response.data.data['department_id'].department_name_ar 
            this.order_details = response.data.data.order_content 
@@ -260,6 +267,7 @@ export default {
               .then((response) => {
                 console.log(response)
                 alert("Offer Added Successfully");
+                this.getOffers();
                 // this.$router.push({ name: "Ticket2" });
               })
               // error.response.data.errors
@@ -270,6 +278,20 @@ export default {
         }
 
         
+    },
+    getOffers(){
+      api
+        .get("v1/get_offers/" + localStorage.getItem("thisOrderId") )
+        .then((response) => {
+          this.offersList = response.data.allOffers;
+
+          this.offers_count = response.data.offersCount ;
+          
+          console.log(response.data.allOffers);
+        })
+        .catch((e) => {
+          console.log(e.response);
+        });
     }
   }
 }

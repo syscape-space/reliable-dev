@@ -375,6 +375,7 @@ return [
     'presentation' => 'العروض التقديميه' ,
     'oderValue' => 'قيمه العرض' ,
     'admin' => 'الاداره' ,
+    'noOfferComment' => 'لا يحتوى على تعليق'
 
     
 ];

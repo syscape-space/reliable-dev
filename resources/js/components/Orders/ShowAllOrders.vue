@@ -136,8 +136,7 @@
                 </p>
                 <!-- v-html=" item.order_content.split(' ')[0]" -->
                 <h6 style="color: #048e81">{{ $root._t("app.orderContent") }}</h6>
-                <p class="pb-3 f-12">
-                  {{ item.order_content.substring(0,40)+".." }}
+                <p class="pb-3 f-12" v-html="item.order_content.substring(0,40)+'..'">
                 </p>
               </div>
               <div class="mt-3 btw-flex">
@@ -202,7 +201,25 @@
 import api from "../../utils/api";
 export default {
    mounted() {
-    this.getMyOrders2();
+     // let thisorderId = localStorage.getItem("thisOrderId");
+    // check user type 
+    api
+        .get("/v1/account")
+        .then((response) => {
+          if( response.data.data.membership_type === 'vendor' ){ // مقدم خدمه
+              this.getMyOrders2();
+          }else if( response.data.data.membership_type === 'user' ){
+            this.$router.push({ name: "MyOrder" });
+          }
+        })
+        // error.response.data.errors
+        .catch((e) => {
+          this.errors = e.response.data.errors;
+          console.log(e.response);
+        });
+  
+
+   
     document.getElementById('pagesCount').style.display = "none";
   },
   data() {

@@ -72,7 +72,8 @@ class OrderOffersApi extends Controller
     public function store(OrderOffersRequest $request)
     {
         $data = $request->except("_token");
-
+        $data['vendor_id'] = auth('api')->id();
+        $data['offer_status'] = "pending";
         $OrderOffer = OrderOffer::create($data);
 
         $OrderOffer = OrderOffer::with($this->arrWith())->find($OrderOffer->id, $this->selectColumns);

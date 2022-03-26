@@ -1,7 +1,7 @@
 <template>
-  <template v-if="offers.data && offers.data.length">
-    <template v-for="offer in offers.data">
-      <div class="p-3" style="background-color: #F9F9F9;">
+  <template v-if="$parent.offers.data && $parent.offers.data.length">
+    <template v-for="offer in $parent.offers.data">
+      <div class="p-3" style="background-color: #F9F9F9;" v-if="$parent.order && offer && (offer.vendor.id == $root.auth_user.id || $parent.order.user_id.id == $root.auth_user.id)">
         <div class="btw-flex">
           <div class="my-2" style="font-size: 12px;">
                     <span class="ms-3">
@@ -16,14 +16,15 @@
                           style="width: 20px;"
                           class="ms-1"
                           :src="base_url + '/public/assets/images/o_eye.svg'"
-                          alt=""> <span> {{ $root._t("app.numFiveWorks") }} </span>
+                          alt=""> <span> عدد 0 اعمال </span>
                     </span>
             <span class="ms-3">
                       <img
                           style="width: 14px;"
                           class="ms-1"
                           :src="base_url + '/public/assets/images/o_map.svg'"
-                          alt=""> <span> {{ offer.vendor.country.country_name_ar }} </span>
+                          alt=""> <span v-if="offer.vendor.country"> {{ offer.vendor.country.country_name_ar }} </span>
+                           <span v-else > لم يحدد الدولة </span>
                     </span>
           </div>
           <div class="my-2" style="font-size: 12px;">
@@ -53,7 +54,7 @@
               {{ offer.vendor_comment }}
             </p>
           </div>
-          <div class="text-center" v-if="order && order.user_id.id == $root.auth_user.id">
+          <div class="text-center" v-if="$parent.order && $parent.order.user_id.id == $root.auth_user.id">
             <button style="
                       height: 38px;
                         border: 0;
@@ -61,7 +62,8 @@
                         color: #fff;
                         font-size: 12px;
                         padding: 0 40px;
-                      " class="rounded">
+                      " class="rounded"
+                      @click.prevent="acceptOffer( $parent.offers.data[0].id )">
               {{ $root._t("app.acceptOffer") }}
             </button>
             <button style="
@@ -89,28 +91,32 @@
 import api from "../../utils/api";
 
 export default {
-  props:['order_id'],
   name: "OffersList",
   data(){
     return{
-      offers:[],
-      order:null,
       base_url:base_url,
       cloud_url:cloud_url,
     }
   },
   methods:{
-    getOffers(){
-      api.get('/v1/orderoffers?order_id='+this.$props.order_id).then(res=>{
-        this.offers= res.data.data;
-        api.get('/v1/orders/'+this.$props.order_id).then(res=>{
-          this.order= res.data.data;
+    acceptOffer( id ){
+      api
+        .put("v1/accept_offer/"+id)
+        .then((response) => {
+          alert('approved') ;
+          this.$router.push({ name: "offerOrder2Page" , params:{id:id} });
+          console.log(response);
         })
-      })
+        .catch((e) => {
+          console.log(e.response);
+        });
     }
   },
+  computed:{
+
+  },
   mounted() {
-    this.getOffers();
+
   }
 }
 </script>
