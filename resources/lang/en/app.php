@@ -372,4 +372,5 @@ return [
     'presentation' => 'offers Presentation' ,
     'oderValue' => 'Order Value' ,
     'admin' => 'الاداره' ,
+    'noOfferComment' => 'Not Contain Comment'
 ];

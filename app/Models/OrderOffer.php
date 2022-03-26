@@ -40,10 +40,15 @@ class OrderOffer extends Model {
 	public function user() {
 		return $this->hasOne(User::class , 'id', 'vendor_id')->with(['country']);
 	}
-
+// FIXME :: this is really bad
 	public function vendor_id() {
 		return $this->belongsTo(User::class , 'id');
 	}
+// NOTE
+	public function vendor() {
+		return $this->belongsTo(User::class , 'vendor_id','id');
+	}
+####
 
 	/**
 	 * order_id relation method
@@ -52,6 +57,9 @@ class OrderOffer extends Model {
 	 */
 	public function order_id() {
 		return $this->hasOne(\App\Models\Order::class , 'id', 'order_id');
+	}
+	public function order() {
+		return $this->belongsTo(\App\Models\Order::class , 'order_id','id');
 	}
 	/**
 	 * invoice relation method

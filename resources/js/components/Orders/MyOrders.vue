@@ -242,9 +242,8 @@ export default {
           console.log(e.response);
         });
     },
-    showThisOrderDetails($id){
-      localStorage.setItem("thisOrderId", $id);
-      this.$router.push({ name: "offerOrder1Page" });
+    showThisOrderDetails(id){
+      this.$router.push({ name: "ShowSingleOrder" , params:{id:id} });
     }
   },
 };

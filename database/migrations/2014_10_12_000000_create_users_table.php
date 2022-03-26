@@ -50,7 +50,7 @@ class CreateUsersTable extends Migration {
 				$table->longtext('system_comment')->nullable();
 				$table->date('subscribe_end_at')->nullable();
 				$table->foreignId("company_id")->nullable()->constrained("users")->references("id")->onUpdate("cascade")->onDelete("cascade");
-				$table->enum('add_offer', ['enable', 'disable'])->default('enable');
+				$table->enum('add_offer', ['enable', 'disable'])->default('disable');
 				$table->longtext('disable_adding_offer_reason')->nullable();
 				$table->enum('add_request', ['enable', 'disable'])->nullable();
 				$table->longtext('disable_adding_request_reason')->nullable();

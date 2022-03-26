@@ -46,8 +46,11 @@ class OrdersApi extends Controller{
     public function index()
     {
         $Order = Order::select($this->selectColumns)->where(function ($q){
-            if (\request()->my)
+            if (\request()->my){
                 $q->where('user_id',auth('api')->id());
+            }else{
+                $q->where('order_status','open');
+            }
         })->with($this->arrWith())->orderBy("id","desc")->paginate(15);
         return successResponseJson(["data"=>$Order]);
     }
@@ -62,7 +65,8 @@ class OrdersApi extends Controller{
     {
     	$data = $request->except("_token");
         $data["user_id"] = auth('api')->id();
-        $Order = Order::create($data); 
+        $data["order_status"] = "under_review";
+        $Order = Order::create($data);
 		$Order = Order::with($this->arrWith())->find($Order->id,$this->selectColumns);
         return successResponseJson([
             "message"=>trans("admin.added"),
