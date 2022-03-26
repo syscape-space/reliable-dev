@@ -30,7 +30,7 @@ import NotificationPage from '../views/OrdersPages/notificationPage.vue'
 
 // Orders 
 import showOrdersPage from '../views/OrdersPages/showOrdersPage'
-import offerOrder2Page from '../views/OrdersPages/offerOrder2Page'
+import offerOrder2Page from '../views/OrdersPages/offerOrder2Page.vue'
 import offerOrder3Page from '../views/OrdersPages/offerOrder3Page'
 import Profile2 from '../views/OrdersPages/profile2Page.vue'
 import Profile3 from '../views/OrdersPages/profile3Page.vue'

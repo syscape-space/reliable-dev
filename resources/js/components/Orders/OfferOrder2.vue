@@ -386,10 +386,27 @@
 import NewTopNavbar from '../../components/Orders/NewTopNavbar'
 export default {
     components : { NewTopNavbar },
+    props:['offer_id'],
+    mounted(){
+      this.gettingDataOfOrderAndOffer();
+    },
   data(){
     return{
-      base_url:base_url
-    };
+      base_url:base_url,
+      cloud_url:cloud_url,
+    }
   },
+  methods:{
+    gettingDataOfOrderAndOffer(){
+      // this.$props.offer_id
+      console.log('helo');
+    }
+  },
+  computed:{
+
+  },
+  mounted() {
+
+  }
 }
 </script>

@@ -20092,17 +20092,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _components_Orders_NewTopNavbar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../components/Orders/NewTopNavbar */ "./resources/js/components/Orders/NewTopNavbar.vue");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_defineProperty({
   components: {
     NewTopNavbar: _components_Orders_NewTopNavbar__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
+  props: ['offer_id'],
+  mounted: function mounted() {
+    this.gettingDataOfOrderAndOffer();
+  },
   data: function data() {
     return {
-      base_url: base_url
+      base_url: base_url,
+      cloud_url: cloud_url
     };
-  }
-});
+  },
+  methods: {
+    gettingDataOfOrderAndOffer: function gettingDataOfOrderAndOffer() {
+      // this.$props.offer_id
+      console.log('helo');
+    }
+  },
+  computed: {}
+}, "mounted", function mounted() {}));
 
 /***/ }),
 
@@ -20161,7 +20175,10 @@ __webpack_require__.r(__webpack_exports__);
         alert('approved');
 
         _this.$router.push({
-          name: "offerOrder2Page"
+          name: "offerOrder2Page",
+          params: {
+            offer_id: id
+          }
         });
 
         console.log(response);
@@ -40639,7 +40656,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_UserProfilePages_usersPage_vue__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../views/UserProfilePages/usersPage.vue */ "./resources/js/views/UserProfilePages/usersPage.vue");
 /* harmony import */ var _views_OrdersPages_notificationPage_vue__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../views/OrdersPages/notificationPage.vue */ "./resources/js/views/OrdersPages/notificationPage.vue");
 /* harmony import */ var _views_OrdersPages_showOrdersPage__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../views/OrdersPages/showOrdersPage */ "./resources/js/views/OrdersPages/showOrdersPage.vue");
-/* harmony import */ var _views_OrdersPages_offerOrder2Page__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../views/OrdersPages/offerOrder2Page */ "./resources/js/views/OrdersPages/offerOrder2Page.vue");
+/* harmony import */ var _views_OrdersPages_offerOrder2Page_vue__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../views/OrdersPages/offerOrder2Page.vue */ "./resources/js/views/OrdersPages/offerOrder2Page.vue");
 /* harmony import */ var _views_OrdersPages_offerOrder3Page__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ../views/OrdersPages/offerOrder3Page */ "./resources/js/views/OrdersPages/offerOrder3Page.vue");
 /* harmony import */ var _views_OrdersPages_profile2Page_vue__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../views/OrdersPages/profile2Page.vue */ "./resources/js/views/OrdersPages/profile2Page.vue");
 /* harmony import */ var _views_OrdersPages_profile3Page_vue__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ../views/OrdersPages/profile3Page.vue */ "./resources/js/views/OrdersPages/profile3Page.vue");
@@ -40872,7 +40889,7 @@ var routes = [{
 }, {
   path: prefix + '/o_offer_order2',
   beforeEnter: guardMyroute,
-  component: _views_OrdersPages_offerOrder2Page__WEBPACK_IMPORTED_MODULE_21__["default"],
+  component: _views_OrdersPages_offerOrder2Page_vue__WEBPACK_IMPORTED_MODULE_21__["default"],
   name: "offerOrder2Page",
   meta: {
     title: 'Offers'

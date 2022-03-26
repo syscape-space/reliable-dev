@@ -104,7 +104,7 @@ export default {
         .put("v1/accept_offer/"+id)
         .then((response) => {
           alert('approved') ;
-          this.$router.push({ name: "offerOrder2Page" });
+          this.$router.push({ name: "offerOrder2Page" , params:{offer_id:id} });
           console.log(response);
         })
         .catch((e) => {
