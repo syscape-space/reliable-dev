@@ -200,7 +200,7 @@
 <script>
 import api from "../../utils/api";
 export default {
-  mounted() {
+   mounted() {
     this.getMyOrders2();
     document.getElementById('pagesCount').style.display = "none";
   },
@@ -228,9 +228,8 @@ export default {
           console.log(e.response);
         });
     },
-    showThisOrderDetails($id){
-      // localStorage.setItem("thisOrderId", $id);
-      this.$router.push({ name: "offerOrder1Page"  , params:{ id : $id } });
+    showThisOrderDetails(id){
+      this.$router.push({ name: "ShowSingleOrder",params:{id:id} });
     }
   },
 };

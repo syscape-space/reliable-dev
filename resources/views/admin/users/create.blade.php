@@ -1,6 +1,6 @@
 @extends('admin.index')
 @section('content')
-@include("admin.layouts.components.submit_form_ajax",["form"=>"#users"])
+@include("admin.layouts.components.submit_form_ajax",["form"=>"#users",'query'=>'?membership_type'.request('?membership_type')])
 @include('admin.ajax',[
 'typeForm'=>'create',
 'selectID'=>'country_id',
@@ -31,7 +31,7 @@
 	</div>
 	<!-- /.card-header -->
 	<div class="card-body">
-		{!! Form::open(['url'=>aurl('/users'),'id'=>'users','files'=>true,'class'=>'form-horizontal form-row-seperated']) !!}
+		{!! Form::open(['url'=>aurl('/users'),'id'=>"users",'files'=>true,'class'=>'form-horizontal form-row-seperated']) !!}
 		<div class="row">
 			<div class="col-md-3 col-lg-3 col-sm-3 col-xs-12">
 				<div class="form-group">
@@ -306,12 +306,16 @@ $(document).on('change','#add_offer,#add_request',function(){
 });
 </script>
 @endpush
+@if (request('membership_type')=='vendor')
+	
 			<div class="col-md-4 col-lg-4 col-sm-4 col-xs-12">
 				<div class="form-group">
 					{!! Form::label('add_offer',trans('admin.add_offer')) !!}
 					{!! Form::select('add_offer',['enable'=>trans('admin.enable'),'disable'=>trans('admin.disable'),],old('add_offer'),['class'=>'form-control select2','placeholder'=>trans('admin.choose')]) !!}
 				</div>
 			</div>
+@endif
+
 			<div class="col-md-4 col-lg-4 col-sm-4 col-xs-12">
 				<div class="form-group">
 					{!! Form::label('add_request',trans('admin.add_request')) !!}

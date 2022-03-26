@@ -54,8 +54,7 @@
               </div>
               <div>
                 <h5 class="fw-bold g-color">  {{ $root._t("app.projectDetails") }} </h5>
-                <p style="font-size:12px">
-                  {{ order_details }}                
+                <p style="font-size:12px" v-html="order_details">
                 </p>
               </div>
               <h6> {{ $root._t("app.attchFile") }} </h6>
@@ -124,80 +123,7 @@
                   <button class="btn-offer"> {{ $root._t("app.old") }} </button>
                 </span>
               </div>
-              <div class="p-3" style="background-color: #F9F9F9;" v-for="offersList in  offersList" :key="offersList.id">
-                <div class="btw-flex">
-                  <div class="my-2" style="font-size: 12px;">
-                    <span class="ms-3">
-                      <img 
-                      style="width: 15px;" 
-                      class="ms-1"
-                      :src="base_url + '/public/assets/images/o_clock.svg'" alt=""> <span> {{ $root._t("app.fourHoursAgo") }} </span>
-                    </span>
-                    <span class="ms-3">
-                      <img 
-                      style="width: 20px;" 
-                      class="ms-1"
-                      :src="base_url + '/public/assets/images/o_eye.svg'" alt=""> <span> {{ $root._t("app.numFiveWorks") }} </span>
-                    </span>
-                    <span class="ms-3">
-                      <img 
-                      style="width: 14px;" 
-                      class="ms-1"
-                      :src="base_url + '/public/assets/images/o_map.svg'" alt=""> 
-                      <span v-if="offersList.country_name_en === 'Kingdom Saudi Arabia' "> {{ $root._t("app.saudiAribianCompleteName")  }} </span>
-                    </span>
-                  </div>
-                  <div class="my-2" style="font-size: 12px;">
-                    <span class="o-box ms-2">
-                      <img 
-                      style="width: 15px;" class="ms-1" :src="base_url + '/public/assets/images/o_delever.svg'" alt="">
-                      <span> {{ $root._t("app.deliveryTime") }} :</span>
-                      <span class="me-2"> {{ offersList.execution_time }} {{ $root._t("app.day") }} </span>
-                    </span>
-                    <span class="o-box o-box2">
-                      <img 
-                      style="width: 15px;" class="ms-1" :src="base_url + '/public/assets/images/o_payment.svg'" alt="">
-                      <span> {{ $root._t("app.theAmount") }} </span>
-                      <span class="me-2"> {{  offersList.price }} $ </span>
-                    </span>
-                  </div>
-                </div>
-                <div class="row w-100 mx-0 px-0">
-                  <div class="col-md-3 mt-3 mb-5 text-center d-flex align-items-center justify-content-between" style="border-left: 3px solid #ddd;">
-                    <img :src="base_url + '/public/assets/images/user.svg'" alt="">
-                  </div>
-                  <div class="col-md-9">
-                    <p class="py-3 f-12" v-if="offersList.vendor_comment === null">
-                      {{ $root._t("app.noOfferComment") }}
-                    </p>
-                    <p class="py-3 f-12" v-else>
-                      {{ offersList.vendor_comment.substring(0,40)+".." }}
-                    </p>
-                  </div>
-                  <div class="text-center">
-                    <button style="
-                      height: 38px;
-                        border: 0;
-                        background-color: #048e81;
-                        color: #fff;
-                        font-size: 12px;
-                        padding: 0 40px;
-                      " class="rounded">
-                     {{ $root._t("app.acceptOffer") }}
-                    </button>
-                    <button style="
-                      height: 38px;
-                        border: 0;
-                        background-color: #0995EB;
-                        color: #fff;
-                        font-size: 12px;
-                        padding: 0 40px;
-                      " class="rounded">
-                      {{ $root._t("app.negotiateNow") }}
-                    </button>
-                  </div>
-                </div>
-              </div>
+              <offers-list :order_id="order_id"/>
             </div>
             <div class="col-md-3">
               <div>
@@ -268,7 +194,9 @@
 </template>
 <script>
 import api from "../../utils/api";
+import OffersList from "./OffersList";
 export default {
+  components: {OffersList},
   mounted(){
     this.gettingOrderDetails();
     this.getOffers();
@@ -289,6 +217,7 @@ export default {
       price : '' ,
       execution_time : '' ,
       OrderRequestOwnerId : '' ,
+      order_id : null,
       errors: null,
       // all offers which related to this order
       offers_count : '' ,
@@ -304,6 +233,7 @@ export default {
           .then((response) => {
            this.deptname = response.data.data['department_id'].department_name_ar 
            this.order_details = response.data.data.order_content 
+           this.order_id = response.data.data.id;
            this.order_status = response.data.data.order_status
            this.execution_time_num = response.data.data.execution_time
            this.orderOwnerName = response.data.data['user_id'].name

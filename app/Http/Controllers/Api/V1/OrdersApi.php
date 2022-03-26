@@ -46,8 +46,11 @@ class OrdersApi extends Controller{
     public function index()
     {
         $Order = Order::select($this->selectColumns)->where(function ($q){
-            if (\request()->my)
+            if (\request()->my){
                 $q->where('user_id',auth('api')->id());
+            }else{
+                $q->where('order_status','open');
+            }
         })->with($this->arrWith())->orderBy("id","desc")->paginate(15);
         return successResponseJson(["data"=>$Order]);
     }

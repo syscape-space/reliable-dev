@@ -6,7 +6,7 @@
 'outputClass'=>'city_id',
 'url'=>aurl('orders/get/city/id'),
 ])
-@include("admin.layouts.components.submit_form_ajax",["form"=>"#orders"])
+@include("admin.layouts.components.submit_form_ajax",["form"=>"#orders",'query'=>""])
 <div class="card card-dark">
 	<div class="card-header">
 		<h3 class="card-title">

@@ -27,7 +27,7 @@
             <ul class="list-unstyled d-flex m-0">
                 <li class="ms-4 position-relative">
                     <a href="#" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
-                        aria-expanded="false"><img src="./images/notification-nav.svg" alt="" srcset="" />
+                        aria-expanded="false"><img src="{{asset('assets/images/notification-nav.svg')}}" alt="" srcset="" />
                         <span class="red-circle"></span>
                     </a>
                     <ul class="dropdown-menu rri_o" aria-labelledby="dropdownMenuLink">
@@ -36,13 +36,13 @@
                                 <div class="d-flex align-iyems-center o_noti">
                                     <div>
                                         <img class="ms-3" style="width: 40px;height: 40px;border-radius: 50%;"
-                                            src="./images/user.svg" alt="">
+                                            src="{{asset('assets/images/user.svg')}}" alt="">
                                     </div>
                                     <div class="flex-grow-1">
                                         <div class="btw-flex w-100">
                                             <span style="color: #2B7B74;">محمد مصطفي</span>
                                             <span class=" ">
-                                                <img src="./images/o_cclo.svg" alt="">
+                                                <img src="{{asset('assets/images/o_cclo.svg')}}" alt="">
                                                 <span style="color: #0995EB;">منذ 30 دقيقة</span>
                                             </span>
                                         </div>
@@ -58,13 +58,13 @@
                                 <div class="d-flex align-iyems-center o_noti">
                                     <div>
                                         <img class="ms-3" style="width: 40px;height: 40px;border-radius: 50%;"
-                                            src="./images/user.svg" alt="">
+                                            src="{{asset('assets/images/user.svg')}}" alt="">
                                     </div>
                                     <div class="flex-grow-1">
                                         <div class="btw-flex w-100">
                                             <span style="color: #2B7B74;">محمد مصطفي</span>
                                             <span class=" ">
-                                                <img src="./images/o_cclo.svg" alt="">
+                                                <img src="{{asset('assets/images/o_cclo.svg')}}" alt="">
                                                 <span style="color: #0995EB;">منذ 30 دقيقة</span>
                                             </span>
                                         </div>
@@ -80,13 +80,13 @@
                                 <div class="d-flex align-iyems-center o_noti">
                                     <div>
                                         <img class="ms-3" style="width: 40px;height: 40px;border-radius: 50%;"
-                                            src="./images/user.svg" alt="">
+                                            src="{{asset('assets/images/user.svg')}}" alt="">
                                     </div>
                                     <div class="flex-grow-1">
                                         <div class="btw-flex w-100">
                                             <span style="color: #2B7B74;">محمد مصطفي</span>
                                             <span class=" ">
-                                                <img src="./images/o_cclo.svg" alt="">
+                                                <img src="{{asset('assets/images/o_cclo.svg')}}" alt="">
                                                 <span style="color: #0995EB;">منذ 30 دقيقة</span>
                                             </span>
                                         </div>
@@ -100,7 +100,7 @@
                     </ul>
                 </li>
                 <li class="ms-5 position-relative">
-                    <a href="#"><img src="./images/nav-message.svg" alt="" srcset="" />
+                    <a href="#"><img src="{{asset('assets/images/nav-message.svg')}}" alt="" srcset="" />
                         <span class="red-circle"></span>
                     </a>
                 </li>
@@ -109,8 +109,8 @@
                         <input style="font-size: 13px; padding: 8px 30px" type="text" class="border-0 rounded"
                             placeholder="...بحث" />
                         <img style="width: 15px; position: absolute; right: 7px; top: 10px"
-                            src="./images/nav-search.svg" alt="" />
-                        <img style="width: 15px; position: absolute; left: 7px; top: 10px" src="./images/nav-input.svg"
+                            src="{{asset('assets/images/nav-search.svg')}}" alt="" />
+                        <img style="width: 15px; position: absolute; left: 7px; top: 10px" src="{{asset('assets/images/nav-input.svg')}}"
                             alt="" />
                     </div>
                     <button style="
@@ -127,7 +127,7 @@
                     <div class="dropdown">
                         <a style="background-color: #fff" class="btn dropdown-toggle" href="#" role="button"
                             id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img style="width: 25px; margin-left: 5px" src="./images/dash-user.png" alt="" srcset="" />
+                            <img style="width: 25px; margin-left: 5px" src="{{asset('assets/images/dash-user.png')}}" alt="" srcset="" />
                             <span class="ms-5" style="color: #048e81; font-size: 13px">محمد مصطفى على</span>
                         </a>
 

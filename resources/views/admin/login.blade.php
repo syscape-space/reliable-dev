@@ -6,18 +6,18 @@
         <title>{{ trans('admin.login_page') }}</title>
         <!-- Google Font: Source Sans Pro -->
         <!-- Font Awesome -->
-        <link rel="stylesheet" href="{{ url('assets') }}/plugins/fontawesome-free/css/all.min.css">
+        <link rel="stylesheet" href="{{ cuteAsset('assets/plugins/fontawesome-free/css/all.min.css') }}">
         <!-- icheck bootstrap -->
-        <link rel="stylesheet" href="{{ url('assets') }}/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+        <link rel="stylesheet" href="{{ cuteAsset('assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
         <!-- Bootstrap 4 RTL -->
         <link rel="stylesheet" href="https://cdn.rtlcss.com/bootstrap/v4.2.1/css/bootstrap.min.css">
         <!-- Custom style for RTL -->
         <!-- Theme style -->
-        <link rel="stylesheet" href="{{ url('assets') }}/css/adminlte.min.css">
+        <link rel="stylesheet" href="{{ cuteAsset('assets/css/adminlte.min.css') }}">
         @if(!empty(setting()->icon))
         <link rel="shortcut icon" href="{{ it()->url(setting()->icon) }}" />
         @endif
-        <link rel="stylesheet" href="{{ url('assets') }}/css/cairo.css">
+        <link rel="stylesheet" href="{{ cuteAsset('assets/css/cairo.css') }}">
     </head>
     <body class="hold-transition login-page">
         <div class="login-box">

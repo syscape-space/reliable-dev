@@ -1,6 +1,6 @@
 @extends('admin.index')
 @section('content')
-@include("admin.layouts.components.submit_form_ajax",["form"=>"#balancewithdrawals"])
+@include("admin.layouts.components.submit_form_ajax",["form"=>"#balancewithdrawals",'query'=>""])
 <div class="card card-dark">
 	<div class="card-header">
 		<h3 class="card-title">

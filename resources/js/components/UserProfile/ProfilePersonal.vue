@@ -127,7 +127,7 @@
                     <div class="col-sm-12  col-lg-6 col-xl-4">
                         <div class="form-group">
                              <label class="mt-3 mb-1" for="account_type">{{ $root._t('admin.account_type') }}<span class="text-danger">*</span></label>
-                            <select class="form-control" v-model="account_type" name="account_type" id="account_type">
+                            <select class="form-control" v-model="account_type" name="account_type" id="account_type" :disabled="account_type != '0'">
                                 <option value="0">{{$root._t('admin.choose')}}</option>
                                 <option value="individual">{{$root._t('admin.individual')}}</option>
                                 <option value="company">{{$root._t('admin.company')}}</option>
