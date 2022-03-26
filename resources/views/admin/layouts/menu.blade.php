@@ -564,6 +564,7 @@ admin()->user()->role("systemmessages_show"))
     <i class="nav-icon fa fa-luggage-cart"></i>
     <p>
       {{trans('admin.orders')}}
+      <span style="position:relative;font-size: 14px;" class="badge badge-warning navbar-badge">{{App\Models\Order::where('order_status','under_review')->count()}}</span>
       <i class="right fas fa-angle-left"></i>
     </p>
   </a>

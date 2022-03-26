@@ -43,7 +43,17 @@ class OrdersDataTable extends DataTable {
 				'city_id',
 				'user_id',
 				'order_type_id',
-			])->select("orders.*");
+			])->where(function ($q) {
+				if (request('status')) {
+					$q->where('order_status', request('status'));
+				}
+				if (request('arbitration')) {
+					$q->where('order_status','open')->where('assigning_arbitration', request('arbitration'));
+				}
+				if (request('negotiable')) {
+					$q->where('order_status','open')->where('negotiable', request('negotiable'));
+				}
+			})->select("orders.*");
 
 	}
 
