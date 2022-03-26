@@ -1,6 +1,6 @@
 @extends('admin.index')
 @section('content')
-@include("admin.layouts.components.submit_form_ajax",["form"=>"#users"])
+@include("admin.layouts.components.submit_form_ajax",["form"=>"#users",'query'=>'?membership_type='.request('membership_type')])
 @include('admin.ajax',[
 'typeForm'=>'create',
 'selectID'=>'country_id',
@@ -31,7 +31,7 @@
 	</div>
 	<!-- /.card-header -->
 	<div class="card-body">
-		{!! Form::open(['url'=>aurl('/users'),'id'=>'users','files'=>true,'class'=>'form-horizontal form-row-seperated']) !!}
+		{!! Form::open(['url'=>aurl('/users'),'id'=>"users",'files'=>true,'class'=>'form-horizontal form-row-seperated']) !!}
 		<div class="row">
 			<div class="col-md-3 col-lg-3 col-sm-3 col-xs-12">
 				<div class="form-group">

@@ -1,6 +1,6 @@
 @extends('admin.index')
 @section('content')
-@include("admin.layouts.components.submit_form_ajax",["form"=>"#users"])
+@include("admin.layouts.components.submit_form_ajax",["form"=>"#users",'query'=>'?membership_type='.request('membership_type')])
 
 @include('admin.ajax',[
 'typeForm'=>'edit',

@@ -6,7 +6,7 @@
 'outputClass'=>'specialtie_id',
 'url'=>aurl('userjobs/get/specialtie/id'),
 ])
-@include("admin.layouts.components.submit_form_ajax",["form"=>"#userjobs"])
+@include("admin.layouts.components.submit_form_ajax",["form"=>"#userjobs",'query'=>''])
 <div class="card card-dark">
 	<div class="card-header">
 		<h3 class="card-title">
