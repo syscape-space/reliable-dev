@@ -1,26 +1,26 @@
 <template>
     <section class="requsts-sec mt-4">
       <div class="chat-clinet" style="max-width: 1000px;margin: auto;">
-        <ul class="chat-list d-flex ">
+        <ul class="chat-list d-flex list-unstyled">
           <li class="me-2">{{ $root._t("app.ticketDetails") }}</li>
-          <li class="d-flex me-5">
+          <li class="d-flex mx-3">
             <img style="width:40px ;" :src="base_url + '/storage/' +  profileImage  " alt="">
             <p style="font-size: 13px;     margin-top: 10px !important;" class="me-1 m-0"> {{ username }} <br>
                <span style="color: rgb(165, 164, 164);" > </span> </p>
           </li><br>
-          <li class="d-flex me-5">
+          <li class="d-flex mx-3">
             <p style="font-size: 13px;" class="me-1 m-0"> عنوان التذكره <br>
                <span style="color: rgb(165, 164, 164);" > {{ ticketTitle }} </span> </p>
           </li>
-          <li class="d-flex me-5">
+          <li class="d-flex mx-3">
             <p style="font-size: 13px;" class="me-1 m-0"> التذكرة مرتبطة ب <br>
                <span style="color: rgb(165, 164, 164);" > {{ RelatedTo }} </span> </p>
           </li>
-          <li class="d-flex me-5">
+          <li class="d-flex mx-3">
             <p style="font-size: 13px;" class="me-1 m-0"> قسم الدعم الفنى <br>
                <span style="color: rgb(165, 164, 164);" > {{ department }} </span> </p>
           </li>
-          <li class="d-flex me-5">
+          <li class="d-flex mx-3">
             <p style="font-size: 13px;" class="me-1 m-0"> محتوى التذكره <br>
                <span style="color: rgb(165, 164, 164);" > {{ ticketContent }} </span> </p>
           </li>
@@ -46,7 +46,7 @@
             </div>  
             <span> {{ item.replay }}
               <br>              
-              <small>05:12</small>
+              <small style="float: right; padding-bottom: 4px;">05:12</small>
 
             </span>
           </li>
@@ -57,7 +57,7 @@
             </div>  
             <span>{{ item.replay }} 
               <br>              
-              <small>05:12</small>
+              <small  style="float: left; padding-bottom: 4px;">05:12</small>
 
             </span>
           </li>
@@ -172,5 +172,12 @@ export default {
 }
 </script>
 <style scoped>
-
+.item-chat li > span {
+    background-color: #fff !important;
+    padding: 10px 15px 0px !important;
+    border-radius: 2px 10px 10px 10px !important;
+    margin-left: 2rem !important;
+    display: inline-block !important;
+    min-width: 150px !important;
+}
 </style>
