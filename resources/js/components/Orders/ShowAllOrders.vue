@@ -201,7 +201,25 @@
 import api from "../../utils/api";
 export default {
    mounted() {
-    this.getMyOrders2();
+     // let thisorderId = localStorage.getItem("thisOrderId");
+    // check user type 
+    api
+        .get("/v1/account")
+        .then((response) => {
+          if( response.data.data.membership_type === 'vendor' ){ // مقدم خدمه
+              this.getMyOrders2();
+          }else if( response.data.data.membership_type === 'user' ){
+            this.$router.push({ name: "MyOrder" });
+          }
+        })
+        // error.response.data.errors
+        .catch((e) => {
+          this.errors = e.response.data.errors;
+          console.log(e.response);
+        });
+  
+
+   
     document.getElementById('pagesCount').style.display = "none";
   },
   data() {

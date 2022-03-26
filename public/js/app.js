@@ -20004,10 +20004,12 @@ __webpack_require__.r(__webpack_exports__);
         console.log(e.response);
       });
     },
-    showThisOrderDetails: function showThisOrderDetails($id) {
-      localStorage.setItem("thisOrderId", $id);
+    showThisOrderDetails: function showThisOrderDetails(id) {
       this.$router.push({
-        name: "offerOrder1Page"
+        name: "ShowSingleOrder",
+        params: {
+          id: id
+        }
       });
     }
   }
@@ -20316,7 +20318,24 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mounted: function mounted() {
-    this.getMyOrders2();
+    var _this = this;
+
+    // let thisorderId = localStorage.getItem("thisOrderId");
+    // check user type 
+    _utils_api__WEBPACK_IMPORTED_MODULE_0__["default"].get("/v1/account").then(function (response) {
+      if (response.data.data.membership_type === 'vendor') {
+        // مقدم خدمه
+        _this.getMyOrders2();
+      } else if (response.data.data.membership_type === 'user') {
+        _this.$router.push({
+          name: "MyOrder"
+        });
+      }
+    }) // error.response.data.errors
+    ["catch"](function (e) {
+      _this.errors = e.response.data.errors;
+      console.log(e.response);
+    });
     document.getElementById('pagesCount').style.display = "none";
   },
   data: function data() {
@@ -20327,12 +20346,12 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     getMyOrders2: function getMyOrders2() {
-      var _this = this;
+      var _this2 = this;
 
       _utils_api__WEBPACK_IMPORTED_MODULE_0__["default"].get("v1/orders").then(function (response) {
-        _this.list2 = response.data.data.data;
+        _this2.list2 = response.data.data.data;
 
-        if (_this.list2.length === 0) {
+        if (_this2.list2.length === 0) {
           document.getElementById('pagesCount').style.display = "none";
         } else {
           document.getElementById('pagesCount').style.display = "block";
@@ -20556,6 +20575,7 @@ __webpack_require__.r(__webpack_exports__);
     this.gettingTicketDetails();
     this.getAllReplysOfThisTicket();
   },
+  props: ['id'],
   data: function data() {
     return {
       base_url: base_url,
@@ -20610,7 +20630,7 @@ __webpack_require__.r(__webpack_exports__);
       formData.append("ticket_id", ticketId);
       formData.append("user_id", localStorage.getItem("myIdTazkarty"));
       formData.append("replay", this.comment);
-      _utils_api__WEBPACK_IMPORTED_MODULE_0__["default"].post("v1/add_comment_for_this_ticket/" + ticketId, formData).then(function (response) {
+      _utils_api__WEBPACK_IMPORTED_MODULE_0__["default"].post("v1/add_comment_for_this_ticket/" + this.$props.id, formData).then(function (response) {
         _this3.getAllReplysOfThisTicket();
 
         console.log("comment is saved");
@@ -21435,7 +21455,10 @@ __webpack_require__.r(__webpack_exports__);
     goToTicketDetails: function goToTicketDetails(ticketId) {
       var thisTicketId = localStorage.setItem("thisTicketId", ticketId);
       this.$router.push({
-        name: "ChatPage"
+        name: "ChatPage",
+        params: {
+          id: ticketId
+        }
       });
     }
   }
@@ -22308,7 +22331,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _utils_api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils/api */ "./resources/js/utils/api.js");
-/* harmony import */ var _components_UserProfile_TopNavbar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/UserProfile/TopNavbar */ "./resources/js/components/UserProfile/TopNavbar.vue");
+/* harmony import */ var _components_Orders_NewTopNavbar_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/Orders/NewTopNavbar.vue */ "./resources/js/components/Orders/NewTopNavbar.vue");
 /* harmony import */ var _components_Orders_OrderRightNavbar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/Orders/OrderRightNavbar */ "./resources/js/components/Orders/OrderRightNavbar.vue");
 /* harmony import */ var _components_Orders_OffersList__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/Orders/OffersList */ "./resources/js/components/Orders/OffersList.vue");
 
@@ -22319,7 +22342,7 @@ __webpack_require__.r(__webpack_exports__);
   name: "ShowSingleOrder",
   props: ['id'],
   components: {
-    TopNavbar: _components_UserProfile_TopNavbar__WEBPACK_IMPORTED_MODULE_1__["default"],
+    NewTopNavbar: _components_Orders_NewTopNavbar_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
     OrderRightNavbar: _components_Orders_OrderRightNavbar__WEBPACK_IMPORTED_MODULE_2__["default"],
     OffersList: _components_Orders_OffersList__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
@@ -22369,7 +22392,6 @@ __webpack_require__.r(__webpack_exports__);
     addNewOffer: function addNewOffer() {
       var _this2 = this;
 
-      // vars => order_id  , vendor_id , vendor_comment , price , execution_time
       // check if offer requester is same user who loggined
       if (localStorage.getItem("logginedUser") === this.OrderRequestOwnerId.toString()) {
         alert('you cannot make order , you are order owner');
@@ -38492,11 +38514,11 @@ var _hoisted_81 = {
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_OrderRightNavbar = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("OrderRightNavbar");
 
-  var _component_TopNavbar = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("TopNavbar");
+  var _component_NewTopNavbar = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("NewTopNavbar");
 
   var _component_offers_list = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("offers-list");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_OrderRightNavbar), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_TopNavbar), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.home")) + " / " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.orders")) + " / " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.deptname), 1
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_OrderRightNavbar), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_NewTopNavbar), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.home")) + " / " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.orders")) + " / " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.deptname), 1
   /* TEXT */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
     src: $data.base_url + '/public/assets/images/o_hand.svg',
@@ -40576,7 +40598,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_OrdersPages_myOrder_vue__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ../views/OrdersPages/myOrder.vue */ "./resources/js/views/OrdersPages/myOrder.vue");
 /* harmony import */ var _views_OrdersPages_showAllOrders_vue__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ../views/OrdersPages/showAllOrders.vue */ "./resources/js/views/OrdersPages/showAllOrders.vue");
 /* harmony import */ var _views_TicketsPages_createTecket_vue__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ../views/TicketsPages/createTecket.vue */ "./resources/js/views/TicketsPages/createTecket.vue");
-/* harmony import */ var _views_OrdersPages_ShowSingleOrder__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ../views/OrdersPages/ShowSingleOrder */ "./resources/js/views/OrdersPages/ShowSingleOrder.vue");
+/* harmony import */ var _views_OrdersPages_ShowSingleOrder_vue__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ../views/OrdersPages/ShowSingleOrder.vue */ "./resources/js/views/OrdersPages/ShowSingleOrder.vue");
 
  // Account Settings
 
@@ -40874,7 +40896,7 @@ var routes = [{
 }, {
   path: prefix + '/order/:id',
   props: true,
-  component: _views_OrdersPages_ShowSingleOrder__WEBPACK_IMPORTED_MODULE_29__["default"],
+  component: _views_OrdersPages_ShowSingleOrder_vue__WEBPACK_IMPORTED_MODULE_29__["default"],
   name: 'ShowSingleOrder'
 }];
 var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_30__.createRouter)({

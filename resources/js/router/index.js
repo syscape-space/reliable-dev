@@ -41,7 +41,7 @@ import ShowAllOrders from '../views/OrdersPages/showAllOrders.vue'
 
 // Tickets
 import addTicket from '../views/TicketsPages/createTecket.vue'
-import ShowSingleOrder from "../views/OrdersPages/ShowSingleOrder";
+import ShowSingleOrder from "../views/OrdersPages/ShowSingleOrder.vue";
 
 
 const prefix = APP_PREFIX;
@@ -69,21 +69,21 @@ const routes = [{
         component: indexPage,
         beforeEnter: checkIfLogin,
         name: 'home',
-        meta: {title: 'Reliable'}
+        meta: { title: 'Reliable' }
     },
     {
         path: prefix + '/login',
         component: loginPage,
         beforeEnter: checkIfLogin,
         name: "Login",
-        meta: {title: 'Login'}
+        meta: { title: 'Login' }
     },
     {
         path: prefix + '/register',
         component: Register,
         beforeEnter: checkIfLogin,
         name: "Register",
-        meta: {title: 'Register'}
+        meta: { title: 'Register' }
     },
     // Jobs
     {
@@ -91,7 +91,7 @@ const routes = [{
         beforeEnter: guardMyroute,
         component: ShowAllJobsPage,
         name: "ShowAllJobsPage",
-        meta: {title: 'All Jobs'}
+        meta: { title: 'All Jobs' }
     },
     {
         path: prefix + '/job_details',
@@ -105,28 +105,28 @@ const routes = [{
         beforeEnter: guardMyroute,
         component: addLicensePage,
         name: "addLicensePage",
-        meta: {title: 'Add License'}
+        meta: { title: 'Add License' }
     },
     {
         path: prefix + '/license_show',
         beforeEnter: guardMyroute,
         component: licenseShowPage,
         name: "licenseShowPage",
-        meta: {title: 'License'}
+        meta: { title: 'License' }
     },
     // start of verify test route ==> if clicked will go to success component this for test only
     {
         path: prefix + '/verify',
         beforeEnter: guardMyroute,
         component: Verify,
-        meta: {title: 'Verify'}
+        meta: { title: 'Verify' }
     },
     {
         path: prefix + '/success',
         beforeEnter: guardMyroute,
         component: Success,
         name: "Success",
-        meta: {title: 'Success'}
+        meta: { title: 'Success' }
     },
     // end of verify test route ==> if clicked will go to success component this for test only
     {
@@ -134,27 +134,27 @@ const routes = [{
         beforeEnter: guardMyroute,
         component: profilePage,
         name: "profilePage",
-        meta: {title: 'Profile'}
+        meta: { title: 'Profile' }
     },
     {
         path: prefix + '/u_profile',
         beforeEnter: guardMyroute,
         component: u_indexPage,
         name: "u_indexPage",
-        meta: {title: 'Profile'}
+        meta: { title: 'Profile' }
     },
     {
         path: prefix + '/u_employment_applocations',
         beforeEnter: guardMyroute,
         component: employmentApplications,
-        meta: {title: 'Employment Applications'}
+        meta: { title: 'Employment Applications' }
     },
     {
         path: prefix + '/user-balance',
         beforeEnter: guardMyroute,
         component: Balance,
         name: "Balance",
-        meta: {title: 'Balance'}
+        meta: { title: 'Balance' }
 
     },
     {
@@ -162,42 +162,42 @@ const routes = [{
         beforeEnter: guardMyroute,
         component: offerOrder,
         name: "offerOrder",
-        meta: {title: 'Offer Orders'}
+        meta: { title: 'Offer Orders' }
     },
     {
         path: prefix + '/make-order',
         beforeEnter: guardMyroute,
         component: DocumentRequest,
         name: "DocumentRequest",
-        meta: {title: 'make order'}
+        meta: { title: 'make order' }
     },
     {
         path: prefix + '/u_ticket_details',
         beforeEnter: guardMyroute,
         component: ChatPage,
         name: "ChatPage",
-        meta: {title: 'Chat'}
+        meta: { title: 'Chat' }
     },
     {
         path: prefix + '/u_ticket1',
         beforeEnter: guardMyroute,
         component: Ticket1,
         name: "Ticket1",
-        meta: {title: 'Ticket'}
+        meta: { title: 'Ticket' }
     },
     {
         path: prefix + '/u_ticket2',
         beforeEnter: guardMyroute,
         component: Ticket2,
         name: "Ticket2",
-        meta: {title: 'Ticket'}
+        meta: { title: 'Ticket' }
     },
     {
         path: prefix + '/u_users',
         beforeEnter: guardMyroute,
         component: Users,
         name: "Users",
-        meta: {title: 'Users'}
+        meta: { title: 'Users' }
     },
 
     // orders pages routes
@@ -206,7 +206,7 @@ const routes = [{
         beforeEnter: guardMyroute,
         component: showOrdersPage,
         name: "showOrdersPage",
-        meta: {title: 'Orders'}
+        meta: { title: 'Orders' }
 
     },
     {
@@ -214,56 +214,56 @@ const routes = [{
         beforeEnter: guardMyroute,
         component: offerOrder2Page,
         name: "offerOrder2Page",
-        meta: {title: 'Offers'}
+        meta: { title: 'Offers' }
     },
     {
         path: prefix + '/o_offer_order3',
         beforeEnter: guardMyroute,
         component: offerOrder3Page,
         name: "offerOrder3Page",
-        meta: {title: 'Orders'}
+        meta: { title: 'Orders' }
     },
     {
         path: prefix + '/u_notification',
         beforeEnter: guardMyroute,
         component: NotificationPage,
         name: "NotificationPage",
-        meta: {title: 'Notification'}
+        meta: { title: 'Notification' }
     },
     {
         path: prefix + '/u_profile2',
         beforeEnter: guardMyroute,
         component: Profile2,
         name: "Profile2",
-        meta: {title: 'Profile'}
+        meta: { title: 'Profile' }
     },
     {
         path: prefix + '/u_profile3',
         beforeEnter: guardMyroute,
         component: Profile3,
         name: "Profile3",
-        meta: {title: 'Profile'}
+        meta: { title: 'Profile' }
     },
     {
         path: prefix + '/u_profile4',
         beforeEnter: guardMyroute,
         component: Profile4,
         name: "Profile4",
-        meta: {title: 'Profile'}
+        meta: { title: 'Profile' }
     },
     {
         path: prefix + '/my_orders',
         beforeEnter: guardMyroute,
         component: MyOrder,
         name: "MyOrder",
-        meta: {title: 'My Orders'}
+        meta: { title: 'My Orders' }
     },
     {
         path: prefix + '/show_all_orders',
         beforeEnter: guardMyroute,
         component: ShowAllOrders,
         name: "ShowAllOrders",
-        meta: {title: 'Orders'}
+        meta: { title: 'Orders' }
     },
     // Tickets pages routes
     {
@@ -271,13 +271,13 @@ const routes = [{
         beforeEnter: guardMyroute,
         component: addTicket,
         name: "addTicket",
-        meta: {title: 'Add Ticket'}
+        meta: { title: 'Add Ticket' }
     },
     {
-       path:prefix + '/order/:id',
-       props:true,
-       component:ShowSingleOrder,
-       name:'ShowSingleOrder',
+        path: prefix + '/order/:id',
+        props: true,
+        component: ShowSingleOrder,
+        name: 'ShowSingleOrder',
     },
 ]
 const router = createRouter({

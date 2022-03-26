@@ -1,6 +1,6 @@
 <template>
   <OrderRightNavbar/>
-  <TopNavbar/>
+  <NewTopNavbar/>
   <section class="personal-section mt-2">
     <div class="personal">
       <div class="personal-info">
@@ -170,7 +170,7 @@
                       <img style="width: 50px;height: 50px;" class="uses-img" :src="base_url + '/public/storage'+ profile_image " alt="">
                     </div>
                     <span class="text-center "> {{ orderOwnerName }} </span> <br>
-
+                      
                   </li>
                 </ul>
               </div>
@@ -198,13 +198,13 @@
 </template>
 <script>
 import api from "../../utils/api";
-import TopNavbar from "../../components/UserProfile/TopNavbar";
+import NewTopNavbar from "../../components/Orders/NewTopNavbar.vue";
 import OrderRightNavbar from "../../components/Orders/OrderRightNavbar";
 import OffersList from "../../components/Orders/OffersList";
 export default {
   name:"ShowSingleOrder",
   props:['id'],
-  components: {TopNavbar,OrderRightNavbar,OffersList},
+  components: {NewTopNavbar,OrderRightNavbar,OffersList},
   mounted(){
     this.gettingOrderDetails();
   },
@@ -251,7 +251,6 @@ export default {
           });
     },
     addNewOffer(){
-      // vars => order_id  , vendor_id , vendor_comment , price , execution_time
       // check if offer requester is same user who loggined
       if( localStorage.getItem("logginedUser") === this.OrderRequestOwnerId.toString() ){
         alert('you cannot make order , you are order owner');
