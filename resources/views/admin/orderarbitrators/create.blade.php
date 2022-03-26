@@ -1,6 +1,6 @@
 @extends('admin.index')
 @section('content')
-@include("admin.layouts.components.submit_form_ajax",["form"=>"#orderarbitrators"])
+@include("admin.layouts.components.submit_form_ajax",["form"=>"#orderarbitrators",'query'=>""])
 <div class="card card-dark">
 	<div class="card-header">
 		<h3 class="card-title">

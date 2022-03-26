@@ -1,6 +1,6 @@
 @extends('admin.index')
 @section('content')
-@include("admin.layouts.components.submit_form_ajax",["form"=>"#settings"])
+@include("admin.layouts.components.submit_form_ajax",["form"=>"#settings",'query'=>""])
 <div class="card card-dark">
     <div class="card-header">
         <h3 class="card-title">{{ !empty(request('type'))?trans('admin.'.request('type')):'' }}</h3>
