@@ -347,7 +347,7 @@
                 </div>
                 <div class="col-4">
                   <div class="btn mx-2 grad " 
-                  style=" padding: 7px;border-color: #048E81 !important;background-color: #048E81 !important;min-width:120px;">
+                  style=" padding: 7px;border-color: #048E81 !important;background-color: #048E81 !important;min-width:120px;color:#fff">
                     حفظ طلبك كمسوده
                     <img :src="base_url + '/public/assets/images/bookmark.svg'" alt="#" class="mr-2">
                   </div>
@@ -359,14 +359,14 @@
             </div>
             <div class="btns text-center mb-5" v-if="step !== 1">
               <div class="btn mx-2  page1 small cont " v-if="step < 6" @click="step++" 
-              style=" padding: 7px;border-color: #048E81 !important;background-color: #048E81 !important;min-width:120px;">
+              style=" padding: 7px;border-color: #048E81 !important;background-color: #048E81 !important;min-width:120px;color:#fff">
                 {{ $root._t("app.next") }}
               </div>
-              <div class="btn btn-success page1 small cont "  style=" padding: 7px;border-color: #048E81 !important;background-color: #048E81 !important;min-width:120px;" @click="submitOrder()" v-else>
+              <div class="btn btn-success page1 small cont "  style=" padding: 7px;border-color: #048E81 !important;background-color: #048E81 !important;min-width:120px;color:#fff" @click="submitOrder()" v-else>
                 أكتمال الطلب
               </div>
               <div class="btn btn-secondary small conta-back mx-3"
-                style=" padding: 7px;border-color: #048E81 !important;background-color: ##707070 !important;min-width:120px;"
+                style=" padding: 7px;border-color: #707070 !important;background-color: #707070 !important;min-width:120px;"
                @click="step--">
                 {{ $root._t("app.previous") }}
               </div>
