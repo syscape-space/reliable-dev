@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\V1\VendorController;
 use App\Http\Controllers\Api\V1\ExOrderController;
+use App\Http\Controllers\Api\V1\MyOrdersController ;
 use App\Http\Controllers\Api\V2\UpdateUserProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -64,6 +65,7 @@ Route::group(
 		Route::put('accept_offer/{offer_id} ' , 'OfferOrdersController@acceptOffer') ;
 		Route::get('getting_add_data_of_order_offer_owners/{offer_id}' , 'OfferOrdersController@getOrderAndOfferOwnersData');
 		Route::get('getting_defendant_data/{order_id}' , 'OrderCaseAgainstController@getDataOfDefendant');
+		Route::get('getting_filtered_orders/{key} ' , 'MyOrdersController@gettingFilteredOrders') ;
 
 
 		Route::get('/', function () {

@@ -26,16 +26,16 @@
                   <div class="">
                     <ul class="list-unstyled">
                       <li class="mt-2">
-                        <a href="">{{ $root._t("app.drafts") }}</a>
+                        <a>{{ $root._t("app.drafts") }}</a>
                       </li>
                       <li class="mt-2">
-                        <a href="">{{ $root._t("app.waitting") }}</a>
+                        <router-link :to="{ name: 'Filteration', params: { data: 'waiting' }}">{{ $root._t("app.waitting") }}</router-link>
                       </li>
                       <li class="mt-2">
-                        <a href="">{{ $root._t("app.offers") }}</a>
+                        <a>{{ $root._t("app.offers") }}</a>
                       </li>
                       <li class="mt-2">
-                        <a href="">{{ $root._t("app.rejected") }}</a>
+                        <a @click.prevent="getWaiting('refused')">{{ $root._t("app.rejected") }}</a>
                       </li>
                     </ul>
                   </div>
@@ -70,8 +70,6 @@
                   </div>
                 </div>
               </li>
-             
-            
             </ul>
           </div>
         </div>
@@ -85,5 +83,10 @@ export default {
       base_url:base_url
     };
   },
+  methods:{
+    getWaiting(data){
+      this.$router.push({ name: "Filteration" , params: {data: data} });
+    }
+  }
 }
 </script>
