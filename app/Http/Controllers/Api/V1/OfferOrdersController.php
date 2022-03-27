@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Api\V1;
 
+use App\Http\Controllers\Admin\Orders;
 use App\Http\Controllers\Controller;
+use App\Models\Order;
 use Illuminate\Http\Request;
 use App\Models\OrderOffer;
 
@@ -27,6 +29,24 @@ class OfferOrdersController extends Controller
 
         return response()->json([
             "message" => "updated"
+        ] , 200) ;
+    }
+
+    // getting all data of order and offer owner and order owner
+    public function getOrderAndOfferOwnersData( $offer_id ){
+        $allOffersAndOrdersOwners = OrderOffer::join('orders', 'orders.id', '=', 'order_offers.order_id')
+                ->join('departments' , 'departments.id' , '=' , 'orders.department_id')
+                ->join('users' , 'order_offers.vendor_id' , '=' , 'users.id')
+                ->where('order_offers.id' , '=' , $offer_id)
+                ->get(['users.*', 'order_offers.*' , 'orders.*' , 'departments.department_name_ar']);
+
+        $countOffersForThisOrder = OrderOffer::join('orders', 'orders.id', '=', 'order_offers.order_id' )
+                ->where('order_offers.id' , '=' , $offer_id)
+                ->count();
+
+        return response()->json([
+            "allOffersAndOrdersOwners" => $allOffersAndOrdersOwners ,
+            "offersCount" => $countOffersForThisOrder
         ] , 200) ;
     }
 }

@@ -213,6 +213,7 @@ const routes = [{
         path: prefix + '/o_offer_order2/:id',
         beforeEnter: guardMyroute,
         component: offerOrder2Page,
+        props: true,
         name: "offerOrder2Page",
         meta: { title: 'Offers' }
     },
