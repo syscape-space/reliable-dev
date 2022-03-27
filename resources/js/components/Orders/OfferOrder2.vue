@@ -19,7 +19,7 @@
                   "
                 >
                   <h6 style="font-size: 13px" class=""> {{ $root._t("app.projectCard") }} </h6>
-                  <h6 style="font-size: 13px"> {{ mainCategory }}  </h6>
+                  <h6 style="font-size: 13px"> {{ list.department_name_ar }}  </h6>
                   <ul class="list-unstyled px-0 f-12 text-end mt-4">
                     <li class="mb-3 f-12">
                       <span> {{ $root._t("app.projectStatus") }} </span>
@@ -27,7 +27,7 @@
                         class="o_btn d-inline-block px-3 py-2 rounded"
                         style="margin-right: 15px; background-color: #0995eb"
                       >
-                        {{ $root._t("app." + orderStatus) }}
+                        {{ $root._t("app." + list.order_status) }}
                       </button>
                     </li>
                     <li class="mb-3">
@@ -37,7 +37,7 @@
                       <span
                         style="margin-right: 15px; color: #0995eb"
                         class="fw-bold"
-                        > {{ publishDate }} </span
+                        > {{ list.created_at }} </span
                       >
                     </li>
                     <li class="mb-3">
@@ -47,7 +47,7 @@
                       <span
                         style="margin-right: 15px; color: #0995eb"
                         class="fw-bold"
-                        > {{ executionTime }} يوم</span
+                        > {{ list.execution_time }} يوم</span
                       >
                     </li>
                     <li class="mb-3">
@@ -57,7 +57,7 @@
                       <span
                         style="margin-right: 15px; color: #0995eb"
                         class="fw-bold"
-                        > {{ offersCount }} عرض</span
+                        > {{ list.offersCount }} عرض</span
                       >
                     </li>
                     <li class="mb-3">
@@ -66,13 +66,13 @@
                       >
                     </li>
                     <li class="mb-3 mt-4 text-center">
-                    <div class="text-center mb-2" v-if="photo_profile === null">
+                    <div class="text-center mb-2" v-if="list.photo_profile === null">
                       <img style="width: 50px;height: 50px;" class="uses-img" :src="base_url+'/public/assets/images/nouser.png' " alt="">
                     </div>
                     <div class="text-center mb-2" v-else>
-                      <img style="width: 50px;height: 50px;" class="uses-img" :src="cloud_url  +  photo_profile " alt="">
+                      <img style="width: 50px;height: 50px;" class="uses-img" :src="cloud_url  +  list.photo_profile " alt="">
                     </div>
-                    <span class="text-center"> {{ offerOwner }} </span> <br />
+                    <span class="text-center"> {{ list.name }} </span> <br />
                       
                     </li>
                     <li class="text-center">
@@ -96,7 +96,7 @@
               <div class="row w-100 mx-0 px-0">
                 <span>{{ $root._t("app.home") }} /
                    {{ $root._t("app.projects") }} / 
-                  {{ mainCategory }} </span>
+                  {{ list.department_name_ar }} </span>
                 <div class="col-md-4 my-4" style="color: #aeaeae">
                   <div class="cir-prog" style="border-color: #048e81">
                     <img :src="base_url + '/public/assets/images/o_hand.svg'" alt="" />
@@ -132,7 +132,7 @@
               <div>
                 <h5 class="fw-bold g-color"> {{ $root._t("app.projectDetails") }} </h5>
                 <p style="font-size: 12px">
-                  {{ orderDetails }}
+                  {{ list.order_content }}
                 </p>
                 <div
                 class="mt-4"
@@ -143,7 +143,7 @@
                     color: #2b7b74;
                     border-radius: 4px; "
                 ><p class="m-0">
-                    {{ $root._t("app.projectPudget") }}  : <span class="me-4"> {{ price }} $ </span>
+                    {{ $root._t("app.projectPudget") }}  : <span class="me-4"> {{ list.price }} $ </span>
                   </p>
                 </div>
                 <div class="discuss-deal mt-4">
@@ -249,7 +249,7 @@
                         class="o_btn d-inline-block px-3 py-2 rounded"
                         style="margin-right: 15px"
                       >
-                        {{ $root._t("app." + orderStatus) }}
+                        {{ $root._t("app." + list.order_status) }}
                       </button>
                     </li>
                     <li class="mb-3">
@@ -259,7 +259,7 @@
                       <span
                         style="margin-right: 15px; color: #0995eb"
                         class="fw-bold"
-                        > {{ price }} $ </span
+                        > {{ list.price }} $ </span
                       >
                     </li>
                     <li class="mb-3">
@@ -269,7 +269,7 @@
                       <span
                         style="margin-right: 15px; color: #0995eb"
                         class="fw-bold"
-                        >{{ executionTime }} يوم</span
+                        >{{ list.execution_time }} يوم</span
                       >
                     </li>
                     <li class="mb-3">
@@ -280,7 +280,7 @@
                         style="margin-right: 15px; color: #0995eb"
                         class="fw-bold"
                       >
-                        {{ publishDate }} </span
+                        {{ list.created_at }} </span
                       >
                     </li>
                   </ul>
@@ -359,17 +359,9 @@ export default {
     return{
       base_url:base_url,
       cloud_url:cloud_url,
-      mainCategory : '' ,
-      orderStatus : '' ,
-      executionTime : '' ,
-      publishDate : '' ,
-      offersCount : '' ,
-      offerOwner : '' ,
-      orderDetails : '' ,
-      price : '' ,
+      list : [] ,
       orderOwner : '' ,
-      photo_profile : '' ,
-      orderOwnerProfile : ''
+      orderOwnerProfile : '' ,
     }
   },
   methods:{
@@ -378,15 +370,7 @@ export default {
       api
         .get("v1/getting_add_data_of_order_offer_owners/"+order_id)
         .then((response) => {
-          this.mainCategory = response.data.allOffersAndOrdersOwners[0].department_name_ar ;
-          this.orderStatus = response.data.allOffersAndOrdersOwners[0].order_status ;
-          this.executionTime = response.data.allOffersAndOrdersOwners[0].execution_time ;
-          this.publishDate = response.data.allOffersAndOrdersOwners[0].created_at ;
-          this.offersCount = response.data.offersCount ;
-          this.offerOwner = response.data.allOffersAndOrdersOwners[0].name ;
-          this.orderDetails = response.data.allOffersAndOrdersOwners[0].order_content ;
-          this.price = response.data.allOffersAndOrdersOwners[0].price ;
-          this.photo_profile = response.data.allOffersAndOrdersOwners[0].photo_profile ;
+          this.list = response.data.allOffersAndOrdersOwners[0];
           console.log(response.data.allOffersAndOrdersOwners[0]);
         })
         .catch((e) => {

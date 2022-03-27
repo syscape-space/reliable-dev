@@ -375,7 +375,11 @@ return [
     'presentation' => 'العروض التقديميه' ,
     'oderValue' => 'قيمه العرض' ,
     'admin' => 'الاداره' ,
-    'noOfferComment' => 'لا يحتوى على تعليق'
+    'noOfferComment' => 'لا يحتوى على تعليق' ,
+    // Defendant presenter
+    'enemyCard' => 'بطاقه المدعى عليه' ,
+    'fullname' => 'الاسم' ,
+    'nationalId' => 'رقم الهويه'
 
     
 ];
