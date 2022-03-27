@@ -11,30 +11,10 @@
             <recharge-balance-modal/>
           </div>
         </div>
-        <div class="bl-money p-4">
-          <div class="row w-100 mx-0 px-0">
-            <div class="col-md-4">
-              <div class="btw-flex lf-bor py-4">
-                <img :src="base_url+'/public/assets/images/balance-money.svg'" alt="">
-                <div class="text-center">
-                  <div class="mb-2">{{ $root._t("app.totalBalace") }}</div>
-                  <span style="font-size: 28px;color: #339858;">{{ user.current_balance }} $</span>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-8">
-              <p class="py-3">
-                هو الرصيد الكلي للحساب اذا كان متاح او معلق
-              </p>
-            </div>
-          </div>
-        </div>
         <div class="row w-100 mx-0 px-0 mt-5">
-          <div class="col-md-4 mb-2">
+          <div class="col-md-3 mb-2">
             <div class="bl-money p-4">
-              <div class="text-center mb-3">
-                <img style="width: 45px;" :src="base_url+'/public/assets/images/balance-hand.svg'" alt="">
-              </div>
+              
               <div>
                 <h6 class="text-center">
                   {{ $root._t("app.balanceAbleToWithdrawal") }}
@@ -45,11 +25,9 @@
               </div>
             </div>
           </div>
-          <div class="col-md-4 mb-2">
+          <div class="col-md-3 mb-2">
             <div class="bl-money p-4">
-              <div class="text-center mb-3">
-                <img style="width: 45px;" :src="base_url+'/public/assets/images/balance-coin.svg'" alt="">
-              </div>
+           
               <div>
                 <h6 class="text-center">
                   {{ $root._t("app.suspendedBalance") }}
@@ -60,11 +38,8 @@
               </div>
             </div>
           </div>
-          <div class="col-md-4 mb-2">
+          <div class="col-md-3 mb-2">
             <div class="bl-money p-4">
-              <div class="text-center mb-3">
-                <img style="width: 45px;" :src="base_url+'/public/assets/images/balance-box.svg'" alt="">
-              </div>
               <div>
                 <h6 class="text-center">
                   {{ $root._t("app.availableBalance") }}
@@ -75,14 +50,26 @@
               </div>
             </div>
           </div>
+          <div class="col-md-3 mb-2">
+            <div class="bl-money p-4">
+              <div class="">
+                <div class="text-center">
+                  <div class="mb-2">{{ $root._t("app.totalBalace") }}</div>
+                  <span style="font-size: 28px;color: #339858;">{{ user.current_balance }} $</span>
+                </div>
+              </div>
+              </div>
+            </div>
         </div>
+       
+     
         <div class="d-flex align-items-center justify-content-between my-2">
           <span> {{ $root._t("app.fawaterkAccount") }}</span>
           <a href="" style="color: #2B7B74;">مشاهده كل فواتيري</a>
         </div>
         <div>
           <template v-for="charge in charges">
-            <div class="bl-money py-2 btw-flex px-2 mb-2" v-if="charge.charge_status === 'done' " >
+            <div class="bl-money py-2 btw-flex px-2 mb-2" style="    min-height: 100px;" v-if="charge.charge_status === 'done' " >
               <span>
                 <span class=" text-white inv-c" style="min-width: 90px">
                   {{ parseInt( charge.amount ) }} $
@@ -91,7 +78,7 @@
                   {{ $root._t("app.rechargingSuccessfully") }}
                 </span>
               </span>
-              <span class="inv-c bg-white">
+              <span class="" style="min-width: 90px;padding: 16px;border-left: 1px solid #ddd;font-weight: bold;font-size: 25px;color: #3bb234;">
                 <img class="" :src="base_url+'/public/assets/images/balance-paypal.svg'" alt="">
               </span>
             </div>
