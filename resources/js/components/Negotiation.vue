@@ -1,0 +1,112 @@
+<template>
+  <order-right-navbar/>
+  <NewTopNavbar/>
+  <section class="requsts-sec mt-4">
+    <div class="chat-clinet" style="max-width: 1000px;margin: auto;">
+      <ul class="chat-list justify-content-between  list-unstyled d-flex ">
+        <li class="d-flex me-5">
+          <img style="width:40px" :src="base_url+'/images/morning.svg'" alt="">
+          <p style="font-size: 13px;" class="me-1 m-0">أحمد اسلام <br>
+            <span style="color: rgb(165, 164, 164);" >موثوق</span> </p>
+        </li>
+        <li class="text-center">
+          <span>رقم الطلب</span> <br>
+          <span>14445</span>
+        </li>
+        <li>
+          <span>عنوان الطلب</span>
+        </li>
+        <li>
+          <span>مرحلة التفاوض</span>
+        </li>
+        <li class="d-flex  ms-3" >
+          <img class="mx-4" :src="base_url+'/images/chate2.svg'" alt="">
+          <img :src="base_url+'/images/chate.svg'" alt="">
+        </li>
+      </ul>
+      <div class=" text-center " style=" font-size: 13px;
+         "> <p class="m-0"  > <span style="background-color:#F8FAFC;
+          color: rgb(177, 177, 177);
+          padding: 10px;
+         border-radius: 20px; "
+      >may 21</span></p>
+      </div>
+      <ul class="item-chat list-unstyled text-start px-0" >
+        <li class="sec-list" v-for="message in negotiate.messages" >
+          <div class="d-flex mb-3">
+            <img style="width: 30px;" :src="base_url+'/images/morning.svg'" alt=""> <br>
+            <p class="m-0 me-2"  >أحمد اسلام</p>
+          </div>
+          <span>
+              <span v-html="message.content"></span>
+              <br>
+              <small>05:12</small>
+            </span>
+        </li>
+
+      </ul>
+      <div style="background-color: #FAFAFA;" class="mt-3 d-flex align-items-center mb-3">
+        <div class="d-flex align-items-center w-100 p-2  ">
+            <span style="display: inline-block; padding-left: 8px; border-left: 2px solid #ddd;">
+              <img :src="base_url+'/images/file.png'" alt="">
+            </span>
+          <span class="flex-grow-1">
+              <input type="text" v-model="new_message" @keyup.enter="sendMessage" placeholder=".....اكتب تعليقك هنا" class="form-control bg-transparent border-0">
+            </span>
+          <span>
+              <img :src="base_url+'/images/Frame2.png'" alt="">
+            </span>
+          <span>
+              <button class="bg-transparent border-0">
+                <img :src="base_url+'/images/telegram.png'" alt="">
+              </button>
+            </span>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>
+
+<script>
+import OrderRightNavbar from "./Orders/OrderRightNavbar";
+import LayoutNavBar from "./partials/LayoutNavBar";
+import NewTopNavbar from "./Orders/NewTopNavbar";
+import api from "../utils/api";
+export default {
+  name: "Negotiation",
+  props:{
+    id:{
+      type:String,
+      nullable:true,
+    }
+  },
+  components: {LayoutNavBar, OrderRightNavbar,NewTopNavbar},
+  data(){
+    return {
+      new_message:'',
+      negotiate:{},
+    };
+  },
+  methods:{
+    getNegotiations(){
+      api.get('/v1/negotiations/'+this.$props.id).then(res=>{
+        this.negotiate = res.data.data;
+      })
+    },
+    sendMessage(){
+      var data = {negotiate_id:this.$props.id,user_id:this.$root.auth_user.id,content:this.new_message};
+      api.post('/v1/negotiations_messages',data).then(res=>{
+        this.negotiate.messages.push(data);
+        this.new_message = '';
+      })
+    }
+  },
+  created() {
+    this.getNegotiations();
+  }
+}
+</script>
+
+<style scoped>
+
+</style>

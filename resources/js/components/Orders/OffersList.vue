@@ -8,21 +8,21 @@
                       <img
                           style="width: 15px;"
                           class="ms-1"
-                          :src="base_url + '/public/assets/images/o_clock.svg'"
+                          :src="base_url+'/assets/images/o_clock.svg'"
                           alt=""> <span> {{ offer.created_at }} </span>
                     </span>
             <span class="ms-3">
                       <img
                           style="width: 20px;"
                           class="ms-1"
-                          :src="base_url + '/public/assets/images/o_eye.svg'"
+                          :src="base_url+'/assets/images/o_eye.svg'"
                           alt=""> <span> عدد 0 اعمال </span>
                     </span>
             <span class="ms-3">
                       <img
                           style="width: 14px;"
                           class="ms-1"
-                          :src="base_url + '/public/assets/images/o_map.svg'"
+                          :src="base_url+'/assets/images/o_map.svg'"
                           alt=""> <span v-if="offer.vendor.country"> {{ offer.vendor.country.country_name_ar }} </span>
                            <span v-else > لم يحدد الدولة </span>
                     </span>
@@ -30,14 +30,14 @@
           <div class="my-2" style="font-size: 12px;">
                     <span class="o-box ms-2">
                       <img
-                          style="width: 15px;" class="ms-1" :src="base_url + '/public/assets/images/o_delever.svg'"
+                          style="width: 15px;" class="ms-1" :src="base_url+'/assets/images/o_delever.svg'"
                           alt="">
                       <span> {{ $root._t("app.deliveryTime") }} :</span>
                       <span class="me-2"> {{ offer.execution_time }} يوم </span>
                     </span>
             <span class="o-box o-box2">
                       <img
-                          style="width: 15px;" class="ms-1" :src="base_url + '/public/assets/images/o_payment.svg'"
+                          style="width: 15px;" class="ms-1" :src="base_url+'/assets/images/o_payment.svg'"
                           alt="">
                       <span> {{ $root._t("app.theAmount") }} </span>
                       <span class="me-2"> {{ offer.price }} </span>

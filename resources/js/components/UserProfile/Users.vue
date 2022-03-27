@@ -9,13 +9,13 @@
           </li>
           <li class="ms-4 position-relative">
             <a href="#"
-              ><img :src="base_url+'/public/assets/images/notification-nav.svg'" alt="" srcset="" />
+              ><img :src="base_url+'/assets/images/notification-nav.svg'" alt="" srcset="" />
               <span class="red-circle"></span>
             </a>
           </li>
           <li class="ms-5 position-relative">
             <a href="#"
-              ><img :src="base_url+'/public/assets/images/nav-message.svg'" alt="" srcset="" />
+              ><img :src="base_url+'/assets/images/nav-message.svg'" alt="" srcset="" />
               <span class="red-circle"></span>
             </a>
           </li>
@@ -30,12 +30,12 @@
               />
               <img
                 style="width: 15px; position: absolute; right: 7px; top: 10px"
-                :src="base_url+'/public/assets/images/nav-search.svg'"
+                :src="base_url+'/assets/images/nav-search.svg'"
                 alt=""
               />
               <img
                 style="width: 15px; position: absolute; left: 7px; top: 10px"
-                :src="base_url+'/public/assets/images/nav-input.svg'"
+                :src="base_url+'/assets/images/nav-input.svg'"
                 alt=""
               />
             </div>
@@ -68,7 +68,7 @@
                         <img class="uses-img" :src="base_url + '/storage/' +  item.photo_profile  " alt="">
                       </div>
                       <div class="text-center" v-else>
-                        <img class="uses-img" :src="base_url + '/public/assets/images/emptyUser.png'" alt="">
+                        <img class="uses-img" :src="base_url+'/assets/images/emptyUser.png'" alt="">
                       </div>
                       <div class="text-center">
                         <i class="fas fa-star yellow"></i>

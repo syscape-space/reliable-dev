@@ -42,6 +42,7 @@ import ShowAllOrders from '../views/OrdersPages/showAllOrders.vue'
 // Tickets
 import addTicket from '../views/TicketsPages/createTecket.vue'
 import ShowSingleOrder from "../views/OrdersPages/ShowSingleOrder.vue";
+import Negotiation from "../components/Negotiation";
 
 
 const prefix = APP_PREFIX;
@@ -278,6 +279,12 @@ const routes = [{
         props: true,
         component: ShowSingleOrder,
         name: 'ShowSingleOrder',
+    },
+    {
+        path: prefix + '/negotiation/:id',
+        component: Negotiation,
+        name: 'negotiation',
+        props:true,
     },
 ]
 const router = createRouter({

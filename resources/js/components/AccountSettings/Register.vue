@@ -8,7 +8,7 @@
         <div class="text-center mt-5">
           <img
             style="width: 100px"
-            :src="base_url+'/public/assets/images/login-1-logo'.svg"
+            :src="base_url+'/assets/images/login-1-logo'.svg"
             alt=""
           />
         </div>
@@ -46,7 +46,7 @@
             <img
               class="img-lllo"
               style="width: 20px; position: absolute; right: 10px"
-              :src="base_url+'/public/assets/images/login-user.svg'"
+              :src="base_url+'/assets/images/login-user.svg'"
               alt=""
             />
           </div>
@@ -60,7 +60,7 @@
             <img
               class="img-lllo"
               style="width: 20px; position: absolute; right: 10px"
-              :src="base_url+'/public/assets/images/login-user.svg'"
+              :src="base_url+'/assets/images/login-user.svg'"
               alt=""
             />
           </div>
@@ -74,7 +74,7 @@
             <img
               class="img-lllo"
               style="width: 20px; position: absolute; right: 10px"
-              :src="base_url+'/public/assets/images/login-user.svg'"
+              :src="base_url+'/assets/images/login-user.svg'"
               alt=""
             />
           </div>
@@ -88,7 +88,7 @@
             <img
               class="img-lllo"
               style="width: 29px; position: absolute; right: 10px"
-              :src="base_url+'/public/assets/images/email-login.svg'"
+              :src="base_url+'/assets/images/email-login.svg'"
               alt=""
             />
           </div>
@@ -102,7 +102,7 @@
             <img
               class="img-lllo"
               style="width: 12px; position: absolute; right: 10px"
-              :src="base_url+'/public/assets/images/login-pass.svg'"
+              :src="base_url+'/assets/images/login-pass.svg'"
               alt=""
             />
           </div>
@@ -117,7 +117,7 @@
               {{ $root._t("app.facebook") }}
               <img
                 style="width: 20px"
-                :src="base_url+'/public/assets/images/login-facebook.svg'"
+                :src="base_url+'/assets/images/login-facebook.svg'"
                 alt=""
               />
             </button>
@@ -125,7 +125,7 @@
               {{ $root._t("app.google") }}
               <img
                 style="width: 19px"
-                :src="base_url+'/public/assets/images/google-llc.png'"
+                :src="base_url+'/assets/images/google-llc.png'"
                 alt=""
               />
             </button>
@@ -135,7 +135,7 @@
     </div>
     <div class="col-md-6 login-page">
       <div class="text-center mt-5">
-        <img style="width: 150px" :src="base_url+'/public/assets/images/login-logo.svg'" alt="" />
+        <img style="width: 150px" :src="base_url+'/assets/images/login-logo.svg'" alt="" />
       </div>
     </div>
   </div>

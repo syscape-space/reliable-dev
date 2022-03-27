@@ -25,9 +25,9 @@
                <span style="color: rgb(165, 164, 164);" > {{ ticketContent }} </span> </p>
           </li>
           <li class="d-flex me-auto ms-3" >
-            <img class="mx-4" :src="base_url + '/public/assets/images/chate2.svg'" alt="">
+            <img class="mx-4" :src="base_url+'/assets/images/chate2.svg'" alt="">
             <!-- getting this ticket details --> 
-            <img :src="base_url + '/public/assets/images/chate.svg'" alt="">
+            <img :src="base_url+'/assets/images/chate.svg'" alt="">
           </li>
         </ul>
         <div class=" text-center " style=" font-size: 13px;
@@ -74,14 +74,14 @@
         <div style="background-color: #FAFAFA;" class="mt-3 d-flex align-items-center mb-3">
           <div class="d-flex align-items-center w-100 p-2  ">
             <span style="display: inline-block; padding-left: 8px; border-left: 2px solid #ddd;">
-              <img :src="base_url + '/public/assets/images/file.png'" alt="">
+              <img :src="base_url+'/assets/images/file.png'" alt="">
             </span>
             <span class="flex-grow-1">
               <input type="text" placeholder=".....اكتب تعليقك هنا" class="form-control bg-transparent border-0" v-model="comment">
             </span>
             <span>
               <button class="bg-transparent border-0" >
-                <img :src="base_url + '/public/assets/images/telegram.png'" @click.prevent="addCommentForThisTicket()">
+                <img :src="base_url+'/assets/images/telegram.png'" @click.prevent="addCommentForThisTicket()">
               </button>
             </span>
           </div>
