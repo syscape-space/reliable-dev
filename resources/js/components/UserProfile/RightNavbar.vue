@@ -76,7 +76,7 @@
                   <span>{{ $root._t("app.myBalance") }} </span>
                 </router-link>
               </li>
-              <li>
+              <!-- <li>
                 <a href="#">
                   <img
                     :src="base_url+'/public/assets/images/dash-project.svg'"
@@ -86,7 +86,7 @@
                   />
                   <span>{{ $root._t("app.myProjects") }} </span>
                 </a>
-              </li>
+              </li> -->
               <li>
                 <a @click.prevent="goToTazkarty(user.id)" style="color:#fff; cursor: pointer;">
                   <img
