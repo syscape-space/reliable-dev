@@ -53,7 +53,7 @@
           <li class="sec-list" v-else> 
            
             <span class="w-100 d-block" key=""
-              style="background-color: #048e81 !important;max-width: 90%;border-radius: 10px 2px 10px 10px !important;">
+              style="background-color: #e1e1e1 !important;max-width: 90%;border-radius: 10px 2px 10px 10px !important;    color: #4c5053;">
                  <div class="d-flex mb-3 align-items-center justify-content-between">
                   <!-- <img style="width: 30px;" src="./images/morning.svg" alt=""> <br> -->
                   <p style="font-weight:bold" class="m-0 me-2"  > {{ item.name }} </p>  
