@@ -108,7 +108,7 @@
               <div style="border-left: 3px solid #ddd" class="px-3">
                 <img
                   style="width: 70px"
-                  :src="base_url + '/public/assets/images/user.svg'"
+                  :src="cloud_url  + item.user_id.photo_profile"
                   alt=""
                 />
                 <div>
@@ -225,6 +225,7 @@ export default {
   data() {
     return {
       base_url: base_url,
+      cloud_url:cloud_url,
       list2 : [] ,
     };
   },
