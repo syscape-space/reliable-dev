@@ -22829,6 +22829,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       user: {},
+      base_url: base_url,
       charges: []
     };
   },
@@ -39163,7 +39164,7 @@ var _hoisted_6 = {
   "class": ""
 };
 var _hoisted_7 = {
-  "class": "bl-btn"
+  "class": "bl-btn mx-2"
 };
 var _hoisted_8 = {
   "class": "bl-money p-4"
@@ -39305,7 +39306,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.balanceWithdrawal")), 1
   /* TEXT */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_recharge_balance_modal)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-    src: _ctx.base_url + '/assets/images/balance-money.svg',
+    src: $data.base_url + '/public/assets/images/balance-money.svg',
     alt: ""
   }, null, 8
   /* PROPS */
@@ -39317,7 +39318,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     style: {
       "width": "45px"
     },
-    src: _ctx.base_url + '/assets/images/balance-hand.svg',
+    src: $data.base_url + '/public/assets/images/balance-hand.svg',
     alt: ""
   }, null, 8
   /* PROPS */
@@ -39329,7 +39330,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     style: {
       "width": "45px"
     },
-    src: _ctx.base_url + '/assets/images/balance-coin.svg',
+    src: $data.base_url + '/public/assets/images/balance-coin.svg',
     alt: ""
   }, null, 8
   /* PROPS */
@@ -39341,7 +39342,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     style: {
       "width": "45px"
     },
-    src: _ctx.base_url + '/assets/images/balance-box.svg',
+    src: $data.base_url + '/public/assets/images/balance-box.svg',
     alt: ""
   }, null, 8
   /* PROPS */
@@ -39358,7 +39359,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     /* TEXT */
     )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_41, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
       "class": "",
-      src: _ctx.base_url + '/assets/images/balance-paypal.svg',
+      src: $data.base_url + '/public/assets/images/balance-paypal.svg',
       alt: ""
     }, null, 8
     /* PROPS */

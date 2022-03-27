@@ -7,7 +7,7 @@
         <div class="btw-flex">
           <h6 class="my-4">{{ $root._t("app.accountCharge") }}</h6>
           <div class="">
-            <button class="bl-btn">{{ $root._t("app.balanceWithdrawal") }}</button>
+            <button class="bl-btn mx-2">{{ $root._t("app.balanceWithdrawal") }}</button>
             <recharge-balance-modal/>
           </div>
         </div>
@@ -15,7 +15,7 @@
           <div class="row w-100 mx-0 px-0">
             <div class="col-md-4">
               <div class="btw-flex lf-bor py-4">
-                <img :src="base_url+'/assets/images/balance-money.svg'" alt="">
+                <img :src="base_url+'/public/assets/images/balance-money.svg'" alt="">
                 <div class="text-center">
                   <div class="mb-2">{{ $root._t("app.totalBalace") }}</div>
                   <span style="font-size: 28px;color: #339858;">{{ user.current_balance }} $</span>
@@ -33,7 +33,7 @@
           <div class="col-md-4 mb-2">
             <div class="bl-money p-4">
               <div class="text-center mb-3">
-                <img style="width: 45px;" :src="base_url+'/assets/images/balance-hand.svg'" alt="">
+                <img style="width: 45px;" :src="base_url+'/public/assets/images/balance-hand.svg'" alt="">
               </div>
               <div>
                 <h6 class="text-center">
@@ -48,7 +48,7 @@
           <div class="col-md-4 mb-2">
             <div class="bl-money p-4">
               <div class="text-center mb-3">
-                <img style="width: 45px;" :src="base_url+'/assets/images/balance-coin.svg'" alt="">
+                <img style="width: 45px;" :src="base_url+'/public/assets/images/balance-coin.svg'" alt="">
               </div>
               <div>
                 <h6 class="text-center">
@@ -63,7 +63,7 @@
           <div class="col-md-4 mb-2">
             <div class="bl-money p-4">
               <div class="text-center mb-3">
-                <img style="width: 45px;" :src="base_url+'/assets/images/balance-box.svg'" alt="">
+                <img style="width: 45px;" :src="base_url+'/public/assets/images/balance-box.svg'" alt="">
               </div>
               <div>
                 <h6 class="text-center">
@@ -92,7 +92,7 @@
                 </span>
               </span>
               <span class="inv-c bg-white">
-                <img class="" :src="base_url+'/assets/images/balance-paypal.svg'" alt="">
+                <img class="" :src="base_url+'/public/assets/images/balance-paypal.svg'" alt="">
               </span>
             </div>
           </template>
@@ -112,6 +112,7 @@ export default {
   data() {
     return {
       user: {},
+      base_url: base_url,
       charges: [],
     };
   },
