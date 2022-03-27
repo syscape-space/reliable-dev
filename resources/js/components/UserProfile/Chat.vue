@@ -40,25 +40,26 @@
 
         <ul class="item-chat list-unstyled text-start px-0" v-for="item in list" :key="item.id">
           <li v-if="item.admin_id != null "> 
-            <div class="d-flex mb-3">
-               <p class="m-0" > {{ $root._t("app.admin") }} </p>  
-              <!-- <img style="width: 30px; margin-right: 5px;" src="./images/morning.svg" alt=""> <br> -->
-            </div>  
-            <span> {{ item.replay }}
-              <br>              
-              <small style="float: right; padding-bottom: 4px;">05:12</small>
-
+            
+            <span class="w-100 d-block">
+                <div class="d-flex mb-3 align-items-center justify-content-between">
+                  <p style="font-weight:bold" class="m-0" > {{ $root._t("app.admin") }} </p>  
+                  <!-- <img style="width: 30px; margin-right: 5px;" src="./images/morning.svg" alt=""> <br> -->
+                  <small style=" padding-bottom: 4px;">05:12</small>
+                </div>  
+               {{ item.replay }}
             </span>
           </li>
           <li class="sec-list" v-else> 
-            <div class="d-flex mb-3">
-              <!-- <img style="width: 30px;" src="./images/morning.svg" alt=""> <br> -->
-               <p class="m-0 me-2"  > {{ item.name }} </p>  
-            </div>  
-            <span>{{ item.replay }} 
-              <br>              
-              <small  style="float: left; padding-bottom: 4px;">05:12</small>
-
+           
+            <span class="w-100 d-block" key=""
+              style="background-color: #048e81 !important;max-width: 90%;border-radius: 10px 2px 10px 10px !important;">
+                 <div class="d-flex mb-3 align-items-center justify-content-between">
+                  <!-- <img style="width: 30px;" src="./images/morning.svg" alt=""> <br> -->
+                  <p style="font-weight:bold" class="m-0 me-2"  > {{ item.name }} </p>  
+                  <small  style=" padding-bottom: 4px;">05:12</small>
+                </div>  
+              {{ item.replay }} 
             </span>
           </li>
 

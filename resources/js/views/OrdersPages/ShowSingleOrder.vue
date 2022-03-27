@@ -189,14 +189,14 @@
             <div class="my-4 btw-flex">
               <span> {{ $root._t("app.presentation") }} </span>
               <span>
-                <button
-                  class="btn-offer text-white mx-2"
-                  style="background-color: #0995eb"
-                >
-                  {{ $root._t("app.new") }}
-                </button>
-                <button class="btn-offer">{{ $root._t("app.old") }}</button>
-              </span>
+                  <button
+                      class="btn-offer text-white mx-2"
+                      style="background-color: rgb(4, 142, 129);">  تفاوض الان </button>
+                  <button
+                      class="btn-offer text-white mx-2"
+                      style="background-color: #0995EB;"> {{ $root._t("app.new") }} </button>
+                  <button class="btn-offer"> {{ $root._t("app.old") }} </button>
+                </span>
             </div>
             <offers-list ref="offers_list" />
           </div>
