@@ -372,5 +372,7 @@ return [
     'presentation' => 'offers Presentation' ,
     'oderValue' => 'Order Value' ,
     'admin' => 'الاداره' ,
-    'noOfferComment' => 'Not Contain Comment'
+    'noOfferComment' => 'Not Contain Comment' ,
+    'enemyCard' => 'Defendant Card' ,
+    'nationalId' => 'National Id' ,
 ];

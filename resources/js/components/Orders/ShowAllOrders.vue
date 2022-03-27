@@ -48,16 +48,6 @@
         <div class="p-3 mt-3" style="background-color: #f9f9f9" v-for="item in list2" :key="item.id">
           <div class="">
             <div class="mb-2 text-start" style="font-size: 12px">
-              <!-- <span class="ms-3">
-                <img
-                  style="width: 15px"
-                  class="ms-1"
-                  :src="base_url + '/public/assets/images/o_clock.svg'"
-                  alt=""
-                />
-                <span>منذ 4 ساعات</span>
-              </span> -->
-
               <span class="ms-3">
                 <img
                   style="width: 20px"

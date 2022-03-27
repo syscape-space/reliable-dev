@@ -63,6 +63,7 @@ Route::group(
 		Route::get('get_offers/{order_id}' , 'OfferOrdersController@getAllOffersOfThisOrder');
 		Route::put('accept_offer/{offer_id} ' , 'OfferOrdersController@acceptOffer') ;
 		Route::get('getting_add_data_of_order_offer_owners/{offer_id}' , 'OfferOrdersController@getOrderAndOfferOwnersData');
+		Route::get('getting_defendant_data/{order_id}' , 'OrderCaseAgainstController@getDataOfDefendant');
 
 
 		Route::get('/', function () {
