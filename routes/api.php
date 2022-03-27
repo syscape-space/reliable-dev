@@ -61,6 +61,7 @@ Route::group(
 		Route::post('add_comment_for_this_ticket/{ticket_id}', 'TicketController@addCommentForThisTicket');
 		Route::get('get_offers/{order_id}' , 'OfferOrdersController@getAllOffersOfThisOrder');
 		Route::put('accept_offer/{offer_id} ' , 'OfferOrdersController@acceptOffer') ;
+		Route::get('getting_add_data_of_order_offer_owners/{offer_id}' , 'OfferOrdersController@getOrderAndOfferOwnersData');
 
 
 

@@ -19,7 +19,7 @@
                   "
                 >
                   <h6 style="font-size: 13px" class=""> {{ $root._t("app.projectCard") }} </h6>
-                  <h6 style="font-size: 13px">{{ $root._t("app.main_category") }} - {{ $root._t("app.sub_category") }} </h6>
+                  <h6 style="font-size: 13px"> {{ mainCategory }}  </h6>
                   <ul class="list-unstyled px-0 f-12 text-end mt-4">
                     <li class="mb-3 f-12">
                       <span> {{ $root._t("app.projectStatus") }} </span>
@@ -27,7 +27,7 @@
                         class="o_btn d-inline-block px-3 py-2 rounded"
                         style="margin-right: 15px; background-color: #0995eb"
                       >
-                        {{ $root._t("app.executeNow") }}
+                        {{ $root._t("app." + orderStatus) }}
                       </button>
                     </li>
                     <li class="mb-3">
@@ -37,7 +37,7 @@
                       <span
                         style="margin-right: 15px; color: #0995eb"
                         class="fw-bold"
-                        > {{ $root._t("app.hours20Ago") }} </span
+                        > {{ publishDate }} </span
                       >
                     </li>
                     <li class="mb-3">
@@ -47,7 +47,7 @@
                       <span
                         style="margin-right: 15px; color: #0995eb"
                         class="fw-bold"
-                        > {{ $root._t("app.oneDay") }} </span
+                        > {{ executionTime }} يوم</span
                       >
                     </li>
                     <li class="mb-3">
@@ -57,7 +57,7 @@
                       <span
                         style="margin-right: 15px; color: #0995eb"
                         class="fw-bold"
-                        > {{ $root._t("app.num15Offer") }} </span
+                        > {{ offersCount }} عرض</span
                       >
                     </li>
                     <li class="mb-3">
@@ -66,27 +66,14 @@
                       >
                     </li>
                     <li class="mb-3 mt-4 text-center">
-                      <div class="text-center mb-2">
-                        <img
-                          style="width: 50px; height: 50px"
-                          class="uses-img"
-                          :src="base_url + '/public/assets/images/user.svg'"
-                          alt=""
-                        />
-                      </div>
-                      <div class="text-center">
-                        <i class="fas fa-star yellow"></i>
-                        <i class="fas fa-star yellow"></i>
-                        <i class="fas fa-star yellow"></i>
-                        <i class="fas fa-star yellow"></i>
-                        <i class="fas fa-star"></i>
-                      </div>
-                      <span class="text-center">محمد مصطفي</span> <br />
-                      <span
-                        style="color: #2b7b74"
-                        class="mb-2 d-inline-block text-center"
-                        >{{ $root._t("app.attorneyGeneral") }}
-                      </span>
+                    <div class="text-center mb-2" v-if="photo_profile === null">
+                      <img style="width: 50px;height: 50px;" class="uses-img" :src="base_url+'/public/assets/images/nouser.png' " alt="">
+                    </div>
+                    <div class="text-center mb-2" v-else>
+                      <img style="width: 50px;height: 50px;" class="uses-img" :src="cloud_url  +  photo_profile " alt="">
+                    </div>
+                    <span class="text-center"> {{ offerOwner }} </span> <br />
+                      
                     </li>
                     <li class="text-center">
                       <button
@@ -109,8 +96,7 @@
               <div class="row w-100 mx-0 px-0">
                 <span>{{ $root._t("app.home") }} /
                    {{ $root._t("app.projects") }} / 
-                  {{ $root._t("app.main_category") }} / 
-                   {{ $root._t("app.sub_category") }} </span>
+                  {{ mainCategory }} </span>
                 <div class="col-md-4 my-4" style="color: #aeaeae">
                   <div class="cir-prog" style="border-color: #048e81">
                     <img :src="base_url + '/public/assets/images/o_hand.svg'" alt="" />
@@ -146,7 +132,7 @@
               <div>
                 <h5 class="fw-bold g-color"> {{ $root._t("app.projectDetails") }} </h5>
                 <p style="font-size: 12px">
-                  {{ $root._t("app.longText") }}
+                  {{ orderDetails }}
                 </p>
                 <div
                 class="mt-4"
@@ -157,7 +143,7 @@
                     color: #2b7b74;
                     border-radius: 4px; "
                 ><p class="m-0">
-                    {{ $root._t("app.projectPudget") }}  : <span class="me-4"> {{ $root._t("app.from200To500") }} </span>
+                    {{ $root._t("app.projectPudget") }}  : <span class="me-4"> {{ price }} $ </span>
                   </p>
                 </div>
                 <div class="discuss-deal mt-4">
@@ -249,27 +235,13 @@
 
                   <ul class="list-unstyled px-0 f-12 text-end mt-4">
                     <li class="mb-3 mt-4 text-center">
-                      <div class="text-center mb-2">
-                        <img
-                          style="width: 50px; height: 50px"
-                          class="uses-img"
-                          :src="base_url + '/public/assets/images/user.svg'"
-                          alt=""
-                        />
+                      <div class="text-center mb-2" v-if="orderOwnerProfile === null">
+                        <img style="width: 50px;height: 50px;" class="uses-img" :src="base_url+'/public/assets/images/nouser.png' " alt="">
                       </div>
-                      <div class="text-center">
-                        <i class="fas fa-star yellow"></i>
-                        <i class="fas fa-star yellow"></i>
-                        <i class="fas fa-star yellow"></i>
-                        <i class="fas fa-star yellow"></i>
-                        <i class="fas fa-star"></i>
+                      <div class="text-center mb-2" v-else>
+                        <img style="width: 50px;height: 50px;" class="uses-img" :src="cloud_url  +  orderOwnerProfile " alt="">
                       </div>
-                      <span class="text-center">محمد مصطفي</span> <br />
-                      <span
-                        style="color: #2b7b74"
-                        class="mb-2 d-inline-block text-center"
-                        >{{ $root._t("app.attorneyGeneral") }}
-                      </span>
+                      <span class="text-center">{{ orderOwner }} </span>
                     </li>
                     <li class="mb-3 f-12">
                       <span> {{ $root._t("app.projectStatus") }} </span>
@@ -277,7 +249,7 @@
                         class="o_btn d-inline-block px-3 py-2 rounded"
                         style="margin-right: 15px"
                       >
-                        {{ $root._t("app.complete") }}
+                        {{ $root._t("app." + orderStatus) }}
                       </button>
                     </li>
                     <li class="mb-3">
@@ -287,7 +259,7 @@
                       <span
                         style="margin-right: 15px; color: #0995eb"
                         class="fw-bold"
-                        >200 {{ $root._t("app.Dolar") }}</span
+                        > {{ price }} $ </span
                       >
                     </li>
                     <li class="mb-3">
@@ -297,17 +269,7 @@
                       <span
                         style="margin-right: 15px; color: #0995eb"
                         class="fw-bold"
-                        >{{ $root._t("app.days5") }}</span
-                      >
-                    </li>
-                    <li class="mb-3">
-                      <span style="min-width: 60px" class="d-inline-block"
-                        >{{ $root._t("app.pageDate") }}</span
-                      >
-                      <span
-                        style="margin-right: 15px; color: #0995eb"
-                        class="fw-bold"
-                        >{{ $root._t("app.dateDetails") }}</span
+                        >{{ executionTime }} يوم</span
                       >
                     </li>
                     <li class="mb-3">
@@ -318,7 +280,7 @@
                         style="margin-right: 15px; color: #0995eb"
                         class="fw-bold"
                       >
-                        {{ $root._t("app.startingExecutionDate") }} </span
+                        {{ publishDate }} </span
                       >
                     </li>
                   </ul>
@@ -384,23 +346,67 @@
 </template>
 <script>
 import NewTopNavbar from '../../components/Orders/NewTopNavbar'
+import api from "../../utils/api";
 export default {
     components : { NewTopNavbar },
     name: "afterAccept",
     props:['id'],
     mounted(){
       this.gettingDataOfOrderAndOffer();
+      this.currentUser();
     },
   data(){
     return{
       base_url:base_url,
       cloud_url:cloud_url,
+      mainCategory : '' ,
+      orderStatus : '' ,
+      executionTime : '' ,
+      publishDate : '' ,
+      offersCount : '' ,
+      offerOwner : '' ,
+      orderDetails : '' ,
+      price : '' ,
+      orderOwner : '' ,
+      photo_profile : '' ,
+      orderOwnerProfile : ''
     }
   },
   methods:{
     gettingDataOfOrderAndOffer(){
-      console.log(this.$props.id)
-    }
+      let order_id = this.$props.id ;
+      api
+        .get("v1/getting_add_data_of_order_offer_owners/"+order_id)
+        .then((response) => {
+          this.mainCategory = response.data.allOffersAndOrdersOwners[0].department_name_ar ;
+          this.orderStatus = response.data.allOffersAndOrdersOwners[0].order_status ;
+          this.executionTime = response.data.allOffersAndOrdersOwners[0].execution_time ;
+          this.publishDate = response.data.allOffersAndOrdersOwners[0].created_at ;
+          this.offersCount = response.data.offersCount ;
+          this.offerOwner = response.data.allOffersAndOrdersOwners[0].name ;
+          this.orderDetails = response.data.allOffersAndOrdersOwners[0].order_content ;
+          this.price = response.data.allOffersAndOrdersOwners[0].price ;
+          this.photo_profile = response.data.allOffersAndOrdersOwners[0].photo_profile ;
+          console.log(response.data.allOffersAndOrdersOwners[0]);
+        })
+        .catch((e) => {
+          console.log(e.response);
+        });
+    },
+    currentUser() {
+      api
+        .get("/v1/account")
+        .then((response) => {
+          this.orderOwner = response.data.data.name
+          this.orderOwnerProfile = response.data.photo_profile
+          console.log(response.data.data.photo_profile)
+        })
+        // error.response.data.errors
+        .catch((e) => {
+          this.errors = e.response.data.errors;
+          console.log(e.response);
+        });
+    },
   },
   computed:{
 
