@@ -333,31 +333,39 @@
             </div>
             <div class="mt-3" v-if="step === 6">
               <div class="row mt-5">
-                <div class="col-8">
-                  <p class="red pr-2 mb-2" style="color: #FF584D; font-size:14px" >
-                    <img :src="base_url + '/public/assets/images/22-mobile.svg'" alt="#" class="ml-2">
+                <div class="col-8" v-if="balanceCovered">
+                  <p class="red pr-2 mb-2" style="color: #6eff4d; font-size:14px" >
+                    <img :src="base_url + '/assets/images/22-mobile.svg'" alt="#" class="ml-2">
                     سيتم الخصم من رصيدك رسوم اشترك اضافة طلب جديد
                   </p>
                 </div>
-                <div class="col-4">
-                  <div class="btn mx-2 grad " 
-                  style=" padding: 7px;border-color: #048E81 !important;background-color: #048E81 !important;min-width:120px;color:#fff">
-                    حفظ طلبك كمسوده
-                    <img :src="base_url + '/public/assets/images/bookmark.svg'" alt="#" class="mr-2">
-                  </div>
+                <div class="col-8" v-else="balanceCovered">
+                  <p class="red pr-2 mb-2" style="color: #FF584D; font-size:14px" >
+                    <img :src="base_url + '/assets/images/22-mobile.svg'" alt="#" class="ml-2">
+                    لا يوجد رصيد كافي سيتم حفظ الطلب كا مسودة حتي يتم دفع رسوم نشر طلب
+                  </p>
                 </div>
               </div>
               <div class="total mt-3">
                 <p> {{ $root._t("app.fee") }} : <span>{{ $root.settings.minimum_amount_add_order }} $</span></p>
               </div>
+              <div class="total mt-3">
+                <p>الرصيد المتاح  : <span>{{ $root.auth_user.current_balance }} $</span></p>
+              </div>
             </div>
             <div class="btns text-center mb-5" v-if="step !== 1">
-              <div class="btn mx-2  page1 small cont " v-if="step < 6" @click="step++" 
-              style=" padding: 7px;border-color: #048E81 !important;background-color: #048E81 !important;min-width:120px;color:#fff">
+              <div class="btn mx-2  page1 small cont " v-if="step < 6" @click="step++"
+              style=" padding: 7px;border-color: #048E81 !important;background-color: #048E81 !important;min-width:120px;">
                 {{ $root._t("app.next") }}
               </div>
-              <div class="btn btn-success page1 small cont "  style=" padding: 7px;border-color: #048E81 !important;background-color: #048E81 !important;min-width:120px;color:#fff" @click="submitOrder()" v-else>
-                أكتمال الطلب
+              <div class="btn btn-success page1 small cont "  style=" padding: 7px;border-color: #048E81 !important;background-color: #048E81 !important;min-width:120px;" @click="submitOrder()" v-else>
+                <span v-if="balanceCovered">
+                  أكتمال الطلب
+                </span>
+                <span v-else>
+                  حفظ طلبك كمسوده
+                  <img :src="base_url + '/assets/images/bookmark.svg'" alt="#" class="mr-2">
+                </span>
               </div>
               <div class="btn btn-secondary small conta-back mx-3"
                 style=" padding: 7px;border-color: #707070 !important;background-color: #707070 !important;min-width:120px;"
@@ -410,6 +418,13 @@ export default {
     };
   },
   components: {},
+  computed:{
+    balanceCovered(){
+      var current_balance = parseInt(this.$root.auth_user.current_balance);
+      var order_fees  = parseInt(this.$root.settings.minimum_amount_add_order);
+      return current_balance >= order_fees;
+    }
+  },
   methods: {
     uploadAttachments() {
       this.form.attachments = this.$refs.attachments_input.files;
@@ -457,6 +472,7 @@ export default {
       var formData = new FormData();
       if (this.form.main_order_id)
         formData.append('main_order_id', this.form.main_order_id);
+      formData.append('order_status',this.balanceCovered ? "under_review" : "archived")
       formData.append('amount', this.$root.settings.minimum_amount_add_order);
       formData.append('execution_time', this.form.execution_time);
       formData.append('order_type_id', this.form.type_id);

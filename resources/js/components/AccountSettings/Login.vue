@@ -6,7 +6,7 @@
         <div class="col-md-6 px-0 ">
           <div class="p-5">
             <div class="text-center mt-5">
-              <img style="width: 100px;" :src="base_url+'/public/assets/images/login-1-logo.svg'" alt="">
+              <img style="width: 100px;" :src="base_url+'/assets/images/login-1-logo.svg'" alt="">
             </div>
             <div class="register text-center  ">
               <p class="my-4 "> {{ $root._t("app.do_you_have_account") }}
@@ -31,12 +31,12 @@
               <div class="auth-login mb-4 text-center  position-relative">
                 <input type="number" class="pe-5 form-control" placeholder="   رقم التحقق" v-model="id_number"> <!-- Phone number -->
                 <img class="img-lllo" style="width: 20px; position: absolute; right: 10px;"
-                :src="base_url+'/public/assets/images/login-user.svg'" alt="">
+                :src="base_url+'/assets/images/login-user.svg'" alt="">
               </div>
               <div class="auth-login text-center  position-relative">
                 <input type="password" class="pe-5 form-control" placeholder="رمز المرور " v-model="password"> <!-- Password -->
                 <img class="img-lllo" style="width: 12px; position: absolute; right: 10px;"
-                :src="base_url+'/public/assets/images/login-pass.svg'" alt="">
+                :src="base_url+'/assets/images/login-pass.svg'" alt="">
               </div>
               <div class="mt-3 d-flex align-items-center justify-content-between">
                 <div>
@@ -55,11 +55,11 @@
                   {{ $root._t("app.facebook") }} 
                   <img 
                       style="width: 20px;"
-                      :src="base_url+'/public/assets/images/login-facebook.svg'" alt="">
+                      :src="base_url+'/assets/images/login-facebook.svg'" alt="">
                 </button>
                 <button>
                   {{ $root._t("app.google") }} 
-                  <img style="width: 19px;" :src="base_url+'/public/assets/images/google-llc.png'" alt="">
+                  <img style="width: 19px;" :src="base_url+'/assets/images/google-llc.png'" alt="">
                 </button>
               </div>
             </form>
@@ -67,7 +67,7 @@
         </div>
         <div class="col-md-6 login-page">
           <div class="text-center mt-5">
-            <img style="width: 150px;" :src="base_url+'/public/assets/images/login-1-logo.svg'" alt="">
+            <img style="width: 150px;" :src="base_url+'/assets/images/login-1-logo.svg'" alt="">
           </div>
         </div>
       </div>

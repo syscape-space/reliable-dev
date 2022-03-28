@@ -65,7 +65,6 @@ class OrdersApi extends Controller{
     {
     	$data = $request->except("_token");
         $data["user_id"] = auth('api')->id();
-        $data["order_status"] = "under_review";
         $Order = Order::create($data);
 		$Order = Order::with($this->arrWith())->find($Order->id,$this->selectColumns);
         return successResponseJson([

@@ -25,7 +25,7 @@
     <script>
         const APP_URL = '{{env('APP_URL')}}';
         const APP_PREFIX = '{{env('APP_PREFIX')}}';
-        const base_url = '{{url('/')}}';
+        const base_url = '{{asset('/')}}';
         const cloud_url = '{{it()->url('/')}}';
         window.lang_loc = '{{app()->getLocale()}}';
         window.trans = <?php

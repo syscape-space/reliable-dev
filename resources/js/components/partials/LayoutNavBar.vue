@@ -3,7 +3,7 @@
       class="navbar navbar-expand-xl navbar-dark|light bg-primary|secondary|success|danger|warning|info|light|dark"
   >
     <router-link to="/" class="navbar-brand">
-      <img :src="base_url+'/public/assets/images/logo.svg'" alt="" />
+      <img :src="base_url+'/assets/images/logo.svg'" alt="" />
     </router-link>
     <button
         class="navbar-toggler d-xl-none"

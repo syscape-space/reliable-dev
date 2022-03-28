@@ -50,7 +50,7 @@
                 <img
                   style="width: 20px"
                   class="ms-1"
-                  :src="base_url + '/public/assets/images/o_offer.svg'"
+                  :src="base_url+'/assets/images/o_offer.svg'"
                   alt=""
                 />
               </span>
@@ -60,7 +60,7 @@
                   <img
                     style="width: 15px"
                     class="ms-1"
-                    :src="base_url + '/public/assets/images/o_delever.svg'"
+                    :src="base_url+'/assets/images/o_delever.svg'"
                     alt=""
                   />
                   <span> {{ $root._t("app.deliveryTime") }} :</span>
@@ -85,7 +85,8 @@
               <div style="border-left: 3px solid #ddd" class="px-3">
                 <img
                   style="width: 70px"
-                  :src="cloud_url  + item.user_id['photo_profile']"
+                  :src="base_url+'/assets/images/user.svg'"
+
                   alt=""
                 />
                 <div>
