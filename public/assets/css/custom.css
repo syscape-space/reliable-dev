@@ -115,3 +115,18 @@
 .video-js *{
     direction: ltr !important;
 }
+
+
+.move-css {
+    animation: move-notifications 1s alternate  infinite  ease-in-out;
+}
+
+@keyframes move-notifications {
+    0% {
+        transform: rotateZ(20deg);
+    }
+   
+    100% {
+        transform: rotateZ(-20deg);
+    }
+}

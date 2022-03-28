@@ -40,6 +40,13 @@
     <ul class="navbar-nav mr-auto-navbav">
       @if(count(L::all()) > 0)
        <!-- Language Dropdown Menu -->
+      <li class="nav-item" >
+        <button class="btn btn-success">طلبات جديدة <i class="mr-0 ml-2 far fa-bell move-css"></i></button>
+        <button class="btn btn-warning mx-2">
+          تحقيق الهوية
+          <span class="badge bg-default" style="padding: 4px 7px; margin-right: 5px;">0</span>
+        </button>
+      </li>
       <li class="nav-item  dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="fas fa-language"></i>
