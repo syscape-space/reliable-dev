@@ -77,7 +77,7 @@
                       <input style="width: 141px;" type="file" id="selectImage" v-on:change="onChange" accept="image/png, image/gif, image/jpeg" name="image" />
                       <div style="color: #048E81;" class="add-o-file  f-12">
                         <span>{{ $root._t("app.uploadYouCv") }}</span>
-                        <img style="width: 12px;" :src="base_url + '/public/assets/images/o_file.svg'" alt="">
+                        <img style="width: 12px;" :src="base_url+'/assets/images/o_file.svg'" alt="">
                       </div>
                     </div>
                     
@@ -154,7 +154,7 @@ export default {
       api
         .post("v1/apply_now" , data)
         .then((response) => {
-          alert('Applied Successfully');
+          this.$root.alertSuccess('Applied Successfully');
           console.log(response);
         })
         // error.response.data.errors

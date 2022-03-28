@@ -6,10 +6,11 @@
             
             <div class="text-center py-4">
               <div class="image-user position-relative d-inline-block">
-                <img :src="user?.photo_profile != null ? cloud_url + user?.photo_profile : base_url+ '/assets/images/dash-user.png'" alt="" srcset="" />
+                <img style="width:200px;" :src="user?.photo_profile != null ? cloud_url + user?.photo_profile : base_url+ '/assets/images/dash-user.png'" alt="" srcset="" />
+                
                 <img
                   style="position: absolute; bottom: 0; left: 0"
-                  :src="base_url+'/public/assets/images/dash-edit.svg'"
+                  :src="base_url+'/assets/images/dash-edit.svg'"
                   alt=""
                   srcset=""
                 />
@@ -34,7 +35,7 @@
               >
               <p class="m-0">
                 <img
-                  :src="base_url+'/public/assets/images/dash-mawthq.svg'"
+                  :src="base_url+'/assets/images/dash-mawthq.svg'"
                   class="ms-2"
                   alt=""
                   srcset=""
@@ -46,7 +47,7 @@
               <li class="active">
                 <router-link :to="{ name : 'profilePage' }">
                   <img
-                    :src="base_url+'/public/assets/images/dash-home.svg'"
+                    :src="base_url+'/assets/images/dash-home.svg'"
                     style="width: 18px"
                     alt=""
                     srcset=""
@@ -57,7 +58,7 @@
               <li>
                 <router-link :to="{ name : 'u_indexPage' }">
                   <img
-                    :src="base_url+'/public/assets/images/dash-user.svg'"
+                    :src="base_url+'/assets/images/dash-user.svg'"
                     style="width: 16px"
                     alt=""
                     srcset=""
@@ -68,7 +69,7 @@
               <li>
                 <router-link :to="{ name : 'Balance' }">
                   <img
-                    :src="base_url+'/public/assets/images/dash-balance.svg'"
+                    :src="base_url+'/assets/images/dash-balance.svg'"
                     style="width: 19px"
                     alt=""
                     srcset=""
@@ -79,7 +80,7 @@
               <!-- <li>
                 <a href="#">
                   <img
-                    :src="base_url+'/public/assets/images/dash-project.svg'"
+                    :src="base_url+'/assets/images/dash-project.svg'"
                     style="width: 19px"
                     alt=""
                     srcset=""
@@ -90,7 +91,7 @@
               <li>
                 <a @click.prevent="goToTazkarty(user.id)" style="color:#fff; cursor: pointer;">
                   <img
-                    :src="base_url+'/public/assets/images/dash-remem.svg'"
+                    :src="base_url+'/assets/images/dash-remem.svg'"
                     style="width: 18px"
                     alt=""
                     srcset=""
@@ -121,7 +122,7 @@
               <li v-if="user.membership_type === 'user'">
                 <router-link :to="{ name : 'MyOrder' }" style="color:#fff; cursor: pointer;">
                   <img
-                    :src="base_url+'/public/assets/images/dash-remem.svg'"
+                    :src="base_url+'/assets/images/dash-remem.svg'"
                     style="width: 18px"
                     alt=""
                     srcset=""
@@ -146,7 +147,7 @@ export default {
     return{
       name : "" ,
       base_url : base_url,
-      
+      cloud_url: cloud_url,
       user:[],
     }
   },

@@ -66,6 +66,7 @@ Route::group(
 		Route::get('getting_add_data_of_order_offer_owners/{offer_id}' , 'OfferOrdersController@getOrderAndOfferOwnersData');
 		Route::get('getting_defendant_data/{order_id}' , 'OrderCaseAgainstController@getDataOfDefendant');
 		Route::get('getting_filtered_orders/{key} ' , 'MyOrdersController@gettingFilteredOrders') ;
+		Route::put('update_user_profile/{user_id}' , 'EditUserProfileController@updateUseProfileImage') ;
 
 
 		Route::get('/', function () {
@@ -96,6 +97,8 @@ Route::group(
 			Route::post('identity-action', 'VerifyUserController@takeAction');
 			//Auth-Api-Start//
 			Route::apiResource("occupations", "OccupationsApi", ["as" => "api.occupations"]);
+			Route::apiResource("negotiations", "NegotiationController", ["as" => "api.negotiations"]);
+			Route::apiResource("negotiations_messages", "NegotiationMessageController", ["as" => "api.negotiations_messages"]);
 			Route::post("occupations/multi_delete", "OccupationsApi@multi_delete");
 			Route::apiResource("specialties", "SpecialtiesApi", ["as" => "api.specialties"]);
 			Route::post("specialties/multi_delete", "SpecialtiesApi@multi_delete");

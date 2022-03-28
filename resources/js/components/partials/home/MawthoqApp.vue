@@ -4,7 +4,7 @@
       <div class="col-md-6 h-100">
         <img class="w-100 h-100 "
              style="object-fit: cover;"
-             :src="base_url+'/public/assets/images/apps.png'" alt="">
+             :src="base_url+'/assets/images/apps.png'" alt="">
       </div>
       <div class="col-md-6 d-flex align-items-center justify-content-center">
         <div class="pd-10 text-center">
@@ -12,10 +12,10 @@
           <p class="gr-c pb-5">{{ $root._t("app.shortText") }}</p>
           <div class="pt-5 my-5">
             <a href="" class="mx-2">
-              <img style="width: 150px;" :src="base_url+'/public/assets/images/google.svg'" alt="">
+              <img style="width: 150px;" :src="base_url+'/assets/images/google.svg'" alt="">
             </a>
             <a href="" class="mx-2">
-              <img style="width: 150px;" :src="base_url+'/public/assets/images/apple.svg'" alt="">
+              <img style="width: 150px;" :src="base_url+'/assets/images/apple.svg'" alt="">
             </a>
 
           </div>

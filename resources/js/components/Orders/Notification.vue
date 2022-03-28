@@ -9,13 +9,13 @@
            <div class="col-md-12">
             <div class="d-flex align-iyems-center o_noti my-2">
               <div>
-                <img class="ms-3" style="width: 40px; height: 40px; border-radius: 50%" :src="base_url + '/public/assets/images/user.svg'" alt="">
+                <img class="ms-3" style="width: 40px; height: 40px; border-radius: 50%" :src="base_url+'/assets/images/user.svg'" alt="">
               </div>
               <div class="flex-grow-1">
                 <div class="btw-flex w-100">
                   <span style="color: #2b7b74">محمد مصطفي</span>
                   <span class=" ">
-                    <img :src="base_url + '/public/assets/images/o_cclo.svg'" alt="">
+                    <img :src="base_url+'/assets/images/o_cclo.svg'" alt="">
                   </span>
                 </div>
                 <p class="text-end my-1">
@@ -23,20 +23,20 @@
 
                 </p>
                 <span style="color: #0995eb">
-                  <img :src="base_url + '/public/assets/images/prof-blue.svg'" alt="">
+                  <img :src="base_url+'/assets/images/prof-blue.svg'" alt="">
                   {{ $root._t("app.ago") }} 30 {{ $root._t("app.minute") }}</span>
 
               </div>
             </div>
             <div class="d-flex align-iyems-center o_noti my-2">
               <div>
-                <img class="ms-3" style="width: 40px; height: 40px; border-radius: 50%" :src="base_url + '/public/assets/images/user.svg'" alt="">
+                <img class="ms-3" style="width: 40px; height: 40px; border-radius: 50%" :src="base_url+'/assets/images/user.svg'" alt="">
               </div>
               <div class="flex-grow-1">
                 <div class="btw-flex w-100">
                   <span style="color: #2b7b74">محمد مصطفي</span>
                   <span class=" ">
-                    <img :src="base_url + '/public/assets/images/o_cclo.svg'" alt="">
+                    <img :src="base_url+'/assets/images/o_cclo.svg'" alt="">
                   </span>
                 </div>
                 <p class="text-end my-1">
@@ -44,20 +44,20 @@
 
                 </p>
                 <span style="color: #0995eb">
-                  <img :src="base_url + '/public/assets/images/prof-blue.svg'" alt="">
+                  <img :src="base_url+'/assets/images/prof-blue.svg'" alt="">
                   {{ $root._t("app.ago") }} 30 {{ $root._t("app.minute") }}</span>
 
               </div>
             </div>
             <div class="d-flex align-iyems-center o_noti my-2">
               <div>
-                <img class="ms-3" style="width: 40px; height: 40px; border-radius: 50%" :src="base_url + '/public/assets/images/user.svg'" alt="">
+                <img class="ms-3" style="width: 40px; height: 40px; border-radius: 50%" :src="base_url+'/assets/images/user.svg'" alt="">
               </div>
               <div class="flex-grow-1">
                 <div class="btw-flex w-100">
                   <span style="color: #2b7b74">محمد مصطفي</span>
                   <span class=" ">
-                    <img :src="base_url + '/public/assets/images/o_cclo.svg'" alt="">
+                    <img :src="base_url+'/assets/images/o_cclo.svg'" alt="">
                   </span>
                 </div>
                 <p class="text-end my-1">
@@ -65,20 +65,20 @@
 
                 </p>
                 <span style="color: #0995eb">
-                  <img :src="base_url + '/public/assets/images/prof-blue.svg'" alt="">
+                  <img :src="base_url+'/assets/images/prof-blue.svg'" alt="">
                   {{ $root._t("app.ago") }} 30 {{ $root._t("app.minute") }}</span>
 
               </div>
             </div>
             <div class="d-flex align-iyems-center o_noti my-2">
               <div>
-                <img class="ms-3" style="width: 40px; height: 40px; border-radius: 50%" :src="base_url + '/public/assets/images/user.svg'" alt="">
+                <img class="ms-3" style="width: 40px; height: 40px; border-radius: 50%" :src="base_url+'/assets/images/user.svg'" alt="">
               </div>
               <div class="flex-grow-1">
                 <div class="btw-flex w-100">
                   <span style="color: #2b7b74">محمد مصطفي</span>
                   <span class=" ">
-                    <img :src="base_url + '/public/assets/images/o_cclo.svg'" alt="">
+                    <img :src="base_url+'/assets/images/o_cclo.svg'" alt="">
                   </span>
                 </div>
                 <p class="text-end my-1">
@@ -86,20 +86,20 @@
 
                 </p>
                 <span style="color: #0995eb">
-                  <img :src="base_url + '/public/assets/images/prof-blue.svg'" alt="">
+                  <img :src="base_url+'/assets/images/prof-blue.svg'" alt="">
                   {{ $root._t("app.ago") }} 30 {{ $root._t("app.minute") }}</span>
 
               </div>
             </div>
             <div class="d-flex align-iyems-center o_noti my-2">
               <div>
-                <img class="ms-3" style="width: 40px; height: 40px; border-radius: 50%" :src="base_url + '/public/assets/images/user.svg'" alt="">
+                <img class="ms-3" style="width: 40px; height: 40px; border-radius: 50%" :src="base_url+'/assets/images/user.svg'" alt="">
               </div>
               <div class="flex-grow-1">
                 <div class="btw-flex w-100">
                   <span style="color: #2b7b74">محمد مصطفي</span>
                   <span class=" ">
-                    <img :src="base_url + '/public/assets/images/o_cclo.svg'" alt="">
+                    <img :src="base_url+'/assets/images/o_cclo.svg'" alt="">
                   </span>
                 </div>
                 <p class="text-end my-1">
@@ -107,20 +107,20 @@
 
                 </p>
                 <span style="color: #0995eb">
-                  <img :src="base_url + '/public/assets/images/prof-blue.svg'" alt="">
+                  <img :src="base_url+'/assets/images/prof-blue.svg'" alt="">
                   {{ $root._t("app.ago") }} 30 {{ $root._t("app.minute") }}</span>
 
               </div>
             </div>
             <div class="d-flex align-iyems-center o_noti my-2">
               <div>
-                <img class="ms-3" style="width: 40px; height: 40px; border-radius: 50%" :src="base_url + '/public/assets/images/user.svg'" alt="">
+                <img class="ms-3" style="width: 40px; height: 40px; border-radius: 50%" :src="base_url+'/assets/images/user.svg'" alt="">
               </div>
               <div class="flex-grow-1">
                 <div class="btw-flex w-100">
                   <span style="color: #2b7b74">محمد مصطفي</span>
                   <span class=" ">
-                    <img :src="base_url + '/public/assets/images/o_cclo.svg'" alt="">
+                    <img :src="base_url+'/assets/images/o_cclo.svg'" alt="">
                   </span>
                 </div>
                 <p class="text-end my-1">
@@ -128,7 +128,7 @@
 
                 </p>
                 <span style="color: #0995eb">
-                  <img :src="base_url + '/public/assets/images/prof-blue.svg'" alt="">
+                  <img :src="base_url+'/assets/images/prof-blue.svg'" alt="">
                   {{ $root._t("app.ago") }} 30 {{ $root._t("app.minute") }}</span>
 
               </div>

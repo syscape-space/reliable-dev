@@ -4,13 +4,13 @@
         <ul class="list-unstyled d-flex m-0">
           <li class="ms-4 position-relative">
             <a href="#"
-              ><img :src="base_url+'/public/assets/images/notification-nav.svg'" alt="" srcset="" />
+              ><img :src="base_url+'/assets/images/notification-nav.svg'" alt="" srcset="" />
               <span class="red-circle"></span>
             </a>
           </li>
           <li class="ms-5 position-relative">
             <a href="#"
-              ><img :src="base_url+'/public/assets/images/nav-message.svg'" alt="" srcset="" />
+              ><img :src="base_url+'/assets/images/nav-message.svg'" alt="" srcset="" />
               <span class="red-circle"></span>
             </a>
           </li>
@@ -24,12 +24,12 @@
               />
               <img
                 style="width: 15px; position: absolute; right: 7px; top: 10px"
-                :src="base_url+'/public/assets/images/nav-search.svg'"
+                :src="base_url+'/assets/images/nav-search.svg'"
                 alt=""
               />
               <img
                 style="width: 15px; position: absolute; left: 7px; top: 10px"
-                :src="base_url+'/public/assets/images/nav-input.svg'"
+                :src="base_url+'/assets/images/nav-input.svg'"
                 alt=""
               />
             </div>
@@ -48,6 +48,7 @@
           </li>
           <li style="margin-right: auto" class="ms-2">
             <button
+             id="addOrderBasedOnUserMembership"
               style="
                 border: 0;
                 background-color: #048e81;
@@ -74,7 +75,7 @@
               >
                 <img
                   style="width: 25px; margin-left: 5px"
-                  :src="base_url+'/public/assets/images/dash-user.png'"
+                  :src="cloud_url+ user.photo_profile"
                   alt=""
                   srcset=""
                 />
@@ -102,11 +103,13 @@ export default {
     return{
       name : "" ,
       base_url : base_url ,
+      cloud_url: cloud_url,
       user:{},
     }
   },
   mounted() {
     this.currentUser();
+    document.getElementById("addOrderBasedOnUserMembership").style.display = 'none';
   },
   methods: {
     currentUser() {
@@ -114,6 +117,11 @@ export default {
         .get("/v1/account")
         .then((response) => {
           this.user = response.data.data;
+          if(response.data.data.membership_type === 'vendor' ){
+            document.getElementById("addOrderBasedOnUserMembership").style.display = 'none';
+          }else{
+           document.getElementById("addOrderBasedOnUserMembership").style.display = 'block';
+          }
           console.log(response.data.data)
         })
         // error.response.data.errors
@@ -133,7 +141,7 @@ export default {
           localStorage.removeItem('myIdTazkarty'); // myIdTazkarty
           localStorage.removeItem('logginedUser'); // logginedUser
 
-          alert("thanks for using our website");
+          this.$root.alertSuccess("thanks for using our website");
           this.$router.push({ name: "home" });
           console.log(response)
         })

@@ -35,23 +35,43 @@
                 {{ $root._t("app.filter") }}
               </button>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </li>
+                <li><a class="dropdown-item" href="#">الاقدم</a></li>
                 <li><hr class="dropdown-divider" /></li>
-                <li><a class="dropdown-item" href="#">Separated link</a></li>
+                <li><a class="dropdown-item" href="#">الاحدث</a></li>
               </ul>
             </div>
           </div>
         </div>
-        <div
-          class="p-3 mt-3"
-          style="background-color: #f9f9f9"
-          v-for="item in filterdList"
-          :key="item.id"
-        >
+        <div class="p-3 mt-3" style="background-color: #f9f9f9" v-for="item in  filterdList" :key="item.id">
+          <div class="">
+            <div class="mb-2 text-start" style="font-size: 12px">
+               <span class="ms-3">
+                <span>{{ $root._t("app.present") }} 0 {{ $root._t("app.offers") }}</span>
+                <img
+                  style="width: 20px"
+                  class="ms-1"
+                  :src="base_url+'/assets/images/o_offer.svg'"
+                  alt=""
+                />
+              </span>
+
+              <span class="my-2" style="font-size: 12px">
+                <span class="o-box ms-2">
+                  <img
+                    style="width: 15px"
+                    class="ms-1"
+                    :src="base_url+'/assets/images/o_delever.svg'"
+                    alt=""
+                  />
+                  <span> {{ $root._t("app.deliveryTime") }} :</span>
+                  <span class="me-2"> 0 {{ $root._t("app.day") }}</span>
+                </span>
+                <span>
+                  <i class="fas fa-ellipsis-v"></i>
+                </span>
+              </span>
+            </div>
+          </div>
           <div class="row w-100 mx-0 px-0">
             <div
               class="
@@ -65,7 +85,7 @@
               <div style="border-left: 3px solid #ddd" class="px-3">
                 <img
                   style="width: 60px; height: 60px; border-radius: 50%;"
-                  :src="cloud_url + item.user_id['photo_profile']"
+                   :src="base_url+'/assets/images/user.svg'"
                   alt=""
                 />
                 <div>
@@ -93,7 +113,7 @@
             <div class="col-md-9">
               <div
                 class="clicker"
-                @click.prevent="showThisOrderDetails(item.id)"
+                @click.prevent="showThisOrderDetails(item.id)" 
                 style="cursor: pointer"
               >
                 <div style="display: flex; align-items: center; justify-content: space-between;">
@@ -160,14 +180,11 @@
                     </div>
                   </div>
                 </div>
-                <p class="pb-3 f-12">
-                  {{ item.order_title }}
-                </p>
-                <h6 style="color: #048e81">
-                  {{ $root._t("app.orderContent") }}
-                </h6>
-                <p class=" f-12">
+                <h6 style="color: #048e81"> {{ item.order_title }} </h6><br>
+                <h6 style="color: #048e81"> {{ $root._t("app.orderContent") }} </h6>
+                <p class="pb-3 f-12" v-html="item.order_content.substring(0,100)+'..' ">
                   {{ item.order_content.substring(0, 40) + ".." }}
+
                 </p>
               </div>
               <div class=" btw-flex">
@@ -234,22 +251,17 @@ export default {
   data() {
     return {
       base_url: base_url,
-      cloud_url: cloud_url,
-      list: [],
-      id: "",
-      search: "",
+      cloud_url:cloud_url,
+      list : [] ,
+      id : "" ,
+      search : '' ,
+      filter : ''
     };
   },
   mounted() {
     this.getMyOrders();
-    document.getElementById("pagesCount").style.display = "none";
-  },
-  computed: {
-    filterdList: function () {
-      return this.list.filter((list) => {
-        return list.order_title.match(this.search);
-      });
-    },
+    document.getElementById('pagesCount').style.display = "none";
+      
   },
   methods: {
     getMyOrders() {
@@ -270,8 +282,12 @@ export default {
           console.log(e.response);
         });
     },
-    showThisOrderDetails(id) {
-      this.$router.push({ name: "ShowSingleOrder", params: { id: id } });
+    showThisOrderDetails(id){
+      this.$router.push({ name: "ShowSingleOrder" , params:{id:id} });
+    },
+    getCategory(e) {
+      this.filter = e.target.value;
+      console.log(this.filter)
     },
   },
 };

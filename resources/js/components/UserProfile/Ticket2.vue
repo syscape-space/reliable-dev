@@ -3,7 +3,7 @@
       <div class="px-5">
         <div class="have-ticket d-flex justify-content-between">
           <div class="count-ticket">
-            <img style="width: 50px" :src="base_url + '/public/assets/images/login-1-logo.svg'" alt="" />
+            <img style="width: 50px" :src="base_url+'/assets/images/login-1-logo.svg'" alt="" />
             <span style="color: #048e81; font-size: 14px" class="me-4"
               >{{ $root._t("app.youHave") }} {{ ticketsCount }} {{ $root._t("app.Tickets") }}</span
             >
@@ -28,7 +28,7 @@
             style="    background-image: linear-gradient(to right,#048e8114, #0995eb21);align-items: center;"
             v-for="item in list" :key="item.id"
           >
-            <li><img :src="base_url + '/public/assets/images/time.svg'" alt="" /></li>
+            <li><img :src="base_url+'/assets/images/time.svg'" alt="" /></li>
             
             <li> <span class="me-3" >{{ $root._t("app.ago") }} {{ $root._t("app.month") }} {{ $root._t("app.almost") }} </span> </li>
             <li><div
@@ -45,7 +45,7 @@
                 
                 border-radius: 50%;
                 background-color: #e0fffc75;
-              "><img style="height: 50px; width: 50px;" :src="base_url + '/storage/' +  item.photo_profile  " alt="" />
+              "><img style="height: 50px; width: 50px;" :src="cloud_url + item.photo_profile  " alt="" />
             </div></li>
             <li> 
               <span class="mx-3" >{{ item.ticket_title }}</span>
@@ -71,6 +71,7 @@ export default {
   data(){
     return{
       base_url:base_url ,
+      cloud_url:cloud_url,
       ticketsCount : "" ,
       list : [] ,
       count : "" ,

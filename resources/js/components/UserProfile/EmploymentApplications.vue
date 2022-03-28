@@ -8,7 +8,7 @@
                 <div class="col-md-4 mb-3">
                   <div class="p-3 bg-users text-center">
                     <div class="text-center">
-                      <img class="uses-img" :src="base_url+'/public/assets/images/user.svg'" alt="">
+                      <img class="uses-img" :src="base_url+'/assets/images/user.svg'" alt="">
                     </div>
                     <div class="text-center"> 
                       <i class="fas fa-star yellow"></i>
@@ -25,7 +25,7 @@
                 <div class="col-md-4 mb-3">
                   <div class="p-3 bg-users text-center">
                     <div class="text-center">
-                      <img class="uses-img" :src="base_url+'/public/assets/images/user.svg'" alt="">
+                      <img class="uses-img" :src="base_url+'/assets/images/user.svg'" alt="">
                     </div>
                     <div class="text-center"> 
                       <i class="fas fa-star yellow"></i>
@@ -42,7 +42,7 @@
                 <div class="col-md-4 mb-3">
                   <div class="p-3 bg-users text-center">
                     <div class="text-center">
-                      <img class="uses-img" :src="base_url+'/public/assets/images/user.svg'" alt="">
+                      <img class="uses-img" :src="base_url+'/assets/images/user.svg'" alt="">
                     </div>
                     <div class="text-center"> 
                       <i class="fas fa-star yellow"></i>
@@ -59,7 +59,7 @@
                 <div class="col-md-4 mb-3">
                   <div class="p-3 bg-users text-center">
                     <div class="text-center">
-                      <img class="uses-img" :src="base_url+'/public/assets/images/user.svg'" alt="">
+                      <img class="uses-img" :src="base_url+'/assets/images/user.svg'" alt="">
                     </div>
                     <div class="text-center"> 
                       <i class="fas fa-star yellow"></i>
@@ -76,7 +76,7 @@
                 <div class="col-md-4 mb-3">
                   <div class="p-3 bg-users text-center">
                     <div class="text-center">
-                      <img class="uses-img" :src="base_url+'/public/assets/images/user.svg'" alt="">
+                      <img class="uses-img" :src="base_url+'/assets/images/user.svg'" alt="">
                     </div>
                     <div class="text-center"> 
                       <i class="fas fa-star yellow"></i>
@@ -93,7 +93,7 @@
                 <div class="col-md-4 mb-3">
                   <div class="p-3 bg-users text-center">
                     <div class="text-center">
-                      <img class="uses-img" :src="base_url+'/public/assets/images/user.svg'" alt="">
+                      <img class="uses-img" :src="base_url+'/assets/images/user.svg'" alt="">
                     </div>
                     <div class="text-center"> 
                       <i class="fas fa-star yellow"></i>
@@ -110,7 +110,7 @@
                 <div class="col-md-4 mb-3">
                   <div class="p-3 bg-users text-center">
                     <div class="text-center">
-                      <img class="uses-img" :src="base_url+'/public/assets/images/user.svg'" alt="">
+                      <img class="uses-img" :src="base_url+'/assets/images/user.svg'" alt="">
                     </div>
                     <div class="text-center"> 
                       <i class="fas fa-star yellow"></i>
@@ -127,7 +127,7 @@
                 <div class="col-md-4 mb-3">
                   <div class="p-3 bg-users text-center">
                     <div class="text-center">
-                      <img class="uses-img" :src="base_url+'/public/assets/images/user.svg'" alt="">
+                      <img class="uses-img" :src="base_url+'/assets/images/user.svg'" alt="">
                     </div>
                     <div class="text-center"> 
                       <i class="fas fa-star yellow"></i>

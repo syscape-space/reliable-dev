@@ -11,16 +11,17 @@ use Illuminate\Support\Facades\DB;
 class MyOrdersController extends Controller
 {
     public function gettingFilteredOrders($stutus){
-        $filteredOrders = Order::join('users', 'users.id', '=', 'orders.user_id')
-                ->where('orders.order_status' , '=' , $stutus)
-                ->get(['users.*', 'orders.*']);
+        // $filteredOrders = Order::join('users', 'users.id', '=', 'orders.user_id')
+        //         ->where('orders.order_status' , '=' , $stutus)
+        //         ->get(['users.*', 'orders.*']);
 
-        // $relevantTickets = Ticket::where('user_id', '=', $id)->get();
-        // $ticketsCount = $relevantTickets->count();
+        // // $relevantTickets = Ticket::where('user_id', '=', $id)->get();
+        // // $ticketsCount = $relevantTickets->count();
 
-        return response()->json([
-            "filteredOrders" => $filteredOrders 
-        ] , 200) ;
+        // return response()->json([
+        //     "filteredOrders" => $filteredOrders 
+        // ] , 200) ;
+        return $stutus ;
     }
 
 

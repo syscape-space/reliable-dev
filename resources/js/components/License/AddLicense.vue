@@ -118,7 +118,7 @@ export default {
         )
         .then((response) => {
           // document.getElementById("errors").style.display = "none";
-          alert("data is updated");
+          this.$root.alertSuccess("data is updated");
           // console.log(response);
         })
         // error.response.data.errors

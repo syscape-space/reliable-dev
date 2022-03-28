@@ -3,7 +3,7 @@
         <div class="col-md-6 px-0 ">
           <div class="p-5">
             <div class="text-center mt-5">
-              <img style="width: 100px;" :src="base_url+'/public/assets/images/login-1-logo.svg'" alt="">
+              <img style="width: 100px;" :src="base_url+'/assets/images/login-1-logo.svg'" alt="">
             </div>
             <div class="register text-center  ">
               
@@ -20,7 +20,7 @@
         </div>
         <div class="col-md-6 login-page">
           <div class="text-center mt-5">
-            <img style="width: 150px;" :src="base_url+'/public/assets/images/login-logo.svg'" alt="">
+            <img style="width: 150px;" :src="base_url+'/assets/images/login-logo.svg'" alt="">
           </div>
         </div>
       </div>

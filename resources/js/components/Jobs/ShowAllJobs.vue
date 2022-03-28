@@ -73,7 +73,7 @@
                           white-space: nowrap;
                           margin-right: 5px;
                         "
-                        :src="base_url + '/public/assets/images/o_eye.svg'"
+                        :src="base_url+'/assets/images/o_eye.svg'"
                         alt=""
                       />
                     </button>

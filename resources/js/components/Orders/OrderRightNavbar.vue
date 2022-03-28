@@ -6,7 +6,7 @@
             
             <div class="text-center py-4">
               <div class="image-user position-relative d-inline-block">
-                <img style="width: 100px;" :src="base_url + '/public/assets/images/white-logo.svg'" alt="" srcset="" />
+                <img style="width: 100px;" :src="base_url+'/assets/images/white-logo.svg'" alt="" srcset="" />
                 
               </div>
             
@@ -15,7 +15,7 @@
               <li class=" active">
                 <a href="#" id="panelsStayOpen-headingOne">
                   <img
-                    :src="base_url + '/public/assets/images/o_new.svg'"
+                    :src="base_url+'/assets/images/o_new.svg'"
                     style="width: 18px"
                     alt=""
                     srcset=""
@@ -29,13 +29,13 @@
                         <a>{{ $root._t("app.drafts") }}</a>
                       </li>
                       <li class="mt-2">
-                        <router-link :to="{ name: 'Filteration', params: { data: 'waiting' }}">{{ $root._t("app.waitting") }}</router-link>
+                        <a @click="changeStatus('waiting')">{{ $root._t("app.waitting") }}</a>
                       </li>
                       <li class="mt-2">
-                        <a>{{ $root._t("app.offers") }}</a>
+                        <a @click="changeStatus('offres')">{{ $root._t("app.offers") }}</a>
                       </li>
                       <li class="mt-2">
-                        <a @click.prevent="getWaiting('refused')">{{ $root._t("app.rejected") }}</a>
+                        <a @click="changeStatus('rejected')">{{ $root._t("app.rejected") }}</a>
                       </li>
                     </ul>
                   </div>
@@ -44,7 +44,7 @@
               <li class=" active">
                 <a href="#" id="panelsStayOpen-headingTwo">
                   <img
-                    :src="base_url + '/public/assets/images/o_under.svg'"
+                    :src="base_url+'/assets/images/o_under.svg'"
                     style="width: 18px"
                     alt=""
                     srcset=""
@@ -80,12 +80,20 @@
 export default {
   data(){
     return{
-      base_url:base_url
+      base_url:base_url ,
+      status: ''
     };
   },
+  state:{
+    selectedStatus : ''
+  },
+  mounted(){
+    
+  },
   methods:{
-    getWaiting(data){
-      this.$router.push({ name: "Filteration" , params: {data: data} });
+    changeStatus(newState){
+      this.status = newState
+      localStorage.setItem('filter_state', newState)
     }
   }
 }

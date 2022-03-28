@@ -12,12 +12,10 @@
         <div class="row w-100 mx-0 px-0">
           <div class="col-lg-9">
             <div class="row w-100 mx-0 px-0">
-              <div class="col-md-4 my-4" style="color: #aeaeae">
-                <div class="cir-prog" style="border-color: #048e81">
-                  <img
-                    :src="base_url + '/public/assets/images/o_hand.svg'"
-                    alt=""
-                  />
+              <div class="col-md-4 my-4" style="color: #AEAEAE;">
+                <div class="cir-prog" style="border-color: #048e81;">
+                  <img :src="base_url+'/assets/images/o_hand.svg'" alt="">
+
                 </div>
                 <div class="fw-bold o-num text-center" style="color: #048e81 ;">
                   {{ $root._t("app.number1") }}
@@ -30,10 +28,8 @@
               </div>
               <div class="col-md-4 my-4" style="color: #aeaeae">
                 <div class="cir-prog">
-                  <img
-                    :src="base_url + '/public/assets/images/o_exe.svg'"
-                    alt=""
-                  />
+                  <img :src="base_url+'/assets/images/o_exe.svg'" alt="">
+
                 </div>
                 <div class="fw-bold o-num text-center">
                   {{ $root._t("app.number2") }}
@@ -46,10 +42,8 @@
               </div>
               <div class="col-md-4 my-4" style="color: #aeaeae">
                 <div class="cir-prog">
-                  <img
-                    :src="base_url + '/public/assets/images/o_roket.svg'"
-                    alt=""
-                  />
+                  <img :src="base_url+'/assets/images/o_roket.svg'" alt="">
+
                 </div>
                 <div class="fw-bold o-num text-center">
                   {{ $root._t("app.number3") }}
@@ -68,18 +62,10 @@
               <p style="font-size: 12px" v-html="order_details"></p>
             </div>
             <div
-              class="py-2 px-3 d-inline-block rounded f-14"
-              style="color: #2b7b74; background-color: #ebfffd"
-            >
-              <span class="ms-3 fw-bold">
-                {{ $root._t("app.orderFileComplete") }}
-              </span>
-              <span
-                ><img
-                  style="width: 70px"
-                  :src="base_url + '/public/assets/images/o_pdf.svg'"
-                  alt=""
-              /></span>
+                class="py-2 px-3 d-inline-block rounded f-14"
+                style="color: #2B7B74;background-color: #EBFFFD;">
+              <span class="ms-3 fw-bold"> {{ $root._t("app.orderFileComplete") }} </span>
+              <span><img style="width: 70px;" :src="base_url+'/assets/images/o_pdf.svg'" alt=""></span>
             </div>
             <template
               v-if="
@@ -155,10 +141,7 @@
                       />
                       <div style="color: #048e81" class="add-o-file f-12">
                         <span> {{ $root._t("app.addFiles") }} </span>
-                        <img
-                          :src="base_url + '/public/assets/images/o_file.svg'"
-                          alt=""
-                        />
+                        <img :src="base_url+'/assets/images/o_file.svg'" alt="">
                       </div>
                     </div>
                     <div>
@@ -268,12 +251,8 @@
                   </li>
                   <li class="mb-3 mt-4 text-center">
                     <div class="text-center mb-2" v-if="profile_image === null">
-                      <img
-                        style="width: 50px; height: 50px"
-                        class="uses-img"
-                        :src="base_url + '/public/assets/images/nouser.png'"
-                        alt=""
-                      />
+                      <img style="width: 50px;height: 50px;" class="uses-img" :src="base_url+'/assets/images/nouser.png' " alt="">
+
                     </div>
                     <div class="text-center mb-2" v-else>
                       <img
@@ -347,23 +326,13 @@
             <div class="div-save p-2 mt-4">
               <div class="d-flex align-items-center">
                 <div>
-                  <img
-                    style="width: 40px; margin-left: 8px"
-                    :src="base_url + '/public/assets/images/o_save.svg'"
-                    alt=""
-                  />
+                  <img style="width: 40px;margin-left: 8px;" :src="base_url+'/assets/images/o_save.svg'" alt="">
                 </div>
                 <div class="text-white">
-                  <img
-                    :src="base_url + '/public/assets/images/sm-logo-w.svg'"
-                    alt=""
-                  />
-                  <br />
-                  <span style="font-size: 10px">
+                  <img  :src="base_url+'/assets/images/sm-logo-w.svg'" alt=""> <br>
+                  <span style="font-size: 10px;">
                     <span> {{ $root._t("app.guarantee100") }} </span>
-                    <span style="margin-top: -3px; display: block">
-                      {{ $root._t("app.yourOrderAtTheSameTime") }}
-                    </span>
+                    <span style="margin-top: -3px; display: block;"> {{ $root._t("app.yourOrderAtTheSameTime") }} </span>
                   </span>
                 </div>
               </div>

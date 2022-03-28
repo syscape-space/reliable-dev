@@ -130,7 +130,7 @@ export default {
         .post("v1/new_ticket" , formData)
         .then((response) => {
           console.log(response)
-          alert("Ticket Added Successfully");
+          this.$root.alertSuccess("Ticket Added Successfully");
           this.$router.push({ name: "Ticket2" });
         })
         // error.response.data.errors

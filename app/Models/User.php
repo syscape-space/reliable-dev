@@ -95,6 +95,9 @@ class User extends Authenticatable implements JWTSubject {
 	public function getJWTIdentifier() {
 		return $this->getKey();
 	}
+	public function negotiations(){
+	    return $this->belongsToMany(Negotiate::class,'negotiate_users','user_id','negotiate_id');
+    }
 
 	/**
 	 * Return a key value array, containing any custom claims to be added to the JWT.
