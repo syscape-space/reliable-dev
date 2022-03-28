@@ -30,18 +30,19 @@
                 <!-- <a class="nav-link list-group-item list-group-item-action" :class="{active: activeLink == 'account_settings'}" @click="openAccountSettings()" href="#">Account Setting</a> -->
                 <a class="nav-link list-group-item list-group-item-action"
                   :class="{active: activeLink == 'account_settings'}" @click="activeLink = 'account_settings'" href="#">
-                  <span class="f-w-500"><i class="feather icon-disc m-r-10 h5 "></i>إعدادت الحساب </span> <span
-                    class="float-right"><i class="feather icon-chevron-right"></i></span> </a>
+                  <span class="f-w-500">إعدادت الحساب </span> <span
+                    class="float-start"></span> </a>
                 <a class="nav-link list-group-item list-group-item-action"
                   :class="{active: activeLink == 'verify_user'}" @click="activeLink = 'verify_user'" href="#">
                   <span class="f-w-500"><i class="feather icon-disc m-r-10 h5 "></i>تحقق الهوية </span> <span
-                    class="float-right"><i class="feather icon-chevron-right"></i></span> </a>
-                <!-- <a class="nav-link list-group-item list-group-item-action active" id="user-edit-account-tab" data-toggle="pill" href="#user-edit-account" role="tab" aria-controls="user-edit-account" aria-selected="true"> <span class="f-w-500"><i class="feather icon-user m-r-10 h5 "></i>معلومات شخصية </span> <span class="float-right"><i class="feather icon-chevron-right"></i></span> </a> -->
+                    class="float-start"><i class="fa fa-check-circle text-success fa-2x" ></i></span> </a>
+                <!-- <a class="nav-link list-group-item list-group-item-action active" id="user-edit-account-tab" data-toggle="pill" href="#user-edit-account" role="tab" aria-controls="user-edit-account" aria-selected="true"> <span class="f-w-500"><i class="feather icon-user m-r-10 h5 "></i>معلومات شخصية </span> <span class="float-start"><i class="feather icon-chevron-right"></i></span> </a> -->
                 
                 <a v-if="user?.membership_type != 'user'" class="nav-link list-group-item list-group-item-action  d-flex justify-content-between"
                   :class="{active: activeLink == 'commercial'}" @click="activeLink = 'commercial'" href="#"> <span
                     class="f-w-500"><i class="feather icon-image m-r-10 h5 ">
-                    </i>السجلات التجارية </span> <span class="float-right">
+                    </i>السجلات التجارية </span> <span class="float-start">
+                      <i class="fa fa-times-circle text-danger fa-2x" data-v-2a94f58a=""></i>
                     <p v-if="commercial_status != 'unset'" class="p-0 m-0" :class="{'text-danger': commercial_status == 'end', 'text-success': commercial_status == 'active', 'text-white': activeLink == 'commercial'}" v-text="commercial_status == 'active' ? 'نشيط' : 'منتهي'"></p>
 
                   </span> </a>
@@ -50,7 +51,8 @@
                 <a v-if="user?.membership_type != 'user'" class="nav-link list-group-item list-group-item-action d-flex justify-content-between"
                   :class="{active: activeLink == 'license'}" @click="activeLink = 'license'" href="#"> <span
                     class="f-w-500"><i class="feather icon-image m-r-10 h5 "></i>الرخصة المهنية </span>
-                  <span class="float-right">
+                  <span class="float-start">
+                    
                     <p v-if="license_status != 'unset'" class="p-0 m-0" :class="{'text-danger': license_status == 'end', 'text-success': license_status == 'active', 'text-white': activeLink == 'license'}" v-text="license_status == 'active' ? 'نشيط' : 'منتهي'"></p>
                     <i class="feather icon-chevron-right">
                     </i></span> </a>
@@ -59,19 +61,19 @@
                 <a v-if="user?.membership_type != 'user'" class="nav-link list-group-item list-group-item-action"
                   :class="{active: activeLink == 'qualification'}" @click="activeLink = 'qualification'" href="#"> <span
                     class="f-w-500"><i class="feather icon-image m-r-10 h5 "></i>المؤهلات </span> <span
-                    class="float-right"><i class="feather icon-chevron-right"></i></span> </a>
+                    class="float-start"><i class="fa fa-check-circle text-success fa-2x" ></i></span> </a>
                 
                 <!-- experience -->
                 <a v-if="user?.membership_type != 'user'" class="nav-link list-group-item list-group-item-action" :class="{active: activeLink == 'experience'}"
                   @click="activeLink = 'experience'" href="#"> <span class="f-w-500"><i
-                      class="feather icon-image m-r-10 h5 "></i>الخبرات </span> <span class="float-right"><i
-                      class="feather icon-chevron-right"></i></span> </a>
+                      class="feather icon-image m-r-10 h5 "></i>الخبرات </span> <span class="float-start">
+                        <i class="fa fa-times-circle text-danger fa-2x" data-v-2a94f58a=""></i></span> </a>
 
                 <!-- change password                -->
                 <a class="nav-link list-group-item list-group-item-action"
                   :class="{active: activeLink == 'change_password'}" @click="activeLink = 'change_password'" href="#">
                   <span class="f-w-500"><i class="feather icon-shield m-r-10 h5 "></i>تغيير كلمة المرور </span> <span
-                    class="float-right"><i class="feather icon-chevron-right"></i></span> </a>
+                    class="float-start"><i class="feather icon-chevron-right"></i></span> </a>
               </div>
             </div>
           </div>
