@@ -128,9 +128,34 @@
                           <span> {{ $root._t("app.deliveryTime") }} :</span>
                           <span class="me-2"> 0 {{ $root._t("app.day") }}</span>
                         </span>
-                        <span>
+                        <span  data-bs-toggle="modal" data-bs-target="#exampleModal">
                           <i class="fas fa-ellipsis-v"></i>
                         </span>
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h6 class="modal-title" id="exampleModalLabel"> هل انت متأكد من رغبتك فى طلب غلق المشروع </h6>
+                                <button type="button" class="ms-0 btn-close me-auto" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <div class="modal-body text-end">
+                                <ul class="">
+                                  <li class="fw-bold mb-2">   ستلامك للمشروع يعني بأن الموثوق أنهى الاتّفاق الذي بينكما وسلّمك المشروع بشكل كامل وسيتم تحويل المبلغ مُباشرة إلى حسابه على الموقع. قبل استلام المشروع، تأكّد من الأمور التالية:</li>
+                                  <li class="fw-bold mb-2">سلّمك الموثوق المشروعَ الذي طلبته حسب الاتّفاق بشكلٍ كاملٍ</li>
+                                  <li class="fw-bold mb-2">إن كان المشروع بحاجة للاختبار، فتأكّد من تجربته جيدًا ومن عمل جميع خصائصه</li>
+                                  <li class="fw-bold mb-2">لا تستلم المشروع إن كانت هناك أمورٌ ناقصةٌ أو غير مُكتملة بعد</li>
+                                  <li class="fw-bold mb-2">لا تقلق، حتى بعد استلام المشروع ستبقى قادرًا على التواصل مع الموثوق</li>
+                                  <li class="fw-bold mb-2">لا تتردّد في التّواصل معنا. إن احتجت إلى أية مُساعدة، فسنكون سُعداءَ بمُساعدتك.</li>
+                                </ul>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</button>
+                                <button type="button" class="btn btn-danger">إغلاق</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </span>
                     </div>
                   </div>
