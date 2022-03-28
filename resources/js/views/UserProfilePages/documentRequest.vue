@@ -70,22 +70,14 @@
                   <template v-for="type in types.data">
                     <div class="option mt-4" >
                       <div class="head">
-                        <div class="form-check form-check-inline mb-2">
-                          <input type="radio" class="form-check-input" v-model="form.type_id" :value="type.id"
-                                 :id="'type-input-'+type.id" name="type_id" :disabled="has_membership != true">
-                          <label class="form-check-label name  pr-2"
-                                 :for="'type-input-'+type.id">{{ type.type_name_ar }}</label>
-                        </div>
+                        
                         <div class="details  mt-3 py-2">
                           <div class="row">
-                            <div class="col-10">
-                              <div v-html="type.type_desc_ar"></div>
-                              <!-- <p>
-                                {{ type.type_desc_ar }}
-                              </p> -->
-                            </div>
-                            <div class="col-2 text-start">
-                              <img style="width:22px" :src="base_url + '/public/assets/images/Page.svg'" alt="#">
+                            <div class="form-check form-check-inline mb-2">
+                              <input type="radio" class="form-check-input" v-model="form.type_id" :value="type.id"
+                                    :id="'type-input-'+type.id" name="type_id" :disabled="has_membership != true">
+                              <label class="form-check-label name  pr-2"
+                                    :for="'type-input-'+type.id">{{ type.type_name_ar }}</label>
                             </div>
                           </div>
                         </div>
@@ -236,6 +228,7 @@
                 <label class="form-check-label name red pr-2" style="color: #FF584D; font-size:14px" for="exampleCheck80">
                   {{ $root._t("app.thereIsSides") }} </label>
               </div>
+              <!--بدايه بيانات المدعى عليه -->
               <div class="row mb-3" v-for="(entity,index) in form.entities">
                 <div class="form-group col-md-3">
                   <input class="form-control w-100"  v-model="entity.name" type="text" placeholder="الأسم">
@@ -254,6 +247,7 @@
                        :src="base_url + '/public/assets/images/icons.svg'" alt="#" class="d-inline-block">
                 </div>
               </div>
+              <!--نهايه بيانات المدعى عليه -->
               <hr>
               <div class="select mb-4">
                 <div class="option selected ">

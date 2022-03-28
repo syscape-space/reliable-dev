@@ -1,4 +1,5 @@
 <template>
+
   <section class="personal-section mt-2">
     <div class="personal">
       <div class="personal-info">
@@ -196,6 +197,7 @@
             </li>
           </ul>
         </nav>
+        <input type="text" id="status">
       </div>
     </div>
   </section>
@@ -203,25 +205,29 @@
 <script>
 import api from "../../utils/api";
 export default {
-  props:["data"],
   data() {
     return {
       base_url: base_url,
-      cloud_url:cloud_url
+      cloud_url:cloud_url ,
+      filterState: ''
     };
   },
+  
   mounted() {
     this.gettingFilterationData();
+    this.filterState = localStorage.getItem('filter_state', 'waiting')
+    console.log(this.filterState)
   },
+created(){
+          
+},
   methods: {
       gettingFilterationData(){
-          let path = location.pathname
-          let directories = path.split("/");
-          let lastDirecotry = directories[(directories.length - 1)];
           
-          console.log(this.$route.params.data);
+          // alert(this.orderStatus);
+          // console.log(this.$route.params.data);
         //   api
-        // .get("v1/getting_filtered_orders/" + lastDirecotry)
+        // .get("v1/getting_filtered_orders/" + )
         // .then((response) => {
         //   console.log(response);
         // })
