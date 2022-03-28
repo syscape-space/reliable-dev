@@ -99,13 +99,16 @@
                     >{{ item.user_id["name"] }}
                   </span>
                 </div>
-
+               
                 <div>
                   <span
                     style="color: #2b7b74"
                     class="mb-2 d-inline-block text-center"
                     >{{ item.department_id["department_desc_ar"] }}
                   </span>
+                </div>
+                 <div>
+                  <p class="m-0 bg-transparent   px-3" style="width: auto;">  <b>نوع العضوية:</b> عميل</p>
                 </div>
               </div>
             </div>

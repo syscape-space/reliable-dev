@@ -108,6 +108,16 @@
                   </div>
                 </div>
               </div>
+              <div class="mt-3" >
+                <div class="form-check form-check-inline mb-2" ><input type="radio" class="form-check-input" id="exampleCheck8s1" name="choos" value="1" ><label class="form-check-label name red pr-2" for="exampleCheck8s1"  style="color: rgb(255, 88, 77); font-size: 14px;">بيانات المدعى عليه</label></div>
+                <div class="row mb-3" >
+                    <div class="form-group col-md-3" ><input class="form-control w-100" type="text" placeholder="الأسم" ></div>
+                    <div class="form-group col-md-3" ><input class="form-control w-100" type="text" placeholder="رقم الهويه........" ></div>
+                    <div class="form-group col-md-3" ><input class="form-control w-100" type="text" placeholder=" الجنسيه........" ></div>
+                    <!--v-if-->
+                </div>
+                <hr >
+              </div>
               <div class="my-4 btw-flex">
                 <span>{{ $root._t("app.presentations") }}</span>
                 <span>

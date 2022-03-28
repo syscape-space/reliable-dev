@@ -327,13 +327,13 @@
                     <input id='attachments_input' class="abs-file  " style="    width: 155px;" ref="attachments_input" multiple @change="uploadAttachments()"
                            type='file'/>
                   </div>
-                  <div class='sounds d-inline-block mr-3'>
+                  <!-- <div class='sounds d-inline-block mr-3'>
                     <label for='input-file' class="add-o-file">
                       {{ $root._t("app.sendVoiceFile") }}
                       <img :src="base_url + '/public/assets/images/audio-file.svg'" alt="#">
                     </label>
                     <input id='input-file'  class="abs-file  "  style="    width: 155px;" ref="audio_file_input" @change="uploadAudioFile()" type='file'/>
-                  </div>
+                  </div> -->
                 </div>
               </div>
             </div>
