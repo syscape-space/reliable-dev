@@ -19,7 +19,7 @@
                   "
                 >
                   <h6 style="font-size: 13px" class=""> {{ $root._t("app.projectCard") }} </h6>
-                  <h6 style="font-size: 13px">{{ $root._t("app.main_category") }} - {{ $root._t("app.sub_category") }} </h6>
+                  <h6 style="font-size: 13px"> {{ list.department_name_ar }}  </h6>
                   <ul class="list-unstyled px-0 f-12 text-end mt-4">
                     <li class="mb-3 f-12">
                       <span> {{ $root._t("app.projectStatus") }} </span>
@@ -27,7 +27,7 @@
                         class="o_btn d-inline-block px-3 py-2 rounded"
                         style="margin-right: 15px; background-color: #0995eb"
                       >
-                        {{ $root._t("app.executeNow") }}
+                        {{ $root._t("app." + list.order_status) }}
                       </button>
                     </li>
                     <li class="mb-3">
@@ -37,7 +37,7 @@
                       <span
                         style="margin-right: 15px; color: #0995eb"
                         class="fw-bold"
-                        > {{ $root._t("app.hours20Ago") }} </span
+                        > {{ list.created_at }} </span
                       >
                     </li>
                     <li class="mb-3">
@@ -47,7 +47,7 @@
                       <span
                         style="margin-right: 15px; color: #0995eb"
                         class="fw-bold"
-                        > {{ $root._t("app.oneDay") }} </span
+                        > {{ list.execution_time }} يوم</span
                       >
                     </li>
                     <li class="mb-3">
@@ -57,7 +57,7 @@
                       <span
                         style="margin-right: 15px; color: #0995eb"
                         class="fw-bold"
-                        > {{ $root._t("app.num15Offer") }} </span
+                        > {{ list.offersCount }} عرض</span
                       >
                     </li>
                     <li class="mb-3">
@@ -109,8 +109,7 @@
               <div class="row w-100 mx-0 px-0">
                 <span>{{ $root._t("app.home") }} /
                    {{ $root._t("app.projects") }} / 
-                  {{ $root._t("app.main_category") }} / 
-                   {{ $root._t("app.sub_category") }} </span>
+                  {{ list.department_name_ar }} </span>
                 <div class="col-md-4 my-4" style="color: #aeaeae">
                   <div class="cir-prog" style="border-color: #048e81">
                     <img :src="base_url+'/assets/images/o_hand.svg'" alt="" />
@@ -146,7 +145,7 @@
               <div>
                 <h5 class="fw-bold g-color"> {{ $root._t("app.projectDetails") }} </h5>
                 <p style="font-size: 12px">
-                  {{ $root._t("app.longText") }}
+                  {{ list.order_content }}
                 </p>
                 <div
                 class="mt-4"
@@ -157,7 +156,7 @@
                     color: #2b7b74;
                     border-radius: 4px; "
                 ><p class="m-0">
-                    {{ $root._t("app.projectPudget") }}  : <span class="me-4"> {{ $root._t("app.from200To500") }} </span>
+                    {{ $root._t("app.projectPudget") }}  : <span class="me-4"> {{ list.price }} $ </span>
                   </p>
                 </div>
                 <div class="discuss-deal mt-4">
@@ -257,19 +256,10 @@
                           alt=""
                         />
                       </div>
-                      <div class="text-center">
-                        <i class="fas fa-star yellow"></i>
-                        <i class="fas fa-star yellow"></i>
-                        <i class="fas fa-star yellow"></i>
-                        <i class="fas fa-star yellow"></i>
-                        <i class="fas fa-star"></i>
+                      <div class="text-center mb-2" >
+                        <img style="width: 50px;height: 50px;" class="uses-img" :src="cloud_url  +  orderOwnerProfile " alt="">
                       </div>
-                      <span class="text-center">محمد مصطفي</span> <br />
-                      <span
-                        style="color: #2b7b74"
-                        class="mb-2 d-inline-block text-center"
-                        >{{ $root._t("app.attorneyGeneral") }}
-                      </span>
+                      <span class="text-center">{{ orderOwner }} </span>
                     </li>
                     <li class="mb-3 f-12">
                       <span> {{ $root._t("app.projectStatus") }} </span>
@@ -277,7 +267,7 @@
                         class="o_btn d-inline-block px-3 py-2 rounded"
                         style="margin-right: 15px"
                       >
-                        {{ $root._t("app.complete") }}
+                        {{ $root._t("app." + list.order_status) }}
                       </button>
                     </li>
                     <li class="mb-3">
@@ -287,7 +277,7 @@
                       <span
                         style="margin-right: 15px; color: #0995eb"
                         class="fw-bold"
-                        >200 {{ $root._t("app.Dolar") }}</span
+                        > {{ list.price }} $ </span
                       >
                     </li>
                     <li class="mb-3">
@@ -297,17 +287,7 @@
                       <span
                         style="margin-right: 15px; color: #0995eb"
                         class="fw-bold"
-                        >{{ $root._t("app.days5") }}</span
-                      >
-                    </li>
-                    <li class="mb-3">
-                      <span style="min-width: 60px" class="d-inline-block"
-                        >{{ $root._t("app.pageDate") }}</span
-                      >
-                      <span
-                        style="margin-right: 15px; color: #0995eb"
-                        class="fw-bold"
-                        >{{ $root._t("app.dateDetails") }}</span
+                        >{{ list.execution_time }} يوم</span
                       >
                     </li>
                     <li class="mb-3">
@@ -318,7 +298,7 @@
                         style="margin-right: 15px; color: #0995eb"
                         class="fw-bold"
                       >
-                        {{ $root._t("app.startingExecutionDate") }} </span
+                        {{ list.created_at }} </span
                       >
                     </li>
                   </ul>
@@ -384,23 +364,51 @@
 </template>
 <script>
 import NewTopNavbar from '../../components/Orders/NewTopNavbar'
+import api from "../../utils/api";
 export default {
     components : { NewTopNavbar },
     name: "afterAccept",
     props:['id'],
     mounted(){
       this.gettingDataOfOrderAndOffer();
+      this.currentUser();
     },
   data(){
     return{
       base_url:base_url,
       cloud_url:cloud_url,
+      list : [] ,
+      orderOwner : '' ,
+      orderOwnerProfile : '' ,
     }
   },
   methods:{
     gettingDataOfOrderAndOffer(){
-      console.log(this.$props.id)
-    }
+      let order_id = this.$props.id ;
+      api
+        .get("v1/getting_add_data_of_order_offer_owners/"+order_id)
+        .then((response) => {
+          this.list = response.data.allOffersAndOrdersOwners[0];
+          console.log(response.data.allOffersAndOrdersOwners[0]);
+        })
+        .catch((e) => {
+          console.log(e.response);
+        });
+    },
+    currentUser() {
+      api
+        .get("/v1/account")
+        .then((response) => {
+          this.orderOwner = response.data.data.name
+          this.orderOwnerProfile = response.data.photo_profile
+          console.log(response.data.data.photo_profile)
+        })
+        // error.response.data.errors
+        .catch((e) => {
+          this.errors = e.response.data.errors;
+          console.log(e.response);
+        });
+    },
   },
   computed:{
 

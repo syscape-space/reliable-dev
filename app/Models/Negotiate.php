@@ -12,4 +12,10 @@ class Negotiate extends Model
     public function messages(){
         return $this->hasMany(NegotiateMessage::class,'negotiate_id','id');
     }
+    public function users(){
+        return $this->belongsToMany(User::class,'negotiate_users','negotiate_id','user_id');
+    }
+    public function order(){
+        return $this->belongsTo(Order::class,'order_id','id');
+    }
 }

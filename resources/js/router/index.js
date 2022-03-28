@@ -36,7 +36,9 @@ import Profile2 from '../views/OrdersPages/profile2Page.vue'
 import Profile3 from '../views/OrdersPages/profile3Page.vue'
 import Profile4 from '../views/OrdersPages/profile4Page.vue'
 import MyOrder from '../views/OrdersPages/myOrder.vue'
+import EXMyOrders from '../views/OrdersPages/EXMyOrders.vue'
 import ShowAllOrders from '../views/OrdersPages/showAllOrders.vue'
+import Filteration from '../views/OrdersPages/ordersFilteration.vue'
 
 
 // Tickets
@@ -214,6 +216,7 @@ const routes = [{
         path: prefix + '/o_offer_order2/:id',
         beforeEnter: guardMyroute,
         component: offerOrder2Page,
+        props: true,
         name: "offerOrder2Page",
         meta: { title: 'Offers' }
     },
@@ -260,11 +263,25 @@ const routes = [{
         meta: { title: 'My Orders' }
     },
     {
+        path: prefix + '/my_orders_ex',
+        beforeEnter: guardMyroute,
+        component: EXMyOrders,
+        name: "EXMyOrders",
+        meta: { title: 'EX My Orders' }
+    },
+    {
         path: prefix + '/show_all_orders',
         beforeEnter: guardMyroute,
         component: ShowAllOrders,
         name: "ShowAllOrders",
         meta: { title: 'Orders' }
+    },
+    {
+        path: prefix + '/filteration/:data',
+        beforeEnter: guardMyroute,
+        component: Filteration,
+        props: true,
+        name: "Filteration",
     },
     // Tickets pages routes
     {
@@ -276,6 +293,7 @@ const routes = [{
     },
     {
         path: prefix + '/order/:id',
+        beforeEnter: guardMyroute,
         props: true,
         component: ShowSingleOrder,
         name: 'ShowSingleOrder',

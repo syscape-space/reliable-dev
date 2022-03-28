@@ -4,17 +4,20 @@
   <section class="requsts-sec mt-4">
     <div class="chat-clinet" style="max-width: 1000px;margin: auto;">
       <ul class="chat-list justify-content-between  list-unstyled d-flex ">
-        <li class="d-flex me-5">
+        <li class="d-flex me-5" v-if="otherUser">
           <img style="width:40px" :src="base_url+'/images/morning.svg'" alt="">
-          <p style="font-size: 13px;" class="me-1 m-0">أحمد اسلام <br>
+          <p style="font-size: 13px;" class="me-1 m-0">{{otherUser.first_name}}<br>
             <span style="color: rgb(165, 164, 164);" >موثوق</span> </p>
+        </li>
+        <li class="d-flex me-5" v-else>
+          لم يدخل طرف اخر المفاوضة
         </li>
         <li class="text-center">
           <span>رقم الطلب</span> <br>
-          <span>14445</span>
+          <span>{{negotiate.order.id}}</span>
         </li>
         <li>
-          <span>عنوان الطلب</span>
+          <span>{{negotiate.order.order_title}}</span>
         </li>
         <li>
           <span>مرحلة التفاوض</span>
@@ -24,23 +27,16 @@
           <img :src="base_url+'/images/chate.svg'" alt="">
         </li>
       </ul>
-      <div class=" text-center " style=" font-size: 13px;
-         "> <p class="m-0"  > <span style="background-color:#F8FAFC;
-          color: rgb(177, 177, 177);
-          padding: 10px;
-         border-radius: 20px; "
-      >may 21</span></p>
-      </div>
       <ul class="item-chat list-unstyled text-start px-0" >
         <li class="sec-list" v-for="message in negotiate.messages" >
           <div class="d-flex mb-3">
             <img style="width: 30px;" :src="base_url+'/images/morning.svg'" alt=""> <br>
-            <p class="m-0 me-2"  >أحمد اسلام</p>
+            <p class="m-0 me-2"  >{{message.user.first_name}}</p>
           </div>
           <span>
               <span v-html="message.content"></span>
               <br>
-              <small>05:12</small>
+              <small>{{message.created_at}}</small>
             </span>
         </li>
 
@@ -96,8 +92,19 @@ export default {
     sendMessage(){
       var data = {negotiate_id:this.$props.id,user_id:this.$root.auth_user.id,content:this.new_message};
       api.post('/v1/negotiations_messages',data).then(res=>{
+        data.user = this.$root.auth_user;
+        data.created_at = "الأن";
         this.negotiate.messages.push(data);
         this.new_message = '';
+      })
+    },
+  },
+  computed:{
+    otherUser(){
+      this.negotiate.users.forEach(item=>{
+        if (item.id != this.$root.auth_user.id){
+          return item;
+        }
       })
     }
   },

@@ -100,6 +100,7 @@ export default {
   data() {
     return {
       base_url: base_url,
+      cloud_url:cloud_url,
       list2 : [] ,
     };
   },

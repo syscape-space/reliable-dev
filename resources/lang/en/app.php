@@ -65,8 +65,8 @@ return [
     'handred' => '100 $' ,
     'acceptOffer' => ' Accept the offer ' ,
     'negotiateNow' => ' negotiate now ' ,
-    'projectCard' => ' project card ' ,
-    'projectStatus' => ' Project state ' ,
+    'projectCard' => ' Order card ' ,
+    'projectStatus' => ' Order state ' ,
     'open' => ' open ' ,
     'publishDate' => ' date of publication ' ,
     'hours20Ago' => ' 20 hours ago ' ,
@@ -74,7 +74,7 @@ return [
     'oneDay' => 'one day ' ,
     'offersNum' => ' Number of offers ' ,
     'num15Offer' => ' number 15 display ' ,
-    'projectOwner' => ' Owner of the project ' ,
+    'projectOwner' => ' Owner of the Offer ' ,
     'attorneyGeneral' => ' attorney general ' ,
     'guarantee100%' => ' 100% money back guarantee ' ,
     'yourOrderAtTheSameTime' => ' your requests at the same time ' ,
@@ -82,7 +82,7 @@ return [
     // offerOrder2
     'executeNow' => ' Underway ' ,
     'closeProject' => ' Close the project ' ,
-    'projects' => ' projects ' ,
+    'projects' => ' Orders ' ,
     'negotiatePhase' => ' negotiation stage ' ,
     'executionPhase' => ' Implementation stage ' ,
     'projectPudget' => 'Project budget' ,
@@ -372,5 +372,7 @@ return [
     'presentation' => 'offers Presentation' ,
     'oderValue' => 'Order Value' ,
     'admin' => 'الاداره' ,
-    'noOfferComment' => 'Not Contain Comment'
+    'noOfferComment' => 'Not Contain Comment' ,
+    'enemyCard' => 'Defendant Card' ,
+    'nationalId' => 'National Id' ,
 ];

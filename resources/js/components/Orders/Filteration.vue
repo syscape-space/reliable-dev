@@ -46,15 +46,37 @@
             </div>
           </div>
         </div>
-        <div class="p-3 mt-3" style="background-color: #f9f9f9" v-for="item in  filterdList" :key="item.id">
+        <div class="p-3 mt-3" style="background-color: #f9f9f9">
           <div class="">
             <div class="mb-2 text-start" style="font-size: 12px">
+              <!-- <span class="ms-3">
+                <img
+                  style="width: 15px"
+                  class="ms-1"
+                  :src="base_url + '/public/assets/images/o_clock.svg'"
+                  alt=""
+                />
+                <span>{{ $root._t("app.ago") }} {{ item.created_at }} {{ $root._t("app.hours") }}</span>
+              </span> -->
+
+<!--             <span class="ms-3">-->
+                
+<!--              <span v-if="item.country_id['country_name_en'] === 'Kingdom Saudi Arabia' "> {{ $root._t("app.saudiAribianCompleteName") }} </span>-->
+<!--                <img-->
+<!--                  style="width: 14px"-->
+<!--                  class="ms-1"-->
+<!--                  :src="base_url + '/public/assets/images/o_map.svg'"-->
+<!--                  alt=""-->
+<!--                />-->
+<!--              </span>-->
+              
+              
                <span class="ms-3">
                 <span>{{ $root._t("app.present") }} 0 {{ $root._t("app.offers") }}</span>
                 <img
                   style="width: 20px"
                   class="ms-1"
-                  :src="base_url+'/assets/images/o_offer.svg'"
+                  :src="base_url + '/public/assets/images/o_offer.svg'"
                   alt=""
                 />
               </span>
@@ -64,7 +86,7 @@
                   <img
                     style="width: 15px"
                     class="ms-1"
-                    :src="base_url+'/assets/images/o_delever.svg'"
+                    :src="base_url + '/public/assets/images/o_delever.svg'"
                     alt=""
                   />
                   <span> {{ $root._t("app.deliveryTime") }} :</span>
@@ -89,15 +111,14 @@
               <div style="border-left: 3px solid #ddd" class="px-3">
                 <img
                   style="width: 70px"
-                  :src="base_url+'/assets/images/user.svg'"
-
+                  :src="cloud_url  + ''"
                   alt=""
                 />
                 <div>
                   <span
                     style="color: #2b7b74"
                     class="mb-2 d-inline-block text-center"
-                    >{{ item.user_id["name"] }}
+                    >adfsdfsa
                   </span>
                 </div>
 
@@ -105,20 +126,20 @@
                   <span
                     style="color: #2b7b74"
                     class="mb-2 d-inline-block text-center"
-                    >{{ item.department_id["department_desc_ar"] }}
+                    >dfasdfs
                   </span>
                 </div>
               </div>
             </div>
             <div class="col-md-9">
-              <div class="clicker" @click.prevent="showThisOrderDetails(item.id)" style="cursor: pointer;">
+              <div class="clicker"  style="cursor: pointer;">
                 <h6 style="color: #048e81"> {{ $root._t("app.orderTitleHere") }} </h6>
                 <p class="pb-3 f-12">
-                  {{ item.order_title }}
+                  rewrwwr
                 </p>
                 <h6 style="color: #048e81"> {{ $root._t("app.orderContent") }} </h6>
                 <p class="pb-3 f-12">
-                  {{ item.order_content.substring(0,40)+".." }}
+                  adfsdfas
                 </p>
               </div>
               <div class="mt-3 btw-flex">
@@ -150,7 +171,7 @@
                     "
                     class="rounded"
                   >
-                   {{ $root._t("app."+item.order_status) }}
+                   dasfadfs
                   </button>
                 </div>
               </div>
@@ -182,49 +203,32 @@
 <script>
 import api from "../../utils/api";
 export default {
-  
+  props:["data"],
   data() {
     return {
       base_url: base_url,
-      cloud_url:cloud_url,
-      list : [] ,
-      id : "" ,
-      search : '' ,
+      cloud_url:cloud_url
     };
   },
   mounted() {
-    this.getMyOrders();
-    document.getElementById('pagesCount').style.display = "none";
+    this.gettingFilterationData();
   },
-  computed : {
-    filterdList:function(){
-      return this.list.filter( (list) => {
-        return list.order_title.match(this.search)
-      })
-    }
-  } ,
   methods: {
-    getMyOrders() {
-      api
-        .get("v1/orders?my=1")
-        .then((response) => {
-          this.list = response.data.data.data;
+      gettingFilterationData(){
+          let path = location.pathname
+          let directories = path.split("/");
+          let lastDirecotry = directories[(directories.length - 1)];
           
-          if(this.list.length === 0){
-            document.getElementById('pagesCount').style.display = "none";
-          }else{
-            document.getElementById('pagesCount').style.display = "block";
-          }
-          
-          console.log(response.data.data.data);
-        })
-        .catch((e) => {
-          console.log(e.response);
-        });
-    },
-    showThisOrderDetails(id){
-      this.$router.push({ name: "ShowSingleOrder" , params:{id:id} });
-    }
+          console.log(this.$route.params.data);
+        //   api
+        // .get("v1/getting_filtered_orders/" + lastDirecotry)
+        // .then((response) => {
+        //   console.log(response);
+        // })
+        // .catch((e) => {
+        //   console.log(e.response);
+        // });
+      }
   },
 };
 </script>

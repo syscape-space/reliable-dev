@@ -29,6 +29,6 @@ class NegotiationController extends Controller
         return $this->jsonForm(compact('negotiate'));
     }
     public function query($query){
-        return $query->with('messages');
+        return $query->with('messages','order','users','messages.user');
     }
 }

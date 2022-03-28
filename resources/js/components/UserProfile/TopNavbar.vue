@@ -46,7 +46,22 @@
               {{ $root._t("app.search") }} 
             </button>
           </li>
-          <li style="margin-right: auto">
+          <li style="margin-right: auto" class="ms-2">
+            <button
+              style="
+                border: 0;
+                background-color: #048e81;
+                color: #fff;
+                font-size: 12px;
+                padding: 0 40px;
+                height:38px
+              "
+              class="rounded  "
+            >
+              اضافة طلب
+            </button>
+          </li>
+          <li >
             <div class="dropdown">
               <a
                 style="background-color: #fff"

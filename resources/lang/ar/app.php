@@ -67,8 +67,8 @@ return [
     'handred' => '100 $' ,
     'acceptOffer' => ' قبول العرض ' ,
     'negotiateNow' => ' تفاوض الان ' ,
-    'projectCard' => ' بطاقه المشروع ' ,
-    'projectStatus' => ' حاله المشروع ' ,
+    'projectCard' => ' بطاقه الطلب ' ,
+    'projectStatus' => ' حاله الطلب ' ,
     'open' => ' مفتوح ' ,
     'publishDate' => ' تاريخ النشر ' ,
     'hours20Ago' => ' منذ 20 ساعه ' ,
@@ -76,7 +76,7 @@ return [
     'oneDay' => ' يوم واحد ' ,
     'offersNum' => ' عدد العروض ' ,
     'num15Offer' => ' عدد 15 عرض ' ,
-    'projectOwner' => ' صاحب المشروع ' ,
+    'projectOwner' => ' صاحب العرض ' ,
     'attorneyGeneral' => ' محامى عام ' ,
     'guarantee100%' => ' ضمان 100% لاموالك ' ,
     'yourOrderAtTheSameTime' => ' طلباتك بنفس الوقت ' ,
@@ -84,7 +84,7 @@ return [
     // offerOrder2
     'executeNow' => ' قيد التنفيذ ' ,
     'closeProject' => ' اغلاق المشروع ' ,
-    'projects' => ' المشاريع ' ,
+    'projects' => ' العروض ' ,
     'negotiatePhase' => ' مرحله التفاوض ' ,
     'executionPhase' => ' مرحله التنفيذ ' ,
     'projectPudget' => 'ميزانية المشروع' ,
@@ -375,7 +375,11 @@ return [
     'presentation' => 'العروض التقديميه' ,
     'oderValue' => 'قيمه العرض' ,
     'admin' => 'الاداره' ,
-    'noOfferComment' => 'لا يحتوى على تعليق'
+    'noOfferComment' => 'لا يحتوى على تعليق' ,
+    // Defendant presenter
+    'enemyCard' => 'بطاقه المدعى عليه' ,
+    'fullname' => 'الاسم' ,
+    'nationalId' => 'رقم الهويه'
 
     
 ];

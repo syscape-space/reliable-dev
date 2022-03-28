@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Api\V1\VendorController;
+use App\Http\Controllers\Api\V1\ExOrderController;
+use App\Http\Controllers\Api\V1\MyOrdersController ;
 use App\Http\Controllers\Api\V2\UpdateUserProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -61,7 +63,9 @@ Route::group(
 		Route::post('add_comment_for_this_ticket/{ticket_id}', 'TicketController@addCommentForThisTicket');
 		Route::get('get_offers/{order_id}' , 'OfferOrdersController@getAllOffersOfThisOrder');
 		Route::put('accept_offer/{offer_id} ' , 'OfferOrdersController@acceptOffer') ;
-
+		Route::get('getting_add_data_of_order_offer_owners/{offer_id}' , 'OfferOrdersController@getOrderAndOfferOwnersData');
+		Route::get('getting_defendant_data/{order_id}' , 'OrderCaseAgainstController@getDataOfDefendant');
+		Route::get('getting_filtered_orders/{key} ' , 'MyOrdersController@gettingFilteredOrders') ;
 
 
 		Route::get('/', function () {

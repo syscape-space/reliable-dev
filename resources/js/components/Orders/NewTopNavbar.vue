@@ -141,6 +141,7 @@
                   font-size: 12px;
                   padding: 0 40px;
                 "
+                @click.prevent="goToMakeNewOrder()"
                 class="ms-3 border-0 rounded"
               >
                 
@@ -182,7 +183,7 @@
                     <a class="dropdown-item" href="#"> {{ $root._t("app.customer_service") }} </a>
                   </li>
                   <li>
-                    <a class="dropdown-item logout" href="#"> {{ $root._t("app.logout") }} </a>
+                    <a class="dropdown-item" @click.prevent="logout()" style="cursor: pointer;">Logout</a>
                   </li>
                 </ul>
               </div>
@@ -220,6 +221,30 @@ export default {
           console.log(e.response);
         });
     },
+    goToMakeNewOrder(){
+      this.$router.push({ name: "DocumentRequest" });
+    },
+    logout(){
+      api
+        .post("/v1/logout")
+        .then((response) => {
+          
+          // this.user = response.data.data;
+          localStorage.removeItem('thisTicketId'); // thisTicketId
+          localStorage.removeItem('token'); // token
+          localStorage.removeItem('myIdTazkarty'); // myIdTazkarty
+          localStorage.removeItem('logginedUser'); // logginedUser
+
+          alert("thanks for using our website");
+          this.$router.push({ name: "home" });
+          console.log(response)
+        })
+        // error.response.data.errors
+        .catch((e) => {
+          // this.errors = e.response.data.errors;
+          console.log(e.response);
+        });
+    }
   },
 };
 </script>

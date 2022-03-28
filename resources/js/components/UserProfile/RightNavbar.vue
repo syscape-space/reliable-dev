@@ -76,7 +76,7 @@
                   <span>{{ $root._t("app.myBalance") }} </span>
                 </router-link>
               </li>
-              <li>
+              <!-- <li>
                 <a href="#">
                   <img
                     :src="base_url+'/assets/images/dash-project.svg'"
@@ -86,7 +86,7 @@
                   />
                   <span>{{ $root._t("app.myProjects") }} </span>
                 </a>
-              </li>
+              </li> -->
               <li>
                 <a @click.prevent="goToTazkarty(user.id)" style="color:#fff; cursor: pointer;">
                   <img
@@ -98,7 +98,27 @@
                   <span>{{ $root._t("app.memorial") }}</span>
                 </a>
               </li>
-              <li>
+              <li v-if="user.membership_type === 'vendor'">
+                <router-link :to="{ name : 'EXMyOrders' }" style="color:#fff; cursor: pointer;">
+                  <img
+                    :src="base_url+'/public/assets/images/dash-remem.svg'"
+                    style="width: 18px"
+                    alt=""
+                    srcset=""
+                  />
+                  <span> {{ $root._t("app.myOrders") }} </span>
+                </router-link><br>
+                <router-link :to="{ name : 'ShowAllOrders' }" style="color:#fff; cursor: pointer; margin-top: 40px;">
+                  <img
+                    :src="base_url+'/public/assets/images/dash-remem.svg'"
+                    style="width: 18px"
+                    alt=""
+                    srcset=""
+                  />
+                  <span> كل الطلبات </span>
+                </router-link>
+              </li>
+              <li v-if="user.membership_type === 'user'">
                 <router-link :to="{ name : 'MyOrder' }" style="color:#fff; cursor: pointer;">
                   <img
                     :src="base_url+'/assets/images/dash-remem.svg'"
