@@ -250,7 +250,7 @@
           .post("v1/users/" + this.userId , formData2)
           .then((response) => {
             this.loading = false;
-            alert('updated successfully');
+            this.$root.alertSuccess('updated successfully');
             this.currentUser();
             location.reload();
             console.log(response.data.message);

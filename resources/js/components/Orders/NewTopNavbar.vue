@@ -236,7 +236,7 @@ export default {
           localStorage.removeItem('myIdTazkarty'); // myIdTazkarty
           localStorage.removeItem('logginedUser'); // logginedUser
 
-          alert("thanks for using our website");
+          this.$root.alertSuccess("thanks for using our website");
           this.$router.push({ name: "home" });
           console.log(response)
         })

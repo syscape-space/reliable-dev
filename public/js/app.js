@@ -19577,7 +19577,8 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (response) {
         var token = response.data.data.access_token; // saving token to localSorage 
 
-        alert("Loggened Successfully");
+        _this.$root.alertSuccess("Loggened Successfully");
+
         localStorage.setItem("token", token);
         localStorage.setItem("logginedUser", response.data.data.user.id); // route for u_index page
         // window.location.replace(this.base_url+'/profile?id='+response.data.data.user.id);
@@ -19589,7 +19590,7 @@ __webpack_require__.r(__webpack_exports__);
         _this.errors = e.response.data.errors; // if (e.response.data.errors) {
         //   this.errors = e.response.data.errors;
         // } else {
-        //   alert(e.response.data["message"]);
+        //   this.$root.alertSuccess(e.response.data["message"]);
         //   this.errors = null;
         // }
       });
@@ -19667,7 +19668,8 @@ __webpack_require__.r(__webpack_exports__);
         id_number: this.id_number,
         password: this.password
       }).then(function (response) {
-        alert("Account is created");
+        _this.$root.alertSuccess("Account is created");
+
         var token = response.data.data.access_token; // saving token to localSorage 
 
         localStorage.setItem("token", token); // route for u_index page
@@ -19804,7 +19806,8 @@ __webpack_require__.r(__webpack_exports__);
       data.append("country", this.applier_country);
       data.append("file", this.file);
       _utils_api__WEBPACK_IMPORTED_MODULE_0__["default"].post("v1/apply_now", data).then(function (response) {
-        alert('Applied Successfully');
+        _this2.$root.alertSuccess('Applied Successfully');
+
         console.log(response);
       }) // error.response.data.errors
       ["catch"](function (e) {
@@ -19918,7 +19921,8 @@ __webpack_require__.r(__webpack_exports__);
       formData.append("comment", this.licenseComment);
       _utils_api__WEBPACK_IMPORTED_MODULE_0__["default"].post("http://law-mawthuq.com/reliable/public/api/v1/userlicenses", formData).then(function (response) {
         // document.getElementById("errors").style.display = "none";
-        alert("data is updated"); // console.log(response);
+        _this2.$root.alertSuccess("data is updated"); // console.log(response);
+
       }) // error.response.data.errors
       ["catch"](function (e) {
         _this2.errors = e.response.data.errors;
@@ -20061,7 +20065,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {},
   methods: {
-    gettingFilterationData: function gettingFilterationData() {// alert(this.orderStatus);
+    gettingFilterationData: function gettingFilterationData() {// this.$root.alertSuccess(this.orderStatus);
       // console.log(this.$route.params.data);
       //   api
       // .get("v1/getting_filtered_orders/" + )
@@ -20205,7 +20209,7 @@ __webpack_require__.r(__webpack_exports__);
 
         localStorage.removeItem('logginedUser'); // logginedUser
 
-        alert("thanks for using our website");
+        _this2.$root.alertSuccess("thanks for using our website");
 
         _this2.$router.push({
           name: "home"
@@ -20361,7 +20365,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       _utils_api__WEBPACK_IMPORTED_MODULE_0__["default"].put("v1/accept_offer/" + id).then(function (response) {
-        alert('approved');
+        _this.$root.alertSuccess('approved');
 
         _this.$router.push({
           name: "offerOrder2Page",
@@ -20890,7 +20894,8 @@ __webpack_require__.r(__webpack_exports__);
       formData.append("file", this.file);
       _utils_api__WEBPACK_IMPORTED_MODULE_0__["default"].post("v1/new_ticket", formData).then(function (response) {
         console.log(response);
-        alert("Ticket Added Successfully");
+
+        _this2.$root.alertSuccess("Ticket Added Successfully");
 
         _this2.$router.push({
           name: "Ticket2"
@@ -20983,7 +20988,7 @@ __webpack_require__.r(__webpack_exports__);
         _this3.getAllReplysOfThisTicket();
 
         console.log("comment is saved");
-        _this3.comment = ""; // alert("Ticket Added Successfully");
+        _this3.comment = ""; // this.$root.alertSuccess("Ticket Added Successfully");
         // this.$router.push({ name: "Ticket2" });
       }) // error.response.data.errors
       ["catch"](function (e) {
@@ -21161,7 +21166,8 @@ __webpack_require__.r(__webpack_exports__);
       formData2.append("_method", 'put');
       _utils_api__WEBPACK_IMPORTED_MODULE_0__["default"].post("v1/users/" + this.userId, formData2).then(function (response) {
         _this3.loading = false;
-        alert('updated successfully');
+
+        _this3.$root.alertSuccess('updated successfully');
 
         _this3.currentUser();
 
@@ -21913,7 +21919,7 @@ __webpack_require__.r(__webpack_exports__);
 
         localStorage.removeItem('logginedUser'); // logginedUser
 
-        alert("thanks for using our website");
+        _this2.$root.alertSuccess("thanks for using our website");
 
         _this2.$router.push({
           name: "home"

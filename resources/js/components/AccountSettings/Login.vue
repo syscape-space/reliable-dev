@@ -97,7 +97,7 @@ export default {
             .then((response) => {
               let token = response.data.data.access_token ;
               // saving token to localSorage 
-              alert("Loggened Successfully");
+              this.$root.alertSuccess("Loggened Successfully");
               localStorage.setItem("token", token );
               localStorage.setItem("logginedUser", response.data.data.user.id);
               // route for u_index page
@@ -109,7 +109,7 @@ export default {
               // if (e.response.data.errors) {
               //   this.errors = e.response.data.errors;
               // } else {
-              //   alert(e.response.data["message"]);
+              //   this.$root.alertSuccess(e.response.data["message"]);
               //   this.errors = null;
               // }
             });

@@ -103,7 +103,7 @@ export default {
       api
         .put("v1/accept_offer/"+id)
         .then((response) => {
-          alert('approved') ;
+          this.$root.alertSuccess('approved') ;
           this.$router.push({ name: "offerOrder2Page" , params:{id:id} });
           console.log(response);
         })

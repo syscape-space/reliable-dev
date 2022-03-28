@@ -196,7 +196,7 @@ export default {
         } )
         .then((response) => {
 
-          alert("Account is created");
+          this.$root.alertSuccess("Account is created");
           
           let token = response.data.data.access_token ;
           // saving token to localSorage 

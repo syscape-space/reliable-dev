@@ -161,7 +161,7 @@ export default {
           this.getAllReplysOfThisTicket();
           console.log("comment is saved");
           this.comment = "" ;
-          // alert("Ticket Added Successfully");
+          // this.$root.alertSuccess("Ticket Added Successfully");
           // this.$router.push({ name: "Ticket2" });
         })
         // error.response.data.errors

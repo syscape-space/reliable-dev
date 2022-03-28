@@ -224,7 +224,7 @@ created(){
   methods: {
       gettingFilterationData(){
           
-          // alert(this.orderStatus);
+          // this.$root.alertSuccess(this.orderStatus);
           // console.log(this.$route.params.data);
         //   api
         // .get("v1/getting_filtered_orders/" + )

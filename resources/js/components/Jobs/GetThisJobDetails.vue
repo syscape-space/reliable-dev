@@ -154,7 +154,7 @@ export default {
       api
         .post("v1/apply_now" , data)
         .then((response) => {
-          alert('Applied Successfully');
+          this.$root.alertSuccess('Applied Successfully');
           console.log(response);
         })
         // error.response.data.errors

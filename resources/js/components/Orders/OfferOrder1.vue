@@ -257,7 +257,7 @@ export default {
       // vars => order_id  , vendor_id , vendor_comment , price , execution_time
         // check if offer requester is same user who loggined 
         if( localStorage.getItem("logginedUser") === this.OrderRequestOwnerId.toString() ){
-          alert('you cannot make order , you are order owner');
+          this.$root.alertSuccess('you cannot make order , you are order owner');
         }else{
           let formData = new FormData();
           formData.append("order_id", localStorage.getItem("thisOrderId"));
@@ -271,7 +271,7 @@ export default {
               .post("v1/orderoffers" , formData)
               .then((response) => {
                 console.log(response)
-                alert("Offer Added Successfully");
+                this.$root.alertSuccess("Offer Added Successfully");
                 this.getOffers();
                 // this.$router.push({ name: "Ticket2" });
               })
