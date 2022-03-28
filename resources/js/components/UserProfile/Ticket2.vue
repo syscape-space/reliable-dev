@@ -45,7 +45,7 @@
                 
                 border-radius: 50%;
                 background-color: #e0fffc75;
-              "><img style="height: 50px; width: 50px;" :src="base_url + '/storage/' +  item.photo_profile  " alt="" />
+              "><img style="height: 50px; width: 50px;" :src="cloud_url + item.photo_profile  " alt="" />
             </div></li>
             <li> 
               <span class="mx-3" >{{ item.ticket_title }}</span>
@@ -71,6 +71,7 @@ export default {
   data(){
     return{
       base_url:base_url ,
+      cloud_url:cloud_url,
       ticketsCount : "" ,
       list : [] ,
       count : "" ,

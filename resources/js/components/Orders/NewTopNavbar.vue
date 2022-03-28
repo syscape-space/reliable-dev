@@ -159,11 +159,7 @@
                 >
                   <img
                     style="width: 25px; margin-left: 5px"
-<<<<<<< HEAD
                     :src="cloud_url + user.photo_profile"
-=======
-                    :src="base_url+'/assets/images/dash-user.png'"
->>>>>>> refs/remotes/origin/main
                     alt=""
                     srcset=""
                   />
