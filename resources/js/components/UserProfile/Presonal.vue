@@ -9,10 +9,10 @@
           <div class="col-12 col-md-4 mb-5">
             <div class="card user-card user-card-1">
               <div class="card-body pb-0">
-                <div class="d-flex py-3 justify-content-between align-items-start" style="min-height: 110px;">
+                <div class="d-flex py-3 justify-content-center align-items-start" style="min-height: 110px;">
                   <div>
                     <img :src="user?.photo_profile != null ? cloud_url + user?.photo_profile : base_url+ '/assets/images/dash-user.png'" alt=""
-                      class="d-block img-radius img-fluid wid-80">
+                      class="d-block img-radius img-fluid wid-80" style="width: 80px; height: 80px; border-radius: 50%; margin: auto;">
                   </div>
                   <span class="text-success" v-if="user_is_verified"><i class="fas fa-certificate text-success bg-icon"></i> نشيط</span>
                 </div>

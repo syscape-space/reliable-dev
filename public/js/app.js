@@ -32926,7 +32926,7 @@ var _hoisted_7 = {
   "class": "card-body pb-0"
 };
 var _hoisted_8 = {
-  "class": "d-flex py-3 justify-content-between align-items-start",
+  "class": "d-flex py-3 justify-content-center align-items-start",
   style: {
     "min-height": "110px"
   }
@@ -33166,7 +33166,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Side Menu Profile Sections  "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
     src: ((_$data$user = $data.user) === null || _$data$user === void 0 ? void 0 : _$data$user.photo_profile) != null ? $data.cloud_url + ((_$data$user2 = $data.user) === null || _$data$user2 === void 0 ? void 0 : _$data$user2.photo_profile) : $data.base_url + '/assets/images/dash-user.png',
     alt: "",
-    "class": "d-block img-radius img-fluid wid-80"
+    "class": "d-block img-radius img-fluid wid-80",
+    style: {
+      "width": "80px",
+      "height": "80px",
+      "border-radius": "50%",
+      "margin": "auto"
+    }
   }, null, 8
   /* PROPS */
   , _hoisted_9)]), $data.user_is_verified ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_10, _hoisted_13)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_15, [_hoisted_16, _hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", _hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)((_$data$user3 = $data.user) === null || _$data$user3 === void 0 ? void 0 : _$data$user3.email), 1
