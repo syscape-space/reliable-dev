@@ -35,13 +35,9 @@
                 {{ $root._t("app.filter") }}
               </button>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </li>
+                <li><a class="dropdown-item" href="#">الاقدم</a></li>
                 <li><hr class="dropdown-divider" /></li>
-                <li><a class="dropdown-item" href="#">Separated link</a></li>
+                <li><a class="dropdown-item" href="#">الاحدث</a></li>
               </ul>
             </div>
           </div>
@@ -113,8 +109,7 @@
               <div class="clicker" @click.prevent="showThisOrderDetails(item.id)" style="cursor: pointer;">
                 <h6 style="color: #048e81"> {{ item.order_title }} </h6><br>
                 <h6 style="color: #048e81"> {{ $root._t("app.orderContent") }} </h6>
-                <p class="pb-3 f-12">
-                  {{ item.order_content.substring(0,100)+".." }}
+                <p class="pb-3 f-12" v-html="item.order_content.substring(0,100)+'..' ">
                 </p>
               </div>
               <div class="mt-3 btw-flex">
@@ -186,11 +181,13 @@ export default {
       list : [] ,
       id : "" ,
       search : '' ,
+      filter : ''
     };
   },
   mounted() {
     this.getMyOrders();
     document.getElementById('pagesCount').style.display = "none";
+      
   },
   computed : {
     filterdList:function(){
@@ -220,7 +217,11 @@ export default {
     },
     showThisOrderDetails(id){
       this.$router.push({ name: "ShowSingleOrder" , params:{id:id} });
-    }
+    },
+    getCategory(e) {
+      this.filter = e.target.value;
+      console.log(this.filter)
+    },
   },
 };
 </script>

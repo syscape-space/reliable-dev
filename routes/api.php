@@ -66,6 +66,7 @@ Route::group(
 		Route::get('getting_add_data_of_order_offer_owners/{offer_id}' , 'OfferOrdersController@getOrderAndOfferOwnersData');
 		Route::get('getting_defendant_data/{order_id}' , 'OrderCaseAgainstController@getDataOfDefendant');
 		Route::get('getting_filtered_orders/{key} ' , 'MyOrdersController@gettingFilteredOrders') ;
+		Route::put('update_user_profile/{user_id}' , 'EditUserProfileController@updateUseProfileImage') ;
 
 
 		Route::get('/', function () {

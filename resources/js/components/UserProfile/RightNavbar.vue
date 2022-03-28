@@ -6,7 +6,8 @@
             
             <div class="text-center py-4">
               <div class="image-user position-relative d-inline-block">
-                <img :src="user?.photo_profile != null ? cloud_url + user?.photo_profile : base_url+ '/assets/images/dash-user.png'" alt="" srcset="" />
+                <img style="width:200px;" :src="user?.photo_profile != null ? cloud_url + user?.photo_profile : base_url+ '/assets/images/dash-user.png'" alt="" srcset="" />
+                
                 <img
                   style="position: absolute; bottom: 0; left: 0"
                   :src="base_url+'/public/assets/images/dash-edit.svg'"
@@ -146,7 +147,7 @@ export default {
     return{
       name : "" ,
       base_url : base_url,
-      
+      cloud_url: cloud_url,
       user:[],
     }
   },

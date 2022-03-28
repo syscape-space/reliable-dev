@@ -48,6 +48,7 @@
           </li>
           <li style="margin-right: auto" class="ms-2">
             <button
+             id="addOrderBasedOnUserMembership"
               style="
                 border: 0;
                 background-color: #048e81;
@@ -74,7 +75,7 @@
               >
                 <img
                   style="width: 25px; margin-left: 5px"
-                  :src="base_url+'/public/assets/images/dash-user.png'"
+                  :src="cloud_url+ user.photo_profile"
                   alt=""
                   srcset=""
                 />
@@ -102,11 +103,13 @@ export default {
     return{
       name : "" ,
       base_url : base_url ,
+      cloud_url: cloud_url,
       user:{},
     }
   },
   mounted() {
     this.currentUser();
+    document.getElementById("addOrderBasedOnUserMembership").style.display = 'none';
   },
   methods: {
     currentUser() {
@@ -114,6 +117,11 @@ export default {
         .get("/v1/account")
         .then((response) => {
           this.user = response.data.data;
+          if(response.data.data.membership_type === 'vendor' ){
+            document.getElementById("addOrderBasedOnUserMembership").style.display = 'none';
+          }else{
+           document.getElementById("addOrderBasedOnUserMembership").style.display = 'block';
+          }
           console.log(response.data.data)
         })
         // error.response.data.errors

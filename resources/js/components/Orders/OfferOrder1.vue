@@ -164,7 +164,7 @@
                     </li>
                     <li class="mb-3 mt-4 text-center">
                       <div class="text-center mb-2">
-                        <img style="width: 50px;height: 50px;" class="uses-img" :src="base_url + '/public/storage'+ profile_image " alt="">
+                        <img style="width: 50px;height: 50px;" class="uses-img" :src="cloud_url + profile_image " alt="">
                       </div>
                       <span class="text-center "> {{ orderOwnerName }} </span> <br>
                     
@@ -206,6 +206,7 @@ export default {
   data(){
     return{
       base_url:base_url ,
+      cloud_url:cloud_url,
       list : [] ,
       deptname : '' ,
       order_details : '' ,

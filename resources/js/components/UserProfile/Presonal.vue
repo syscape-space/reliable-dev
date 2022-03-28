@@ -19,6 +19,14 @@
                
               </div>
               <ul class="list-group list-group-flush px-0">
+                <button 
+                class="btn btn-primary d-flex align-items-center" 
+                style="width:120px;margin:15px;margin:auto;"
+                data-bs-toggle="modal" 
+                data-bs-target="#exampleModal">تحديث الصوره</button>
+              </ul>
+              
+              <ul class="list-group list-group-flush px-0">
                 <li class="list-group-item"> <span class="f-w-500"><i class="feather icon-mail m-r-10"></i>بريد
                     الالكتروني </span> <a href="mailto:{{user?.email}}" class="text-body"> {{user?.email}} </a>
                 </li>
@@ -105,9 +113,28 @@
       </div>
     </div>
     </div>
-
   </section>
   <!-- End Side Section -->
+
+            <!-- Modal For Updating Profile -->
+            
+              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">تحديث الصوره</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-center">
+                      <form action="" enctype="multipart/form-data">
+                        <img :src="avatar" alt="image" style="width : 150px;"><br>
+                        <input type="file" @change="GetImage" accept="image/png, image/gif, image/jpeg"><br>
+                        <a href="#" class="btn btn-success" @click.prevent="updateProfileImage()">Upload</a>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
 </template>
 <script>
@@ -145,16 +172,20 @@
         countries: [],
         cities: [],
         specialties: [],
+        userId : '' ,
         experience: null,
         qualification: null,
         loading: false,
         errors: null,
         base_url: base_url,
         cloud_url: cloud_url,
+        avatar : null ,
+        file : null ,
       };
     },
     mounted() {
       this.currentUser();
+
 
     },
     
@@ -171,6 +202,7 @@
           .then((response) => {
             this.loading = false;
             this.user = response.data.user;
+            this.userId = response.data.user.id ;
             this.subscribtion_end = response.data.subscribtion_end;
             this.license_status = response.data.license_status;
             this.commercial_status = response.data.commercial_status;
@@ -196,8 +228,39 @@
       exist(attr) {
         return typeof (attr) !== 'undefined' && attr !== null;
       },
-      onSelectedImage(event) {
-        this.profileImage = event.target.files[0];
+
+
+      GetImage(e){
+          this.file = e.target.files[0];
+          let image = e.target.files[0] ;
+          let reader = new FileReader();
+          reader.readAsDataURL(image);
+          reader.onload = e => {
+            this.avatar = e.target.result
+          }
+      } ,
+
+      updateProfileImage (){
+        // console.log(this.user);
+        let formData2 = new FormData();
+        formData2.append("photo_profile", this.file);
+        formData2.append("_method", 'put');
+        
+        api
+          .post("v1/users/" + this.userId , formData2)
+          .then((response) => {
+            this.loading = false;
+            alert('updated successfully');
+            this.currentUser();
+            location.reload();
+            console.log(response.data.message);
+          })
+          .catch((e) => {
+            this.loading = false; 
+            // this.errors = e.response.data.errors;
+            // console.log('error: ', e.response);
+            console.log(e.response);
+          });
       }
     },
   };

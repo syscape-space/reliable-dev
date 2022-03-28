@@ -159,7 +159,7 @@
                 >
                   <img
                     style="width: 25px; margin-left: 5px"
-                    :src="base_url + '/public/assets/images/dash-user.png'"
+                    :src="cloud_url + user.photo_profile"
                     alt=""
                     srcset=""
                   />
@@ -201,6 +201,7 @@ export default {
     return{
       name : "" ,
       base_url : base_url ,
+      cloud_url:cloud_url,
       user:{},
     }
   },
