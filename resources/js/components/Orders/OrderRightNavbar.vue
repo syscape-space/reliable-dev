@@ -29,13 +29,13 @@
                         <a>{{ $root._t("app.drafts") }}</a>
                       </li>
                       <li class="mt-2">
-                        <router-link :to="{ name: 'Filteration', params: { data: 'waiting' }}">{{ $root._t("app.waitting") }}</router-link>
+                        <a @click="changeStatus('waiting')">{{ $root._t("app.waitting") }}</a>
                       </li>
                       <li class="mt-2">
-                        <a>{{ $root._t("app.offers") }}</a>
+                        <a @click="changeStatus('offres')">{{ $root._t("app.offers") }}</a>
                       </li>
                       <li class="mt-2">
-                        <a @click.prevent="getWaiting('refused')">{{ $root._t("app.rejected") }}</a>
+                        <a @click="changeStatus('rejected')">{{ $root._t("app.rejected") }}</a>
                       </li>
                     </ul>
                   </div>
@@ -80,12 +80,20 @@
 export default {
   data(){
     return{
-      base_url:base_url
+      base_url:base_url ,
+      status: ''
     };
   },
+  state:{
+    selectedStatus : ''
+  },
+  mounted(){
+    
+  },
   methods:{
-    getWaiting(data){
-      this.$router.push({ name: "Filteration" , params: {data: data} });
+    changeStatus(newState){
+      this.status = newState
+      localStorage.setItem('filter_state', newState)
     }
   }
 }

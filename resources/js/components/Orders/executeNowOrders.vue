@@ -126,16 +126,13 @@
                         style="cursor: pointer"
                     >
                         <h6 style="color: #048e81">
-                        {{ $root._t("app.orderTitleHere") }}
-                        </h6>
-                        <p class="pb-3 f-12">
                         {{ item.order_title }}
-                        </p>
+                        </h6><br>
                         <h6 style="color: #048e81">
                         {{ $root._t("app.orderContent") }}
                         </h6>
                         <p class="pb-3 f-12">
-                        {{ item.order_content.substring(0, 40) + ".." }}
+                        {{ item.order_content.substring(0, 100) + ".." }}
                         </p>
                     </div>
                     <div class="mt-3 btw-flex">

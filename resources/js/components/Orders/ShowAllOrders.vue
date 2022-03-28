@@ -120,13 +120,10 @@
             </div>
             <div class="col-md-9">
               <div class="clicker" @click.prevent="showThisOrderDetails(item.id)" style="cursor: pointer;">
-                <h6 style="color: #048e81">{{ $root._t("app.orderTitleHere") }}</h6>
-                <p class="pb-3 f-12">
-                  {{ item.order_title }}
-                </p>
+                <h6 style="color: #048e81">{{ item.order_title }}</h6><br>
                 <!-- v-html=" item.order_content.split(' ')[0]" -->
                 <h6 style="color: #048e81">{{ $root._t("app.orderContent") }}</h6>
-                <p class="pb-3 f-12" v-html="item.order_content.substring(0,40)+'..'">
+                <p class="pb-3 f-12" v-html="item.order_content.substring(0,100)+'..'">
                 </p>
               </div>
               <div class="mt-3 btw-flex">

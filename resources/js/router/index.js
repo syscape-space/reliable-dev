@@ -276,10 +276,9 @@ const routes = [{
         meta: { title: 'Orders' }
     },
     {
-        path: prefix + '/filteration/:data',
+        path: prefix + '/filteration',
         beforeEnter: guardMyroute,
         component: Filteration,
-        props: true,
         name: "Filteration",
     },
     // Tickets pages routes
