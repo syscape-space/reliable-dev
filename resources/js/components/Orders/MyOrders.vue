@@ -46,36 +46,12 @@
             </div>
           </div>
         </div>
-        <div class="p-3 mt-3" style="background-color: #f9f9f9" v-for="item in  filterdList" :key="item.id">
-          <div class="">
-            <div class="mb-2 text-start" style="font-size: 12px">
-               <span class="ms-3">
-                <span>{{ $root._t("app.present") }} 0 {{ $root._t("app.offers") }}</span>
-                <img
-                  style="width: 20px"
-                  class="ms-1"
-                  :src="base_url + '/public/assets/images/o_offer.svg'"
-                  alt=""
-                />
-              </span>
-
-              <span class="my-2" style="font-size: 12px">
-                <span class="o-box ms-2">
-                  <img
-                    style="width: 15px"
-                    class="ms-1"
-                    :src="base_url + '/public/assets/images/o_delever.svg'"
-                    alt=""
-                  />
-                  <span> {{ $root._t("app.deliveryTime") }} :</span>
-                  <span class="me-2"> 0 {{ $root._t("app.day") }}</span>
-                </span>
-                <span>
-                  <i class="fas fa-ellipsis-v"></i>
-                </span>
-              </span>
-            </div>
-          </div>
+        <div
+          class="p-3 mt-3"
+          style="background-color: #f9f9f9"
+          v-for="item in filterdList"
+          :key="item.id"
+        >
           <div class="row w-100 mx-0 px-0">
             <div
               class="
@@ -88,42 +64,88 @@
             >
               <div style="border-left: 3px solid #ddd" class="px-3">
                 <img
-                  style="width: 70px"
-                  :src="cloud_url  + item.user_id['photo_profile']"
+                  style="width: 60px; height: 60px; border-radius: 50%;"
+                  :src="cloud_url + item.user_id['photo_profile']"
                   alt=""
                 />
                 <div>
                   <span
                     style="color: #2b7b74"
-                    class="mb-2 d-inline-block text-center"
+                    class="f-14  d-inline-block text-center"
                     >{{ item.user_id["name"] }}
                   </span>
                 </div>
-               
+
                 <div>
                   <span
                     style="color: #2b7b74"
-                    class="mb-2 d-inline-block text-center"
+                    class="f-14 mb-2 d-inline-block text-center"
                     >{{ item.department_id["department_desc_ar"] }}
                   </span>
                 </div>
-                 <div>
-                  <p class="m-0 bg-transparent   px-3" style="width: auto;">  <b>نوع العضوية:</b> عميل</p>
+                <div>
+                  <p class="m-0 bg-transparent px-3" style="width: auto">
+                    <b>نوع العضوية:</b> عميل
+                  </p>
                 </div>
               </div>
             </div>
             <div class="col-md-9">
-              <div class="clicker" @click.prevent="showThisOrderDetails(item.id)" style="cursor: pointer;">
-                <h6 style="color: #048e81"> {{ $root._t("app.orderTitleHere") }} </h6>
+              <div
+                class="clicker"
+                @click.prevent="showThisOrderDetails(item.id)"
+                style="cursor: pointer"
+              >
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                  <h6 style="color: #048e81">
+                    {{ $root._t("app.orderTitleHere") }}
+                  </h6>
+                  <div class="">
+                    <div class="mb-2 text-start" style="font-size: 12px">
+                      <span class="ms-3">
+                        <span
+                          >{{ $root._t("app.present") }} 0
+                          {{ $root._t("app.offers") }}</span
+                        >
+                        <img
+                          style="width: 20px"
+                          class="ms-1"
+                          :src="base_url + '/public/assets/images/o_offer.svg'"
+                          alt=""
+                        />
+                      </span>
+
+                      <span class="my-2" style="font-size: 12px">
+                        <span class="o-box ms-2">
+                          <img
+                            style="width: 15px"
+                            class="ms-1"
+                            :src="
+                              base_url + '/public/assets/images/o_delever.svg'
+                            "
+                            alt=""
+                          />
+                          <span> {{ $root._t("app.deliveryTime") }} :</span>
+                          <span class="me-2"> 0 {{ $root._t("app.day") }}</span>
+                        </span>
+                        <span>
+                          <i class="fas fa-ellipsis-v"></i>
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
                 <p class="pb-3 f-12">
                   {{ item.order_title }}
                 </p>
-                <h6 style="color: #048e81"> {{ $root._t("app.orderContent") }} </h6>
-                <p class="pb-3 f-12">
-                  {{ item.order_content.substring(0,40)+".." }}
+                <h6 style="color: #048e81">
+                  {{ $root._t("app.orderContent") }}
+                </h6>
+                <p class=" f-12">
+                  {{ item.order_content.substring(0, 40) + ".." }}
                 </p>
               </div>
-              <div class="mt-3 btw-flex">
+              <div class=" btw-flex">
                 <div></div>
                 <div class="text-center">
                   <button
@@ -132,8 +154,8 @@
                       background-color: #048e81;
                       color: #fff;
                       font-size: 12px;
-                      padding: 0 40px;
-                      height: 40px;
+                      padding: 0px 30px;
+                      height: 30px;
                     "
                     class="rounded"
                   >
@@ -147,12 +169,12 @@
                       background-color: #4ac272;
                       color: #fff;
                       font-size: 12px;
-                      padding: 0 40px;
-                      height: 40px;
+                      padding: 0px 30px;
+                      height: 30px;
                     "
                     class="rounded"
                   >
-                   {{ $root._t("app."+item.order_status) }}
+                    {{ $root._t("app." + item.order_status) }}
                   </button>
                 </div>
               </div>
@@ -184,49 +206,48 @@
 <script>
 import api from "../../utils/api";
 export default {
-  
   data() {
     return {
       base_url: base_url,
-      cloud_url:cloud_url,
-      list : [] ,
-      id : "" ,
-      search : '' ,
+      cloud_url: cloud_url,
+      list: [],
+      id: "",
+      search: "",
     };
   },
   mounted() {
     this.getMyOrders();
-    document.getElementById('pagesCount').style.display = "none";
+    document.getElementById("pagesCount").style.display = "none";
   },
-  computed : {
-    filterdList:function(){
-      return this.list.filter( (list) => {
-        return list.order_title.match(this.search)
-      })
-    }
-  } ,
+  computed: {
+    filterdList: function () {
+      return this.list.filter((list) => {
+        return list.order_title.match(this.search);
+      });
+    },
+  },
   methods: {
     getMyOrders() {
       api
         .get("v1/orders?my=1")
         .then((response) => {
           this.list = response.data.data.data;
-          
-          if(this.list.length === 0){
-            document.getElementById('pagesCount').style.display = "none";
-          }else{
-            document.getElementById('pagesCount').style.display = "block";
+
+          if (this.list.length === 0) {
+            document.getElementById("pagesCount").style.display = "none";
+          } else {
+            document.getElementById("pagesCount").style.display = "block";
           }
-          
+
           console.log(response.data.data.data);
         })
         .catch((e) => {
           console.log(e.response);
         });
     },
-    showThisOrderDetails(id){
-      this.$router.push({ name: "ShowSingleOrder" , params:{id:id} });
-    }
+    showThisOrderDetails(id) {
+      this.$router.push({ name: "ShowSingleOrder", params: { id: id } });
+    },
   },
 };
 </script>
