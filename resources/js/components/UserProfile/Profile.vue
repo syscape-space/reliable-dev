@@ -1,4 +1,4 @@
-<template>
+  <template>
 
     <section class="content-body">
     <div class="alert alert-warning">
@@ -7,7 +7,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-4">
-            <div class="contain">
+            <div class="contain" id="cutting">
               <div class="our-project pt-2">
                 <img class="me-4 " style="width: 20px; " :src="base_url+'/assets/images/dash-project.svg'" alt="" srcset="">
                 <span class="text-light me-2"
@@ -22,7 +22,7 @@
             </div>
           </div>
           <div class="col-lg-4">
-            <div class="contain contain-2" style="background-color: #0995EB;">
+            <div class="contain contain-2" id="cut" style="background-color: #0995EB;">
               <div class="our-project pt-2">
                 <img class="me-4 " style="width: 20px; " :src="base_url+'/assets/images/total-balanc.svg'" alt="" srcset="">
                 <span class="text-light me-2"
@@ -37,7 +37,7 @@
             </div>
           </div>
           <div class="col-lg-4">
-            <div class="contain contain-3" style="background-color: #363848">
+            <div class="contain contain-3" id="cutter" style="background-color: #363848">
               <div class="our-project pt-2">
                 <img class="me-4 " style="width: 20px; " :src="base_url+'/assets/images/pull-balanc.svg'" alt="" srcset="">
                 <span class="text-light me-2"

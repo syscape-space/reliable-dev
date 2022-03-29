@@ -61,7 +61,7 @@
       <div style="border-left: 3px solid #ddd" class="px-3">
         <img
             style="width: 70px"
-            :src="base_url+'/assets/images/user.svg'"
+            :src="cloud_url+ order.user_id.photo_profile"
             alt=""
         />
         <div>
@@ -83,10 +83,8 @@
     </div>
     <div class="col-md-9">
       <div class="clicker" @click.prevent="showThisOrderDetails(order.id)" style="cursor: pointer;">
-        <h6 style="color: #048e81">{{ $root._t("app.orderTitleHere") }}</h6>
-        <p class="pb-3 f-12">
-          {{ order.order_title }}
-        </p>
+        <h6 style="color: #048e81">{{ order.order_title }}</h6> <br>
+
         <!-- v-html=" order.order_content.split(' ')[0]" -->
         <h6 style="color: #048e81">{{ $root._t("app.orderContent") }}</h6>
         <p class="pb-3 f-12" v-html="order.order_content.substring(0,40)+'..'">

@@ -29,7 +29,7 @@
                 <div class="card-body">
                     <div class="row w-100 mx-0 px-0">
                         <div class="col-sm-12  col-lg-6 col-xl-4">
-                            <div class="form-group">
+                            <div class="form-group" id="ifSpecialistNotFoun">
                                 <label class="mt-3 mb-1" for="specialtie_id">التخصص<span class="text-danger">*</span>
                                 </label>
                                 <select class="form-control" v-model="specialtie_id" name="specialtie_id"
@@ -118,6 +118,7 @@ import api from '../../utils/api';
         },
 
         methods: {
+            
             submitForm() {               
                 this.loading = true;
                 if (this.specialtie_id != 0 && this.user_id && this.commercial_id && this.commercial_end_at) {
@@ -133,6 +134,10 @@ import api from '../../utils/api';
                     .catch((e) => {
                         this.loading = false;
                         this.errors = [];
+                        if(e.response.data.message === 'برجاء اضافة وظيفة في هذا التخصص قبل اضافة السجل'){
+                            document.getElementById("chooseJobInpt").style.display = 'block';
+                            document.getElementById("chooseJobInptSelector").style.border = "thick solid red";
+                        }
                         this.errors= [e.response.data.message]; 
                     });
                 } else {
@@ -140,7 +145,8 @@ import api from '../../utils/api';
                     this.errors = [];
                     this.errors = ['البيانات غير كاملة'];
                 }
-            }
+            },
+            
         },
     }
 </script>

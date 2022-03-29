@@ -57,7 +57,7 @@
                       <span
                         style="margin-right: 15px; color: #0995eb"
                         class="fw-bold"
-                        > {{ list.offersCount }} عرض</span
+                        > {{ offersCount }} عرض</span
                       >
                     </li>
                     <li class="mb-3">
@@ -70,23 +70,11 @@
                         <img
                           style="width: 50px; height: 50px"
                           class="uses-img"
-                          :src="base_url+'/assets/images/user.svg'"
+                          :src="cloud_url+list.photo_profile"
                           alt=""
                         />
                       </div>
-                      <div class="text-center">
-                        <i class="fas fa-star yellow"></i>
-                        <i class="fas fa-star yellow"></i>
-                        <i class="fas fa-star yellow"></i>
-                        <i class="fas fa-star yellow"></i>
-                        <i class="fas fa-star"></i>
-                      </div>
-                      <span class="text-center">محمد مصطفي</span> <br />
-                      <span
-                        style="color: #2b7b74"
-                        class="mb-2 d-inline-block text-center"
-                        >{{ $root._t("app.attorneyGeneral") }}
-                      </span>
+                      <span class="text-center"> {{ list.name }} </span> <br />
                     </li>
                     <li class="text-center">
                       <button
@@ -144,8 +132,8 @@
               </div>
               <div>
                 <h5 class="fw-bold g-color"> {{ $root._t("app.projectDetails") }} </h5>
-                <p style="font-size: 12px">
-                  {{ list.order_content }}
+                <p style="font-size: 12px" v-html=" list.order_content ">
+                  
                 </p>
                 <div
                 class="mt-4"
@@ -248,14 +236,6 @@
 
                   <ul class="list-unstyled px-0 f-12 text-end mt-4">
                     <li class="mb-3 mt-4 text-center">
-                      <div class="text-center mb-2">
-                        <img
-                          style="width: 50px; height: 50px"
-                          class="uses-img"
-                          :src="base_url+'/assets/images/user.svg'"
-                          alt=""
-                        />
-                      </div>
                       <div class="text-center mb-2" >
                         <img style="width: 50px;height: 50px;" class="uses-img" :src="cloud_url  +  orderOwnerProfile " alt="">
                       </div>
@@ -380,6 +360,7 @@ export default {
       list : [] ,
       orderOwner : '' ,
       orderOwnerProfile : '' ,
+      offersCount : ''
     }
   },
   methods:{
@@ -389,10 +370,11 @@ export default {
         .get("v1/getting_add_data_of_order_offer_owners/"+order_id)
         .then((response) => {
           this.list = response.data.allOffersAndOrdersOwners[0];
-          console.log(response.data.allOffersAndOrdersOwners[0]);
+          this.offersCount = response.data.offersCount ;
+          console.log(response.data.offersCount);
         })
         .catch((e) => {
-          console.log(e.response);
+          console.log(e.response.data.allOffersAndOrdersOwners[0]);
         });
     },
     currentUser() {

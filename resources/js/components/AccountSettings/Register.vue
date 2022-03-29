@@ -133,7 +133,7 @@
         </form>
       </div>
     </div>
-    <div class="col-md-6 login-page">
+    <div class="col-md-6 login-page" id="pageLoginImage2">
       <div class="text-center mt-5">
         <img style="width: 150px" :src="base_url+'/assets/images/login-logo.svg'" alt="" />
       </div>
