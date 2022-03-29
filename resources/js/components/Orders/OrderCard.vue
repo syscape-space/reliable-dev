@@ -18,7 +18,7 @@
                     :src="base_url+'/assets/images/o_offer.svg'"
                     alt=""
                 />
-                <span>{{ $root._t("app.present") }} 0 {{ $root._t("app.offers") }}</span>
+                <span>{{ $root._t("app.present") }} {{order.offers.length}} {{ $root._t("app.offers") }}</span>
               </span>
       <span class="ms-3">
                 <img
@@ -29,7 +29,7 @@
                 />
         <!--  -->
                 <span v-if="order.country_id === null"> {{ $root._t("app.notRegisterCountry") }} </span>
-                <span v-else> {{ $root._t("app.saudiAribianCompleteName") }}</span>
+                <span v-else> {{ order.country_id.country_name_ar }}</span>
               </span>
       <span class="my-2" style="font-size: 12px">
                 <span class="o-box ms-2">
@@ -40,7 +40,7 @@
                       alt=""
                   />
                   <span> {{ $root._t("app.deliveryTime") }} :</span>
-                  <span class="me-2"> 0 {{ $root._t("app.day") }}</span>
+                  <span class="me-2"> {{order.execution_time}} {{ $root._t("app.day") }}</span>
                 </span>
                 <span>
                   <i class="fas fa-ellipsis-v"></i>
@@ -93,6 +93,12 @@
       <div class="mt-3 btw-flex">
         <div></div>
         <div class="text-center">
+          <router-link v-if="order && $root.auth_user.membership_type === 'user'" :to="{name:'order_negotiations',params:{id:order.id}}" class="btn btn-success btn-sm btn-offer">
+            مفاوضات
+            <span v-html="order.negotiations.length">
+
+                    </span>
+          </router-link>
           <button
               style="
                       border: 0;
@@ -102,10 +108,11 @@
                       padding: 0 40px;
                       height: 40px;
                     "
-              class="rounded"
+              class="rounded btn-sm"
           >
             {{ $root._t("app."+order.order_status) }}
           </button>
+
         </div>
       </div>
     </div>

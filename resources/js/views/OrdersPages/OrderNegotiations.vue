@@ -1,8 +1,9 @@
 <template>
   <div v-if="negotiations.length">
     <div v-for="negotiate in negotiations">
-      <router-link :to="{name:'negotiation',params:{id:negotiate.id}}" class="col-md-4">
+      <router-link :to="{name:'negotiation',params:{id:negotiate.id}}" class="col-md-4 btn btn-success">
         <label>مفاوضة مع</label>
+        <br>
         <span v-for="user in negotiate.users">{{user.first_name}}</span>
       </router-link>
     </div>

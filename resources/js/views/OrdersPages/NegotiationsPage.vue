@@ -2,6 +2,7 @@
   <OrderRightNavbar/>
   <NewTopNavbar/>
   <div class="container">
+    <h4>المفاوضات</h4>
     <OrderNegotiations :id="$props.id"/>
   </div>
 </template>

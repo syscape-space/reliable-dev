@@ -34,7 +34,7 @@ class OrdersApi extends Controller{
      * @return array to assign with index & show methods
      */
     public function arrWith(){
-        return ['department_id','negotiations','country_id','city_id','user_id',];
+        return ['department_id','negotiations','country_id','city_id','user_id','offers'];
     }
 
 

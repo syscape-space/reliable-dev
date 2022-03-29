@@ -28,12 +28,12 @@
         </li>
       </ul>
       <ul class="item-chat list-unstyled text-start px-0" >
-        <li class="sec-list" v-for="message in negotiate.messages" >
+        <li :class="{'sec-list':message.user.membership_type === 'user'}" v-for="message in negotiate.messages" >
           <div class="d-flex mb-3">
-            <img style="width: 30px;" :src="base_url+'/images/morning.svg'" alt=""> <br>
+            <img style="width: 30px;" :src="cloud_url+message.user.photo_profile" alt=""> <br>
             <p class="m-0 me-2"  >{{message.user.first_name}}</p>
           </div>
-          <span>
+          <span :class="{'bg-primary text-white':message.user.membership_type !== 'user'}">
               <span v-html="message.content"></span>
               <br>
               <small>{{message.created_at}}</small>
@@ -81,6 +81,8 @@ export default {
     return {
       new_message:'',
       negotiate:{},
+      base_url:base_url,
+      cloud_url:cloud_url,
     };
   },
   methods:{
