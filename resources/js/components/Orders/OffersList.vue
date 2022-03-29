@@ -48,6 +48,9 @@
           <div class="col-md-3 mt-3 mb-5 text-center d-flex align-items-center justify-content-between"
                style="border-left: 3px solid #ddd;"> 
               <img style="width:70px;width:70px;border-radius:50%" :src="cloud_url + offer.vendor.photo_profile" alt="">
+              <p class="py-3 f-12">
+              {{ offer.vendor.name }}
+            </p>
           </div>
           <div class="col-md-9">
             <p class="py-3 f-12">
