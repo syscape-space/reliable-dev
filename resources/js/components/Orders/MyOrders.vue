@@ -234,7 +234,9 @@
               </div>
             </div>
           </div>
-        </div>
+        <!-- <div class="p-3 mt-3" style="background-color: #f9f9f9" v-for="item in  list" :key="item.id">
+          <order-card :order="item"/>
+        </div> -->
 
         <nav aria-label="Page navigation example" id="pagesCount">
           <ul class="pagination justify-content-center mt-2">
@@ -259,7 +261,9 @@
 </template>
 <script>
 import api from "../../utils/api";
+import OrderCard from "./OrderCard";
 export default {
+  components: {OrderCard},
   data() {
     return {
       base_url: base_url,
@@ -267,7 +271,8 @@ export default {
       list : [] ,
       id : "" ,
       search : '' ,
-      filter : ''
+      filter : '' ,
+      checking : []
     };
   },
   mounted() {
@@ -288,7 +293,7 @@ export default {
             document.getElementById("pagesCount").style.display = "block";
           }
 
-          console.log(response.data.data.data);
+          console.log(response);
         })
         .catch((e) => {
           console.log(e.response);
@@ -301,6 +306,25 @@ export default {
       this.filter = e.target.value;
       console.log(this.filter)
     },
+    checkIfThereApprovedOffers($id){
+      api
+          .get("v1/check_if_there_approved_offers/" + $id)
+          .then((response) => {
+            this.checking = response.data.checking
+            
+            if( this.checking.length > 0 ){
+              let offerOwnerData = response.data.checking[0].id ;
+              
+              this.$router.push({ name: "offerOrder2Page" , params:{id:offerOwnerData} });
+            }else{
+              this.showThisOrderDetails( $id );
+            }
+            console.log(response.data.checking);
+          })
+          .catch((e) => {
+            console.log(e.response);
+          });
+    }
   },
 };
 </script>

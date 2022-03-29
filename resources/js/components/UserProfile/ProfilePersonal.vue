@@ -141,6 +141,19 @@
                         </div>
                     </div>
 
+                    <div class="col-sm-12  col-lg-6 col-xl-4">
+                        <div class="form-group">
+                            <label class="mt-3 mb-1" for="subscribe_end_at">الوظيفه</label>
+                            <input class="form-control" v-model="subscribe_end_at" :placeholder="$root._t('admin.subscribe_end_at')" name="subscribe_end_at" type="text" disabled>
+                        </div>
+                    </div>
+                    <div class="col-sm-12  col-lg-6 col-xl-4">
+                        <div class="form-group">
+                            <label class="mt-3 mb-1" for="subscribe_end_at">التخصص</label>
+                            <input class="form-control" v-model="subscribe_end_at" :placeholder="$root._t('admin.subscribe_end_at')" name="subscribe_end_at" type="text" disabled>
+                        </div>
+                    </div>
+
                     <div class="col-md-12">
                         <div class="form-group">
                             <label class="mt-2 mb-1" for="bio">{{ $root._t('admin.bio') }}</label>
@@ -174,6 +187,7 @@ import api from '../../utils/api';
     export default {
         props: ['user', 'subscribtion_end', 'countries', 'cities'],
         emits: ['refersh'],
+
         
         data() {
             return {

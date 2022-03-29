@@ -18,7 +18,7 @@
                     :src="base_url+'/assets/images/o_offer.svg'"
                     alt=""
                 />
-                <span>{{ $root._t("app.present") }} 0 {{ $root._t("app.offers") }}</span>
+                <span>{{ $root._t("app.present") }} {{order.offers.length}} {{ $root._t("app.offers") }}</span>
               </span>
       <span class="ms-3">
                 <img
@@ -29,7 +29,7 @@
                 />
         <!--  -->
                 <span v-if="order.country_id === null"> {{ $root._t("app.notRegisterCountry") }} </span>
-                <span v-else> {{ $root._t("app.saudiAribianCompleteName") }}</span>
+                <span v-else> {{ order.country_id.country_name_ar }}</span>
               </span>
       <span class="my-2" style="font-size: 12px">
                 <span class="o-box ms-2">
@@ -40,7 +40,7 @@
                       alt=""
                   />
                   <span> {{ $root._t("app.deliveryTime") }} :</span>
-                  <span class="me-2"> 0 {{ $root._t("app.day") }}</span>
+                  <span class="me-2"> {{order.execution_time}} {{ $root._t("app.day") }}</span>
                 </span>
                 <span>
                   <i class="fas fa-ellipsis-v"></i>
@@ -61,7 +61,7 @@
       <div style="border-left: 3px solid #ddd" class="px-3">
         <img
             style="width: 70px"
-            :src="base_url+'/assets/images/user.svg'"
+            :src="cloud_url+ order.user_id.photo_profile"
             alt=""
         />
         <div>
@@ -83,10 +83,8 @@
     </div>
     <div class="col-md-9">
       <div class="clicker" @click.prevent="showThisOrderDetails(order.id)" style="cursor: pointer;">
-        <h6 style="color: #048e81">{{ $root._t("app.orderTitleHere") }}</h6>
-        <p class="pb-3 f-12">
-          {{ order.order_title }}
-        </p>
+        <h6 style="color: #048e81">{{ order.order_title }}</h6> <br>
+
         <!-- v-html=" order.order_content.split(' ')[0]" -->
         <h6 style="color: #048e81">{{ $root._t("app.orderContent") }}</h6>
         <p class="pb-3 f-12" v-html="order.order_content.substring(0,40)+'..'">
@@ -94,23 +92,13 @@
       </div>
       <div class="mt-3 btw-flex">
         <div></div>
-        <div class="text-center" v-if="$root.auth_user.membership_type === 'vendor'">
-          <button
-              style="
-                      border: 0;
-                      background-color: #048e81;
-                      color: #fff;
-                      font-size: 12px;
-                      padding: 0 40px;
-                      height: 40px;
-                    "
-              class="rounded"
-              @click="negotiateNow()"
-          >
-            {{ $root._t("app.negotiateNow") }}
-          </button>
-        </div>
         <div class="text-center">
+          <router-link v-if="order && $root.auth_user.membership_type === 'user'" :to="{name:'order_negotiations',params:{id:order.id}}" class="btn btn-success btn-sm btn-offer">
+            مفاوضات
+            <span v-html="order.negotiations.length">
+
+                    </span>
+          </router-link>
           <button
               style="
                       border: 0;
@@ -120,10 +108,11 @@
                       padding: 0 40px;
                       height: 40px;
                     "
-              class="rounded"
+              class="rounded btn-sm"
           >
             {{ $root._t("app."+order.order_status) }}
           </button>
+
         </div>
       </div>
     </div>
@@ -143,14 +132,6 @@ export default {
     };
   },
   methods:{
-    negotiateNow(){
-      var data = {
-        order_id:this.$props.order.id,
-      };
-      api.post('/v1/negotiations',data).then(res=>{
-        this.$router.push({name:'negotiation',params:{id:res.data.data.negotiate.id}});
-      })
-    },
     showThisOrderDetails(id){
       this.$router.push({ name: "ShowSingleOrder",params:{id:id} });
     },

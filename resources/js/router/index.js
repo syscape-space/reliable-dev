@@ -45,6 +45,7 @@ import Filteration from '../views/OrdersPages/ordersFilteration.vue'
 import addTicket from '../views/TicketsPages/createTecket.vue'
 import ShowSingleOrder from "../views/OrdersPages/ShowSingleOrder.vue";
 import Negotiation from "../components/Negotiation";
+import NegotiationsPage from "../views/OrdersPages/NegotiationsPage";
 
 
 const prefix = APP_PREFIX;
@@ -301,6 +302,12 @@ const routes = [{
         path: prefix + '/negotiation/:id',
         component: Negotiation,
         name: 'negotiation',
+        props:true,
+    },
+    {
+        path: prefix + '/order-negotiations/:id',
+        component: NegotiationsPage,
+        name: 'order_negotiations',
         props:true,
     },
 ]

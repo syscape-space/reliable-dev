@@ -48,6 +48,9 @@
           <div class="col-md-3 mt-3 mb-5 text-center d-flex align-items-center justify-content-between"
                style="border-left: 3px solid #ddd;"> 
               <img style="width:70px;width:70px;border-radius:50%" :src="cloud_url + offer.vendor.photo_profile" alt="">
+              <p class="py-3 f-12">
+              {{ offer.vendor.name }}
+            </p>
           </div>
           <div class="col-md-9">
             <p class="py-3 f-12">
@@ -64,18 +67,8 @@
                         font-size: 12px;
                         padding: 0 40px;
                       " class="rounded"
-                      @click.prevent="acceptOffer( $parent.offers.data[0].id )">
+                      @click.prevent="acceptOffer( offer.id )">
               {{ $root._t("app.acceptOffer") }}
-            </button>
-            <button style="
-                      height: 38px;
-                        border: 0;
-                        background-color: #0995EB;
-                        color: #fff;
-                        font-size: 12px;
-                        padding: 0 40px;
-                      " class="rounded">
-              {{ $root._t("app.negotiateNow") }}
             </button>
           </div>
         </div>
@@ -102,7 +95,7 @@ export default {
   methods:{
     acceptOffer( id ){
       api
-        .put("v1/accept_offer/"+id)
+        .post("v1/accept_offer/"+id , { '_method' : 'put' })
         .then((response) => {
           this.$root.alertSuccess('approved') ;
           this.$router.push({ name: "offerOrder2Page" , params:{id:id} });

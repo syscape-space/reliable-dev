@@ -105,18 +105,9 @@
                 </a>
               </li>
               <li v-if="user.membership_type === 'vendor'">
-                <router-link :to="{ name : 'EXMyOrders' }" style="color:#fff; cursor: pointer;">
+                <router-link :to="{ name : 'ShowAllOrders' }" style="color:#fff; cursor: pointer; margin-top: 20px;">
                   <img
-                    :src="base_url+'/public/assets/images/dash-remem.svg'"
-                    style="width: 18px"
-                    alt=""
-                    srcset=""
-                  />
-                  <span> {{ $root._t("app.myOrders") }} </span>
-                </router-link><br>
-                <router-link :to="{ name : 'ShowAllOrders' }" style="color:#fff; cursor: pointer; margin-top: 40px;">
-                  <img
-                    :src="base_url+'/public/assets/images/dash-remem.svg'"
+                    :src="base_url+'/assets/images/dash-remem.svg'"
                     style="width: 18px"
                     alt=""
                     srcset=""

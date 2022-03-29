@@ -48,6 +48,9 @@ class Order extends Model {
 	public function admin_id() {
 		return $this->hasOne(\App\Models\Admin::class , 'id', 'admin_id');
 	}
+	public function negotiations(){
+	    return $this->hasMany(Negotiate::class,'order_id','id');
+    }
 
 	/**
 	 * main_order_id relation method to get how add this data

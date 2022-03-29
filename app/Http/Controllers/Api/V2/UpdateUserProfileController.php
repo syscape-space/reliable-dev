@@ -337,6 +337,10 @@ class UpdateUserProfileController extends Controller
         }
     }
 
+    public function getOccupations(Request $request , $user_id){
+        return $user_id;
+    }
+
     public function storeExperience(Request $request)
     {
         $uncompletedInfo = "البيانات غير كاملة";
