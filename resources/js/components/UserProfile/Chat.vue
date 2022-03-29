@@ -72,13 +72,23 @@
               <strong>{{ error }}</strong>
             </div>
           </div>
-        <div style="background-color: #FAFAFA;" class="mt-3 d-flex align-items-center mb-3">
+        <div class="d-flex align-items-center justify-content-between">
+           <div>
+          <div class="border mb-2 p-1 position-relative d-inline-block text-center"  style="width:28px">
+            <i class="fas fa-paperclip" style="color:rgb(119 119 119)"></i>
+            <input style="width: 28px; position: absolute; top: 0; left: 0; right: 0; bottom: 0; opacity: 0;"  type="file" name="" id="">
+          </div> <br>
+          <div class="border p-1 position-relative d-inline-block text-center"  style="width:28px">
+            <i class="fas fa-microphone-alt" style="color:rgb(119 119 119)"></i>
+            
+            <input style="width: 28px; position: absolute; top: 0; left: 0; right: 0; bottom: 0; opacity: 0;"  type="file" name="" id="">
+          </div>
+        </div>
+        <div  class="w-100 mt-3 d-flex align-items-center mb-3" >
           <div class="d-flex align-items-center w-100 p-2  ">
-            <span style="display: inline-block; padding-left: 8px; border-left: 2px solid #ddd;">
-              <img :src="base_url+'/assets/images/file.png'" alt="">
-            </span>
             <span class="flex-grow-1">
-              <input type="text" placeholder=".....اكتب تعليقك هنا" class="form-control bg-transparent border-0" v-model="comment">
+              <textarea style="height: 76px;"  rows="2" type="text" placeholder=".....اكتب تعليقك هنا" class="form-control bg-transparent " v-model="comment">
+              </textarea>
             </span>
             <span>
               <button class="bg-transparent border-0" >
@@ -87,6 +97,7 @@
             </span>
           </div>
         </div>
+       </div>
       </div>
     </section>
 </template>

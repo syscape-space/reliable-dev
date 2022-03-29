@@ -48,22 +48,36 @@
         </li>
 
       </ul>
-      <div style="background-color: #FAFAFA;" class="mt-3 d-flex align-items-center mb-3">
-        <div class="d-flex align-items-center w-100 p-2  ">
-            <span style="display: inline-block; padding-left: 8px; border-left: 2px solid #ddd;">
-              <img :src="base_url+'/images/file.png'" alt="">
-            </span>
-          <span class="flex-grow-1">
-              <input type="text" v-model="new_message" @keyup.enter="sendMessage" placeholder=".....اكتب تعليقك هنا" class="form-control bg-transparent border-0">
-            </span>
-          <span>
-              <img :src="base_url+'/images/Frame2.png'" alt="">
-            </span>
-          <span>
-              <button class="bg-transparent border-0">
-                <img :src="base_url+'/images/telegram.png'" alt="">
-              </button>
-            </span>
+      <div class="d-flex align-items-center justify-content-between">
+        <div>
+          <div class="border mb-2 p-1 position-relative d-inline-block text-center"  style="width:28px">
+            <i class="fas fa-paperclip" style="color:rgb(119 119 119)"></i>
+            <input style="width: 28px; position: absolute; top: 0; left: 0; right: 0; bottom: 0; opacity: 0;"  type="file" name="" id="">
+          </div> <br>
+          <div class="border p-1 position-relative d-inline-block text-center"  style="width:28px">
+            <i class="fas fa-microphone-alt" style="color:rgb(119 119 119)"></i>
+            
+            <input style="width: 28px; position: absolute; top: 0; left: 0; right: 0; bottom: 0; opacity: 0;"  type="file" name="" id="">
+          </div>
+        </div>
+        <div  class="w-100 mt-3 d-flex align-items-center mb-3">
+          <div class="d-flex align-items-center w-100 p-2  ">
+              <!-- <span style="display: inline-block; padding-left: 8px; border-left: 2px solid #ddd;">
+                <img :src="base_url+'/images/file.png'" alt="">
+              </span> -->
+            <span class="flex-grow-1">
+              <textarea style="height: 76px;"  rows="2" v-model="new_message" @keyup.enter="sendMessage" placeholder=".....اكتب تعليقك هنا" class="form-control bg-transparent border-0">
+                <input type="text" >
+              </span>
+            <span>
+                <img :src="base_url+'/images/Frame2.png'" alt="">
+              </span>
+            <span>
+                <button class="bg-transparent border-0">
+                  <img :src="base_url+'/images/telegram.png'" alt="">
+                </button>
+              </span>
+          </div>
         </div>
       </div>
     </div>
