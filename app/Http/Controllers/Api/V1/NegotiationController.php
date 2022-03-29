@@ -14,8 +14,7 @@ class NegotiationController extends Controller
     protected $model = Negotiate::class;
     public function index()
     {
-        $user = User::query()->find(auth('api')->id());
-        $negotiations = $user->negotiations()->where(function($q){
+        $negotiations = Negotiate::query()->where(function($q){
             if (\request('order_id'))
                 $q->whereOrderId(\request('order_id'));
         })->get();

@@ -28177,17 +28177,6 @@ var _hoisted_28 = {
   "class": "text-center"
 };
 var _hoisted_29 = {
-  style: {
-    "height": "38px",
-    "border": "0",
-    "background-color": "#0995EB",
-    "color": "#fff",
-    "font-size": "12px",
-    "padding": "0 40px"
-  },
-  "class": "rounded"
-};
-var _hoisted_30 = {
   key: 1,
   "class": "w-100 text-center"
 };
@@ -28278,14 +28267,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       }, ["prevent"]))
     }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.acceptOffer")), 1
     /* TEXT */
-    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", _hoisted_29, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.negotiateNow")), 1
-    /* TEXT */
     )])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 64
     /* STABLE_FRAGMENT */
     );
   }), 256
   /* UNKEYED_FRAGMENT */
-  )) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("h4", _hoisted_30, "لا يوجد عروض"));
+  )) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("h4", _hoisted_29, "لا يوجد عروض"));
 }
 
 /***/ }),
