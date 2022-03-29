@@ -187,7 +187,9 @@
 </template>
 <script>
 import api from "../../utils/api";
+import OrderCard from "./OrderCard";
 export default {
+  components: {OrderCard},
   data() {
     return {
       base_url: base_url,

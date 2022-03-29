@@ -67,16 +67,6 @@
                       @click.prevent="acceptOffer( $parent.offers.data[0].id )">
               {{ $root._t("app.acceptOffer") }}
             </button>
-            <button style="
-                      height: 38px;
-                        border: 0;
-                        background-color: #0995EB;
-                        color: #fff;
-                        font-size: 12px;
-                        padding: 0 40px;
-                      " class="rounded">
-              {{ $root._t("app.negotiateNow") }}
-            </button>
           </div>
         </div>
       </div>
