@@ -42,7 +42,7 @@
             </div>
           </div>
         </div>
-        <div class="p-3 mt-3" style="background-color: #f9f9f9" v-for="item in  filterdList" :key="item.id">
+        <div class="p-3 mt-3" style="background-color: #f9f9f9" v-for="item in  list" :key="item.id">
           <order-card :order="item"/>
         </div>
 
