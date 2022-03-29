@@ -29,15 +29,22 @@
       </ul>
       <ul class="item-chat list-unstyled text-start px-0" >
         <li class="sec-list" v-for="message in negotiate.messages" >
-          <div class="d-flex mb-3">
-            <img style="width: 30px;" :src="base_url+'/images/morning.svg'" alt=""> <br>
-            <p class="m-0 me-2"  >{{message.user.first_name}}</p>
-          </div>
-          <span>
+          
+          <span class="w-100 d-block" style="background-color: rgb(216 240 255) !important; max-width: 90%; border-radius: 10px 2px 10px 10px !important; color: rgb(76, 80, 83);">
+            <div class="d-flex mb-3">
+              <div>
+                <img style="width: 30px;" :src="base_url+'/images/morning.svg'" alt=""> <br>
+                <p class="m-0 me-2"  >{{message.user.first_name}}</p>
+              </div>
+              <span>
+                <small>{{message.created_at}}</small>
+              </span>
+            </div>
+            <div>
               <span v-html="message.content"></span>
-              <br>
-              <small>{{message.created_at}}</small>
+             
             </span>
+            </div>
         </li>
 
       </ul>
@@ -115,5 +122,7 @@ export default {
 </script>
 
 <style scoped>
+.item-chat li.sec-list>span {
 
+}
 </style>

@@ -6,7 +6,7 @@
             
             <div class="text-center py-4">
               <div class="image-user position-relative d-inline-block">
-                <img style="width:200px;" :src="user?.photo_profile != null ? cloud_url + user?.photo_profile : base_url+ '/assets/images/dash-user.png'" alt="" srcset="" />
+                <img style="width: 140px; height: 140px; border-radius: 50%;" :src="user?.photo_profile != null ? cloud_url + user?.photo_profile : base_url+ '/assets/images/dash-user.png'" alt="" srcset="" />
                 
                 <img
                   style="position: absolute; bottom: 0; left: 0"
@@ -22,6 +22,11 @@
                 {{ user.name }}
               </h4>
             </div>
+             <div class="pt-2 text-center mawtheq-head d-flex justify-content-center">
+                <p class="m-0 bg-transparent text-white border px-3" style="width:auto" v-if="user.membership_type === null">
+                  ملفى الرئيسي
+                </p>
+             </div>
              <div class="pt-4 text-center mawtheq-head d-flex justify-content-center">
                     <p class="m-0 bg-transparent text-white border px-3" style="width:auto" v-if="user.membership_type === null">
                       {{ $root._t("app.withoutMemberShip") }}

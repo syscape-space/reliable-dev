@@ -180,11 +180,10 @@
                     </div>
                   </div>
                 </div>
-                <h6 style="color: #048e81"> {{ item.order_title }} </h6><br>
+                <h6 style="color: #048e81"> {{ item.order_title }} </h6>
                 <h6 style="color: #048e81"> {{ $root._t("app.orderContent") }} </h6>
                 <p class="pb-3 f-12" v-html="item.order_content.substring(0,100)+'..' ">
                   {{ item.order_content.substring(0, 40) + ".." }}
-
                 </p>
               </div>
               <div class=" btw-flex">
@@ -205,6 +204,19 @@
                   </button>
                 </div>
                 <div class="text-center">
+                  <button
+                    style="
+                      border: 0;
+                      background-color: #4ac272;
+                      color: #fff;
+                      font-size: 12px;
+                      padding: 0px 30px;
+                      height: 30px;
+                    "
+                    class="rounded"
+                  >
+                  المفاوضات <span class="badge bg-light mx-2">30</span>
+                  </button>
                   <button
                     style="
                       border: 0;
