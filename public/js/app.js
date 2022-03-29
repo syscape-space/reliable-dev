@@ -20387,7 +20387,9 @@ __webpack_require__.r(__webpack_exports__);
     acceptOffer: function acceptOffer(id) {
       var _this = this;
 
-      _utils_api__WEBPACK_IMPORTED_MODULE_0__["default"].put("v1/accept_offer/" + id).then(function (response) {
+      _utils_api__WEBPACK_IMPORTED_MODULE_0__["default"].post("v1/accept_offer/" + id, {
+        '_method': 'put'
+      }).then(function (response) {
         _this.$root.alertSuccess('approved');
 
         _this.$router.push({
