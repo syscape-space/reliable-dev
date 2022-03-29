@@ -17,7 +17,7 @@ class NegotiationController extends Controller
         $negotiations = Negotiate::query()->where(function($q){
             if (\request('order_id'))
                 $q->whereOrderId(\request('order_id'));
-        })->get();
+        })->with('users')->get();
         return $this->jsonForm(compact('negotiations'));
     }
     public function store()
