@@ -6,7 +6,7 @@
         <div class="col-md-6 px-0 ">
           <div class="p-5">
             <div class="text-center mt-5">
-              <img style="width: 100px;" :src="base_url+'/assets/images/login-1-logo.svg'" alt="">
+              <img style="width: 100px;" :src="base_url+'/public/assets/images/login-1-logo.svg'" alt="">
             </div>
             <div class="register text-center  ">
               <p class="my-4 "> {{ $root._t("app.do_you_have_account") }}
