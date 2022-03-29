@@ -142,6 +142,7 @@ Route::group(
 			Route::apiResource("userjobs", "UserJobsApi", ["as" => "api.userjobs"]);
 			Route::post("userjobs/multi_delete", "UserJobsApi@multi_delete");
 			Route::apiResource("orderoffers", "OrderOffersApi", ["as" => "api.orderoffers"]);
+			Route::get('check_if_there_approved_offers/{id}' , "OrderOffersApi@checkIfThereApprovedOffers");
 			Route::post("orderoffers/multi_delete", "OrderOffersApi@multi_delete");
 			Route::post("orderoffers/upload/multi", "OrderOffersApi@multi_upload");
 			Route::post("orderoffers/delete/file", "OrderOffersApi@delete_file");

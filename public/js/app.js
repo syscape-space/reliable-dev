@@ -20109,7 +20109,8 @@ __webpack_require__.r(__webpack_exports__);
       list: [],
       id: "",
       search: '',
-      filter: ''
+      filter: '',
+      checking: []
     };
   },
   mounted: function mounted() {
@@ -20145,6 +20146,30 @@ __webpack_require__.r(__webpack_exports__);
     getCategory: function getCategory(e) {
       this.filter = e.target.value;
       console.log(this.filter);
+    },
+    checkIfThereApprovedOffers: function checkIfThereApprovedOffers($id) {
+      var _this2 = this;
+
+      _utils_api__WEBPACK_IMPORTED_MODULE_0__["default"].get("v1/check_if_there_approved_offers/" + $id).then(function (response) {
+        _this2.checking = response.data.checking;
+
+        if (_this2.checking.length > 0) {
+          var offerOwnerData = response.data.checking[0].id;
+
+          _this2.$router.push({
+            name: "offerOrder2Page",
+            params: {
+              id: offerOwnerData
+            }
+          });
+        } else {
+          _this2.showThisOrderDetails($id);
+        }
+
+        console.log(response.data.checking);
+      })["catch"](function (e) {
+        console.log(e.response);
+      });
     }
   }
 });
@@ -20289,7 +20314,7 @@ __webpack_require__.r(__webpack_exports__);
       _utils_api__WEBPACK_IMPORTED_MODULE_1__["default"].get("v1/getting_add_data_of_order_offer_owners/" + order_id).then(function (response) {
         _this.list = response.data.allOffersAndOrdersOwners[0];
         _this.offersCount = response.data.offersCount;
-        console.log(response.data.offersCount);
+        console.log(response.data);
       })["catch"](function (e) {
         console.log(e.response.data.allOffersAndOrdersOwners[0]);
       });
@@ -20300,7 +20325,7 @@ __webpack_require__.r(__webpack_exports__);
       _utils_api__WEBPACK_IMPORTED_MODULE_1__["default"].get("/v1/account").then(function (response) {
         _this2.orderOwner = response.data.data.name;
         _this2.orderOwnerProfile = response.data.photo_profile;
-        console.log(response.data.data.photo_profile);
+        console.log(response.data.data);
       }) // error.response.data.errors
       ["catch"](function (e) {
         _this2.errors = e.response.data.errors;
@@ -20364,7 +20389,9 @@ __webpack_require__.r(__webpack_exports__);
     acceptOffer: function acceptOffer(id) {
       var _this = this;
 
-      _utils_api__WEBPACK_IMPORTED_MODULE_0__["default"].put("v1/accept_offer/" + id).then(function (response) {
+      _utils_api__WEBPACK_IMPORTED_MODULE_0__["default"].post("v1/accept_offer/" + id, {
+        '_method': 'put'
+      }).then(function (response) {
         _this.$root.alertSuccess('approved');
 
         _this.$router.push({

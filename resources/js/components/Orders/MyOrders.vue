@@ -79,7 +79,8 @@ export default {
       list : [] ,
       id : "" ,
       search : '' ,
-      filter : ''
+      filter : '' ,
+      checking : []
     };
   },
   mounted() {
@@ -113,6 +114,25 @@ export default {
       this.filter = e.target.value;
       console.log(this.filter)
     },
+    checkIfThereApprovedOffers($id){
+      api
+          .get("v1/check_if_there_approved_offers/" + $id)
+          .then((response) => {
+            this.checking = response.data.checking
+            
+            if( this.checking.length > 0 ){
+              let offerOwnerData = response.data.checking[0].id ;
+              
+              this.$router.push({ name: "offerOrder2Page" , params:{id:offerOwnerData} });
+            }else{
+              this.showThisOrderDetails( $id );
+            }
+            console.log(response.data.checking);
+          })
+          .catch((e) => {
+            console.log(e.response);
+          });
+    }
   },
 };
 </script>

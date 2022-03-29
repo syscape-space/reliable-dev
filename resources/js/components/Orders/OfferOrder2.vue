@@ -371,7 +371,7 @@ export default {
         .then((response) => {
           this.list = response.data.allOffersAndOrdersOwners[0];
           this.offersCount = response.data.offersCount ;
-          console.log(response.data.offersCount);
+          console.log(response.data);
         })
         .catch((e) => {
           console.log(e.response.data.allOffersAndOrdersOwners[0]);
@@ -383,7 +383,7 @@ export default {
         .then((response) => {
           this.orderOwner = response.data.data.name
           this.orderOwnerProfile = response.data.photo_profile
-          console.log(response.data.data.photo_profile)
+          console.log(response.data.data)
         })
         // error.response.data.errors
         .catch((e) => {

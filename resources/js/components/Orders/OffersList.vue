@@ -95,7 +95,7 @@ export default {
   methods:{
     acceptOffer( id ){
       api
-        .put("v1/accept_offer/"+id)
+        .post("v1/accept_offer/"+id , { '_method' : 'put' })
         .then((response) => {
           this.$root.alertSuccess('approved') ;
           this.$router.push({ name: "offerOrder2Page" , params:{id:id} });

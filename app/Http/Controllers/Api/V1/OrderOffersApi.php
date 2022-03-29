@@ -58,9 +58,18 @@ class OrderOffersApi extends Controller
                 if (\request()->order_id)
                     $q->whereOrderId(\request()->order_id);
             })
+            ->where( 'offer_status' , '=' , 'pending' )
             ->with($this->arrWith())
             ->orderBy("id", "desc")->paginate(15);
         return successResponseJson(["data" => $OrderOffer]);
+    }
+
+    public function checkIfThereApprovedOffers(Request $request , $order_id){
+        $checking = OrderOffer::where('order_id' , '=' , $order_id)
+                              ->where('offer_status' , '=' , 'approved')                        
+                              ->get();
+                              
+        return successResponseJson(["checking" => $checking]);
     }
 
 
