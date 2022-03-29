@@ -86,7 +86,7 @@
 
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                 <li>
-                  <a class="dropdown-item" @click.prevent="logout()" style="cursor: pointer;">Logout</a>
+                  <a class="dropdown-item" @click.prevent="logout()" style="cursor: pointer;">خروج</a>
                 </li>
               </ul>
             </div>

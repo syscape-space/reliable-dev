@@ -87,26 +87,19 @@ export default {
     document.getElementById('pagesCount').style.display = "none";
       
   },
-  computed : {
-    filterdList:function(){
-      return this.list.filter( (list) => {
-        return list.order_title.match(this.search)
-      })
-    }
-  } ,
   methods: {
     getMyOrders() {
       api
         .get("v1/orders?my=1")
         .then((response) => {
           this.list = response.data.data.data;
-          
-          if(this.list.length === 0){
-            document.getElementById('pagesCount').style.display = "none";
-          }else{
-            document.getElementById('pagesCount').style.display = "block";
+
+          if (this.list.length === 0) {
+            document.getElementById("pagesCount").style.display = "none";
+          } else {
+            document.getElementById("pagesCount").style.display = "block";
           }
-          
+
           console.log(response.data.data.data);
         })
         .catch((e) => {
