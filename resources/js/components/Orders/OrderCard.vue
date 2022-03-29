@@ -94,22 +94,6 @@
       </div>
       <div class="mt-3 btw-flex">
         <div></div>
-        <div class="text-center" v-if="$root.auth_user.membership_type === 'vendor'">
-          <button
-              style="
-                      border: 0;
-                      background-color: #048e81;
-                      color: #fff;
-                      font-size: 12px;
-                      padding: 0 40px;
-                      height: 40px;
-                    "
-              class="rounded"
-              @click="negotiateNow()"
-          >
-            {{ $root._t("app.negotiateNow") }}
-          </button>
-        </div>
         <div class="text-center">
           <button
               style="
@@ -143,14 +127,6 @@ export default {
     };
   },
   methods:{
-    negotiateNow(){
-      var data = {
-        order_id:this.$props.order.id,
-      };
-      api.post('/v1/negotiations',data).then(res=>{
-        this.$router.push({name:'negotiation',params:{id:res.data.data.negotiate.id}});
-      })
-    },
     showThisOrderDetails(id){
       this.$router.push({ name: "ShowSingleOrder",params:{id:id} });
     },

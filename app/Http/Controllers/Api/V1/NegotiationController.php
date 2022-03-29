@@ -15,7 +15,10 @@ class NegotiationController extends Controller
     public function index()
     {
         $user = User::query()->find(auth('api')->id());
-        $negotiations = $user->negotiations;
+        $negotiations = $user->negotiations()->where(function($q){
+            if (\request('order_id'))
+                $q->whereOrderId(\request('order_id'));
+        })->get();
         return $this->jsonForm(compact('negotiations'));
     }
     public function store()
