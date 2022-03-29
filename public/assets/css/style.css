@@ -474,6 +474,12 @@ select {
     min-height: 100vh;
 }
 
+#pageLoginImage2 {
+    background-image: url("../images/login.png") !important;
+    background-size: cover;
+    min-height: 100vh;
+}
+
 .auth-login input {
     border-radius: 3px;
     background-color: #f6f6f6;
@@ -629,11 +635,27 @@ select {
     border-radius: 7px;
 }
 
+#cutting {
+    background-color: #2b7b74;
+    background-image: url(../images/back-balanc.svg);
+    width: 100%;
+    height: 141px;
+    border-radius: 7px;
+}
+
 .contain-2 {
     background-image: url(../images/back-balanc-2.svg);
 }
 
+#cut {
+    background-image: url(../images/back-balanc-2.svg);
+}
+
 .contain-3 {
+    background-image: url(../images/back-balanc-3.svg);
+}
+
+#cutter {
     background-image: url(../images/back-balanc-3.svg);
 }
 

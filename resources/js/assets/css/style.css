@@ -462,6 +462,12 @@ select {
     min-height: 100vh;
 }
 
+#pageLoginImage2 {
+    background-image: url("../images/login.png") !important;
+    background-size: cover;
+    min-height: 100vh;
+}
+
 #pageLoginImage {
     background-image: url("../images/login.png") !important;
     background-size: cover;
