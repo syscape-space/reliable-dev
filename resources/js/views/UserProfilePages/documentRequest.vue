@@ -5,7 +5,7 @@
       <div class="row">
         <div class="col-lg-4 d-none d-lg-block">
           <div class="content text-center pt-1 ">
-            <p class="num">{{ $root._t("app.number1") }}</p>
+            <p class="num">0{{ step }}</p>
             <img style="width: 60px;" :src="base_url + '/public/assets/images/white-logo.svg'" alt="logo" class="mt-5 pt-5">
             <p 
               class="title mt-0 fw-normal"

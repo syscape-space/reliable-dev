@@ -7,7 +7,7 @@
         <!-- Side Menu Profile Sections  -->
         <div class="row w-100 mx-0 px-0 ">
           <div class="col-12 col-md-4 mb-5">
-            <div class="card user-card user-card-1">
+            <div class="card user-card user-card-1" style="font-size: 12px;">
               <div class="card-body pb-0">
                 <div class="d-flex py-3 justify-content-center align-items-start" style="min-height: 110px;">
                   <div>
@@ -18,10 +18,10 @@
                 </div>
                
               </div>
-              <ul class="list-group list-group-flush px-0">
+              <ul class="list-group list-group-flush px-0 border-0 mb-3 text-center">
                 <button 
-                class="btn btn-primary d-flex align-items-center" 
-                style="width:120px;margin:15px;margin:auto;"
+                class="btn " 
+                style="border: 0px; background-color: rgb(4, 142, 129); color: rgb(255, 255, 255); font-size: 12px;width:120px;margin:auto ;"
                 data-bs-toggle="modal" 
                 data-bs-target="#exampleModal">تحديث الصوره</button>
               </ul>
@@ -267,3 +267,15 @@
     },
   };
 </script>
+
+
+<style scoped>
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #fff;
+    background-color: #048e81;
+    border-color: #048e81;
+}
+.nav-pills .nav-link.active .text-success, .nav-pills .nav-link.active .text-danger {
+  color:#FFF !important
+}
+</style>
