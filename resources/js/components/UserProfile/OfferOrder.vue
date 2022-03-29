@@ -150,6 +150,10 @@
                     </span>
                   </div>
                   <div class="my-2" style="font-size: 12px;">
+                    <span class="o-box o-box2 ms-2">
+                      <span>التفاوض</span>
+                       <span class="me-2">14</span>
+                    </span>
                     <span class="o-box ms-2">
                       <img 
                       style="width: 15px;" class="ms-1" :src="base_url+'/assets/images/o_delever.svg'" alt="">
