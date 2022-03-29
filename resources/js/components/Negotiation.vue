@@ -17,7 +17,7 @@
           <span>{{negotiate.order.id}}</span>
         </li>
         <li>
-          <span>{{negotiate.order.order_title}}</span>
+          <a :href="base_url+'/u_profile'" style="color:    color: #212529;" >{{negotiate.order.order_title}}</a>
         </li>
         <li>
           <span>مرحلة التفاوض</span>
