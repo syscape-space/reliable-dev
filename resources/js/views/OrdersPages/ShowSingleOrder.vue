@@ -187,11 +187,15 @@
                       class="btn-offer text-white mx-2"
                       style="background-color: #0995EB;"> {{ $root._t("app.new") }} </button>
                   <button class="btn-offer"> {{ $root._t("app.old") }} </button>
+                  <router-link v-if="order && $root.auth_user.membership_type === 'user'" :to="{name:'order_negotiations',params:{id:$props.id}}" class="btn btn-success btn-sm btn-offer">
+                    مفاوضات
+                    <span v-html="order.negotiations.length">
+
+                    </span>
+                  </router-link>
                 </span>
             </div>
             <offers-list ref="offers_list"/>
-            <h4>المفاوضات :</h4>
-            <order-negotiations :id="$props.id"/>
           </div>
           <div class="col-md-3">
             <div>
@@ -447,7 +451,7 @@ export default {
             .post("v1/orderoffers", formData)
             .then((response) => {
               console.log(response);
-              alert("Offer Added Successfully");
+              this.$root.alertSuccess("Offer Added Successfully");
               // this.$router.push({ name: "Ticket2" });
             })
             // error.response.data.errors
