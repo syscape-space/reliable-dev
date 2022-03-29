@@ -42,7 +42,7 @@
             </div>
           </div>
         </div>
-        <div class="p-3 mt-3" style="background-color: #f9f9f9" v-for="item in  filterdList" :key="item.id">
+        <!-- <div class="p-3 mt-3" style="background-color: #f9f9f9" v-for="item in  filterdList" :key="item.id">
           <div class="">
             <div class="mb-2 text-start" style="font-size: 12px">
                <span class="ms-3">
@@ -151,7 +151,6 @@
                         <span  data-bs-toggle="modal" data-bs-target="#exampleModal">
                           <i class="fas fa-ellipsis-v"></i>
                         </span>
-                        <!-- Modal -->
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                           <div class="modal-dialog">
                             <div class="modal-content">
@@ -233,10 +232,10 @@
                 </div>
               </div>
             </div>
-          </div>
-        <!-- <div class="p-3 mt-3" style="background-color: #f9f9f9" v-for="item in  list" :key="item.id">
+          </div> -->
+        <div class="p-3 mt-3" style="background-color: #f9f9f9" v-for="item in  list" :key="item.id">
           <order-card :order="item"/>
-        </div> -->
+        </div>
 
         <nav aria-label="Page navigation example" id="pagesCount">
           <ul class="pagination justify-content-center mt-2">
