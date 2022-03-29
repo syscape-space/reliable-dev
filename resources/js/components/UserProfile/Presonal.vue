@@ -7,12 +7,12 @@
         <!-- Side Menu Profile Sections  -->
         <div class="row w-100 mx-0 px-0 ">
           <div class="col-12 col-md-4 mb-5">
-            <div class="card user-card user-card-1" style="font-size: 12px;">
+            <div class="card user-card user-card-1" style="font-size: 7px;">
               <div class="card-body pb-0">
-                <div class="d-flex py-3 justify-content-center align-items-start" style="min-height: 110px;">
+                <div class="d-flex pt-3 mb-2 justify-content-center align-items-start" >
                   <div>
                     <img :src="user?.photo_profile != null ? cloud_url + user?.photo_profile : base_url+ '/assets/images/dash-user.png'" alt=""
-                      class="d-block img-radius img-fluid wid-80" style="width: 80px; height: 80px; border-radius: 50%; margin: auto;">
+                      class="d-block img-radius img-fluid wid-80" style="width: 50px; height: 50px !important; border-radius: 50%; margin: auto;">
                   </div>
                   <span class="text-success" v-if="user_is_verified"><i class="fas fa-certificate text-success bg-icon"></i> نشيط</span>
                 </div>
@@ -21,7 +21,7 @@
               <ul class="list-group list-group-flush px-0 border-0 mb-3 text-center">
                 <button 
                 class="btn " 
-                style="border: 0px; background-color: rgb(4, 142, 129); color: rgb(255, 255, 255); font-size: 12px;width:120px;margin:auto ;"
+                style="border: 0px; background-color: rgb(4, 142, 129); color: rgb(255, 255, 255); font-size: 12px;width:120px;margin:auto ;font-size: 11px;"
                 data-bs-toggle="modal" 
                 data-bs-target="#exampleModal">تحديث الصوره</button>
               </ul>

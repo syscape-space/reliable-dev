@@ -33409,17 +33409,14 @@ var _hoisted_5 = {
 var _hoisted_6 = {
   "class": "card user-card user-card-1",
   style: {
-    "font-size": "12px"
+    "font-size": "7px"
   }
 };
 var _hoisted_7 = {
   "class": "card-body pb-0"
 };
 var _hoisted_8 = {
-  "class": "d-flex py-3 justify-content-center align-items-start",
-  style: {
-    "min-height": "110px"
-  }
+  "class": "d-flex pt-3 mb-2 justify-content-center align-items-start"
 };
 var _hoisted_9 = ["src"];
 var _hoisted_10 = {
@@ -33448,7 +33445,7 @@ var _hoisted_14 = /*#__PURE__*/_withScopeId(function () {
       "border": "0px",
       "background-color": "rgb(4, 142, 129)",
       "color": "rgb(255, 255, 255)",
-      "font-size": "12px",
+      "font-size": "11px",
       "width": "120px",
       "margin": "auto"
     },
@@ -33766,8 +33763,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     alt: "",
     "class": "d-block img-radius img-fluid wid-80",
     style: {
-      "width": "80px",
-      "height": "80px",
+      "width": "50px",
+      "height": "50px !important",
       "border-radius": "50%",
       "margin": "auto"
     }
@@ -41611,7 +41608,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     style: {
       "width": "60px"
     },
-    src: $data.base_url + '/public/assets/images/white-logo.svg',
+    src: $data.base_url + 'assets/images/white-logo.svg',
     alt: "logo",
     "class": "mt-5 pt-5"
   }, null, 8
@@ -41631,7 +41628,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     style: {
       "max-width": "300px"
     },
-    src: $data.base_url + '/public/assets/images/order-user.png',
+    src: $data.base_url + 'assets/images/order-user.png',
     alt: ""
   }, null, 8
   /* PROPS */
@@ -41644,7 +41641,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       "vertical-align": "middle",
       "margin-right": "auto"
     },
-    src: $data.base_url + '/public/assets/images/open-book.svg',
+    src: $data.base_url + 'assets/images/open-book.svg',
     alt: "#"
   }, null, 8
   /* PROPS */
@@ -41965,7 +41962,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           nationality: ''
         });
       }),
-      src: $data.base_url + '/public/assets/images/icons.svg',
+      src: $data.base_url + 'assets/images/icons.svg',
       alt: "#",
       "class": "d-inline-block"
     }, null, 8
@@ -42060,7 +42057,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_130, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_131, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_132, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", _hoisted_133, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.attchments")) + " ", 1
   /* TEXT */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-    src: $data.base_url + '/public/assets/images/file.svg',
+    src: $data.base_url + 'assets/images/file.svg',
     alt: "#"
   }, null, 8
   /* PROPS */
@@ -42078,7 +42075,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     type: "file"
   }, null, 544
   /* HYDRATE_EVENTS, NEED_PATCH */
-  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class='sounds d-inline-block mr-3'>\n                    <label for='input-file' class=\"add-o-file\">\n                      {{ $root._t(\"app.sendVoiceFile\") }}\n                      <img :src=\"base_url + '/public/assets/images/audio-file.svg'\" alt=\"#\">\n                    </label>\n                    <input id='input-file'  class=\"abs-file  \"  style=\"    width: 155px;\" ref=\"audio_file_input\" @change=\"uploadAudioFile()\" type='file'/>\n                  </div> ")])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step === 6 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_135, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_136, [$options.balanceCovered ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_137, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_138, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class='sounds d-inline-block mr-3'>\n                    <label for='input-file' class=\"add-o-file\">\n                      {{ $root._t(\"app.sendVoiceFile\") }}\n                      <img :src=\"base_url + 'assets/images/audio-file.svg'\" alt=\"#\">\n                    </label>\n                    <input id='input-file'  class=\"abs-file  \"  style=\"    width: 155px;\" ref=\"audio_file_input\" @change=\"uploadAudioFile()\" type='file'/>\n                  </div> ")])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step === 6 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_135, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_136, [$options.balanceCovered ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_137, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_138, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
     src: $data.base_url + '/assets/images/22-mobile.svg',
     alt: "#",
     "class": "ml-2"

@@ -6,7 +6,7 @@
         <div class="col-lg-4 d-none d-lg-block">
           <div class="content text-center pt-1 ">
             <p class="num">0{{ step }}</p>
-            <img style="width: 60px;" :src="base_url + '/public/assets/images/white-logo.svg'" alt="logo" class="mt-5 pt-5">
+            <img style="width: 60px;" :src="base_url + 'assets/images/white-logo.svg'" alt="logo" class="mt-5 pt-5">
             <p 
               class="title mt-0 fw-normal"
               style="font-size: 17px; margin-top: 5px !important;">{{ $root._t("app.chooseServiceType") }}</p>
@@ -23,7 +23,7 @@
               <a href="">
                 <img class="w-100" 
                   style="max-width:300px"
-                :src="base_url + '/public/assets/images/order-user.png'" alt="">
+                :src="base_url + 'assets/images/order-user.png'" alt="">
               </a>
               <div class="info m-5">
                 <div class="pb-2 px-3 h-100 d-flex align-items-center justify-content-center">
@@ -32,7 +32,7 @@
                         {{ $root._t("app.guideForServiceRequest") }}
                       </a>
                     </p>
-                    <img style="top: 3px; margin-left: 5px; vertical-align: middle;margin-right:auto" :src="base_url + '/public/assets/images/open-book.svg'" alt="#">
+                    <img style="top: 3px; margin-left: 5px; vertical-align: middle;margin-right:auto" :src="base_url + 'assets/images/open-book.svg'" alt="#">
 
                 </div>
               </div>
@@ -244,7 +244,7 @@
                 <div v-if="form.entities.length - 1 === index && form.entities_count > 1"
                      class="form-group col-md-3 text-center icons">
                   <img style="cursor: pointer" @click="form.entities.push({name:'',id_number:'',nationality:''})"
-                       :src="base_url + '/public/assets/images/icons.svg'" alt="#" class="d-inline-block">
+                       :src="base_url + 'assets/images/icons.svg'" alt="#" class="d-inline-block">
                 </div>
               </div>
               <!--نهايه بيانات المدعى عليه -->
@@ -316,7 +316,7 @@
                   <div class='attach d-inline-block '>
                     <label for='input-file' class="add-o-file">
                       {{ $root._t("app.attchments") }}
-                      <img :src="base_url + '/public/assets/images/file.svg'" alt="#">
+                      <img :src="base_url + 'assets/images/file.svg'" alt="#">
                     </label>
                     <input id='attachments_input' class="abs-file  " style="    width: 155px;" ref="attachments_input" multiple @change="uploadAttachments()"
                            type='file'/>
@@ -324,7 +324,7 @@
                   <!-- <div class='sounds d-inline-block mr-3'>
                     <label for='input-file' class="add-o-file">
                       {{ $root._t("app.sendVoiceFile") }}
-                      <img :src="base_url + '/public/assets/images/audio-file.svg'" alt="#">
+                      <img :src="base_url + 'assets/images/audio-file.svg'" alt="#">
                     </label>
                     <input id='input-file'  class="abs-file  "  style="    width: 155px;" ref="audio_file_input" @change="uploadAudioFile()" type='file'/>
                   </div> -->
