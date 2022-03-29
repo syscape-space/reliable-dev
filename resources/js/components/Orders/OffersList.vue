@@ -67,7 +67,7 @@
                         font-size: 12px;
                         padding: 0 40px;
                       " class="rounded"
-                      @click.prevent="acceptOffer( $parent.offers.data[0].id )">
+                      @click.prevent="acceptOffer( offer.id )">
               {{ $root._t("app.acceptOffer") }}
             </button>
           </div>
