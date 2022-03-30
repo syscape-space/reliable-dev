@@ -6,69 +6,73 @@
       <ul class="chat-list justify-content-between  list-unstyled d-flex ">
         <li class="d-flex me-5" v-if="otherUser">
           <img style="width:40px" :src="base_url+'/images/morning.svg'" alt="">
-          <p style="font-size: 13px;" class="me-1 m-0">{{otherUser.first_name}}<br>
-            <span style="color: rgb(165, 164, 164);" >موثوق</span> </p>
+          <p style="font-size: 13px;" class="me-1 m-0">{{ otherUser.first_name }}<br>
+            <span style="color: rgb(165, 164, 164);">موثوق</span></p>
         </li>
         <li class="d-flex me-5" v-else>
           لم يدخل طرف اخر المفاوضة
         </li>
         <li class="text-center">
           <span>رقم الطلب</span> <br>
-          <span>{{negotiate.order.id}}</span>
+          <span>{{ negotiate.order.id }}</span>
         </li>
         <li>
-          <a :href="base_url+'/u_profile'" style="color:    color: #212529;" >{{negotiate.order.order_title}}</a>
+          <a :href="base_url+'/u_profile'" style="color:    color: #212529;">{{ negotiate.order.order_title }}</a>
         </li>
         <li>
           <span>مرحلة التفاوض</span>
         </li>
-        <li class="d-flex  ms-3" >
+        <li class="d-flex  ms-3">
           <img class="mx-4" :src="base_url+'/images/chate2.svg'" alt="">
           <img :src="base_url+'/images/chate.svg'" alt="">
         </li>
       </ul>
-      <ul class="item-chat list-unstyled text-start px-0" >
+      <ul class="item-chat list-unstyled text-start px-0">
         <li :class="{'sec-list':message.user.membership_type === 'user'}" v-for="message in negotiate.messages">
           
-          <span class="w-100 d-block" style="background-color: rgb(216 240 255) !important; max-width: 90%; border-radius: 10px 2px 10px 10px !important; color: rgb(76, 80, 83);">
+          <span class="w-100 d-block"
+                style="background-color: rgb(216 240 255) !important; max-width: 90%; border-radius: 10px 2px 10px 10px !important; color: rgb(76, 80, 83);">
             <div class="d-flex mb-3">
               <div>
                 <img style="width: 30px;" :src="cloud_url+message.user.photo_profile" alt=""> <br>
-                <p class="m-0 me-2"  >{{message.user.first_name}}</p>
+                <p class="m-0 me-2">{{ message.user.first_name }}</p>
               </div>
               <span :class="{'bg-primary text-white':message.user.membership_type !== 'user'}">
-                <small>{{message.created_at}}</small>
+                <small>{{ message.created_at }}</small>
               </span>
             </div>
             <div>
               <span v-html="message.content"></span>
-             
-            </span>
             </div>
+          </span>
         </li>
-
       </ul>
       <div class="d-flex align-items-center justify-content-between">
         <div>
-          <div class="border mb-2 p-1 position-relative d-inline-block text-center"  style="width:28px">
+          <div class="border mb-2 p-1 position-relative d-inline-block text-center" style="width:28px">
             <i class="fas fa-paperclip" style="color:rgb(119 119 119)"></i>
-            <input style="width: 28px; position: absolute; top: 0; left: 0; right: 0; bottom: 0; opacity: 0;"  type="file" name="" id="">
-          </div> <br>
-          <div class="border p-1 position-relative d-inline-block text-center"  style="width:28px">
+            <input style="width: 28px; position: absolute; top: 0; left: 0; right: 0; bottom: 0; opacity: 0;"
+                   type="file" name="" id="">
+          </div>
+          <br>
+          <div class="border p-1 position-relative d-inline-block text-center" style="width:28px">
             <i class="fas fa-microphone-alt" style="color:rgb(119 119 119)"></i>
-            
-            <input style="width: 28px; position: absolute; top: 0; left: 0; right: 0; bottom: 0; opacity: 0;"  type="file" name="" id="">
+
+            <input style="width: 28px; position: absolute; top: 0; left: 0; right: 0; bottom: 0; opacity: 0;"
+                   type="file" name="" id="">
           </div>
         </div>
-        <div  class="w-100 mt-3 d-flex align-items-center mb-3">
+        <div class="w-100 mt-3 d-flex align-items-center mb-3">
           <div class="d-flex align-items-center w-100 p-2  ">
-              <!-- <span style="display: inline-block; padding-left: 8px; border-left: 2px solid #ddd;">
-                <img :src="base_url+'/images/file.png'" alt="">
-              </span> -->
+            <!-- <span style="display: inline-block; padding-left: 8px; border-left: 2px solid #ddd;">
+              <img :src="base_url+'/images/file.png'" alt="">
+            </span> -->
             <span class="flex-grow-1">
-              <textarea style="height: 76px;"  rows="2" v-model="new_message" @keyup.enter="sendMessage" placeholder=".....اكتب تعليقك هنا" class="form-control bg-transparent border-0">
-                <input type="text" >
-              </span>
+              <textarea style="height: 76px;" rows="2" v-model="new_message" @keyup.enter="sendMessage"
+                        placeholder=".....اكتب تعليقك هنا" class="form-control bg-transparent border-0">
+              </textarea>
+              <input type="text" >
+            </span>
             <span>
                 <img :src="base_url+'/images/Frame2.png'" alt="">
               </span>
