@@ -126,9 +126,7 @@
                   <span> {{ $root._t("app.myOrders") }} </span>
                 </router-link>
               </li>
-              <li>
-                <a href="#"> {{ $root._t("app.appName") }} </a>
-              </li>
+             
             </ul>
           </div>
         </div>
