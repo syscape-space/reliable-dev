@@ -19575,13 +19575,16 @@ __webpack_require__.r(__webpack_exports__);
         id_number: this.id_number,
         password: this.password
       }).then(function (response) {
-        var token = response.data.data.access_token; // saving token to localSorage 
+        var token = response.data.data.access_token; // saving token to localSorage
 
         _this.$root.alertSuccess("Loggened Successfully");
 
         localStorage.setItem("token", token);
-        localStorage.setItem("logginedUser", response.data.data.user.id); // route for u_index page
+
+        _this.$root.getAuthUser(); // ####
+        // route for u_index page
         // window.location.replace(this.base_url+'/profile?id='+response.data.data.user.id);
+
 
         _this.$router.push({
           name: "profilePage"
@@ -25796,27 +25799,17 @@ var _hoisted_3 = {
 var _hoisted_4 = {
   "class": "btw-flex"
 };
-var _hoisted_5 = {
-  "class": "position-relative"
-};
 
-var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-  style: {
-    "position": "absolute",
-    "top": "50%",
-    "right": "5px",
-    "transform": "translateY(-50%)"
-  },
-  "class": "text-white fas fa-search"
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "position-relative"
 }, null, -1
 /* HOISTED */
 );
 
-var _hoisted_7 = ["placeholder"];
-var _hoisted_8 = {
+var _hoisted_6 = {
   "class": "btn-group"
 };
-var _hoisted_9 = {
+var _hoisted_7 = {
   style: {
     "background-color": "#0995eb",
     "border-color": "#0995eb"
@@ -25827,13 +25820,13 @@ var _hoisted_9 = {
   "aria-expanded": "false"
 };
 
-var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "class": "fas fa-filter"
 }, null, -1
 /* HOISTED */
 );
 
-var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", {
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", {
   "class": "dropdown-menu"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   "class": "dropdown-item",
@@ -25847,25 +25840,14 @@ var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<nav aria-label=\"Page navigation example\" id=\"pagesCount\"><ul class=\"pagination justify-content-center mt-2\"><li class=\"page-item\"><a class=\"page-link\" href=\"#\" aria-label=\"Previous\"><span aria-hidden=\"true\">«</span></a></li><li class=\"page-item\"><a class=\"page-link\" href=\"#\">1</a></li><li class=\"page-item\"><a class=\"page-link\" href=\"#\">2</a></li><li class=\"page-item\"><a class=\"page-link\" href=\"#\">3</a></li><li class=\"page-item\"><a class=\"page-link\" href=\"#\" aria-label=\"Next\"><span aria-hidden=\"true\">»</span></a></li></ul></nav>", 1);
+var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<nav aria-label=\"Page navigation example\" id=\"pagesCount\"><ul class=\"pagination justify-content-center mt-2\"><li class=\"page-item\"><a class=\"page-link\" href=\"#\" aria-label=\"Previous\"><span aria-hidden=\"true\">«</span></a></li><li class=\"page-item\"><a class=\"page-link\" href=\"#\">1</a></li><li class=\"page-item\"><a class=\"page-link\" href=\"#\">2</a></li><li class=\"page-item\"><a class=\"page-link\" href=\"#\">3</a></li><li class=\"page-item\"><a class=\"page-link\" href=\"#\" aria-label=\"Next\"><span aria-hidden=\"true\">»</span></a></li></ul></nav>", 1);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_order_card = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("order-card");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("section", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [_hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    placeholder: _ctx.$root._t('app.search'),
-    "class": "search-cc form-control pe-4",
-    type: "text",
-    name: "",
-    id: "",
-    "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
-      return $data.search = $event;
-    })
-  }, null, 8
-  /* PROPS */
-  , _hoisted_7), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.search]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", _hoisted_9, [_hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.filter")), 1
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("section", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", _hoisted_7, [_hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.filter")), 1
   /* TEXT */
-  )]), _hoisted_11])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"p-3 mt-3\" style=\"background-color: #f9f9f9\" v-for=\"item in  filterdList\" :key=\"item.id\">\r\n          <div class=\"\">\r\n            <div class=\"mb-2 text-start\" style=\"font-size: 12px\">\r\n               <span class=\"ms-3\">\r\n                <span>{{ $root._t(\"app.present\") }} 0 {{ $root._t(\"app.offers\") }}</span>\r\n                <img\r\n                  style=\"width: 20px\"\r\n                  class=\"ms-1\"\r\n                  :src=\"base_url+'/assets/images/o_offer.svg'\"\r\n                  alt=\"\"\r\n                />\r\n              </span>\r\n\r\n              <span class=\"my-2\" style=\"font-size: 12px\">\r\n                <span class=\"o-box ms-2\">\r\n                  <img\r\n                    style=\"width: 15px\"\r\n                    class=\"ms-1\"\r\n                    :src=\"base_url+'/assets/images/o_delever.svg'\"\r\n                    alt=\"\"\r\n                  />\r\n                  <span> {{ $root._t(\"app.deliveryTime\") }} :</span>\r\n                  <span class=\"me-2\"> 0 {{ $root._t(\"app.day\") }}</span>\r\n                </span>\r\n                <span>\r\n                  <i class=\"fas fa-ellipsis-v\"></i>\r\n                </span>\r\n              </span>\r\n            </div>\r\n          </div>\r\n          <div class=\"row w-100 mx-0 px-0\">\r\n            <div\r\n              class=\"\r\n                col-md-3\r\n                text-center\r\n                d-flex\r\n                align-items-center\r\n                justify-content-center\r\n              \"\r\n            >\r\n              <div style=\"border-left: 3px solid #ddd\" class=\"px-3\">\r\n                <img\r\n                  style=\"width: 60px; height: 60px; border-radius: 50%;\"\r\n                   :src=\"base_url+'/assets/images/user.svg'\"\r\n                  alt=\"\"\r\n                />\r\n                <div>\r\n                  <span\r\n                    style=\"color: #2b7b74\"\r\n                    class=\"f-14  d-inline-block text-center\"\r\n                    >{{ item.user_id[\"name\"] }}\r\n                  </span>\r\n                </div>\r\n\r\n                <div>\r\n                  <span\r\n                    style=\"color: #2b7b74\"\r\n                    class=\"f-14 mb-2 d-inline-block text-center\"\r\n                    >{{ item.department_id[\"department_desc_ar\"] }}\r\n                  </span>\r\n                </div>\r\n                <div>\r\n                  <p class=\"m-0 bg-transparent px-3\" style=\"width: auto\">\r\n                    <b>نوع العضوية:</b> عميل\r\n                  </p>\r\n                </div>\r\n              </div>\r\n            </div>\r\n            <div class=\"col-md-9\">\r\n              <div\r\n                class=\"clicker\"\r\n                @click.prevent=\"showThisOrderDetails(item.id)\" \r\n                style=\"cursor: pointer\"\r\n              >\r\n                <div style=\"display: flex; align-items: center; justify-content: space-between;\">\r\n                  <h6 style=\"color: #048e81\">\r\n                    {{ $root._t(\"app.orderTitleHere\") }}\r\n                  </h6>\r\n                  <div class=\"\">\r\n                    <div class=\"mb-2 text-start\" style=\"font-size: 12px\">\r\n                      <span class=\"ms-3\">\r\n                        <span\r\n                          >{{ $root._t(\"app.present\") }} 0\r\n                          {{ $root._t(\"app.offers\") }}</span\r\n                        >\r\n                        <img\r\n                          style=\"width: 20px\"\r\n                          class=\"ms-1\"\r\n                          :src=\"base_url + '/public/assets/images/o_offer.svg'\"\r\n                          alt=\"\"\r\n                        />\r\n                      </span>\r\n\r\n                      <span class=\"my-2\" style=\"font-size: 12px\">\r\n                        <span class=\"o-box ms-2\">\r\n                          <img\r\n                            style=\"width: 15px\"\r\n                            class=\"ms-1\"\r\n                            :src=\"\r\n                              base_url + '/public/assets/images/o_delever.svg'\r\n                            \"\r\n                            alt=\"\"\r\n                          />\r\n                          <span> {{ $root._t(\"app.deliveryTime\") }} :</span>\r\n                          <span class=\"me-2\"> 0 {{ $root._t(\"app.day\") }}</span>\r\n                        </span>\r\n                        <span  data-bs-toggle=\"modal\" data-bs-target=\"#exampleModal\">\r\n                          <i class=\"fas fa-ellipsis-v\"></i>\r\n                        </span>\r\n                        <div class=\"modal fade\" id=\"exampleModal\" tabindex=\"-1\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">\r\n                          <div class=\"modal-dialog\">\r\n                            <div class=\"modal-content\">\r\n                              <div class=\"modal-header\">\r\n                                <h6 class=\"modal-title\" id=\"exampleModalLabel\"> هل انت متأكد من رغبتك فى طلب غلق المشروع </h6>\r\n                                <button type=\"button\" class=\"ms-0 btn-close me-auto\" data-bs-dismiss=\"modal\" aria-label=\"Close\"></button>\r\n                              </div>\r\n                              <div class=\"modal-body text-end\">\r\n                                <ul class=\"\">\r\n                                  <li class=\"fw-bold mb-2\">   ستلامك للمشروع يعني بأن الموثوق أنهى الاتّفاق الذي بينكما وسلّمك المشروع بشكل كامل وسيتم تحويل المبلغ مُباشرة إلى حسابه على الموقع. قبل استلام المشروع، تأكّد من الأمور التالية:</li>\r\n                                  <li class=\"fw-bold mb-2\">سلّمك الموثوق المشروعَ الذي طلبته حسب الاتّفاق بشكلٍ كاملٍ</li>\r\n                                  <li class=\"fw-bold mb-2\">إن كان المشروع بحاجة للاختبار، فتأكّد من تجربته جيدًا ومن عمل جميع خصائصه</li>\r\n                                  <li class=\"fw-bold mb-2\">لا تستلم المشروع إن كانت هناك أمورٌ ناقصةٌ أو غير مُكتملة بعد</li>\r\n                                  <li class=\"fw-bold mb-2\">لا تقلق، حتى بعد استلام المشروع ستبقى قادرًا على التواصل مع الموثوق</li>\r\n                                  <li class=\"fw-bold mb-2\">لا تتردّد في التّواصل معنا. إن احتجت إلى أية مُساعدة، فسنكون سُعداءَ بمُساعدتك.</li>\r\n                                </ul>\r\n                              </div>\r\n                              <div class=\"modal-footer\">\r\n                                <button type=\"button\" class=\"btn btn-secondary\" data-bs-dismiss=\"modal\">إلغاء</button>\r\n                                <button type=\"button\" class=\"btn btn-danger\">إغلاق</button>\r\n                              </div>\r\n                            </div>\r\n                          </div>\r\n                        </div>\r\n                      </span>\r\n                    </div>\r\n                  </div>\r\n                </div>\r\n                <h6 style=\"color: #048e81\"> {{ item.order_title }} </h6>\r\n                <h6 style=\"color: #048e81\"> {{ $root._t(\"app.orderContent\") }} </h6>\r\n                <p class=\"pb-3 f-12\" v-html=\"item.order_content.substring(0,100)+'..' \">\r\n                  {{ item.order_content.substring(0, 40) + \"..\" }}\r\n                </p>\r\n              </div>\r\n              <div class=\" btw-flex\">\r\n                <div></div>\r\n                <div class=\"text-center\">\r\n                  <button\r\n                    style=\"\r\n                      border: 0;\r\n                      background-color: #048e81;\r\n                      color: #fff;\r\n                      font-size: 12px;\r\n                      padding: 0px 30px;\r\n                      height: 30px;\r\n                    \"\r\n                    class=\"rounded\"\r\n                  >\r\n                    {{ $root._t(\"app.negotiateNow\") }}\r\n                  </button>\r\n                </div>\r\n                <div class=\"text-center\">\r\n                  <button\r\n                    style=\"\r\n                      border: 0;\r\n                      background-color: #4ac272;\r\n                      color: #fff;\r\n                      font-size: 12px;\r\n                      padding: 0px 30px;\r\n                      height: 30px;\r\n                    \"\r\n                    class=\"rounded\"\r\n                  >\r\n                  المفاوضات <span class=\"badge bg-light mx-2\">30</span>\r\n                  </button>\r\n                  <button\r\n                    style=\"\r\n                      border: 0;\r\n                      background-color: #4ac272;\r\n                      color: #fff;\r\n                      font-size: 12px;\r\n                      padding: 0px 30px;\r\n                      height: 30px;\r\n                    \"\r\n                    class=\"rounded\"\r\n                  >\r\n                    {{ $root._t(\"app.\" + item.order_status) }}\r\n                  </button>\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </div> "), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.list, function (item) {
+  )]), _hoisted_9])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"p-3 mt-3\" style=\"background-color: #f9f9f9\" v-for=\"item in  filterdList\" :key=\"item.id\">\r\n          <div class=\"\">\r\n            <div class=\"mb-2 text-start\" style=\"font-size: 12px\">\r\n               <span class=\"ms-3\">\r\n                <span>{{ $root._t(\"app.present\") }} 0 {{ $root._t(\"app.offers\") }}</span>\r\n                <img\r\n                  style=\"width: 20px\"\r\n                  class=\"ms-1\"\r\n                  :src=\"base_url+'/assets/images/o_offer.svg'\"\r\n                  alt=\"\"\r\n                />\r\n              </span>\r\n\r\n              <span class=\"my-2\" style=\"font-size: 12px\">\r\n                <span class=\"o-box ms-2\">\r\n                  <img\r\n                    style=\"width: 15px\"\r\n                    class=\"ms-1\"\r\n                    :src=\"base_url+'/assets/images/o_delever.svg'\"\r\n                    alt=\"\"\r\n                  />\r\n                  <span> {{ $root._t(\"app.deliveryTime\") }} :</span>\r\n                  <span class=\"me-2\"> 0 {{ $root._t(\"app.day\") }}</span>\r\n                </span>\r\n                <span>\r\n                  <i class=\"fas fa-ellipsis-v\"></i>\r\n                </span>\r\n              </span>\r\n            </div>\r\n          </div>\r\n          <div class=\"row w-100 mx-0 px-0\">\r\n            <div\r\n              class=\"\r\n                col-md-3\r\n                text-center\r\n                d-flex\r\n                align-items-center\r\n                justify-content-center\r\n              \"\r\n            >\r\n              <div style=\"border-left: 3px solid #ddd\" class=\"px-3\">\r\n                <img\r\n                  style=\"width: 60px; height: 60px; border-radius: 50%;\"\r\n                   :src=\"base_url+'/assets/images/user.svg'\"\r\n                  alt=\"\"\r\n                />\r\n                <div>\r\n                  <span\r\n                    style=\"color: #2b7b74\"\r\n                    class=\"f-14  d-inline-block text-center\"\r\n                    >{{ item.user_id[\"name\"] }}\r\n                  </span>\r\n                </div>\r\n\r\n                <div>\r\n                  <span\r\n                    style=\"color: #2b7b74\"\r\n                    class=\"f-14 mb-2 d-inline-block text-center\"\r\n                    >{{ item.department_id[\"department_desc_ar\"] }}\r\n                  </span>\r\n                </div>\r\n                <div>\r\n                  <p class=\"m-0 bg-transparent px-3\" style=\"width: auto\">\r\n                    <b>نوع العضوية:</b> عميل\r\n                  </p>\r\n                </div>\r\n              </div>\r\n            </div>\r\n            <div class=\"col-md-9\">\r\n              <div\r\n                class=\"clicker\"\r\n                @click.prevent=\"showThisOrderDetails(item.id)\" \r\n                style=\"cursor: pointer\"\r\n              >\r\n                <div style=\"display: flex; align-items: center; justify-content: space-between;\">\r\n                  <h6 style=\"color: #048e81\">\r\n                    {{ $root._t(\"app.orderTitleHere\") }}\r\n                  </h6>\r\n                  <div class=\"\">\r\n                    <div class=\"mb-2 text-start\" style=\"font-size: 12px\">\r\n                      <span class=\"ms-3\">\r\n                        <span\r\n                          >{{ $root._t(\"app.present\") }} 0\r\n                          {{ $root._t(\"app.offers\") }}</span\r\n                        >\r\n                        <img\r\n                          style=\"width: 20px\"\r\n                          class=\"ms-1\"\r\n                          :src=\"base_url + '/public/assets/images/o_offer.svg'\"\r\n                          alt=\"\"\r\n                        />\r\n                      </span>\r\n\r\n                      <span class=\"my-2\" style=\"font-size: 12px\">\r\n                        <span class=\"o-box ms-2\">\r\n                          <img\r\n                            style=\"width: 15px\"\r\n                            class=\"ms-1\"\r\n                            :src=\"\r\n                              base_url + '/public/assets/images/o_delever.svg'\r\n                            \"\r\n                            alt=\"\"\r\n                          />\r\n                          <span> {{ $root._t(\"app.deliveryTime\") }} :</span>\r\n                          <span class=\"me-2\"> 0 {{ $root._t(\"app.day\") }}</span>\r\n                        </span>\r\n                        <span  data-bs-toggle=\"modal\" data-bs-target=\"#exampleModal\">\r\n                          <i class=\"fas fa-ellipsis-v\"></i>\r\n                        </span>\r\n                        <div class=\"modal fade\" id=\"exampleModal\" tabindex=\"-1\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">\r\n                          <div class=\"modal-dialog\">\r\n                            <div class=\"modal-content\">\r\n                              <div class=\"modal-header\">\r\n                                <h6 class=\"modal-title\" id=\"exampleModalLabel\"> هل انت متأكد من رغبتك فى طلب غلق المشروع </h6>\r\n                                <button type=\"button\" class=\"ms-0 btn-close me-auto\" data-bs-dismiss=\"modal\" aria-label=\"Close\"></button>\r\n                              </div>\r\n                              <div class=\"modal-body text-end\">\r\n                                <ul class=\"\">\r\n                                  <li class=\"fw-bold mb-2\">   ستلامك للمشروع يعني بأن الموثوق أنهى الاتّفاق الذي بينكما وسلّمك المشروع بشكل كامل وسيتم تحويل المبلغ مُباشرة إلى حسابه على الموقع. قبل استلام المشروع، تأكّد من الأمور التالية:</li>\r\n                                  <li class=\"fw-bold mb-2\">سلّمك الموثوق المشروعَ الذي طلبته حسب الاتّفاق بشكلٍ كاملٍ</li>\r\n                                  <li class=\"fw-bold mb-2\">إن كان المشروع بحاجة للاختبار، فتأكّد من تجربته جيدًا ومن عمل جميع خصائصه</li>\r\n                                  <li class=\"fw-bold mb-2\">لا تستلم المشروع إن كانت هناك أمورٌ ناقصةٌ أو غير مُكتملة بعد</li>\r\n                                  <li class=\"fw-bold mb-2\">لا تقلق، حتى بعد استلام المشروع ستبقى قادرًا على التواصل مع الموثوق</li>\r\n                                  <li class=\"fw-bold mb-2\">لا تتردّد في التّواصل معنا. إن احتجت إلى أية مُساعدة، فسنكون سُعداءَ بمُساعدتك.</li>\r\n                                </ul>\r\n                              </div>\r\n                              <div class=\"modal-footer\">\r\n                                <button type=\"button\" class=\"btn btn-secondary\" data-bs-dismiss=\"modal\">إلغاء</button>\r\n                                <button type=\"button\" class=\"btn btn-danger\">إغلاق</button>\r\n                              </div>\r\n                            </div>\r\n                          </div>\r\n                        </div>\r\n                      </span>\r\n                    </div>\r\n                  </div>\r\n                </div>\r\n                <h6 style=\"color: #048e81\"> {{ item.order_title }} </h6>\r\n                <h6 style=\"color: #048e81\"> {{ $root._t(\"app.orderContent\") }} </h6>\r\n                <p class=\"pb-3 f-12\" v-html=\"item.order_content.substring(0,100)+'..' \">\r\n                  {{ item.order_content.substring(0, 40) + \"..\" }}\r\n                </p>\r\n              </div>\r\n              <div class=\" btw-flex\">\r\n                <div></div>\r\n                <div class=\"text-center\">\r\n                  <button\r\n                    style=\"\r\n                      border: 0;\r\n                      background-color: #048e81;\r\n                      color: #fff;\r\n                      font-size: 12px;\r\n                      padding: 0px 30px;\r\n                      height: 30px;\r\n                    \"\r\n                    class=\"rounded\"\r\n                  >\r\n                    {{ $root._t(\"app.negotiateNow\") }}\r\n                  </button>\r\n                </div>\r\n                <div class=\"text-center\">\r\n                  <button\r\n                    style=\"\r\n                      border: 0;\r\n                      background-color: #4ac272;\r\n                      color: #fff;\r\n                      font-size: 12px;\r\n                      padding: 0px 30px;\r\n                      height: 30px;\r\n                    \"\r\n                    class=\"rounded\"\r\n                  >\r\n                  المفاوضات <span class=\"badge bg-light mx-2\">30</span>\r\n                  </button>\r\n                  <button\r\n                    style=\"\r\n                      border: 0;\r\n                      background-color: #4ac272;\r\n                      color: #fff;\r\n                      font-size: 12px;\r\n                      padding: 0px 30px;\r\n                      height: 30px;\r\n                    \"\r\n                    class=\"rounded\"\r\n                  >\r\n                    {{ $root._t(\"app.\" + item.order_status) }}\r\n                  </button>\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </div> "), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.list, function (item) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
       "class": "p-3 mt-3",
       style: {
@@ -25879,7 +25861,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     , ["order"])]);
   }), 128
   /* KEYED_FRAGMENT */
-  )), _hoisted_12])])]);
+  )), _hoisted_10])])]);
 }
 
 /***/ }),
@@ -28261,7 +28243,7 @@ var _hoisted_23 = {
   "class": "row w-100 mx-0 px-0"
 };
 var _hoisted_24 = {
-  "class": "col-md-3 mt-3 mb-5 text-center d-flex align-items-center justify-content-between",
+  "class": "col-md-3 mt-3 text-center align-items-center justify-content-between",
   style: {
     "border-left": "3px solid #ddd"
   }
@@ -28457,11 +28439,12 @@ var _hoisted_18 = {
   style: {
     "color": "#2b7b74"
   },
-  "class": "mb-2 d-inline-block text-center"
+  "class": "mb-1 d-inline-block text-center"
 };
 var _hoisted_19 = {
   style: {
-    "color": "#2b7b74"
+    "color": "#2b7b74",
+    "font-size": "14px"
   },
   "class": "mb-2 d-inline-block text-center"
 };
@@ -28470,38 +28453,32 @@ var _hoisted_20 = {
 };
 var _hoisted_21 = {
   style: {
-    "color": "#048e81"
+    "color": "#048e81",
+    "font-size": "20px"
   }
 };
-
-var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)();
-
-var _hoisted_23 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1
-/* HOISTED */
-);
-
-var _hoisted_24 = {
+var _hoisted_22 = {
   style: {
     "color": "#048e81"
   }
 };
-var _hoisted_25 = ["innerHTML"];
-var _hoisted_26 = {
+var _hoisted_23 = ["innerHTML"];
+var _hoisted_24 = {
   "class": "mt-3 btw-flex"
 };
 
-var _hoisted_27 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, null, -1
+var _hoisted_25 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, null, -1
 /* HOISTED */
 );
 
-var _hoisted_28 = {
+var _hoisted_26 = {
   "class": "text-center"
 };
 
-var _hoisted_29 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" مفاوضات ");
+var _hoisted_27 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" مفاوضات ");
 
-var _hoisted_30 = ["innerHTML"];
-var _hoisted_31 = {
+var _hoisted_28 = ["innerHTML"];
+var _hoisted_29 = {
   style: {
     "border": "0",
     "background-color": "#4ac272",
@@ -28554,7 +28531,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* TEXT */
   )]), _hoisted_13])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
     style: {
-      "width": "70px"
+      "width": "70px",
+      "height": "70px",
+      "border-radius": "50%"
     },
     src: $data.cloud_url + $props.order.user_id.photo_profile,
     alt: ""
@@ -28574,14 +28553,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     }
   }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h6", _hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.order.order_title), 1
   /* TEXT */
-  ), _hoisted_22, _hoisted_23, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" v-html=\" order.order_content.split(' ')[0]\" "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h6", _hoisted_24, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.orderContent")), 1
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" v-html=\" order.order_content.split(' ')[0]\" "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h6", _hoisted_22, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.orderContent")), 1
   /* TEXT */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
     "class": "pb-3 f-12",
     innerHTML: $props.order.order_content.substring(0, 40) + '..'
   }, null, 8
   /* PROPS */
-  , _hoisted_25)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_26, [_hoisted_27, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_28, [$props.order && _ctx.$root.auth_user.membership_type === 'user' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_router_link, {
+  , _hoisted_23)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_24, [_hoisted_25, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_26, [$props.order && _ctx.$root.auth_user.membership_type === 'user' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_router_link, {
     key: 0,
     to: {
       name: 'order_negotiations',
@@ -28589,21 +28568,32 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         id: $props.order.id
       }
     },
-    "class": "btn btn-success btn-sm btn-offer"
+    "class": "btn btn-offer",
+    style: {
+      "border": "0px",
+      "background-color": "rgb(10 149 235)",
+      "color": "rgb(255, 255, 255)",
+      "font-size": "12px",
+      "padding": "9px 40px",
+      "height": "40px",
+      "white-space": "nowrap",
+      "width": "auto",
+      "margin-left": "5px"
+    }
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_29, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+      return [_hoisted_27, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
         innerHTML: $props.order.negotiations.length
       }, null, 8
       /* PROPS */
-      , _hoisted_30)];
+      , _hoisted_28)];
     }),
     _: 1
     /* STABLE */
 
   }, 8
   /* PROPS */
-  , ["to"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", _hoisted_31, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app." + $props.order.order_status)), 1
+  , ["to"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", _hoisted_29, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app." + $props.order.order_status)), 1
   /* TEXT */
   )])])])])], 64
   /* STABLE_FRAGMENT */
@@ -33306,7 +33296,7 @@ var _hoisted_5 = {
 var _hoisted_6 = {
   "class": "card user-card user-card-1",
   style: {
-    "font-size": "7px"
+    "font-size": "14px"
   }
 };
 var _hoisted_7 = {
@@ -33439,7 +33429,7 @@ var _hoisted_31 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
     "class": "float-start"
   }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-    "class": "fa fa-check-circle text-success fa-2x"
+    "class": "fa fa-check-circle text-success fa-x"
   })], -1
   /* HOISTED */
   );
@@ -33465,7 +33455,7 @@ var _hoisted_35 = {
 
 var _hoisted_36 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-    "class": "fa fa-times-circle text-danger fa-2x",
+    "class": "fa fa-times-circle text-danger fa-x",
     "data-v-2a94f58a": ""
   }, null, -1
   /* HOISTED */
@@ -33513,7 +33503,7 @@ var _hoisted_44 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
     "class": "float-start"
   }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-    "class": "fa fa-check-circle text-success fa-2x"
+    "class": "fa fa-check-circle text-success fa-x"
   })], -1
   /* HOISTED */
   );
@@ -33537,7 +33527,7 @@ var _hoisted_48 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
     "class": "float-start"
   }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-    "class": "fa fa-times-circle text-danger fa-2x",
+    "class": "fa fa-times-circle text-danger fa-x",
     "data-v-2a94f58a": ""
   })], -1
   /* HOISTED */
@@ -33660,8 +33650,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     alt: "",
     "class": "d-block img-radius img-fluid wid-80",
     style: {
-      "width": "50px",
-      "height": "50px !important",
+      "width": "55px",
+      "height": "55px !important",
       "border-radius": "50%",
       "margin": "auto"
     }
@@ -39997,28 +39987,27 @@ var _hoisted_21 = {
   "class": "o-txt text-center"
 };
 var _hoisted_22 = {
-  "class": "fw-bold g-color"
+  "class": "fw-bold g-color border p-3"
 };
-var _hoisted_23 = ["innerHTML"];
-var _hoisted_24 = {
-  "class": "py-2 px-3 d-inline-block rounded f-14",
-  style: {
-    "color": "#2B7B74",
-    "background-color": "#EBFFFD"
-  }
+var _hoisted_23 = {
+  "class": "border p-3 mt-3"
 };
+var _hoisted_24 = ["innerHTML"];
 var _hoisted_25 = {
-  "class": "ms-3 fw-bold"
-};
-var _hoisted_26 = ["src"];
-var _hoisted_27 = {
   "class": "mt-3"
 };
-var _hoisted_28 = {
+var _hoisted_26 = {
   "class": "errors"
 };
-var _hoisted_29 = {
+var _hoisted_27 = {
   "class": "row w-100 mx-0 px-0 mt-4"
+};
+var _hoisted_28 = {
+  "class": "col-md-4 mb-3 f-14"
+};
+var _hoisted_29 = {
+  "class": "mb-2",
+  "for": ""
 };
 var _hoisted_30 = {
   "class": "col-md-4 mb-3 f-14"
@@ -40034,15 +40023,8 @@ var _hoisted_33 = {
   "class": "mb-2",
   "for": ""
 };
-var _hoisted_34 = {
-  "class": "col-md-4 mb-3 f-14"
-};
-var _hoisted_35 = {
-  "class": "mb-2",
-  "for": ""
-};
 
-var _hoisted_36 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+var _hoisted_34 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
   placeholder: "....مستحقاتك",
   type: "text",
   "class": "o_input form-control"
@@ -40050,27 +40032,27 @@ var _hoisted_36 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
+var _hoisted_35 = {
+  "class": "col-md-12 mb-3 f-14"
+};
+var _hoisted_36 = {
+  "class": "mb-2",
+  "for": ""
+};
 var _hoisted_37 = {
   "class": "col-md-12 mb-3 f-14"
 };
 var _hoisted_38 = {
-  "class": "mb-2",
   "for": ""
 };
 var _hoisted_39 = {
-  "class": "col-md-12 mb-3 f-14"
-};
-var _hoisted_40 = {
-  "for": ""
-};
-var _hoisted_41 = {
   "class": "btw-flex"
 };
-var _hoisted_42 = {
+var _hoisted_40 = {
   "class": "position-relative"
 };
 
-var _hoisted_43 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+var _hoisted_41 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
   style: {
     "width": "141px"
   },
@@ -40080,37 +40062,48 @@ var _hoisted_43 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_44 = {
+var _hoisted_42 = {
   style: {
     "color": "#048e81"
   },
   "class": "add-o-file f-12"
 };
-var _hoisted_45 = ["src"];
-var _hoisted_46 = {
+var _hoisted_43 = ["src"];
+var _hoisted_44 = {
   "class": "my-4 btw-flex"
 };
-var _hoisted_47 = {
+var _hoisted_45 = {
   key: 0,
   "class": "text-center"
 };
-var _hoisted_48 = {
+var _hoisted_46 = {
   "class": "btn-offer text-white mx-2",
   style: {
     "background-color": "#0995EB"
   }
 };
-var _hoisted_49 = {
+var _hoisted_47 = {
   "class": "btn-offer"
 };
 
-var _hoisted_50 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" مفاوضات ");
+var _hoisted_48 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" مفاوضات ");
 
-var _hoisted_51 = ["innerHTML"];
-var _hoisted_52 = {
+var _hoisted_49 = ["innerHTML"];
+var _hoisted_50 = {
+  "class": "py-2 mt-3 px-3 d-inline-block rounded f-14",
+  style: {
+    "color": "#2B7B74",
+    "background-color": "#EBFFFD"
+  }
+};
+var _hoisted_51 = {
+  "class": "ms-3 fw-bold"
+};
+var _hoisted_52 = ["src"];
+var _hoisted_53 = {
   "class": "col-md-3"
 };
-var _hoisted_53 = {
+var _hoisted_54 = {
   "class": "bg-users f-14 p-3 text-center",
   style: {
     "background-image": "linear-gradient(",
@@ -40118,188 +40111,188 @@ var _hoisted_53 = {
     "background-color": "transparent"
   }
 };
-var _hoisted_54 = {
+var _hoisted_55 = {
   style: {
     "font-size": "13px"
   },
   "class": ""
 };
-var _hoisted_55 = {
+var _hoisted_56 = {
   style: {
     "font-size": "13px"
   }
 };
-var _hoisted_56 = {
+var _hoisted_57 = {
   "class": "list-unstyled px-0 f-12 text-end mt-4"
 };
-var _hoisted_57 = {
+var _hoisted_58 = {
   "class": "mb-3 f-12"
 };
-var _hoisted_58 = {
+var _hoisted_59 = {
   "class": "o_btn d-inline-block px-3 py-2 rounded",
   style: {
     "margin-right": "15px"
   }
 };
-var _hoisted_59 = {
-  "class": "mb-3"
-};
 var _hoisted_60 = {
-  style: {
-    "min-width": "60px"
-  },
-  "class": "d-inline-block"
+  "class": "mb-3"
 };
 var _hoisted_61 = {
   style: {
+    "min-width": "60px"
+  },
+  "class": "d-inline-block"
+};
+var _hoisted_62 = {
+  style: {
     "margin-right": "15px",
     "color": "#0995eb"
   },
   "class": "fw-bold"
 };
-var _hoisted_62 = {
-  "class": "mb-3"
-};
 var _hoisted_63 = {
-  style: {
-    "min-width": "60px"
-  },
-  "class": "d-inline-block"
+  "class": "mb-3"
 };
 var _hoisted_64 = {
   style: {
+    "min-width": "60px"
+  },
+  "class": "d-inline-block"
+};
+var _hoisted_65 = {
+  style: {
     "margin-right": "15px",
     "color": "#0995eb"
   },
   "class": "fw-bold"
 };
-var _hoisted_65 = {
-  "class": "mb-3"
-};
 var _hoisted_66 = {
-  style: {
-    "min-width": "60px"
-  },
-  "class": "d-inline-block"
+  "class": "mb-3"
 };
 var _hoisted_67 = {
   style: {
+    "min-width": "60px"
+  },
+  "class": "d-inline-block"
+};
+var _hoisted_68 = {
+  style: {
     "margin-right": "15px",
     "color": "#0995eb"
   },
   "class": "fw-bold"
 };
-var _hoisted_68 = {
+var _hoisted_69 = {
   "class": "mb-3"
 };
-var _hoisted_69 = {
+var _hoisted_70 = {
   style: {
     "min-width": "60px"
   },
   "class": "d-inline-block"
 };
-var _hoisted_70 = {
+var _hoisted_71 = {
   "class": "mb-3 mt-4 text-center"
 };
-var _hoisted_71 = {
+var _hoisted_72 = {
   key: 0,
   "class": "text-center mb-2"
 };
-var _hoisted_72 = ["src"];
-var _hoisted_73 = {
+var _hoisted_73 = ["src"];
+var _hoisted_74 = {
   key: 1,
   "class": "text-center mb-2"
 };
-var _hoisted_74 = ["src"];
-var _hoisted_75 = {
+var _hoisted_75 = ["src"];
+var _hoisted_76 = {
   "class": "text-center"
 };
 
-var _hoisted_76 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1
+var _hoisted_77 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1
 /* HOISTED */
 );
 
-var _hoisted_77 = {
+var _hoisted_78 = {
   style: {
     "font-size": "13px"
   },
   "class": ""
 };
-var _hoisted_78 = {
+var _hoisted_79 = {
   "class": "list-unstyled px-0 f-12 text-end mt-4"
 };
-var _hoisted_79 = {
-  "class": "mb-3"
-};
 var _hoisted_80 = {
-  style: {
-    "min-width": "60px"
-  },
-  "class": "d-inline-block"
+  "class": "mb-3"
 };
 var _hoisted_81 = {
   style: {
+    "min-width": "60px"
+  },
+  "class": "d-inline-block"
+};
+var _hoisted_82 = {
+  style: {
     "margin-right": "15px",
     "color": "#0995eb"
   },
   "class": "fw-bold"
 };
-var _hoisted_82 = {
-  "class": "mb-3"
-};
 var _hoisted_83 = {
-  style: {
-    "min-width": "60px"
-  },
-  "class": "d-inline-block"
+  "class": "mb-3"
 };
 var _hoisted_84 = {
   style: {
+    "min-width": "60px"
+  },
+  "class": "d-inline-block"
+};
+var _hoisted_85 = {
+  style: {
     "margin-right": "15px",
     "color": "#0995eb"
   },
   "class": "fw-bold"
 };
-var _hoisted_85 = {
+var _hoisted_86 = {
   "class": "mb-3"
 };
-var _hoisted_86 = {
+var _hoisted_87 = {
   style: {
     "min-width": "60px"
   },
   "class": "d-inline-block"
 };
-var _hoisted_87 = {
+var _hoisted_88 = {
   style: {
     "margin-right": "15px",
     "color": "#0995eb"
   },
   "class": "fw-bold"
 };
-var _hoisted_88 = {
+var _hoisted_89 = {
   "class": "div-save p-2 mt-4"
 };
-var _hoisted_89 = {
+var _hoisted_90 = {
   "class": "d-flex align-items-center"
 };
-var _hoisted_90 = ["src"];
-var _hoisted_91 = {
+var _hoisted_91 = ["src"];
+var _hoisted_92 = {
   "class": "text-white"
 };
-var _hoisted_92 = ["src"];
+var _hoisted_93 = ["src"];
 
-var _hoisted_93 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)();
+var _hoisted_94 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)();
 
-var _hoisted_94 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1
+var _hoisted_95 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1
 /* HOISTED */
 );
 
-var _hoisted_95 = {
+var _hoisted_96 = {
   style: {
     "font-size": "10px"
   }
 };
-var _hoisted_96 = {
+var _hoisted_97 = {
   style: {
     "margin-top": "-3px",
     "display": "block"
@@ -40345,28 +40338,18 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* TEXT */
   )])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", _hoisted_22, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.projectDetails")), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_23, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
     style: {
       "font-size": "12px"
     },
     innerHTML: $data.order_details
   }, null, 8
   /* PROPS */
-  , _hoisted_23)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_24, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_25, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.orderFileComplete")), 1
-  /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-    style: {
-      "width": "70px"
-    },
-    src: $data.base_url + '/assets/images/o_pdf.svg',
-    alt: ""
-  }, null, 8
-  /* PROPS */
-  , _hoisted_26)])]), $data.order && $data.order.user_id.id != _ctx.$root.auth_user.id && !$options.summitedOffer ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+  , _hoisted_24), $data.order && $data.order.user_id.id != _ctx.$root.auth_user.id && !$options.summitedOffer ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
     key: 0
-  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h6", _hoisted_27, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.addOrder")), 1
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h6", _hoisted_25, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.addOrder")), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_28, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.errors, function (error) {
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_26, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.errors, function (error) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
       "class": "alert alert-danger",
       key: error
@@ -40375,7 +40358,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     )]);
   }), 128
   /* KEYED_FRAGMENT */
-  ))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_29, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_30, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", _hoisted_31, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.deliveryTime")), 1
+  ))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_27, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_28, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", _hoisted_29, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.deliveryTime")), 1
   /* TEXT */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     placeholder: "....مدة التسليم",
@@ -40386,7 +40369,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "o_input form-control"
   }, null, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.execution_time]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_32, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", _hoisted_33, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.oderValue")), 1
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.execution_time]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_30, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", _hoisted_31, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.oderValue")), 1
   /* TEXT */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     placeholder: "....قيمة العرض",
@@ -40397,9 +40380,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "o_input form-control"
   }, null, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.price]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_34, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", _hoisted_35, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.dues")), 1
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.price]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_32, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", _hoisted_33, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.dues")), 1
   /* TEXT */
-  ), _hoisted_36]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_37, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", _hoisted_38, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.offerDetails")), 1
+  ), _hoisted_34]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_35, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", _hoisted_36, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.offerDetails")), 1
   /* TEXT */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("textarea", {
     placeholder: ".......تفاصيل العرض",
@@ -40411,16 +40394,16 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     rows: "6"
   }, null, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.vendor_comment]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_39, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", _hoisted_40, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.files")), 1
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.vendor_comment]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_37, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", _hoisted_38, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.files")), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_41, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_42, [_hoisted_43, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_44, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.addFiles")), 1
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_39, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_40, [_hoisted_41, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_42, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.addFiles")), 1
   /* TEXT */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
     src: $data.base_url + '/assets/images/o_file.svg',
     alt: ""
   }, null, 8
   /* PROPS */
-  , _hoisted_45)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  , _hoisted_43)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     style: {
       "height": "38px",
       "border": "0",
@@ -40437,9 +40420,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* TEXT */
   )])])])])], 64
   /* STABLE_FRAGMENT */
-  )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_46, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.presentation")), 1
+  )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_44, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.presentation")), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, [_ctx.$root.auth_user.membership_type === 'vendor' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_47, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, [_ctx.$root.auth_user.membership_type === 'vendor' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_45, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     style: {
       "border": "0",
       "background-color": "#048e81",
@@ -40454,9 +40437,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     })
   }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.negotiateNow")), 1
   /* TEXT */
-  )])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", _hoisted_48, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.new")), 1
+  )])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", _hoisted_46, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.new")), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", _hoisted_49, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.old")), 1
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", _hoisted_47, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.old")), 1
   /* TEXT */
   ), $data.order && _ctx.$root.auth_user.membership_type === 'user' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_router_link, {
     key: 1,
@@ -40466,14 +40449,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         id: _ctx.$props.id
       }
     },
-    "class": "btn btn-success btn-sm btn-offer"
+    "class": "btn me-2 btn-success btn-sm btn-offer"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_50, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+      return [_hoisted_48, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
         innerHTML: $data.order.negotiations.length
       }, null, 8
       /* PROPS */
-      , _hoisted_51)];
+      , _hoisted_49)];
     }),
     _: 1
     /* STABLE */
@@ -40484,29 +40467,41 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     ref: "offers_list"
   }, null, 512
   /* NEED_PATCH */
-  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_52, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_53, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h6", _hoisted_54, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.projectCard")), 1
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_50, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_51, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.orderFileComplete")), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h6", _hoisted_55, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.deptname), 1
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+    style: {
+      "width": "70px",
+      "height": "70px",
+      "border-radius": "50%"
+    },
+    src: $data.base_url + '/assets/images/o_pdf.svg',
+    alt: ""
+  }, null, 8
+  /* PROPS */
+  , _hoisted_52)])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_53, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_54, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h6", _hoisted_55, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.projectCard")), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_56, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_57, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.projectStatus")), 1
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h6", _hoisted_56, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.deptname), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", _hoisted_58, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app." + $data.order_status)), 1
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_57, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_58, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.projectStatus")), 1
   /* TEXT */
-  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_59, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_60, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.publishDate")), 1
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", _hoisted_59, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app." + $data.order_status)), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_61, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.hours20Ago")), 1
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_60, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_61, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.publishDate")), 1
   /* TEXT */
-  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_62, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_63, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.executionTime")), 1
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_62, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.hours20Ago")), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_64, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.execution_time_num) + " " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.day")), 1
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_63, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_64, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.executionTime")), 1
   /* TEXT */
-  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_65, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_66, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.offersNum")), 1
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_65, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.execution_time_num) + " " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.day")), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_67, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.num15Offer")), 1
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_66, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_67, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.offersNum")), 1
   /* TEXT */
-  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_68, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_69, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.projectOwner")), 1
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_68, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.num15Offer")), 1
   /* TEXT */
-  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_70, [$data.profile_image === null ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_71, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_69, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_70, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.projectOwner")), 1
+  /* TEXT */
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_71, [$data.profile_image === null ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_72, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
     style: {
       "width": "50px",
       "height": "50px"
@@ -40516,7 +40511,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     alt: ""
   }, null, 8
   /* PROPS */
-  , _hoisted_72)])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_73, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  , _hoisted_73)])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_74, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
     style: {
       "width": "50px",
       "height": "50px"
@@ -40526,9 +40521,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     alt: ""
   }, null, 8
   /* PROPS */
-  , _hoisted_74)])), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_75, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.orderOwnerName), 1
+  , _hoisted_75)])), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_76, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.orderOwnerName), 1
   /* TEXT */
-  ), _hoisted_76])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" هنا بدايه بيانات المدعى عليه "), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.defendantList, function (item) {
+  ), _hoisted_77])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" هنا بدايه بيانات المدعى عليه "), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.defendantList, function (item) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
       key: item.id,
       "class": "bg-users f-14 p-3 text-center dataOfDefendant",
@@ -40538,24 +40533,24 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "background-color": "transparent",
         "margin-top": "20px"
       }
-    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h6", _hoisted_77, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.enemyCard")), 1
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h6", _hoisted_78, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.enemyCard")), 1
     /* TEXT */
-    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_78, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_79, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_80, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.fullname")), 1
+    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_79, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_80, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_81, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.fullname")), 1
     /* TEXT */
-    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_81, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.name), 1
+    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_82, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.name), 1
     /* TEXT */
-    )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_82, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_83, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.nationalId")), 1
+    )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_83, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_84, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.nationalId")), 1
     /* TEXT */
-    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_84, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.id_number), 1
+    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_85, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.id_number), 1
     /* TEXT */
-    )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_85, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_86, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.nationality")), 1
+    )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_86, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_87, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.nationality")), 1
     /* TEXT */
-    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_87, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.nationality), 1
+    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_88, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.nationality), 1
     /* TEXT */
     )])])]);
   }), 128
   /* KEYED_FRAGMENT */
-  )), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" هنا نهايه بيانات المدعى عليه ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_88, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_89, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  )), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" هنا نهايه بيانات المدعى عليه ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_89, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_90, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
     style: {
       "width": "40px",
       "margin-left": "8px"
@@ -40564,14 +40559,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     alt: ""
   }, null, 8
   /* PROPS */
-  , _hoisted_90)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_91, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  , _hoisted_91)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_92, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
     src: $data.base_url + '/assets/images/sm-logo-w.svg',
     alt: ""
   }, null, 8
   /* PROPS */
-  , _hoisted_92), _hoisted_93, _hoisted_94, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_95, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.guarantee100")), 1
+  , _hoisted_93), _hoisted_94, _hoisted_95, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_96, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.guarantee100")), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_96, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.yourOrderAtTheSameTime")), 1
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_97, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$root._t("app.yourOrderAtTheSameTime")), 1
   /* TEXT */
   )])])])])])])])])])], 64
   /* STABLE_FRAGMENT */
@@ -43093,7 +43088,7 @@ var ___CSS_LOADER_URL_REPLACEMENT_6___ = _node_modules_css_loader_dist_runtime_g
 var ___CSS_LOADER_URL_REPLACEMENT_7___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_images_back_balanc_3_svg__WEBPACK_IMPORTED_MODULE_9__["default"]);
 var ___CSS_LOADER_URL_REPLACEMENT_8___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_images_o_ensure_svg__WEBPACK_IMPORTED_MODULE_10__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/* \r\n* Bootstrap v5.x\r\n*/\r\n\r\n\r\n/* *** Global ***/\r\n\r\na,\r\na:hover {\r\n    text-decoration: none;\r\n}\r\n\r\n@font-face {\r\n    font-family: \"ameria\";\r\n    src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n    font-weight: normal;\r\n}\r\n\r\n@font-face {\r\n    font-family: \"ameria\";\r\n    src: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\r\n    font-weight: bold;\r\n}\r\n\r\nbody {\r\n    text-align: \"right\";\r\n    direction: rtl;\r\n    font-family: \"ameria\", sans-serif;\r\n    color: #363848;\r\n}\r\n\r\nbutton:focus,\r\n.btn:focus,\r\n.btn:focus,\r\ninput:focus,\r\nselect:focus {\r\n    outline: none !important;\r\n    box-shadow: none !important;\r\n}\r\n\r\n.btn:hover,\r\n.btn:hover,\r\nselect:hover {\r\n    cursor: pointer;\r\n}\r\n\r\n\r\n/* ------------------------------------------------------------------------------------------------\r\n-------------------------------------- header -----------------------------------------------------\r\n------------------------------------------------------------------------------------------------ */\r\n\r\n.navbar-expand-xl .navbar-nav .nav-link {\r\n    color: #707070;\r\n    font-size: 14px;\r\n    margin: 5px;\r\n}\r\n\r\n.navbar-expand-xl .navbar-nav .active .nav-link,\r\n.navbar-expand-xl .navbar-nav .nav-link:hover {\r\n    color: #048e81;\r\n}\r\n\r\n.navbar-expand-xl .navbar-nav .btn-1 {\r\n    background-color: #0995eb;\r\n    color: #fff !important;\r\n    border-radius: 6px;\r\n    padding-right: 11px;\r\n    padding-left: 11px;\r\n    min-width: 80px;\r\n    text-align: center;\r\n    margin-left: 10px;\r\n    font-size: 14px;\r\n}\r\n\r\n.navbar-expand-xl .navbar-nav .btn-2 {\r\n    background-color: #048e81;\r\n    color: #fff !important;\r\n    border-radius: 6px;\r\n    padding-right: 11px;\r\n    padding-left: 11px;\r\n    min-width: 80px;\r\n    text-align: center;\r\n    font-size: 14px;\r\n}\r\n\r\n.title {\r\n    font-size: 40px;\r\n}\r\n\r\n\r\n/* ------------------------------------------------------------------------------------------------\r\n------------------ End Header ----------------------------------------------------------------------\r\n------------------------------------------------------------------------------------------------ */\r\n\r\n\r\n/* ------------------------------------------------------------------------------------------------\r\n------------------  [ Footer ] --------------------------------------------------------------------\r\n------------------------------------------------------------------------------------------------ */\r\n\r\n.bg-light-color {\r\n    background-color: #1387a2;\r\n}\r\n\r\n.last-footer {\r\n    background-color: #1387a2;\r\n    color: #fff;\r\n    padding: 8px 15px;\r\n    display: flex;\r\n    justify-content: space-between;\r\n    margin-bottom: -2px;\r\n}\r\n\r\n.search-btn {\r\n    border: 0;\r\n    background-color: #0995eb;\r\n    color: #fff;\r\n    padding: 10px 20px;\r\n    border-radius: 9px;\r\n    min-width: 80%;\r\n    transition: 0.2s all ease-in-out;\r\n}\r\n\r\n.search-btn:hover {\r\n    background-color: #32a8f1;\r\n}\r\n\r\n.mwth-form {\r\n    margin-top: -39px;\r\n    box-shadow: 1px 1px 1px #e9e9e9;\r\n    border-radius: 10px;\r\n    position: relative;\r\n    z-index: 2;\r\n}\r\n\r\n.number {\r\n    display: inline-flex;\r\n    max-width: 47px !important;\r\n    height: 50px;\r\n    background-color: #d8f0ff;\r\n    font-size: 20px;\r\n    align-items: center;\r\n    justify-content: center;\r\n    color: #0995eb;\r\n    font-weight: bold;\r\n    border-radius: 10px;\r\n    text-align: center;\r\n    width: 100%;\r\n}\r\n\r\n.add-order-gr {\r\n    color: #048e81;\r\n}\r\n\r\n.d-sec {\r\n    background-color: #e6fffd;\r\n    padding: 18px;\r\n    border-radius: 10px;\r\n    max-width: 350px;\r\n}\r\n\r\n.online-icon {\r\n    color: #30c736;\r\n    font-size: 10px;\r\n    position: absolute;\r\n    z-index: 5;\r\n    bottom: 0;\r\n    left: 0;\r\n    border: 3px solid #fff;\r\n    border-radius: 100px;\r\n    display: inline-block;\r\n}\r\n\r\n.orng-c {\r\n    color: #ff8412;\r\n}\r\n\r\n.order-btn {\r\n    color: #fff;\r\n    border: 0;\r\n    padding: 5px 10px;\r\n    border-radius: 100px;\r\n    font-size: 13px;\r\n    color: #0995eb;\r\n    border: 1px solid #0995eb;\r\n    background-color: transparent;\r\n}\r\n\r\n.order-btn.active {\r\n    color: #fff;\r\n    background-color: #2ca2ee;\r\n}\r\n\r\n.user-ab:hover .order-btn {\r\n    color: #fff;\r\n    background-color: #2ca2ee;\r\n}\r\n\r\n.owl-theme .owl-dots {\r\n    display: none;\r\n}\r\n\r\n.offer-btn {\r\n    border: 1px #ddd;\r\n    padding: 8px 34px;\r\n    border-radius: 100px;\r\n    font-size: 13px;\r\n    margin-top: 10px;\r\n    color: #0995eb;\r\n    background-color: #f0eeff;\r\n    transition: 0.2s all ease-in-out;\r\n}\r\n\r\n.jobs:hover .offer-btn {\r\n    color: #fff;\r\n    background-color: #0995eb;\r\n}\r\n\r\n@media (max-width: 575.98px) {\r\n    .last-footer {\r\n        display: block;\r\n        text-align: center;\r\n    }\r\n    .last-footer div {\r\n        margin-bottom: 10px;\r\n    }\r\n}\r\n\r\n.sev-top {\r\n    margin-top: -31px;\r\n}\r\n\r\n.our-sev {\r\n    color: #404040;\r\n    min-width: 130px;\r\n    min-height: 34px;\r\n    border: 1px solid #ddd;\r\n    display: inline-flex;\r\n    align-items: center;\r\n    padding: 10px;\r\n    border-radius: 7px;\r\n    transition: 0.2s all ease-in-out;\r\n    margin: 10px;\r\n    margin-top: 20px;\r\n    margin-bottom: 0;\r\n}\r\n\r\n.our-sev.active,\r\n.our-sev:hover {\r\n    background-color: #048e81 !important;\r\n    color: #fff;\r\n}\r\n\r\n.our-sev:hover img,\r\n.our-sev.active img {\r\n    filter: invert(1);\r\n}\r\n\r\n.our-sev img {\r\n    margin-left: 10px;\r\n}\r\n\r\n.gr-c {\r\n    color: #048e81;\r\n}\r\n\r\n.bl-c {\r\n    color: #0995eb;\r\n}\r\n\r\n.f-12 {\r\n    font-size: 12px;\r\n}\r\n\r\n.accordion-button:not(.collapsed) {\r\n    color: #20998d;\r\n    background-color: #ffffff;\r\n    border-bottom: 0;\r\n}\r\n\r\n.accordion-button::after {\r\n    flex-shrink: 0;\r\n    width: 1.25rem;\r\n    height: 1.25rem;\r\n    margin-right: auto;\r\n    margin-left: 0;\r\n    content: \"\";\r\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ");\r\n    background-repeat: no-repeat;\r\n    background-size: 1.25rem;\r\n    transition: transform 0.2s ease-in-out;\r\n}\r\n\r\n.accordion-button:not(.collapsed)::after {\r\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ");\r\n}\r\n\r\nbutton:not(.collapsed)::after {\r\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ");\r\n    transform: rotate(180deg);\r\n}\r\n\r\n.accordion-item {\r\n    margin-bottom: 20px;\r\n    background-color: #fff;\r\n}\r\n\r\n.accordion-body,\r\n.accordion-button {\r\n    border-top: 0;\r\n}\r\n\r\n.accordion-item {\r\n    border: 1px solid rgba(0, 0, 0, 0.125);\r\n}\r\n\r\n.user-ab {\r\n    min-width: 250px;\r\n    background-color: #fff;\r\n    padding: 10px;\r\n    border-radius: 8px;\r\n}\r\n\r\n.images-slider-ss:hover img {\r\n    filter: grayscale(0);\r\n}\r\n\r\nfooter {\r\n    background-color: #17302d;\r\n}\r\n\r\n#slider3.owl-carousel .owl-nav button.owl-next,\r\n#slider3.owl-carousel .owl-nav button.owl-prev {\r\n    width: 26px;\r\n    height: 26px;\r\n    border: 1px solid #048e81;\r\n    border-radius: 50%;\r\n    background-color: transparent !important;\r\n}\r\n\r\n#slider.owl-carousel .owl-nav button.owl-next,\r\n#slider.owl-carousel .owl-nav button.owl-prev {\r\n    color: #048e81;\r\n    font-size: 20px;\r\n    background-color: transparent !important;\r\n}\r\n\r\n#slider .owl-nav button,\r\n#slider3 .owl-nav button {\r\n    position: absolute;\r\n    top: 50%;\r\n    transform: translateY(-50%);\r\n}\r\n\r\nselect {\r\n    color: #363848;\r\n}\r\n\r\n#slider .owl-nav button.owl-prev,\r\n#slider3 .owl-nav button.owl-prev {\r\n    right: 0;\r\n    left: auto;\r\n}\r\n\r\n#slider .owl-nav button.owl-next,\r\n#slider3 .owl-nav button.owl-next {\r\n    right: auto;\r\n    left: 0;\r\n}\r\n\r\n#slider .owl-stage-outer,\r\n#slider3.owl-carousel .owl-stage-outer {\r\n    max-width: 1180px;\r\n    margin: auto;\r\n}\r\n\r\n.s_Ar {\r\n    font-size: 14px;\r\n    color: #048e81;\r\n    display: inline-block;\r\n}\r\n\r\n.h1-it {\r\n    position: absolute;\r\n    right: 0;\r\n    -o-object-fit: cover;\r\n       object-fit: cover;\r\n    top: 0;\r\n    max-width: 30%;\r\n}\r\n\r\n.h2-it {\r\n    position: absolute;\r\n    left: 0;\r\n    -o-object-fit: cover;\r\n       object-fit: cover;\r\n    top: 0;\r\n    max-width: 30%;\r\n}\r\n\r\n.pos-rel,\r\n.d-sec,\r\n.user-ab,\r\n.sev-top {\r\n    z-index: 5;\r\n    position: relative;\r\n}\r\n\r\n\r\n/* // Small devices (landscape phones, 576px and up) */\r\n\r\n@media (min-width: 576px) and (max-width: 767.98px) {}\r\n\r\n@media (max-width: 767.98px) {\r\n    .search-section {\r\n        border: 0 !important;\r\n        border-bottom: 1px solid #ddd !important;\r\n        margin-bottom: 10px;\r\n        padding: 10px;\r\n    }\r\n    .d-sec {\r\n        margin: auto;\r\n    }\r\n    .sev-top {\r\n        margin-top: 0;\r\n    }\r\n    .our-sev {\r\n        font-size: 13px;\r\n    }\r\n    .title {\r\n        font-size: 27px;\r\n    }\r\n    header {\r\n        min-height: 294px;\r\n    }\r\n}\r\n\r\n\r\n/* // Medium devices (tablets, 768px and up) */\r\n\r\n@media (min-width: 768px) and (max-width: 991.98px) {}\r\n\r\n\r\n/* // Large devices (desktops, 992px and up) */\r\n\r\n@media (min-width: 992px) and (max-width: 1199.98px) {}\r\n\r\n\r\n/* // Extra large devices (large desktops, 1200px and up) */\r\n\r\n@media (min-width: 1200px) {}\r\n\r\n.col-md-4 {\r\n    z-index: 2;\r\n}\r\n\r\n\r\n/* *** ********* AUTH * *** ** * * * * */\r\n\r\n.login-page {\r\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_4___ + ") !important;\r\n    background-size: cover;\r\n    min-height: 100vh;\r\n}\r\n\r\n#pageLoginImage2 {\r\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_4___ + ") !important;\r\n    background-size: cover;\r\n    min-height: 100vh;\r\n}\r\n\r\n#pageLoginImage {\r\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_4___ + ") !important;\r\n    background-size: cover;\r\n    min-height: 100vh;\r\n}\r\n\r\n.auth-login input {\r\n    border-radius: 3px;\r\n    background-color: #f6f6f6;\r\n    border: 1px solid #dddddd47;\r\n    padding: 15px;\r\n    font-size: 13px;\r\n}\r\n\r\n.img-lllo {\r\n    top: 50%;\r\n    transform: translateY(-50%);\r\n}\r\n\r\n.login-form {\r\n    font-size: 14px;\r\n}\r\n\r\n.login-btn {\r\n    border: 0;\r\n    background-color: #048e81;\r\n    color: #fff;\r\n    text-align: center;\r\n    padding: 15px;\r\n    border-radius: 8px;\r\n    display: block;\r\n    width: 100%;\r\n    margin: 15px 0;\r\n    transition: 0.2s all ease-in-out;\r\n}\r\n\r\n.login-btn:hover {\r\n    background-color: #0fad9e;\r\n}\r\n\r\n.social-btn button {\r\n    min-width: 45%;\r\n    display: block;\r\n    border: 1px solid #ddd;\r\n    border-radius: 8px;\r\n    padding: 15px;\r\n    background-color: transparent;\r\n    font-size: 14px;\r\n}\r\n\r\n.social-btn img {\r\n    margin-right: 8px;\r\n}\r\n\r\n.number-active>input {\r\n    text-align: center;\r\n    border-radius: 50%;\r\n    background-color: #b1b1b1;\r\n    width: 60px;\r\n    height: 60px;\r\n    padding: 15px;\r\n    border: 0;\r\n    color: #fff;\r\n    font-weight: bold;\r\n    font-size: 20px;\r\n}\r\n\r\n.number-active>input::-moz-placeholder {\r\n    color: #fff;\r\n}\r\n\r\n.number-active>input:-ms-input-placeholder {\r\n    color: #fff;\r\n}\r\n\r\n.number-active>input::placeholder {\r\n    color: #fff;\r\n}\r\n\r\n.number-active>input.active {\r\n    background-color: #b7f3ee;\r\n    border: 1px solid #048e81;\r\n    color: #2b7b74;\r\n}\r\n\r\n@media (max-width: 767.98px) {\r\n    .number-active>input {\r\n        width: 45px;\r\n        height: 45px;\r\n    }\r\n    .login-page {\r\n        min-height: 50vh;\r\n    }\r\n}\r\n\r\n.dash {\r\n    position: fixed;\r\n    z-index: 1000;\r\n    height: 100vh;\r\n    overflow: auto;\r\n    background-color: #048e81;\r\n}\r\n\r\n.head-dash {\r\n    width: 230px;\r\n    padding-bottom: 30px;\r\n}\r\n\r\n.head-dash .mawtheq-head {\r\n    align-items: center;\r\n}\r\n\r\n.head-dash .mawtheq-head p {\r\n    background-color: #fff;\r\n    width: 100px;\r\n    margin: auto;\r\n    font-size: 14px !important;\r\n    padding: 5px;\r\n    border-radius: 3px;\r\n    color: #57dda5;\r\n}\r\n\r\n.dash-list li {\r\n    margin-top: 40px;\r\n    opacity: 0.7;\r\n    transition: 0.2s all ease-in-out;\r\n    border-right: 3px solid transparent;\r\n}\r\n\r\n.dash-list>li.active,\r\n.dash-list>li:hover {\r\n    opacity: 1;\r\n    /* border-right: 3px solid #fff; */\r\n}\r\n\r\n.dash-list li a {\r\n    text-decoration: none;\r\n    color: #fff;\r\n    font-size: 13px;\r\n    width: 100px;\r\n    text-align: right;\r\n    display: inline-block;\r\n}\r\n\r\n.dash-list li a img {\r\n    margin-left: 16px;\r\n}\r\n\r\n.top-header,\r\n.content-body,\r\n.requsts-sec,\r\n.call,\r\n.personal-section,\r\n.acount-balance,\r\n.ticket-confirmedؤ {\r\n    padding: 15px;\r\n    width: calc(100vw - 230px);\r\n    margin-right: auto;\r\n    padding-right: 20px;\r\n}\r\n\r\n.contain {\r\n    background-color: #2b7b74;\r\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_5___ + ");\r\n    width: 100%;\r\n    height: 141px;\r\n    border-radius: 7px;\r\n}\r\n\r\n.contain-2 {\r\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_6___ + ");\r\n}\r\n\r\n.contain-3 {\r\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_7___ + ");\r\n}\r\n\r\n.img-open-requst {\r\n    background-color: #0995eb;\r\n    width: 30px;\r\n    height: 30px;\r\n    border-radius: 50%;\r\n}\r\n\r\n.line {\r\n    /* max-width: 130px; */\r\n    height: 6px;\r\n    background-color: #eee;\r\n}\r\n\r\n.linear-line {\r\n    /* max-width: 78px; */\r\n    height: 6px;\r\n    background-image: linear-gradient(to left, #0995eb, #048e81);\r\n}\r\n\r\n.percent-requst span {\r\n    font-size: 13px;\r\n}\r\n\r\n.percent-requst {\r\n    font-size: 13px;\r\n}\r\n\r\n.percent-requst>span {\r\n    margin-bottom: 5px;\r\n    display: inline-block;\r\n}\r\n\r\n.requsts {\r\n    max-width: 200px;\r\n}\r\n\r\n.nooh-btn {\r\n    border: 0;\r\n    padding: 12px 10px;\r\n    min-width: 200px;\r\n    border-radius: 9px;\r\n    background-image: linear-gradient(to left, #0995eb, #048e81);\r\n    color: #fff;\r\n    font-size: 15px;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n}\r\n\r\n.red-circle {\r\n    display: inline-block;\r\n    width: 10px;\r\n    height: 10px;\r\n    background-color: #ff584d;\r\n    box-shadow: 1px 1px 7px #ff584d;\r\n    border-radius: 50%;\r\n    position: absolute;\r\n    top: 0;\r\n    right: -5px;\r\n}\r\n\r\n.personal .personal-info .input-personal {\r\n    font-size: 12px;\r\n    padding: 14px 24px;\r\n    border: 0;\r\n    background-color: #eee;\r\n    border-radius: 5px;\r\n}\r\n\r\n.content-col {\r\n    position: relative;\r\n}\r\n\r\n.content-col a {\r\n    position: absolute;\r\n    top: 40px;\r\n    right: 5px;\r\n}\r\n\r\n.content-col a img {\r\n    width: 14px;\r\n}\r\n\r\n.save-btn {\r\n    background-color: #2b7b74;\r\n    padding: 10px 20px;\r\n    min-width: 150px;\r\n    border: 0;\r\n    font-size: 16px;\r\n    color: #fff;\r\n    border-radius: 6px;\r\n}\r\n\r\n.bl-btn {\r\n    border: 0;\r\n    background-color: #048e81;\r\n    color: #fff;\r\n    font-size: 14px;\r\n    padding: 10px 40px;\r\n    border-radius: 3px;\r\n}\r\n\r\n.btw-flex {\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: space-between;\r\n    flex-wrap: wrap;\r\n}\r\n\r\n.bl-money {\r\n    background-color: #f5fbfe;\r\n    border-radius: 10px;\r\n}\r\n\r\n.lf-bor {\r\n    border-left: 3px solid;\r\n    padding-left: 32px;\r\n}\r\n\r\n.inv-c {\r\n    width: 50px;\r\n    height: 41px;\r\n    background-color: #048e81;\r\n    padding: 10px;\r\n    text-align: center;\r\n    font-size: 14px;\r\n    border-radius: 5px;\r\n    display: inline-flex;\r\n    justify-content: center;\r\n    padding: 11px;\r\n}\r\n\r\n.btn-inn {\r\n    background-color: #0a95eb;\r\n    padding: 10px;\r\n    font-size: 14px;\r\n    border: 0;\r\n    color: #fff;\r\n    border-radius: 5px;\r\n}\r\n\r\n.btn-inn img {\r\n    width: 18px;\r\n    margin-left: 10px;\r\n}\r\n\r\n.uses-img {\r\n    width: 70px;\r\n    height: 70px;\r\n    border-radius: 50%;\r\n    margin: auto;\r\n}\r\n\r\n.yellow {\r\n    color: #e3ab00;\r\n}\r\n\r\n.btn-users {\r\n    width: 100%;\r\n    border-radius: 8px;\r\n    border: 0;\r\n    background-color: #048e81;\r\n    color: #fff;\r\n    padding: 8px;\r\n}\r\n\r\n.bg-users {\r\n    background-image: linear-gradient(to bottom, #ff584d14, #802c2710);\r\n    border-radius: 8px;\r\n    background-color: #8f8f8f30;\r\n    font-size: 14px;\r\n}\r\n\r\n.input-cc {\r\n    height: 35px;\r\n    margin-left: 5px;\r\n}\r\n\r\n.btn-cc {\r\n    height: 35px;\r\n    background-color: #0995eb;\r\n    border: 0;\r\n    color: #fff;\r\n    width: 52px;\r\n    border-radius: 4px;\r\n}\r\n\r\n.cir-prog {\r\n    padding: 20px;\r\n    border: 20px solid #aeaeae;\r\n}\r\n\r\n.cir-prog {\r\n    padding: 20px;\r\n    border: 9px solid #aeaeae;\r\n    max-width: 100px;\r\n    height: 100px;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    border-radius: 50%;\r\n    margin: auto;\r\n}\r\n\r\n.o-num {\r\n    color: #aeaeae;\r\n    font-size: 27px;\r\n}\r\n\r\n.o-txt {\r\n    font-size: 20px;\r\n}\r\n\r\n.o-txt-steps {\r\n    font-size: 15px;\r\n}\r\n\r\n.g-color {\r\n    color: #048e81;\r\n}\r\n\r\n.btn-offer {\r\n    height: 35px;\r\n    width: 90px;\r\n    border: 0;\r\n    padding: 8px;\r\n    background-color: #d2d2d2;\r\n    border-radius: 3px;\r\n    font-size: 14px;\r\n}\r\n\r\n.o-box {\r\n    background-color: #dffffc;\r\n    padding: 7px;\r\n    border-radius: 5px;\r\n    display: inline-block;\r\n    font-size: 12px;\r\n    border: 1px solid #2b7b74;\r\n}\r\n\r\n.o-box2 {\r\n    color: #0995eb;\r\n    background-color: #e3f5ff;\r\n    border: 1px solid #0995eb;\r\n}\r\n\r\n.f-14 {\r\n    font-size: 14px;\r\n}\r\n\r\n.o_btn {\r\n    border: 0;\r\n    background-color: #048e81;\r\n    color: #fff;\r\n    font-size: 12px;\r\n    padding: 0 40px;\r\n}\r\n\r\n.div-save {\r\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_8___ + ");\r\n    background-size: cover;\r\n    background-repeat: no-repeat;\r\n    border-radius: 8px;\r\n}\r\n\r\n.dash-list2 li>a {\r\n    text-decoration: none;\r\n    color: #fff;\r\n    font-size: 13px;\r\n    width: 129px;\r\n    text-align: right;\r\n    display: inline-block;\r\n}\r\n\r\n.profile {\r\n    width: 200px;\r\n}\r\n\r\n.profile a {\r\n    width: 190px;\r\n    background-color: #f9faff;\r\n    font-size: 14px;\r\n    text-align: center;\r\n    padding: 10px 5px;\r\n    margin: 5px;\r\n    border-radius: 6px;\r\n}\r\n\r\n.profile .logout {\r\n    background-color: #ff584d;\r\n    color: #fff;\r\n}\r\n\r\n.dropdown-menu.rri_o {\r\n    right: 0 !important;\r\n    left: auto !important;\r\n    width: 350px;\r\n    font-size: 14px;\r\n}\r\n\r\n.o_noti {\r\n    background: #f9faff;\r\n    padding: 10px;\r\n    border-radius: 2px;\r\n    font-size: 11px;\r\n}\r\n\r\n.o_input {\r\n    background-color: #f3f3f3;\r\n    border-color: #f3f3f3;\r\n    font-size: 14px;\r\n}\r\n\r\n.o_input::-moz-placeholder {\r\n    color: #363848;\r\n}\r\n\r\n.o_input:-ms-input-placeholder {\r\n    color: #363848;\r\n}\r\n\r\n.o_input::placeholder {\r\n    color: #363848;\r\n}\r\n\r\n.add-o-file {\r\n    color: #048e81;\r\n    width: 141px;\r\n    background: #ecfffd;\r\n    border: 1px solid #048e81;\r\n    padding: 6px;\r\n    border-radius: 3px;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: space-around;\r\n}\r\n\r\n.abs-file {\r\n    position: absolute;\r\n    top: 0;\r\n    left: 0;\r\n    right: 0;\r\n    height: 38px;\r\n    opacity: 0;\r\n    cursor: pointer;\r\n}\r\n\r\n.header-top {\r\n    padding: 15px;\r\n}\r\n\r\n.comments {\r\n    background-color: #f2f2f269;\r\n    padding: 50px;\r\n    border-radius: 8px;\r\n    margin: 25px 0;\r\n}\r\n\r\n.comments p {\r\n    padding: 11px;\r\n    background-color: #f1f1f159;\r\n    max-width: 250px;\r\n    border-radius: 8px 0 8px 8px;\r\n    border: solid 1px #ddd;\r\n    position: absolute;\r\n    right: 18%;\r\n    top: 36%;\r\n    font-size: 12px;\r\n}\r\n\r\n.comments img {\r\n    position: absolute;\r\n    top: 10%;\r\n}\r\n\r\n.recive-report button {\r\n    padding: 10px;\r\n    width: 80px;\r\n    color: #fff;\r\n    font-size: 13px;\r\n}\r\n\r\n.recive-report button img {\r\n    display: inline-block;\r\n    margin-bottom: 5px;\r\n}\r\n\r\n.mohkam-btn {\r\n    margin-top: 10px;\r\n    width: 100%;\r\n    padding: 13px;\r\n    border-radius: 5px;\r\n    border: 0;\r\n    background-image: linear-gradient(to right, #048e81, #0995eb);\r\n    color: #fff;\r\n    font-size: 15px;\r\n}\r\n\r\n.count-ticket {\r\n    border: solid 1px #048e81;\r\n    border-radius: 7px;\r\n    background-color: #f5fffe;\r\n    padding: 7px 15px;\r\n}\r\n\r\n.your-tickets .your-ticket {\r\n    margin: 1rem 0 !important;\r\n}\r\n\r\n.your-tickets .your-ticket span {\r\n    font-size: 13px;\r\n}\r\n\r\n.requsts-sec .chat-clinet .chat-list {\r\n    background-color: #FAFAFA;\r\n    border-radius: 5px;\r\n    padding: 15px;\r\n    align-items: center;\r\n}\r\n\r\n.requsts-sec .chat-clinet ul li {\r\n    font-size: 13px;\r\n}\r\n\r\n.item-chat li {\r\n    background-color: #FAFAFA;\r\n    font-size: 13px;\r\n    padding: 2rem;\r\n    text-align: left;\r\n    margin: 1rem 0;\r\n    border-radius: 7px;\r\n}\r\n\r\n.item-chat li div {\r\n    justify-content: end;\r\n    align-items: center;\r\n}\r\n\r\n.item-chat li>span {\r\n    background-color: #fff;\r\n    padding: 10px 15px 0px;\r\n    border-radius: 2px 10px 10px 10px;\r\n    margin-left: 2rem;\r\n    display: inline-block;\r\n}\r\n\r\n.item-chat li.sec-list {\r\n    text-align: right;\r\n}\r\n\r\n.item-chat li.sec-list div {\r\n    justify-content: start;\r\n}\r\n\r\n.item-chat li.sec-list>span {\r\n    background-color: #048e81;\r\n    color: #fff;\r\n    border-radius: 10px 2px 10px 10px;\r\n    margin-right: 2rem;\r\n    display: inline-block;\r\n}\r\n\r\n.green-circle {\r\n    display: inline-block;\r\n    width: 10px;\r\n    height: 10px;\r\n    background-color: #048E5A;\r\n    box-shadow: 1px 1px 7px #048E5A;\r\n    border-radius: 50%;\r\n}\r\n\r\n.badge-link {\r\n    display: inline-flex;\r\n    height: 54px;\r\n    width: 54px;\r\n    align-items: center;\r\n    justify-content: center;\r\n    background-color: #fff;\r\n    border-radius: 5px;\r\n}\r\n\r\n.prof-mawthoq {\r\n    font-size: 12px;\r\n    background-color: #77c8f96e;\r\n    text-align: center;\r\n    height: 89px;\r\n    width: 61px;\r\n    color: #0995EB;\r\n    font-weight: bold;\r\n    padding: 5px;\r\n    display: inline-flex;\r\n    align-items: end;\r\n    padding-bottom: 9px;\r\n    border-radius: 11px;\r\n    margin: 5px;\r\n}\r\n\r\n.search-cc {\r\n    background-color: #048e81;\r\n    border-color: #048e81;\r\n    color: #fff;\r\n}\r\n\r\n.search-cc::-moz-placeholder {\r\n    color: #fff;\r\n}\r\n\r\n.search-cc:-ms-input-placeholder {\r\n    color: #fff;\r\n}\r\n\r\n.search-cc::placeholder {\r\n    color: #fff;\r\n}\r\n\r\n.page-link {\r\n    color: #048e81;\r\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "/* \r\n* Bootstrap v5.x\r\n*/\r\n\r\n\r\n/* *** Global ***/\r\n\r\na,\r\na:hover {\r\n    text-decoration: none;\r\n}\r\n\r\n@font-face {\r\n    font-family: \"ameria\";\r\n    src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n    font-weight: normal;\r\n}\r\n\r\n@font-face {\r\n    font-family: \"ameria\";\r\n    src: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\r\n    font-weight: bold;\r\n}\r\n\r\nbody {\r\n    text-align: \"right\";\r\n    direction: rtl;\r\n    font-family: \"ameria\", sans-serif;\r\n    color: #363848;\r\n}\r\n\r\nbutton:focus,\r\n.btn:focus,\r\n.btn:focus,\r\ninput:focus,\r\nselect:focus {\r\n    outline: none !important;\r\n    box-shadow: none !important;\r\n}\r\n\r\n.btn:hover,\r\n.btn:hover,\r\nselect:hover {\r\n    cursor: pointer;\r\n}\r\n\r\n\r\n/* ------------------------------------------------------------------------------------------------\r\n-------------------------------------- header -----------------------------------------------------\r\n------------------------------------------------------------------------------------------------ */\r\n\r\n.navbar-expand-xl .navbar-nav .nav-link {\r\n    color: #707070;\r\n    font-size: 14px;\r\n    margin: 5px;\r\n}\r\n\r\n.navbar-expand-xl .navbar-nav .active .nav-link,\r\n.navbar-expand-xl .navbar-nav .nav-link:hover {\r\n    color: #048e81;\r\n}\r\n\r\n.navbar-expand-xl .navbar-nav .btn-1 {\r\n    background-color: #0995eb;\r\n    color: #fff !important;\r\n    border-radius: 6px;\r\n    padding-right: 11px;\r\n    padding-left: 11px;\r\n    min-width: 80px;\r\n    text-align: center;\r\n    margin-left: 10px;\r\n    font-size: 14px;\r\n}\r\n\r\n.navbar-expand-xl .navbar-nav .btn-2 {\r\n    background-color: #048e81;\r\n    color: #fff !important;\r\n    border-radius: 6px;\r\n    padding-right: 11px;\r\n    padding-left: 11px;\r\n    min-width: 80px;\r\n    text-align: center;\r\n    font-size: 14px;\r\n}\r\n\r\n.title {\r\n    font-size: 40px;\r\n}\r\n\r\n\r\n/* ------------------------------------------------------------------------------------------------\r\n------------------ End Header ----------------------------------------------------------------------\r\n------------------------------------------------------------------------------------------------ */\r\n\r\n\r\n/* ------------------------------------------------------------------------------------------------\r\n------------------  [ Footer ] --------------------------------------------------------------------\r\n------------------------------------------------------------------------------------------------ */\r\n\r\n.bg-light-color {\r\n    background-color: #1387a2;\r\n}\r\n\r\n.last-footer {\r\n    background-color: #1387a2;\r\n    color: #fff;\r\n    padding: 8px 15px;\r\n    display: flex;\r\n    justify-content: space-between;\r\n    margin-bottom: -2px;\r\n}\r\n\r\n.search-btn {\r\n    border: 0;\r\n    background-color: #0995eb;\r\n    color: #fff;\r\n    padding: 10px 20px;\r\n    border-radius: 9px;\r\n    min-width: 80%;\r\n    transition: 0.2s all ease-in-out;\r\n}\r\n\r\n.search-btn:hover {\r\n    background-color: #32a8f1;\r\n}\r\n\r\n.mwth-form {\r\n    margin-top: -39px;\r\n    box-shadow: 1px 1px 1px #e9e9e9;\r\n    border-radius: 10px;\r\n    position: relative;\r\n    z-index: 2;\r\n}\r\n\r\n.number {\r\n    display: inline-flex;\r\n    max-width: 47px !important;\r\n    height: 50px;\r\n    background-color: #d8f0ff;\r\n    font-size: 20px;\r\n    align-items: center;\r\n    justify-content: center;\r\n    color: #0995eb;\r\n    font-weight: bold;\r\n    border-radius: 10px;\r\n    text-align: center;\r\n    width: 100%;\r\n}\r\n\r\n.add-order-gr {\r\n    color: #048e81;\r\n}\r\n\r\n.d-sec {\r\n    background-color: #e6fffd;\r\n    padding: 18px;\r\n    border-radius: 10px;\r\n    max-width: 350px;\r\n}\r\n\r\n.online-icon {\r\n    color: #30c736;\r\n    font-size: 10px;\r\n    position: absolute;\r\n    z-index: 5;\r\n    bottom: 0;\r\n    left: 0;\r\n    border: 3px solid #fff;\r\n    border-radius: 100px;\r\n    display: inline-block;\r\n}\r\n\r\n.orng-c {\r\n    color: #ff8412;\r\n}\r\n\r\n.order-btn {\r\n    color: #fff;\r\n    border: 0;\r\n    padding: 5px 10px;\r\n    border-radius: 100px;\r\n    font-size: 13px;\r\n    color: #0995eb;\r\n    border: 1px solid #0995eb;\r\n    background-color: transparent;\r\n}\r\n\r\n.order-btn.active {\r\n    color: #fff;\r\n    background-color: #2ca2ee;\r\n}\r\n\r\n.user-ab:hover .order-btn {\r\n    color: #fff;\r\n    background-color: #2ca2ee;\r\n}\r\n\r\n.owl-theme .owl-dots {\r\n    display: none;\r\n}\r\n\r\n.offer-btn {\r\n    border: 1px #ddd;\r\n    padding: 8px 34px;\r\n    border-radius: 100px;\r\n    font-size: 13px;\r\n    margin-top: 10px;\r\n    color: #0995eb;\r\n    background-color: #f0eeff;\r\n    transition: 0.2s all ease-in-out;\r\n}\r\n\r\n.jobs:hover .offer-btn {\r\n    color: #fff;\r\n    background-color: #0995eb;\r\n}\r\n\r\n@media (max-width: 575.98px) {\r\n    .last-footer {\r\n        display: block;\r\n        text-align: center;\r\n    }\r\n    .last-footer div {\r\n        margin-bottom: 10px;\r\n    }\r\n}\r\n\r\n.sev-top {\r\n    margin-top: -31px;\r\n}\r\n\r\n.our-sev {\r\n    color: #404040;\r\n    min-width: 130px;\r\n    min-height: 34px;\r\n    border: 1px solid #ddd;\r\n    display: inline-flex;\r\n    align-items: center;\r\n    padding: 10px;\r\n    border-radius: 7px;\r\n    transition: 0.2s all ease-in-out;\r\n    margin: 10px;\r\n    margin-top: 20px;\r\n    margin-bottom: 0;\r\n}\r\n\r\n.our-sev.active,\r\n.our-sev:hover {\r\n    background-color: #048e81 !important;\r\n    color: #fff;\r\n}\r\n\r\n.our-sev:hover img,\r\n.our-sev.active img {\r\n    filter: invert(1);\r\n}\r\n\r\n.our-sev img {\r\n    margin-left: 10px;\r\n}\r\n\r\n.gr-c {\r\n    color: #048e81;\r\n}\r\n\r\n.bl-c {\r\n    color: #0995eb;\r\n}\r\n\r\n.f-12 {\r\n    font-size: 12px;\r\n}\r\n\r\n.accordion-button:not(.collapsed) {\r\n    color: #20998d;\r\n    background-color: #ffffff;\r\n    border-bottom: 0;\r\n}\r\n\r\n.accordion-button::after {\r\n    flex-shrink: 0;\r\n    width: 1.25rem;\r\n    height: 1.25rem;\r\n    margin-right: auto;\r\n    margin-left: 0;\r\n    content: \"\";\r\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ");\r\n    background-repeat: no-repeat;\r\n    background-size: 1.25rem;\r\n    transition: transform 0.2s ease-in-out;\r\n}\r\n\r\n.accordion-button:not(.collapsed)::after {\r\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ");\r\n}\r\n\r\nbutton:not(.collapsed)::after {\r\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ");\r\n    transform: rotate(180deg);\r\n}\r\n\r\n.accordion-item {\r\n    margin-bottom: 20px;\r\n    background-color: #fff;\r\n}\r\n\r\n.accordion-body,\r\n.accordion-button {\r\n    border-top: 0;\r\n}\r\n\r\n.accordion-item {\r\n    border: 1px solid rgba(0, 0, 0, 0.125);\r\n}\r\n\r\n.user-ab {\r\n    min-width: 250px;\r\n    background-color: #fff;\r\n    padding: 10px;\r\n    border-radius: 8px;\r\n}\r\n\r\n.images-slider-ss:hover img {\r\n    filter: grayscale(0);\r\n}\r\n\r\nfooter {\r\n    background-color: #17302d;\r\n}\r\n\r\n#slider3.owl-carousel .owl-nav button.owl-next,\r\n#slider3.owl-carousel .owl-nav button.owl-prev {\r\n    width: 26px;\r\n    height: 26px;\r\n    border: 1px solid #048e81;\r\n    border-radius: 50%;\r\n    background-color: transparent !important;\r\n}\r\n\r\n#slider.owl-carousel .owl-nav button.owl-next,\r\n#slider.owl-carousel .owl-nav button.owl-prev {\r\n    color: #048e81;\r\n    font-size: 20px;\r\n    background-color: transparent !important;\r\n}\r\n\r\n#slider .owl-nav button,\r\n#slider3 .owl-nav button {\r\n    position: absolute;\r\n    top: 50%;\r\n    transform: translateY(-50%);\r\n}\r\n\r\nselect {\r\n    color: #363848;\r\n}\r\n\r\n#slider .owl-nav button.owl-prev,\r\n#slider3 .owl-nav button.owl-prev {\r\n    right: 0;\r\n    left: auto;\r\n}\r\n\r\n#slider .owl-nav button.owl-next,\r\n#slider3 .owl-nav button.owl-next {\r\n    right: auto;\r\n    left: 0;\r\n}\r\n\r\n#slider .owl-stage-outer,\r\n#slider3.owl-carousel .owl-stage-outer {\r\n    max-width: 1180px;\r\n    margin: auto;\r\n}\r\n\r\n.s_Ar {\r\n    font-size: 14px;\r\n    color: #048e81;\r\n    display: inline-block;\r\n}\r\n\r\n.h1-it {\r\n    position: absolute;\r\n    right: 0;\r\n    -o-object-fit: cover;\r\n       object-fit: cover;\r\n    top: 0;\r\n    max-width: 30%;\r\n}\r\n\r\n.h2-it {\r\n    position: absolute;\r\n    left: 0;\r\n    -o-object-fit: cover;\r\n       object-fit: cover;\r\n    top: 0;\r\n    max-width: 30%;\r\n}\r\n\r\n.pos-rel,\r\n.d-sec,\r\n.user-ab,\r\n.sev-top {\r\n    z-index: 5;\r\n    position: relative;\r\n}\r\n\r\n\r\n/* // Small devices (landscape phones, 576px and up) */\r\n\r\n@media (min-width: 576px) and (max-width: 767.98px) {}\r\n\r\n@media (max-width: 767.98px) {\r\n    .search-section {\r\n        border: 0 !important;\r\n        border-bottom: 1px solid #ddd !important;\r\n        margin-bottom: 10px;\r\n        padding: 10px;\r\n    }\r\n    .d-sec {\r\n        margin: auto;\r\n    }\r\n    .sev-top {\r\n        margin-top: 0;\r\n    }\r\n    .our-sev {\r\n        font-size: 13px;\r\n    }\r\n    .title {\r\n        font-size: 27px;\r\n    }\r\n    header {\r\n        min-height: 294px;\r\n    }\r\n}\r\n\r\n\r\n/* // Medium devices (tablets, 768px and up) */\r\n\r\n@media (min-width: 768px) and (max-width: 991.98px) {}\r\n\r\n\r\n/* // Large devices (desktops, 992px and up) */\r\n\r\n@media (min-width: 992px) and (max-width: 1199.98px) {}\r\n\r\n\r\n/* // Extra large devices (large desktops, 1200px and up) */\r\n\r\n@media (min-width: 1200px) {}\r\n\r\n.col-md-4 {\r\n    z-index: 2;\r\n}\r\n\r\n\r\n/* *** ********* AUTH * *** ** * * * * */\r\n\r\n.login-page {\r\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_4___ + ") !important;\r\n    background-size: cover;\r\n    min-height: 100vh;\r\n}\r\n\r\n#pageLoginImage2 {\r\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_4___ + ") !important;\r\n    background-size: cover;\r\n    min-height: 100vh;\r\n}\r\n\r\n#pageLoginImage {\r\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_4___ + ") !important;\r\n    background-size: cover;\r\n    min-height: 100vh;\r\n}\r\n\r\n.auth-login input {\r\n    border-radius: 3px;\r\n    background-color: #f6f6f6;\r\n    border: 1px solid #dddddd47;\r\n    padding: 15px;\r\n    font-size: 13px;\r\n}\r\n\r\n.img-lllo {\r\n    top: 50%;\r\n    transform: translateY(-50%);\r\n}\r\n\r\n.login-form {\r\n    font-size: 14px;\r\n}\r\n\r\n.login-btn {\r\n    border: 0;\r\n    background-color: #048e81;\r\n    color: #fff;\r\n    text-align: center;\r\n    padding: 15px;\r\n    border-radius: 8px;\r\n    display: block;\r\n    width: 100%;\r\n    margin: 15px 0;\r\n    transition: 0.2s all ease-in-out;\r\n}\r\n\r\n.login-btn:hover {\r\n    background-color: #0fad9e;\r\n}\r\n\r\n.social-btn button {\r\n    min-width: 45%;\r\n    display: block;\r\n    border: 1px solid #ddd;\r\n    border-radius: 8px;\r\n    padding: 15px;\r\n    background-color: transparent;\r\n    font-size: 14px;\r\n}\r\n\r\n.social-btn img {\r\n    margin-right: 8px;\r\n}\r\n\r\n.number-active>input {\r\n    text-align: center;\r\n    border-radius: 50%;\r\n    background-color: #b1b1b1;\r\n    width: 60px;\r\n    height: 60px;\r\n    padding: 15px;\r\n    border: 0;\r\n    color: #fff;\r\n    font-weight: bold;\r\n    font-size: 20px;\r\n}\r\n\r\n.number-active>input::-moz-placeholder {\r\n    color: #fff;\r\n}\r\n\r\n.number-active>input:-ms-input-placeholder {\r\n    color: #fff;\r\n}\r\n\r\n.number-active>input::placeholder {\r\n    color: #fff;\r\n}\r\n\r\n.number-active>input.active {\r\n    background-color: #b7f3ee;\r\n    border: 1px solid #048e81;\r\n    color: #2b7b74;\r\n}\r\n\r\n@media (max-width: 767.98px) {\r\n    .number-active>input {\r\n        width: 45px;\r\n        height: 45px;\r\n    }\r\n    .login-page {\r\n        min-height: 50vh;\r\n    }\r\n}\r\n\r\n.dash {\r\n    position: fixed;\r\n    z-index: 1000;\r\n    height: 100vh;\r\n    overflow: auto;\r\n    background-color: #048e81;\r\n}\r\n/* width */\r\n.dash::-webkit-scrollbar {\r\n    width: 0px !important;\r\n  }\r\n  \r\n \r\n.head-dash {\r\n    width: 230px;\r\n    padding-bottom: 30px;\r\n}\r\n\r\n.head-dash .mawtheq-head {\r\n    align-items: center;\r\n}\r\n\r\n.head-dash .mawtheq-head p {\r\n    background-color: #fff;\r\n    width: 100px;\r\n    margin: auto;\r\n    font-size: 14px !important;\r\n    padding: 5px;\r\n    border-radius: 3px;\r\n    color: #57dda5;\r\n}\r\n\r\n.dash-list li {\r\n    margin-top: 40px;\r\n    opacity: 0.7;\r\n    transition: 0.2s all ease-in-out;\r\n    border-right: 3px solid transparent;\r\n}\r\n\r\n.dash-list>li.active,\r\n.dash-list>li:hover {\r\n    opacity: 1;\r\n    /* border-right: 3px solid #fff; */\r\n}\r\n\r\n.dash-list li a {\r\n    text-decoration: none;\r\n    color: #fff;\r\n    font-size: 13px;\r\n    width: 100px;\r\n    text-align: right;\r\n    display: inline-block;\r\n}\r\n\r\n.dash-list li a img {\r\n    margin-left: 16px;\r\n}\r\n\r\n.top-header,\r\n.content-body,\r\n.requsts-sec,\r\n.call,\r\n.personal-section,\r\n.acount-balance,\r\n.ticket-confirmedؤ {\r\n    padding: 15px;\r\n    width: calc(100vw - 230px);\r\n    margin-right: auto;\r\n    padding-right: 20px;\r\n}\r\n\r\n.contain {\r\n    background-color: #2b7b74;\r\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_5___ + ");\r\n    width: 100%;\r\n    height: 141px;\r\n    border-radius: 7px;\r\n}\r\n\r\n.contain-2 {\r\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_6___ + ");\r\n}\r\n\r\n.contain-3 {\r\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_7___ + ");\r\n}\r\n\r\n.img-open-requst {\r\n    background-color: #0995eb;\r\n    width: 30px;\r\n    height: 30px;\r\n    border-radius: 50%;\r\n}\r\n\r\n.line {\r\n    /* max-width: 130px; */\r\n    height: 6px;\r\n    background-color: #eee;\r\n}\r\n\r\n.linear-line {\r\n    /* max-width: 78px; */\r\n    height: 6px;\r\n    background-image: linear-gradient(to left, #0995eb, #048e81);\r\n}\r\n\r\n.percent-requst span {\r\n    font-size: 13px;\r\n}\r\n\r\n.percent-requst {\r\n    font-size: 13px;\r\n}\r\n\r\n.percent-requst>span {\r\n    margin-bottom: 5px;\r\n    display: inline-block;\r\n}\r\n\r\n.requsts {\r\n    max-width: 200px;\r\n}\r\n\r\n.nooh-btn {\r\n    border: 0;\r\n    padding: 12px 10px;\r\n    min-width: 200px;\r\n    border-radius: 9px;\r\n    background-image: linear-gradient(to left, #0995eb, #048e81);\r\n    color: #fff;\r\n    font-size: 15px;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n}\r\n\r\n.red-circle {\r\n    display: inline-block;\r\n    width: 10px;\r\n    height: 10px;\r\n    background-color: #ff584d;\r\n    box-shadow: 1px 1px 7px #ff584d;\r\n    border-radius: 50%;\r\n    position: absolute;\r\n    top: 0;\r\n    right: -5px;\r\n}\r\n\r\n.personal .personal-info .input-personal {\r\n    font-size: 12px;\r\n    padding: 14px 24px;\r\n    border: 0;\r\n    background-color: #eee;\r\n    border-radius: 5px;\r\n}\r\n\r\n.content-col {\r\n    position: relative;\r\n}\r\n\r\n.content-col a {\r\n    position: absolute;\r\n    top: 40px;\r\n    right: 5px;\r\n}\r\n\r\n.content-col a img {\r\n    width: 14px;\r\n}\r\n\r\n.save-btn {\r\n    background-color: #2b7b74;\r\n    padding: 10px 20px;\r\n    min-width: 150px;\r\n    border: 0;\r\n    font-size: 16px;\r\n    color: #fff;\r\n    border-radius: 6px;\r\n}\r\n\r\n.bl-btn {\r\n    border: 0;\r\n    background-color: #048e81;\r\n    color: #fff;\r\n    font-size: 14px;\r\n    padding: 10px 40px;\r\n    border-radius: 3px;\r\n}\r\n\r\n.btw-flex {\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: space-between;\r\n    flex-wrap: wrap;\r\n}\r\n\r\n.bl-money {\r\n    background-color: #f5fbfe;\r\n    border-radius: 10px;\r\n}\r\n\r\n.lf-bor {\r\n    border-left: 3px solid;\r\n    padding-left: 32px;\r\n}\r\n\r\n.inv-c {\r\n    width: 50px;\r\n    height: 41px;\r\n    background-color: #048e81;\r\n    padding: 10px;\r\n    text-align: center;\r\n    font-size: 14px;\r\n    border-radius: 5px;\r\n    display: inline-flex;\r\n    justify-content: center;\r\n    padding: 11px;\r\n}\r\n\r\n.btn-inn {\r\n    background-color: #0a95eb;\r\n    padding: 10px;\r\n    font-size: 14px;\r\n    border: 0;\r\n    color: #fff;\r\n    border-radius: 5px;\r\n}\r\n\r\n.btn-inn img {\r\n    width: 18px;\r\n    margin-left: 10px;\r\n}\r\n\r\n.uses-img {\r\n    width: 70px;\r\n    height: 70px;\r\n    border-radius: 50%;\r\n    margin: auto;\r\n}\r\n\r\n.yellow {\r\n    color: #e3ab00;\r\n}\r\n\r\n.btn-users {\r\n    width: 100%;\r\n    border-radius: 8px;\r\n    border: 0;\r\n    background-color: #048e81;\r\n    color: #fff;\r\n    padding: 8px;\r\n}\r\n\r\n.bg-users {\r\n    background-image: linear-gradient(to bottom, #ff584d14, #802c2710);\r\n    border-radius: 8px;\r\n    background-color: #8f8f8f30;\r\n    font-size: 14px;\r\n}\r\n\r\n.input-cc {\r\n    height: 35px;\r\n    margin-left: 5px;\r\n}\r\n\r\n.btn-cc {\r\n    height: 35px;\r\n    background-color: #0995eb;\r\n    border: 0;\r\n    color: #fff;\r\n    width: 52px;\r\n    border-radius: 4px;\r\n}\r\n\r\n.cir-prog {\r\n    padding: 20px;\r\n    border: 20px solid #aeaeae;\r\n}\r\n\r\n.cir-prog {\r\n    padding: 20px;\r\n    border: 9px solid #aeaeae;\r\n    max-width: 100px;\r\n    height: 100px;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    border-radius: 50%;\r\n    margin: auto;\r\n}\r\n\r\n.o-num {\r\n    color: #aeaeae;\r\n    font-size: 27px;\r\n}\r\n\r\n.o-txt {\r\n    font-size: 20px;\r\n}\r\n\r\n.o-txt-steps {\r\n    font-size: 15px;\r\n}\r\n\r\n.g-color {\r\n    color: #048e81;\r\n}\r\n\r\n.btn-offer {\r\n    height: 35px;\r\n    width: 90px;\r\n    border: 0;\r\n    padding: 8px;\r\n    background-color: #d2d2d2;\r\n    border-radius: 3px;\r\n    font-size: 14px;\r\n}\r\n\r\n.o-box {\r\n    background-color: #dffffc;\r\n    padding: 7px;\r\n    border-radius: 5px;\r\n    display: inline-block;\r\n    font-size: 12px;\r\n    border: 1px solid #2b7b74;\r\n}\r\n\r\n.o-box2 {\r\n    color: #0995eb;\r\n    background-color: #e3f5ff;\r\n    border: 1px solid #0995eb;\r\n}\r\n\r\n.f-14 {\r\n    font-size: 14px;\r\n}\r\n\r\n.o_btn {\r\n    border: 0;\r\n    background-color: #048e81;\r\n    color: #fff;\r\n    font-size: 12px;\r\n    padding: 0 40px;\r\n}\r\n\r\n.div-save {\r\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_8___ + ");\r\n    background-size: cover;\r\n    background-repeat: no-repeat;\r\n    border-radius: 8px;\r\n}\r\n\r\n.dash-list2 li>a {\r\n    text-decoration: none;\r\n    color: #fff;\r\n    font-size: 13px;\r\n    width: 129px;\r\n    text-align: right;\r\n    display: inline-block;\r\n}\r\n\r\n.profile {\r\n    width: 200px;\r\n}\r\n\r\n.profile a {\r\n    width: 190px;\r\n    background-color: #f9faff;\r\n    font-size: 14px;\r\n    text-align: center;\r\n    padding: 10px 5px;\r\n    margin: 5px;\r\n    border-radius: 6px;\r\n}\r\n\r\n.profile .logout {\r\n    background-color: #ff584d;\r\n    color: #fff;\r\n}\r\n\r\n.dropdown-menu.rri_o {\r\n    right: 0 !important;\r\n    left: auto !important;\r\n    width: 350px;\r\n    font-size: 14px;\r\n}\r\n\r\n.o_noti {\r\n    background: #f9faff;\r\n    padding: 10px;\r\n    border-radius: 2px;\r\n    font-size: 11px;\r\n}\r\n\r\n.o_input {\r\n    background-color: #f3f3f3;\r\n    border-color: #f3f3f3;\r\n    font-size: 14px;\r\n}\r\n\r\n.o_input::-moz-placeholder {\r\n    color: #363848;\r\n}\r\n\r\n.o_input:-ms-input-placeholder {\r\n    color: #363848;\r\n}\r\n\r\n.o_input::placeholder {\r\n    color: #363848;\r\n}\r\n\r\n.add-o-file {\r\n    color: #048e81;\r\n    width: 141px;\r\n    background: #ecfffd;\r\n    border: 1px solid #048e81;\r\n    padding: 6px;\r\n    border-radius: 3px;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: space-around;\r\n}\r\n\r\n.abs-file {\r\n    position: absolute;\r\n    top: 0;\r\n    left: 0;\r\n    right: 0;\r\n    height: 38px;\r\n    opacity: 0;\r\n    cursor: pointer;\r\n}\r\n\r\n.header-top {\r\n    padding: 15px;\r\n}\r\n\r\n.comments {\r\n    background-color: #f2f2f269;\r\n    padding: 50px;\r\n    border-radius: 8px;\r\n    margin: 25px 0;\r\n}\r\n\r\n.comments p {\r\n    padding: 11px;\r\n    background-color: #f1f1f159;\r\n    max-width: 250px;\r\n    border-radius: 8px 0 8px 8px;\r\n    border: solid 1px #ddd;\r\n    position: absolute;\r\n    right: 18%;\r\n    top: 36%;\r\n    font-size: 12px;\r\n}\r\n\r\n.comments img {\r\n    position: absolute;\r\n    top: 10%;\r\n}\r\n\r\n.recive-report button {\r\n    padding: 10px;\r\n    width: 80px;\r\n    color: #fff;\r\n    font-size: 13px;\r\n}\r\n\r\n.recive-report button img {\r\n    display: inline-block;\r\n    margin-bottom: 5px;\r\n}\r\n\r\n.mohkam-btn {\r\n    margin-top: 10px;\r\n    width: 100%;\r\n    padding: 13px;\r\n    border-radius: 5px;\r\n    border: 0;\r\n    background-image: linear-gradient(to right, #048e81, #0995eb);\r\n    color: #fff;\r\n    font-size: 15px;\r\n}\r\n\r\n.count-ticket {\r\n    border: solid 1px #048e81;\r\n    border-radius: 7px;\r\n    background-color: #f5fffe;\r\n    padding: 7px 15px;\r\n}\r\n\r\n.your-tickets .your-ticket {\r\n    margin: 1rem 0 !important;\r\n}\r\n\r\n.your-tickets .your-ticket span {\r\n    font-size: 13px;\r\n}\r\n\r\n.requsts-sec .chat-clinet .chat-list {\r\n    background-color: #FAFAFA;\r\n    border-radius: 5px;\r\n    padding: 15px;\r\n    align-items: center;\r\n}\r\n\r\n.requsts-sec .chat-clinet ul li {\r\n    font-size: 13px;\r\n}\r\n\r\n.item-chat li {\r\n    background-color: #FAFAFA;\r\n    font-size: 13px;\r\n    padding: 2rem;\r\n    text-align: left;\r\n    margin: 1rem 0;\r\n    border-radius: 7px;\r\n}\r\n\r\n.item-chat li div {\r\n    justify-content: end;\r\n    align-items: center;\r\n}\r\n\r\n.item-chat li>span {\r\n    background-color: #fff;\r\n    padding: 10px 15px 0px;\r\n    border-radius: 2px 10px 10px 10px;\r\n    margin-left: 2rem;\r\n    display: inline-block;\r\n}\r\n\r\n.item-chat li.sec-list {\r\n    text-align: right;\r\n}\r\n\r\n.item-chat li.sec-list div {\r\n    justify-content: start;\r\n}\r\n\r\n.item-chat li.sec-list>span {\r\n    background-color: #048e81;\r\n    color: #fff;\r\n    border-radius: 10px 2px 10px 10px;\r\n    margin-right: 2rem;\r\n    display: inline-block;\r\n}\r\n\r\n.green-circle {\r\n    display: inline-block;\r\n    width: 10px;\r\n    height: 10px;\r\n    background-color: #048E5A;\r\n    box-shadow: 1px 1px 7px #048E5A;\r\n    border-radius: 50%;\r\n}\r\n\r\n.badge-link {\r\n    display: inline-flex;\r\n    height: 54px;\r\n    width: 54px;\r\n    align-items: center;\r\n    justify-content: center;\r\n    background-color: #fff;\r\n    border-radius: 5px;\r\n}\r\n\r\n.prof-mawthoq {\r\n    font-size: 12px;\r\n    background-color: #77c8f96e;\r\n    text-align: center;\r\n    height: 89px;\r\n    width: 61px;\r\n    color: #0995EB;\r\n    font-weight: bold;\r\n    padding: 5px;\r\n    display: inline-flex;\r\n    align-items: end;\r\n    padding-bottom: 9px;\r\n    border-radius: 11px;\r\n    margin: 5px;\r\n}\r\n\r\n.search-cc {\r\n    background-color: #048e81;\r\n    border-color: #048e81;\r\n    color: #fff;\r\n}\r\n\r\n.search-cc::-moz-placeholder {\r\n    color: #fff;\r\n}\r\n\r\n.search-cc:-ms-input-placeholder {\r\n    color: #fff;\r\n}\r\n\r\n.search-cc::placeholder {\r\n    color: #fff;\r\n}\r\n\r\n.page-link {\r\n    color: #048e81;\r\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
