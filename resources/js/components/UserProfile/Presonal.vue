@@ -12,7 +12,7 @@
                 <div class="d-flex pt-3 mb-2 justify-content-center align-items-start" >
                   <div>
                     <img :src="user?.photo_profile != null ? cloud_url + user?.photo_profile : base_url+ '/assets/images/dash-user.png'" alt=""
-                      class="d-block img-radius img-fluid wid-80" style="width: 50px; height: 50px !important; border-radius: 50%; margin: auto;">
+                      class="d-block img-radius img-fluid wid-80" style="width: 55px; height: 55px !important; border-radius: 50%; margin: auto;">
                   </div>
                   <span class="text-success" v-if="user_is_verified"><i class="fas fa-certificate text-success bg-icon"></i> نشيط</span>
                 </div>
