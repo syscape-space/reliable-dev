@@ -3,15 +3,15 @@
       <div class="dash">
         <div class="head-dash">
           <div>
-            
             <div class="text-center py-4">
               <div class="image-user position-relative d-inline-block">
                 <img style="width: 100px;" :src="base_url+'/assets/images/white-logo.svg'" alt="" srcset="" />
-                
               </div>
-            
             </div>
             <ul class="px-0 list-unstyled text-center dash-list  dash-list2 mt-0 accordion" id="accordionPanelsStayOpenExample">
+              <div class="pt-4 text-center mawtheq-head d-flex justify-content-center">
+                <p class="m-0 bg-transparent text-white border px-3" style="width: auto;">الرئيسية</p>
+                </div>
               <li class=" active">
                 <a href="#" id="panelsStayOpen-headingOne">
                   <img
@@ -25,16 +25,16 @@
                 <div id="panelsStayOpen-collapseOne" class=" collapse show" aria-labelledby="panelsStayOpen-headingOne">
                   <div class="">
                     <ul class="list-unstyled">
-                      <li class="mt-2">
+                      <li class="mt-2 text-white">
                         <a>{{ $root._t("app.drafts") }}</a>
                       </li>
-                      <li class="mt-2">
+                      <li class="mt-2 text-white">
                         <a @click="changeStatus('waiting')">{{ $root._t("app.waitting") }}</a>
                       </li>
-                      <li class="mt-2">
+                      <li class="mt-2 text-white">
                         <a @click="changeStatus('offres')">{{ $root._t("app.offers") }}</a>
                       </li>
-                      <li class="mt-2">
+                      <li class="mt-2 text-white">
                         <a @click="changeStatus('rejected')">{{ $root._t("app.rejected") }}</a>
                       </li>
                     </ul>
@@ -54,16 +54,16 @@
                 <div id="panelsStayOpen-collapseTwo" class=" collapse show" aria-labelledby="panelsStayOpen-headingTwo">
                   <div class="">
                     <ul class="list-unstyled">
-                      <li class="mt-2">
+                      <li class="mt-2 text-white">
                         <a href="">{{ $root._t("app.drafts") }}</a>
                       </li>
-                      <li class="mt-2">
+                      <li class="mt-2 text-white">
                         <a href="">{{ $root._t("app.waitting") }}</a>
                       </li>
-                      <li class="mt-2">
+                      <li class="mt-2 text-white">
                         <a href="">{{ $root._t("app.offers") }}</a>
                       </li>
-                      <li class="mt-2">
+                      <li class="mt-2 text-white">
                         <a href="">{{ $root._t("app.rejected") }}</a>
                       </li>
                     </ul>
