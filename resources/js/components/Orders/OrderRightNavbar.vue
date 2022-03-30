@@ -10,17 +10,17 @@
             </div>
             <ul class="px-0 list-unstyled text-center dash-list  dash-list2 mt-0 accordion" id="accordionPanelsStayOpenExample">
               <div class="pt-4 text-center mawtheq-head d-flex justify-content-center">
-                <p class="m-0 bg-transparent text-white border px-3" style="width: auto;">الرئيسية</p>
+                <p class="m-0 bg-transparent text-white border px-3" style="width: auto;">لوحة التحكم</p>
                 </div>
               <li class=" active">
-                <a href="#" id="panelsStayOpen-headingOne">
+                <a href="#" id="panelsStayOpen-headingOne" style="    width: 150px;">
                   <img
                     :src="base_url+'/assets/images/o_new.svg'"
                     style="width: 18px"
                     alt=""
                     srcset=""
                   />
-                  <span  type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">{{ $root._t("app.newOrders") }}</span>
+                  <span  type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">{{ $root._t("app.newOrders") }} <i class="fas fa-angle-down me-2"></i></span>
                 </a>
                 <div id="panelsStayOpen-collapseOne" class=" collapse show" aria-labelledby="panelsStayOpen-headingOne">
                   <div class="">
@@ -42,14 +42,14 @@
                 </div>
               </li>
               <li class=" active">
-                <a href="#" id="panelsStayOpen-headingTwo">
+                <a href="#" id="panelsStayOpen-headingTwo" style="width:150px">
                   <img
                     :src="base_url+'/assets/images/o_under.svg'"
                     style="width: 18px"
                     alt=""
                     srcset=""
                   />
-                  <span  type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true" aria-controls="panelsStayOpen-collapseTwo">  {{ $root._t("app.underExecuting") }} </span>
+                  <span  type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true" aria-controls="panelsStayOpen-collapseTwo">  {{ $root._t("app.underExecuting") }} <i class="fas fa-angle-down me-2"></i></span>
                 </a>
                 <div id="panelsStayOpen-collapseTwo" class=" collapse show" aria-labelledby="panelsStayOpen-headingTwo">
                   <div class="">
