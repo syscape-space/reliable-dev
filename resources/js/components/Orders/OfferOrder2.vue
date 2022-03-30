@@ -23,9 +23,23 @@
                   <ul class="list-unstyled px-0 f-12 text-end mt-4">
                     <li class="mb-3 f-12">
                       <span> {{ $root._t("app.projectStatus") }} </span>
-                      <button
+                      <button v-if="list.order_status === 'under_review' "
                         class="o_btn d-inline-block px-3 py-2 rounded"
-                        style="margin-right: 15px; background-color: #0995eb"
+                        style="margin-right: 15px; background-color: orange"
+                      >
+                        {{ $root._t("app." + list.order_status) }}
+                      </button>
+
+                      <button v-else-if="list.order_status === 'open' "
+                        class="o_btn d-inline-block px-3 py-2 rounded"
+                        style="margin-right: 15px; background-color: green"
+                      >
+                        {{ $root._t("app." + list.order_status) }}
+                      </button>
+
+                      <button v-else-if="list.order_status === 'closed' "
+                        class="o_btn d-inline-block px-3 py-2 rounded"
+                        style="margin-right: 15px; background-color: red"
                       >
                         {{ $root._t("app." + list.order_status) }}
                       </button>
@@ -245,9 +259,23 @@
                     </li>
                     <li class="mb-3 f-12">
                       <span> {{ $root._t("app.projectStatus") }} </span>
-                      <button
+                      <button v-if="list.order_status === 'under_review' "
                         class="o_btn d-inline-block px-3 py-2 rounded"
-                        style="margin-right: 15px"
+                        style="margin-right: 15px; background-color: orange"
+                      >
+                        {{ $root._t("app." + list.order_status) }}
+                      </button>
+
+                      <button v-else-if="list.order_status === 'open' "
+                        class="o_btn d-inline-block px-3 py-2 rounded"
+                        style="margin-right: 15px; background-color: green"
+                      >
+                        {{ $root._t("app." + list.order_status) }}
+                      </button>
+
+                      <button v-else-if="list.order_status === 'closed' "
+                        class="o_btn d-inline-block px-3 py-2 rounded"
+                        style="margin-right: 15px; background-color: red"
                       >
                         {{ $root._t("app." + list.order_status) }}
                       </button>

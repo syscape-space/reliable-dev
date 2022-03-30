@@ -6,6 +6,7 @@ import loginPage from '../views/AccountPages/loginPage.vue' // done
 import Register from '../views/AccountPages/registerPage.vue' // done
 import Verify from '../views/AccountPages/verifyPage.vue'
 import Success from '../views/AccountPages/successPage.vue'
+import UserProfile from '../views/AccountPages/userProfile.vue'
 
 // Jobs 
 import ShowAllJobsPage from '../views/JobPages/showAllJobs.vue'
@@ -89,6 +90,14 @@ const routes = [{
         name: "Register",
         meta: { title: 'Register' }
     },
+    {
+        path: prefix + '/user-profile',
+        component: UserProfile,
+        beforeEnter: guardMyroute,
+        props: true,
+        name: "UserProfile",
+        meta: { title: 'UserProfile' }
+    },
     // Jobs
     {
         path: prefix + '/all_jobs',
@@ -96,8 +105,7 @@ const routes = [{
         component: ShowAllJobsPage,
         name: "ShowAllJobsPage",
         meta: { title: 'All Jobs' }
-    },
-    {
+    }, {
         path: prefix + '/job_details',
         beforeEnter: guardMyroute,
         component: GetThisJobDetails,
@@ -110,8 +118,7 @@ const routes = [{
         component: addLicensePage,
         name: "addLicensePage",
         meta: { title: 'Add License' }
-    },
-    {
+    }, {
         path: prefix + '/license_show',
         beforeEnter: guardMyroute,
         component: licenseShowPage,
@@ -124,8 +131,7 @@ const routes = [{
         beforeEnter: guardMyroute,
         component: Verify,
         meta: { title: 'Verify' }
-    },
-    {
+    }, {
         path: prefix + '/success',
         beforeEnter: guardMyroute,
         component: Success,
@@ -139,64 +145,55 @@ const routes = [{
         component: profilePage,
         name: "profilePage",
         meta: { title: 'Profile' }
-    },
-    {
+    }, {
         path: prefix + '/u_profile',
         beforeEnter: guardMyroute,
         component: u_indexPage,
         name: "u_indexPage",
         meta: { title: 'Profile' }
-    },
-    {
+    }, {
         path: prefix + '/u_employment_applocations',
         beforeEnter: guardMyroute,
         component: employmentApplications,
         meta: { title: 'Employment Applications' }
-    },
-    {
+    }, {
         path: prefix + '/user-balance',
         beforeEnter: guardMyroute,
         component: Balance,
         name: "Balance",
         meta: { title: 'Balance' }
 
-    },
-    {
+    }, {
         path: prefix + '/u_offers_order',
         beforeEnter: guardMyroute,
         component: offerOrder,
         name: "offerOrder",
         meta: { title: 'Offer Orders' }
-    },
-    {
+    }, {
         path: prefix + '/make-order',
         beforeEnter: guardMyroute,
         component: DocumentRequest,
         name: "DocumentRequest",
         meta: { title: 'make order' }
-    },
-    {
+    }, {
         path: prefix + '/u_ticket_details',
         beforeEnter: guardMyroute,
         component: ChatPage,
         name: "ChatPage",
         meta: { title: 'Chat' }
-    },
-    {
+    }, {
         path: prefix + '/u_ticket1',
         beforeEnter: guardMyroute,
         component: Ticket1,
         name: "Ticket1",
         meta: { title: 'Ticket' }
-    },
-    {
+    }, {
         path: prefix + '/u_ticket2',
         beforeEnter: guardMyroute,
         component: Ticket2,
         name: "Ticket2",
         meta: { title: 'Ticket' }
-    },
-    {
+    }, {
         path: prefix + '/u_users',
         beforeEnter: guardMyroute,
         component: Users,
@@ -212,72 +209,62 @@ const routes = [{
         name: "showOrdersPage",
         meta: { title: 'Orders' }
 
-    },
-    {
+    }, {
         path: prefix + '/o_offer_order2/:id',
         beforeEnter: guardMyroute,
         component: offerOrder2Page,
         props: true,
         name: "offerOrder2Page",
         meta: { title: 'Offers' }
-    },
-    {
+    }, {
         path: prefix + '/o_offer_order3',
         beforeEnter: guardMyroute,
         component: offerOrder3Page,
         name: "offerOrder3Page",
         meta: { title: 'Orders' }
-    },
-    {
+    }, {
         path: prefix + '/u_notification',
         beforeEnter: guardMyroute,
         component: NotificationPage,
         name: "NotificationPage",
         meta: { title: 'Notification' }
-    },
-    {
+    }, {
         path: prefix + '/u_profile2',
         beforeEnter: guardMyroute,
         component: Profile2,
         name: "Profile2",
         meta: { title: 'Profile' }
-    },
-    {
+    }, {
         path: prefix + '/u_profile3',
         beforeEnter: guardMyroute,
         component: Profile3,
         name: "Profile3",
         meta: { title: 'Profile' }
-    },
-    {
+    }, {
         path: prefix + '/u_profile4',
         beforeEnter: guardMyroute,
         component: Profile4,
         name: "Profile4",
         meta: { title: 'Profile' }
-    },
-    {
+    }, {
         path: prefix + '/my_orders',
         beforeEnter: guardMyroute,
         component: MyOrder,
         name: "MyOrder",
         meta: { title: 'My Orders' }
-    },
-    {
+    }, {
         path: prefix + '/my_orders_ex',
         beforeEnter: guardMyroute,
         component: EXMyOrders,
         name: "EXMyOrders",
         meta: { title: 'EX My Orders' }
-    },
-    {
+    }, {
         path: prefix + '/show_all_orders',
         beforeEnter: guardMyroute,
         component: ShowAllOrders,
         name: "ShowAllOrders",
         meta: { title: 'Orders' }
-    },
-    {
+    }, {
         path: prefix + '/filteration',
         beforeEnter: guardMyroute,
         component: Filteration,
@@ -290,25 +277,22 @@ const routes = [{
         component: addTicket,
         name: "addTicket",
         meta: { title: 'Add Ticket' }
-    },
-    {
+    }, {
         path: prefix + '/order/:id',
         beforeEnter: guardMyroute,
         props: true,
         component: ShowSingleOrder,
         name: 'ShowSingleOrder',
-    },
-    {
+    }, {
         path: prefix + '/negotiation/:id',
         component: Negotiation,
         name: 'negotiation',
-        props:true,
-    },
-    {
+        props: true,
+    }, {
         path: prefix + '/order-negotiations/:id',
         component: NegotiationsPage,
         name: 'order_negotiations',
-        props:true,
+        props: true,
     },
 ]
 const router = createRouter({

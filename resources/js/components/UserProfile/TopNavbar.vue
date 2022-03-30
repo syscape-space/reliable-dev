@@ -84,7 +84,7 @@
                 >
               </a>
 
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <ul class=" dropdown-menu profile" aria-labelledby="dropdownMenuLink">
                 <li>
                   <a class="dropdown-item" @click.prevent="logout()" style="cursor: pointer;">خروج</a>
                 </li>
@@ -154,3 +154,15 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.profile a {
+    width: 190px;
+    background-color: #f9faff;
+    font-size: 14px;
+    text-align: center;
+    padding: 10px 5px;
+    margin: 5px;
+    border-radius: 6px;
+}
+</style>

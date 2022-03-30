@@ -11,7 +11,7 @@
                           :src="base_url+'/assets/images/o_clock.svg'"
                           alt=""> <span> {{ offer.created_at }} </span>
                     </span>
-            <span class="ms-3">
+            <span class="ms-3"> 
                       <img
                           style="width: 20px;"
                           class="ms-1"
@@ -28,6 +28,10 @@
                     </span>
           </div>
           <div class="my-2" style="font-size: 12px;">
+                    <span class="o-box ms-2">
+                      
+                      <span> مفاوضات <span class="badge bg-light text-dark">1</span></span>
+                    </span>
                     <span class="o-box ms-2">
                       <img
                           style="width: 15px;" class="ms-1" :src="base_url+'/assets/images/o_delever.svg'"
@@ -48,7 +52,7 @@
           <div class="col-md-3 mt-3  text-center align-items-center justify-content-between"
                style="border-left: 3px solid #ddd;"> 
               <img style="width:70px;width:70px;border-radius:50%" :src="cloud_url + offer.vendor.photo_profile" alt="">
-              <p class="py-3 f-12">
+              <p class="py-3 f-12" @click="goToThisUserProfile(offer.vendor.id)" style=" text-decoration: underline; cursor:pointer;">
               {{ offer.vendor.name }}
             </p>
           </div>
@@ -138,6 +142,10 @@ export default {
         .catch((e) => {
           console.log(e.response);
         });
+    },
+    goToThisUserProfile( user_id ){
+      localStorage.setItem("userProfileId", user_id);
+      this.$router.push({ name: "UserProfile" });
     }
   },
   computed:{

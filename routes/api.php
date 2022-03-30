@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\V1\VendorController;
 use App\Http\Controllers\Api\V1\ExOrderController;
 use App\Http\Controllers\Api\V1\MyOrdersController ;
 use App\Http\Controllers\Api\V2\UpdateUserProfileController;
+use App\Http\Controllers\Api\v1\UserProfileController ;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -67,6 +68,7 @@ Route::group(
 		Route::get('getting_defendant_data/{order_id}' , 'OrderCaseAgainstController@getDataOfDefendant');
 		Route::get('getting_filtered_orders/{key} ' , 'MyOrdersController@gettingFilteredOrders') ;
 		Route::put('update_user_profile/{user_id}' , 'EditUserProfileController@updateUseProfileImage') ;
+		Route::get('user_profile_data/{user_id} , UserProfileController@getThisUserProfileData');
 
 
 		Route::get('/', function () {
