@@ -60,21 +60,21 @@
     >
       <div style="border-left: 3px solid #ddd" class="px-3">
         <img
-            style="width: 70px"
+            style="width: 70px;height:70px;border-radius:50%"
             :src="cloud_url+ order.user_id.photo_profile"
             alt=""
         />
         <div>
                   <span
                       style="color: #2b7b74"
-                      class="mb-2 d-inline-block text-center"
+                      class="mb-1 d-inline-block text-center"
                   >{{ order.user_id.name }}
                   </span>
         </div>
 
         <div>
                   <span
-                      style="color: #2b7b74"
+                      style="color: #2b7b74;font-size:14px"
                       class="mb-2 d-inline-block text-center"
                   >{{ order.department_id.department_name_ar }}
                   </span>
@@ -83,7 +83,7 @@
     </div>
     <div class="col-md-9">
       <div class="clicker" @click.prevent="showThisOrderDetails(order.id)" style="cursor: pointer;">
-        <h6 style="color: #048e81">{{ order.order_title }}</h6> <br>
+        <h6 style="color: #048e81;font-size:20px" >{{ order.order_title }}</h6>
 
         <!-- v-html=" order.order_content.split(' ')[0]" -->
         <h6 style="color: #048e81">{{ $root._t("app.orderContent") }}</h6>
@@ -93,7 +93,17 @@
       <div class="mt-3 btw-flex">
         <div></div>
         <div class="text-center">
-          <router-link v-if="order && $root.auth_user.membership_type === 'user'" :to="{name:'order_negotiations',params:{id:order.id}}" class="btn btn-success btn-sm btn-offer">
+          <router-link v-if="order && $root.auth_user.membership_type === 'user'" :to="{name:'order_negotiations',params:{id:order.id}}" 
+          class="btn  btn-offer" style="    border: 0px;
+    background-color: rgb(10 149 235);
+    color: rgb(255, 255, 255);
+    font-size: 12px;
+    padding: 9px 40px;
+    height: 40px;
+    white-space: nowrap;
+    width: auto;
+    margin-left: 5px;
+">
             مفاوضات
             <span v-html="order.negotiations.length">
 

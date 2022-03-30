@@ -61,12 +61,7 @@
               </h5>
               <p style="font-size: 12px" v-html="order_details"></p>
             </div>
-            <div
-                class="py-2 px-3 d-inline-block rounded f-14"
-                style="color: #2B7B74;background-color: #EBFFFD;">
-              <span class="ms-3 fw-bold"> {{ $root._t("app.orderFileComplete") }} </span>
-              <span><img style="width: 70px;" :src="base_url+'/assets/images/o_pdf.svg'" alt=""></span>
-            </div>
+            
             <template
                 v-if="
                 order &&
@@ -187,7 +182,7 @@
                       class="btn-offer text-white mx-2"
                       style="background-color: #0995EB;"> {{ $root._t("app.new") }} </button>
                   <button class="btn-offer"> {{ $root._t("app.old") }} </button>
-                  <router-link v-if="order && $root.auth_user.membership_type === 'user'" :to="{name:'order_negotiations',params:{id:$props.id}}" class="btn btn-success btn-sm btn-offer">
+                  <router-link v-if="order && $root.auth_user.membership_type === 'user'" :to="{name:'order_negotiations',params:{id:$props.id}}" class="btn me-2 btn-success btn-sm btn-offer">
                     مفاوضات
                     <span v-html="order.negotiations.length">
 
@@ -196,6 +191,12 @@
                 </span>
             </div>
             <offers-list ref="offers_list"/>
+            <div
+                class="py-2 px-3 d-inline-block rounded f-14"
+                style="color: #2B7B74;background-color: #EBFFFD;">
+              <span class="ms-3 fw-bold"> {{ $root._t("app.orderFileComplete") }} </span>
+              <span><img style="width: 70px; height: 70px; border-radius: 50%;" :src="base_url+'/assets/images/o_pdf.svg'" alt=""></span>
+            </div>
           </div>
           <div class="col-md-3">
             <div>
