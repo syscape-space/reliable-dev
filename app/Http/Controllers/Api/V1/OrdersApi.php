@@ -26,6 +26,7 @@ class OrdersApi extends Controller{
 		"assigning_arbitration",
 		"decisions_refused_reason",
 		"user_id",
+        'created_at'
 	];
 
     /**
@@ -34,7 +35,7 @@ class OrdersApi extends Controller{
      * @return array to assign with index & show methods
      */
     public function arrWith(){
-        return ['department_id','negotiations','country_id','city_id','user_id','offers'];
+        return ['department_id','negotiations','country_id','city_id','user_id','offers' ];
     }
 
 

@@ -112,7 +112,7 @@
                     {{ $root._t("app.dues") }}
                   </label>
                   <input
-                      placeholder="....مستحقاتك"
+                      placeholder="....مستحقاتك" 
                       type="text"
                       class="o_input form-control"
                   />
@@ -178,7 +178,7 @@
                                 height: 40px;
                               "
                         class="rounded"
-                        @click="negotiateNow()"
+                        @click="myFunction()"
                     >
                       {{ $root._t("app.negotiateNow") }}
                     </button>
@@ -233,7 +233,7 @@
                         style="margin-right: 15px; color: #0995eb"
                         class="fw-bold"
                     >
-                      {{ $root._t("app.hours20Ago") }}
+                      {{ created_at }}
                     </span>
                   </li>
                   <li class="mb-3">
@@ -255,7 +255,7 @@
                         style="margin-right: 15px; color: #0995eb"
                         class="fw-bold"
                     >
-                      {{ $root._t("app.num15Offer") }}
+                      {{ offersCount }} عرض
                     </span>
                   </li>
                   <li class="mb-3">
@@ -387,6 +387,8 @@ export default {
       execution_time_num: "",
       orderOwnerName: "",
       profile_image: "",
+      created_at : '' ,
+      offersCount : '' ,
       // vars for add offers on specific orders
       vendor_comment: "",
       price: "",
@@ -400,6 +402,14 @@ export default {
     };
   },
   methods: {
+    myFunction() {
+      var txt;
+      if (confirm("Are you sure")) {
+        this.negotiateNow();
+      }else{
+        console.log( "closed" );
+      }
+    } ,
     negotiateNow(){
       var data = {
         order_id:this.$props.id,
@@ -418,6 +428,8 @@ export default {
             this.order_id = response.data.data.id;
             this.order = response.data.data;
             this.order_status = response.data.data.order_status;
+            this.created_at = response.data.data.created_at ;
+            this.offersCount = response.data.data.offers.length ;
             this.execution_time_num = response.data.data.execution_time;
             this.orderOwnerName = response.data.data["user_id"].name;
             this.profile_image = response.data.data["user_id"].photo_profile;

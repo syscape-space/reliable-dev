@@ -65,14 +65,36 @@
                         background-color: #048e81;
                         color: #fff;
                         font-size: 12px;
-                        padding: 0 40px;
-                      " class="rounded"
-                      @click.prevent="acceptOffer( offer.id )">
+                        padding: 0 40px;" 
+                        class="rounded"
+                        @click="myFunction(offer.id); returnOfferId(offer.id);"> <!--  -->
               {{ $root._t("app.acceptOffer") }}
             </button>
           </div>
         </div>
+        <!-- starting of pop up for accept offer -->
+      <div class="modal fade acceptOffer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">{{ $root._t("app.acceptOffer") }}</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Are You Sure ??
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" @click.prevent="acceptOffer( offer.id )">Yes</button>
+            </div>
+          </div>
+        </div>
       </div>
+      <!-- ending of pop up for accept offer -->
+      </div>
+      
     </template>
   </template>
   <template v-else>
@@ -93,6 +115,18 @@ export default {
     }
   },
   methods:{
+    
+    myFunction( offer_id ) {
+      var txt;
+      if (confirm("Are you sure")) {
+        console.log( this.returnOfferId(offer_id) );
+      }else{
+        console.log("closed");
+      }
+    } ,
+    returnOfferId ( offer_id ){
+      this.acceptOffer( offer_id );
+    },
     acceptOffer( id ){
       api
         .post("v1/accept_offer/"+id , { '_method' : 'put' })

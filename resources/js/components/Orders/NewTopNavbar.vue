@@ -141,6 +141,7 @@
                   font-size: 12px;
                   padding: 0 40px;
                 "
+                id="makeNewOrder"
                 @click.prevent="goToMakeNewOrder()"
                 class="ms-3 border-0 rounded"
               >
@@ -207,6 +208,7 @@ export default {
   },
   mounted() {
     this.currentUser();
+    document.getElementById('makeNewOrder').style.display = 'none';
   },
   methods: {
     currentUser() {
@@ -214,6 +216,13 @@ export default {
         .get("/v1/account")
         .then((response) => {
           this.user = response.data.data;
+
+          if(response.data.data.membership_type === 'vendor' ){
+            document.getElementById("makeNewOrder").style.display = 'none';
+          }else{
+           document.getElementById("makeNewOrder").style.display = 'block';
+          }
+          
           console.log(response.data.data)
         })
         // error.response.data.errors

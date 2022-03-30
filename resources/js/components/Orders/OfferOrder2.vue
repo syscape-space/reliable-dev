@@ -1,4 +1,4 @@
-<template>
+ <template>
     <NewTopNavbar/>
     <section class="container mt-2">
       <div class="personal">
@@ -85,6 +85,7 @@
                           padding: 15px 40px;
                         "
                         class="border-0 rounded"
+                        @click="myFunction()"
                       >
                         {{ $root._t("app.closeProject") }}
                       </button>
@@ -335,6 +336,9 @@
                 <button class="mohkam-btn">
                   {{ $root._t("app.tightOrder") }}
                 </button>
+                <button class="mohkam-btn">
+                  مقدم خدمه جديد
+                </button>
               </div>
             </div>
           </div>
@@ -364,6 +368,12 @@ export default {
     }
   },
   methods:{
+    myFunction( offer_id ) {
+      var txt;
+      if (confirm("Are you sure")) {
+        console.log( "yes" );
+      }
+    } ,
     gettingDataOfOrderAndOffer(){
       let order_id = this.$props.id ;
       api
