@@ -138,6 +138,10 @@ export default {
         .catch((e) => {
           console.log(e.response);
         });
+    },
+    goToThisUserProfile( user_id ){
+      localStorage.setItem("userProfileId", user_id);
+      this.$router.push({ name: "UserProfile" });
     }
   },
   computed:{

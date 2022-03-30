@@ -66,8 +66,9 @@
         />
         <div>
                   <span
-                      style="color: #2b7b74"
+                      style="color: #2b7b74; text-decoration: underline; cursor:pointer;"
                       class="mb-1 d-inline-block text-center"
+                      @click="goToThisUserProfile(order.user_id['id'])"
                   >{{ order.user_id.name }}
                   </span>
         </div>
@@ -145,6 +146,10 @@ export default {
     showThisOrderDetails(id){
       this.$router.push({ name: "ShowSingleOrder",params:{id:id} });
     },
+    goToThisUserProfile( user_id ){
+      localStorage.setItem("userProfileId", user_id);
+      this.$router.push({ name: "UserProfile" });
+    }
   }
 }
 </script>
