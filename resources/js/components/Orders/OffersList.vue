@@ -52,7 +52,7 @@
           <div class="col-md-3 mt-3  text-center align-items-center justify-content-between"
                style="border-left: 3px solid #ddd;"> 
               <img style="width:70px;width:70px;border-radius:50%" :src="cloud_url + offer.vendor.photo_profile" alt="">
-              <p class="py-3 f-12">
+              <p class="py-3 f-12" @click="goToThisUserProfile(offer.vendor.id)" style=" text-decoration: underline; cursor:pointer;">
               {{ offer.vendor.name }}
             </p>
           </div>
