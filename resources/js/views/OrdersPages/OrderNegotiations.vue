@@ -16,7 +16,7 @@
           <li style="margin-right: auto;">
               <div class="number-ticket d-flex">
                 <span class="mx-3">
-                  <button class="save-btn">
+                  <button class="save-btn" style="background-color:rgb(9, 149, 235)">
                  المفاوضات 5
                   </button>
                 </span>

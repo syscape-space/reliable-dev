@@ -11,7 +11,7 @@
                           :src="base_url+'/assets/images/o_clock.svg'"
                           alt=""> <span> {{ offer.created_at }} </span>
                     </span>
-            <span class="ms-3">
+            <span class="ms-3"> 
                       <img
                           style="width: 20px;"
                           class="ms-1"
@@ -28,6 +28,10 @@
                     </span>
           </div>
           <div class="my-2" style="font-size: 12px;">
+                    <span class="o-box ms-2">
+                      
+                      <span> مفاوضات <span class="badge bg-light text-dark">1</span></span>
+                    </span>
                     <span class="o-box ms-2">
                       <img
                           style="width: 15px;" class="ms-1" :src="base_url+'/assets/images/o_delever.svg'"

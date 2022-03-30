@@ -258,3 +258,13 @@ export default {
   },
 };
 </script>
+
+
+<style scoped>
+.header-top {
+    padding: 15px;
+    width: calc(100vw - 230px);
+    margin-right: auto;
+    padding-right: 20px;
+}
+</style>
