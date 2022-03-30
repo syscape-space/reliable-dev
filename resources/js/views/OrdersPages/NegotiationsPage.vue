@@ -1,10 +1,11 @@
 <template>
   <OrderRightNavbar/>
   <NewTopNavbar/>
-  <div class="container">
+  <div class="requsts-sec mt-4">
     <h4>المفاوضات</h4>
     <OrderNegotiations :id="$props.id"/>
   </div>
+ 
 </template>
 
 <script>

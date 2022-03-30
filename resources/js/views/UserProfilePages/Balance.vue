@@ -105,23 +105,12 @@ export default {
   },
   components: {RechargeBalanceModal, RightNavbar, TopNavbar},
   mounted() {
-    this.currentUser();
+    this.$root.getAuthUser();
   },
   methods: {
-    currentUser() {
-      api
-          .get("/v1/account")
-          .then((response) => {
-            this.user = response.data.data;
-          })
-          // error.response.data.errors
-          .catch((e) => {
-            this.errors = e.response.data.errors;
-            console.log(e.response);
-          });
-    },
     rechargeRequests() {
       api.get('/v1/balancerecharges').then(res => {
+        this.user = this.$root.auth_user;
         this.charges = res.data.data;
       }).catch(e => {
         //  TODO

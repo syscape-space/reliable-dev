@@ -76,7 +76,7 @@ return [
     'oneDay' => ' يوم واحد ' ,
     'offersNum' => ' عدد العروض ' ,
     'num15Offer' => ' عدد 15 عرض ' ,
-    'projectOwner' => ' صاحب العرض ' ,
+    'projectOwner' => ' مقدم العرض ' ,
     'attorneyGeneral' => ' محامى عام ' ,
     'guarantee100%' => ' ضمان 100% لاموالك ' ,
     'yourOrderAtTheSameTime' => ' طلباتك بنفس الوقت ' ,
@@ -379,7 +379,6 @@ return [
     // Defendant presenter
     'enemyCard' => 'بطاقه المدعى عليه' ,
     'fullname' => 'الاسم' ,
-    'nationalId' => 'رقم الهويه'
-
-    
+    'nationalId' => 'رقم الهويه',
+    'archived'  =>  'مؤرشف',
 ];

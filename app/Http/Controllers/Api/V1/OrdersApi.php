@@ -2,6 +2,7 @@
 namespace App\Http\Controllers\Api\V1;
 use App\Http\Controllers\Controller;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Models\Order;
@@ -26,6 +27,8 @@ class OrdersApi extends Controller{
 		"assigning_arbitration",
 		"decisions_refused_reason",
 		"user_id",
+        'created_at',
+        'negotiable'
 	];
 
     /**
@@ -35,6 +38,7 @@ class OrdersApi extends Controller{
      */
     public function arrWith(){
         return ['department_id','entities','negotiations','country_id','city_id','user_id','offers'];
+
     }
 
 
@@ -68,8 +72,17 @@ class OrdersApi extends Controller{
         $data["user_id"] = auth('api')->id();
         $Order = Order::query()->create($data);
         foreach ($data['entities'] as $entity)
-            $Order->entities()->create($entity);
+            $Order->entities()->create([
+                'name'=>$entity->name,
+                'id_number'=>$entity->id_number,
+                'nationality'=>$entity->nationality,
+            ]);
 		$Order = Order::with($this->arrWith())->find($Order->id,$this->selectColumns);
+		if ($data['order_status'] =='under_review'){
+		    User::query()->find(auth('api')->id())->update([
+		        'current_balance'=>auth('api')->user()->current_balance - $Order->amount,
+            ]);
+        }
         return successResponseJson([
             "message"=>trans("admin.added"),
             "data"=>$Order

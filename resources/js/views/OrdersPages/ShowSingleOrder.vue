@@ -4,9 +4,10 @@
   <section class="personal-section mt-2">
     <div class="personal">
       <div class="personal-info">
+        <h1> {{ order_title }} </h1>
         <span>
           {{ $root._t("app.home") }} / {{ $root._t("app.orders") }} /
-          {{ deptname }}
+          {{ deptname }} / {{ order_title }}
         </span>
 
         <div class="row w-100 mx-0 px-0">
@@ -56,129 +57,118 @@
               </div>
             </div>
             <div>
-              <h5 class="fw-bold g-color border p-3">
+              <h5 class="fw-bold g-color">
                 {{ $root._t("app.projectDetails") }}
               </h5>
-             
+              <p style="font-size: 12px" v-html="order_details"></p>
             </div>
-            <div class="border p-3 mt-3">
-               <p style="font-size: 12px" v-html="order_details"></p>
-              <template
-                  v-if="
-                  order &&
-                  order.user_id.id != $root.auth_user.id &&
-                  !summitedOffer
-                "
-              >
-                <h6 class="mt-3">{{ $root._t("app.addOrder") }}</h6>
-                <div class="errors">
-                  <div
-                      class="alert alert-danger"
-                      v-for="error in errors"
-                      :key="error"
-                  >
-                    <strong>{{ error }}</strong>
-                  </div>
+            <div
+                class="py-2 px-3 d-inline-block rounded f-14"
+                style="color: #2B7B74;background-color: #EBFFFD;">
+              <span class="ms-3 fw-bold"> {{ $root._t("app.orderFileComplete") }} </span>
+              <span><img style="width: 70px;" :src="base_url+'/assets/images/o_pdf.svg'" alt=""></span>
+            </div>
+            <template
+                v-if="
+                order &&
+                order.user_id.id != $root.auth_user.id &&
+                !summitedOffer
+              "
+            >
+              <h6 class="mt-3">{{ $root._t("app.addOrder") }}</h6>
+              <div class="errors">
+                <div
+                    class="alert alert-danger"
+                    v-for="error in errors"
+                    :key="error"
+                >
+                  <strong>{{ error }}</strong>
                 </div>
-                <div class="row w-100 mx-0 px-0 mt-4">
-                  <div class="col-md-4 mb-3 f-14">
-                    <label class="mb-2" for="">
-                      {{ $root._t("app.deliveryTime") }}
-                    </label>
-                    <input
-                        placeholder="....مدة التسليم"
-                        type="number"
-                        v-model="execution_time"
-                        class="o_input form-control"
-                    />
-                  </div>
-                  <div class="col-md-4 mb-3 f-14">
-                    <label class="mb-2" for="">
-                      {{ $root._t("app.oderValue") }}
-                    </label>
-                    <input
-                        placeholder="....قيمة العرض"
-                        type="number"
-                        v-model="price"
-                        class="o_input form-control"
-                    />
-                  </div>
-                  <div class="col-md-4 mb-3 f-14">
-                    <label class="mb-2" for="">
-                      {{ $root._t("app.dues") }}
-                    </label>
-                    <input
-                        placeholder="....مستحقاتك"
-                        type="text"
-                        class="o_input form-control"
-                    />
-                  </div>
-                  <div class="col-md-12 mb-3 f-14">
-                    <label class="mb-2" for="">
-                      {{ $root._t("app.offerDetails") }}
-                    </label>
-                    <textarea
-                        placeholder=".......تفاصيل العرض"
-                        type="text"
-                        v-model="vendor_comment"
-                        class="o_input form-control"
-                        rows="6"
-                    ></textarea>
-                  </div>
-                  <div class="col-md-12 mb-3 f-14">
-                    <label for=""> {{ $root._t("app.files") }} </label>
+              </div>
+              <div class="row w-100 mx-0 px-0 mt-4">
+                <div class="col-md-4 mb-3 f-14">
+                  <label class="mb-2" for="">
+                    {{ $root._t("app.deliveryTime") }}
+                  </label>
+                  <input
+                      placeholder="....مدة التسليم"
+                      type="number"
+                      v-model="execution_time"
+                      class="o_input form-control"
+                  />
+                </div>
+                <div class="col-md-4 mb-3 f-14">
+                  <label class="mb-2" for="">
+                    {{ $root._t("app.oderValue") }}
+                  </label>
+                  <input
+                      placeholder="....قيمة العرض"
+                      type="number"
+                      v-model="price"
+                      class="o_input form-control"
+                  />
+                </div>
+                <div class="col-md-4 mb-3 f-14">
+                  <label class="mb-2" for="">
+                    {{ $root._t("app.dues") }}
+                  </label>
+                  <input
+                      placeholder="....مستحقاتك"
+                      type="text"
+                      class="o_input form-control"
+                  />
+                </div>
+                <div class="col-md-12 mb-3 f-14">
+                  <label class="mb-2" for="">
+                    {{ $root._t("app.offerDetails") }}
+                  </label>
+                  <textarea
+                      placeholder=".......تفاصيل العرض"
+                      type="text"
+                      v-model="vendor_comment"
+                      class="o_input form-control"
+                      rows="6"
+                  ></textarea>
+                </div>
+                <div class="col-md-12 mb-3 f-14">
+                  <label for=""> {{ $root._t("app.files") }} </label>
 
-                    <div class="btw-flex">
-                      <div class="position-relative">
-                        <input
-                            style="width: 141px"
-                            type="file"
-                            class="abs-file"
-                        />
-                        <div style="color: #048e81" class="add-o-file f-12">
-                          <span> {{ $root._t("app.addFiles") }} </span>
-                          <img :src="base_url+'/assets/images/o_file.svg'" alt="">
-                        </div>
-                      </div>
-                      <div>
-                        <button
-                            style="
-                            height: 38px;
-                            border: 0;
-                            background-color: #048e81;
-                            color: #fff;
-                            font-size: 12px;
-                            padding: 0 40px;
-                          "
-                            class="rounded"
-                            @click.prevent="addNewOffer()"
-                        >
-                          {{ $root._t("app.addOrder") }}
-                        </button>
+                  <div class="btw-flex">
+                    <div class="position-relative">
+                      <input
+                          style="width: 141px"
+                          type="file"
+                          class="abs-file"
+                      />
+                      <div style="color: #048e81" class="add-o-file f-12">
+                        <span> {{ $root._t("app.addFiles") }} </span>
+                        <img :src="base_url+'/assets/images/o_file.svg'" alt="">
                       </div>
                     </div>
-                  </div>
-                </div>
-              </template>
-              <div class="my-4 btw-flex">
-                <span> {{ $root._t("app.presentation") }} </span>
-                <span>
-                    <div class="text-center" v-if="$root.auth_user.membership_type === 'vendor' && order.negotiable === 'yes'">
+                    <div>
                       <button
                           style="
-                                  border: 0;
-                                  background-color: #048e81;
-                                  color: #fff;
-                                  font-size: 12px;
-                                  padding: 0 40px;
-                                  height: 40px;
-                                "
+                          height: 38px;
+                          border: 0;
+                          background-color: #048e81;
+                          color: #fff;
+                          font-size: 12px;
+                          padding: 0 40px;
+                        "
                           class="rounded"
-                          @click="negotiateNow()"
+                          @click.prevent="addNewOffer()"
                       >
-                        {{ $root._t("app.negotiateNow") }}
+                        {{ $root._t("app.addOrder") }}
                       </button>
                     </div>
+                  </div>
+                </div>
+              </div>
+            </template>
+            <div class="my-4 btw-flex">
+              <span> {{ $root._t("app.presentation") }} </span>
+              <span>
+                  <div class="text-center" v-if="$root.auth_user.membership_type === 'vendor'">
                     <button
                         class="btn-offer text-white mx-2"
                         style="background-color: #0995EB;"> {{ $root._t("app.new") }} </button>
@@ -186,20 +176,12 @@
                     <router-link v-if="order && order.negotiable === 'yes' && $root.auth_user.membership_type === 'user'" :to="{name:'order_negotiations',params:{id:$props.id}}" class="btn me-2 btn-success btn-sm btn-offer">
                       مفاوضات
                       <span v-html="order.negotiations.length">
-
                       </span>
                     </router-link>
-                  </span>
-              </div>
-              <offers-list ref="offers_list"/>
-              <div
-                  class="py-2 mt-3 px-3 d-inline-block rounded f-14"
-                  style="color: #2B7B74;background-color: #EBFFFD;">
-                <span class="ms-3 fw-bold"> {{ $root._t("app.orderFileComplete") }} </span>
-                <span><img style="width: 70px; height: 70px; border-radius: 50%;" :src="base_url+'/assets/images/o_pdf.svg'" alt=""></span>
-              </div>
+                  </div>
+              </span>
             </div>
-
+            <offers-list ref="offers_list"/>
           </div>
           <div class="col-md-3">
             <div>
@@ -237,7 +219,7 @@
                         style="margin-right: 15px; color: #0995eb"
                         class="fw-bold"
                     >
-                      {{ $root._t("app.hours20Ago") }}
+                      {{ created_at }}
                     </span>
                   </li>
                   <li class="mb-3">
@@ -259,7 +241,7 @@
                         style="margin-right: 15px; color: #0995eb"
                         class="fw-bold"
                     >
-                      {{ $root._t("app.num15Offer") }}
+                      {{ offersCount }} عرض
                     </span>
                   </li>
                   <li class="mb-3">
@@ -288,7 +270,8 @@
               </div>
               <!-- هنا بدايه بيانات المدعى عليه -->
               <div
-                  v-for="item in  defendantList" :key="item.id"
+                  v-if="order && order.entities.length"
+
                   class="bg-users f-14 p-3 text-center dataOfDefendant"
                   style="
                   background-image: linear-gradient(
@@ -301,10 +284,13 @@
                   margin-top : 20px ;
                 "
               >
-                <h6 style="font-size: 13px" class="">
+                <h6 style="font-size: 13px" class="" v-if="order.entities.length === 1">
                   {{ $root._t("app.enemyCard") }}
                 </h6>
-                <ul class="list-unstyled px-0 f-12 text-end mt-4">
+                <h6 style="font-size: 13px" class="" v-else>
+                  اطراف الطلب
+                </h6>
+                <ul class="list-unstyled px-0 f-12 text-end mt-4"  v-for="item in order.entities" :key="item.id">
                   <li class="mb-3">
                     <span style="min-width: 60px" class="d-inline-block">
                       {{ $root._t("app.fullname") }}
@@ -377,7 +363,6 @@ export default {
   components: {OrderNegotiations, NewTopNavbar, OrderRightNavbar, OffersList},
   mounted() {
     this.gettingOrderDetails();
-    this.getDataOfDefendant();
   },
   data() {
     return {
@@ -386,11 +371,14 @@ export default {
       list: [],
       offers: [],
       deptname: "",
+      order_title : '' ,
       order_details: "",
       order_status: "",
       execution_time_num: "",
       orderOwnerName: "",
       profile_image: "",
+      created_at : '' ,
+      offersCount : '' ,
       // vars for add offers on specific orders
       vendor_comment: "",
       price: "",
@@ -404,6 +392,14 @@ export default {
     };
   },
   methods: {
+    myFunction() {
+      var txt;
+      if (confirm("Are you sure")) {
+        this.negotiateNow();
+      }else{
+        console.log( "closed" );
+      }
+    } ,
     negotiateNow(){
       var data = {
         order_id:this.$props.id,
@@ -419,9 +415,12 @@ export default {
             this.deptname =
                 response.data.data["department_id"].department_name_ar;
             this.order_details = response.data.data.order_content;
+            this.order_title = response.data.data.order_title ;
             this.order_id = response.data.data.id;
             this.order = response.data.data;
             this.order_status = response.data.data.order_status;
+            this.created_at = response.data.data.created_at ;
+            this.offersCount = response.data.data.offers.length ;
             this.execution_time_num = response.data.data.execution_time;
             this.orderOwnerName = response.data.data["user_id"].name;
             this.profile_image = response.data.data["user_id"].photo_profile;
@@ -470,18 +469,6 @@ export default {
         this.offers = res.data.data;
       });
     },
-    getDataOfDefendant() {
-
-      api
-          .get("v1/getting_defendant_data/" + this.$props.id)
-          .then((response) => {
-            this.defendantList = response.data.defendant
-            console.log(response.data.defendant);
-          })
-          .catch((e) => {
-            console.log(e.response);
-          });
-    }
   },
   computed: {
     summitedOffer() {

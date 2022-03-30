@@ -100,7 +100,12 @@
                   </p>
 
                       <div v-if="form.type_id" v-html="typeOf(form.type_id).type_desc_ar"></div>
-
+                  <p class="w-100 mt-0 pt-0" style="max-width:550px; cursor: pointer; background-color: #E2FFFC; padding: 13px !important; display: inline-block; border-radius: 8px;"
+                     @click="form.accept_rules =! form.accept_rules">
+                    <i class="fa fa-times-circle text-danger" v-if="! form.accept_rules"></i>
+                    <i class="fa fa-check-circle text-success" v-else></i>
+                    الموافقة علي الشروط
+                  </p>
                 </div>
               </div>
               <div class="" v-if="step === 3">
@@ -234,11 +239,11 @@
                   <input class="form-control w-100"  v-model="entity.name" type="text" placeholder="الأسم">
                 </div>
                 <div class="form-group col-md-3 ">
-                  <input class="form-control w-100" v-model="entity.id_number" type="text"
+                  <input class="form-control w-100" :disabled="entity.name.length === 0" v-model="entity.id_number" type="text"
                          placeholder="رقم الهويه........">
                 </div>
                 <div class="form-group col-md-3 ">
-                  <input class="form-control w-100" v-model="entity.nationality" type="text"
+                  <input class="form-control w-100" :disabled="entity.id_number.length === 0" v-model="entity.nationality" type="text"
                          placeholder=" الجنسيه........">
                 </div>
                 <div v-if="form.entities.length - 1 === index && form.entities_count > 1"
@@ -354,10 +359,10 @@
               </div>
             </div>
             <div class="btns text-center mb-5" v-if="step !== 1">
-              <div class="btn mx-2  page1 small cont " v-if="step < 6" @click="step++"
+              <button class="btn mx-2 text-white page1 small cont " :disabled="! nextStepEnabled" v-if="step < 6" @click="step++"
               style=" padding: 7px;border-color: #048E81 !important;background-color: #048E81 !important;min-width:120px;">
                 {{ $root._t("app.next") }}
-              </div>
+              </button>
               <div class="btn btn-success page1 small cont "  style=" padding: 7px;border-color: #048E81 !important;background-color: #048E81 !important;min-width:120px;" @click="submitOrder()" v-else>
                 <span v-if="balanceCovered">
                   أكتمال الطلب
@@ -413,6 +418,7 @@ export default {
         check_invalid_entities_data: false,
         attachments: [],
         audio_file: null,
+        accept_rules:false,
         filter_id: null,
       }
     };
@@ -423,6 +429,24 @@ export default {
       var current_balance = parseInt(this.$root.auth_user.current_balance);
       var order_fees  = parseInt(this.$root.settings.minimum_amount_add_order);
       return current_balance >= order_fees;
+    },
+    nextStepEnabled:{
+      get(){
+        switch(this.step){
+          case 2:
+            return this.form.accept_rules;
+          case 3:
+            return this.form.sub_department_id;
+          case 4:
+            if (this.form.entities_count === 0 || (this.form.entities[0] && this.form.entities[0].nationality.length === 0 ) )
+              return true;
+            return this.form.check_invalid_entities_data;
+          case 5:
+            return this.form.execution_time && this.form.order_title && this.form.order_content;
+          default :
+            return false;
+        }
+      }
     }
   },
   methods: {

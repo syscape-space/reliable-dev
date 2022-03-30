@@ -93,7 +93,7 @@
       <div class="mt-3 btw-flex">
         <div></div>
         <div class="text-center">
-          <router-link v-if="order && $root.auth_user.membership_type === 'user'" :to="{name:'order_negotiations',params:{id:order.id}}" 
+          <router-link v-if="order && order.negotiable === 'yes' && $root.auth_user.membership_type === 'user'" :to="{name:'order_negotiations',params:{id:order.id}}"
           class="btn  btn-offer" style="    border: 0px;
     background-color: rgb(10 149 235);
     color: rgb(255, 255, 255);
