@@ -1,10 +1,29 @@
 <template>
   <div v-if="negotiations.length">
     <div v-for="negotiate in negotiations">
-      <router-link :to="{name:'negotiation',params:{id:negotiate.id}}" class="col-md-4 btn btn-success">
-        <label>مفاوضة مع</label>
-        <br>
-        <span v-for="user in negotiate.users">{{user.first_name}}</span>
+      <router-link :to="{name:'negotiation',params:{id:negotiate.id}}" class="d-block mb-3" style="color: #21252a; text-decoration: none;">
+       <ul class="your-ticket list-unstyled d-flex rounded m-0 w-100 py-2 px-3" style="background-image: linear-gradient(to right, rgba(4, 142, 129, 0.08), rgba(9, 149, 235, 0.13)); align-items: center;">
+          <li><span class="me-3">منذ شهر تقريبا</span></li>
+          <li>
+              <div class="mx-3" style="height: 30px; width: 3px; background-color: rgb(255, 255, 255); border-radius: 10px;"></div>
+          </li>
+          <li>
+              <div style="border-radius: 50%; background-color: rgba(224, 255, 252, 0.46);">
+                
+              </div>
+          </li>
+          <li><span class="mx-3"><span v-for="user in negotiate.users">{{user.first_name}}</span></span></li>
+          <li style="margin-right: auto;">
+              <div class="number-ticket d-flex">
+                <span class="mx-3">
+                  <button class="save-btn">
+                 المفاوضات 5
+                  </button>
+                </span>
+              </div>
+          </li>
+        </ul>
+        
       </router-link>
     </div>
   </div>
