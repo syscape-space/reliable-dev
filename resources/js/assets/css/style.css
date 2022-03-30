@@ -562,7 +562,12 @@ select {
     overflow: auto;
     background-color: #048e81;
 }
-
+/* width */
+.dash::-webkit-scrollbar {
+    width: 0px !important;
+  }
+  
+ 
 .head-dash {
     width: 230px;
     padding-bottom: 30px;

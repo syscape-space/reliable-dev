@@ -89,30 +89,30 @@ export default {
   },
   methods:{
     loginFun() {
-          api
-            .post("/v2/login", {
-              id_number: this.id_number,
-              password: this.password,
-            })
-            .then((response) => {
-              let token = response.data.data.access_token ;
-              // saving token to localSorage 
-              this.$root.alertSuccess("Loggened Successfully");
-              localStorage.setItem("token", token );
-              localStorage.setItem("logginedUser", response.data.data.user.id);
-              // route for u_index page
-              // window.location.replace(this.base_url+'/profile?id='+response.data.data.user.id);
-              this.$router.push({ name: "profilePage" });
-            })
-            .catch((e) => {
-              this.errors = e.response.data.errors;
-              // if (e.response.data.errors) {
-              //   this.errors = e.response.data.errors;
-              // } else {
-              //   this.$root.alertSuccess(e.response.data["message"]);
-              //   this.errors = null;
-              // }
-            });
+        api
+          .post("/v2/login", {
+            id_number: this.id_number,
+            password: this.password,
+          })
+          .then((response) => {
+            let token = response.data.data.access_token ;
+            // saving token to localSorage
+            this.$root.alertSuccess("Loggened Successfully");
+            localStorage.setItem("token", token );
+            this.$root.getAuthUser(); // ####
+            // route for u_index page
+            // window.location.replace(this.base_url+'/profile?id='+response.data.data.user.id);
+            this.$router.push({ name: "profilePage" });
+          })
+          .catch((e) => {
+            this.errors = e.response.data.errors;
+            // if (e.response.data.errors) {
+            //   this.errors = e.response.data.errors;
+            // } else {
+            //   this.$root.alertSuccess(e.response.data["message"]);
+            //   this.errors = null;
+            // }
+          });
     },
   }
 }

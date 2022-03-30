@@ -7,12 +7,12 @@
         <!-- Side Menu Profile Sections  -->
         <div class="row w-100 mx-0 px-0 ">
           <div class="col-12 col-md-4 mb-5">
-            <div class="card user-card user-card-1" style="font-size: 7px;">
+            <div class="card user-card user-card-1" style="font-size: 14px;">
               <div class="card-body pb-0">
                 <div class="d-flex pt-3 mb-2 justify-content-center align-items-start" >
                   <div>
                     <img :src="user?.photo_profile != null ? cloud_url + user?.photo_profile : base_url+ '/assets/images/dash-user.png'" alt=""
-                      class="d-block img-radius img-fluid wid-80" style="width: 50px; height: 50px !important; border-radius: 50%; margin: auto;">
+                      class="d-block img-radius img-fluid wid-80" style="width: 55px; height: 55px !important; border-radius: 50%; margin: auto;">
                   </div>
                   <span class="text-success" v-if="user_is_verified"><i class="fas fa-certificate text-success bg-icon"></i> نشيط</span>
                 </div>
@@ -43,14 +43,14 @@
                 <a class="nav-link list-group-item list-group-item-action"
                   :class="{active: activeLink == 'verify_user'}" @click="activeLink = 'verify_user'" href="#">
                   <span class="f-w-500"><i class="feather icon-disc m-r-10 h5 "></i>تحقق الهوية </span> <span
-                    class="float-start"><i class="fa fa-check-circle text-success fa-2x" ></i></span> </a>
+                    class="float-start"><i class="fa fa-check-circle text-success fa-x" ></i></span> </a>
                 <!-- <a class="nav-link list-group-item list-group-item-action active" id="user-edit-account-tab" data-toggle="pill" href="#user-edit-account" role="tab" aria-controls="user-edit-account" aria-selected="true"> <span class="f-w-500"><i class="feather icon-user m-r-10 h5 "></i>معلومات شخصية </span> <span class="float-start"><i class="feather icon-chevron-right"></i></span> </a> -->
                 
                 <a v-if="user?.membership_type != 'user'" class="nav-link list-group-item list-group-item-action  d-flex justify-content-between"
                   :class="{active: activeLink == 'commercial'}" @click="activeLink = 'commercial'" href="#"> <span
                     class="f-w-500"><i class="feather icon-image m-r-10 h5 ">
                     </i>السجلات التجارية </span> <span class="float-start">
-                      <i class="fa fa-times-circle text-danger fa-2x" data-v-2a94f58a=""></i>
+                      <i class="fa fa-times-circle text-danger fa-x" data-v-2a94f58a=""></i>
                     <p v-if="commercial_status != 'unset'" class="p-0 m-0" :class="{'text-danger': commercial_status == 'end', 'text-success': commercial_status == 'active', 'text-white': activeLink == 'commercial'}" v-text="commercial_status == 'active' ? 'نشيط' : 'منتهي'"></p>
 
                   </span> </a>
@@ -69,13 +69,13 @@
                 <a v-if="user?.membership_type != 'user'" class="nav-link list-group-item list-group-item-action"
                   :class="{active: activeLink == 'qualification'}" @click="activeLink = 'qualification'" href="#"> <span
                     class="f-w-500"><i class="feather icon-image m-r-10 h5 "></i>المؤهلات </span> <span
-                    class="float-start"><i class="fa fa-check-circle text-success fa-2x" ></i></span> </a>
+                    class="float-start"><i class="fa fa-check-circle text-success fa-x" ></i></span> </a>
                 
                 <!-- experience -->
                 <a v-if="user?.membership_type != 'user'" class="nav-link list-group-item list-group-item-action" :class="{active: activeLink == 'experience'}"
                   @click="activeLink = 'experience'" href="#"> <span class="f-w-500"><i
                       class="feather icon-image m-r-10 h5 "></i>الخبرات </span> <span class="float-start">
-                        <i class="fa fa-times-circle text-danger fa-2x" data-v-2a94f58a=""></i></span> </a>
+                        <i class="fa fa-times-circle text-danger fa-x" data-v-2a94f58a=""></i></span> </a>
 
                 <!-- change password                -->
                 <a class="nav-link list-group-item list-group-item-action"
