@@ -16,7 +16,7 @@
                           style="width: 20px;"
                           class="ms-1"
                           :src="base_url+'/assets/images/o_eye.svg'"
-                          alt=""> <span> عدد 0 اعمال </span>
+                          alt=""> <span>  الطلبات المنجزة </span>
                     </span>
             <span class="ms-3">
                       <img
