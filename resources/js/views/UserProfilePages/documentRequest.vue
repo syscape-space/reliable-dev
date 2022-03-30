@@ -400,7 +400,7 @@ export default {
         execution_time: null,
         type_id: null,
         city_id: null,
-        negotiable: "no",
+        negotiable: "yes",
         sub_department_id: null,
         department_id: null,
         order_content: '',
@@ -483,7 +483,7 @@ export default {
       formData.append('order_content', this.form.order_content);
       formData.append('order_title', this.form.order_title);
       formData.append('choose_service_provider', this.form.choose_service_provider);
-      formData.append('entities', this.form.entities);
+      formData.append('entities',  JSON.stringify(this.form.entities) );
       formData.append('entities_count', this.form.entities_count);
       formData.append('check_invalid_entities_data', this.form.check_invalid_entities_data);
       formData.append('attachments', this.form.attachments);

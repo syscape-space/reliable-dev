@@ -34,7 +34,7 @@ class OrdersApi extends Controller{
      * @return array to assign with index & show methods
      */
     public function arrWith(){
-        return ['department_id','negotiations','country_id','city_id','user_id','offers'];
+        return ['department_id','entities','negotiations','country_id','city_id','user_id','offers'];
     }
 
 
@@ -64,8 +64,11 @@ class OrdersApi extends Controller{
     public function store(OrdersRequest $request)
     {
     	$data = $request->except("_token");
+    	$data['entities'] = json_decode($data['entities']);
         $data["user_id"] = auth('api')->id();
-        $Order = Order::create($data);
+        $Order = Order::query()->create($data);
+        foreach ($data['entities'] as $entity)
+            $Order->entities()->create($entity);
 		$Order = Order::with($this->arrWith())->find($Order->id,$this->selectColumns);
         return successResponseJson([
             "message"=>trans("admin.added"),

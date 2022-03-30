@@ -47,7 +47,7 @@
             </button>
           </li>
           <li style="margin-right: auto" class="ms-2">
-            <button
+            <router-link :to="{name:'DocumentRequest'}"
              id="addOrderBasedOnUserMembership"
               style="
                 border: 0;
@@ -60,7 +60,7 @@
               class="rounded  "
             >
               اضافة طلب
-            </button>
+            </router-link>
           </li>
           <li >
             <div class="dropdown">

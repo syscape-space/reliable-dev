@@ -51,6 +51,9 @@ class Order extends Model {
 	public function negotiations(){
 	    return $this->hasMany(Negotiate::class,'order_id','id');
     }
+    public function entities(){
+	    return $this->hasMany(OrderCaseAgainst::class,'order_id','id');
+    }
 
 	/**
 	 * main_order_id relation method to get how add this data
