@@ -96,9 +96,10 @@
             </div>
             <div class="col-lg-6">
               <div class="row w-100 mx-0 px-0">
+                <h1>{{ list.order_title }}</h1>
                 <span>{{ $root._t("app.home") }} /
                    {{ $root._t("app.projects") }} / 
-                  {{ list.department_name_ar }} </span>
+                  {{ list.department_name_ar }} / {{ list.order_title }} </span>
                 <div class="col-md-4 my-4" style="color: #aeaeae">
                   <div class="cir-prog" style="border-color: #048e81">
                     <img :src="base_url+'/assets/images/o_hand.svg'" alt="" />

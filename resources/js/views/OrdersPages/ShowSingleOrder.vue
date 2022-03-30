@@ -4,9 +4,10 @@
   <section class="personal-section mt-2">
     <div class="personal">
       <div class="personal-info">
+        <h1> {{ order_title }} </h1>
         <span>
           {{ $root._t("app.home") }} / {{ $root._t("app.orders") }} /
-          {{ deptname }}
+          {{ deptname }} / {{ order_title }}
         </span>
 
         <div class="row w-100 mx-0 px-0">
@@ -382,6 +383,7 @@ export default {
       list: [],
       offers: [],
       deptname: "",
+      order_title : '' ,
       order_details: "",
       order_status: "",
       execution_time_num: "",
@@ -425,6 +427,7 @@ export default {
             this.deptname =
                 response.data.data["department_id"].department_name_ar;
             this.order_details = response.data.data.order_content;
+            this.order_title = response.data.data.order_title ;
             this.order_id = response.data.data.id;
             this.order = response.data.data;
             this.order_status = response.data.data.order_status;
