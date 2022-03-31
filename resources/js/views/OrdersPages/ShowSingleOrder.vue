@@ -4,7 +4,7 @@
   <section class="personal-section mt-2">
     <div class="personal">
       <div class="personal-info">
-        <div class="px-3">
+        <div class="px-3"> 
           <h1 style="font-weight: 300; font-size: 35px;"> {{ order_title }} </h1>
           <span style="font-size: 15px; color: #636363;">
             {{ $root._t("app.home") }} <span class="mx-2">/</span> {{ $root._t("app.orders") }} <span class="mx-2">/</span>
@@ -505,3 +505,11 @@ export default {
   },
 };
 </script>
+
+
+<style scoped>
+h1 {
+     font-family: 'DroidArabicKufiRegular';
+
+}
+</style>
