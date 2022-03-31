@@ -18,7 +18,7 @@
                     :src="base_url+'/assets/images/o_offer.svg'"
                     alt=""
                 />
-                <span>{{ $root._t("app.present") }} {{order.offers.length}} {{ $root._t("app.offers") }}</span>
+                <span>{{ $root._t("app.present") }} {{ order.offers.length }} {{ $root._t("app.offers") }}</span>
               </span>
       <span class="ms-3">
                 <img
@@ -40,7 +40,7 @@
                       alt=""
                   />
                   <span> {{ $root._t("app.deliveryTime") }} :</span>
-                  <span class="me-2"> {{order.execution_time}} {{ $root._t("app.day") }}</span>
+                  <span class="me-2"> {{ order.execution_time }} {{ $root._t("app.day") }}</span>
                 </span>
                 <span>
                   <i class="fas fa-ellipsis-v"></i>
@@ -84,7 +84,7 @@
     </div>
     <div class="col-md-9">
       <div class="clicker" @click.prevent="showThisOrderDetails(order.id)" style="cursor: pointer;">
-        <h6 style="color: #048e81;font-size:20px" >{{ order.order_title }}</h6>
+        <h6 style="color: #048e81;font-size:20px">{{ order.order_title }}</h6>
 
         <!-- v-html=" order.order_content.split(' ')[0]" -->
         <h6 style="color: #048e81">{{ $root._t("app.orderContent") }}</h6>
@@ -94,8 +94,9 @@
       <div class="mt-3 btw-flex">
         <div></div>
         <div class="text-center">
-          <router-link v-if="order && order.negotiable === 'yes' && $root.auth_user.membership_type === 'user'" :to="{name:'order_negotiations',params:{id:order.id}}"
-          class="btn  btn-offer" style="    border: 0px;
+          <router-link v-if="order && order.negotiable === 'yes' && $root.auth_user.membership_type === 'user'"
+                       :to="{name:'order_negotiations',params:{id:order.id}}"
+                       class="btn  btn-offer" style="    border: 0px;
     background-color: rgb(10 149 235);
     color: rgb(255, 255, 255);
     font-size: 12px;
@@ -121,7 +122,7 @@
                     "
               class="rounded btn-sm"
           >
-            {{ $root._t("app."+order.order_status) }}
+            {{ $root._t("app." + order.order_status) }}
           </button>
 
         </div>
@@ -134,21 +135,21 @@
 import api from "../../utils/api";
 
 export default {
-  props:['order'],
+  props: ['order'],
   name: "OrderCard",
-  data(){
-    return{
-      base_url:base_url,
-      cloud_url:cloud_url,
+  data() {
+    return {
+      base_url: base_url,
+      cloud_url: cloud_url,
     };
   },
-  methods:{
-    showThisOrderDetails(id){
-      this.$router.push({ name: "ShowSingleOrder",params:{id:id} });
+  methods: {
+    showThisOrderDetails(id) {
+      this.$router.push({name: "ShowSingleOrder", params: {id: id}});
     },
-    goToThisUserProfile( user_id ){
+    goToThisUserProfile(user_id) {
       localStorage.setItem("userProfileId", user_id);
-      this.$router.push({ name: "UserProfile" });
+      this.$router.push({name: "UserProfile"});
     }
   }
 }

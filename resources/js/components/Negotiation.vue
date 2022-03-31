@@ -7,7 +7,8 @@
         <li class="d-flex me-5" v-if="otherUser">
           <img style="width:40px" :src="base_url+'/images/morning.svg'" alt="">
           <p style="font-size: 13px;" class="me-1 m-0">{{ otherUser.first_name }}<br>
-            <span style="color: rgb(165, 164, 164);">موثوق</span></p>
+            <span style="color: rgb( 165 , 164 , 164 );">موثوق</span>
+          </p>
         </li>
         <li class="d-flex me-5" v-else>
           لم يدخل طرف اخر المفاوضة
@@ -17,7 +18,7 @@
           <span>{{ negotiate.order.id }}</span>
         </li>
         <li>
-          <a :href="base_url+'/u_profile'" style="color:    color: #212529;">{{ negotiate.order.order_title }}</a>
+          <a :href="base_url+'/u_profile'" style="color:#212529;">{{ negotiate.order.order_title }}</a>
         </li>
         <li>
           <span>مرحلة التفاوض</span>

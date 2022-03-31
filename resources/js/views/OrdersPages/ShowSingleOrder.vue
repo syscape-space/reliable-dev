@@ -168,10 +168,16 @@
             <div class="my-4 btw-flex">
               <span> {{ $root._t("app.presentation") }} </span>
               <span>
-                  <div class="text-center" v-if="$root.auth_user.membership_type === 'vendor'">
+                <button
+                    @click="negotiateNow()"
+                    v-if="$root.auth_user.membership_type === 'vendor'"
+                    class="btn-offer text-white mx-2"
+                    style="background-color: #0995EB;"> تفاوض</button>
+                  <div class="text-center" v-if="$root.auth_user.membership_type === 'user'">
                     <button
                         class="btn-offer text-white mx-2"
                         style="background-color: #0995EB;"> {{ $root._t("app.new") }} </button>
+
                     <button class="btn-offer"> {{ $root._t("app.old") }} </button>
                     <router-link v-if="order && order.negotiable === 'yes' && $root.auth_user.membership_type === 'user'" :to="{name:'order_negotiations',params:{id:$props.id}}" class="btn me-2 btn-success btn-sm btn-offer">
                       مفاوضات
