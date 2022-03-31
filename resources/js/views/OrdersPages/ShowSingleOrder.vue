@@ -4,11 +4,13 @@
   <section class="personal-section mt-2">
     <div class="personal">
       <div class="personal-info">
-        <h1> {{ order_title }} </h1>
-        <span>
-          {{ $root._t("app.home") }} / {{ $root._t("app.orders") }} /
-          {{ deptname }} / {{ order_title }}
-        </span>
+        <div class="px-3">
+          <h1 style="font-weight: 300; font-size: 35px;"> {{ order_title }} </h1>
+          <span style="font-size: 15px; color: #636363;">
+            {{ $root._t("app.home") }} <span class="mx-2">/</span> {{ $root._t("app.orders") }} <span class="mx-2">/</span>
+            {{ deptname }} <span class="mx-2">/</span> {{ order_title }}
+          </span>
+        </div>
 
         <div class="row w-100 mx-0 px-0">
           <div class="col-lg-9">
