@@ -105,7 +105,7 @@ export default {
             this.$router.push({ name: "profilePage" });
           })
           .catch((e) => {
-            this.errors = e.response.data.errors;
+            this.$root.alertErrors([e.response.data.message]);
             // if (e.response.data.errors) {
             //   this.errors = e.response.data.errors;
             // } else {

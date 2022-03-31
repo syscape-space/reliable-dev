@@ -19590,12 +19590,13 @@ __webpack_require__.r(__webpack_exports__);
           name: "profilePage"
         });
       })["catch"](function (e) {
-        _this.errors = e.response.data.errors; // if (e.response.data.errors) {
+        _this.$root.alertErrors([e.response.data.message]); // if (e.response.data.errors) {
         //   this.errors = e.response.data.errors;
         // } else {
         //   this.$root.alertSuccess(e.response.data["message"]);
         //   this.errors = null;
         // }
+
       });
     }
   }
