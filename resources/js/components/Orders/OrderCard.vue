@@ -18,7 +18,7 @@
                     :src="base_url+'/assets/images/o_offer.svg'"
                     alt=""
                 />
-                <span>{{ $root._t("app.present") }} {{ order.offers.length }} {{ $root._t("app.offers") }}</span>
+                <span> العروض المقدمة {{ order.offers.length }} </span>
               </span>
       <span class="ms-3">
                 <img
@@ -94,6 +94,9 @@
       <div class="mt-3 btw-flex">
         <div></div>
         <div class="text-center">
+          <div class="text-left text-start">
+            0123456789
+          </div>
           <router-link v-if="order && order.negotiable === 'yes' && $root.auth_user.membership_type === 'user'"
                        :to="{name:'order_negotiations',params:{id:order.id}}"
                        class="btn  btn-offer" style="    border: 0px;

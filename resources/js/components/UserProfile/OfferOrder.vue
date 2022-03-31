@@ -173,7 +173,7 @@
                     <img :src="base_url+'/assets/images/user.svg'" alt="">
                   </div>
                   <div class="col-md-9">
-                    <p class="py-3 f-12" >
+                    <p class="pt-3 f-12" >
                       {{ $root._t("app.longText")}}
                     </p>
                   </div>

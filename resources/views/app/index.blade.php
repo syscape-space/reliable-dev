@@ -11,9 +11,11 @@
     <link rel="stylesheet" href="{{asset('/')}}/css/layout.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/droid-arabic-kufi" type="text/css"/>
     <link rel="stylesheet" href="{{cuteAsset('/assets')}}/css/style.css" />
     <link rel="stylesheet" href="{{cuteAsset('/assets')}}/css/layout.css" />
     <title>title</title>
+    
 </head>
 
 <body>
