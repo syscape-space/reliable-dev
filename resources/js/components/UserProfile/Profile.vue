@@ -13,11 +13,11 @@
                 <span class="text-light me-2"
                 style="font-size: 14px;">{{ $root._t("app.myProjects") }}</span>
               </div>
-              <p class="text-center fs-4 my-2 text-light">5</p>
+              <p class="text-center fs-4 my-2 text-light" v-html="$root.auth_user.orders_count"></p>
               <div class="text-start ms-3">
-                <a href="#"
+                <router-link :to="{name:'DocumentRequest'}"
                 style="text-decoration: underline !important;; font-size: 13px; color: #fff;"
-              > {{ $root._t("app.addNewRequest") }} </a>
+              > {{ $root._t("app.addNewRequest") }} </router-link>
               </div>
             </div>
           </div>
@@ -28,11 +28,11 @@
                 <span class="text-light me-2"
                 style="font-size: 14px;"> {{ $root._t("app.totalBalance") }} </span>
               </div>
-              <p class="text-center fs-4 my-2 text-light">650</p>
+              <p class="text-center fs-4 my-2 text-light">{{$root.auth_user.current_balance}}</p>
               <div class="text-start ms-3">
-                <a href="#"
+                <router-link :to="{to:'Balance'}"
                 style="text-decoration: underline !important;; font-size: 13px; color: #fff;"
-              > {{ $root._t("app.showBalance") }}</a>
+              > {{ $root._t("app.showBalance") }}</router-link>
               </div>
             </div>
           </div>
@@ -44,11 +44,11 @@
 
                 style="font-size: 14px;">{{ $root._t("app.balanceCanGet") }}</span>
               </div>
-              <p class="text-center fs-4 my-2 text-light">500</p>
+              <p class="text-center fs-4 my-2 text-light">{{$root.auth_user.current_balance}}</p>
               <div class="text-start ms-3">
-                <a href="#"
+                <router-link :to="{to:'Balance'}"
                 style="text-decoration: underline !important; font-size: 13px; color: #fff;"
-              > {{ $root._t("app.showBalance") }} </a>
+              > {{ $root._t("app.showBalance") }} </router-link>
               </div>
             </div>
           </div>
@@ -205,5 +205,8 @@ export default {
       base_url : base_url
     };
   },
+  mounted() {
+    this.$root.getAuthUser();
+  }
 }
 </script>

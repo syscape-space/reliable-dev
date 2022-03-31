@@ -92,12 +92,15 @@ class User extends Authenticatable implements JWTSubject {
 	 *
 	 * @return mixed
 	 */
-	public function getJWTIdentifier() {
+
+
+    public function getJWTIdentifier() {
 		return $this->getKey();
 	}
 	public function negotiations(){
 	    return $this->belongsToMany(Negotiate::class,'negotiate_users','user_id','negotiate_id');
     }
+
 
 	/**
 	 * Return a key value array, containing any custom claims to be added to the JWT.
@@ -160,4 +163,10 @@ class User extends Authenticatable implements JWTSubject {
 				//$user->company_id()->delete();
 			});
 	}
+	public function specialties(){
+	    return $this->belongsToMany(Specialtie::class,'user_specialties','user_id','specialty_id');
+    }
+	public function occupations(){
+	    return $this->belongsToMany(Occupation::class,'user_occupations','user_id','occupation_id');
+    }
 }

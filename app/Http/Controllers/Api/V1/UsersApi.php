@@ -66,7 +66,7 @@ class UsersApi extends Controller
      */
     public function arrWith()
     {
-        return ['company_id',];
+        return ['company_id','occupations','specialties'];
     }
 
 
@@ -164,6 +164,8 @@ class UsersApi extends Controller
         User::where("id", $id)->update($data);
 
         $User = User::with($this->arrWith())->find($id, $this->selectColumns);
+        $User->occupations()->sync(request('occupations'));
+        $User->specialties()->sync(request('specialties'));
         return successResponseJson([
             "message" => trans("admin.updated"),
             "data" => $User

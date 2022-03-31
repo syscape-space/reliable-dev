@@ -247,10 +247,11 @@ const routes = [{
         name: "Profile4",
         meta: { title: 'Profile' }
     }, {
-        path: prefix + '/my_orders',
+        path: prefix + '/my_orders/:status?',
         beforeEnter: guardMyroute,
         component: MyOrder,
         name: "MyOrder",
+        props:true,
         meta: { title: 'My Orders' }
     }, {
         path: prefix + '/my_orders_ex',

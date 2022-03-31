@@ -84,7 +84,16 @@ class AuthAndLogin extends Controller
 
 	public function account()
 	{
-		return successResponseJson(['data' => $this->auth()->user()]);
+        $user_id =  $this->auth()->id();
+        $user = User::query()
+            ->select('*')
+            ->selectSub(function ($query) use ($user_id) {
+            $query->from('orders')
+                ->selectRaw('COUNT(*)');
+        },'orders_count')
+            ->with(['occupations','specialties'])
+            ->find($user_id);
+		return successResponseJson(['data' => $user]);
 	}
 
 	/**

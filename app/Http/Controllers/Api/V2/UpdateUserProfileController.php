@@ -230,7 +230,8 @@ class UpdateUserProfileController extends Controller
         }
 
         User::where("id", $id)->update($data);
-
+        User::query()->find($id)->occupations()->sync(request('occupations'));
+        User::query()->find($id)->specialties()->sync(request('specialties'));
         // $user = User::with($this->arrWith())->find($id, $this->selectColumns);
 
         // return redirect()->back()->with('success', trans("admin.updated"));

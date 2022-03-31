@@ -21,6 +21,12 @@
               >
                 {{ user.name }}
               </h4>
+              <p>
+                <span class="w-100 text-white" v-for="(occupation,index) in $root.auth_user.occupations"> <small v-if="index !==0 "> - </small>  {{occupation.occupation_name_ar}} </span>
+              </p>
+              <p>
+                <span class="w-100 text-white" v-for="(specialty,index) in $root.auth_user.specialties"> <small v-if="index !==0 "> - </small>  {{specialty.specialty_name_ar}} </span>
+              </p>
             </div>
              <div class="pt-2 text-center mawtheq-head d-flex justify-content-center">
                 <p class="m-0 bg-transparent text-white border px-3" style="width:auto" v-if="user.membership_type === null">
@@ -115,16 +121,46 @@
                   <span> كل الطلبات </span>
                 </router-link>
               </li>
-              <li v-if="user.membership_type === 'user'">
-                <router-link :to="{ name : 'MyOrder' }" style="color:#fff; cursor: pointer;">
+              <li class=""  v-if="$root.auth_user.membership_type === 'user'">
+                <a href="#" id="panelsStayOpen-headingTwo" style="width:150px">
                   <img
-                    :src="base_url+'/assets/images/dash-remem.svg'"
-                    style="width: 18px"
-                    alt=""
-                    srcset=""
+                      :src="base_url+'/assets/images/o_under.svg'"
+                      style="width: 18px"
+                      alt=""
+                      srcset=""
                   />
-                  <span> {{ $root._t("app.myOrders") }} </span>
-                </router-link>
+                  <span  type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true" aria-controls="panelsStayOpen-collapseTwo">  طلباتي <i class="fas fa-angle-down me-2"></i></span>
+                </a>
+                <div id="panelsStayOpen-collapseTwo" class=" collapse " aria-labelledby="panelsStayOpen-headingTwo">
+                  <div class="">
+                    <ul class="list-unstyled">
+                      <li class="mt-2 text-white">
+                        <router-link :to="{name:'MyOrder',params:{status:''}}">كل الطلبات</router-link>
+                      </li>
+                      <li class="mt-2 text-white">
+                        <router-link :to="{name:'MyOrder',params:{status:'archived'}}">{{ $root._t("app.drafts") }}</router-link>
+                      </li>
+                      <li class="mt-2 text-white">
+                        <router-link :to="{name:'MyOrder',params:{status:'under_review'}}">{{ $root._t("app.waitting") }}</router-link>
+                      </li>
+                      <li class="mt-2 text-white">
+                        <router-link :to="{name:'MyOrder',params:{status:'open'}}"> المفتوحة</router-link>
+                      </li>
+                      <li class="mt-2 text-white">
+                        <router-link :to="{name:'MyOrder',params:{status:'refused'}}">{{ $root._t("app.rejected") }}</router-link>
+                      </li>
+                      <li class="mt-2 text-white">
+                        <router-link :to="{name:'MyOrder',params:{status:'working'}}">تحت التنفيذ</router-link>
+                      </li>
+                      <li class="mt-2 text-white">
+                        <router-link :to="{name:'MyOrder',params:{status:'done'}}">اكتملت</router-link>
+                      </li>
+                      <li class="mt-2 text-white">
+                        <router-link :to="{name:'MyOrder',params:{status:'closed'}}">مغلقه</router-link>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
               </li>
              
             </ul>

@@ -72,6 +72,8 @@ class Users extends Controller
 		$data['admin_id']      = admin()->id();
 		$data['password']      = bcrypt(request('password'));
 		$users                 = User::create($data);
+        $users->occupations()->sync(request('occupations'));
+        $users->specialties()->sync(request('specialties'));
 		if (request()->hasFile('photo_profile')) {
 			$users->photo_profile = it()->upload('photo_profile', 'users/' . $users->id);
 			$users->save();
@@ -91,7 +93,7 @@ class Users extends Controller
 	 */
 	public function show($id)
 	{
-		$users              = User::find($id);
+		$users              = User::query()->with(['occupations','specialties'])->find($id);
 		$commercial_records = UserCommercial::where('user_id', $id)->orderBy('id', 'desc');
 		$qualifications     = UserQualification::where('user_id', $id)->orderBy('id', 'desc');
 		$experiences        = UserExperience::where('user_id', $id)->orderBy('id', 'desc');
@@ -126,7 +128,7 @@ class Users extends Controller
 	 */
 	public function edit($id)
 	{
-		$users = User::find($id);
+        $users = User::query()->with(['occupations','specialties'])->find($id);
 		return is_null($users) || empty($users) ?
 			backWithError(trans("admin.undefinedRecord"), aurl("users")) :
 			view('admin.users.edit', [
@@ -171,6 +173,8 @@ class Users extends Controller
 		}
 		User::where('id', $id)->update($data);
 		$users = User::find($id);
+        $users->occupations()->sync(request('occupations'));
+        $users->specialties()->sync(request('specialties'));
 		return successResponseJson([
 			"message" => trans("admin.updated"),
 			"data"    => $users,
