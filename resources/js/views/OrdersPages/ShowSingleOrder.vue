@@ -1,26 +1,26 @@
 <template>
-  <OrderRightNavbar/>
-  <NewTopNavbar/>
+  <OrderRightNavbar />
+  <NewTopNavbar />
   <section class="personal-section mt-2">
     <div class="personal">
       <div class="personal-info">
-        <div class="px-3"> 
-          <h1 style="font-weight: 300; font-size: 35px;"> {{ order_title }} </h1>
-          <span style="font-size: 15px; color: #636363;">
-            {{ $root._t("app.home") }} <span class="mx-2">/</span> {{ $root._t("app.orders") }} <span class="mx-2">/</span>
+        <div class="px-3">
+          <h1 style="font-weight: 300; font-size: 35px">{{ order_title }}</h1>
+          <span style="font-size: 15px; color: #636363">
+            {{ $root._t("app.home") }} <span class="mx-2">/</span>
+            {{ $root._t("app.orders") }} <span class="mx-2">/</span>
             {{ deptname }} <span class="mx-2">/</span> {{ order_title }}
           </span>
         </div>
 
         <div class="row w-100 mx-0 px-0">
           <div class="col-lg-9">
-            <div class="row w-100 mx-0 px-0">
-              <div class="col-md-4 my-4" style="color: #AEAEAE;">
-                <div class="cir-prog" style="border-color: #048e81;">
-                  <img :src="base_url+'/assets/images/o_hand.svg'" alt="">
-
+            <div class="row w-100 mx-0 px-0" style="box-shadow: 1px 1px 3px #ddd; margin-bottom: 20px; margin-top: 10px;">
+              <div class="col-md-4 my-4" style="color: #aeaeae">
+                <div class="cir-prog" style="border-color: #048e81">
+                  <img :src="base_url + '/assets/images/o_hand.svg'" alt="" />
                 </div>
-                <div class="fw-bold o-num text-center" style="color: #048e81 ;">
+                <div class="fw-bold o-num text-center" style="color: #048e81">
                   {{ $root._t("app.number1") }}
                 </div>
                 <div>
@@ -31,8 +31,7 @@
               </div>
               <div class="col-md-4 my-4" style="color: #aeaeae">
                 <div class="cir-prog">
-                  <img :src="base_url+'/assets/images/o_exe.svg'" alt="">
-
+                  <img :src="base_url + '/assets/images/o_exe.svg'" alt="" />
                 </div>
                 <div class="fw-bold o-num text-center">
                   {{ $root._t("app.number2") }}
@@ -45,8 +44,7 @@
               </div>
               <div class="col-md-4 my-4" style="color: #aeaeae">
                 <div class="cir-prog">
-                  <img :src="base_url+'/assets/images/o_roket.svg'" alt="">
-
+                  <img :src="base_url + '/assets/images/o_roket.svg'" alt="" />
                 </div>
                 <div class="fw-bold o-num text-center">
                   {{ $root._t("app.number3") }}
@@ -59,19 +57,14 @@
               </div>
             </div>
             <div>
-              <h5 class="fw-bold g-color">
+              <h5 class="fw-bold g-color border p-2">
                 {{ $root._t("app.projectDetails") }}
               </h5>
               <p style="font-size: 12px" v-html="order_details"></p>
             </div>
-            <div
-                class="py-2 px-3 d-inline-block rounded f-14"
-                style="color: #2B7B74;background-color: #EBFFFD;">
-              <span class="ms-3 fw-bold"> {{ $root._t("app.orderFileComplete") }} </span>
-              <span><img style="width: 70px;" :src="base_url+'/assets/images/o_pdf.svg'" alt=""></span>
-            </div>
+            
             <template
-                v-if="
+              v-if="
                 order &&
                 order.user_id.id != $root.auth_user.id &&
                 !summitedOffer
@@ -80,9 +73,9 @@
               <h6 class="mt-3">{{ $root._t("app.addOrder") }}</h6>
               <div class="errors">
                 <div
-                    class="alert alert-danger"
-                    v-for="error in errors"
-                    :key="error"
+                  class="alert alert-danger"
+                  v-for="error in errors"
+                  :key="error"
                 >
                   <strong>{{ error }}</strong>
                 </div>
@@ -93,10 +86,10 @@
                     {{ $root._t("app.deliveryTime") }}
                   </label>
                   <input
-                      placeholder="....مدة التسليم"
-                      type="number"
-                      v-model="execution_time"
-                      class="o_input form-control"
+                    placeholder="....مدة التسليم"
+                    type="number"
+                    v-model="execution_time"
+                    class="o_input form-control"
                   />
                 </div>
                 <div class="col-md-4 mb-3 f-14">
@@ -104,10 +97,10 @@
                     {{ $root._t("app.oderValue") }}
                   </label>
                   <input
-                      placeholder="....قيمة العرض"
-                      type="number"
-                      v-model="price"
-                      class="o_input form-control"
+                    placeholder="....قيمة العرض"
+                    type="number"
+                    v-model="price"
+                    class="o_input form-control"
                   />
                 </div>
                 <div class="col-md-4 mb-3 f-14">
@@ -115,9 +108,9 @@
                     {{ $root._t("app.dues") }}
                   </label>
                   <input
-                      placeholder="....مستحقاتك"
-                      type="text"
-                      class="o_input form-control"
+                    placeholder="....مستحقاتك"
+                    type="text"
+                    class="o_input form-control"
                   />
                 </div>
                 <div class="col-md-12 mb-3 f-14">
@@ -125,11 +118,11 @@
                     {{ $root._t("app.offerDetails") }}
                   </label>
                   <textarea
-                      placeholder=".......تفاصيل العرض"
-                      type="text"
-                      v-model="vendor_comment"
-                      class="o_input form-control"
-                      rows="6"
+                    placeholder=".......تفاصيل العرض"
+                    type="text"
+                    v-model="vendor_comment"
+                    class="o_input form-control"
+                    rows="6"
                   ></textarea>
                 </div>
                 <div class="col-md-12 mb-3 f-14">
@@ -138,18 +131,21 @@
                   <div class="btw-flex">
                     <div class="position-relative">
                       <input
-                          style="width: 141px"
-                          type="file"
-                          class="abs-file"
+                        style="width: 141px"
+                        type="file"
+                        class="abs-file"
                       />
                       <div style="color: #048e81" class="add-o-file f-12">
                         <span> {{ $root._t("app.addFiles") }} </span>
-                        <img :src="base_url+'/assets/images/o_file.svg'" alt="">
+                        <img
+                          :src="base_url + '/assets/images/o_file.svg'"
+                          alt=""
+                        />
                       </div>
                     </div>
                     <div>
                       <button
-                          style="
+                        style="
                           height: 38px;
                           border: 0;
                           background-color: #048e81;
@@ -157,8 +153,8 @@
                           font-size: 12px;
                           padding: 0 40px;
                         "
-                          class="rounded"
-                          @click.prevent="addNewOffer()"
+                        class="rounded"
+                        @click.prevent="addNewOffer()"
                       >
                         {{ $root._t("app.addOrder") }}
                       </button>
@@ -167,35 +163,69 @@
                 </div>
               </div>
             </template>
-            <div class="my-4 btw-flex">
+            <div class="my-4 border btw-flex border p-2">
               <span> {{ $root._t("app.presentation") }} </span>
               <span>
                 <button
-                    @click="negotiateNow()"
-                    v-if="$root.auth_user.membership_type === 'vendor'"
+                  @click="negotiateNow()"
+                  v-if="$root.auth_user.membership_type === 'vendor'"
+                  class="btn-offer text-white mx-2"
+                  style="background-color: #0995eb"
+                >
+                  تفاوض
+                </button>
+                <div
+                  class="text-center"
+                  v-if="$root.auth_user.membership_type === 'user'"
+                >
+                  <button
                     class="btn-offer text-white mx-2"
-                    style="background-color: #0995EB;"> تفاوض</button>
-                  <div class="text-center" v-if="$root.auth_user.membership_type === 'user'">
-                    <button
-                        class="btn-offer text-white mx-2"
-                        style="background-color: #0995EB;"> {{ $root._t("app.new") }} </button>
+                    style="background-color: #0995eb"
+                  >
+                    {{ $root._t("app.new") }}
+                  </button>
 
-                    <button class="btn-offer"> {{ $root._t("app.old") }} </button>
-                    <router-link v-if="order && order.negotiable === 'yes' && $root.auth_user.membership_type === 'user'" :to="{name:'order_negotiations',params:{id:$props.id}}" class="btn me-2 btn-success btn-sm btn-offer">
-                      مفاوضات
-                      <span v-html="order.negotiations.length">
-                      </span>
-                    </router-link>
-                  </div>
+                  <button class="btn-offer">{{ $root._t("app.old") }}</button>
+                  <router-link
+                    v-if="
+                      order &&
+                      order.negotiable === 'yes' &&
+                      $root.auth_user.membership_type === 'user'
+                    "
+                    :to="{
+                      name: 'order_negotiations',
+                      params: { id: $props.id },
+                    }"
+                    class="btn me-2 btn-success btn-sm btn-offer"
+                  >
+                    مفاوضات
+                    <span v-html="order.negotiations.length"> </span>
+                  </router-link>
+                </div>
               </span>
             </div>
-            <offers-list ref="offers_list"/>
+            <offers-list ref="offers_list" />
+         
+            <div
+              class="py-2 px-3 my-3 d-inline-block rounded f-14"
+              style="color: #2b7b74; background-color: #ebfffd"
+            >
+              <span class="ms-3 fw-bold">
+                {{ $root._t("app.orderFileComplete") }}
+              </span>
+              <span
+                ><img
+                  style="width: 70px"
+                  :src="base_url + '/assets/images/o_pdf.svg'"
+                  alt=""
+              /></span>
+            </div>
           </div>
           <div class="col-md-3">
             <div>
               <div
-                  class="bg-users f-14 p-3 text-center"
-                  style="
+                class="bg-users f-14 p-3 text-center"
+                style="
                   background-image: linear-gradient(
                     to bottom,
                     #ff584d20,
@@ -212,88 +242,93 @@
                 <ul class="list-unstyled px-0 f-12 text-end mt-4">
                   <li class="mb-3 f-12">
                     <span> {{ $root._t("app.projectStatus") }} </span>
-                    <button v-if=" order_status === 'under_review' "
-                        class="o_btn d-inline-block px-3 py-2 rounded"
-                        style="margin-right: 15px; background-color:orange;"
+                    <button
+                      v-if="order_status === 'under_review'"
+                      class="o_btn d-inline-block px-3 py-2 rounded"
+                      style="margin-right: 15px; background-color: orange"
                     >
                       {{ $root._t("app." + order_status) }}
                     </button>
-                    <button v-else-if=" order_status === 'open' "
-                        class="o_btn d-inline-block px-3 py-2 rounded"
-                        style="margin-right: 15px; background-color:green;"
+                    <button
+                      v-else-if="order_status === 'open'"
+                      class="o_btn d-inline-block px-3 py-2 rounded"
+                      style="margin-right: 15px; background-color: green"
                     >
                       {{ $root._t("app." + order_status) }}
                     </button>
-                    <button v-else-if=" order_status === 'closed' "
-                        class="o_btn d-inline-block px-3 py-2 rounded"
-                        style="margin-right: 15px; background-color:red;"
+                    <button
+                      v-else-if="order_status === 'closed'"
+                      class="o_btn d-inline-block px-3 py-2 rounded"
+                      style="margin-right: 15px; background-color: red"
                     >
                       {{ $root._t("app." + order_status) }}
                     </button>
                   </li>
-                  <li class="mb-3">
-                    <span style="min-width: 60px" class="d-inline-block">
+                  <li class="mb-3 d-inline-block">
+                    <span style="min-width: 60px" class="d-block">
                       {{ $root._t("app.publishDate") }}
                     </span>
                     <span
-                        style="margin-right: 15px; color: #0995eb"
-                        class="fw-bold"
+                      style="margin-right: 0; color: #0995eb"
+                      class="fw-bold "
                     >
                       {{ created_at }}
                     </span>
                   </li>
-                  <li class="mb-3">
-                    <span style="min-width: 60px" class="d-inline-block">
+                  <li class="mb-3 d-inline-block">
+                    <span style="min-width: 60px" class="d-block">
                       {{ $root._t("app.executionTime") }}
                     </span>
                     <span
-                        style="margin-right: 15px; color: #0995eb"
-                        class="fw-bold"
+                      style="margin-right: 0; color: #0995eb"
+                      class="fw-bold "
                     >
                       {{ execution_time_num }} {{ $root._t("app.day") }}
                     </span>
                   </li>
-                  <li class="mb-3">
-                    <span style="min-width: 60px" class="d-inline-block">
+                  <li class="mb-3 d-inline-block">
+                    <span style="min-width: 60px" class="d-block">
                       {{ $root._t("app.offersNum") }}
                     </span>
                     <span
-                        style="margin-right: 15px; color: #0995eb"
-                        class="fw-bold"
+                      style="margin-right: 0; color: #0995eb"
+                      class="fw-bold "
                     >
                       {{ offersCount }} عرض
                     </span>
                   </li>
-                  <li class="mb-3">
-                    <span style="min-width: 60px" class="d-inline-block">
+                  <li class="mb-3 d-inline-block">
+                    <span style="min-width: 60px" class="d-block">
                       {{ $root._t("app.projectOwner") }}
                     </span>
                   </li>
                   <li class="mb-3 mt-4 text-center">
                     <div class="text-center mb-2" v-if="profile_image === null">
-                      <img style="width: 50px;height: 50px;" class="uses-img"
-                           :src="base_url+'/assets/images/nouser.png' " alt="">
-
+                      <img
+                        style="width: 50px; height: 50px"
+                        class="uses-img"
+                        :src="base_url + '/assets/images/nouser.png'"
+                        alt=""
+                      />
                     </div>
                     <div class="text-center mb-2" v-else>
                       <img
-                          style="width: 50px; height: 50px"
-                          class="uses-img"
-                          :src="cloud_url + profile_image"
-                          alt=""
+                        style="width: 50px; height: 50px"
+                        class="uses-img"
+                        :src="cloud_url + profile_image"
+                        alt=""
                       />
                     </div>
                     <span class="text-center"> {{ orderOwnerName }} </span>
-                    <br/>
+                    <br />
                   </li>
                 </ul>
               </div>
               <!-- هنا بدايه بيانات المدعى عليه -->
               <div
-                  v-if="order && order.entities.length"
-
-                  class="bg-users f-14 p-3 text-center dataOfDefendant"
-                  style="
+                v-if="order && order.entities.length"
+                class="bg-users d-flex align-items-center f-14 p-3 text-center dataOfDefendant"
+                style="
                   background-image: linear-gradient(
                     to bottom,
                     #ff584d20,
@@ -301,69 +336,86 @@
                   );
                   border-radius: 8px;
                   background-color: transparent;
-                  margin-top : 20px ;
+                  margin-top: 20px;
                 "
               >
-                <h6 style="font-size: 13px" class="" v-if="order.entities.length === 1">
+                <h6
+                  style="font-size: 13px"
+                  class=""
+                  v-if="order.entities.length === 1"
+                >
                   {{ $root._t("app.enemyCard") }}
                 </h6>
-                <h6 style="font-size: 13px" class="" v-else>
-                  اطراف الطلب
-                </h6>
-                <ul class="list-unstyled px-0 f-12 text-end mt-4"  v-for="item in order.entities" :key="item.id">
-                  <li class="mb-3">
-                    <span style="min-width: 60px" class="d-inline-block">
-                      {{ $root._t("app.fullname") }}
-                    </span>
-                    <span
-                        style="margin-right: 15px; color: #0995eb"
-                        class="fw-bold"
-                    >
-                      {{ item.name }}
-                    </span>
-                  </li>
-                  <li class="mb-3">
-                    <span style="min-width: 60px" class="d-inline-block">
-                      {{ $root._t("app.nationalId") }}
-                    </span>
-                    <span
-                        style="margin-right: 15px; color: #0995eb"
-                        class="fw-bold"
-                    >
-                      {{ item.id_number }}
-                    </span>
-                  </li>
-                  <li class="mb-3">
-                    <span style="min-width: 60px" class="d-inline-block">
-                      {{ $root._t("app.nationality") }}
-                    </span>
-                    <span
-                        style="margin-right: 15px; color: #0995eb"
-                        class="fw-bold"
-                    >
-                      {{ item.nationality }}
-                    </span>
-                  </li>
-                </ul>
+                
               </div>
               <!-- هنا نهايه بيانات المدعى عليه -->
             </div>
             <div class="div-save p-2 mt-4">
               <div class="d-flex align-items-center">
                 <div>
-                  <img style="width: 40px;margin-left: 8px;" :src="base_url+'/assets/images/o_save.svg'" alt="">
+                  <img
+                    style="width: 40px; margin-left: 8px"
+                    :src="base_url + '/assets/images/o_save.svg'"
+                    alt=""
+                  />
                 </div>
                 <div class="text-white">
-                  <img :src="base_url+'/assets/images/sm-logo-w.svg'" alt=""> <br>
-                  <span style="font-size: 10px;">
+                  <img
+                    :src="base_url + '/assets/images/sm-logo-w.svg'"
+                    alt=""
+                  />
+                  <br />
+                  <span style="font-size: 10px">
                     <span> {{ $root._t("app.guarantee100") }} </span>
-                    <span style="margin-top: -3px; display: block;"> {{
-                        $root._t("app.yourOrderAtTheSameTime")
-                      }} </span>
+                    <span style="margin-top: -3px; display: block">
+                      {{ $root._t("app.yourOrderAtTheSameTime") }}
+                    </span>
                   </span>
                 </div>
               </div>
             </div>
+          </div>
+          <div class="col-md-9">
+            <h6 style="font-size: 13px d-none" class="" >اطراف الطلب</h6>
+                <ul
+                  class="list-unstyled px-0 f-12 text-end mt-4"
+                  v-for="item in order.entities"
+                  :key="item.id"
+                >
+                  <li class="mb-3 d-inline-block">
+                    <span style="min-width: 60px" class="d-block">
+                      {{ $root._t("app.fullname") }}
+                    </span>
+                    <span
+                      style="margin-right: 0; color: #0995eb"
+                      class="fw-bold form-control"
+                    >
+                      {{ item.name }}
+                    </span>
+                  </li>
+                  <li class="mb-3 d-inline-block">
+                    <span style="min-width: 60px" class="d-block">
+                      {{ $root._t("app.nationalId") }}
+                    </span>
+                    <span
+                      style="margin-right: 0; color: #0995eb"
+                      class="fw-bold form-control"
+                    >
+                      {{ item.id_number }}
+                    </span>
+                  </li>
+                  <li class="mb-3 d-inline-block">
+                    <span style="min-width: 60px" class="d-block">
+                      {{ $root._t("app.nationality") }}
+                    </span>
+                    <span
+                      style="margin-right: 0; color: #0995eb"
+                      class="fw-bold form-control"
+                    >
+                      {{ item.nationality }}
+                    </span>
+                  </li>
+                </ul>
           </div>
         </div>
       </div>
@@ -380,7 +432,7 @@ import OrderNegotiations from "./OrderNegotiations";
 export default {
   name: "ShowSingleOrder",
   props: ["id"],
-  components: {OrderNegotiations, NewTopNavbar, OrderRightNavbar, OffersList},
+  components: { OrderNegotiations, NewTopNavbar, OrderRightNavbar, OffersList },
   mounted() {
     this.gettingOrderDetails();
   },
@@ -391,14 +443,14 @@ export default {
       list: [],
       offers: [],
       deptname: "",
-      order_title : '' ,
+      order_title: "",
       order_details: "",
       order_status: "",
       execution_time_num: "",
       orderOwnerName: "",
       profile_image: "",
-      created_at : '' ,
-      offersCount : '' ,
+      created_at: "",
+      offersCount: "",
       // vars for add offers on specific orders
       vendor_comment: "",
       price: "",
@@ -416,49 +468,52 @@ export default {
       var txt;
       if (confirm("Are you sure")) {
         this.negotiateNow();
-      }else{
-        console.log( "closed" );
+      } else {
+        console.log("closed");
       }
-    } ,
-    negotiateNow(){
+    },
+    negotiateNow() {
       var data = {
-        order_id:this.$props.id,
+        order_id: this.$props.id,
       };
-      api.post('/v1/negotiations',data).then(res=>{
-        this.$router.push({name:'negotiation',params:{id:res.data.data.negotiate.id}});
-      })
+      api.post("/v1/negotiations", data).then((res) => {
+        this.$router.push({
+          name: "negotiation",
+          params: { id: res.data.data.negotiate.id },
+        });
+      });
     },
     gettingOrderDetails() {
       api
-          .get("v1/orders/" + this.$props.id)
-          .then((response) => {
-            this.deptname =
-                response.data.data["department_id"].department_name_ar;
-            this.order_details = response.data.data.order_content;
-            this.order_title = response.data.data.order_title ;
-            this.order_id = response.data.data.id;
-            this.order = response.data.data;
-            this.order_status = response.data.data.order_status;
-            this.created_at = response.data.data.created_at ;
-            this.offersCount = response.data.data.offers.length ;
-            this.execution_time_num = response.data.data.execution_time;
-            this.orderOwnerName = response.data.data["user_id"].name;
-            this.profile_image = response.data.data["user_id"].photo_profile;
-            this.OrderRequestOwnerId = response.data.data["user_id"].id;
+        .get("v1/orders/" + this.$props.id)
+        .then((response) => {
+          this.deptname =
+            response.data.data["department_id"].department_name_ar;
+          this.order_details = response.data.data.order_content;
+          this.order_title = response.data.data.order_title;
+          this.order_id = response.data.data.id;
+          this.order = response.data.data;
+          this.order_status = response.data.data.order_status;
+          this.created_at = response.data.data.created_at;
+          this.offersCount = response.data.data.offers.length;
+          this.execution_time_num = response.data.data.execution_time;
+          this.orderOwnerName = response.data.data["user_id"].name;
+          this.profile_image = response.data.data["user_id"].photo_profile;
+          this.OrderRequestOwnerId = response.data.data["user_id"].id;
 
-            //  let splittingOrderContent = response.data.data.data[1].order_content.split(" ") ;
-            this.getOffers();
-            console.log(response.data.data);
-          })
-          .catch((e) => {
-            console.log(e.response);
-          });
+          //  let splittingOrderContent = response.data.data.data[1].order_content.split(" ") ;
+          this.getOffers();
+          console.log(response.data.data);
+        })
+        .catch((e) => {
+          console.log(e.response);
+        });
     },
     addNewOffer() {
       // check if offer requester is same user who loggined
       if (
-          localStorage.getItem("logginedUser") ===
-          this.OrderRequestOwnerId.toString()
+        localStorage.getItem("logginedUser") ===
+        this.OrderRequestOwnerId.toString()
       ) {
         alert("you cannot make order , you are order owner");
       } else {
@@ -471,17 +526,17 @@ export default {
         formData.append("offer_status", "pending");
 
         api
-            .post("v1/orderoffers", formData)
-            .then((response) => {
-              console.log(response);
-              this.$root.alertSuccess("Offer Added Successfully");
-              // this.$router.push({ name: "Ticket2" });
-            })
-            // error.response.data.errors
-            .catch((e) => {
-              this.errors = e.response.data.errors;
-              console.log(e.response.data.errors);
-            });
+          .post("v1/orderoffers", formData)
+          .then((response) => {
+            console.log(response);
+            this.$root.alertSuccess("Offer Added Successfully");
+            // this.$router.push({ name: "Ticket2" });
+          })
+          // error.response.data.errors
+          .catch((e) => {
+            this.errors = e.response.data.errors;
+            console.log(e.response.data.errors);
+          });
       }
     },
     getOffers() {
@@ -509,7 +564,6 @@ export default {
 
 <style scoped>
 h1 {
-     font-family: 'DroidArabicKufiRegular';
-
+  font-family: "DroidArabicKufiRegular";
 }
 </style>

@@ -144,13 +144,17 @@
                     <div class="col-sm-12  col-lg-6 col-xl-4">
                         <div class="form-group">
                             <label class="mt-3 mb-1" for="subscribe_end_at">الوظيفه</label>
-                            <input class="form-control" v-model="subscribe_end_at" :placeholder="$root._t('admin.subscribe_end_at')" name="subscribe_end_at" type="text" disabled>
+                            <select class="form-control" name="" id="">
+                                <option value="" ></option>
+                            </select>
                         </div>
                     </div>
                     <div class="col-sm-12  col-lg-6 col-xl-4">
                         <div class="form-group">
                             <label class="mt-3 mb-1" for="subscribe_end_at">التخصص</label>
-                            <input class="form-control" v-model="subscribe_end_at" :placeholder="$root._t('admin.subscribe_end_at')" name="subscribe_end_at" type="text" disabled>
+                            <select class="form-control" name="" id="">
+                                <option value="" ></option>
+                            </select>
                         </div>
                     </div>
 
