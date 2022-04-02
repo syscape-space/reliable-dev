@@ -11,6 +11,8 @@ class CreateUsersTable extends Migration {
 	 * @return void
 	 */
 	public function up() {
+        Schema::disableForeignKeyConstraints();
+        Schema::dropIfExists('users');
 		Schema::create('users', function (Blueprint $table) {
 				$table->bigIncrements('id');
 				$table->foreignId("admin_id")->nullable()->constrained("admins")->onUpdate("cascade")->onDelete("cascade");

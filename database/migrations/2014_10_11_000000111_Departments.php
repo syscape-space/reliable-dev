@@ -11,6 +11,8 @@ class Departments extends Migration {
 	 * @return void
 	 */
 	public function up() {
+	    Schema::disableForeignKeyConstraints();
+        Schema::dropIfExists('departments');
 		Schema::create('departments', function (Blueprint $table) {
 			$table->bigIncrements('id');
 			$table->string('department_name_ar');
@@ -28,6 +30,6 @@ class Departments extends Migration {
 	 * @return void
 	 */
 	public function down() {
-		Schema::dropIfExists('departments');
+		Schema::dropIfExists('departments')->disableForeignKeyConstraints();
 	}
 }

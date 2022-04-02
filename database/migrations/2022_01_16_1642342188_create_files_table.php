@@ -13,6 +13,8 @@ class CreateFilesTable extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
+        Schema::dropIfExists('files');
         Schema::create('files', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('admin_id')->unsigned()->nullable();

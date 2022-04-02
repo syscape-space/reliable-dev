@@ -27,7 +27,8 @@ class AddDepartmentToUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            //
+            $table->dropConstrainedForeignId('main_department');
+            $table->dropConstrainedForeignId('sub_department');
         });
     }
 }
