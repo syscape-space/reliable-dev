@@ -75,7 +75,7 @@
                 <div class="col-md-4 col-lg-4 col-sm-4 col-xs-12">
                     <div class="form-group">
                         <label for="" class="control-label">اختر القسم الرئيسي</label>
-                        <select name="department_id" class="form-control" id="main_depart">
+                        <select name="main_department" class="form-control" id="main_depart">
 							<option value="">اختر القسم الرئيسي</option>
                             @foreach ($departments as $department)
                                 <option value="{{ $department->id }}">{{ $department->department_name_ar }}</option>
@@ -86,7 +86,7 @@
                 <div class="col-md-4 col-lg-4 col-sm-4 col-xs-12" style="display:none" id="sub_depart_parent">
                     <div class="form-group">
                         <label for="" class="control-label">اختر القسم الفرعي</label>
-                        <select name="department_id" class="form-control" id="sub_depart"></select>
+                        <select name="sub_department" class="form-control" id="sub_depart"></select>
                     </div>
                 </div>
 				@push('js')

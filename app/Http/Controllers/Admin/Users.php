@@ -132,11 +132,13 @@ class Users extends Controller
 	{
 		$departments=Department::whereNull('parent')->get();
         $users = User::query()->with(['occupations','specialties'])->find($id);
+		$children=Department::findOrFail($users->main_department)->children;
 		return is_null($users) || empty($users) ?
 			backWithError(trans("admin.undefinedRecord"), aurl("users")) :
 			view('admin.users.edit', [
 				'title' => trans('admin.edit') . ' - ' . trans('admin.' . $users->membership_type),
-				'users' => $users,'departments'=>$departments
+				'users' => $users,'departments'=>$departments,
+				'children'=>$children
 			]);
 	}
 

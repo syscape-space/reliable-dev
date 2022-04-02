@@ -14,7 +14,8 @@ class AddDepartmentToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->foreignId('department_id')->nullable()->constrained('departments','id')->nullOnDelete();
+            $table->foreignId('main_department')->nullable()->constrained('departments','id')->nullOnDelete();
+            $table->foreignId('sub_department')->nullable()->constrained('departments','id')->nullOnDelete();
         });
     }
 
