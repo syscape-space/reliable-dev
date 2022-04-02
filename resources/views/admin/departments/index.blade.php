@@ -22,6 +22,10 @@
                         <table class="table">
                             <tr>
                                 <td>اسم القسم</td>
+                                @if (!request('department_id'))
+                                    <td>الأقسام الفرعية</td>
+                                @endif
+
                                 <td>حالة القسم</td>
                                 <td>العمليات</td>
                             </tr>
@@ -34,10 +38,21 @@
                                     @else
                                         <td>{{ $depart->department_name_ar }}</td>
                                     @endif
+                                    @if (!request('department_id'))
+                                        @if ($depart->children->count() > 0)
+                                            <td><a
+                                                    href="{{ route('departments.index', ['department_id' => $depart->id]) }}"><i
+                                                        class="fas fa-eye"></i>{{ $depart->children_count }}</a>
+                                            </td>
+                                        @else
+                                            <td>{{ $depart->children_count }}</td>
+                                        @endif
+                                    @endif
 
                                     <td>{{ $depart->status ? 'مفعل' : 'غير مفعل' }}</td>
                                     <td>
-                                        <a class="btn btn-info" href="{{ route('departments.edit', $depart) }}">تعديل</a>
+                                        <a class="btn btn-info"
+                                            href="{{ route('departments.edit', $depart) }}">تعديل</a>
                                         <button type="button" class="btn btn-danger" data-toggle="modal"
                                             data-target="#delete{{ $depart->id }}">
                                             حذف

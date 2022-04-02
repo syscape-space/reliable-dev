@@ -167,7 +167,7 @@ class Departments extends Controller {
 	}
 
 	public function index(Request $request) {
-		$departments=Department::whereNull('parent')->get();
+		$departments=Department::withCount('children')->whereNull('parent')->get();
 		if(request('department_id')){
 			$departments=Department::whereParent(request('department_id'))->get();
 		}

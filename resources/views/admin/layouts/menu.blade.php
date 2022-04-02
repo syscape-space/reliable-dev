@@ -1050,6 +1050,29 @@ admin()->user()->role("systemmessages_show"))
       </ul>
     </li>
     @endif
+    <li class="nav-item {{active_link('our-services','menu-open')}} ">
+      <a href="#" class="nav-link {{active_link('our-services','active')}}">
+        <i class="nav-icon fa fa-user-tie"></i>
+        <p>
+          قوالب البريد
+          <i class="right fas fa-angle-left"></i>
+        </p>
+      </a>
+      <ul class="nav nav-treeview">
+        <li class="nav-item">
+          <a href="{{aurl('mail-templates')}}" class="nav-link  {{active_link('mail-templates ','active')}}">
+            <i class="fa fa-user-tie nav-icon"></i>
+            <p>قوالب البريد</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="{{ aurl('mail-templates/create') }}" class="nav-link">
+            <i class="fas fa-plus nav-icon"></i>
+            <p>إضافة </p>
+          </a>
+        </li>
+      </ul>
+    </li>
   </ul>
 </li>
 <!--tickets_start_route-->

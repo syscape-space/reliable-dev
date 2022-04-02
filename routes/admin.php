@@ -137,7 +137,7 @@ Route::group(
 			Route::as('admin.')->group(function () {
 				Route::resource('our-services', 'Admin\OurServiceController');
 			});
-
+			Route::resource('mail-templates', 'Admin\MailTemplatesController');
 			Route::resource('partners', 'Admin\PartnerController');
 			Route::post('partners/multi_delete', 'Admin\PartnerController@multi_delete');
 
