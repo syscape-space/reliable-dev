@@ -90,6 +90,7 @@ Route::group(
 			Route::post('users/get/arbitrators', 'Admin\Users@get_arbitrators');
 			Route::post('users/get/all/users', 'Admin\Users@get_users');
 			Route::post('users/get/user/info', 'Admin\Users@get_user_info');
+			Route::get('users/get/departments', 'Admin\Users@get_users_departments')->name('users.department');
 
 			Route::resource('vendorpackages', 'Admin\VendorPackages');
 			Route::post('vendorpackages/multi_delete', 'Admin\VendorPackages@multi_delete');

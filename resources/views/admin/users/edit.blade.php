@@ -96,12 +96,62 @@
                 });
             </script>
             @endpush
+
             <div class="col-md-3 col-lg-3 col-sm-3 col-xs-12">
                 <div class="form-group">
                     {!! Form::label('name',trans('admin.name'),['class'=>' control-label']) !!}
                     {!! Form::text('name',$users->name,['class'=>'form-control','readonly'=>'readonly','placeholder'=>trans('admin.name')]) !!}
                 </div>
             </div>
+            <div class="col-md-4 col-lg-4 col-sm-4 col-xs-12">
+                <div class="form-group">
+                    <label for="" class="control-label">اختر القسم الرئيسي</label>
+                    <select name="department_id" class="form-control" id="main_depart">
+                        <option value="">اختر القسم الرئيسي</option>
+                        @foreach ($departments as $department)
+                            <option value="{{ $department->id }}" {{$department->id==$users->department_id?'selected':''}}>{{ $department->department_name_ar }}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-4 col-sm-4 col-xs-12" style="display:none" id="sub_depart_parent">
+                <div class="form-group">
+                    <label for="" class="control-label">اختر القسم الفرعي</label>
+                    <select name="department_id" class="form-control" id="sub_depart"></select>
+                </div>
+            </div>
+            @push('js')
+            <script type="text/javascript">
+                $(document).on('change', '#main_depart', function() {
+                    department_id=$('#main_depart').val()
+                    $.ajax({
+                url: '{{ route('users.department') }}',
+                type: 'get',
+                data: {
+                    department_id: department_id,
+                },
+                success: function(data) {
+                    if (data.length > 0) {
+                        $('#sub_depart_parent').css('display','block');
+                        $('#sub_depart').empty();
+                        var firstOption = $('<option>اختر القسم الفرعي </option>');
+                        $('#sub_depart').append(firstOption);
+                        var data = data;
+                        data.forEach(e => {
+                            var newOption = $('<option></option>');
+                            newOption.text(e.department_name_ar);
+                            newOption.val(e.id);
+                            $('#sub_depart').append(newOption);
+                        });
+                    } else {
+                        $('#sub_depart_parent').css('display','none');
+                    }
+                },
+                error: function(response) {}
+            });
+                });
+            </script>
+        @endpush
             <div class="col-md-4 col-lg-4 col-sm-4 col-xs-12">
                 <div class="form-group">
                     {!! Form::label('email',trans('admin.email'),['class'=>'control-label']) !!}
