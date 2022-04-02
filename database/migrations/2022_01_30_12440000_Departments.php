@@ -17,10 +17,7 @@ class Departments extends Migration {
 			$table->string('department_name_en');
 			$table->bigInteger('parent')->unsigned()->nullable();
 			$table->foreign('parent')->references('id')->on('departments')->onDelete('cascade');
-			$table->string('department_desc_ar')->nullable();
-			$table->string('department_desc_en')->nullable();
-			$table->enum('enable_post', ['yes', 'no'])->default('no');
-			$table->enum('department_status', ['show', 'hide'])->default('hide');
+			$table->boolean('status');
 			$table->timestamps();
 		});
 	}

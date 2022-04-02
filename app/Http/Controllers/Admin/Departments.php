@@ -167,7 +167,11 @@ class Departments extends Controller {
 	}
 
 	public function index(Request $request) {
-		return view('admin.departments.index', ['title' => trans('admin.departments')]);
+		$departments=Department::whereNull('parent')->get();
+		if(request('department_id')){
+			$departments=Department::whereParent(request('department_id'))->get();
+		}
+		return view('admin.departments.index', ['title' => trans('admin.departments'),'departments'=>$departments]);
 	}
 
 	/**
@@ -177,8 +181,8 @@ class Departments extends Controller {
 	 */
 	public function create() {
 
-		$department = self::department()->where('parent', null)->pluck(l('department_name'), 'id');
-		return view('admin.departments.create', ['title' => trans('admin.add'), 'department' => $department]);
+		$departments = Department::select('id','department_name_ar')->whereNull('parent')->get();
+		return view('admin.departments.create', ['title' => trans('admin.add'), 'departments' => $departments]);
 	}
 
 	/**
@@ -187,38 +191,20 @@ class Departments extends Controller {
 	 * @param  \Illuminate\Http\Request  $request
 	 * @return \Illuminate\Http\Response
 	 */
-	public function store() {
-
-		$rules = [
+	public function store(Request $request) {
+		$request->validate([
 			'department_name_ar' => 'required|string',
 			'department_name_en' => 'required|string',
-			'department_desc_ar' => 'sometimes|nullable|string',
-			'department_desc_en' => 'sometimes|nullable|string',
-			'department_status'  => 'required|in:show,hide',
-			'enable_post'        => 'sometimes|nullable|in:yes,no',
 			'parent'             => 'sometimes|nullable|integer',
-
-		];
-		$nicename = [
+		],[
 			'department_name_ar' => trans('admin.department_name_ar'),
 			'department_name_en' => trans('admin.department_name_en'),
-			'department_desc_ar' => trans('admin.department_desc_ar'),
-			'department_desc_en' => trans('admin.department_desc_en'),
-			'department_status'  => trans('admin.department_status'),
-			'enable_post'        => trans('admin.enable_post'),
 			'parent'             => trans('admin.parent'),
-
-		];
-		$data = $this->validate(request(), $rules, [], $nicename);
-		//$data                = request()->except(['_token', 'method', 'specialtie_id']);
-		$data['enable_post'] = request('enable_post') == 'yes'?'yes':'no';
-		if (request()->has('parent')) {
-			$data['parent'] = request('parent');
-		}
-
-		$Department = Department::create($data);
-		$this->department_specialtie($Department);
-
+		]);
+			$request->merge([
+				'status'=>$request->status?true:false
+			]);
+		Department::create($request->all());
 		return redirectWithSuccess(aurl('departments'), trans('admin.added'));
 	}
 
@@ -256,13 +242,13 @@ class Departments extends Controller {
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
-	public function edit($id) {
+	public function edit(Department $department) {
 
-		$dep         = self::department()->where('id', $id)->first();
-		$departments = self::department()->where('parent', null)->pluck(l('department_name'), 'id');
+		
+		$departments = Department::select('id','department_name_ar')->whereNull('parent')->get();
 		return view('admin.departments.edit', ['title' => trans('admin.edit'),
 				'departments'                                => $departments,
-				'department'                                 => $dep,
+				'department'                                 => $department,
 			]);
 	}
 
@@ -273,41 +259,21 @@ class Departments extends Controller {
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
-	public function update($id) {
+	public function update(Request $request,Department $department) {
 
-		$rules = [
+		$request->validate([
 			'department_name_ar' => 'required|string',
 			'department_name_en' => 'required|string',
-			'department_desc_ar' => 'sometimes|nullable|string',
-			'department_desc_en' => 'sometimes|nullable|string',
-			'department_status'  => 'required|in:show,hide',
-			'enable_post'        => 'sometimes|nullable|in:yes,no',
-			'parent'             => 'sometimes|nullable|integer|exists:departments',
-		];
-		$nicename = [
+			'parent'             => 'sometimes|nullable|integer',
+		],[
 			'department_name_ar' => trans('admin.department_name_ar'),
 			'department_name_en' => trans('admin.department_name_en'),
-			'department_desc_ar' => trans('admin.department_desc_ar'),
-			'department_desc_en' => trans('admin.department_desc_en'),
-			'department_status'  => trans('admin.department_status'),
-			'enable_post'        => trans('admin.enable_post'),
 			'parent'             => trans('admin.parent'),
-		];
-
-		$this->validate(request(), $rules, [], $nicename);
-		$data = request()->except(['_token', '_method', 'parent', 'specialtie_id']);
-
-		$data['enable_post'] = request('enable_post') == 'yes'?'yes':'no';
-
-		if (request('parent') != null) {
-			$data['parent'] = request('parent');
-		} else {
-			$data['parent'] = null;
-		}
-
-		$department = Department::where('id', $id)->update($data);
-
-		$this->department_specialtie(Department::find($id));
+		]);
+			$request->merge([
+				'status'=>$request->status?true:false
+			]);
+			$department->update($request->all());
 		return redirectWithSuccess(aurl('departments'), trans('admin.updated'));
 	}
 
@@ -329,10 +295,8 @@ class Departments extends Controller {
 		}
 	}
 
-	public function destroy($id) {
-		$dep = self::department()->where('id', $id)->first();
-		self::department()->where('id', $id)->delete();
-		$this->DeleteParent($id);
+	public function destroy(Department $department) {
+		$department->delete();
 		return redirectWithSuccess(aurl('departments'), trans('admin.deleted'));
 	}
 }
