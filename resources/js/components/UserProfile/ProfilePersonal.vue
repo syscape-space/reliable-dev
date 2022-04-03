@@ -83,6 +83,26 @@
             </div>
             <div class="col-sm-12  col-lg-6 col-xl-4">
               <div class="form-group">
+                <label class="mt-3 mb-1" for="main_department">القسم الرئيسي<span
+                    class="text-danger">*</span></label>
+                <select class="form-control" v-model="main_department" name="main_department" id="main_department">
+                  <option :value="null">{{ $root._t('admin.choose') }}</option>
+                  <option v-for="department in main_departments" :value="department.id">{{ department.department_name_ar }}</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-sm-12  col-lg-6 col-xl-4">
+              <div class="form-group">
+                <label class="mt-3 mb-1" for="sub_department">القسم الفرعي<span
+                    class="text-danger">*</span></label>
+                <select class="form-control" v-model="sub_department" name="sub_department" id="sub_department">
+                  <option :value="null">{{ $root._t('admin.choose') }}</option>
+                  <option v-for="department in sub_departments" :value="department.id">{{ department.department_name_ar }}</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-sm-12  col-lg-6 col-xl-4">
+              <div class="form-group">
                 <label class="mt-3 mb-1" for="mobile">{{ $root._t('admin.mobile') }}</label>
                 <input class="form-control" :value="mobile" :placeholder="$root._t('admin.mobile')" name="mobile"
                        type="text" disabled>
@@ -165,28 +185,6 @@
               </div>
             </div>
 
-            <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
-              <div class="form-group">
-                <label for="">التخصصات</label>
-                <div class="row">
-                  <div class="col-md-6" v-for="specialty in specialties.data">
-                    <input :id="'specialties-'+specialty.id" :checked="$root.auth_user.specialties.filter(item=>item.id === specialty.id).length" @change="triggerSpecialty(specialty)" value="" type="checkbox" name="specialties[]">
-                    <label :for="'specialties-'+specialty.id">{{specialty.specialty_name_ar}}</label>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
-              <div class="form-group">
-                <label for="">الوظائف</label>
-                <div class="row">
-                  <div class="col-md-6" v-for="occupation in occupations.data">
-                    <input :id="'occupations-'+occupation.id" :checked="$root.auth_user.occupations.filter(item=>item.id === occupation.id).length" @change="triggerOccupation(occupation)" value="" type="checkbox" name="occupations[]">
-                    <label :for="'occupations-'+occupation.id">{{occupation.occupation_name_ar}}</label>
-                  </div>
-                </div>
-              </div>
-            </div>
 
             <div class="col-md-12">
               <div class="form-group">
@@ -229,6 +227,8 @@ export default {
     return {
       errors: [],
       success: null,
+      main_department: this.user?.main_department,
+      sub_department: this.user?.sub_department,
       loading: false,
       first_name: this.user?.first_name,
       middle_name: this.user?.middle_name,
@@ -250,48 +250,28 @@ export default {
       user_id: this.user_id,
       countries: this.countries,
       cities: this.cities,
-      specialties:[],
-      occupations:[],
+      departments:[],
     };
   },
   mounted(){
     this.getData();
   },
+  computed:{
+    main_departments(){
+      return this.departments.filter(item=> item.parent === null);
+    },
+    sub_departments(){
+      return this.departments.filter(item=> item.parent !== null && item.parent === this.main_department);
+    },
+  },
   methods: {
-    triggerSpecialty(specialty){
-      if (this.$root.auth_user.specialties.filter(item=>item.id === specialty.id).length){
-        this.$root.auth_user.specialties.forEach((item,index)=>{
-          if(item.id === specialty.id){
-            this.$root.auth_user.specialties.splice(index,1);
-          }
-        });
-      }else{
-        this.$root.auth_user.specialties.push(specialty);
-      }
-    },
-    triggerOccupation(occupation){
-      if (this.$root.auth_user.occupations.filter(item=>item.id === occupation.id).length){
-        this.$root.auth_user.occupations.forEach((item,index)=>{
-          if(item.id === occupation.id){
-            this.$root.auth_user.occupations.splice(index,1);
-          }
-        });
-      }else{
-        this.$root.auth_user.occupations.push(occupation);
-      }
-    },
     getData(){
-      api.get('/v1/specialties').then(res=>{
-        this.specialties = res.data.data;
-      });
-      api.get('/v1/occupations').then(res=>{
-        this.occupations = res.data.data;
+      api.get('/v1/departments').then(res=>{
+        this.departments = res.data.data;
       });
     },
     submitForm() {
       this.loading = true;
-      var specialties = this.$root.auth_user.specialties.map(item=>item.id);
-      var occupations = this.$root.auth_user.occupations.map(item=>item.id);
       if (this.first_name && this.middle_name && this.last_name && this.name && this.email && this.mobile && this.country_id != "0" && this.gender != "0" && this.city_id != "0" && this.account_type != "0" && this.membership_type != '0') {
 
         const data = {
@@ -309,8 +289,8 @@ export default {
           'membership_type': this.membership_type,
           'bio': this.bio,
           'add_offer': this.user?.add_offer,
-          'specialties':specialties,
-          'occupations':occupations,
+          'main_department':this.main_department,
+          'sub_department':this.sub_department,
         };
 
 

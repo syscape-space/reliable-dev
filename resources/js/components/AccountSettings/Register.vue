@@ -201,6 +201,7 @@ export default {
           let token = response.data.data.access_token ;
           // saving token to localSorage 
           localStorage.setItem("token", token );
+          this.$root.getAuthUser();
           // route for u_index page
           this.$router.push({ name: "profilePage" });
         })

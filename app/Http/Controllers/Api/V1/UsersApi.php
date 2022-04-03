@@ -57,6 +57,8 @@ class UsersApi extends Controller
         "current_balance",
         "suspended_balance",
         "country_id" ,
+        "main_department" ,
+        "sub_department" ,
     ];
 
     /**

@@ -1,5 +1,6 @@
 <?php
 namespace App\DataTables;
+use App\Models\City;
 use App\Models\Order;
 use Yajra\DataTables\DataTables;
 use Yajra\DataTables\Services\DataTable;
@@ -10,15 +11,14 @@ use Yajra\DataTables\Services\DataTable;
 
 class OrdersDataTable extends DataTable {
 
-	/**
-	 * dataTable to render Columns.
-	 * Auto Ajax Method By Baboon Script [it v 1.6.37]
-	 * @return \Illuminate\Http\JsonResponse
-	 */
+
 	public function dataTable(DataTables $dataTables, $query) {
 		return datatables($query)
 			->addColumn('actions', 'admin.orders.buttons.actions')
-			->addColumn('choose_service_provider', '{{ trans("admin.".$choose_service_provider) }}')
+			->addColumn('choose_service_provider', function ($d){
+			    return trans("admin.".$d->choose_service_provider)
+                    .'<br>'.($d->choose_service_provider == "by_city" ? (City::query()->find($d->city_id)->city_name_ar ?? "") : "");
+            })
 			->addColumn('order_status', '{{ trans("admin.".$order_status) }}')
 			->addColumn('negotiable', '{{ trans("admin.".$negotiable) }}')
 			->addColumn('receive_offers', '{{ trans("admin.".$receive_offers) }}')
@@ -28,7 +28,7 @@ class OrdersDataTable extends DataTable {
                   <input type="checkbox" class="selected_data" name="selected_data[]" id="selectdata{{ $id }}" value="{{ $id }}" >
                   <label for="selectdata{{ $id }}"></label>
                 </div>')
-			->rawColumns(['checkbox', 'actions']);
+			->rawColumns(['checkbox', 'actions','choose_service_provider']);
 	}
 
 	/**
@@ -265,13 +265,10 @@ class OrdersDataTable extends DataTable {
 				'orderable'  => false,
 			],
 			[
-				'name'       => 'updated_at',
-				'data'       => 'updated_at',
-				'title'      => trans('admin.updated_at'),
-				'exportable' => false,
-				'printable'  => false,
-				'searchable' => false,
-				'orderable'  => false,
+				'name'       => 'choose_service_provider',
+				'data'       => 'choose_service_provider',
+				'title'      => "تحديد مقدم الخدمة",
+
 			],
 			[
 				'name'       => 'actions',

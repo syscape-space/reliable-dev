@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\DataTables\UsersDataTable;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Validations\UsersRequest;
+use App\Models\Department;
 use App\Models\Identity;
 use App\Models\User;
 use App\Models\UserCommercial;
@@ -12,6 +13,7 @@ use App\Models\UserExperience;
 use App\Models\UserJob;
 use App\Models\UserLicense;
 use App\Models\UserQualification;
+use Illuminate\Http\Request;
 
 // Auto Controller Maker By Baboon Script
 // Baboon Maker has been Created And Developed By  [it v 1.6.37]
@@ -55,8 +57,8 @@ class Users extends Controller
 	 */
 	public function create()
 	{
-
-		return view('admin.users.create', ['title' => trans('admin.create') . ' / ' . trans('admin.' . request('membership_type'))]);
+		$departments=Department::whereNull('parent')->get();
+		return view('admin.users.create', ['title' => trans('admin.create') . ' / ' . trans('admin.' . request('membership_type')),'departments'=>$departments ]);
 	}
 
 	/**
@@ -72,8 +74,6 @@ class Users extends Controller
 		$data['admin_id']      = admin()->id();
 		$data['password']      = bcrypt(request('password'));
 		$users                 = User::create($data);
-        $users->occupations()->sync(request('occupations'));
-        $users->specialties()->sync(request('specialties'));
 		if (request()->hasFile('photo_profile')) {
 			$users->photo_profile = it()->upload('photo_profile', 'users/' . $users->id);
 			$users->save();
@@ -128,12 +128,15 @@ class Users extends Controller
 	 */
 	public function edit($id)
 	{
+		$departments=Department::whereNull('parent')->get();
         $users = User::query()->with(['occupations','specialties'])->find($id);
+		$children=Department::findOrFail($users->main_department)->children;
 		return is_null($users) || empty($users) ?
 			backWithError(trans("admin.undefinedRecord"), aurl("users")) :
 			view('admin.users.edit', [
 				'title' => trans('admin.edit') . ' - ' . trans('admin.' . $users->membership_type),
-				'users' => $users,
+				'users' => $users,'departments'=>$departments,
+				'children'=>$children
 			]);
 	}
 
@@ -173,8 +176,6 @@ class Users extends Controller
 		}
 		User::where('id', $id)->update($data);
 		$users = User::find($id);
-        $users->occupations()->sync(request('occupations'));
-        $users->specialties()->sync(request('specialties'));
 		return successResponseJson([
 			"message" => trans("admin.updated"),
 			"data"    => $users,
@@ -319,6 +320,13 @@ class Users extends Controller
 			}
 		} else {
 			return "<select class='form-control'></select>";
+		}
+	}
+
+	public function get_users_departments(Request $request){
+		if($request->department_id){
+			$department=Department::findOrFail($request->department_id);
+			return $department->children;
 		}
 	}
 }

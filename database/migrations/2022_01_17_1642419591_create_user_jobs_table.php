@@ -14,6 +14,8 @@ class CreateUserJobsTable extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
+        Schema::dropIfExists('user_jobs');
         Schema::create('user_jobs', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->foreignId("occupation_id")->constrained("occupations")->references("id")->onUpdate("cascade")->onDelete("cascade");

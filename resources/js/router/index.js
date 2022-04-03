@@ -53,7 +53,7 @@ const prefix = APP_PREFIX;
 
 // guard function 
 function guardMyroute(to, from, next) {
-    if (localStorage.getItem('token')) {
+    if (localStorage.getItem('token') && localStorage.getItem('auth_user_id')) {
         next();
     } else {
         next(prefix + '/login');
@@ -61,7 +61,7 @@ function guardMyroute(to, from, next) {
 }
 
 function checkIfLogin(to, from, next) {
-    if (localStorage.getItem('token')) {
+    if (localStorage.getItem('token')  && localStorage.getItem('auth_user_id')) {
         next(prefix + '/u_index');
     } else {
         next();

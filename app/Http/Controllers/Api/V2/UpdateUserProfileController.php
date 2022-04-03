@@ -198,6 +198,8 @@ class UpdateUserProfileController extends Controller
             'suspended_balance' => 'sometimes|nullable|numeric',
             'country_id' => 'required|numeric|exists:countries,id',
             'city_id' => 'required|numeric|exists:cities,id',
+            'main_department'=>'sometimes|nullable|numeric',
+            'sub_department'=>'sometimes|nullable|numeric',
 
         ]);
 

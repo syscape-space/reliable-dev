@@ -14,6 +14,8 @@ class CreateOrderTypesTable extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
+        Schema::dropIfExists('order_types');
         Schema::create('order_types', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->foreignId("admin_id")->constrained("admins")->onUpdate("cascade")->onDelete("cascade");

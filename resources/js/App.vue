@@ -48,6 +48,7 @@ export default {
     getAuthUser(){
       api.get('/v1/account').then(res=>{
         this.auth_user = res.data.data;
+        localStorage.setItem('auth_user_id',res.data.data.id);
       })
     },
   },
