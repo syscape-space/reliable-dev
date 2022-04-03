@@ -29,7 +29,6 @@ class UserLicensesRequest extends FormRequest {
              'license_file'=>'required|file|pdf',
              'user_id'=>'required|integer|exists:users,id',
              'license_end_at'=>'',
-             'comment'=>'sometimes|nullable|string',
 		];
 	}
 
@@ -40,7 +39,6 @@ class UserLicensesRequest extends FormRequest {
              'license_file'=>'required|file|pdf',
              'user_id'=>'required|integer|exists:users,id',
              'license_end_at'=>'',
-             'comment'=>'sometimes|nullable|string',
 		];
 	}
 

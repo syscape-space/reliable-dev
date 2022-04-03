@@ -81,7 +81,7 @@
                 </select>
               </div>
             </div>
-            <div v-if="$root.user.membership_type && $root.user.membership_type === 'vendor'" class="col-sm-12  col-lg-6 col-xl-4">
+            <div v-if="$root.auth_user.membership_type && $root.auth_user.membership_type === 'vendor'" class="col-sm-12  col-lg-6 col-xl-4">
               <div class="form-group">
                 <label class="mt-3 mb-1" for="main_department">القسم الرئيسي<span
                     class="text-danger">*</span></label>
@@ -91,7 +91,7 @@
                 </select>
               </div>
             </div>
-            <div v-if="$root.user.membership_type && $root.user.membership_type === 'vendor'" class="col-sm-12  col-lg-6 col-xl-4">
+            <div v-if="$root.auth_user.membership_type && $root.auth_user.membership_type === 'vendor'" class="col-sm-12  col-lg-6 col-xl-4">
               <div class="form-group">
                 <label class="mt-3 mb-1" for="sub_department">القسم الفرعي<span
                     class="text-danger">*</span></label>
