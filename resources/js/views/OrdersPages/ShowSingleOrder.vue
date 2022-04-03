@@ -4,7 +4,7 @@
   <section class="personal-section mt-2">
     <div class="personal">
       <div class="personal-info">
-        <div class="px-3">
+        <div class="px-3 mb-2">
           <h1 style="font-weight: 300; font-size: 35px">{{ order_title }}</h1>
           <span style="font-size: 15px; color: #636363">
             {{ $root._t("app.home") }} <span class="mx-2">/</span>
@@ -15,9 +15,10 @@
 
         <div class="row w-100 mx-0 px-0">
           <div class="col-lg-9">
-            <div class="row w-100 mx-0 px-0"
-                 v-if="order && order.order_status !== 'archived'"
-                 style="box-shadow: 1px 1px 3px #ddd; margin-bottom: 20px; margin-top: 10px;">
+
+            <div class="border row w-100 mx-0 px-0"
+                  v-if="order && order.order_status !== 'archived'"
+                  style="box-shadow: 1px 1px 3px #ddd; margin-bottom: 20px; margin-top: 10px;">
               <div class="col-md-4 my-4" style="color: #aeaeae">
                 <div class="cir-prog" style="border-color: #048e81">
                   <img :src="base_url + '/assets/images/o_hand.svg'" alt=""/>
@@ -78,7 +79,49 @@
               </h5>
               <p style="font-size: 12px" v-html="order_details"></p>
             </div>
-
+            <div  class="fw-bold  border p-2" v-if="order">
+            <!-- <h6 style="font-size: 13px" class="d-none">اطراف الطلب</h6> -->
+            <h6 style="font-size: 13px;background-image: linear-gradient(to bottom, #ff584d14, #802c2710); padding: 10px;" class="d-none">{{ $root._t("app.enemyCard") }}</h6>
+            <ul
+                class="list-unstyled px-0 f-12 text-end mt-0"
+                v-for="item in order.entities"
+                :key="item.id"
+            >
+              <li class="mb-3  d-inline-block">
+                    <span style="min-width: 60px" class="d-block mb-2">
+                      {{ $root._t("app.fullname") }}
+                    </span>
+                <span
+                    style="margin-right: 0; color: #0995eb"
+                    class="fw-bold form-control"
+                >
+                      {{ item.name }}
+                    </span>
+              </li>
+              <li class="mb-3 mx-3 d-inline-block">
+                    <span style="min-width: 60px" class="d-block mb-2">
+                      {{ $root._t("app.nationalId") }}
+                    </span>
+                <span
+                    style="margin-right: 0; color: #0995eb"
+                    class="fw-bold form-control"
+                >
+                      {{ item.id_number }}
+                    </span>
+              </li>
+              <li class="mb-3  d-inline-block">
+                    <span style="min-width: 60px" class="d-block mb-2">
+                      {{ $root._t("app.nationality") }}
+                    </span>
+                <span
+                    style="margin-right: 0; color: #0995eb"
+                    class="fw-bold form-control"
+                >
+                      {{ item.nationality }}
+                    </span>
+              </li>
+            </ul>
+          </div>
             <template
                 v-if="
                 order &&
@@ -360,7 +403,7 @@
                 </ul>
               </div>
               <!-- هنا بدايه بيانات المدعى عليه -->
-              <div
+              <!-- <div
                   v-if="order && order.entities.length"
                   class="bg-users d-flex align-items-center f-14 p-3 text-center dataOfDefendant"
                   style="
@@ -373,18 +416,18 @@
                   background-color: transparent;
                   margin-top: 20px;
                 "
-              >
-                <h6
+              > -->
+                <!-- <h6
                     style="font-size: 13px"
                     class=""
                     v-if="order.entities.length === 1"
                 >
                   {{ $root._t("app.enemyCard") }}
-                </h6>
+                </h6> -->
 
               </div>
               <!-- هنا نهايه بيانات المدعى عليه -->
-            </div>
+            <!-- </div> -->
             <div class="div-save p-2 mt-4">
               <div class="d-flex align-items-center">
                 <div>
@@ -410,48 +453,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-9" v-if="order">
-            <h6 style="font-size: 13px" class="d-none">اطراف الطلب</h6>
-            <ul
-                class="list-unstyled px-0 f-12 text-end mt-4"
-                v-for="item in order.entities"
-                :key="item.id"
-            >
-              <li class="mb-3 d-inline-block">
-                    <span style="min-width: 60px" class="d-block">
-                      {{ $root._t("app.fullname") }}
-                    </span>
-                <span
-                    style="margin-right: 0; color: #0995eb"
-                    class="fw-bold form-control"
-                >
-                      {{ item.name }}
-                    </span>
-              </li>
-              <li class="mb-3 d-inline-block">
-                    <span style="min-width: 60px" class="d-block">
-                      {{ $root._t("app.nationalId") }}
-                    </span>
-                <span
-                    style="margin-right: 0; color: #0995eb"
-                    class="fw-bold form-control"
-                >
-                      {{ item.id_number }}
-                    </span>
-              </li>
-              <li class="mb-3 d-inline-block">
-                    <span style="min-width: 60px" class="d-block">
-                      {{ $root._t("app.nationality") }}
-                    </span>
-                <span
-                    style="margin-right: 0; color: #0995eb"
-                    class="fw-bold form-control"
-                >
-                      {{ item.nationality }}
-                    </span>
-              </li>
-            </ul>
-          </div>
+          
         </div>
       </div>
     </div>

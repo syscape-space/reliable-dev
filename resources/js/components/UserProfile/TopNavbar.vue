@@ -50,13 +50,15 @@
             <router-link :to="{name:'DocumentRequest'}"
              id="addOrderBasedOnUserMembership"
               style="
-                border: 0;
-                background-color: #048e81;
-                color: #fff;
-                font-size: 12px;
-                padding: 0 40px;
-                height:38px
-              "
+                  border: 0px;
+                  background-color: rgb(4, 142, 129);
+                  color: rgb(255, 255, 255);
+                  font-size: 14px;
+                  padding: 7px 40px;
+                  height: 38px;
+                  display: block;
+                  text-decoration: none;
+                "
               class="rounded  "
             >
               اضافة طلب
@@ -85,6 +87,16 @@
               </a>
 
               <ul class=" dropdown-menu profile" aria-labelledby="dropdownMenuLink">
+                <li>
+                  <a class="dropdown-item" href="#"> {{ $root._t("app.edit_profile") }}  </a>
+                </li>
+                <li><a class="dropdown-item" href="#">{{ $root._t("app.orders") }}</a></li>
+                <li>
+                  <a class="dropdown-item" href="#"> {{ $root._t("app.card") }} </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"> {{ $root._t("app.customer_service") }} </a>
+                </li>
                 <li>
                   <a class="dropdown-item" @click.prevent="logout()" style="cursor: pointer;">خروج</a>
                 </li>

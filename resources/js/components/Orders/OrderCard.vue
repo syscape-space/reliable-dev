@@ -85,7 +85,6 @@
     <div class="col-md-9">
       <div class="clicker" @click.prevent="showThisOrderDetails(order.id)" style="cursor: pointer;">
         <h6 style="color: #048e81;font-size:20px">{{ order.order_title }}</h6>
-
         <!-- v-html=" order.order_content.split(' ')[0]" -->
         <h6 style="color: #048e81">{{ $root._t("app.orderContent") }}</h6>
         <p class="pb-3 f-12" v-html="order.order_content.substring(0,40)+'..'">
@@ -94,9 +93,6 @@
       <div class="mt-3 btw-flex">
         <div></div>
         <div class="text-center">
-          <div class="text-left text-start">
-            0123456789
-          </div>
           <router-link v-if="order && order.negotiable === 'yes' && $root.auth_user.membership_type === 'user'"
                        :to="{name:'order_negotiations',params:{id:order.id}}"
                        class="btn  btn-offer" style="    border: 0px;

@@ -3,13 +3,13 @@
       <div class="dash">
         <div class="head-dash">
           <div>
-            <div class="text-center py-4">
+            <div class="text-center pt-4">
               <div class="image-user position-relative d-inline-block">
                 <img style="width: 100px;" :src="base_url+'/assets/images/white-logo.svg'" alt="" srcset="" />
               </div>
             </div>
             <ul class="px-0 list-unstyled text-center dash-list  dash-list2 mt-0 accordion" id="accordionPanelsStayOpenExample">
-              <router-link :to="{name:'home'}" class="pt-4 text-center mawtheq-head d-flex justify-content-center">
+              <router-link :to="{name:'home'}" class="pt-0 text-center mawtheq-head d-flex justify-content-center">
                 <p class="m-0 bg-transparent text-white border px-3" style="width: auto;">لوحة التحكم</p>
                 </router-link>
               <li class="mt-2 text-white" v-if="$root.auth_user.membership_type === 'vendor'">

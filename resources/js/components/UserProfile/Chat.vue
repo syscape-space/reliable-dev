@@ -38,7 +38,7 @@
          >may 21</span></p> 
         </div>
 
-        <ul class="item-chat list-unstyled text-start px-0" v-for="item in list" :key="item.id">
+        <ul class="item-chat border p-3 list-unstyled text-start px-0" v-for="item in list" :key="item.id">
           <li v-if="item.admin_id != null "> 
             
             <span class="w-100 d-block">

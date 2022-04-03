@@ -4,7 +4,7 @@
         <div class="head-dash">
           <div>
             
-            <div class="text-center py-4">
+            <div class="text-center pt-4">
               <div class="image-user position-relative d-inline-block">
                 <img style="width: 140px; height: 140px; border-radius: 50%;" :src="user?.photo_profile != null ? cloud_url + user?.photo_profile : base_url+ '/assets/images/dash-user.png'" alt="" srcset="" />
                 
@@ -33,7 +33,7 @@
                   الرئيسية
                 </p>
              </div>
-             <div class="pt-4 text-center mawtheq-head d-flex justify-content-center">
+             <div class="pt-0 text-center mawtheq-head d-flex justify-content-center">
                 <p class="m-0 bg-transparent text-white border px-3" style="width:auto" v-if="user.membership_type === null">
                   {{ $root._t("app.withoutMemberShip") }}
                 </p>
