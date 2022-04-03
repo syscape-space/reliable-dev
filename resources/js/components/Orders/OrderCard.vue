@@ -87,7 +87,7 @@
         <h6 style="color: #048e81;font-size:20px">{{ order.order_title }}</h6>
         <!-- v-html=" order.order_content.split(' ')[0]" -->
         <h6 style="color: #048e81">{{ $root._t("app.orderContent") }}</h6>
-        <p class="pb-3 f-12" v-html="order.order_content.substring(0,40)+'..'">
+        <p class="pb-3 f-12 mb-0" v-html="order.order_content.substring(0,40)+'..'">
         </p>
       </div>
       <div class="mt-3 btw-flex">
