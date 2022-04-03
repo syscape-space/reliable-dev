@@ -29,20 +29,6 @@
                 <div class="card-body">
                     <div class="row w-100 mx-0 px-0">
                         <div class="col-sm-12  col-lg-6 col-xl-4">
-                            <div class="form-group" id="ifSpecialistNotFoun">
-                                <label class="mt-3 mb-1" for="specialtie_id">التخصص<span class="text-danger">*</span>
-                                </label>
-                                <select class="form-control" v-model="specialtie_id" name="specialtie_id"
-                                    id="specialtie_id" :disabled="editable == false">
-                                    <option value=0>{{$root._t('admin.choose')}}</option>
-                                    <option v-for="sp in specialties" :key="sp.id" :value="sp.id"
-                                        :selected="sp.id == (commercial?.specialtie_id ?? '')">
-                                        {{sp.specialty_name_ar}}
-                                    </option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-sm-12  col-lg-6 col-xl-4">
                             <div class="form-group">
                                 <label class="mt-3 mb-1" for="commercial_id">رقم السجل<span class="text-danger">*</span>
                                 </label>
@@ -69,14 +55,7 @@
 
                             </div>
                         </div>
-                        <div class="col-12">
-                            <div class="form-group">
-                                <label class="mt-2 mb-1" for="comment">معلومات اضافية</label>
-                                <textarea name="comment" v-model="comment" class="form-control" style="height: 100px;"
-                                    id="" rows="5" :disabled="editable == false"
-                                    v-text="commercial?.comment ?? '' "></textarea>
-                            </div>
-                        </div>
+
 
                     </div>
                 </div>
@@ -121,30 +100,25 @@ import api from '../../utils/api';
             
             submitForm() {               
                 this.loading = true;
-                if (this.specialtie_id != 0 && this.user_id && this.commercial_id && this.commercial_end_at) {
-                    const commercialData = new FormData(this.$refs.commercialForm);
-                    api.post("/profile/commercial", commercialData)
-                    .then((response) => {
-                        this.loading = false;
-                        this.editable = false;
-                        this.errors = [];
-                        this.$emit('refersh');
-                        this.successMsg = response.data.message;
-                    })
-                    .catch((e) => {
-                        this.loading = false;
-                        this.errors = [];
-                        if(e.response.data.message === 'برجاء اضافة وظيفة في هذا التخصص قبل اضافة السجل'){
-                            document.getElementById("chooseJobInpt").style.display = 'block';
-                            document.getElementById("chooseJobInptSelector").style.border = "thick solid red";
-                        }
-                        this.errors= [e.response.data.message]; 
-                    });
-                } else {
-                    this.loading = false;
-                    this.errors = [];
-                    this.errors = ['البيانات غير كاملة'];
-                }
+                  const commercialData = new FormData(this.$refs.commercialForm);
+                  api.post("/profile/commercial", commercialData)
+                  .then((response) => {
+                      this.loading = false;
+                      this.editable = false;
+                      this.errors = [];
+                      this.$emit('refersh');
+                      this.successMsg = response.data.message;
+                  })
+                  .catch((e) => {
+                      this.loading = false;
+                      this.errors = [];
+                      if(e.response.data.message === 'برجاء اضافة وظيفة في هذا التخصص قبل اضافة السجل'){
+                          document.getElementById("chooseJobInpt").style.display = 'block';
+                          document.getElementById("chooseJobInptSelector").style.border = "thick solid red";
+                      }
+                      this.errors= [e.response.data.message];
+                  });
+
             },
             
         },

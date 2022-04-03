@@ -27,8 +27,6 @@ class UsersRequest extends FormRequest {
 			'middle_name'                   => 'required|string',
 			'last_name'                     => 'required|string',
 			'name'                          => 'required|string',
-			'main_department'                          => 'required',
-			'sub_department'                          => 'required',
 			'email'                         => 'required|email|unique:users,email',
 			'email_verify'                  => 'required|string|in:pending,verified',
 			'mobile'                        => 'sometimes|nullable|unique:users,mobile|numeric',
@@ -69,6 +67,10 @@ class UsersRequest extends FormRequest {
 		if (request('membership_type') == 'employee') {
 			$rules['company_id'] = 'required|integer|exists:users,id';
 		}
+		if (request('membership_type') == 'vendor') {
+            $rules['main_department'] = 'required';
+			$rules['sub_department'] = 'required';
+		}
 		return $rules;
 	}
 
@@ -78,8 +80,6 @@ class UsersRequest extends FormRequest {
 			'middle_name'        => 'required|string',
 			'last_name'          => 'required|string',
 			'name'               => 'required|string',
-			'main_department'               => 'required',
-			'sub_department'               => 'required',
 			'email'              => 'required|email|unique:users,email,'.request()->segment(3),
 			'email_verify'       => 'required|string|in:pending,verified',
 			'mobile'             => 'sometimes|nullable|numeric|unique:users,mobile,'.request()->segment(3),
@@ -115,11 +115,14 @@ class UsersRequest extends FormRequest {
 			'current_balance'               => 'sometimes|nullable|numeric',
 			'suspended_balance'             => 'sometimes|nullable|numeric',
 		];
-		$rules['country_id'] = 'required|integer|exists:countries,id';
 		$rules['city_id']    = 'required|integer|exists:cities,id';
 		if (request('membership_type') == 'employee') {
 			$rules['company_id'] = 'required|integer|exists:users,id';
 		}
+        if (request('membership_type') == 'vendor') {
+            $rules['main_department'] = 'required';
+            $rules['sub_department'] = 'required';
+        }
 		return $rules;
 	}
 

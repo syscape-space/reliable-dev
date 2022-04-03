@@ -248,8 +248,6 @@ class UpdateUserProfileController extends Controller
             'license_file'   => 'required|file',
             'user_id'        => 'required|integer|exists:users,id',
             'license_end_at' => 'sometimes|nullable',
-            'specialtie_id'  => 'required|integer|exists:specialties,id',
-            'comment'        => 'sometimes|nullable|string',
         ]);
         if ($validator->fails()) {
             // return successResponseJson($validator->errors()->all());
@@ -259,15 +257,8 @@ class UpdateUserProfileController extends Controller
         if ($this->isPast($data['license_end_at'])) {
             return errorResponseJson(["message" => 'تاريخ انتهاء الرخصة غير صالح']);
         }
-        $job = UserJob::where('specialtie_id', $data['specialtie_id'])->where('user_id', $data['user_id'])->first();
-        if (is_null($job) || empty($job)) {
-            return errorResponseJson(["message" => 'برجاء اضافة وظيفة في هذا التخصص قبل اضافة الرخصة']);
-            // return redirect()->back()->withInput($data)->with('error', 'برجاء اضافة وظيفة في هذا التخصص قبل اضافة الرخصة');
-        }
         $license  = UserLicense::where('user_id', $data['user_id'])->first();
         $data['license_file'] = "";
-        $data['occupation_id'] = $job->occupation_id;
-        $data['user_job_id'] = $job->id;
         try {
             if ($license) {
                 // update
@@ -300,8 +291,6 @@ class UpdateUserProfileController extends Controller
             'commercial_file'   => 'required|file',
             'commercial_end_at' => 'required|date',
             'user_id'           => 'required|integer|exists:users,id',
-            'comment'           => 'sometimes|nullable|string',
-            'specialtie_id'  => 'required|integer|exists:specialties,id',
         ]);
         if ($validator->fails()) {
             return errorResponseJson(['message' => $uncompletedInfo]);
@@ -309,14 +298,8 @@ class UpdateUserProfileController extends Controller
         if ($this->isPast($data['commercial_end_at'])) {
             return errorResponseJson(['message' => 'تاريخ انتهاء السجل غير صالح']);
         }
-        $job = UserJob::where('specialtie_id', $data['specialtie_id'])->where('user_id', $data['user_id'])->first();
-        if (is_null($job) || empty($job)) {
-            return errorResponseJson(['message' => 'برجاء اضافة وظيفة في هذا التخصص قبل اضافة السجل']);
-        }
         $commercial              = UserCommercial::where('user_id', $data['user_id'])->first();
         $data['commercial_file'] = "";
-        $data['occupation_id'] = $job->occupation_id;
-        $data['user_job_id'] = $job->id;
         try {
             if ($commercial) {
                 // update
