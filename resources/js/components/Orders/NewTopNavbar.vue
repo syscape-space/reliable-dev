@@ -184,7 +184,7 @@
                     <a class="dropdown-item" href="#"> {{ $root._t("app.customer_service") }} </a>
                   </li>
                   <li>
-                    <a class="dropdown-item" @click.prevent="logout()" style="cursor: pointer;">Logout</a>
+                    <a class="dropdown-item" @click.prevent="logout()" style="cursor: pointer;">خروج</a>
                   </li>
                 </ul>
               </div>

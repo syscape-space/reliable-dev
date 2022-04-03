@@ -57,12 +57,12 @@
                  {{ $root._t("app.longText") }}
                 </p>
               </div>
-              <div 
+              <!-- <div 
                 class="py-2 px-3 d-inline-block rounded f-14"
                 style="color: #2B7B74;background-color: #EBFFFD;">
                 <span class="ms-3 fw-bold">ميزانية المشروع</span>
                 <span>{{ $root._t("app.from200To500") }}</span>
-              </div>
+              </div> -->
               <div class="my-4 btw-flex">
                 <span>العروض التقديمية</span>
                 <span>
