@@ -91,7 +91,7 @@ class AuthAndLogin extends Controller
             $query->from('orders')
                 ->selectRaw('COUNT(*)');
         },'orders_count')
-            ->with(['occupations','specialties'])
+            ->with(['occupations','specialties','mainDepartment','subDepartment'])
             ->find($user_id);
 		return successResponseJson(['data' => $user]);
 	}

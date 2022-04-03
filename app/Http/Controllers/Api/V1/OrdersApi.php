@@ -54,6 +54,11 @@ class OrdersApi extends Controller{
                 $q->where('user_id',auth('api')->id());
             }else{
                 $q->where('order_status','open');
+                $q->where('choose_service_provider','all')
+                    ->orWhere(function ($q1){
+                        $q1->where('choose_service_provider','by_city')
+                            ->where('city_id',auth('api')->id());
+                    });
             }
         })->with($this->arrWith())->orderBy("id","desc")->paginate(15);
         return successResponseJson(["data"=>$Order]);

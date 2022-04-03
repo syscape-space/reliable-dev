@@ -67,6 +67,9 @@ class User extends Authenticatable implements JWTSubject {
 		'suspended_balance',
 		'created_at',
 		'updated_at',
+
+        'main_department',
+        'sub_department',
 	];
 
 	/**
@@ -93,7 +96,12 @@ class User extends Authenticatable implements JWTSubject {
 	 *
 	 * @return mixed
 	 */
-
+    public function mainDepartment(){
+        return $this->belongsTo(Department::class,'main_department','id');
+    }
+    public function subDepartment(){
+        return $this->belongsTo(Department::class,'sub_department','id');
+    }
 
     public function getJWTIdentifier() {
 		return $this->getKey();

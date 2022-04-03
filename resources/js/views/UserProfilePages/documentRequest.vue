@@ -116,9 +116,8 @@
                   <div class="form-group col-md-6 mb-3">
                     <select id="inputState" v-model="form.department_id" class="form-control" style="color: #048E81; font-size: 14px; padding: 10px;">
                       <option :value="null" selected>{{ $root._t("app.chooseMainCategory") }}</option>
-                      <template v-for="department in departments">
-                        <option v-if="department.parent === null && department.enable_post === 'yes'"
-                                :value="department.id">{{ department.department_name_ar }}
+                      <template v-for="department in main_departments">
+                        <option :value="department.id">{{ department.department_name_ar }}
                         </option>
                       </template>
                     </select>
@@ -126,8 +125,8 @@
                   <div class="form-group col-md-6 mb-3" v-if="form.department_id">
                     <select id="inputState" v-model="form.sub_department_id" class="form-control" style="color: #048E81; font-size: 14px; padding: 10px;">
                       <option :value="null" selected>{{ $root._t("app.chooseSubCategory") }}</option>
-                      <template v-for="department in departments">
-                        <option :value="department.id" v-if="department.parent == form.department_id">
+                      <template v-for="department in sub_departments">
+                        <option :value="department.id" >
                           {{ department.department_name_ar }}
                         </option>
                       </template>
@@ -425,6 +424,12 @@ export default {
   },
   components: {},
   computed:{
+    main_departments(){
+      return this.departments.filter(item=> item.parent === null);
+    },
+    sub_departments(){
+      return this.departments.filter(item=> item.parent !== null && item.parent === this.form.department_id);
+    },
     balanceCovered(){
       var current_balance = parseInt(this.$root.auth_user.current_balance);
       var order_fees  = parseInt(this.$root.settings.minimum_amount_add_order);

@@ -58,7 +58,7 @@
                 justify-content-center
               "
     >
-      <div style="border-left: 3px solid #ddd" class="px-3">
+      <div style="border-left: 3px solid #ddd" class="px-3" v-if="order.user_id">
         <img
             style="width: 70px;height:70px;border-radius:50%"
             :src="cloud_url+ order.user_id.photo_profile"

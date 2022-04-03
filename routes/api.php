@@ -47,7 +47,6 @@ Route::group(
 	function () {
 
 
-
 		Route::apiResource("cities", "CitiesApi", ["as" => "api.cities"]);
 		Route::post("cities/multi_delete", "CitiesApi@multi_delete");
 
@@ -87,7 +86,7 @@ Route::group(
 
 		Route::get('settings', 'SettingController@index');
 		Route::group(['middleware' => 'jwt.auth'], function () {
-
+		    Route::get('open-order/{order_id}','UserOrderController@openOrder');
 			Route::get('account', 'Auth\AuthAndLogin@account')->name('api.account');
 			Route::post('logout', 'Auth\AuthAndLogin@logout')->name('api.logout');
 			Route::post('refresh', 'Auth\AuthAndLogin@refresh')->name('api.refresh');

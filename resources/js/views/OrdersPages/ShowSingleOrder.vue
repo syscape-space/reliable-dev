@@ -16,6 +16,7 @@
         <div class="row w-100 mx-0 px-0">
           <div class="col-lg-9">
             <div class="row w-100 mx-0 px-0"
+                 v-if="order && order.order_status !== 'archived'"
                  style="box-shadow: 1px 1px 3px #ddd; margin-bottom: 20px; margin-top: 10px;">
               <div class="col-md-4 my-4" style="color: #aeaeae">
                 <div class="cir-prog" style="border-color: #048e81">
@@ -55,6 +56,20 @@
                     {{ $root._t("app.ending") }}
                   </h6>
                 </div>
+              </div>
+            </div>
+            <div v-else class="row w-100">
+              <div class="col-12 alert alert-primary p-3">
+                <h5 class="text-center w-100">
+                  الطلب مؤرشف الان يمكنك فتح الطلب عن طريق دفع الاشتراك
+                </h5>
+                <button class="btn btn-sm btn-success" @click="openOrder" v-if="balanceCovered">
+                  فتح الطلب
+                  <span>{{$root.settings.minimum_amount_add_order}} $</span>
+                </button>
+                <button class="btn btn-sm btn-danger" v-else disabled>
+                  لا يوجد رصيد كافي
+                </button>
               </div>
             </div>
             <div>
@@ -276,7 +291,7 @@
                       {{ created_at }}
                     </span>
                   </li>
-                  <li class="mb-3 d-inline-block">
+                  <li class="mb-3 f-12">
                     <span style="min-width: 60px" class="d-block">
                       {{ $root._t("app.executionTime") }}
                     </span>
@@ -287,7 +302,7 @@
                       {{ execution_time_num }} {{ $root._t("app.day") }}
                     </span>
                   </li>
-                  <li class="mb-3 d-inline-block">
+                  <li class="mb-3 f-12">
                     <span style="min-width: 60px" class="d-block">
                       {{ $root._t("app.offersNum") }}
                     </span>
@@ -296,6 +311,25 @@
                         class="fw-bold "
                     >
                       {{ offersCount }} عرض
+                    </span>
+                  </li>
+                  <li class="mb-3 f-12">
+                    <span style="min-width: 60px" class="d-block">
+                      المدينة
+                    </span>
+                    <span
+                        v-if="order && order.city_id"
+                        style="margin-right: 0; color: #0995eb"
+                        class="fw-bold "
+                    >
+                      {{ order.city_id.city_name_ar }}
+                    </span>
+                    <span
+                        v-else
+                        style="margin-right: 0; color: #0995eb"
+                        class="fw-bold "
+                    >
+                      غير محدد
                     </span>
                   </li>
                   <li class="mb-3 d-inline-block">
@@ -465,6 +499,12 @@ export default {
     };
   },
   methods: {
+    openOrder(){
+      api.get('/v1/open-order/'+this.order.id).then(res=>{
+        this.order.order_status = "under_review";
+        this.$root.alertSuccess('تم ارسال الطلب بنجاح وبأنتظار موافقة الادارة');
+      });
+    },
     myFunction() {
       var txt;
       if (confirm("Are you sure")) {
@@ -547,6 +587,11 @@ export default {
     },
   },
   computed: {
+    balanceCovered(){
+      var current_balance = parseInt(this.$root.auth_user.current_balance);
+      var order_fees  = parseInt(this.$root.settings.minimum_amount_add_order);
+      return current_balance >= order_fees;
+    },
     summitedOffer() {
       var summited = false;
       if (this.offers.data) {

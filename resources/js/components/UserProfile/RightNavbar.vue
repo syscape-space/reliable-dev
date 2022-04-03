@@ -22,10 +22,10 @@
                 {{ user.name }}
               </h4>
               <p>
-                <span class="w-100 text-white" v-for="(occupation,index) in $root.auth_user.occupations"> <small v-if="index !==0 "> - </small>  {{occupation.occupation_name_ar}} </span>
+                <span class="w-100 text-white" v-if="$root.auth_user.main_department">{{$root.auth_user.main_department.department_name_ar}}</span>
               </p>
               <p>
-                <span class="w-100 text-white" v-for="(specialty,index) in $root.auth_user.specialties"> <small v-if="index !==0 "> - </small>  {{specialty.specialty_name_ar}} </span>
+                <span class="w-100 text-white" v-if="$root.auth_user.sub_department">{{$root.auth_user.sub_department.department_name_ar}}</span>
               </p>
             </div>
              <div class="pt-2 text-center mawtheq-head d-flex justify-content-center">

@@ -64,6 +64,8 @@ class UsersRequest extends FormRequest {
              'password'=>'sometimes|nullable|string',
              'current_balance'=>'sometimes|nullable|numeric',
              'suspended_balance'=>'sometimes|nullable|numeric',
+             'main_department'=>'sometimes|nullable|numeric',
+             'sub_department'=>'sometimes|nullable|numeric',
 		];
 	}
 
@@ -109,6 +111,8 @@ class UsersRequest extends FormRequest {
              'password'=>'sometimes|nullable|string',
              'current_balance'=>'sometimes|nullable|numeric',
              'suspended_balance'=>'sometimes|nullable|numeric',
+            'main_department'=>'sometimes|nullable|numeric',
+            'sub_department'=>'sometimes|nullable|numeric',
 		];
 	}
 
