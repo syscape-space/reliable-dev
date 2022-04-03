@@ -59,7 +59,7 @@ class Departments extends Controller {
 			$status = false;
 		}
 		return successResponseJson([
-				'enable_post' => $status,
+				'enable_post' => true,
 			]);
 	}
 
