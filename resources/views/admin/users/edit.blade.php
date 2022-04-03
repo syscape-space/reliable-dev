@@ -327,38 +327,6 @@
                         {!! Form::textarea('bio', $users->bio, ['class' => 'form-control', 'placeholder' => trans('admin.bio')]) !!}
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
-                    <div class="form-group">
-                        <label for="">التخصصات</label>
-                        @foreach (\App\Models\Specialtie::all() as $specialty)
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <input id="specialties-{{ $specialty->id }}"
-                                        {{ $users->specialties->contains($specialty) ? 'checked' : '' }}
-                                        value="{{ $specialty->id }}" type="checkbox" name="specialties[]">
-                                    <label
-                                        for="specialties-{{ $specialty->id }}">{{ $specialty->specialty_name_ar }}</label>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
-                    <div class="form-group">
-                        <label for="">الوظائف</label>
-                        @foreach (\App\Models\Occupation::all() as $occupation)
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <input id="occupations-{{ $occupation->id }}"
-                                        {{ $users->occupations->contains($occupation) ? 'checked' : '' }}
-                                        value="{{ $occupation->id }}" type="checkbox" name="occupations[]">
-                                    <label
-                                        for="occupations-{{ $occupation->id }}">{{ $occupation->occupation_name_ar }}</label>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
                 <div class="col-md-4 col-lg-4 col-sm-4 col-xs-12">
                     <div class="form-group">
                         {!! Form::label('gender', trans('admin.gender')) !!}
