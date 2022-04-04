@@ -89,8 +89,8 @@
                     <div class="position-relative">
                       <input style="width: 141px;" type="file" class="abs-file">
                       <div style="color: #048E81;" class="add-o-file  f-12">
-                        <span>{{ $root._t("app.addFiles") }}</span>
                         <img :src="base_url+'/assets/images/o_file.svg'" alt="">
+                        <span>{{ $root._t("app.addFiles") }}</span>
                       </div>
                     </div>
                     <div>
@@ -306,3 +306,17 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.add-o-file {
+    color: #3e3f40;
+    width: 141px;
+    background: #ffffff;
+    border: 1px solid #dee2e6;
+    padding: 6px;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+</style>

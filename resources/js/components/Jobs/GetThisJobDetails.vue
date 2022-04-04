@@ -76,8 +76,8 @@
                     <div class="position-relative">
                       <input style="width: 141px;" type="file" id="selectImage" v-on:change="onChange" accept="image/png, image/gif, image/jpeg" name="image" />
                       <div style="color: #048E81;" class="add-o-file  f-12">
-                        <span>{{ $root._t("app.uploadYouCv") }}</span>
                         <img style="width: 12px;" :src="base_url+'/assets/images/o_file.svg'" alt="">
+                        <span>{{ $root._t("app.uploadYouCv") }}</span>
                       </div>
                     </div>
                     

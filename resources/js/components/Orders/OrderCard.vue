@@ -86,7 +86,7 @@
       <div class="clicker" @click.prevent="showThisOrderDetails(order.id)" style="cursor: pointer;">
         <h6 style="color: #048e81;font-size:20px">{{ order.order_title }}</h6>
         <!-- v-html=" order.order_content.split(' ')[0]" -->
-        <h6 style="color: #048e81">{{ $root._t("app.orderContent") }}</h6>
+        <!-- <h6 style="color: #048e81">{{ $root._t("app.orderContent") }}</h6> -->
         <p class="pb-3 f-12 mb-0" v-html="order.order_content.substring(0,40)+'..'">
         </p>
       </div>
@@ -96,15 +96,15 @@
           <router-link v-if="order && order.negotiable === 'yes' && $root.auth_user.membership_type === 'user'"
                        :to="{name:'order_negotiations',params:{id:order.id}}"
                        class="btn  btn-offer" style="    border: 0px;
-    background-color: rgb(10 149 235);
-    color: rgb(255, 255, 255);
-    font-size: 12px;
-    padding: 9px 40px;
-    height: 40px;
-    white-space: nowrap;
-    width: auto;
-    margin-left: 5px;
-">
+                  background-color: rgb(10 149 235);
+                  color: rgb(255, 255, 255);
+                  font-size: 12px;
+                  padding: 9px 40px;
+                  height: 40px;
+                  white-space: nowrap;
+                  width: auto;
+                  margin-left: 5px;
+              ">
             مفاوضات
             <span v-html="order.negotiations.length">
 

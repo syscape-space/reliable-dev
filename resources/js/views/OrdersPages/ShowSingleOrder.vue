@@ -195,11 +195,12 @@
                           class="abs-file"
                       />
                       <div style="color: #048e81" class="add-o-file f-12">
-                        <span> {{ $root._t("app.addFiles") }} </span>
                         <img
                             :src="base_url + '/assets/images/o_file.svg'"
                             alt=""
                         />
+                        <span> {{ $root._t("app.addFiles") }} </span>
+                        
                       </div>
                     </div>
                     <div>
@@ -304,27 +305,27 @@
                     <button
                         v-if="order_status === 'under_review'"
                         class="o_btn d-inline-block px-3 py-2 rounded"
-                        style="margin-right: 15px; background-color: orange"
+                        style="margin-right: 15px; background-color: orange;font-size: 12px; padding: 2px 7px !important;"
                     >
                       {{ $root._t("app." + order_status) }}
                     </button>
                     <button
                         v-else-if="order_status === 'open'"
                         class="o_btn d-inline-block px-3 py-2 rounded"
-                        style="margin-right: 15px; background-color: green"
+                        style="margin-right: 15px; background-color: green; font-size: 12px; padding: 2px 7px !important;"
                     >
                       {{ $root._t("app." + order_status) }}
                     </button>
                     <button
                         v-else-if="order_status === 'closed'"
                         class="o_btn d-inline-block px-3 py-2 rounded"
-                        style="margin-right: 15px; background-color: red"
+                        style="margin-right: 15px; background-color: red;font-size: 12px; padding: 2px 7px !important;"
                     >
                       {{ $root._t("app." + order_status) }}
                     </button>
                   </li>
-                  <li class="mb-3 d-inline-block">
-                    <span style="min-width: 60px" class="d-block">
+                  <li class="d-flex align-items-center  mb-3 d-inline-block">
+                    <span style="min-width: 85px" class="d-block">
                       {{ $root._t("app.publishDate") }}
                     </span>
                     <span
@@ -334,8 +335,8 @@
                       {{ created_at }}
                     </span>
                   </li>
-                  <li class="mb-3 f-12">
-                    <span style="min-width: 60px" class="d-block">
+                  <li class="d-flex align-items-center  mb-3 f-12">
+                    <span style="min-width: 85px" class="d-block">
                       {{ $root._t("app.executionTime") }}
                     </span>
                     <span
@@ -345,8 +346,8 @@
                       {{ execution_time_num }} {{ $root._t("app.day") }}
                     </span>
                   </li>
-                  <li class="mb-3 f-12">
-                    <span style="min-width: 60px" class="d-block">
+                  <li class="d-flex align-items-center  mb-3 f-12">
+                    <span style="min-width: 85px" class="d-block">
                       {{ $root._t("app.offersNum") }}
                     </span>
                     <span
@@ -356,8 +357,8 @@
                       {{ offersCount }} عرض
                     </span>
                   </li>
-                  <li class="mb-3 f-12">
-                    <span style="min-width: 60px" class="d-block">
+                  <li class="d-flex align-items-center  mb-3 f-12">
+                    <span style="min-width: 85px" class="d-block">
                       المدينة
                     </span>
                     <span
@@ -375,8 +376,8 @@
                       غير محدد
                     </span>
                   </li>
-                  <li class="mb-3 d-inline-block">
-                    <span style="min-width: 60px" class="d-block">
+                  <li class="d-flex align-items-center  mb-3 d-inline-block">
+                    <span style="min-width: 85px" class="d-block">
                       {{ $root._t("app.projectOwner") }}
                     </span>
                   </li>
@@ -613,5 +614,16 @@ export default {
 <style scoped>
 h1 {
   font-family: "DroidArabicKufiRegular";
+}
+.add-o-file {
+    color: #3e3f40;
+    width: 141px;
+    background: #ffffff;
+    border: 1px solid #dee2e6;
+    padding: 6px;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 </style>

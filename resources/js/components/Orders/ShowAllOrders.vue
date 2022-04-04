@@ -4,22 +4,7 @@
       <div class="personal-info">
         <div class="btw-flex">
           <div class="position-relative">
-            <i
-              style="
-                position: absolute;
-                top: 50%;
-                right: 5px;
-                transform: translateY(-50%);
-              "
-              class="text-white fas fa-search"
-            ></i>
-            <input
-              :placeholder="$root._t('app.search')"
-              class="search-cc form-control pe-4"
-              type="text"
-              name=""
-              id=""
-            />
+            
           </div>
           <div>
             <div class="btn-group">

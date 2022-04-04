@@ -100,7 +100,7 @@
                 </a>
               </li> -->
               <li>
-                <a @click.prevent="goToTazkarty(user.id)" style="color:#fff; cursor: pointer;">
+                <a  @click.prevent="goToTazkarty(user.id)" style="color:#fff; cursor: pointer;">
                   <img
                     :src="base_url+'/assets/images/dash-remem.svg'"
                     style="width: 18px"
@@ -110,8 +110,8 @@
                   <span>{{ $root._t("app.memorial") }}</span>
                 </a>
               </li>
-              <li v-if="user.membership_type === 'vendor'">
-                <router-link :to="{ name : 'ShowAllOrders' }" style="color:#fff; cursor: pointer; margin-top: 20px;">
+              <li v-if="user.membership_type === 'vendor'" class="mt-2">
+                <router-link class="mt-0" :to="{ name : 'ShowAllOrders' }" style="color:#fff; cursor: pointer; margin-top: 20px;">
                   <img
                     :src="base_url+'/assets/images/dash-remem.svg'"
                     style="width: 18px"

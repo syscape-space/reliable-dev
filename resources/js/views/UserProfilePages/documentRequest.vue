@@ -636,4 +636,15 @@ export default {
     align-items: center;
     justify-content: space-around;
 }
+.add-o-file {
+    color: #3e3f40;
+    width: 141px;
+    background: #ffffff;
+    border: 1px solid #dee2e6;
+    padding: 6px;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
 </style>
