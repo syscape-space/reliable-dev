@@ -52,7 +52,7 @@ export default {
       })
     },
     userLicenseAndCommercialSubmitted(){
-      if (this.auth_user.license_submitted == false ||  this.auth_user.commercial_submitted == false){
+      if (this.auth_user.membership_type === 'vendor' && (this.auth_user.license_submitted == false ||  this.auth_user.commercial_submitted == false)){
         this.$router.replace({name:'u_indexPage'});
         this.alertErrors(['يجب اكمل الرخصة و السجل التجاري .']);
       }
