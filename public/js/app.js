@@ -23081,8 +23081,9 @@ __webpack_require__.r(__webpack_exports__);
         _utils_api__WEBPACK_IMPORTED_MODULE_0__["default"].post("v1/orderoffers", formData).then(function (response) {
           console.log(response);
 
-          _this4.$root.alertSuccess("Offer Added Successfully"); // this.$router.push({ name: "Ticket2" });
+          _this4.$root.alertSuccess("تم اضافة عرضك بنجاح");
 
+          _this4.gettingOrderDetails();
         }) // error.response.data.errors
         ["catch"](function (e) {
           _this4.errors = e.response.data.errors;

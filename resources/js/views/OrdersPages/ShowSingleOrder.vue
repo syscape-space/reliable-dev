@@ -569,12 +569,11 @@ export default {
         formData.append("execution_time", this.execution_time);
         formData.append("offer_status", "pending");
 
-        api
-            .post("v1/orderoffers", formData)
+        api.post("v1/orderoffers", formData)
             .then((response) => {
               console.log(response);
-              this.$root.alertSuccess("Offer Added Successfully");
-              // this.$router.push({ name: "Ticket2" });
+              this.$root.alertSuccess("تم اضافة عرضك بنجاح");
+              this.gettingOrderDetails();
             })
             // error.response.data.errors
             .catch((e) => {
