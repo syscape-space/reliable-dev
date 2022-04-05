@@ -6,23 +6,23 @@
           <li class="d-flex mx-3">
             <img style="width:40px ;" :src="base_url + '/storage/' +  profileImage  " alt="">
             <p style="font-size: 13px;     margin-top: 10px !important;" class="me-1 m-0"> {{ username }} <br>
-               <span style="color: rgb(165, 164, 164);" > </span> </p>
+               <span style="height: 23px; display: inline-block; max-width: 63px; overflow: hidden;color: rgb(165, 164, 164);"  > </span> </p>
           </li><br>
           <li class="d-flex mx-3">
             <p style="font-size: 13px;" class="me-1 m-0"> عنوان التذكره <br>
-               <span style="color: rgb(165, 164, 164);" > {{ ticketTitle }} </span> </p>
+               <span style="height: 23px; display: inline-block; max-width: 63px; overflow: hidden;color: rgb(165, 164, 164);"  > {{ ticketTitle }} </span> </p>
           </li>
           <li class="d-flex mx-3">
             <p style="font-size: 13px;" class="me-1 m-0"> التذكرة مرتبطة ب <br>
-               <span style="color: rgb(165, 164, 164);" > {{ RelatedTo }} </span> </p>
+               <span style="height: 23px; display: inline-block; max-width: 63px; overflow: hidden;color: rgb(165, 164, 164);"  > {{ RelatedTo }} </span> </p>
           </li>
           <li class="d-flex mx-3">
             <p style="font-size: 13px;" class="me-1 m-0"> قسم الدعم الفنى <br>
-               <span style="color: rgb(165, 164, 164);" > {{ department }} </span> </p>
+               <span style="height: 23px; display: inline-block; max-width: 63px; overflow: hidden;color: rgb(165, 164, 164);"  > {{ department }} </span> </p>
           </li>
           <li class="d-flex mx-3">
             <p style="font-size: 13px;" class="me-1 m-0"> محتوى التذكره <br>
-               <span style="color: rgb(165, 164, 164);" > {{ ticketContent }} </span> </p>
+               <span style="height: 23px; display: inline-block; max-width: 63px; overflow: hidden;color: rgb(165, 164, 164);"  > {{ ticketContent }} </span> </p>
           </li>
           <li class="d-flex me-auto ms-3" >
             <img class="mx-4" :src="base_url+'/assets/images/chate2.svg'" alt="">
