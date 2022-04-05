@@ -8,12 +8,15 @@
               <div class="image-user position-relative d-inline-block">
                 <img style="width: 140px; height: 140px; border-radius: 50%;" :src="user?.photo_profile != null ? cloud_url + user?.photo_profile : base_url+ '/assets/images/dash-user.png'" alt="" srcset="" />
                 
+                <p class="m-0" style="position: absolute; bottom: 1px; left: -8px; background-color: #fff; padding: 5px; border-radius: 5px;">
                 <img
-                  style="position: absolute; bottom: 0; left: 0"
-                  :src="base_url+'/assets/images/dash-edit.svg'"
+                  :src="base_url+'/assets/images/dash-mawthq.svg'"
+                  class="ms-2"
                   alt=""
                   srcset=""
                 />
+                موثق
+              </p>
               </div>
               <h4
                 class="mt-3"
@@ -44,15 +47,7 @@
             <div
               class="pt-4 text-center mawtheq-head d-flex justify-content-center"
               >
-              <p class="m-0">
-                <img
-                  :src="base_url+'/assets/images/dash-mawthq.svg'"
-                  class="ms-2"
-                  alt=""
-                  srcset=""
-                />
-                موثق
-              </p>
+              
             </div>
             <ul class="px-0 list-unstyled text-center dash-list mt-0">
               <li class="active">

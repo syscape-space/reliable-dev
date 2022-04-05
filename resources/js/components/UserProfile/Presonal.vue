@@ -28,10 +28,10 @@
               
               <ul class="list-group list-group-flush px-0">
                 <li class="list-group-item"> <span class="f-w-500"><i class="feather icon-mail m-r-10"></i>بريد
-                    الالكتروني </span> <a href="mailto:{{user?.email}}" class="text-body"> {{user?.email}} </a>
+                    الالكتروني </span> <a style="text-decoration:none" href="mailto:{{user?.email}}" class="text-body"> {{user?.email}} </a>
                 </li>
                 <li class="list-group-item"> <span class="f-w-500"><i class="feather icon-phone-call m-r-10"></i> هاتف
-                  </span> <a href="#" class="text-body">{{user?.mobile}}</a> </li>
+                  </span> <a style="text-decoration:none" href="#" class="text-body">{{user?.mobile}}</a> </li>
               </ul>
               <div class="nav flex-column nav-pills list-group list-group-flush list-pills" id="user-set-tab"
                 role="tablist" aria-orientation="vertical">

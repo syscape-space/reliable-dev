@@ -100,9 +100,9 @@
                   </p>
 
                       <div v-if="form.type_id" v-html="typeOf(form.type_id).type_desc_ar"></div>
-                  <p class="w-100 mt-0 pt-0" style="max-width:550px; cursor: pointer; background-color: #E2FFFC; padding: 13px !important; display: inline-block; border-radius: 8px;"
+                  <p class="w-100 mt-0 pt-0" style="position:relative;max-width:550px; cursor: pointer; background-color: #E2FFFC; padding: 13px !important; display: inline-block; border-radius: 8px;"
                      @click="form.accept_rules =! form.accept_rules">
-                    <i class="fa fa-times-circle text-danger" v-if="! form.accept_rules"></i>
+                    <i class="fas fa-square " style="color: #fff; border: 1px solid #ddd;" v-if="! form.accept_rules"></i>
                     <i class="fa fa-check-circle text-success" v-else></i>
                     الموافقة علي الشروط
                   </p>
@@ -143,15 +143,15 @@
                       <div class="details selected bordr mt-3">
                         <div class="row">
                           <div class="col-12">
-                            <p class="w-100 mt-0 pt-0" style="max-width:550px; cursor: pointer; background-color: #E2FFFC; padding: 13px !important; display: inline-block; border-radius: 8px;" @click="form.choose_service_provider = 'all'">
-                              <i class="fa fa-check-circle text-success"
+                            <p class="w-100 mt-0 pt-0" style="position:relative;max-width:550px; cursor: pointer; background-color: #E2FFFC; padding: 13px !important; display: inline-block; border-radius: 8px;" @click="form.choose_service_provider = 'all'">
+                              <i style="position: absolute; right: -21px; top: 50%; transform: translateY(-50%);" class="fa fa-check-circle text-success"
                                  v-if=" form.choose_service_provider  === 'all'"></i>
                               {{ $root._t("app.all") }}
                               <span class="text-success" v-if=" form.choose_service_provider  === 'all'">سيتم اختيار مقدمي الخدمة من كل التخصصات و المدن</span>
                             </p>
-                            <p class="w-100 mt-0 pt-0" style="max-width:550px; cursor: pointer; background-color: #E2FFFC; padding: 13px !important; display: inline-block; border-radius: 8px;"
+                            <p class="w-100 mt-0 pt-0" style="position:relative;max-width:550px; cursor: pointer; background-color: #E2FFFC; padding: 13px !important; display: inline-block; border-radius: 8px;"
                                @click="form.choose_service_provider = 'by_city'">
-                              <i class="fa fa-check-circle text-success"
+                              <i style="position: absolute; right: -21px; top: 50%; transform: translateY(-50%);" class="fa fa-check-circle text-success"
                                  v-if=" form.choose_service_provider  === 'by_city'"></i>
                               بالمدينة
                               <span class="text-success" v-if=" form.choose_service_provider  === 'by_city'">سيتم اختيار مقدمي الخدمة من المدينة المحددة</span>
@@ -159,9 +159,9 @@
                                  v-if=" form.choose_service_provider  === 'by_city' && form.city_id  === null">الرجاء
                                 اختيار مدينة</b>
                             </p>
-                            <p class="w-100 mt-0 pt-0" style="max-width:550px; cursor: pointer; background-color: #E2FFFC; padding: 13px !important; display: inline-block; border-radius: 8px;"
+                            <p class="w-100 mt-0 pt-0" style="position:relative;max-width:550px; cursor: pointer; background-color: #E2FFFC; padding: 13px !important; display: inline-block; border-radius: 8px;"
                                @click="form.choose_service_provider = 'by_filter'">
-                              <i class="fa fa-check-circle text-success"
+                              <i style="position: absolute; right: -21px; top: 50%; transform: translateY(-50%);" class="fa fa-check-circle text-success"
                                  v-if=" form.choose_service_provider  === 'by_filter'"></i>
                               مقدم خدمة
                               <span class="text-success" v-if=" form.choose_service_provider  === 'by_filter'">سيتم اختيار مقدم واحد محدد</span>
@@ -169,9 +169,9 @@
                                  v-if=" form.choose_service_provider  === 'by_filter' && form.filter_id  === null">الرجاء
                                 اختيار مقدم الخدمة</b>
                             </p>
-                            <p class="w-100 mt-0 pt-0" style="max-width:550px; cursor: pointer; background-color: #E2FFFC; padding: 13px !important; display: inline-block; border-radius: 8px;"
+                            <p class="w-100 mt-0 pt-0" style="position:relative;max-width:550px; cursor: pointer; background-color: #E2FFFC; padding: 13px !important; display: inline-block; border-radius: 8px;"
                                @click="form.choose_service_provider = 'by_occupation'">
-                              <i class="fa fa-check-circle text-success"
+                              <i style="position: absolute; right: -21px; top: 50%; transform: translateY(-50%);" class="fa fa-check-circle text-success"
                                  v-if=" form.choose_service_provider  === 'by_occupation'"></i>
                               بالتخصص
                               <span class="text-success" v-if=" form.choose_service_provider  === 'by_occupation'">سيتم اختيار مقدمي الخدمة من نفس تخصص القسم المحدد</span>
@@ -259,10 +259,11 @@
                     <div class="details selected bordr mt-3">
                       <div class="row">
                         <div class="col-12">
-                          <p class="w-100 mt-0 pt-0" style="max-width:550px; cursor: pointer; background-color: #E2FFFC; padding: 13px !important; display: inline-block; border-radius: 8px;"
+                          <p class="w-100 mt-0 pt-0" style="position:relative;max-width:550px; cursor: pointer; background-color: #E2FFFC; padding: 13px !important; display: inline-block; border-radius: 8px;"
                              @click="form.check_invalid_entities_data =! form.check_invalid_entities_data">
-                            <i class="fa fa-times-circle text-danger" v-if="! form.check_invalid_entities_data"></i>
-                            <i class="fa fa-check-circle text-success" v-else></i>
+                               <i  class="fas fa-square " style="position: absolute; right: -21px; top: 50%; transform: translateY(-50%); color: #fff; border: 1px solid #ddd;" v-if="! form.check_invalid_entities_data"></i>
+                              <i style="position: absolute; right: -21px; top: 50%; transform: translateY(-50%);" class="fa fa-check-circle text-success" v-else></i>
+                           
                             {{ $root._t("app.acceptDataAndMakeSure") }}
                           </p>
                         </div>
@@ -312,39 +313,42 @@
                           placeholder="اكتب التفاصيل هنا...." rows="4"></textarea>
                 <span class="remain"><span id="totalChars">{{ form.order_content.length }}</span>/1000</span>
               </div>
-              <p class="red mt-3" style="color: #FF584D; font-size:14px" >
-                {{ $root._t("app.attachingFile") }} <span> ( {{ $root._t("app.chooseFile") }} )  </span>
-              </p>
-              <div class="form-check form-check-inline mb-2">
-                <div class="variants">
-                  <div class='attach d-inline-block '>
-                    <label for='input-file' class="add-o-file">
-                      {{ $root._t("app.attchments") }}
-                      <img :src="base_url + 'assets/images/file.svg'" alt="#">
-                    </label>
-                    <input id='attachments_input' class="abs-file  " style="    width: 155px;" ref="attachments_input" multiple @change="uploadAttachments()"
-                           type='file'/>
+              <div class="d-flex align-items-center justify-content-between">
+                <p class="red mt-3" style="color: #FF584D; font-size:14px" >
+                  {{ $root._t("app.attachingFile") }} <span> ( {{ $root._t("app.chooseFile") }} )  </span>
+                </p>
+                <div class="form-check form-check-inline mb-2">
+                  <div class="variants">
+                    <div class='attach d-inline-block '>
+                      <label for='input-file' class="add-o-file">
+                        {{ $root._t("app.attchments") }}
+                        <img :src="base_url + 'assets/images/file.svg'" alt="#">
+                      </label>
+                      <input id='attachments_input' class="abs-file  " style="    width: 155px;" ref="attachments_input" multiple @change="uploadAttachments()"
+                            type='file'/>
+                    </div>
+                    <!-- <div class='sounds d-inline-block mr-3'>
+                      <label for='input-file' class="add-o-file">
+                        {{ $root._t("app.sendVoiceFile") }}
+                        <img :src="base_url + 'assets/images/audio-file.svg'" alt="#">
+                      </label>
+                      <input id='input-file'  class="abs-file  "  style="    width: 155px;" ref="audio_file_input" @change="uploadAudioFile()" type='file'/>
+                    </div> -->
                   </div>
-                  <!-- <div class='sounds d-inline-block mr-3'>
-                    <label for='input-file' class="add-o-file">
-                      {{ $root._t("app.sendVoiceFile") }}
-                      <img :src="base_url + 'assets/images/audio-file.svg'" alt="#">
-                    </label>
-                    <input id='input-file'  class="abs-file  "  style="    width: 155px;" ref="audio_file_input" @change="uploadAudioFile()" type='file'/>
-                  </div> -->
                 </div>
               </div>
+
             </div>
             <div class="mt-3" v-if="step === 6">
               <div class="row mt-5">
                 <div class="col-8" v-if="balanceCovered">
-                  <p class="red pr-2 mb-2" style="color: #6eff4d; font-size:14px" >
+                  <p class="red pr-2 mb-2" style="font-weight: bold;color: #048E81; font-size:14px" >
                     <img :src="base_url + '/assets/images/22-mobile.svg'" alt="#" class="ml-2">
                     سيتم الخصم من رصيدك رسوم اشترك اضافة طلب جديد
                   </p>
                 </div>
                 <div class="col-8" v-else="balanceCovered">
-                  <p class="red pr-2 mb-2" style="color: #FF584D; font-size:14px" >
+                  <p class="red pr-2 mb-2" style="font-weight: bold;color: #FF584D; font-size:14px" >
                     <img :src="base_url + '/assets/images/22-mobile.svg'" alt="#" class="ml-2">
                     لا يوجد رصيد كافي سيتم حفظ الطلب كا مسودة حتي يتم دفع رسوم نشر طلب
                   </p>
