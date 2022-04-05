@@ -102,7 +102,7 @@
                       <div v-if="form.type_id" v-html="typeOf(form.type_id).type_desc_ar"></div>
                   <p class="w-100 mt-0 pt-0" style="max-width:550px; cursor: pointer; background-color: #E2FFFC; padding: 13px !important; display: inline-block; border-radius: 8px;"
                      @click="form.accept_rules =! form.accept_rules">
-                    <i class="fa fa-times-circle text-danger" v-if="! form.accept_rules"></i>
+                    <i class="fas fa-square " style="color: #fff; border: 1px solid #ddd;" v-if="! form.accept_rules"></i>
                     <i class="fa fa-check-circle text-success" v-else></i>
                     الموافقة علي الشروط
                   </p>
@@ -261,8 +261,9 @@
                         <div class="col-12">
                           <p class="w-100 mt-0 pt-0" style="max-width:550px; cursor: pointer; background-color: #E2FFFC; padding: 13px !important; display: inline-block; border-radius: 8px;"
                              @click="form.check_invalid_entities_data =! form.check_invalid_entities_data">
-                            <i class="fa fa-times-circle text-danger" v-if="! form.check_invalid_entities_data"></i>
-                            <i class="fa fa-check-circle text-success" v-else></i>
+                               <i class="fas fa-square " style="color: #fff; border: 1px solid #ddd;" v-if="! form.check_invalid_entities_data"></i>
+                              <i class="fa fa-check-circle text-success" v-else></i>
+                           
                             {{ $root._t("app.acceptDataAndMakeSure") }}
                           </p>
                         </div>
