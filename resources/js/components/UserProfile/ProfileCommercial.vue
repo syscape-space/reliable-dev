@@ -20,9 +20,25 @@
             <div class="card-header">
                 <h5><i data-feather="user" class="icon-svg-primary wid-20"></i><span class="p-l-5">السجلات التجارية</span></h5>
             </div>
-            <form v-on:submit.prevent="submitForm" ref='commercialForm'>
-                <input type="hidden" name="csrf_token" value="ebd97b854219e3339845763cb1846258" />
-                <input type="hidden" name="token" value="NI0eiHSJ6I26pSIAihHjG1lCkUVK983_ofqxWxD2HEs" />
+            <template v-if="parseInt(commercial.status) === 0">
+              <div class="alert alert-info">
+                جاري الفحص من الادارة
+              </div>
+            </template>
+            <template v-else-if="parseInt(commercial.status) === 1">
+              <div class="alert alert-success">
+                تم الاعتماد
+              </div>
+            </template>
+            <template v-else>
+              <div class="alert alert-danger">
+                تم الرفض من الادارة والسبب :
+                <p v-html="commercial.comment"></p>
+                الرجاء تصحيح الوثيقة والمحاولة
+              </div>
+            </template>
+            <form v-on:submit.prevent="submitForm" ref='commercialForm' v-if="commercial.status == 2 || commercial.status == null  ">
+                <input type="hidden" name="status" value="0" />
                 <input type="hidden" v-model="user_id" name="user_id" />
 
 

@@ -155,18 +155,6 @@
             </div>
             <div class="col-sm-12  col-lg-6 col-xl-4">
               <div class="form-group">
-                <label class="mt-3 mb-1" for="membership_type">{{ $root._t('admin.membership_type') }}<span
-                    class="text-danger">*</span></label>
-                <select class="form-control" v-model="membership_type" name="membership_type" id="membership_type">
-                  <option value="0" disabled>{{ $root._t('admin.choose') }}</option>
-                  <option value="user">{{ $root._t('admin.user') }}</option>
-                  <option value="vendor">{{ $root._t('admin.vendor') }}</option>
-                  <option value="employee">{{ $root._t('admin.employee') }}</option>
-                </select>
-              </div>
-            </div>
-            <div class="col-sm-12  col-lg-6 col-xl-4">
-              <div class="form-group">
                 <label class="mt-3 mb-1" for="account_type">{{ $root._t('admin.account_type') }}<span
                     class="text-danger">*</span></label>
                 <select class="form-control" v-model="account_type" name="account_type" id="account_type"
@@ -244,7 +232,6 @@ export default {
       subscribe_end_at: this.user?.subscribe_end_at,
       account_type: this.user?.account_type ?? '0',
       address: this.user?.address,
-      membership_type: this.user?.membership_type ?? '0',
       bio: this.user?.bio,
       base_url: base_url,
       user_id: this.user_id,
@@ -272,7 +259,7 @@ export default {
     },
     submitForm() {
       this.loading = true;
-      if (this.first_name && this.middle_name && this.last_name && this.name && this.email && this.mobile && this.country_id != "0" && this.gender != "0" && this.city_id != "0" && this.account_type != "0" && this.membership_type != '0') {
+      if (this.first_name && this.middle_name && this.last_name && this.name && this.email && this.mobile && this.country_id != "0" && this.gender != "0" && this.city_id != "0" && this.account_type != "0") {
 
         const data = {
           'first_name': this.first_name,
@@ -286,7 +273,6 @@ export default {
           'city_id': this.city_id,
           'account_type': this.account_type,
           'address': this.address,
-          'membership_type': this.membership_type,
           'bio': this.bio,
           'add_offer': this.user?.add_offer,
           'main_department':this.main_department,

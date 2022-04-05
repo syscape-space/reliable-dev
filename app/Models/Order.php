@@ -183,5 +183,16 @@ class Order extends Model {
 	{
 		return Carbon::parse($date)->format('d-M-Y H:i:s');
 	}
+	public function getOrderStepAttribute()
+	{
+	    $temp = 0;
+	    if($this->order_status == "open")
+            $temp++;
+	    if ($this->offers()->where('offer_status','approved')->count())
+	        $temp++;
+	    if ($this->order_status == "closed")
+	        $temp+=3;
+		return $temp;
+	}
 
 }
