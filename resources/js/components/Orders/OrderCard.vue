@@ -18,7 +18,7 @@
                     :src="base_url+'/assets/images/o_offer.svg'"
                     alt=""
                 />
-                <span> العروض المقدمة {{ order.offers.length }} </span>
+                <span> المشاهدات {{ order.views }} </span>
               </span>
       <span class="ms-3">
                 <img
@@ -28,8 +28,8 @@
                     alt=""
                 />
         <!--  -->
-                <span v-if="order.country_id === null"> {{ $root._t("app.notRegisterCountry") }} </span>
-                <span v-else> {{ order.country_id.country_name_ar }}</span>
+                <span v-if="order.city_id === null">كل المدن</span>
+                <span v-else> {{ order.city_id.city_name_ar }}</span>
               </span>
       <span class="my-2" style="font-size: 12px">
                 <span class="o-box ms-2">
@@ -147,8 +147,7 @@ export default {
       this.$router.push({name: "ShowSingleOrder", params: {id: id}});
     },
     goToThisUserProfile(user_id) {
-      localStorage.setItem("userProfileId", user_id);
-      this.$router.push({name: "UserProfile"});
+      this.$router.push({name: "UserProfile",params:{id:user_id}});
     }
   }
 }

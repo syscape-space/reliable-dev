@@ -28,7 +28,8 @@ class OrdersApi extends Controller{
 		"decisions_refused_reason",
 		"user_id",
         'created_at',
-        'negotiable'
+        'negotiable',
+        'views',
 	];
 
     /**
@@ -103,12 +104,13 @@ class OrdersApi extends Controller{
      */
     public function show($id)
     {
-        $Order = Order::with($this->arrWith())->find($id,$this->selectColumns);
+        $Order = Order::with($this->arrWith())->find($id,$this->selectColumns)->append('order_step');
         if(is_null($Order) || empty($Order)){
             return errorResponseJson([
             "message"=>trans("admin.undefinedRecord")
             ]);
         }
+        $Order->increment('views');
 
             return successResponseJson([
         "data"=> $Order

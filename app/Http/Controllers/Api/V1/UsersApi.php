@@ -59,8 +59,6 @@ class UsersApi extends Controller
         "country_id" ,
         "main_department" ,
         "sub_department" ,
-        "license_submitted",
-        "commercial_submitted",
     ];
 
     /**

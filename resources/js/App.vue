@@ -43,6 +43,7 @@ export default {
     getSetting(){
       api.get('/v1/settings').then(res=>{
         this.settings = res.data.setting;
+        document.title = res.data.setting.sitename_ar;
       })
     },
     getAuthUser(){
@@ -52,7 +53,7 @@ export default {
       })
     },
     userLicenseAndCommercialSubmitted(){
-      if (this.auth_user.membership_type === 'vendor' && (this.auth_user.license_submitted == false ||  this.auth_user.commercial_submitted == false)){
+      if ( this.$route.name !== 'u_indexPage' && this.auth_user.membership_type === 'vendor' && (this.auth_user.license_submitted == false ||  this.auth_user.commercial_submitted == false)){
         this.$router.replace({name:'u_indexPage'});
         this.alertErrors(['يجب اكمل الرخصة و السجل التجاري .']);
       }
@@ -60,17 +61,13 @@ export default {
   },
   watch:{
     $route (to, from){
-      if(to.name !== 'u_indexPage'){
-        this.userLicenseAndCommercialSubmitted();
-      }
+      this.userLicenseAndCommercialSubmitted();
     }
   },
   mounted() {
     this.getSetting();
     this.getAuthUser();
-    if (this.$route.name !== 'u_indexPage'){
-      this.userLicenseAndCommercialSubmitted();
-    }
+    this.userLicenseAndCommercialSubmitted();
   }
 }
 </script>

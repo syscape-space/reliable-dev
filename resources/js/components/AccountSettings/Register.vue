@@ -93,6 +93,15 @@
             />
           </div>
           <div class="auth-login text-center position-relative">
+            <label>{{ $root._t('admin.membership_type') }}</label>
+            <select class="form-control pe-5" v-model="membership_type" name="membership_type" id="membership_type">
+              <option value="0" disabled>{{ $root._t('admin.choose') }}</option>
+              <option value="user">{{ $root._t('admin.user') }}</option>
+              <option value="vendor">{{ $root._t('admin.vendor') }}</option>
+            </select>
+
+          </div>
+          <div class="auth-login text-center position-relative">
             <input
               type="password"
               class="pe-5 form-control"
@@ -159,7 +168,8 @@ export default {
       email: "",
       password: "",
       id_number : "" ,
-      errors: null , 
+      membership_type : "0" ,
+      errors: null ,
       base_url : base_url
     };
   },
@@ -191,6 +201,7 @@ export default {
           last_name : this.lastname ,
           mobile: this.mobile,
           email: this.email,
+          membership_type: this.membership_type,
           id_number : this.id_number ,
           password: this.password,
         } )

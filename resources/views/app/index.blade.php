@@ -14,7 +14,7 @@
     <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/droid-arabic-kufi" type="text/css"/>
     <link rel="stylesheet" href="{{cuteAsset('/assets')}}/css/style.css" />
     <link rel="stylesheet" href="{{cuteAsset('/assets')}}/css/layout.css" />
-    <title>title</title>
+    <title>موثوق</title>
     
 </head>
 

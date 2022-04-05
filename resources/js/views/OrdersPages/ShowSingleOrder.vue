@@ -20,40 +20,40 @@
                   v-if="order && order.order_status !== 'archived'"
                   style="box-shadow: 1px 1px 3px #ddd; margin-bottom: 20px; margin-top: 10px;">
               <div class="col-md-4 my-4" style="color: #aeaeae">
-                <div class="cir-prog" style="border-color: #048e81">
+                <div class="cir-prog "  :class="{'current-circle-status':order.order_step >= 1}">
                   <img :src="base_url + '/assets/images/o_hand.svg'" alt=""/>
                 </div>
-                <div class="fw-bold o-num text-center" style="color: #048e81">
+                <div class="fw-bold o-num text-center" :class="{'current-text-status':order.order_step >= 1}" >
                   {{ $root._t("app.number1") }}
                 </div>
                 <div>
-                  <h6 class="o-txt text-center" style="color: #0995eb">
+                  <h6 class="o-txt text-center" :class="{'current-text-status':order.order_step >= 1}" >
                     {{ $root._t("app.deal") }}
                   </h6>
                 </div>
               </div>
               <div class="col-md-4 my-4" style="color: #aeaeae">
-                <div class="cir-prog">
+                <div class="cir-prog" :class="{'current-circle-status':order.order_step >= 2}">
                   <img :src="base_url + '/assets/images/o_exe.svg'" alt=""/>
                 </div>
-                <div class="fw-bold o-num text-center">
+                <div class="fw-bold o-num text-center" :class="{'current-text-status':order.order_step >= 2}">
                   {{ $root._t("app.number2") }}
                 </div>
                 <div>
-                  <h6 class="o-txt text-center">
+                  <h6 class="o-txt text-center" :class="{'current-text-status':order.order_step >= 2}">
                     {{ $root._t("app.execution") }}
                   </h6>
                 </div>
               </div>
               <div class="col-md-4 my-4" style="color: #aeaeae">
-                <div class="cir-prog">
+                <div class="cir-prog" :class="{'current-circle-status':order.order_step >= 3}">
                   <img :src="base_url + '/assets/images/o_roket.svg'" alt=""/>
                 </div>
-                <div class="fw-bold o-num text-center">
+                <div class="fw-bold o-num text-center" :class="{'current-text-status':order.order_step >= 3}">
                   {{ $root._t("app.number3") }}
                 </div>
                 <div>
-                  <h6 class="o-txt text-center">
+                  <h6 class="o-txt text-center" :class="{'current-text-status':order.order_step >= 3}">
                     {{ $root._t("app.ending") }}
                   </h6>
                 </div>
@@ -611,6 +611,12 @@ export default {
 
 
 <style scoped>
+.current-circle-status{
+  border-color: green;
+}
+.current-text-status{
+  color: green;
+}
 h1 {
   font-family: "DroidArabicKufiRegular";
 }

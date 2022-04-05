@@ -10,13 +10,13 @@
 </div>
 
 <div class="col-12 px-0 row mb-4">
-    <input type="hidden" name="identity_id" value="{{ $useridentity?->id }}">
-    <input type="hidden" name="verified" value="{{ $useridentity?->verified }}">
+    <input type="hidden" name="identity_id" value="{{ $useridentity->id  ?? "" }}">
+    <input type="hidden" name="verified" value="{{ $useridentity->verified  ?? "" }}">
 
     <div class="col-12 col-lg-4   my-3 py-2">
         <div class="col-12 px-0">
             <div class="col-12 px-0 d-flex text-center justify-content-center">
-                <img src="{{ it()->url($useridentity?->front_side)}}" style="max-width: 100%;width: 150px;min-height: 130px" class="d-inline-block">
+                <img src="{{ it()->url($useridentity->front_side ?? "" )}}" style="max-width: 100%;width: 150px;min-height: 130px" class="d-inline-block">
             </div>
             <div class="col-12 px-0 pt-3 text-center font-1 naskh">
                 صورة الوجه الأمامي من بطاقة تعريف الهوية الوطنية
@@ -27,7 +27,7 @@
     <div class="col-12 col-lg-4   my-3 py-2">
         <div class="col-12 px-0">
             <div class="col-12 px-0 d-flex text-center justify-content-center">
-                <img src="{{ it()->url($useridentity?->back_side)}}" style="max-width: 100%;width: 150px;min-height: 130px" class="d-inline-block">
+                <img src="{{ it()->url($useridentity->back_side ?? "" )}}" style="max-width: 100%;width: 150px;min-height: 130px" class="d-inline-block">
             </div>
             <div class="col-12 px-0 pt-3 text-center font-1 naskh">
                 برجاء ارفاق صورة الوجه الخلفي من بطاقة تعريف الهوية الوطنية
@@ -38,7 +38,7 @@
     <div class="col-12 col-lg-4   my-3 py-2">
         <div class="col-12 px-0">
             <div class="col-12 px-0 d-flex text-center justify-content-center">
-                <img src="{{ it()->url($useridentity?->selfie)}}" style="max-width: 100%;width: 150px;min-height: 130px" class="d-inline-block">
+                <img src="{{ it()->url($useridentity->selfie ?? "" )}}" style="max-width: 100%;width: 150px;min-height: 130px" class="d-inline-block">
             </div>
             <div class="col-12 px-0 pt-3 text-center font-1 naskh">
                 صورة وانت تحمل الهوية الوطنية الخاصة بك
