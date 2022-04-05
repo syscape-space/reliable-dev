@@ -54,7 +54,7 @@
             <input
               type="number"
               class="pe-5 form-control"
-              placeholder="id number"
+              placeholder="رقم الهوية"
               v-model="id_number"
             />
             <img
@@ -96,7 +96,7 @@
             <input
               type="password"
               class="pe-5 form-control"
-              placeholder="رمز المرور "
+              placeholder="كلمة المرور "
               v-model="password"
             />
             <img

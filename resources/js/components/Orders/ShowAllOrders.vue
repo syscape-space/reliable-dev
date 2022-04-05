@@ -30,6 +30,14 @@
             </div>
           </div>
         </div>
+
+        <div>
+          <button class="btn btn-success px-3">اختيار القسم</button>
+          <button class="btn btn-warning px-3 mx-1">الفرعى</button>
+          <button class="btn btn-info px-3 mx-1">اختيار المدينة</button>
+          <button class="btn btn-primary px-3">الكل</button>
+          <button class="btn btn-danger px-3 mx-1">عرض النتائج</button>
+        </div>
         <div class="p-3 mt-3" style="background-color: #f9f9f9" v-for="item in list2" :key="item.id">
           <order-card :order="item"/>
         </div>

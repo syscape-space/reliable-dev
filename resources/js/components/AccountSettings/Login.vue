@@ -34,7 +34,7 @@
                 :src="base_url+'/assets/images/login-user.svg'" alt="">
               </div>
               <div class="auth-login text-center  position-relative">
-                <input type="password" class="pe-5 form-control" placeholder="رمز المرور " v-model="password"> <!-- Password -->
+                <input type="password" class="pe-5 form-control" placeholder="كلمة المرور " v-model="password"> <!-- Password -->
                 <img class="img-lllo" style="width: 12px; position: absolute; right: 10px;"
                 :src="base_url+'/assets/images/login-pass.svg'" alt="">
               </div>
