@@ -15,10 +15,10 @@
 			<td><a href="{{ it()->url($commercial_record->commercial_file) }}" target="_blank"><i class="fa fa-file-pdf"></i></a></td>
 			<td>{{ $commercial_record->commercial_end_at }}</td>
 			<td>
-				@if($userlicense->status === 0)
-					<a class="btn btn-success btn-sm" href="{{aurl('/update-document-status/user_licenses')}}?id={{$userlicense->id}}&status=1">قبول</a>
-					<a class="btn btn-danger btn-sm" href="#rejectForm{{$userlicense->id}}" data-toggle="modal" data-target="#rejectModal{{$userlicense->id}}">رفض</a>
-					<div class="modal fade" id="rejectModal{{$userlicense->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+				@if($commercial_record->status === 0)
+					<a class="btn btn-success btn-sm" href="{{aurl('/update-document-status/user_commercials')}}?id={{$commercial_record->id}}&status=1">قبول</a>
+					<a class="btn btn-danger btn-sm" href="#rejectForm{{$commercial_record->id}}" data-toggle="modal" data-target="#rejectModal{{$commercial_record->id}}">رفض</a>
+					<div class="modal fade" id="rejectModal{{$commercial_record->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 						<div class="modal-dialog modal-dialog-centered" role="document">
 							<div class="modal-content">
 								<div class="modal-header">
@@ -28,8 +28,8 @@
 									</button>
 								</div>
 								<div class="modal-body">
-									<form id="rejectForm{{$userlicense->id}}" action="{{aurl('/update-document-status/user_licenses')}}">
-										<input name="id" type="hidden" value="{{$userlicense->id}}">
+									<form id="rejectForm{{$commercial_record->id}}" action="{{aurl('/update-document-status/user_commercials')}}">
+										<input name="id" type="hidden" value="{{$commercial_record->id}}">
 										<input name="status" type="hidden" value="2">
 										<label>
 											سبب الرفض
@@ -39,14 +39,14 @@
 								</div>
 								<div class="modal-footer">
 									<button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>
-									<button type="submit" form="rejectForm{{$userlicense->id}}" class="btn btn-danger">رفض</button>
+									<button type="submit" form="rejectForm{{$commercial_record->id}}" class="btn btn-danger">رفض</button>
 								</div>
 							</div>
 						</div>
 					</div>
 				@else
 					<span class="btn btn-sm btn-primary">
-						{{$userlicense->status == 1 ? "مقبول":"مرفوض"}}
+						{{$commercial_record->status == 1 ? "مقبول":"مرفوض"}}
 					</span>
 				@endif
 			</td>

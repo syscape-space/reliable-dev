@@ -90,7 +90,19 @@ class User extends Authenticatable implements JWTSubject {
 	protected $casts = [
 		'email_verified_at' => 'datetime',
 	];
+	public function getLicenseSubmittedAttribute(){
+        return $this->licenses()->where('status',1)->count() > 0;
+    }
+	public function getCommercialSubmittedAttribute(){
+        return $this->comericals()->where('status',1)->count() > 0;
 
+    }
+	public function licenses(){
+	    return $this->hasMany(UserLicense::class,'user_id','id');
+    }
+	public function comericals(){
+	    return $this->hasMany(UserCommercial::class,'user_id','id');
+    }
 	/**
 	 * Get the identifier that will be stored in the subject claim of the JWT.
 	 *
