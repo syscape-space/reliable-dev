@@ -2,7 +2,7 @@
     <section class="requsts-sec mt-4">
       <div class="chat-clinet" style="max-width: 1000px;margin: auto;">
         <ul class="chat-list d-flex list-unstyled">
-          <li class="me-2">{{ $root._t("app.ticketDetails") }}</li>
+         
           <li class="d-flex mx-3">
             <img style="width:40px ;" :src="base_url + '/storage/' +  profileImage  " alt="">
             <p style="font-size: 13px;     margin-top: 10px !important;" class="me-1 m-0"> {{ username }} <br>
@@ -20,10 +20,7 @@
             <p style="font-size: 13px;" class="me-1 m-0"> قسم الدعم الفنى <br>
                <span style="height: 23px; display: inline-block; max-width: 63px; overflow: hidden;color: rgb(165, 164, 164);"  > {{ department }} </span> </p>
           </li>
-          <li class="d-flex mx-3">
-            <p style="font-size: 13px;" class="me-1 m-0"> محتوى التذكره <br>
-               <span style="height: 23px; display: inline-block; max-width: 63px; overflow: hidden;color: rgb(165, 164, 164);"  > {{ ticketContent }} </span> </p>
-          </li>
+          
           <li class="d-flex me-auto ms-3" >
             <img class="mx-4" :src="base_url+'/assets/images/chate2.svg'" alt="">
             <!-- getting this ticket details --> 
@@ -66,12 +63,18 @@
           
           
         </ul>
-         <!--- Error Will Validate Here -->
-          <div class="errors">
-            <div class="alert alert-danger" v-for="error in errors" :key="error">
-              <strong>{{ error }}</strong>
-            </div>
+        <!--- Error Will Validate Here -->
+        <div class="errors">
+          <div class="alert alert-danger" v-for="error in errors" :key="error">
+            <strong>{{ error }}</strong>
           </div>
+        </div>
+        <div class="me-2 mb-4">{{ $root._t("app.ticketDetails") }}</div>
+        <div class="d-flex mx-3" style="background-color: #f6f6f6;">
+          <p style="font-size: 13px;" class="me-1 m-0"> محتوى التذكره <br>
+              <span style="height: 23px; display: inline-block; max-width: 63px; overflow: hidden;color: rgb(165, 164, 164);"  > {{ ticketContent }} </span> 
+          </p>
+        </div>
         <div class="d-flex align-items-center justify-content-between">
            <div>
           <div class="border mb-2 p-1 position-relative d-inline-block text-center"  style="width:28px">
