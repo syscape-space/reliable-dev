@@ -101,6 +101,17 @@
             </select>
 
           </div>
+          <div class="my-2 text-end">
+            <label class="mb-2">نوع العضوية</label>
+            <div>
+              <span class="ms-2">
+                <input type="radio" name="mem"> <span>عميل</span>
+              </span>
+              <span>
+                <input type="radio" name="mem"> <span>مقدم خدمة</span>
+              </span>
+            </div>
+          </div>
           <div class="auth-login text-center position-relative">
             <input
               type="password"
