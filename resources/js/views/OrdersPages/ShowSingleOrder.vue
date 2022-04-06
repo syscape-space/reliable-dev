@@ -79,7 +79,7 @@
               </h5>
               <p style="font-size: 12px" v-html="order_details"></p>
             </div>
-            <div  class="fw-bold  border p-2" v-if="order">
+            <div  class="fw-bold  border p-2" v-if="order && ($root.auth_user.membership_type === 'user' || order.order_step >= 2)">
             <!-- <h6 style="font-size: 13px" class="d-none">اطراف الطلب</h6> -->
             <h6 style="font-size: 13px;background-image: linear-gradient(to bottom, #ff584d14, #802c2710); padding: 10px;" class="d-none">{{ $root._t("app.enemyCard") }}</h6>
             <ul

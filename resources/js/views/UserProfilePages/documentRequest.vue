@@ -399,15 +399,20 @@
                       style=" padding: 7px;border-color: #048E81 !important;background-color: #048E81 !important;min-width:120px;">
                 {{ $root._t("app.next") }}
               </button>
+
+              <div class="btn btn-success page1 small cont "
+                   style=" padding: 7px;border-color: #048E81 !important;background-color: #048E81 !important;min-width:120px;"
+                   @click="submitOrder(true)" v-else>
+                <span>
+                  حفظ طلبك كمسوده
+                  <img :src="base_url + '/assets/images/bookmark.svg'" alt="#" class="mr-2">
+                </span>
+              </div>
               <div class="btn btn-success page1 small cont "
                    style=" padding: 7px;border-color: #048E81 !important;background-color: #048E81 !important;min-width:120px;"
                    @click="submitOrder()" v-else>
                 <span v-if="balanceCovered">
                   أكتمال الطلب
-                </span>
-                <span v-else>
-                  حفظ طلبك كمسوده
-                  <img :src="base_url + '/assets/images/bookmark.svg'" alt="#" class="mr-2">
                 </span>
               </div>
               <div class="btn btn-secondary small conta-back mx-3"
@@ -536,11 +541,11 @@ export default {
     typeOf(id) {
       return this.types.data.find((t) => t.id == id);
     },
-    submitOrder() {
+    submitOrder(archived=false) {
       var formData = new FormData();
       if (this.form.main_order_id)
         formData.append('main_order_id', this.form.main_order_id);
-      formData.append('order_status', this.balanceCovered ? "under_review" : "archived")
+      formData.append('order_status', archived ? "archived" : "under_review")
       formData.append('amount', this.$root.settings.minimum_amount_add_order);
       formData.append('execution_time', this.form.execution_time);
       formData.append('order_type_id', this.form.type_id);

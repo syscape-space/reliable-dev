@@ -380,5 +380,5 @@ return [
     'enemyCard' => 'بطاقه المدعى عليه' ,
     'fullname' => 'الاسم' ,
     'nationalId' => 'رقم الهويه',
-    'archived'  =>  'مؤرشف',
+    'archived'  =>  'في المسودة',
 ];
