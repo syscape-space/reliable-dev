@@ -92,23 +92,14 @@
               alt=""
             />
           </div>
-          <div class="auth-login text-center position-relative">
-            <label>{{ $root._t('admin.membership_type') }}</label>
-            <select class="form-control pe-5" v-model="membership_type" name="membership_type" id="membership_type">
-              <option value="0" disabled>{{ $root._t('admin.choose') }}</option>
-              <option value="user">{{ $root._t('admin.user') }}</option>
-              <option value="vendor">{{ $root._t('admin.vendor') }}</option>
-            </select>
-
-          </div>
           <div class="my-2 text-end">
             <label class="mb-2">نوع العضوية</label>
             <div>
               <span class="ms-2">
-                <input type="radio" name="mem"> <span>عميل</span>
+                <input type="radio" name="membership_type" v-model="membership_type" value="user"> <span>عميل</span>
               </span>
               <span>
-                <input type="radio" name="mem"> <span>مقدم خدمة</span>
+                <input type="radio" name="membership_type" v-model="membership_type" value="vendor"> <span>مقدم خدمة</span>
               </span>
             </div>
           </div>
@@ -179,7 +170,7 @@ export default {
       email: "",
       password: "",
       id_number : "" ,
-      membership_type : "0" ,
+      membership_type : "user" ,
       errors: null ,
       base_url : base_url
     };
