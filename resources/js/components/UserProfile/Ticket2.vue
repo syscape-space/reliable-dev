@@ -52,6 +52,13 @@
             </li>
             <li style="margin-right: auto;">
               <div class="number-ticket d-flex">
+                <span class="mx-3">
+                  <button class="save-btn" style="background-color: #43cfab;">مفتوح</button>
+                </span>
+              </div>
+            </li>
+            <li >
+              <div class="number-ticket d-flex">
                 <img style="width: 20px;" :src="base_url + './public/assets/images/morning1.svg'" alt="">
                 <span class="mx-3"> 
                   <button class="save-btn" @click.prevent="goToTicketDetails(item.id)">
