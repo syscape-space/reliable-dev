@@ -24,6 +24,7 @@
                 style="border: 0px; background-color: rgb(4, 142, 129); color: rgb(255, 255, 255); font-size: 12px;width:120px;margin:auto ;font-size: 11px;"
                 data-bs-toggle="modal" 
                 data-bs-target="#exampleModal">تحديث الصوره</button>
+                <button class="btn mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal"  style="border: 0px;background-color: rgb(255 202 148); color: rgb(0 0 0);;font-size: 11px;width: 90%;margin: auto;">انت مشترك بالباقة العادية</button>
               </ul>
               
               <ul class="list-group list-group-flush px-0">
@@ -39,7 +40,17 @@
                 <a class="nav-link list-group-item list-group-item-action"
                   :class="{active: activeLink == 'account_settings'}" @click="activeLink = 'account_settings'" href="#">
                   <span class="f-w-500">إعدادت الحساب </span> <span
-                    class="float-start"></span> </a>
+                  class="float-start"></span> 
+                </a>
+                <a class="nav-link list-group-item list-group-item-action" href="#" >
+                    <span class="f-w-500" >
+                      <i class="feather icon-disc m-r-10 h5" ></i>
+                        الإشتراكات
+                    </span>
+                    <span class="float-start" >
+                      <i class="fa fa-check-circle text-success fa-x" ></i>
+                    </span>
+                </a>
                 <a class="nav-link list-group-item list-group-item-action"
                   :class="{active: activeLink == 'verify_user'}" @click="activeLink = 'verify_user'" href="#">
                   <span class="f-w-500"><i class="feather icon-disc m-r-10 h5 "></i>تحقق الهوية </span> <span
@@ -54,8 +65,9 @@
                     <p v-if="commercial_status != 'unset'" class="p-0 m-0" :class="{'text-danger': commercial_status == 'end', 'text-success': commercial_status == 'active', 'text-white': activeLink == 'commercial'}" v-text="commercial_status == 'active' ? 'نشيط' : 'منتهي'"></p>
 
                   </span> </a>
-
+                  
                 <!-- license-->
+                
                 <a v-if="user?.membership_type != 'user'" class="nav-link list-group-item list-group-item-action d-flex justify-content-between"
                   :class="{active: activeLink == 'license'}" @click="activeLink = 'license'" href="#"> <span
                     class="f-w-500"><i class="feather icon-image m-r-10 h5 "></i>الرخصة المهنية </span>
