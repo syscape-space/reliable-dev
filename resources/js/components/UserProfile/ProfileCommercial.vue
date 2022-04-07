@@ -37,7 +37,7 @@
                 الرجاء تصحيح الوثيقة والمحاولة
               </div>
             </template>
-            <form v-on:submit.prevent="submitForm" ref='commercialForm' v-if="commercial.status == 2 || commercial.status == null  ">
+            <form v-on:submit.prevent="submitForm" ref='commercialForm' v-if="commercial || commercial.status == 2 || commercial.status == null  ">
                 <input type="hidden" name="status" value="0" />
                 <input type="hidden" v-model="user_id" name="user_id" />
 
