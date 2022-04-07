@@ -1,5 +1,6 @@
 <?php
 namespace App\Models;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 // Auto Models By Baboon Script
@@ -36,6 +37,9 @@ protected $fillable = [
    public function package_id(){
       return $this->hasOne(\App\Models\VendorPackage::class,'id','package_id');
    }
+   public function package(){
+      return $this->belongsTo(\App\Models\VendorPackage::class,'package_id','id');
+   }
 
 	/**
     * user_id relation method
@@ -44,6 +48,12 @@ protected $fillable = [
     */
    public function user_id(){
       return $this->hasOne(\App\Models\User::class,'id','user_id');
+   }
+   public function getStartAtAttribute(){
+       return Carbon::parse($this->updated_at)->format('Y-m-d');
+   }
+   public function getEndAtAttribute(){
+       return Carbon::parse($this->updated_at)->addDays($this->package->duration_package_days)->format('Y-m-d');
    }
 
  	/**

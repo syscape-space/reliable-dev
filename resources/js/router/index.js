@@ -47,6 +47,7 @@ import addTicket from '../views/TicketsPages/createTecket.vue'
 import ShowSingleOrder from "../views/OrdersPages/ShowSingleOrder.vue";
 import Negotiation from "../components/Negotiation";
 import NegotiationsPage from "../views/OrdersPages/NegotiationsPage";
+import Subscription from "../views/Subscription";
 
 
 const prefix = APP_PREFIX;
@@ -264,6 +265,10 @@ const routes = [{
         component: NegotiationsPage,
         name: 'order_negotiations',
         props: true,
+    },{
+        path: prefix + '/subscription',
+        component: Subscription,
+        name: 'Subscription',
     },
 ]
 const router = createRouter({

@@ -1,6 +1,7 @@
 <?php
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -189,5 +190,17 @@ class User extends Authenticatable implements JWTSubject {
     }
 	public function occupations(){
 	    return $this->belongsToMany(Occupation::class,'user_occupations','user_id','occupation_id');
+    }
+    public function packageRequests(){
+	    return $this->hasMany(PackageRequest::class,'user_id','id');
+    }
+    public function getCurrentSubscriptionAttribute(){
+	    return $this->packageRequests()->with('package')
+            ->where('request_status','approved')
+            ->get()
+            ->filter(function ($d){
+                return Carbon::today() <= Carbon::parse($d->updated_at)->addDays($d->package->duration_package_days);
+            })
+            ->first();
     }
 }

@@ -27,7 +27,7 @@ class PackageRequestsApi extends Controller{
              * @return array to assign with index & show methods
              */
             public function arrWith(){
-               return ['package_id','user_id',];
+               return ['package_id'];
             }
 
 
@@ -38,7 +38,9 @@ class PackageRequestsApi extends Controller{
              */
             public function index()
             {
-            	$PackageRequest = PackageRequest::select($this->selectColumns)->with($this->arrWith())->orderBy("id","desc")->paginate(15);
+            	$PackageRequest = PackageRequest::select($this->selectColumns)
+                    ->where('user_id',auth('api')->id())
+                    ->with($this->arrWith())->orderBy("id","desc")->get()->append(['start_at','end_at']);
                return successResponseJson(["data"=>$PackageRequest]);
             }
 
@@ -51,7 +53,7 @@ class PackageRequestsApi extends Controller{
     public function store(PackageRequestsRequest $request)
     {
     	$data = $request->except("_token");
-    	
+    	$data['user_id'] = auth('api')->id();
         $PackageRequest = PackageRequest::create($data); 
 
 		  $PackageRequest = PackageRequest::with($this->arrWith())->find($PackageRequest->id,$this->selectColumns);

@@ -105,6 +105,17 @@
                   <span>{{ $root._t("app.memorial") }}</span>
                 </a>
               </li>
+              <li>
+                <router-link :to="{name:'Subscription'}"   style="color:#fff; cursor: pointer;">
+                  <img
+                    :src="base_url+'/assets/images/dash-remem.svg'"
+                    style="width: 18px"
+                    alt=""
+                    srcset=""
+                  />
+                  <span>الاشتراك</span>
+                </router-link>
+              </li>
               <li v-if="user.membership_type === 'vendor'" class="mt-2">
                 <router-link class="mt-0" :to="{ name : 'ShowAllOrders' }" style="color:#fff; cursor: pointer; margin-top: 20px;">
                   <img

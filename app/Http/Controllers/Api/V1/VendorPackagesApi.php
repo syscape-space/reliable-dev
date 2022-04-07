@@ -40,7 +40,7 @@ class VendorPackagesApi extends Controller{
              */
             public function index()
             {
-            	$VendorPackage = VendorPackage::select($this->selectColumns)->with($this->arrWith())->orderBy("id","desc")->paginate(15);
+            	$VendorPackage = VendorPackage::select($this->selectColumns)->with($this->arrWith())->orderBy("id","desc")->get();
                return successResponseJson(["data"=>$VendorPackage]);
             }
 
