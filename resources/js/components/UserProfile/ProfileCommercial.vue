@@ -5,9 +5,7 @@
             <li v-for="error in errors" :key="error">{{ error }}</li>
         </ul>
     </div>
-    <div v-if="commercial_status == 'end'" class="alert alert-warning">
-        <strong>الرخصة منتهية</strong> يرجي تجديد الرخصة
-    </div>
+
 
     <div v-if="successMsg" class="alert alert-success">
         <p class="m-0 p-0" v-text="successMsg"></p>
@@ -20,24 +18,26 @@
             <div class="card-header">
                 <h5><i data-feather="user" class="icon-svg-primary wid-20"></i><span class="p-l-5">السجلات التجارية</span></h5>
             </div>
-            <template v-if="parseInt(commercial.status) === 0">
-              <div class="alert alert-info">
-                جاري الفحص من الادارة
-              </div>
+            <template v-if="commercial">
+              <template v-if="parseInt(commercial.status) === 0">
+                <div class="alert alert-info">
+                  جاري الفحص من الادارة
+                </div>
+              </template>
+              <template v-else-if="parseInt(commercial.status) === 1">
+                <div class="alert alert-success">
+                  تم الاعتماد
+                </div>
+              </template>
+              <template v-else>
+                <div class="alert alert-danger">
+                  تم الرفض من الادارة والسبب :
+                  <p v-html="commercial.comment"></p>
+                  الرجاء تصحيح الوثيقة والمحاولة
+                </div>
+              </template>
             </template>
-            <template v-else-if="parseInt(commercial.status) === 1">
-              <div class="alert alert-success">
-                تم الاعتماد
-              </div>
-            </template>
-            <template v-else>
-              <div class="alert alert-danger">
-                تم الرفض من الادارة والسبب :
-                <p v-html="commercial.comment"></p>
-                الرجاء تصحيح الوثيقة والمحاولة
-              </div>
-            </template>
-            <form v-on:submit.prevent="submitForm" ref='commercialForm' v-if="commercial || commercial.status == 2 || commercial.status == null  ">
+            <form v-on:submit.prevent="submitForm" ref='commercialForm' v-if="commercial == null || commercial.status == 2 || commercial.status == null  ">
                 <input type="hidden" name="status" value="0" />
                 <input type="hidden" v-model="user_id" name="user_id" />
 
