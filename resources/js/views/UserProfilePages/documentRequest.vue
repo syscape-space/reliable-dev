@@ -75,11 +75,17 @@
 
                         <div class="details  mt-3 py-2">
                           <div class="row">
-                            <div class="form-check form-check-inline mb-2">
+                            <div class="form-check form-check-inline mb-0">
                               <input type="radio" class="form-check-input" v-model="form.type_id" :value="type.id"
                                      :id="'type-input-'+type.id" name="type_id" :disabled="has_membership != true">
                               <label class="form-check-label name  pr-2"
                                      :for="'type-input-'+type.id">{{ type.type_name_ar }}</label>
+                                     <i class="fas fa-question-circle" style="
+                                      font-size: 20px;
+                                      float: left;
+                                      vertical-align: unset;
+                                      cursor:pointer
+                                  "></i>
                             </div>
                           </div>
                         </div>
@@ -157,6 +163,7 @@
                                  v-if=" form.choose_service_provider  === 'all'"></i>
                               {{ $root._t("app.all") }}
                               <span class="text-success" v-if=" form.choose_service_provider  === 'all'">سيتم اختيار مقدمي الخدمة من كل التخصصات و المدن</span>
+                              <i class="fas fa-question-circle" style=" font-size: 20px; float: left; vertical-align: unset; cursor:pointer "></i>
                             </p>
                             <p class="w-100 mt-0 pt-0"
                                style="position:relative;max-width:550px; cursor: pointer; background-color: #E2FFFC; padding: 13px !important; display: inline-block; border-radius: 8px;"
@@ -169,6 +176,7 @@
                               <b class="text-danger"
                                  v-if=" form.choose_service_provider  === 'by_city' && form.city_id  === null">الرجاء
                                 اختيار مدينة</b>
+                                <i class="fas fa-question-circle" style=" font-size: 20px; float: left; vertical-align: unset; cursor:pointer "></i>
                             </p>
                             <div class="form-row" v-if="form.choose_service_provider === 'by_city'">
                               <div class="form-group col-md-6 mb-3">
@@ -199,6 +207,7 @@
                               <b class="text-danger"
                                  v-if=" form.choose_service_provider  === 'by_filter' && form.filter_id  === null">الرجاء
                                 اختيار مقدم الخدمة</b>
+                                <i class="fas fa-question-circle" style=" font-size: 20px; float: left; vertical-align: unset; cursor:pointer "></i>
                             </p>
                             <p class="w-100 mt-0 pt-0"
                                style="position:relative;max-width:550px; cursor: pointer; background-color: #E2FFFC; padding: 13px !important; display: inline-block; border-radius: 8px;"
@@ -208,6 +217,7 @@
                                  v-if=" form.choose_service_provider  === 'by_occupation'"></i>
                               بالتخصص
                               <span class="text-success" v-if=" form.choose_service_provider  === 'by_occupation'">سيتم اختيار مقدمي الخدمة من نفس تخصص القسم المحدد</span>
+                              <i class="fas fa-question-circle" style=" font-size: 20px; float: left; vertical-align: unset; cursor:pointer "></i>
                             </p>
                             <div class="form-row" v-if="form.choose_service_provider === 'by_filter'">
                               <div class="form-group col-md-12">
@@ -282,7 +292,7 @@
                 <div class="option selected ">
                   <div class="head ">
                     <div class="details selected bordr mt-3">
-                      <div class="row">
+                      <div class="row w-100 mx-0 px-0">
                         <div class="col-12">
                           <p class="w-100 mt-0 pt-0"
                              style="position:relative;max-width:550px; cursor: pointer; background-color: #E2FFFC; padding: 13px !important; display: inline-block; border-radius: 8px;"
@@ -294,6 +304,7 @@
                                class="fa fa-check-circle text-success" v-else></i>
 
                             {{ $root._t("app.acceptDataAndMakeSure") }}
+                            <i class="fas fa-question-circle" style=" font-size: 20px; float: left; vertical-align: unset; cursor:pointer "></i>
                           </p>
                         </div>
                       </div>
@@ -307,14 +318,14 @@
               <div class="form-check">
                 <label class="form-check-label name red pr-2 mb-2" style="color: #FF584D; font-size:14px"
                        for="exampleCheckss81">
-                  {{ $root._t("app.suggestTimeForRequest") }} </label>
+                  {{ $root._t("app.suggestTimeForRequest") }} <i class="fas fa-question-circle" style="font-size: 17px;float: left;vertical-align: unset;cursor:pointer;margin-right: 5px;"></i></label>
                 <input type="number" v-model="form.execution_time" class="form-control" id="exampleCheckss81"
                        placeholder="مدة الانجاز....">
               </div>
               <div class="form-check">
                 <label class="form-check-label name red pr-2 mb-2" style="color: #FF584D; font-size:14px"
                        for="order_title_input">
-                  عنوان الطلب </label>
+                  عنوان الطلب <i class="fas fa-question-circle" style="font-size: 17px;float: left;vertical-align: unset;cursor:pointer;margin-right: 5px;"></i></label>
                 <input type="text" v-model="form.order_title" class="form-control" id="order_title_input"
                        placeholder="...">
               </div>
@@ -326,19 +337,19 @@
                        name="chos">
                 <label class="form-check-label name  pr-2" for="exampleCheck8000"> {{
                     $root._t("app.yes")
-                  }} </label>
+                  }} <i class="fas fa-question-circle" style="font-size: 17px;float: left;vertical-align: unset;cursor:pointer;margin-right: 5px;"></i></label>
               </div>
               <div class="form-check form-check-inline mb-2">
                 <input type="radio" class="form-check-input" v-model="form.negotiable" value="no" id="exampleCheck800"
                        name="chos">
                 <label class="form-check-label name  pr-2" for="exampleCheck800"> {{
                     $root._t("app.no")
-                  }}
+                  }} <i class="fas fa-question-circle" style="font-size: 17px;float: left;vertical-align: unset;cursor:pointer;margin-right: 5px;"></i>
                 </label>
               </div>
               <div class="form-check textare">
                 <label class="form-check-label name red pr-2 mb-2" for="exampleCheck81">
-                  {{ $root._t("app.details") }} </label>
+                  {{ $root._t("app.details") }} <i class="fas fa-question-circle" style="font-size: 17px;float: left;vertical-align: unset;cursor:pointer;margin-right: 5px;"></i></label>
                 <textarea class="form-control textare-count" v-model="form.order_content" id="exampleCheck81"
                           maxlength="1000"
                           placeholder="اكتب التفاصيل هنا...." rows="4"></textarea>
