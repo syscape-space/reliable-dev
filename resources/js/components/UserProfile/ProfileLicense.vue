@@ -24,7 +24,7 @@
                 <h5><i data-feather="user" class="icon-svg-primary wid-20"></i><span class="p-l-5">الرخصة
                         المهنية</span></h5>
             </div>
-          <template>
+          <template v-if="license">
             <template v-if="parseInt(license.status) === 0">
               <div class="alert alert-info">
                 جاري الفحص من الادارة
