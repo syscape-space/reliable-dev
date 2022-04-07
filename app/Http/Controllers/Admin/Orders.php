@@ -37,6 +37,7 @@ class Orders extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function index(OrdersDataTable $orders) {
+		
 		return $orders->render('admin.orders.index', ['title' => trans('admin.orders')]);
 	}
 

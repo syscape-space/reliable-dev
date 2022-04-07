@@ -41,11 +41,11 @@
       @if(count(L::all()) > 0)
        <!-- Language Dropdown Menu -->
       <li class="nav-item" >
-        <button class="btn btn-success">طلبات جديدة <i class="mr-0 ml-2 far fa-bell move-css"></i></button>
-        <button class="btn btn-warning mx-2">
+        <a href="{{route('orders.index',['status'=>'under_review'])}}" class="btn btn-success text-white">طلبات جديدة <i class="mr-0 ml-2 far fa-bell move-css"></i></a>
+        <a href="{{route('users.index',['id_status'=>'pending'])}}" class="btn btn-warning mx-2">
           تحقيق الهوية
-          <span class="badge bg-default" style="padding: 4px 7px; margin-right: 5px;">0</span>
-        </button>
+          <span class="badge bg-default" style="padding: 4px 7px; margin-right: 5px;">{{App\Models\User::where('id_status','pending')->count()}}</span>
+        </a>
       </li>
       <li class="nav-item  dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">

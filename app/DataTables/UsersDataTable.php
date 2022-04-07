@@ -52,6 +52,9 @@ class UsersDataTable extends DataTable {
 				if (request('status')) {
 					$q->where('account_status', request('status'));
 				}
+				if (request('id_status')) {
+					$q->where('id_status', request('id_status'));
+				}
 			})->with(['company_id'])->select("users.*");
 
 	}
