@@ -24,7 +24,7 @@
                 style="border: 0px; background-color: rgb(4, 142, 129); color: rgb(255, 255, 255); font-size: 12px;width:120px;margin:auto ;font-size: 11px;"
                 data-bs-toggle="modal" 
                 data-bs-target="#exampleModal">تحديث الصوره</button>
-                <button class="btn mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal"  style="border: 0px;background-color: rgb(246 246 246);color: rgb(0 0 0);font-size: 11px;width: 90%;margin: auto;">انت مشترك بالباقة العادية</button>
+                <button class="btn mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal"  style="border: 0px;background-color: rgb(255 202 148); color: rgb(0 0 0);;font-size: 11px;width: 90%;margin: auto;">انت مشترك بالباقة العادية</button>
               </ul>
               
               <ul class="list-group list-group-flush px-0">
