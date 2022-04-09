@@ -797,6 +797,9 @@ h1 {
     border-radius: 5px;
     font-size: 12px;
 }
+.single-nog .d-flex.mb-3  textarea {
+    border: 1px solid #ddd !important;
+}
 .single-nog .d-flex.mb-3  {
     align-items: flex-start;
 }
