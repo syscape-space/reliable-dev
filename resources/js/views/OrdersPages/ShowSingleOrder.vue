@@ -261,97 +261,99 @@
               </li>
             </ul>
           </div>
-            <template
-                v-if="
+
+            <template v-if="order.order_step === 1">
+              <template
+                  v-if="
                 order &&
                 order.user_id.id != $root.auth_user.id &&
                 !summitedOffer
               "
-            >
-              <h6 class="mt-3">{{ $root._t("app.addOrder") }}</h6>
-              <div class="errors">
-                <div
-                    class="alert alert-danger"
-                    v-for="error in errors"
-                    :key="error"
-                >
-                  <strong>{{ error }}</strong>
+              >
+                <h6 class="mt-3">{{ $root._t("app.addOrder") }}</h6>
+                <div class="errors">
+                  <div
+                      class="alert alert-danger"
+                      v-for="error in errors"
+                      :key="error"
+                  >
+                    <strong>{{ error }}</strong>
+                  </div>
                 </div>
-              </div>
-              <div class="row w-100 mx-0 px-0 mt-4">
-                <div class="col-md-4 mb-3 f-14">
-                  <label class="mb-2" for="">
-                    {{ $root._t("app.deliveryTime") }}
-                  </label>
-                  <input
-                      placeholder="....مدة التسليم"
-                      type="number"
-                      v-model="execution_time"
-                      class="o_input form-control"
-                  />
-                </div>
-                <div class="col-md-4 mb-3 f-14">
-                  <label class="mb-2" for="">
-                    {{ $root._t("app.oderValue") }}
-                  </label>
-                  <input
-                      placeholder="....قيمة العرض"
-                      type="number"
-                      v-model="price"
-                      class="o_input form-control"
-                  />
-                </div>
-                <div class="col-md-4 mb-3 f-14">
-                  <label class="mb-2" for="">
-                    {{ $root._t("app.dues") }}
-                  </label>
-                  <span class="text-success">
+                <div class="row w-100 mx-0 px-0 mt-4">
+                  <div class="col-md-4 mb-3 f-14">
+                    <label class="mb-2" for="">
+                      {{ $root._t("app.deliveryTime") }}
+                    </label>
+                    <input
+                        placeholder="....مدة التسليم"
+                        type="number"
+                        v-model="execution_time"
+                        class="o_input form-control"
+                    />
+                  </div>
+                  <div class="col-md-4 mb-3 f-14">
+                    <label class="mb-2" for="">
+                      {{ $root._t("app.oderValue") }}
+                    </label>
+                    <input
+                        placeholder="....قيمة العرض"
+                        type="number"
+                        v-model="price"
+                        class="o_input form-control"
+                    />
+                  </div>
+                  <div class="col-md-4 mb-3 f-14">
+                    <label class="mb-2" for="">
+                      {{ $root._t("app.dues") }}
+                    </label>
+                    <span class="text-success">
                     خصم نسبة
                     {{$root.settings.amount_add_order_vat}}
                     %
                   </span>
-                  <input
-                      readonly
-                      placeholder="....مستحقاتك"
-                      :value="price - (price / 100 * $root.settings.amount_add_order_vat)"
-                      type="text"
-                      class="o_input form-control"
-                  />
-                </div>
-                <div class="col-md-12 mb-3 f-14">
-                  <label class="mb-2" for="">
-                    {{ $root._t("app.offerDetails") }}
-                  </label>
-                  <textarea
-                      placeholder=".......تفاصيل العرض"
-                      type="text"
-                      v-model="vendor_comment"
-                      class="o_input form-control"
-                      rows="6"
-                  ></textarea>
-                </div>
-                <div class="col-md-12 mb-3 f-14">
-                  <label for=""> {{ $root._t("app.files") }} </label>
+                    <input
+                        readonly
+                        placeholder="....مستحقاتك"
+                        :value="price - (price / 100 * $root.settings.amount_add_order_vat)"
+                        type="text"
+                        class="o_input form-control"
+                    />
+                  </div>
+                  <div class="col-md-12 mb-3 f-14">
+                    <label class="mb-2" for="">
+                      {{ $root._t("app.offerDetails") }}
+                    </label>
+                    <textarea
+                        placeholder=".......تفاصيل العرض"
+                        type="text"
+                        v-model="vendor_comment"
+                        class="o_input form-control"
+                        rows="6"
+                    ></textarea>
+                  </div>
+                  <div class="col-md-12 mb-3 f-14">
+                    <label for=""> {{ $root._t("app.files") }} </label>
 
-                  <div class="btw-flex">
-                    <div class="position-relative">
-                      <input
-                          style="width: 141px"
-                          type="file"
-                          class="abs-file"
-                      />
-                      <div style="color: #048e81" class="add-o-file f-12">
-                        <img
-                            :src="base_url + '/assets/images/o_file.svg'"
-                            alt=""
+                    <div class="btw-flex">
+                      <div class="position-relative">
+                        <input
+                            style="width: 141px"
+                            type="file"
+                            class="abs-file"
                         />
-                        <span> {{ $root._t("app.addFiles") }} </span>
-                        
+                        <div style="color: #048e81" class="add-o-file f-12">
+                          <img
+                              :src="base_url + '/assets/images/o_file.svg'"
+                              alt=""
+                          />
+                          <span> {{ $root._t("app.addFiles") }} </span>
+
+                        </div>
                       </div>
-                    </div>
-                    <div>
-                      <button
-                          style="
+                      <div>
+                        <button
+                            style="
                           height: 38px;
                           border: 0;
                           background-color: #048e81;
@@ -359,17 +361,16 @@
                           font-size: 12px;
                           padding: 0 40px;
                         "
-                          class="rounded"
-                          @click.prevent="addNewOffer()"
-                      >
-                        {{ $root._t("app.addOrder") }}
-                      </button>
+                            class="rounded"
+                            @click.prevent="addNewOffer()"
+                        >
+                          {{ $root._t("app.addOrder") }}
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </template>
-            <template v-if="order.order_step === 1">
+              </template>
               <div class="my-4 border btw-flex border p-2" >
                 <span> {{ $root._t("app.presentation") }} </span>
                 <span>
