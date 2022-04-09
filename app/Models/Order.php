@@ -204,7 +204,7 @@ class Order extends Model {
 	    if ($this->order_status == "open" and $this->order_step == 2){
             $user = User::query()->find(auth('api')->id()??auth()->id());
             if ($user->membership_type == 'vendor'){
-                return $user->negotiations()->with(['users','messages','order'])->firstWhere('order_id',\request('order_id'));
+                return $user->negotiations()->with(['users','messages','order'])->firstWhere('order_id',$this->id);
             }else{
                 return $this->negotiations()->with(['users','messages','order'])
                     ->get()->filter(function ($item){

@@ -414,7 +414,7 @@
               <offers-list ref="offers_list"/>
             </template>
             <template v-else>
-              <single-negotiation :id="order.active_negotiation.id"/>
+              <single-negotiation v-if="order.active_negotiation" :id="order.active_negotiation.id"/>
             </template>
             <div
                 class="py-2 px-3 my-3 d-inline-block rounded f-14"
