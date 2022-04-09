@@ -23,6 +23,8 @@ class Admin extends Authenticatable {
 	}
 
 	public function role($name) {
+	    return true;
+//	    FIXME :::
 		$exists_group_id = $this->getConnection()
 			->getSchemaBuilder()
 			->hasColumn($this->getTable(), 'group_id');
