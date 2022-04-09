@@ -28,5 +28,9 @@
         {!! Form::label('review_offers_status',trans('admin.review_offers_status'),['class'=>'control-label']) !!}
         {!! Form::select('review_offers_status',['enable'=>trans('admin.enable'),'disable'=>trans('admin.disable')],setting()->review_offers_status,['class'=>'form-control','placeholder'=>trans('admin.review_offers_status')]) !!}
     </div>
+    <div class="form-group col-md-6">
+        {!! Form::label('enable_package_requests','تفعيل طلبات مقدمي الخدمة',['class'=>'control-label']) !!}
+        {!! Form::select('enable_package_requests',['1'=>trans('admin.enable'),'0'=>trans('admin.disable')],setting()->enable_package_requests,['class'=>'form-control']) !!}
+    </div>
 
 </div>

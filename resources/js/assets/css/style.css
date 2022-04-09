@@ -1125,7 +1125,7 @@ select {
     font-weight: bold;
     padding: 5px;
     display: inline-flex;
-    align-items: end;
+    align-items: flex-end;
     padding-bottom: 9px;
     border-radius: 11px;
     margin: 5px;

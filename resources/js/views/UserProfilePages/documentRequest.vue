@@ -362,7 +362,7 @@
                 <div class="form-check form-check-inline mb-2">
                   <div class="variants">
                     <div class='attach d-inline-block '>
-                      <label for='input-file' class="add-o-file">
+                      <label for='attachments_input' class="add-o-file">
                         {{ $root._t("app.attchments") }}
                         <img :src="base_url + 'assets/images/file.svg'" alt="#">
                       </label>
@@ -370,13 +370,7 @@
                              multiple @change="uploadAttachments()"
                              type='file'/>
                     </div>
-                    <!-- <div class='sounds d-inline-block mr-3'>
-                      <label for='input-file' class="add-o-file">
-                        {{ $root._t("app.sendVoiceFile") }}
-                        <img :src="base_url + 'assets/images/audio-file.svg'" alt="#">
-                      </label>
-                      <input id='input-file'  class="abs-file  "  style="    width: 155px;" ref="audio_file_input" @change="uploadAudioFile()" type='file'/>
-                    </div> -->
+
                   </div>
                 </div>
               </div>
@@ -403,17 +397,9 @@
               <div class="total mt-3">
                 <p>الرصيد المتاح : <span>{{ $root.auth_user.current_balance }} $</span></p>
               </div>
-            </div>
-            <div class="btns text-center mb-5" v-if="step !== 1">
-              <button class="btn mx-2 text-white page1 small cont " :disabled="! nextStepEnabled" v-if="step < 6"
-                      @click="step++"
-                      style=" padding: 7px;border-color: #048E81 !important;background-color: #048E81 !important;min-width:120px;">
-                {{ $root._t("app.next") }}
-              </button>
-
               <div class="btn btn-success page1 small cont "
                    style=" padding: 7px;border-color: #048E81 !important;background-color: #048E81 !important;min-width:120px;"
-                   @click="submitOrder(true)" v-else>
+                   @click="submitOrder(true)" >
                 <span>
                   حفظ طلبك كمسوده
                   <img :src="base_url + '/assets/images/bookmark.svg'" alt="#" class="mr-2">
@@ -421,11 +407,18 @@
               </div>
               <div class="btn btn-success page1 small cont "
                    style=" padding: 7px;border-color: #048E81 !important;background-color: #048E81 !important;min-width:120px;"
-                   @click="submitOrder()" v-else>
+                   @click="submitOrder()" v-if="balanceCovered">
                 <span v-if="balanceCovered">
                   أكتمال الطلب
                 </span>
               </div>
+            </div>
+            <div class="btns text-center mb-5" v-if="step !== 1">
+              <button class="btn mx-2 text-white page1 small cont " :disabled="! nextStepEnabled" v-if="step < 6"
+                      @click="step++"
+                      style=" padding: 7px;border-color: #048E81 !important;background-color: #048E81 !important;min-width:120px;">
+                {{ $root._t("app.next") }}
+              </button>
               <div class="btn btn-secondary small conta-back mx-3"
                    style=" padding: 7px;border-color: #707070 !important;background-color: #707070 !important;min-width:120px;"
                    @click="step--">
@@ -570,7 +563,9 @@ export default {
       formData.append('entities', JSON.stringify(this.form.entities));
       formData.append('entities_count', this.form.entities_count);
       formData.append('check_invalid_entities_data', this.form.check_invalid_entities_data);
-      formData.append('attachments', this.form.attachments);
+      for (var i = 0;i < this.form.attachments.length;i++){
+        formData.append('attachments['+i+']', this.form.attachments[i]);
+      };
       formData.append('filter_id', this.form.filter_id);
       formData.append('audio_file', this.form.audio_file);
       api.post('/v1/orders', formData).then(res => {

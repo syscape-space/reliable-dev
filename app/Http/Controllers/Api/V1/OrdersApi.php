@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Models\Order;
+use Illuminate\Support\Facades\Storage;
 use Validator;
 use App\Http\Controllers\ValidationsApi\V1\OrdersRequest;
 // Auto Controller Maker By Baboon Script
@@ -38,7 +39,7 @@ class OrdersApi extends Controller{
      * @return array to assign with index & show methods
      */
     public function arrWith(){
-        return ['department_id','entities','negotiations','country_id','city_id','user_id','offers'];
+        return ['department_id','entities','negotiations','country_id','city_id','user_id','offers','files'];
 
     }
 
@@ -73,7 +74,7 @@ class OrdersApi extends Controller{
      */
     public function store(OrdersRequest $request)
     {
-    	$data = $request->except("_token");
+    	$data = $request->except("_token",'files');
     	$data['entities'] = json_decode($data['entities']);
         $data["user_id"] = auth('api')->id();
         $Order = Order::query()->create($data);
@@ -83,6 +84,14 @@ class OrdersApi extends Controller{
                 'id_number'=>$entity->id_number,
                 'nationality'=>$entity->nationality,
             ]);
+        foreach ($request->file('attachments') as $file){
+            $meme = $file->getMimeType();
+            $Order->files()->create([
+                'path'=> Storage::disk('cloud')->put('files',$file),
+                'type'=> strpos($meme,'video')?'video':(strpos($meme,'image')?"image":"unknown"),
+            ]);
+        }
+
 		$Order = Order::with($this->arrWith())->find($Order->id,$this->selectColumns);
 		if ($data['order_status'] =='under_review'){
 		    User::query()->find(auth('api')->id())->update([
@@ -104,7 +113,8 @@ class OrdersApi extends Controller{
      */
     public function show($id)
     {
-        $Order = Order::with($this->arrWith())->find($id,$this->selectColumns)->append('order_step');
+        $Order = Order::with($this->arrWith())->find($id,$this->selectColumns)
+            ->append('order_step','active_vendor','active_negotiation');
         if(is_null($Order) || empty($Order)){
             return errorResponseJson([
             "message"=>trans("admin.undefinedRecord")

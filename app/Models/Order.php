@@ -194,5 +194,24 @@ class Order extends Model {
 	        $temp+=3;
 		return $temp;
 	}
+	public function files(){
+	    return $this->hasMany(OrderFile::class,'order_id','id');
+    }
+    public function getActiveVendorAttribute(){
+	    return $this->offers()->firstWhere('offer_status','approved')->vendor;
+    }
+    public function getActiveNegotiationAttribute(){
+	    if ($this->order_status == "open" and $this->order_step == 2){
+            $user = User::query()->find(auth('api')->id()??auth()->id());
+            if ($user->membership_type == 'vendor'){
+                return $user->negotiations()->with(['users','messages','order'])->firstWhere('order_id',\request('order_id'));
+            }else{
+                return $this->negotiations()->with(['users','messages','order'])
+                    ->get()->filter(function ($item){
+                        return $item->users->contains($this->active_vendor);
+                    })->first();
+            }
+        }
+    }
 
 }

@@ -1,7 +1,7 @@
 <template>
   <OrderRightNavbar/>
   <NewTopNavbar/>
-  <section class="personal-section mt-2">
+  <section class="personal-section mt-2" v-if="order">
     <div class="personal">
       <div class="personal-info">
         <div class="px-3 mb-2">
@@ -14,7 +14,146 @@
         </div>
 
         <div class="row w-100 mx-0 px-0">
-          <div class="col-lg-9">
+          <div class="col-md-3" v-if="order.order_step === 2">
+            <div>
+              <div
+                  class="bg-users f-14 p-3 text-center"
+                  style="
+                    background-image: linear-gradient(
+                      to bottom,
+                      #ff584d20,
+                      #802c2710
+                    );
+                    border-radius: 8px;
+                    background-color: transparent;
+                  "
+              >
+                <h6 style="font-size: 13px" class=""> {{ $root._t("app.serviceProducerData") }} </h6>
+
+                <ul class="list-unstyled px-0 f-12 text-end mt-4">
+                  <li class="mb-3 mt-4 text-center">
+                    <div class="text-center mb-2" >
+                      <img style="width: 50px;height: 50px;" class="uses-img" :src="cloud_url  +  orderOwnerProfile " alt="">
+                    </div>
+                    <span class="text-center">{{ orderOwner }} </span>
+                  </li>
+                  <li class="mb-3 f-12">
+                    <span> {{ $root._t("app.projectStatus") }} </span>
+                    <button v-if="list.order_status === 'under_review' "
+                            class="o_btn d-inline-block px-3 py-2 rounded"
+                            style="margin-right: 15px; background-color: orange"
+                    >
+                      {{ $root._t("app." + list.order_status) }}
+                    </button>
+
+                    <button v-else-if="list.order_status === 'open' "
+                            class="o_btn d-inline-block px-3 py-2 rounded"
+                            style="margin-right: 15px; background-color: green"
+                    >
+                      {{ $root._t("app." + list.order_status) }}
+                    </button>
+
+                    <button v-else-if="list.order_status === 'closed' "
+                            class="o_btn d-inline-block px-3 py-2 rounded"
+                            style="margin-right: 15px; background-color: red"
+                    >
+                      {{ $root._t("app." + list.order_status) }}
+                    </button>
+                  </li>
+                  <li class="mb-3">
+                      <span style="min-width: 60px" class="d-inline-block"
+                      >{{ $root._t("app.budget") }}
+                      </span>
+                    <span
+                        style="margin-right: 15px; color: #0995eb"
+                        class="fw-bold"
+                    > {{ list.price }} $ </span
+                    >
+                  </li>
+                  <li class="mb-3">
+                      <span style="min-width: 60px" class="d-inline-block"
+                      >{{ $root._t("app.executionTime") }}</span
+                      >
+                    <span
+                        style="margin-right: 15px; color: #0995eb"
+                        class="fw-bold"
+                    >{{ list.execution_time }} يوم</span
+                    >
+                  </li>
+                  <li class="mb-3">
+                      <span style="min-width: 60px" class="d-inline-block"
+                      > {{ $root._t("app.startingExecutionAge") }} </span
+                      >
+                    <span
+                        style="margin-right: 15px; color: #0995eb"
+                        class="fw-bold"
+                    >
+                        {{ list.created_at }} </span
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div
+                  class="btn-rceive-report d-flex justify-content-between mt-3"
+              >
+                <div class="recive-report position-relative">
+                  <button
+                      style=" background-color: #048e81;"
+                      class="border-0 rounded"
+                  >
+                    <img
+                        :src="base_url+'/assets/images/contract.svg'"
+                        alt=""
+                        srcset=""
+                    /> <br>
+                    {{ $root._t("app.contract") }}
+                  </button>
+                </div>
+                <div class="recive-report position-relative">
+                  <button
+                      style=" background-color: #0995eb;"
+                      class="border-0 rounded"
+                  >
+                    <img
+                        :src="base_url+'/assets/images/recive.svg'"
+                        alt=""
+                        srcset=""
+                    />
+                    <br>
+                    {{ $root._t("app.recieve") }}
+                  </button>
+
+                </div>
+                <div class="recive-report position-relative">
+                  <button
+                      style="
+                        background-color: #ff584d;
+
+                      "
+                      class="border-0 rounded"
+                  >
+                    <img
+                        :src="base_url+'/assets/images/report.svg'"
+                        alt=""
+                        srcset=""
+                    /> <br>
+                    {{ $root._t("app.report") }}
+                  </button>
+
+                </div>
+              </div>
+              <button class="mohkam-btn">
+                {{ $root._t("app.tightOrder") }}
+              </button>
+              <button class="mohkam-btn">
+                مقدم خدمه جديد
+              </button>
+              <button class="mohkam-btn">
+                إضافة طلب جديد
+              </button>
+            </div>
+          </div>
+          <div v-if="order" :class="order.order_step === 1 ? 'col-lg-9':'col-lg-6'">
 
             <div class="border row w-100 mx-0 px-0"
                   v-if="order && order.order_status !== 'archived'"
@@ -166,8 +305,15 @@
                   <label class="mb-2" for="">
                     {{ $root._t("app.dues") }}
                   </label>
+                  <span class="text-success">
+                    خصم نسبة
+                    {{$root.settings.amount_add_order_vat}}
+                    %
+                  </span>
                   <input
+                      readonly
                       placeholder="....مستحقاتك"
+                      :value="price - (price / 100 * $root.settings.amount_add_order_vat)"
                       type="text"
                       class="o_input form-control"
                   />
@@ -223,9 +369,10 @@
                 </div>
               </div>
             </template>
-            <div class="my-4 border btw-flex border p-2">
-              <span> {{ $root._t("app.presentation") }} </span>
-              <span>
+            <template v-if="order.order_step === 1">
+              <div class="my-4 border btw-flex border p-2" >
+                <span> {{ $root._t("app.presentation") }} </span>
+                <span>
                 <button
                     @click="negotiateNow()"
                     v-if="$root.auth_user.membership_type === 'vendor'"
@@ -263,22 +410,27 @@
                   </router-link>
                 </div>
               </span>
-            </div>
-            <offers-list ref="offers_list"/>
-
+              </div>
+              <offers-list ref="offers_list"/>
+            </template>
+            <template v-else>
+              <single-negotiation :id="order.active_negotiation.id"/>
+            </template>
             <div
                 class="py-2 px-3 my-3 d-inline-block rounded f-14"
                 style="color: #2b7b74; background-color: #ebfffd"
+                v-if="order && (order.order_step === 2 || $root.auth_user)"
+                v-for="(file,index) in order.files"
             >
-              <span class="ms-3 fw-bold">
-                {{ $root._t("app.orderFileComplete") }}
+              <span>
+
               </span>
-              <span
-              ><img
-                  style="width: 70px"
-                  :src="base_url + '/assets/images/o_pdf.svg'"
-                  alt=""
-              /></span>
+              <a class="ms-3 fw-bold" :href="cloud_url + file.path" target="_blank">
+                ملف
+                {{index + 1}}
+                {{file.image}}
+              </a>
+
             </div>
           </div>
           <div class="col-md-3">
@@ -466,11 +618,13 @@ import NewTopNavbar from "../../components/Orders/NewTopNavbar.vue";
 import OrderRightNavbar from "../../components/Orders/OrderRightNavbar";
 import OffersList from "../../components/Orders/OffersList";
 import OrderNegotiations from "./OrderNegotiations";
+import Negotiation from "../../components/Negotiation";
+import SingleNegotiation from "../../components/SingleNegotiation";
 
 export default {
   name: "ShowSingleOrder",
   props: ["id"],
-  components: {OrderNegotiations, NewTopNavbar, OrderRightNavbar, OffersList},
+  components: {SingleNegotiation, Negotiation, OrderNegotiations, NewTopNavbar, OrderRightNavbar, OffersList},
   mounted() {
     this.gettingOrderDetails();
   },

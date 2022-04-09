@@ -158,6 +158,7 @@ class Settings extends Controller {
 				'arbitration_amount_tax'   => 'required',
 				'review_order_status'      => 'required|in:enable,disable',
 				'review_offers_status'     => 'required|in:enable,disable',
+				'enable_package_requests'     => 'required|in:1,0',
 			];
 			$nicename = [
 				'add_order'                => trans('admin.add_order'),

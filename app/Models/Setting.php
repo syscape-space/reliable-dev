@@ -95,6 +95,7 @@ class Setting extends Model {
 		'attachment_commercial_exts',
 		'attachment_ticket_exts',
 		'attachment_comment_ticket_exts',
+		'enable_package_requests',
 
 	];
 
