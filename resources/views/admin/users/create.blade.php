@@ -72,55 +72,57 @@
                         {!! Form::text('name', old('name'), ['class' => 'form-control', 'readonly' => 'readonly', 'placeholder' => trans('admin.name')]) !!}
                     </div>
                 </div>
-                <div class="col-md-4 col-lg-4 col-sm-4 col-xs-12">
-                    <div class="form-group">
-                        <label for="" class="control-label">اختر القسم الرئيسي</label>
-                        <select name="main_department" class="form-control" id="main_depart">
-							<option value="">اختر القسم الرئيسي</option>
-                            @foreach ($departments as $department)
-                                <option value="{{ $department->id }}">{{ $department->department_name_ar }}</option>
-                            @endforeach
-                        </select>
+                @if (request('membership_type') != 'user')
+                    <div class="col-md-4 col-lg-4 col-sm-4 col-xs-12">
+                        <div class="form-group">
+                            <label for="" class="control-label">اختر القسم الرئيسي</label>
+                            <select name="main_department" class="form-control" id="main_depart">
+                                <option value="">اختر القسم الرئيسي</option>
+                                @foreach ($departments as $department)
+                                    <option value="{{ $department->id }}">{{ $department->department_name_ar }}</option>
+                                @endforeach
+                            </select>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-4 col-lg-4 col-sm-4 col-xs-12" style="display:none" id="sub_depart_parent">
-                    <div class="form-group">
-                        <label for="" class="control-label">اختر القسم الفرعي</label>
-                        <select name="sub_department" class="form-control" id="sub_depart"></select>
+                    <div class="col-md-4 col-lg-4 col-sm-4 col-xs-12" style="display:none" id="sub_depart_parent">
+                        <div class="form-group">
+                            <label for="" class="control-label">اختر القسم الفرعي</label>
+                            <select name="sub_department" class="form-control" id="sub_depart"></select>
+                        </div>
                     </div>
-                </div>
-				@push('js')
-				<script type="text/javascript">
-					$(document).on('change', '#main_depart', function() {
-						department_id=$('#main_depart').val()
-						$.ajax({
-                    url: '{{ route('users.department') }}',
-                    type: 'get',
-                    data: {
-                        department_id: department_id,
-                    },
-                    success: function(data) {
-                        if (data.length > 0) {
-							$('#sub_depart_parent').css('display','block');
-                            $('#sub_depart').empty();
-                            var firstOption = $('<option>اختر القسم الفرعي </option>');
-                            $('#sub_depart').append(firstOption);
-                            var data = data;
-                            data.forEach(e => {
-                                var newOption = $('<option></option>');
-                                newOption.text(e.department_name_ar);
-                                newOption.val(e.id);
-                                $('#sub_depart').append(newOption);
+                    @push('js')
+                        <script type="text/javascript">
+                            $(document).on('change', '#main_depart', function() {
+                                department_id = $('#main_depart').val()
+                                $.ajax({
+                                    url: '{{ route('users.department') }}',
+                                    type: 'get',
+                                    data: {
+                                        department_id: department_id,
+                                    },
+                                    success: function(data) {
+                                        if (data.length > 0) {
+                                            $('#sub_depart_parent').css('display', 'block');
+                                            $('#sub_depart').empty();
+                                            var firstOption = $('<option>اختر القسم الفرعي </option>');
+                                            $('#sub_depart').append(firstOption);
+                                            var data = data;
+                                            data.forEach(e => {
+                                                var newOption = $('<option></option>');
+                                                newOption.text(e.department_name_ar);
+                                                newOption.val(e.id);
+                                                $('#sub_depart').append(newOption);
+                                            });
+                                        } else {
+                                            $('#sub_depart_parent').css('display', 'none');
+                                        }
+                                    },
+                                    error: function(response) {}
+                                });
                             });
-                        } else {
-                            $('#sub_depart_parent').css('display','none');
-                        }
-                    },
-                    error: function(response) {}
-                });
-					});
-				</script>
-			@endpush
+                        </script>
+                    @endpush
+                @endif
                 <div class="col-md-4 col-lg-4 col-sm-4 col-xs-12">
                     <div class="form-group">
                         {!! Form::label('email', trans('admin.email'), ['class' => 'control-label']) !!}
@@ -130,7 +132,7 @@
                 <div class="col-md-3 col-lg-3 col-sm-3 col-xs-12">
                     <div class="form-group">
                         {!! Form::label('email_verify_code', trans('admin.email_verify_code'), ['class' => ' control-label']) !!}
-                        {!! Form::text('email_verify_code', old('email_verify_code'), ['class' => 'form-control', 'placeholder' => trans('admin.email_verify_code')]) !!}
+                        {!! Form::number('email_verify_code', old('email_verify_code'), ['class' => 'form-control', 'placeholder' => trans('admin.email_verify_code')]) !!}
                     </div>
                 </div>
                 <div class="col-md-3 col-lg-3 col-sm-3 col-xs-12">
@@ -248,12 +250,15 @@
                         {!! Form::text('rate_overall', old('rate_overall'), ['class' => 'form-control', 'placeholder' => trans('admin.rate_overall')]) !!}
                     </div>
                 </div>
-                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-                    <div class="form-group">
-                        {!! Form::label('bio', trans('admin.bio'), ['class' => 'control-label']) !!}
-                        {!! Form::textarea('bio', old('bio'), ['class' => 'form-control', 'placeholder' => trans('admin.bio')]) !!}
+                @if (request('membership_type') != 'user')
+                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                        <div class="form-group">
+                            {!! Form::label('bio', trans('admin.bio'), ['class' => 'control-label']) !!}
+                            {!! Form::textarea('bio', old('bio'), ['class' => 'form-control', 'placeholder' => trans('admin.bio')]) !!}
+                        </div>
                     </div>
-                </div>
+                @endif
+
                 <div class="col-md-4 col-lg-4 col-sm-4 col-xs-12">
                     <div class="form-group">
                         {!! Form::label('gender', trans('admin.gender')) !!}
@@ -368,13 +373,14 @@
                         </div>
                     </div>
                 @endif
-
+                @if (request('membership_type') != 'user')
                 <div class="col-md-4 col-lg-4 col-sm-4 col-xs-12">
                     <div class="form-group">
                         {!! Form::label('add_request', trans('admin.add_request')) !!}
                         {!! Form::select('add_request', ['enable' => trans('admin.enable'), 'disable' => trans('admin.disable')], old('add_request'), ['class' => 'form-control select2', 'placeholder' => trans('admin.choose')]) !!}
                     </div>
                 </div>
+                @endif
                 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6 disable_adding_offer_reason hidden">
                     <div class="form-group">
                         {!! Form::label('disable_adding_offer_reason', trans('admin.disable_adding_offer_reason'), ['class' => 'control-label']) !!}
