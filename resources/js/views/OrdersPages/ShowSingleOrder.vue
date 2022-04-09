@@ -158,45 +158,45 @@
             <div class="border row w-100 mx-0 px-0"
                   v-if="order && order.order_status !== 'archived'"
                   style="box-shadow: 1px 1px 3px #ddd; margin-bottom: 20px; margin-top: 10px;">
-              <div class="col-md-4 my-4" style="color: #aeaeae">
-                <div class="cir-prog "  :class="{'current-circle-status':order.order_step >= 1}">
-                  <img :src="base_url + '/assets/images/o_hand.svg'" alt=""/>
+                <div class="col-md-4 my-4" style="color: #aeaeae">
+                  <div class="cir-prog "  :class="{'current-circle-status':order.order_step >= 1}">
+                    <img :src="base_url + '/assets/images/o_hand.svg'" alt=""/>
+                  </div>
+                  <div class="fw-bold o-num text-center" :class="{'current-text-status':order.order_step >= 1}" >
+                    {{ $root._t("app.number1") }}
+                  </div>
+                  <div>
+                    <h6 class="o-txt text-center" :class="{'current-text-status':order.order_step >= 1}" >
+                      {{ $root._t("app.deal") }}
+                    </h6>
+                  </div>
                 </div>
-                <div class="fw-bold o-num text-center" :class="{'current-text-status':order.order_step >= 1}" >
-                  {{ $root._t("app.number1") }}
+                <div class="col-md-4 my-4" style="color: #aeaeae">
+                  <div class="cir-prog" :class="{'current-circle-status':order.order_step >= 2}">
+                    <img :src="base_url + '/assets/images/o_exe.svg'" alt=""/>
+                  </div>
+                  <div class="fw-bold o-num text-center" :class="{'current-text-status':order.order_step >= 2}">
+                    {{ $root._t("app.number2") }}
+                  </div>
+                  <div>
+                    <h6 class="o-txt text-center" :class="{'current-text-status':order.order_step >= 2}">
+                      {{ $root._t("app.execution") }}
+                    </h6>
+                  </div>
                 </div>
-                <div>
-                  <h6 class="o-txt text-center" :class="{'current-text-status':order.order_step >= 1}" >
-                    {{ $root._t("app.deal") }}
-                  </h6>
+                <div class="col-md-4 my-4" style="color: #aeaeae">
+                  <div class="cir-prog" :class="{'current-circle-status':order.order_step >= 3}">
+                    <img :src="base_url + '/assets/images/o_roket.svg'" alt=""/>
+                  </div>
+                  <div class="fw-bold o-num text-center" :class="{'current-text-status':order.order_step >= 3}">
+                    {{ $root._t("app.number3") }}
+                  </div>
+                  <div>
+                    <h6 class="o-txt text-center" :class="{'current-text-status':order.order_step >= 3}">
+                      {{ $root._t("app.ending") }}
+                    </h6>
+                  </div>
                 </div>
-              </div>
-              <div class="col-md-4 my-4" style="color: #aeaeae">
-                <div class="cir-prog" :class="{'current-circle-status':order.order_step >= 2}">
-                  <img :src="base_url + '/assets/images/o_exe.svg'" alt=""/>
-                </div>
-                <div class="fw-bold o-num text-center" :class="{'current-text-status':order.order_step >= 2}">
-                  {{ $root._t("app.number2") }}
-                </div>
-                <div>
-                  <h6 class="o-txt text-center" :class="{'current-text-status':order.order_step >= 2}">
-                    {{ $root._t("app.execution") }}
-                  </h6>
-                </div>
-              </div>
-              <div class="col-md-4 my-4" style="color: #aeaeae">
-                <div class="cir-prog" :class="{'current-circle-status':order.order_step >= 3}">
-                  <img :src="base_url + '/assets/images/o_roket.svg'" alt=""/>
-                </div>
-                <div class="fw-bold o-num text-center" :class="{'current-text-status':order.order_step >= 3}">
-                  {{ $root._t("app.number3") }}
-                </div>
-                <div>
-                  <h6 class="o-txt text-center" :class="{'current-text-status':order.order_step >= 3}">
-                    {{ $root._t("app.ending") }}
-                  </h6>
-                </div>
-              </div>
             </div>
             <div v-else class="row w-100">
               <div class="col-12 alert alert-primary p-3">
@@ -415,7 +415,9 @@
               <offers-list ref="offers_list"/>
             </template>
             <template v-else>
-              <single-negotiation v-if="order.active_negotiation" :id="order.active_negotiation.id"/>
+              <div class="single-nog">
+                 <single-negotiation v-if="order.active_negotiation" :id="order.active_negotiation.id"/>  
+              </div> 
             </template>
             <div
                 class="py-2 px-3 my-3 d-inline-block rounded f-14"
@@ -785,5 +787,28 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: space-around;
+}
+.single-nog .requsts-sec {
+      width: 100%;
+}
+.single-nog .d-flex.mb-3  .bg-primary {
+    background-color: #048e81!important;
+    padding: 2px 5px;
+    border-radius: 5px;
+    font-size: 12px;
+}
+.single-nog .d-flex.mb-3  {
+    align-items: flex-start;
+}
+.single-nog .d-flex.mb-3  img {
+  width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-left: 10px;
+    margin-bottom: 5px;
+}
+.single-nog  .item-chat li div {
+    justify-content: start;
+    align-items: center;
 }
 </style>

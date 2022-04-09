@@ -2,8 +2,6 @@
   <section class="requsts-sec mt-4" v-if="negotiate && negotiate.order">
     <div class="chat-clinet" style="max-width: 1000px;margin: auto;">
       <ul class="chat-list justify-content-between  list-unstyled d-flex ">
-
-
         <li class="text-center">
           <span>رقم الطلب</span> <br>
           <span>{{ negotiate.order.id }}</span>
@@ -128,6 +126,6 @@ export default {
 }
 </script>
 
-<style scoped>
+<style >
 
 </style>
