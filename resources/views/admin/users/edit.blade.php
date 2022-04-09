@@ -52,9 +52,9 @@
                             </div>
                             <div class="modal-footer">
                                 {!! Form::open([
-    'method' => 'DELETE',
-    'route' => ['users.destroy', $users->id],
-]) !!}
+        'method' => 'DELETE',
+        'route' => ['users.destroy', $users->id],
+        ]) !!}
                                 {!! Form::submit(trans('admin.approval'), ['class' => 'btn btn-danger btn-flat']) !!}
                                 <a class="btn btn-default btn-flat" data-dismiss="modal">{{ trans('admin.cancel') }}</a>
                                 {!! Form::close() !!}
@@ -111,7 +111,7 @@
                     </div>
                 </div>
                 @if (request('membership_type') != 'user')
-                    <div class="col-md-4 col-lg-4 col-sm-4 col-xs-12">
+                    <div class="col-md-3 col-lg-3 col-sm-3 col-xs-12">
                         <div class="form-group">
                             <label for="" class="control-label">اختر القسم الرئيسي</label>
                             <select name="main_department" class="form-control" id="main_depart">
@@ -124,7 +124,7 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-md-4 col-lg-4 col-sm-4 col-xs-12" style="display:none" id="sub_depart_parent">
+                    <div class="col-md-3 col-lg-3 col-sm-3 col-xs-12" style="display:none" id="sub_depart_parent">
                         <div class="form-group">
                             <label for="" class="control-label">اختر القسم الفرعي</label>
                             <select name="sub_department" class="form-control" id="sub_depart">
@@ -190,7 +190,7 @@
                     @endpush
                 @endif
 
-                <div class="col-md-4 col-lg-4 col-sm-4 col-xs-12">
+                <div class="col-md-3 col-lg-3 col-sm-3 col-xs-12">
                     <div class="form-group">
                         {!! Form::label('email', trans('admin.email'), ['class' => 'control-label']) !!}
                         {!! Form::email('email', $users->email, ['class' => 'form-control', 'placeholder' => trans('admin.email')]) !!}
@@ -238,7 +238,7 @@
                         {!! Form::text('mobile_verify_code', $users->mobile_verify_code, ['class' => 'form-control', 'placeholder' => trans('admin.mobile_verify_code')]) !!}
                     </div>
                 </div>
-                <div class="col-md-2 col-lg-2 col-sm-2 col-xs-12">
+                <div class="col-md-3 col-lg-3 col-sm-3 col-xs-12">
                     <div class="form-group">
                         {!! Form::label('account_type', trans('admin.account_type')) !!}
                         {!! Form::select('account_type', ['individual' => trans('admin.individual'), 'company' => trans('admin.company')], $users->account_type, ['class' => 'form-control select2', 'placeholder' => trans('admin.choose')]) !!}
@@ -265,7 +265,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 col-lg-4 col-sm-4 col-xs-12">
+                <div class="    ">
                     <div class="form-group">
                         {!! Form::label('password', trans('admin.password')) !!}
                         {!! Form::password('password', ['class' => 'form-control', 'placeholder' => trans('admin.password')]) !!}
@@ -317,7 +317,7 @@
 
                 {!! Form::hidden('lng', $users->lng, ['class' => 'form-control lng', 'placeholder' => trans('admin.lng')]) !!}
                 {!! Form::hidden('lat', $users->lat, ['class' => 'form-control lat', 'placeholder' => trans('admin.lat')]) !!}
-                <div class="map" id="map" style="width:100%;height:450px"></div>
+                <div class="map" id="map" style="width:100%;height:180px"></div>
                 <div class="col-md-3 col-lg-3 col-sm-3 col-xs-12">
                     <div class="form-group">
                         {!! Form::label('rate_overall', trans('admin.rate_overall'), ['class' => ' control-label']) !!}
@@ -328,7 +328,7 @@
                 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                     <div class="form-group">
                         {!! Form::label('bio', trans('admin.bio'), ['class' => 'control-label']) !!}
-                        {!! Form::textarea('bio', $users->bio, ['class' => 'form-control', 'placeholder' => trans('admin.bio')]) !!}
+                        {!! Form::textarea('bio', $users->bio, ['class' => 'form-control', 'row' =>'5', 'placeholder' => trans('admin.bio')]) !!}
                     </div>
                 </div>
                 @endif
@@ -381,21 +381,21 @@
                     class="col-md-12 col-lg-12 col-sm-12 col-xs-12 ban  {{ $users->account_status != 'ban' ? 'hidden' : '' }}">
                     <div class="form-group">
                         {!! Form::label('ban_reason', trans('admin.ban_reason'), ['class' => 'control-label']) !!}
-                        {!! Form::textarea('ban_reason', $users->ban_reason, ['class' => 'form-control', 'placeholder' => trans('admin.ban_reason')]) !!}
+                        {!! Form::textarea('ban_reason', $users->ban_reason, ['class' => 'form-control', 'row' =>'5', 'placeholder' => trans('admin.ban_reason')]) !!}
                     </div>
                 </div>
                 <div
                     class="col-md-12 col-lg-12 col-sm-12 col-xs-12 refused_reason  {{ $users->account_status != 'refused' ? 'hidden' : '' }}">
                     <div class="form-group">
                         {!! Form::label('refused_reason', trans('admin.refused_reason'), ['class' => 'control-label']) !!}
-                        {!! Form::textarea('refused_reason', $users->refused_reason, ['class' => 'form-control', 'placeholder' => trans('admin.refused_reason')]) !!}
+                        {!! Form::textarea('refused_reason', $users->refused_reason, ['class' => 'form-control', 'row' =>'5', 'placeholder' => trans('admin.refused_reason')]) !!}
                     </div>
                 </div>
 
                 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                     <div class="form-group">
                         {!! Form::label('system_comment', trans('admin.system_comment'), ['class' => 'control-label']) !!}
-                        {!! Form::textarea('system_comment', $users->system_comment, ['class' => 'form-control', 'placeholder' => trans('admin.system_comment')]) !!}
+                        {!! Form::textarea('system_comment', $users->system_comment, ['class' => 'form-control', 'row' =>'5', 'placeholder' => trans('admin.system_comment')]) !!}
                     </div>
                 </div>
                 <div class="col-md-3 col-lg-3 col-sm-3 col-xs-12">
@@ -461,14 +461,14 @@
                     class="col-md-6 col-lg-6 col-sm-6 col-xs-6 disable_adding_offer_reason {{ $users->add_offer == 'enable' ? 'hidden' : '' }}">
                     <div class="form-group">
                         {!! Form::label('disable_adding_offer_reason', trans('admin.disable_adding_offer_reason'), ['class' => 'control-label']) !!}
-                        {!! Form::textarea('disable_adding_offer_reason', $users->disable_adding_offer_reason, ['class' => 'form-control', 'placeholder' => trans('admin.disable_adding_offer_reason')]) !!}
+                        {!! Form::textarea('disable_adding_offer_reason', $users->disable_adding_offer_reason, ['class' => 'form-control', 'row' =>'5', 'placeholder' => trans('admin.disable_adding_offer_reason')]) !!}
                     </div>
                 </div>
                 <div
                     class="col-md-6 col-lg-6 col-sm-6 col-xs-6 disable_adding_request_reason {{ $users->add_request == 'enable' ? 'hidden' : '' }} ">
                     <div class="form-group">
                         {!! Form::label('disable_adding_request_reason', trans('admin.disable_adding_request_reason'), ['class' => 'control-label']) !!}
-                        {!! Form::textarea('disable_adding_request_reason', $users->disable_adding_request_reason, ['class' => 'form-control', 'placeholder' => trans('admin.disable_adding_request_reason')]) !!}
+                        {!! Form::textarea('disable_adding_request_reason', $users->disable_adding_request_reason, ['class' => 'form-control', 'row' =>'5', 'placeholder' => trans('admin.disable_adding_request_reason')]) !!}
                     </div>
                 </div>
                 @if ($users->membership_type != 'user')
