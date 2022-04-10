@@ -39,7 +39,7 @@ class OrdersApi extends Controller{
      * @return array to assign with index & show methods
      */
     public function arrWith(){
-        return ['department_id','entities','negotiations','country_id','city_id','user_id','offers','files'];
+        return ['department_id','entities','negotiations','country_id','city_id','user_id','offers','files','judgers','judger_requests'];
 
     }
 
@@ -114,7 +114,7 @@ class OrdersApi extends Controller{
     public function show($id)
     {
         $Order = Order::with($this->arrWith())->find($id,$this->selectColumns)
-            ->append('order_step','active_vendor','active_negotiation');
+            ->append('order_step','active_vendor','active_negotiation','active_offer');
         if(is_null($Order) || empty($Order)){
             return errorResponseJson([
             "message"=>trans("admin.undefinedRecord")

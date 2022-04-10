@@ -470,6 +470,29 @@ admin()->user()->role("systemmessages_show"))
       <a href="#" class="nav-link {{in_array(request('membership_type'),['vendor','employee'])?'active':''}}">
         <i class="nav-icon fa fa-users"></i>
         <p>
+          المحكمين
+          <i class="right fas fa-angle-left"></i>
+        </p>
+      </a>
+      <ul class="nav nav-treeview">
+        <li class="nav-item">
+          <a href="{{aurl('users')}}?membership_type=judger" class="nav-link  {{ request('membership_type') == 'judger' && empty(request('account_type')) ?'active':'' }}">
+            <i class="fa fa-users nav-icon"></i>
+            <p>{{trans('admin.all')}} </p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="{{ aurl('users/create') }}?membership_type=judger" class="nav-link {{ request('membership_type') == 'judger'?'active':'' }}">
+            <i class="fas fa-plus nav-icon"></i>
+            <p>اضافة محكم </p>
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li class="nav-item  {{ in_array(request('membership_type'),['vendor','employee'])?'menu-open':'' }} ">
+      <a href="#" class="nav-link {{in_array(request('membership_type'),['vendor','employee'])?'active':''}}">
+        <i class="nav-icon fa fa-users"></i>
+        <p>
           {{trans('admin.vendors')}}
           <i class="right fas fa-angle-left"></i>
         </p>
