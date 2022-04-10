@@ -141,12 +141,12 @@
 
                 </div>
               </div>
-              <button class="mohkam-btn">
+              <!-- <button class="mohkam-btn">
                 {{ $root._t("app.tightOrder") }}
               </button>
               <button class="mohkam-btn">
                 مقدم خدمه جديد
-              </button>
+              </button> -->
               <button class="mohkam-btn">
                 إضافة طلب جديد
               </button>
