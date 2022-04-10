@@ -1,7 +1,6 @@
 <template>
-  <OrderRightNavbar/>
   <NewTopNavbar/>
-  <section class="personal-section mt-2" v-if="order">
+  <section class="container mt-2" v-if="order">
     <div class="personal">
       <div class="personal-info">
         <div class="px-3 mb-2">
@@ -163,7 +162,6 @@
                   </div>
                 </template>
               </template>
-
               <button class="mohkam-btn">
                 إضافة طلب جديد
               </button>
@@ -832,5 +830,9 @@ h1 {
 .single-nog  .item-chat li div {
     justify-content: start;
     align-items: center;
+}
+.header-top {
+    width: 100%;
+  
 }
 </style>

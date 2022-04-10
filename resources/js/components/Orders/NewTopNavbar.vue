@@ -260,7 +260,7 @@ export default {
 </script>
 
 
-<style scoped>
+<style >
 .header-top {
     padding: 15px;
     width: calc(100vw - 230px);
