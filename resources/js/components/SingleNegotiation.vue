@@ -27,7 +27,7 @@
                 <img style="width: 30px; height: 30px; border-radius: 50%; margin-bottom: 5px; margin-left: 10px;" :src="cloud_url+message.user.photo_profile" alt=""> <br>
                 <p class="m-0 fw-bold ">{{ message.user.first_name }}</p>
               </div>
-              <span :class="{'bg-light p-1 rounded':message.user.membership_type !== 'user'}">
+              <span :class="{'bg-light p-1 rounded me-auto':message.user.membership_type !== 'user'}">
                 <small>{{ message.created_at }}</small>
               </span>
             </div>
