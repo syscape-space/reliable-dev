@@ -767,12 +767,7 @@ export default {
 
 
 <style scoped>
-.current-circle-status{
-  border-color: green;
-}
-.current-text-status{
-  color: green;
-}
+
 h1 {
   font-family: "DroidArabicKufiRegular";
 }
@@ -816,5 +811,24 @@ h1 {
 .header-top {
     width: 100%;
   
+}
+.cir-prog {
+max-width: 65px;
+    height: 65px;
+}
+.current-circle-status{
+  border-color: #048e81;
+}
+.current-text-status{
+  color: #048e81;
+}
+.cir-prog img {
+    width: 23px;
+}
+.cir-prog {
+    border: 6px solid #0a95eb;
+}
+.o-txt {
+    font-size: 16px;
 }
 </style>

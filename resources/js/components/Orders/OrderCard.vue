@@ -15,7 +15,7 @@
                 <img
                     style="width: 20px"
                     class="ms-1"
-                    :src="base_url+'/assets/images/o_offer.svg'"
+                    :src="base_url+'/assets/images/o_eye.svg'"
                     alt=""
                 />
                 <span> المشاهدات {{ order.views }} </span>
