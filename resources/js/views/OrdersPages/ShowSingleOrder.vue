@@ -32,32 +32,9 @@
                 <ul class="list-unstyled px-0 f-12 text-end mt-4">
                   <li class="mb-3 mt-4 text-center">
                     <div class="text-center mb-2" >
-                      <img style="width: 50px;height: 50px;" class="uses-img" :src="cloud_url  +  orderOwnerProfile " alt="">
+                      <img style="width: 50px;height: 50px;" class="uses-img" :src="cloud_url  +  order.active_vendor.profile_image " alt="">
                     </div>
-                    <span class="text-center">{{ orderOwner }} </span>
-                  </li>
-                  <li class="mb-3 f-12">
-                    <span> {{ $root._t("app.projectStatus") }} </span>
-                    <button v-if="list.order_status === 'under_review' "
-                            class="o_btn d-inline-block px-3 py-2 rounded"
-                            style="margin-right: 15px; background-color: orange"
-                    >
-                      {{ $root._t("app." + list.order_status) }}
-                    </button>
-
-                    <button v-else-if="list.order_status === 'open' "
-                            class="o_btn d-inline-block px-3 py-2 rounded"
-                            style="margin-right: 15px; background-color: green"
-                    >
-                      {{ $root._t("app." + list.order_status) }}
-                    </button>
-
-                    <button v-else-if="list.order_status === 'closed' "
-                            class="o_btn d-inline-block px-3 py-2 rounded"
-                            style="margin-right: 15px; background-color: red"
-                    >
-                      {{ $root._t("app." + list.order_status) }}
-                    </button>
+                    <span class="text-center">{{ order.active_vendor.name  }} </span>
                   </li>
                   <li class="mb-3">
                       <span style="min-width: 60px" class="d-inline-block"
@@ -66,7 +43,7 @@
                     <span
                         style="margin-right: 15px; color: #0995eb"
                         class="fw-bold"
-                    > {{ list.price }} $ </span
+                    > {{ order.active_offer.price }} $ </span
                     >
                   </li>
                   <li class="mb-3">
@@ -76,7 +53,7 @@
                     <span
                         style="margin-right: 15px; color: #0995eb"
                         class="fw-bold"
-                    >{{ list.execution_time }} يوم</span
+                    >{{ order.active_offer.execution_time }} يوم</span
                     >
                   </li>
                   <li class="mb-3">
@@ -87,7 +64,7 @@
                         style="margin-right: 15px; color: #0995eb"
                         class="fw-bold"
                     >
-                        {{ list.created_at }} </span
+                        {{ order.active_offer.created_at }} </span
                     >
                   </li>
                 </ul>
@@ -141,12 +118,50 @@
 
                 </div>
               </div>
-              <!-- <button class="mohkam-btn">
-                {{ $root._t("app.tightOrder") }}
-              </button>
-              <button class="mohkam-btn">
-                مقدم خدمه جديد
-              </button> -->
+              <template v-if="order.judger_requests.filter(item=>item.status ==='pending').length">
+                <button class="mohkam-btn">
+                  تم ارسال طلب محكم للأدارة
+                </button>
+              </template>
+              <template v-else>
+                <add-judger-modal v-if="order.judgers.length === 0"/>
+
+                <template v-else>
+                  <div
+                      class="bg-users f-14 p-3 text-center"
+                      style="
+                    background-image: linear-gradient(
+                      to bottom,
+                      #ff584d20,
+                      #802c2710
+                    );
+                    border-radius: 8px;
+                    background-color: transparent;
+                  "
+                  >
+                    <h6 style="font-size: 13px" class=""> بيانات المحكم </h6>
+
+                    <ul class="list-unstyled px-0 f-12 text-end mt-4" v-for="judger in order.judgers">
+                      <li class="mb-3 mt-4 text-center">
+                        <div class="text-center mb-2" >
+                          <img style="width: 50px;height: 50px;" class="uses-img" :src="cloud_url  +  judger.profile_image " alt="">
+                        </div>
+                        <span class="text-center">{{ judger.name  }} </span>
+                      </li>
+                      <li class="mb-3">
+                      <span style="min-width: 60px" class="d-inline-block"
+                      >تمت الموافقة من مزود الحدمة ؟
+                      </span>
+                        <span
+                            style="margin-right: 15px; color: #0995eb"
+                            class="fw-bold"
+                        > لا </span
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </template>
+              </template>
               <button class="mohkam-btn">
                 إضافة طلب جديد
               </button>
@@ -622,11 +637,14 @@ import OffersList from "../../components/Orders/OffersList";
 import OrderNegotiations from "./OrderNegotiations";
 import Negotiation from "../../components/Negotiation";
 import SingleNegotiation from "../../components/SingleNegotiation";
+import AddJudgerModal from "../../components/AddJudgerModal";
 
 export default {
   name: "ShowSingleOrder",
   props: ["id"],
-  components: {SingleNegotiation, Negotiation, OrderNegotiations, NewTopNavbar, OrderRightNavbar, OffersList},
+  components: {
+    AddJudgerModal,
+    SingleNegotiation, Negotiation, OrderNegotiations, NewTopNavbar, OrderRightNavbar, OffersList},
   mounted() {
     this.gettingOrderDetails();
   },

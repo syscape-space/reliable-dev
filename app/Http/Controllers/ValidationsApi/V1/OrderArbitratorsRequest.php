@@ -27,14 +27,7 @@ class OrderArbitratorsRequest extends FormRequest {
 		return [
              'order_id'=>'required|integer|exists:orders,id',
              'arbitrator_id'=>'required|integer|exists:users,id',
-             'notify_arbitrator'=>'required|string|in:yes,no',
-             'arbitrator_amount'=>'sometimes|nullable|integer',
-             'arbitrator_add_amount'=>'required|string|in:yes,no',
-             'user_accept_amount'=>'required|string|in:pending,accept,reject',
-             'vendor_accept_amount'=>'required|string|in:pending,accept,reject',
-             'arbitrator_decision'=>'sometimes|nullable|string',
-             'user_accept_decision'=>'required|string|in:pending,accept,reject',
-             'vendor_accept_decision'=>'sometimes|nullable|string|in:pending,accept,reject',
+
 		];
 	}
 

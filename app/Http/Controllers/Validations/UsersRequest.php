@@ -35,7 +35,7 @@ class UsersRequest extends FormRequest {
 			'mobile_verify_code'            => 'sometimes|nullable|numeric',
 			'photo_profile'                 => 'sometimes|nullable|file|image',
 			'rate_overall'                  => 'sometimes|nullable|numeric',
-			'membership_type'               => 'required|string|in:user,vendor,employee',
+			'membership_type'               => 'required|string|in:user,vendor,judger,employee',
 			'account_type'                  => 'required|in:individual,company',
 			'id_number'                     => 'required|numeric|unique:users,id_number',
 			'id_type'                       => 'required|string|in:national_id,iqama,passport',

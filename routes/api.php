@@ -97,6 +97,8 @@ Route::group(
 			Route::post('identity/upload', 'VerifyUserController@uploadIdentity');
 			Route::post('identity-action', 'VerifyUserController@takeAction');
 			//Auth-Api-Start//
+			Route::apiResource("judgers", "JudgerController");
+			Route::apiResource("judger_requests", "JudgerRequestController");
 			Route::apiResource("occupations", "OccupationsApi", ["as" => "api.occupations"]);
 			Route::apiResource("negotiations", "NegotiationController", ["as" => "api.negotiations"]);
 			Route::apiResource("negotiations_messages", "NegotiationMessageController", ["as" => "api.negotiations_messages"]);

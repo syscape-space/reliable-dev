@@ -194,11 +194,20 @@ class Order extends Model {
 	        $temp+=3;
 		return $temp;
 	}
+	public function judgers(){
+	    return $this->belongsToMany(User::class,'order_arbitrators','order_id','arbitrator_id');
+    }
+	public function judger_requests(){
+	    return $this->hasMany(JudgerRequest::class,'order_id','id');
+    }
 	public function files(){
 	    return $this->hasMany(OrderFile::class,'order_id','id');
     }
     public function getActiveVendorAttribute(){
 	    return $this->offers()->firstWhere('offer_status','approved')->vendor;
+    }
+    public function getActiveOfferAttribute(){
+	    return $this->offers()->firstWhere('offer_status','approved');
     }
     public function getActiveNegotiationAttribute(){
 	    if ($this->order_status == "open" and $this->order_step == 2){
