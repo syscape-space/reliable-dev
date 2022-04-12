@@ -48,7 +48,7 @@
           </div>
           <div class="dropdown mx-1">
             <button
-              class="btn btn-warning dropdown-toggle"
+              class="btn border dropdown-toggle"
               type="button"
               id="dropdownMenuButton1"
               data-bs-toggle="dropdown"
@@ -64,7 +64,7 @@
           </div>
           <div class="dropdown mx-1">
             <button
-              class="btn btn-info dropdown-toggle"
+              class="btn border dropdown-toggle"
               type="button"
               id="dropdownMenuButton1"
               data-bs-toggle="dropdown"
@@ -80,7 +80,7 @@
           </div>
           <div class="dropdown mx-1">
             <button
-              class="btn btn-primary dropdown-toggle"
+              class="btn border dropdown-toggle"
               type="button"
               id="dropdownMenuButton1"
               data-bs-toggle="dropdown"
@@ -96,7 +96,7 @@
           </div>
           <div class="dropdown mx-1">
             <button
-              class="btn btn-danger  dropdown-toggle"
+              class="btn border  dropdown-toggle"
               type="button"
               id="dropdownMenuButton1"
               data-bs-toggle="dropdown"
@@ -172,6 +172,6 @@ export default {
 <style>
 button:not(.collapsed)::after {
     background-image: url(/images/down-aa.svg?18e7856…);
-    transform: rotate(0deg);
+    transform: rotate(0deg) !important;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
-  <top-navbar/>
   <right-navbar/>
-  <section class="container mt-2">
+  <top-navbar/>
+  <section class="requsts-sec  mt-2">
     <h4>الاشتراك</h4>
     <template v-if="$root.auth_user.current_subscription">
       <div class="alert alert-success"> مشترك </div>
