@@ -913,6 +913,10 @@ max-width: 65px;
 .cir-prog {
     border: 6px solid #0a95eb;
 }
+.current-circle-status {
+  border-color: #048e81;
+  
+}
 .o-txt {
     font-size: 16px;
 }
