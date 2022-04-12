@@ -18,7 +18,42 @@
         </li>
       </ul>
       <ul class="item-chat list-unstyled text-start px-0">
-        <li :class="{'sec-list':message.user.membership_type === 'user'}" v-for="message in negotiate.messages">
+        <li class="p-0" :class="{'sec-list':message.user.membership_type === 'user'}" v-for="message in negotiate.messages">
+          <div class="panel" style="text-align: right;padding: 21px;">
+              <div class="thread__replies" id="thread__replies" data-replies="collection">
+                <div class="msg pdn--am brd--t" data-reply="1777693" id="message1777693" style="font-family: 'Noto Naskh Arabic', serif;">
+                    <div class="msg__meta media mrg--bs">
+                      <a href="" class="pull-right" style="float: right!important;margin-left: 10px;">
+                      <img :src="cloud_url+message.user.photo_profile" class="img-thumbnail media-object uavatar uavatar--small img-circle" width="42" height="42" alt="" style="border-radius: 50%;">
+                      </a>
+                      <div class="media-body" style="line-height: 1.428571429;">
+                          <h5 class="from mrg--an mb-0" style="">
+                            <bdi><a href="" style="font-size: 14px;color: #2386c8;text-decoration: none;">{{ message.user.first_name }}</a></bdi>
+                          </h5>
+                          <div class="text-zeta text-muted" style="line-height: 1.428571429;"><i class="fas fa-clock"></i>
+                            <time class="timeago" datetime="2020-02-26 07:58:13" title="2020-02-26 07:58:13" style="font-size: 12px;">
+                            {{ message.created_at }}
+                            </time>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="text-wrapper-div msg__body copy wb " style="    font-size: 16px;">
+                      <span v-if="message.type === 'text'" v-html="message.content"></span>
+                      <span v-else-if="message.type === 'image'" >
+                        <img height="100" style="max-height: 150px" class="img-thumbnail" :src="cloud_url + message.content">
+                      </span>
+                      <span v-else-if="message.type === 'video'" >
+                        <video style="max-height: 200px" class="img-thumbnail" controls>
+                          <source  :src="cloud_url + message.content">
+                        </video>
+                      </span>
+                    </div>
+                </div>
+              </div>
+          </div>
+        </li>
+       
+        <!-- <li :class="{'sec-list':message.user.membership_type === 'user'}" v-for="message in negotiate.messages">
 
           <span class="w-100 d-block"
                 style="background-color: rgb(216 240 255) !important; max-width: 90%; border-radius: 10px 2px 10px 10px !important; color: rgb(76, 80, 83);">
@@ -43,7 +78,7 @@
               </span>
             </div>
           </span>
-        </li>
+        </li> -->
       </ul>
       <div class="d-flex align-items-center justify-content-between">
         <div>
@@ -130,5 +165,8 @@ export default {
 .item-chat li div {
     justify-content: start !important;
     align-items: baseline !important;
+    font-family: 'Noto Naskh Arabic', serif;
 }
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap');
+
 </style>
