@@ -204,7 +204,8 @@ class Order extends Model {
 	    return $this->hasMany(OrderFile::class,'order_id','id');
     }
     public function getActiveVendorAttribute(){
-	    return $this->offers()->firstWhere('offer_status','approved')->vendor;
+	    if ($this->active_offer)
+	    return $this->active_offer->vendor;
     }
     public function getActiveOfferAttribute(){
 	    return $this->offers()->firstWhere('offer_status','approved');

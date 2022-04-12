@@ -40,6 +40,9 @@ Route::group(
 			Route::get('account', 'Admin\AdminAuthenticated@account');
 			Route::post('account', 'Admin\AdminAuthenticated@account_post');
 			Route::resource('settings', 'Admin\Settings');
+            Route::name('admin.')->group(function (){
+                Route::resource('judger-requests', 'Admin\JudgerRequestController');
+            });
 			Route::resource('admingroups', 'Admin\AdminGroups');
 			Route::post('admingroups/multi_delete', 'Admin\AdminGroups@multi_delete');
 			Route::resource('admins', 'Admin\Admins');
