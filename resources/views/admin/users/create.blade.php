@@ -37,11 +37,15 @@
         <!-- /.card-header -->
         <div class="card-body">
             {!! Form::open(['url' => aurl('/users'), 'id' => 'users', 'files' => true, 'class' => 'form-horizontal form-row-seperated']) !!}
+            @if(request()->judger_request_id)
+                <input type="hidden" name="judger_request_id" value="{{request()->judger_request_id}}">
+                @php($juder_request = \App\Models\JudgerRequest::query()->find(request()->judger_request_id))
+            @endif
             <div class="row">
                 <div class="col-md-3 col-lg-3 col-sm-3 col-xs-12">
                     <div class="form-group">
                         {!! Form::label('first_name', trans('admin.first_name'), ['class' => ' control-label']) !!}
-                        {!! Form::text('first_name', old('first_name'), ['class' => 'form-control', 'placeholder' => trans('admin.first_name')]) !!}
+                        {!! Form::text('first_name', old('first_name',$juder_request->name ?? ""), ['class' => 'form-control', 'placeholder' => trans('admin.first_name')]) !!}
                     </div>
                 </div>
                 <div class="col-md-3 col-lg-3 col-sm-3 col-xs-12">

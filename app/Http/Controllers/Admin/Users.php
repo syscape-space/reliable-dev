@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\Validations\UsersRequest;
 use App\Models\Department;
 use App\Models\Identity;
+use App\Models\JudgerRequest;
 use App\Models\User;
 use App\Models\UserCommercial;
 use App\Models\UserExperience;
@@ -78,6 +79,12 @@ class Users extends Controller
 			$users->photo_profile = it()->upload('photo_profile', 'users/' . $users->id);
 			$users->save();
 		}
+		if (\request()->judger_request_id){
+		    $judger_request = JudgerRequest::query()->find(\request()->judger_request_id);
+		    $judger_request->update(['status'=>'done','note'=>'تم قبول اضافة المحكم والتواصل معه']);
+		    $order = $judger_request->order;
+		    $order->judgers()->attach($users);
+        }
 
 		return successResponseJson([
 			"message" => trans("admin.added"),

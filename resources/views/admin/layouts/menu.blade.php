@@ -456,6 +456,14 @@ admin()->user()->role("systemmessages_show"))
   </ul>
 </li>
 @endif
+
+  <li class="nav-item">
+    <a href="{{aurl('judger-requests')}}" class="nav-link  {{active_link('judger_requests','active')}}">
+      <i class="fa fa-list nav-icon"></i>
+      <p>طلبات المحكم</p>
+    </a>
+  </li>
+</li>
 @if(admin()->user()->role("users_show"))
 <li class="nav-item {{active_link('users','menu-open')}} ">
   <a href="#" class="nav-link {{active_link('users','active')}}">
