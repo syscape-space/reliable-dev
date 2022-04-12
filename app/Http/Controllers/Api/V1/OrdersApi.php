@@ -84,6 +84,7 @@ class OrdersApi extends Controller{
                 'id_number'=>$entity->id_number,
                 'nationality'=>$entity->nationality,
             ]);
+        if (\request()->hasFile('attachments'))
         foreach ($request->file('attachments') as $file){
             $meme = $file->getMimeType();
             $Order->files()->create([
