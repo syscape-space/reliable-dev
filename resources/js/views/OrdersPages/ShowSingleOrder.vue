@@ -1,5 +1,6 @@
 <template>
   <NewTopNavbar/>
+  <add-judger-modal ref="add_judger_modal"/>
   <section class="container mt-2" v-if="order">
     <div class="personal">
       <div class="personal-info">
@@ -32,7 +33,7 @@
                 <ul class="list-unstyled px-0 f-12 text-end mt-4">
                   <li class="mb-3 mt-4 text-center">
                     <div class="text-center mb-2" >
-                      <img style="width: 50px;height: 50px;" class="uses-img" :src="cloud_url  +  order.active_vendor.profile_image " alt="">
+                      <img style="width: 50px;height: 50px;" class="uses-img" :src="cloud_url  +  order.active_vendor.photo_profile " alt="">
                     </div>
                     <span class="text-center">{{ order.active_vendor.name  }} </span>
                   </li>
@@ -118,15 +119,20 @@
 
                 </div>
               </div>
-              <template v-if="order.judger_requests.filter(item=>item.status ==='pending').length">
+              <template  v-if="$root.auth_user.membership_type === 'vendor' && order.judgers.filter(item=>item.pivot.vendor_status === 'pending').length">
+                <button class="mohkam-btn">
+                  طلب المحكم بانتظار الرد
+                </button>
+              </template>
+
+              <template v-if="$root.auth_user.membership_type === 'user' && order.judger_requests.filter(item=>item.status ==='pending').length">
                 <button class="mohkam-btn">
                   تم ارسال طلب محكم للأدارة
                 </button>
               </template>
               <template v-else>
-                <add-judger-modal v-if="order.judgers.length === 0"/>
 
-                <template v-else>
+                <template v-if="order.judgers.length">
                   <div
                       class="bg-users f-14 p-3 text-center"
                       style="
@@ -144,25 +150,40 @@
                     <ul class="list-unstyled px-0 f-12 text-end mt-4" v-for="judger in order.judgers">
                       <li class="mb-3 mt-4 text-center">
                         <div class="text-center mb-2" >
-                          <img style="width: 50px;height: 50px;" class="uses-img" :src="cloud_url  +  judger.profile_image " alt="">
+                          <img style="width: 50px;height: 50px;" class="uses-img" :src="cloud_url  +  judger.photo_profile " alt="">
                         </div>
                         <span class="text-center">{{ judger.name  }} </span>
                       </li>
                       <li class="mb-3">
                       <span style="min-width: 60px" class="d-inline-block"
-                      >تمت الموافقة من مزود الحدمة ؟
+                      >الحالة من طرف مقدم الخدمة
                       </span>
                         <span
                             style="margin-right: 15px; color: #0995eb"
                             class="fw-bold"
-                        > لا </span
-                        >
+                        > {{$root._t('admin.'+judger.pivot.vendor_status)}}
+
+                        </span>
                       </li>
+                      <li class="mb-3" v-if="judger.pivot.vendor_refused_message">
+                      <span style="min-width: 60px" class="d-inline-block"
+                      >سبب الرفض
+                      </span>
+                        <span
+                            style="margin-right: 15px; color: #0995eb"
+                            class="fw-bold"
+                        > {{judger.pivot.vendor_refused_message}}
+
+                        </span>
+                      </li>
+                      <template v-if="$root.auth_user.membership_type === 'vendor' && judger.pivot.vendor_status === 'pending'">
+                        <judger-request-status-modal :judger="judger"/>
+                      </template>
                     </ul>
                   </div>
                 </template>
               </template>
-              <button class="mohkam-btn">
+              <button class="mohkam-btn" v-if="$root.auth_user.membership_type === 'user'">
                 إضافة طلب جديد
               </button>
             </div>
@@ -638,15 +659,20 @@ import OrderNegotiations from "./OrderNegotiations";
 import Negotiation from "../../components/Negotiation";
 import SingleNegotiation from "../../components/SingleNegotiation";
 import AddJudgerModal from "../../components/AddJudgerModal";
+import TModal from "../../components/TModal";
+import JudgerRequestStatusModal from "../../components/JudgerRequestStatusModal";
 
 export default {
   name: "ShowSingleOrder",
   props: ["id"],
   components: {
+    JudgerRequestStatusModal,
+    TModal,
     AddJudgerModal,
     SingleNegotiation, Negotiation, OrderNegotiations, NewTopNavbar, OrderRightNavbar, OffersList},
   mounted() {
     this.gettingOrderDetails();
+    this.getJudgers();
   },
   data() {
     return {
@@ -673,9 +699,50 @@ export default {
       errors: null,
       // vars of defendant
       defendantList: [],
+      filter:'',
+      judgers:[],
+      judger:{
+        name:'',
+        city:'',
+        contact:'',
+        order_id:this.$parent.$props.id,
+      },
+      form:{
+        arbitrator_id:null,
+        order_id:null,
+      },
+      judger_refused_message:'',
     };
   },
   methods: {
+    getJudgers(){
+      api.get('/v1/judgers').then(res=>{
+        this.judgers = res.data.data;
+      })
+    },
+    vendorUpdateJudger(id,accepted=false){
+      var data = {
+        _method:'PUT',
+        vendor_refused_message:this.judger_refused_message,
+        vendor_status:accepted?'accepted':'refused',
+      };
+      api.post('/v1/orderarbitrators/'+id).then(res=>{
+        this.gettingOrderDetails();
+        this.$refs.judger_request_status_modal.modal('hide');
+      })
+    },
+    sendRequest(){
+      api.post('/v1/orderarbitrators',{arbitrator_id:this.form.arbitrator_id,order_id:this.$parent.$props.id}).then(res=>{
+        this.$root.alertSuccess('تم ارسال الطلب بنجاح');
+        this.$parent.gettingOrderDetails();
+      })
+    },
+    sendJudgerRequest(){
+      api.post('/v1/judger_requests',this.judger).then(res=>{
+        this.$root.alertSuccess('تم ارسال الطلب بنجاح سيتم التواصل مع المحكم و ابلاغكم');
+        this.$parent.gettingOrderDetails();
+      })
+    },
     openOrder(){
       api.get('/v1/open-order/'+this.order.id).then(res=>{
         this.order.order_status = "under_review";

@@ -195,7 +195,8 @@ class Order extends Model {
 		return $temp;
 	}
 	public function judgers(){
-	    return $this->belongsToMany(User::class,'order_arbitrators','order_id','arbitrator_id');
+	    return $this->belongsToMany(User::class,'order_arbitrators','order_id','arbitrator_id')
+            ->withPivot('vendor_status','vendor_refused_message','id');
     }
 	public function judger_requests(){
 	    return $this->hasMany(JudgerRequest::class,'order_id','id');
@@ -206,6 +207,7 @@ class Order extends Model {
     public function getActiveVendorAttribute(){
 	    if ($this->active_offer)
 	    return $this->active_offer->vendor;
+	    return null;
     }
     public function getActiveOfferAttribute(){
 	    return $this->offers()->firstWhere('offer_status','approved');
