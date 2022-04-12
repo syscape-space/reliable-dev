@@ -34,15 +34,17 @@ class OrderArbitratorsRequest extends FormRequest {
 
 	protected function onUpdate() {
 		return [
-             'order_id'=>'required|integer|exists:orders,id',
-             'arbitrator_id'=>'required|integer|exists:users,id',
-             'notify_arbitrator'=>'required|string|in:yes,no',
+		    'vendor_refused_message'=>'sometimes',
+		    'vendor_status'=>'required',
+             'order_id'=>'sometimes|integer|exists:orders,id',
+             'arbitrator_id'=>'sometimes|integer|exists:users,id',
+             'notify_arbitrator'=>'sometimes|string|in:yes,no',
              'arbitrator_amount'=>'sometimes|nullable|integer',
-             'arbitrator_add_amount'=>'required|string|in:yes,no',
-             'user_accept_amount'=>'required|string|in:pending,accept,reject',
-             'vendor_accept_amount'=>'required|string|in:pending,accept,reject',
+             'arbitrator_add_amount'=>'sometimes|string|in:yes,no',
+             'user_accept_amount'=>'sometimes|string|in:pending,accept,reject',
+             'vendor_accept_amount'=>'sometimes|string|in:pending,accept,reject',
              'arbitrator_decision'=>'sometimes|nullable|string',
-             'user_accept_decision'=>'required|string|in:pending,accept,reject',
+             'user_accept_decision'=>'sometimes|string|in:pending,accept,reject',
              'vendor_accept_decision'=>'sometimes|nullable|string|in:pending,accept,reject',
 		];
 	}
@@ -71,6 +73,8 @@ class OrderArbitratorsRequest extends FormRequest {
              'arbitrator_decision'=>trans('admin.arbitrator_decision'),
              'user_accept_decision'=>trans('admin.user_accept_decision'),
              'vendor_accept_decision'=>trans('admin.vendor_accept_decision'),
+             'vendor_refused_message'=>trans('admin.vendor_accept_decision'),
+             'vendor_status'=>trans('admin.vendor_accept_decision'),
 		];
 	}
 

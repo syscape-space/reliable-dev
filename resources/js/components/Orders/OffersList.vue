@@ -139,6 +139,9 @@ export default {
                 this.$root.alertSuccess('تم الموافقة بنجاح');
                 this.$parent.order.order_step = 2;
                 this.$parent.offers.data = [];
+                setTimeout(()=>{
+                  this.$parent.$refs.add_judger_modal.modal();
+                },1000);
               })
               .catch((e) => {
                 // console.log(e.response);
@@ -153,7 +156,6 @@ export default {
   },
   computed: {},
   mounted() {
-
   }
 }
 </script>

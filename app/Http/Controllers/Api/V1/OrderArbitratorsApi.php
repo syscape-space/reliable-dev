@@ -104,6 +104,7 @@ class OrderArbitratorsApi extends Controller{
 
             public function update(OrderArbitratorsRequest $request,$id)
             {
+
             	$OrderArbitrator = OrderArbitrator::find($id);
             	if(is_null($OrderArbitrator) || empty($OrderArbitrator)){
             	 return errorResponseJson([
@@ -112,7 +113,6 @@ class OrderArbitratorsApi extends Controller{
   			       }
 
             	$data = $this->updateFillableColumns();
-                 
               OrderArbitrator::where("id",$id)->update($data);
 
               $OrderArbitrator = OrderArbitrator::with($this->arrWith())->find($id,$this->selectColumns);

@@ -24,6 +24,8 @@ class OrderArbitrator extends Model {
 		'vendor_accept_decision',
 		'created_at',
 		'updated_at',
+		'vendor_refused_message',
+		'vendor_status',
 	];
 
 	/**

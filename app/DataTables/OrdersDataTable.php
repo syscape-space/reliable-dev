@@ -24,11 +24,19 @@ class OrdersDataTable extends DataTable {
 			->addColumn('receive_offers', '{{ trans("admin.".$receive_offers) }}')
 			->addColumn('assigning_arbitration', '{{ trans("admin.".$assigning_arbitration) }}')
 			->addColumn('decisions_status', '{{ trans("admin.".$decisions_status) }}')
-			->addColumn('created_at', '{{ date("Y-m-d H:i:s",strtotime($created_at)) }}')	->addColumn('updated_at', '{{ date("Y-m-d H:i:s",strtotime($updated_at)) }}')	->addColumn('checkbox', '<div  class="icheck-danger">
+			->addColumn('judger', function($item){
+			    if ($request = $item->judger_requests()->firstWhere('status','pending'))
+			        return  "<a href='".aurl('judger-requests/#'.$request->id)."'>هناك طلب محكم بالانتظار</a>";
+			    if ($judger = $item->judgers()->get()->last())
+			        return  "<a href='".aurl('users/'.$judger->id)."'>".$judger->name."</a>";
+			    return 'لم يطلب او يحدد محكم';
+            })
+            ->addColumn('updated_at', '{{ date("Y-m-d H:i:s",strtotime($updated_at)) }}')
+            ->addColumn('checkbox', '<div  class="icheck-danger">
                   <input type="checkbox" class="selected_data" name="selected_data[]" id="selectdata{{ $id }}" value="{{ $id }}" >
                   <label for="selectdata{{ $id }}"></label>
                 </div>')
-			->rawColumns(['checkbox', 'actions','choose_service_provider']);
+			->rawColumns(['checkbox', 'actions','choose_service_provider','judger']);
 	}
 
 	/**
@@ -256,9 +264,9 @@ class OrdersDataTable extends DataTable {
 			// ],
 
 			[
-				'name'       => 'created_at',
-				'data'       => 'created_at',
-				'title'      => trans('admin.created_at'),
+				'name'       => 'judger',
+				'data'       => 'judger',
+				'title'      => "المحكم",
 				'exportable' => false,
 				'printable'  => false,
 				'searchable' => false,
