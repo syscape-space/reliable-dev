@@ -76,6 +76,10 @@
                 </span>
                 <span class="me-3">
                   {{ $root._t("app.rechargingSuccessfully") }}
+                  بتاريخ
+                  {{ charge.date }}
+                  عن طريق
+                  {{charge.charge_by === 'bank_transfer' ? 'تحويل بنكي' : 'دفع الكتروني'}}
                 </span>
               </span>
               <span class="" style="min-width: 90px;padding: 16px;border-left: 1px solid #ddd;font-weight: bold;font-size: 25px;color: #3bb234;">

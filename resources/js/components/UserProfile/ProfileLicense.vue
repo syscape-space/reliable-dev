@@ -44,7 +44,7 @@
             </template>
           </template>
 
-          <form v-on:submit.prevent="submitForm" ref='licenseForm' v-if=" license == null || license.status == 2 || license.status == null  ">
+          <form v-on:submit.prevent="submitForm" ref='licenseForm' v-if=" license == null || license.status != 0 || license.status == null  ">
                 <input type="hidden" name="csrf_token" value="ebd97b854219e3339845763cb1846258" />
                 <input type="hidden" name="token" value="NI0eiHSJ6I26pSIAihHjG1lCkUVK983_ofqxWxD2HEs" />
                 <input type="hidden" v-model="user_id" name="user_id" />

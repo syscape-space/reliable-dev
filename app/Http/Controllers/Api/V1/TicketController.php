@@ -79,12 +79,24 @@ class TicketController extends Controller
         $validated = $request->validate([
             'replay' => 'required'
         ]);
+        if (\request()->hasFile('replay')){
+            $mime = \request()->file('replay')->getMimeType();
+            if(strstr($mime, "video/")){
+                $data["type"] = "video";
+            }else if(strstr($mime, "image/")){
+                $data["type"] = "image";
+            }else{
+                $data['type'] = 'text';
+            }
+            $data['replay'] = it()->upload('replay','messages');
+        }
 
         $newComment = new TicketReplay();
         $newComment->ticket_id = $request->ticket_id ;
         $newComment->user_id = $request->user_id ;
         $newComment->admin_id = $request->admin_id ;
-        $newComment->replay  = $request->replay ;
+        $newComment->replay  = $data['replay'] ;
+        $newComment->type  = $data['type'] ;
         $newComment->save();
 
         return response()->json([

@@ -22,6 +22,15 @@
               </span>
       <span class="ms-3">
                 <img
+                    style="width: 20px"
+                    class="ms-1"
+                    :src="base_url+'/assets/images/o_eye.svg'"
+                    alt=""
+                />
+                <span> عروض {{ order.offers.length }} </span>
+              </span>
+      <span class="ms-3">
+                <img
                     style="width: 14px"
                     class="ms-1"
                     :src="base_url+'/assets/images/o_map.svg'"

@@ -17,7 +17,8 @@
                 فلتر
               </button>
               <ul class="dropdown-menu">
-                <li><a style="    text-align: right;font-size: 14px;" class="dropdown-item" href="#">تصنيف</a></li>
+                <li><a style="   text-align: right;font-size: 14px;" class="dropdown-item" @click="filter.sort_by = 'desc'" href="#">الاحدث</a></li>
+                <li><a style="   text-align: right;font-size: 14px;" class="dropdown-item" @click="filter.sort_by = 'asc'" href="#">الاقدم</a></li>
               </ul>
             </div>
           </div>
@@ -35,12 +36,10 @@
               اختيار القسم
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li v-for="category in categories.filter(item=>item.parent == null)"><a class="dropdown-item"  @click="filter.main_category_id = category.id" href="#">{{category.department_name_ar}}</a></li>
             </ul>
           </div>
-          <div class="dropdown mx-1">
+          <div class="dropdown mx-1" v-if="filter.main_category_id">
             <button
               class="btn border dropdown-toggle"
               type="button"
@@ -51,9 +50,7 @@
               الفرعى
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li v-for="category in categories.filter(item=>item.parent !== null && filter.main_category_id === item.parent)"><a class="dropdown-item" @click="filter.sub_category_id = category.id"  href="#">{{category.department_name_ar}}</a></li>
             </ul>
           </div>
           <div class="dropdown mx-1">
@@ -67,48 +64,25 @@
               اختيار المدينة
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li v-for="city in cities.data"><a class="dropdown-item" @click="filter.city_id = city.id"  href="#">{{city.city_name_ar}}</a></li>
             </ul>
           </div>
-          <div class="dropdown mx-1">
-            <button
-              class="btn border dropdown-toggle"
+          <button
+              @click="filter = {
+        main_category_id:null,
+        sub_category_id:null,
+        city_id:null,
+      }"
+              class="btn border "
               type="button"
-              id="dropdownMenuButton1"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              الكل
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-          </div>
-          <div class="dropdown mx-1">
-            <button
-              class="btn border  dropdown-toggle"
-              type="button"
-              id="dropdownMenuButton1"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              عرض النتائج
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-          </div>
+          >
+            الكل
+          </button>
         </div>
         <div
           class="p-3 mt-3"
           style="background-color: #f9f9f9"
-          v-for="item in list2"
+          v-for="item in filtered_orders"
           :key="item.id"
         >
           <order-card :order="item" />
@@ -123,35 +97,56 @@ import OrderCard from "./OrderCard";
 export default {
   components: { OrderCard },
   mounted() {
-    // let thisorderId = localStorage.getItem("thisOrderId");
-    // check user type
-    api
-      .get("/v1/account")
-      .then((response) => {
-        if (response.data.data.membership_type === "vendor") {
-          // مقدم خدمه
-          this.getMyOrders2();
-        } else if (response.data.data.membership_type === "user") {
-          this.$router.push({ name: "MyOrder" });
-        }
-      })
-      // error.response.data.errors
-      .catch((e) => {
-        this.errors = e.response.data.errors;
-        console.log(e.response);
-      });
+      this.getMyOrders2();
+      if (this.$root.auth_user.membership_type === "user") {
+        this.$router.push({ name: "MyOrder" });
+      }
+      this.getCategories();
   },
   data() {
     return {
       base_url: base_url,
       cloud_url: cloud_url,
+      categories:[],
+      cities:[],
       list2: [],
+      filter:{
+        main_category_id:null,
+        sub_category_id:null,
+        city_id:null,
+        sort_by:null,
+      }
     };
   },
+  computed:{
+    filtered_orders(){
+      return this.list2.filter(item=>{
+        return ((item.department_id && item.department_id.id === this.filter.sub_category_id) || this.filter.sub_category_id == null)
+            && ((item.city_id && item.city_id.id === this.filter.city_id) || this.filter.city_id == null);
+      }).sort((a,b)=>{
+        if (parseInt(a.id) < parseInt(b.id)) {
+          return  this.filter.sort_by === 'asc'? -1 : 1;
+        }
+        if (parseInt(a.id) > parseInt(b.id)) {
+          return  this.filter.sort_by === 'asc'? 1 : -1;
+        }
+        // a must be equal to b
+        return 0;
+      })
+    },
+  },
   methods: {
+    getCategories(){
+      api.get('/v1/departments').then(res=>{
+        this.categories = res.data.data;
+        api.get('/v1/cities').then(res=>{
+          this.cities = res.data.data;
+        })
+      })
+    },
     getMyOrders2() {
       api
-        .get("v1/orders")
+        .get("/v1/orders")
         .then((response) => {
           this.list2 = response.data.data.data;
         })

@@ -3,6 +3,7 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 // Auto Models By Baboon Script
 // Baboon Maker has been Created And Developed By  [it v 1.6.37]
@@ -224,6 +225,20 @@ class Order extends Model {
                     })->first();
             }
         }
+    }
+    public function getOrderStatusAttribute($value){
+	    $status = DB::table('orders')->find($this->id)->order_status;
+        $temp = 0;
+        if($status == "open")
+            $temp++;
+        if ($this->offers()->where('offer_status','approved')->count())
+            $temp++;
+        if ($status == "closed")
+            return "closed";
+        if ($temp <= 1){
+            return $value;
+        }
+	    return "ongoing";
     }
 
 }

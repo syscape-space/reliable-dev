@@ -1,5 +1,6 @@
 <?php
 namespace App\Models;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 // Auto Models By Baboon Script
@@ -61,5 +62,9 @@ protected $fillable = [
 			//$balancerecharge->user_id()->delete();
          });
    }
+   public function getDateAttribute(){
+       return Carbon::parse($this->created_at)->format('Y-m-d');
+   }
+
 		
 }

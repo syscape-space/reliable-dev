@@ -55,8 +55,16 @@
                   <!-- <img style="width: 30px;" src="./images/morning.svg" alt=""> <br> -->
                   <p style="font-weight:bold" class="m-0 me-2"  > {{ item.name }} </p>  
                   <small  style=" padding-bottom: 4px;">05:12</small>
-                </div>  
-              {{ item.replay }} 
+                </div>
+              <span v-if="item.type === 'text'" v-html="item.replay"></span>
+              <span v-else-if="item.type === 'image'" >
+                <img height="100" style="max-height: 150px" class="img-thumbnail" :src="cloud_url + item.replay">
+              </span>
+              <span v-else-if="item.type === 'video'" >
+                <video style="max-height: 200px" class="img-thumbnail" controls>
+                  <source  :src="cloud_url + item.replay">
+                </video>
+              </span>
             </span>
           </li>
 
@@ -71,22 +79,19 @@
         </div>
         <div class="me-2 mb-4">{{ $root._t("app.ticketDetails") }}</div>
         <div class="d-flex mx-3" style="background-color: #f6f6f6;">
-          <p style="font-size: 13px;" class="me-1 m-0"> محتوى التذكره <br>
-              <span style="height: 23px; display: inline-block; max-width: 63px; overflow: hidden;color: rgb(165, 164, 164);"  > {{ ticketContent }} </span> 
+          <p style="font-size: 13px;" class="me-1 m-0" > محتوى التذكره <br>
+              {{ ticketContent }}
           </p>
         </div>
         <div class="d-flex align-items-center justify-content-between">
-           <div>
-          <div class="border mb-2 p-1 position-relative d-inline-block text-center"  style="width:28px">
-            <i class="fas fa-paperclip" style="color:rgb(119 119 119)"></i>
-            <input style="width: 28px; position: absolute; top: 0; left: 0; right: 0; bottom: 0; opacity: 0;"  type="file" name="" id="">
-          </div> <br>
-          <div class="border p-1 position-relative d-inline-block text-center"  style="width:28px">
-            <i class="fas fa-microphone-alt" style="color:rgb(119 119 119)"></i>
-            
-            <input style="width: 28px; position: absolute; top: 0; left: 0; right: 0; bottom: 0; opacity: 0;"  type="file" name="" id="">
+          <div>
+            <div class="border mb-2 p-1 position-relative d-inline-block text-center" style="width:28px">
+              <i class="fas fa-paperclip" style="color:rgb(119 119 119)"></i>
+              <input @change="uploadFile" ref="fileUploader" style="width: 28px; position: absolute; top: 0; left: 0; right: 0; bottom: 0; opacity: 0;"
+                     type="file" name="" id="">
+            </div>
+            <br>
           </div>
-        </div>
         <div  class="w-100 mt-3 d-flex align-items-center mb-3" >
           <div class="d-flex align-items-center w-100 p-2  ">
             <span class="flex-grow-1">
@@ -115,6 +120,7 @@ export default {
   data(){
     return{
       base_url:base_url ,
+      cloud_url:cloud_url ,
       profileImage : "" ,
       username : "" ,
       ticketTitle : "" ,
@@ -127,6 +133,20 @@ export default {
     };
   },
   methods:{
+    uploadFile(){
+      var file = this.$refs.fileUploader.files[0];
+      var formData = new FormData();
+      let ticketId = localStorage.getItem("thisTicketId");
+      formData.append("ticket_id", ticketId);
+      formData.append("user_id", localStorage.getItem("myIdTazkarty") );
+      formData.append("replay",file);
+      api.post("v1/add_comment_for_this_ticket/" + this.$props.id , formData  )
+          .then((response) => {
+            this.getAllReplysOfThisTicket();
+            console.log("comment is saved");
+            this.comment = "" ;
+          })
+    },
     gettingTicketDetails(){
       let ticketId = localStorage.getItem("thisTicketId");
       api

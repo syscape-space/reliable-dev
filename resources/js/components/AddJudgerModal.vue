@@ -49,6 +49,7 @@ export default {
         contact:'',
         order_id:this.$parent.$props.id,
       },
+      offer_id:null,
       form:{
         arbitrator_id:null,
         order_id:null,
@@ -59,7 +60,8 @@ export default {
     this.getJudgers();
   },
   methods:{
-    modal(op = 'toggle'){
+    modal(op = 'toggle',offer_id=null){
+      this.offer_id = offer_id;
       this.$refs.modal.modal(op);
     },
     getJudgers(){
@@ -72,6 +74,13 @@ export default {
       api.post('/v1/orderarbitrators',{arbitrator_id:this.form.arbitrator_id,order_id:this.$parent.$props.id}).then(res=>{
         this.$root.alertSuccess('تم ارسال الطلب بنجاح');
         this.$refs.modal.modal('hide');
+        api.post("v1/accept_offer/" + this.offer_id, {'_method': 'put'})
+              .then((response) => {
+                this.$root.alertSuccess('تم الموافقة بنجاح');
+              })
+              .catch((e) => {
+                // console.log(e.response);
+              });
         this.$parent.gettingOrderDetails();
       })
     },
@@ -79,6 +88,13 @@ export default {
       api.post('/v1/judger_requests',this.judger).then(res=>{
         this.$root.alertSuccess('تم ارسال الطلب بنجاح سيتم التواصل مع المحكم و ابلاغكم');
         this.$refs.modal.modal('hide');
+        api.post("v1/accept_offer/" + this.offer_id, {'_method': 'put'})
+              .then((response) => {
+                this.$root.alertSuccess('تم الموافقة بنجاح');
+              })
+              .catch((e) => {
+                // console.log(e.response);
+              });
         this.$parent.gettingOrderDetails();
       })
     }

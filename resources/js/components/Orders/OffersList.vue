@@ -134,18 +134,7 @@ export default {
         cancelButtonText: 'الغاء'
       }).then((result) => {
         if (result.isConfirmed) {
-          api.post("v1/accept_offer/" + id, {'_method': 'put'})
-              .then((response) => {
-                this.$root.alertSuccess('تم الموافقة بنجاح');
-                this.$parent.order.order_step = 2;
-                this.$parent.offers.data = [];
-                setTimeout(()=>{
-                  this.$parent.$refs.add_judger_modal.modal();
-                },1000);
-              })
-              .catch((e) => {
-                // console.log(e.response);
-              });
+          this.$parent.$refs.add_judger_modal.modal('show',id);
         }
       })
     },
