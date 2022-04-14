@@ -92,7 +92,7 @@
       </div>
     </div>
     <div class="col-md-9">
-      <div class="clicker" @click.prevent="showThisOrderDetails(order.id)" style="cursor: pointer;">
+      <div class="clicker" @click.prevent="showThisOrderDetails(order.hash_code)" style="cursor: pointer;">
         <h6 style="color: #048e81;font-size:20px">{{ order.order_title }}</h6>
         <!-- v-html=" order.order_content.split(' ')[0]" -->
         <!-- <h6 style="color: #048e81">{{ $root._t("app.orderContent") }}</h6> -->
@@ -152,8 +152,8 @@ export default {
     };
   },
   methods: {
-    showThisOrderDetails(id) {
-      this.$router.push({name: "ShowSingleOrder", params: {id: id}});
+    showThisOrderDetails(code) {
+      this.$router.push({name: "ShowSingleOrder", params: {code: code}});
     },
     goToThisUserProfile(user_id) {
       this.$router.push({name: "UserProfile",params:{id:user_id}});

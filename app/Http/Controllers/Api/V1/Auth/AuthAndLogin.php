@@ -93,7 +93,12 @@ class AuthAndLogin extends Controller
         },'orders_count')
             ->with(['occupations','specialties','mainDepartment','subDepartment'])
             ->find($user_id)
-            ->append('license_submitted','commercial_submitted','current_subscription');
+            ->append(
+                'license_submitted',
+                'commercial_submitted',
+                'current_subscription',
+                'my_all_orders',
+            );
 		return successResponseJson(['data' => $user]);
 	}
 

@@ -46,19 +46,19 @@ class OrdersRequest extends FormRequest {
 
 	protected function onUpdate() {
 		return [
-             'order_title'=>'required|string|max:191',
-             'order_content'=>'required|string',
-             'department_id'=>'required|integer|exists:departments,id',
-             'choose_service_provider'=>'required|string|in:all,by_city,by_filter,by_occupation',
+             'order_title'=>'sometimes|string|max:191',
+             'order_content'=>'sometimes|string',
+             'department_id'=>'sometimes|integer|exists:departments,id',
+             'choose_service_provider'=>'sometimes|string|in:all,by_city,by_filter,by_occupation',
              'country_id'=>'sometimes|nullable|integer|exists:countries,id',
              'city_id'=>'sometimes|nullable|integer|exists:cities,id',
              'execution_time'=>'sometimes|nullable|numeric',
-             'amount'=>'required|numeric',
-             'order_status'=>'required|string|in:under_review,open,closed',
-             'receive_offers'=>'required|string|in:yes,no',
-             'assigning_arbitration'=>'required|string|in:yes,no',
+             'amount'=>'sometimes|numeric',
+             'order_status'=>'sometimes|string|in:under_review,open,closed',
+             'receive_offers'=>'sometimes|string|in:yes,no',
+             'assigning_arbitration'=>'sometimes|string|in:yes,no',
              'decisions_refused_reason'=>'sometimes|nullable|string',
-             'user_id'=>'required|integer|exists:users,id',
+             'user_id'=>'sometimes|integer|exists:users,id',
 		];
 	}
 

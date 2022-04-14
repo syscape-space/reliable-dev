@@ -212,5 +212,20 @@ class User extends Authenticatable implements JWTSubject {
         }
 	    return 'default-user-icon.jpg';
     }
+    public function orders(){
+	    return $this->hasMany(Order::class,'user_id','id');
+    }
+    public function getMyAllOrdersAttribute(){
+	    return [
+	        'all'   =>  $this->orders()->get(),
+	        'under_review'   =>  $this->orders()->whereOrderStatus('under_review')->get(),
+	        'refused'   =>  $this->orders()->whereOrderStatus('refused')->get(),
+	        'done'   =>  $this->orders()->get()->where('order_step',3),
+	        'ongoing'   =>  $this->orders()->get()->where('order_step',2),
+	        'closed'   =>  $this->orders()->whereOrderStatus('closed')->get(),
+	        'open'   =>  $this->orders()->whereOrderStatus('open')->get(),
+	        'archived'   =>  $this->orders()->whereOrderStatus('archived')->get(),
+        ];
+    }
 
 }

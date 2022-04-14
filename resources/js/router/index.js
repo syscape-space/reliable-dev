@@ -250,7 +250,7 @@ const routes = [{
         component: addTicket,
         name: "addTicket",
     }, {
-        path: prefix + '/order/:id',
+        path: prefix + '/order/:code',
         beforeEnter: guardMyroute,
         props: true,
         component: ShowSingleOrder,

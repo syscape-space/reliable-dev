@@ -105,7 +105,7 @@
                   <span>{{ $root._t("app.memorial") }}</span>
                 </a>
               </li>
-              <li>
+              <li v-if="$root.auth_user.membership_type === 'vendor'">
                 <router-link :to="{name:'Subscription'}"   style="color:#fff; cursor: pointer;">
                   <img
                     :src="base_url+'/assets/images/dash-remem.svg'"
@@ -156,7 +156,7 @@
                         <router-link :to="{name:'MyOrder',params:{status:'refused'}}">{{ $root._t("app.rejected") }}</router-link>
                       </li>
                       <li class="mt-2 text-white">
-                        <router-link :to="{name:'MyOrder',params:{status:'working'}}">تحت التنفيذ</router-link>
+                        <router-link :to="{name:'MyOrder',params:{status:'ongoing'}}">تحت التنفيذ</router-link>
                       </li>
                       <li class="mt-2 text-white">
                         <router-link :to="{name:'MyOrder',params:{status:'done'}}">اكتملت</router-link>

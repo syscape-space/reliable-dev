@@ -233,7 +233,7 @@
                   </div>
                 </div>
             </div>
-            <div v-else class="row w-100">
+            <div v-else-if="order.order_status === 'archived'" class="row w-100">
               <div class="col-12 alert alert-primary p-3">
                 <h5 class="text-center w-100">
                   الطلب مؤرشف الان يمكنك فتح الطلب عن طريق دفع الاشتراك
@@ -245,6 +245,26 @@
                 <button class="btn btn-sm btn-danger" v-else disabled>
                   لا يوجد رصيد كافي
                 </button>
+              </div>
+            </div>
+            <div v-if="order.order_step <= 1" class="row w-100">
+              <div class="col-12 alert alert-primary p-3">
+                <h5 class="text-center w-100">
+                  يمكنك اغلاق الطلب الان قبل قبول اي عرض و الدخول في مرحلة التنفيذ
+                </h5>
+                <button class="btn btn-sm btn-success" @click="cancelOrder()" v-if="balanceCovered">
+                  اغلاق الطلب
+                </button>
+
+              </div>
+            </div>
+            <div v-if="order.order_status === 'refused'" class="row w-100">
+              <div class="col-12 alert alert-primary p-3">
+                <h5 class="text-center w-100">
+                  الطلب مرفوض من الادارة والسبب :
+                  {{order.reason}}
+                </h5>
+
               </div>
             </div>
             <div>
@@ -437,7 +457,7 @@
                     "
                       :to="{
                       name: 'order_negotiations',
-                      params: { id: $props.id },
+                      params: { id: order.id },
                     }"
                       class="btn me-2 btn-success btn-sm btn-offer"
                   >
@@ -508,6 +528,13 @@
                     </button>
                     <button
                         v-else-if="order_status === 'closed'"
+                        class="o_btn d-inline-block px-3 py-2 rounded"
+                        style="margin-right: 15px; background-color: red;font-size: 12px; padding: 2px 7px !important;"
+                    >
+                      {{ $root._t("app." + order_status) }}
+                    </button>
+                    <button
+                        v-else
                         class="o_btn d-inline-block px-3 py-2 rounded"
                         style="margin-right: 15px; background-color: red;font-size: 12px; padding: 2px 7px !important;"
                     >
@@ -664,7 +691,7 @@ import JudgerRequestStatusModal from "../../components/JudgerRequestStatusModal"
 
 export default {
   name: "ShowSingleOrder",
-  props: ["id"],
+  props: ["code"],
   components: {
     JudgerRequestStatusModal,
     TModal,
@@ -705,7 +732,7 @@ export default {
         name:'',
         city:'',
         contact:'',
-        order_id:this.$parent.$props.id,
+        order_id:null,
       },
       form:{
         arbitrator_id:null,
@@ -732,7 +759,7 @@ export default {
       })
     },
     sendRequest(){
-      api.post('/v1/orderarbitrators',{arbitrator_id:this.form.arbitrator_id,order_id:this.$parent.$props.id}).then(res=>{
+      api.post('/v1/orderarbitrators',{arbitrator_id:this.form.arbitrator_id,order_id:this.order.id}).then(res=>{
         this.$root.alertSuccess('تم ارسال الطلب بنجاح');
         this.$parent.gettingOrderDetails();
       })
@@ -759,7 +786,7 @@ export default {
     },
     negotiateNow() {
       var data = {
-        order_id: this.$props.id,
+        order_id: this.order.id,
       };
       api.post("/v1/negotiations", data).then((res) => {
         this.$router.push({
@@ -768,9 +795,29 @@ export default {
         });
       });
     },
+    cancelOrder(){
+      this.$swal({
+        title: 'هل انت متأكد ؟',
+        text: "الغاء كل المعاملات والنقاشات او العروض لهذا الطلب",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'الموافقة',
+        cancelButtonText: 'الغاء'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          var v_data = {_method:'PUT',order_status:'closed'};
+          api.post('/v1/orders/'+this.order.id,v_data).then(res=>{
+            this.$root.alertSuccess('تم اغلاق المشروع بنجاح');
+            this.gettingOrderDetails();
+          })
+        }
+      })
+    },
     gettingOrderDetails() {
       api
-          .get("v1/orders/" + this.$props.id)
+          .get("v1/orders/" + this.$props.code)
           .then((response) => {
             this.deptname =
                 response.data.data["department_id"].department_name_ar;
@@ -785,7 +832,7 @@ export default {
             this.orderOwnerName = response.data.data["user_id"].name;
             this.profile_image = response.data.data["user_id"].photo_profile;
             this.OrderRequestOwnerId = response.data.data["user_id"].id;
-
+            this.judger.order_id = this.order.id;
             //  let splittingOrderContent = response.data.data.data[1].order_content.split(" ") ;
             this.getOffers();
             console.log(response.data.data);
@@ -803,7 +850,7 @@ export default {
         alert("you cannot make order , you are order owner");
       } else {
         let formData = new FormData();
-        formData.append("order_id", this.$props.id);
+        formData.append("order_id", this.order.id);
         formData.append("vendor_id", this.$root.auth_user.id);
         formData.append("vendor_comment", this.vendor_comment);
         formData.append("price", this.price);
@@ -824,7 +871,7 @@ export default {
       }
     },
     getOffers() {
-      api.get("/v1/orderoffers?order_id=" + this.$props.id).then((res) => {
+      api.get("/v1/orderoffers?order_id=" + this.order.id).then((res) => {
         this.offers = res.data.data;
       });
     },

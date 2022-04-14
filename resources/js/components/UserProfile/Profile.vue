@@ -57,7 +57,7 @@
       </div>
     </section>
 
-    <section class="requsts-sec mt-4  ">
+    <section class="requsts-sec mt-4 " v-if="$root.auth_user.membership_type === 'user'">
       <div class="container">
         <div class="row">
           <div class="col-lg-3 mb-5">
@@ -70,7 +70,7 @@
               </div>
               <div class="percent-requst mt-2">
                 <div class="d-flex align-items-center justify-content-between mb-2" style="color: #363848;">
-                <span class="  "  >25 {{ $root._t("app.request") }}</span>
+                <span class="  "  >{{$root.auth_user.my_all_orders.open.length}} {{ $root._t("app.request") }}</span>
                 <span> 24% </span>
                 </div>
                 <div class="line  rounded position-relative">
@@ -86,7 +86,7 @@
               </div>
               <div class="percent-requst mt-2">
                 <div class="d-flex align-items-center justify-content-between mb-2" style="color: #363848;">
-                <span class="  "  >25 {{ $root._t("app.request") }}</span>
+                <span class="  "  >{{$root.auth_user.my_all_orders.all.length}} {{ $root._t("app.request") }}</span>
                 <span> 24% </span>
                 </div>
                 <div class="line  rounded position-relative"><div class=" linear-line rounded " style="width: 50%;"></div></div>
@@ -101,7 +101,7 @@
               </div>
               <div class="percent-requst mt-2">
                 <div class="d-flex align-items-center justify-content-between mb-2" style="color: #363848;">
-                <span class="  "  >25 {{ $root._t("app.request") }}</span>
+                <span class="  "  >{{$root.auth_user.my_all_orders.under_review.length}} {{ $root._t("app.request") }}</span>
                 <span> 24% </span>
                 </div>
                 <div class="line  rounded position-relative"><div class=" linear-line rounded " style="width: 50%;"></div></div>
@@ -116,7 +116,7 @@
               </div>
               <div class="percent-requst mt-2">
                 <div class="d-flex align-items-center justify-content-between mb-2" style="color: #363848;">
-                <span class="  "  >25 {{ $root._t("app.request") }}</span>
+                <span class="  "  >{{$root.auth_user.my_all_orders.done.length}} {{ $root._t("app.request") }}</span>
                 <span> 24% </span>
                 </div>
                 <div class="line  rounded position-relative"><div class=" linear-line rounded " style="width: 50%;"></div></div>
@@ -131,7 +131,7 @@
               </div>
               <div class="percent-requst mt-2">
                 <div class="d-flex align-items-center justify-content-between mb-2" style="color: #363848;">
-                <span class="  "  >25 {{ $root._t("app.request") }}</span>
+                <span class="  "  >{{$root.auth_user.my_all_orders.ongoing.length}} {{ $root._t("app.request") }}</span>
                 <span> 24% </span>
                 </div>
                 <div class="line  rounded position-relative"><div class=" linear-line rounded " style="width: 50%;"></div></div>
@@ -146,7 +146,7 @@
               </div>
               <div class="percent-requst mt-2">
                 <div class="d-flex align-items-center justify-content-between mb-2" style="color: #363848;">
-                <span class="  "  >25 {{ $root._t("app.request") }}</span>
+                <span class="  "  >{{$root.auth_user.my_all_orders.refused.length}} {{ $root._t("app.request") }}</span>
                 <span> 24% </span>
                 </div>
                 <div class="line  rounded position-relative"><div class=" linear-line rounded " style="width: 50%;"></div></div>
@@ -161,7 +161,7 @@
               </div>
               <div class="percent-requst mt-2">
                 <div class="d-flex align-items-center justify-content-between mb-2" style="color: #363848;">
-                <span class="  "  >25 {{ $root._t("app.request") }}</span>
+                <span class="  "  >{{$root.auth_user.my_all_orders.closed.length}} {{ $root._t("app.request") }}</span>
                 <span> 24% </span>
                 </div>
                 <div class="line  rounded position-relative"><div class=" linear-line rounded " style="width: 50%;"></div></div>
@@ -176,7 +176,7 @@
                 </div>
                 <div class="percent-requst mt-2">
                   <div class="d-flex align-items-center justify-content-between mb-2" style="color: #363848;">
-                  <span class="  "  >25 {{ $root._t("app.request") }}</span>
+                  <span class="  "  >{{$root.auth_user.my_all_orders.all.length}} {{ $root._t("app.request") }}</span>
                   <span> 24% </span>
                   </div>
                   <div class="line  rounded position-relative"><div class=" linear-line rounded " style="width: 50%;"></div></div>
@@ -200,13 +200,14 @@
 </template>
 <script>
 export default {
+  name:'Profile',
   data(){
     return{
-      base_url : base_url
+      base_url : base_url,
     };
   },
   mounted() {
-    this.$root.getAuthUser();
+
   }
 }
 </script>

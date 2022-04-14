@@ -45,7 +45,7 @@
                 
                 border-radius: 50%;
                 background-color: #e0fffc75;
-              "><img style="height: 50px; width: 50px;" :src="cloud_url + item.photo_profile  " alt="" />
+              "><img style="height: 50px; width: 50px;" :src="cloud_url + $root.auth_user.photo_profile  " alt="" />
             </div></li>
             <li> 
               <span class="mx-3" >{{ item.ticket_title }}</span>
@@ -59,8 +59,7 @@
             </li>
             <li >
               <div class="number-ticket d-flex">
-                <img style="width: 20px;" :src="base_url + './public/assets/images/morning1.svg'" alt="">
-                <span class="mx-3"> 
+                <span class="mx-3">
                   <button class="save-btn" @click.prevent="goToTicketDetails(item.id)">
                     {{ $root._t("app.ticketDetails") }}
                   </button>

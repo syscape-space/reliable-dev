@@ -57,7 +57,7 @@
                   <span class="f-w-500">إعدادت الحساب </span> <span
                     class="float-start"></span>
                 </a>
-                <router-link class="nav-link list-group-item list-group-item-action" :to="{name:'Subscription'}">
+                <router-link v-if="$root.auth_user.membership_type === 'vendor'" class="nav-link list-group-item list-group-item-action" :to="{name:'Subscription'}">
                     <span class="f-w-500">
                       <i class="feather icon-disc m-r-10 h5" ></i>
                         الإشتراكات
