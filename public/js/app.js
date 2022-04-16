@@ -19764,6 +19764,21 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/AccountSettings/firstRegister.vue?vue&type=script&lang=js":
+/*!***********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/AccountSettings/firstRegister.vue?vue&type=script&lang=js ***!
+  \***********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/AddJudgerModal.vue?vue&type=script&lang=js":
 /*!********************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/AddJudgerModal.vue?vue&type=script&lang=js ***!
@@ -22787,6 +22802,27 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/views/AccountPages/firstRegisterPage.vue?vue&type=script&lang=js":
+/*!*******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/views/AccountPages/firstRegisterPage.vue?vue&type=script&lang=js ***!
+  \*******************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _components_AccountSettings_firstRegister_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../components/AccountSettings/firstRegister.vue */ "./resources/js/components/AccountSettings/firstRegister.vue");
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    firstRegister: _components_AccountSettings_firstRegister_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/views/AccountPages/loginPage.vue?vue&type=script&lang=js":
 /*!***********************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/views/AccountPages/loginPage.vue?vue&type=script&lang=js ***!
@@ -24709,7 +24745,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* TEXT */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
     to: {
-      name: 'Register'
+      name: 'FirstRegister'
     },
     href: "#",
     style: {
@@ -25228,6 +25264,34 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, null, 8
   /* PROPS */
   , _hoisted_15)])])]);
+}
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/AccountSettings/firstRegister.vue?vue&type=template&id=cabb4a8e":
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/AccountSettings/firstRegister.vue?vue&type=template&id=cabb4a8e ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var _assets_images_logoText_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../assets/images/logoText.png */ "./resources/js/assets/images/logoText.png");
+
+
+var _hoisted_1 = {
+  "class": "container"
+};
+
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"wrap text-center mt-4\"><div class=\"row\"><div class=\"col-md-6\"><div class=\"parent_all\"><img style=\"width:30%;object-fit:contain;\" src=\"" + _assets_images_logoText_png__WEBPACK_IMPORTED_MODULE_1__["default"] + "\" alt=\"\"></div></div><div class=\"col-md-6\"><div class=\"parent_all\"><img style=\"width:30%;object-fit:contain;\" src=\"" + _assets_images_logoText_png__WEBPACK_IMPORTED_MODULE_1__["default"] + "\" alt=\"\"></div></div></div></div>", 1);
+
+var _hoisted_3 = [_hoisted_2];
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, _hoisted_3);
 }
 
 /***/ }),
@@ -41370,6 +41434,27 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/views/AccountPages/firstRegisterPage.vue?vue&type=template&id=63037fee":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/views/AccountPages/firstRegisterPage.vue?vue&type=template&id=63037fee ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_first_register = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("first-register");
+
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_first_register);
+}
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/views/AccountPages/loginPage.vue?vue&type=template&id=2f9a62ff":
 /*!***************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/views/AccountPages/loginPage.vue?vue&type=template&id=2f9a62ff ***!
@@ -45862,45 +45947,48 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm-bundler.js");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm-bundler.js");
 /* harmony import */ var _views_indexPage_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../views/indexPage.vue */ "./resources/js/views/indexPage.vue");
 /* harmony import */ var _views_AccountPages_loginPage_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../views/AccountPages/loginPage.vue */ "./resources/js/views/AccountPages/loginPage.vue");
 /* harmony import */ var _views_AccountPages_registerPage_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../views/AccountPages/registerPage.vue */ "./resources/js/views/AccountPages/registerPage.vue");
-/* harmony import */ var _views_AccountPages_verifyPage_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../views/AccountPages/verifyPage.vue */ "./resources/js/views/AccountPages/verifyPage.vue");
-/* harmony import */ var _views_AccountPages_successPage_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../views/AccountPages/successPage.vue */ "./resources/js/views/AccountPages/successPage.vue");
-/* harmony import */ var _views_AccountPages_userProfile_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../views/AccountPages/userProfile.vue */ "./resources/js/views/AccountPages/userProfile.vue");
-/* harmony import */ var _views_JobPages_showAllJobs_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../views/JobPages/showAllJobs.vue */ "./resources/js/views/JobPages/showAllJobs.vue");
-/* harmony import */ var _views_JobPages_getThisJobDetails_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../views/JobPages/getThisJobDetails.vue */ "./resources/js/views/JobPages/getThisJobDetails.vue");
-/* harmony import */ var _views_LicensePages_licenseShowPage_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../views/LicensePages/licenseShowPage.vue */ "./resources/js/views/LicensePages/licenseShowPage.vue");
-/* harmony import */ var _views_LicensePages_addLicensePage_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../views/LicensePages/addLicensePage.vue */ "./resources/js/views/LicensePages/addLicensePage.vue");
-/* harmony import */ var _views_UserProfilePages_u_indexPage_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../views/UserProfilePages/u_indexPage.vue */ "./resources/js/views/UserProfilePages/u_indexPage.vue");
-/* harmony import */ var _views_UserProfilePages_profilePage_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../views/UserProfilePages/profilePage.vue */ "./resources/js/views/UserProfilePages/profilePage.vue");
-/* harmony import */ var _views_UserProfilePages_employmentApplications_vue__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../views/UserProfilePages/employmentApplications.vue */ "./resources/js/views/UserProfilePages/employmentApplications.vue");
-/* harmony import */ var _views_UserProfilePages_Balance_vue__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../views/UserProfilePages/Balance.vue */ "./resources/js/views/UserProfilePages/Balance.vue");
-/* harmony import */ var _views_UserProfilePages_offerOrder_vue__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../views/UserProfilePages/offerOrder.vue */ "./resources/js/views/UserProfilePages/offerOrder.vue");
-/* harmony import */ var _views_UserProfilePages_documentRequest_vue__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../views/UserProfilePages/documentRequest.vue */ "./resources/js/views/UserProfilePages/documentRequest.vue");
-/* harmony import */ var _views_UserProfilePages_chatPage_vue__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../views/UserProfilePages/chatPage.vue */ "./resources/js/views/UserProfilePages/chatPage.vue");
-/* harmony import */ var _views_UserProfilePages_ticket1Page_vue__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../views/UserProfilePages/ticket1Page.vue */ "./resources/js/views/UserProfilePages/ticket1Page.vue");
-/* harmony import */ var _views_UserProfilePages_ticket2Page_vue__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../views/UserProfilePages/ticket2Page.vue */ "./resources/js/views/UserProfilePages/ticket2Page.vue");
-/* harmony import */ var _views_UserProfilePages_usersPage_vue__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../views/UserProfilePages/usersPage.vue */ "./resources/js/views/UserProfilePages/usersPage.vue");
-/* harmony import */ var _views_OrdersPages_notificationPage_vue__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../views/OrdersPages/notificationPage.vue */ "./resources/js/views/OrdersPages/notificationPage.vue");
-/* harmony import */ var _views_OrdersPages_showOrdersPage__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../views/OrdersPages/showOrdersPage */ "./resources/js/views/OrdersPages/showOrdersPage.vue");
-/* harmony import */ var _views_OrdersPages_offerOrder2Page_vue__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ../views/OrdersPages/offerOrder2Page.vue */ "./resources/js/views/OrdersPages/offerOrder2Page.vue");
-/* harmony import */ var _views_OrdersPages_offerOrder3Page__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../views/OrdersPages/offerOrder3Page */ "./resources/js/views/OrdersPages/offerOrder3Page.vue");
-/* harmony import */ var _views_OrdersPages_profile2Page_vue__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ../views/OrdersPages/profile2Page.vue */ "./resources/js/views/OrdersPages/profile2Page.vue");
-/* harmony import */ var _views_OrdersPages_profile3Page_vue__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ../views/OrdersPages/profile3Page.vue */ "./resources/js/views/OrdersPages/profile3Page.vue");
-/* harmony import */ var _views_OrdersPages_profile4Page_vue__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ../views/OrdersPages/profile4Page.vue */ "./resources/js/views/OrdersPages/profile4Page.vue");
-/* harmony import */ var _views_OrdersPages_myOrder_vue__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ../views/OrdersPages/myOrder.vue */ "./resources/js/views/OrdersPages/myOrder.vue");
-/* harmony import */ var _views_OrdersPages_EXMyOrders_vue__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ../views/OrdersPages/EXMyOrders.vue */ "./resources/js/views/OrdersPages/EXMyOrders.vue");
-/* harmony import */ var _views_OrdersPages_showAllOrders_vue__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ../views/OrdersPages/showAllOrders.vue */ "./resources/js/views/OrdersPages/showAllOrders.vue");
-/* harmony import */ var _views_OrdersPages_ordersFilteration_vue__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ../views/OrdersPages/ordersFilteration.vue */ "./resources/js/views/OrdersPages/ordersFilteration.vue");
-/* harmony import */ var _views_TicketsPages_createTecket_vue__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ../views/TicketsPages/createTecket.vue */ "./resources/js/views/TicketsPages/createTecket.vue");
-/* harmony import */ var _views_OrdersPages_ShowSingleOrder_vue__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ../views/OrdersPages/ShowSingleOrder.vue */ "./resources/js/views/OrdersPages/ShowSingleOrder.vue");
-/* harmony import */ var _components_Negotiation__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ../components/Negotiation */ "./resources/js/components/Negotiation.vue");
-/* harmony import */ var _views_OrdersPages_NegotiationsPage__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ../views/OrdersPages/NegotiationsPage */ "./resources/js/views/OrdersPages/NegotiationsPage.vue");
-/* harmony import */ var _views_Subscription__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ../views/Subscription */ "./resources/js/views/Subscription.vue");
+/* harmony import */ var _views_AccountPages_firstRegisterPage_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../views/AccountPages/firstRegisterPage.vue */ "./resources/js/views/AccountPages/firstRegisterPage.vue");
+/* harmony import */ var _views_AccountPages_verifyPage_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../views/AccountPages/verifyPage.vue */ "./resources/js/views/AccountPages/verifyPage.vue");
+/* harmony import */ var _views_AccountPages_successPage_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../views/AccountPages/successPage.vue */ "./resources/js/views/AccountPages/successPage.vue");
+/* harmony import */ var _views_AccountPages_userProfile_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../views/AccountPages/userProfile.vue */ "./resources/js/views/AccountPages/userProfile.vue");
+/* harmony import */ var _views_JobPages_showAllJobs_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../views/JobPages/showAllJobs.vue */ "./resources/js/views/JobPages/showAllJobs.vue");
+/* harmony import */ var _views_JobPages_getThisJobDetails_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../views/JobPages/getThisJobDetails.vue */ "./resources/js/views/JobPages/getThisJobDetails.vue");
+/* harmony import */ var _views_LicensePages_licenseShowPage_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../views/LicensePages/licenseShowPage.vue */ "./resources/js/views/LicensePages/licenseShowPage.vue");
+/* harmony import */ var _views_LicensePages_addLicensePage_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../views/LicensePages/addLicensePage.vue */ "./resources/js/views/LicensePages/addLicensePage.vue");
+/* harmony import */ var _views_UserProfilePages_u_indexPage_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../views/UserProfilePages/u_indexPage.vue */ "./resources/js/views/UserProfilePages/u_indexPage.vue");
+/* harmony import */ var _views_UserProfilePages_profilePage_vue__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../views/UserProfilePages/profilePage.vue */ "./resources/js/views/UserProfilePages/profilePage.vue");
+/* harmony import */ var _views_UserProfilePages_employmentApplications_vue__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../views/UserProfilePages/employmentApplications.vue */ "./resources/js/views/UserProfilePages/employmentApplications.vue");
+/* harmony import */ var _views_UserProfilePages_Balance_vue__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../views/UserProfilePages/Balance.vue */ "./resources/js/views/UserProfilePages/Balance.vue");
+/* harmony import */ var _views_UserProfilePages_offerOrder_vue__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../views/UserProfilePages/offerOrder.vue */ "./resources/js/views/UserProfilePages/offerOrder.vue");
+/* harmony import */ var _views_UserProfilePages_documentRequest_vue__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../views/UserProfilePages/documentRequest.vue */ "./resources/js/views/UserProfilePages/documentRequest.vue");
+/* harmony import */ var _views_UserProfilePages_chatPage_vue__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../views/UserProfilePages/chatPage.vue */ "./resources/js/views/UserProfilePages/chatPage.vue");
+/* harmony import */ var _views_UserProfilePages_ticket1Page_vue__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../views/UserProfilePages/ticket1Page.vue */ "./resources/js/views/UserProfilePages/ticket1Page.vue");
+/* harmony import */ var _views_UserProfilePages_ticket2Page_vue__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../views/UserProfilePages/ticket2Page.vue */ "./resources/js/views/UserProfilePages/ticket2Page.vue");
+/* harmony import */ var _views_UserProfilePages_usersPage_vue__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../views/UserProfilePages/usersPage.vue */ "./resources/js/views/UserProfilePages/usersPage.vue");
+/* harmony import */ var _views_OrdersPages_notificationPage_vue__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../views/OrdersPages/notificationPage.vue */ "./resources/js/views/OrdersPages/notificationPage.vue");
+/* harmony import */ var _views_OrdersPages_showOrdersPage__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ../views/OrdersPages/showOrdersPage */ "./resources/js/views/OrdersPages/showOrdersPage.vue");
+/* harmony import */ var _views_OrdersPages_offerOrder2Page_vue__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../views/OrdersPages/offerOrder2Page.vue */ "./resources/js/views/OrdersPages/offerOrder2Page.vue");
+/* harmony import */ var _views_OrdersPages_offerOrder3Page__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ../views/OrdersPages/offerOrder3Page */ "./resources/js/views/OrdersPages/offerOrder3Page.vue");
+/* harmony import */ var _views_OrdersPages_profile2Page_vue__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ../views/OrdersPages/profile2Page.vue */ "./resources/js/views/OrdersPages/profile2Page.vue");
+/* harmony import */ var _views_OrdersPages_profile3Page_vue__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ../views/OrdersPages/profile3Page.vue */ "./resources/js/views/OrdersPages/profile3Page.vue");
+/* harmony import */ var _views_OrdersPages_profile4Page_vue__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ../views/OrdersPages/profile4Page.vue */ "./resources/js/views/OrdersPages/profile4Page.vue");
+/* harmony import */ var _views_OrdersPages_myOrder_vue__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ../views/OrdersPages/myOrder.vue */ "./resources/js/views/OrdersPages/myOrder.vue");
+/* harmony import */ var _views_OrdersPages_EXMyOrders_vue__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ../views/OrdersPages/EXMyOrders.vue */ "./resources/js/views/OrdersPages/EXMyOrders.vue");
+/* harmony import */ var _views_OrdersPages_showAllOrders_vue__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ../views/OrdersPages/showAllOrders.vue */ "./resources/js/views/OrdersPages/showAllOrders.vue");
+/* harmony import */ var _views_OrdersPages_ordersFilteration_vue__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ../views/OrdersPages/ordersFilteration.vue */ "./resources/js/views/OrdersPages/ordersFilteration.vue");
+/* harmony import */ var _views_TicketsPages_createTecket_vue__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ../views/TicketsPages/createTecket.vue */ "./resources/js/views/TicketsPages/createTecket.vue");
+/* harmony import */ var _views_OrdersPages_ShowSingleOrder_vue__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ../views/OrdersPages/ShowSingleOrder.vue */ "./resources/js/views/OrdersPages/ShowSingleOrder.vue");
+/* harmony import */ var _components_Negotiation__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ../components/Negotiation */ "./resources/js/components/Negotiation.vue");
+/* harmony import */ var _views_OrdersPages_NegotiationsPage__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ../views/OrdersPages/NegotiationsPage */ "./resources/js/views/OrdersPages/NegotiationsPage.vue");
+/* harmony import */ var _views_Subscription__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ../views/Subscription */ "./resources/js/views/Subscription.vue");
 
  // Account Settings
+
+ // done
 
  // done
 
@@ -45962,9 +46050,10 @@ function checkIfLogin(to, from, next) {
   } else {
     next();
   }
-} // our routes
-// Account Settings
+}
 
+console.log(prefix); // our routes
+// Account Settings
 
 var routes = [{
   path: prefix + '/',
@@ -45982,8 +46071,13 @@ var routes = [{
   beforeEnter: checkIfLogin,
   name: "Register"
 }, {
+  path: prefix + '/FirstRegister',
+  component: _views_AccountPages_firstRegisterPage_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+  beforeEnter: checkIfLogin,
+  name: "FirstRegister"
+}, {
   path: prefix + '/user-profile/:id',
-  component: _views_AccountPages_userProfile_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
+  component: _views_AccountPages_userProfile_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
   beforeEnter: guardMyroute,
   props: true,
   name: "UserProfile"
@@ -45991,171 +46085,171 @@ var routes = [{
 {
   path: prefix + '/all_jobs',
   beforeEnter: guardMyroute,
-  component: _views_JobPages_showAllJobs_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
+  component: _views_JobPages_showAllJobs_vue__WEBPACK_IMPORTED_MODULE_7__["default"],
   name: "ShowAllJobsPage"
 }, {
   path: prefix + '/job_details',
   beforeEnter: guardMyroute,
-  component: _views_JobPages_getThisJobDetails_vue__WEBPACK_IMPORTED_MODULE_7__["default"],
+  component: _views_JobPages_getThisJobDetails_vue__WEBPACK_IMPORTED_MODULE_8__["default"],
   name: "GetThisJobDetails"
 }, // License Pages Routes
 {
   path: prefix + '/add_license',
   beforeEnter: guardMyroute,
-  component: _views_LicensePages_addLicensePage_vue__WEBPACK_IMPORTED_MODULE_9__["default"],
+  component: _views_LicensePages_addLicensePage_vue__WEBPACK_IMPORTED_MODULE_10__["default"],
   name: "addLicensePage"
 }, {
   path: prefix + '/license_show',
   beforeEnter: guardMyroute,
-  component: _views_LicensePages_licenseShowPage_vue__WEBPACK_IMPORTED_MODULE_8__["default"],
+  component: _views_LicensePages_licenseShowPage_vue__WEBPACK_IMPORTED_MODULE_9__["default"],
   name: "licenseShowPage"
 }, // start of verify test route ==> if clicked will go to success component this for test only
 {
   path: prefix + '/verify',
   beforeEnter: guardMyroute,
-  component: _views_AccountPages_verifyPage_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+  component: _views_AccountPages_verifyPage_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
 }, {
   path: prefix + '/success',
   beforeEnter: guardMyroute,
-  component: _views_AccountPages_successPage_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
+  component: _views_AccountPages_successPage_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
   name: "Success"
 }, // end of verify test route ==> if clicked will go to success component this for test only
 {
   path: prefix + '/u_index',
   beforeEnter: guardMyroute,
-  component: _views_UserProfilePages_profilePage_vue__WEBPACK_IMPORTED_MODULE_11__["default"],
+  component: _views_UserProfilePages_profilePage_vue__WEBPACK_IMPORTED_MODULE_12__["default"],
   name: "profilePage"
 }, {
   path: prefix + '/u_profile',
   beforeEnter: guardMyroute,
-  component: _views_UserProfilePages_u_indexPage_vue__WEBPACK_IMPORTED_MODULE_10__["default"],
+  component: _views_UserProfilePages_u_indexPage_vue__WEBPACK_IMPORTED_MODULE_11__["default"],
   name: "u_indexPage"
 }, {
   path: prefix + '/u_employment_applocations',
   beforeEnter: guardMyroute,
-  component: _views_UserProfilePages_employmentApplications_vue__WEBPACK_IMPORTED_MODULE_12__["default"]
+  component: _views_UserProfilePages_employmentApplications_vue__WEBPACK_IMPORTED_MODULE_13__["default"]
 }, {
   path: prefix + '/user-balance',
   beforeEnter: guardMyroute,
-  component: _views_UserProfilePages_Balance_vue__WEBPACK_IMPORTED_MODULE_13__["default"],
+  component: _views_UserProfilePages_Balance_vue__WEBPACK_IMPORTED_MODULE_14__["default"],
   name: "Balance"
 }, {
   path: prefix + '/u_offers_order',
   beforeEnter: guardMyroute,
-  component: _views_UserProfilePages_offerOrder_vue__WEBPACK_IMPORTED_MODULE_14__["default"],
+  component: _views_UserProfilePages_offerOrder_vue__WEBPACK_IMPORTED_MODULE_15__["default"],
   name: "offerOrder"
 }, {
   path: prefix + '/make-order',
   beforeEnter: guardMyroute,
-  component: _views_UserProfilePages_documentRequest_vue__WEBPACK_IMPORTED_MODULE_15__["default"],
+  component: _views_UserProfilePages_documentRequest_vue__WEBPACK_IMPORTED_MODULE_16__["default"],
   name: "DocumentRequest"
 }, {
   path: prefix + '/u_ticket_details',
   beforeEnter: guardMyroute,
-  component: _views_UserProfilePages_chatPage_vue__WEBPACK_IMPORTED_MODULE_16__["default"],
+  component: _views_UserProfilePages_chatPage_vue__WEBPACK_IMPORTED_MODULE_17__["default"],
   name: "ChatPage"
 }, {
   path: prefix + '/u_ticket1',
   beforeEnter: guardMyroute,
-  component: _views_UserProfilePages_ticket1Page_vue__WEBPACK_IMPORTED_MODULE_17__["default"],
+  component: _views_UserProfilePages_ticket1Page_vue__WEBPACK_IMPORTED_MODULE_18__["default"],
   name: "Ticket1"
 }, {
   path: prefix + '/u_ticket2',
   beforeEnter: guardMyroute,
-  component: _views_UserProfilePages_ticket2Page_vue__WEBPACK_IMPORTED_MODULE_18__["default"],
+  component: _views_UserProfilePages_ticket2Page_vue__WEBPACK_IMPORTED_MODULE_19__["default"],
   name: "Ticket2"
 }, {
   path: prefix + '/u_users',
   beforeEnter: guardMyroute,
-  component: _views_UserProfilePages_usersPage_vue__WEBPACK_IMPORTED_MODULE_19__["default"],
+  component: _views_UserProfilePages_usersPage_vue__WEBPACK_IMPORTED_MODULE_20__["default"],
   name: "Users"
 }, // orders pages routes
 {
   path: prefix + '/o_index',
   beforeEnter: guardMyroute,
-  component: _views_OrdersPages_showOrdersPage__WEBPACK_IMPORTED_MODULE_21__["default"],
+  component: _views_OrdersPages_showOrdersPage__WEBPACK_IMPORTED_MODULE_22__["default"],
   name: "showOrdersPage"
 }, {
   path: prefix + '/o_offer_order2/:id',
   beforeEnter: guardMyroute,
-  component: _views_OrdersPages_offerOrder2Page_vue__WEBPACK_IMPORTED_MODULE_22__["default"],
+  component: _views_OrdersPages_offerOrder2Page_vue__WEBPACK_IMPORTED_MODULE_23__["default"],
   props: true,
   name: "offerOrder2Page"
 }, {
   path: prefix + '/o_offer_order3',
   beforeEnter: guardMyroute,
-  component: _views_OrdersPages_offerOrder3Page__WEBPACK_IMPORTED_MODULE_23__["default"],
+  component: _views_OrdersPages_offerOrder3Page__WEBPACK_IMPORTED_MODULE_24__["default"],
   name: "offerOrder3Page"
 }, {
   path: prefix + '/u_notification',
   beforeEnter: guardMyroute,
-  component: _views_OrdersPages_notificationPage_vue__WEBPACK_IMPORTED_MODULE_20__["default"],
+  component: _views_OrdersPages_notificationPage_vue__WEBPACK_IMPORTED_MODULE_21__["default"],
   name: "NotificationPage"
 }, {
   path: prefix + '/u_profile2',
   beforeEnter: guardMyroute,
-  component: _views_OrdersPages_profile2Page_vue__WEBPACK_IMPORTED_MODULE_24__["default"],
+  component: _views_OrdersPages_profile2Page_vue__WEBPACK_IMPORTED_MODULE_25__["default"],
   name: "Profile2"
 }, {
   path: prefix + '/u_profile3',
   beforeEnter: guardMyroute,
-  component: _views_OrdersPages_profile3Page_vue__WEBPACK_IMPORTED_MODULE_25__["default"],
+  component: _views_OrdersPages_profile3Page_vue__WEBPACK_IMPORTED_MODULE_26__["default"],
   name: "Profile3"
 }, {
   path: prefix + '/u_profile4',
   beforeEnter: guardMyroute,
-  component: _views_OrdersPages_profile4Page_vue__WEBPACK_IMPORTED_MODULE_26__["default"],
+  component: _views_OrdersPages_profile4Page_vue__WEBPACK_IMPORTED_MODULE_27__["default"],
   name: "Profile4"
 }, {
   path: prefix + '/my_orders/:status?',
   beforeEnter: guardMyroute,
-  component: _views_OrdersPages_myOrder_vue__WEBPACK_IMPORTED_MODULE_27__["default"],
+  component: _views_OrdersPages_myOrder_vue__WEBPACK_IMPORTED_MODULE_28__["default"],
   name: "MyOrder",
   props: true
 }, {
   path: prefix + '/my_orders_ex',
   beforeEnter: guardMyroute,
-  component: _views_OrdersPages_EXMyOrders_vue__WEBPACK_IMPORTED_MODULE_28__["default"],
+  component: _views_OrdersPages_EXMyOrders_vue__WEBPACK_IMPORTED_MODULE_29__["default"],
   name: "EXMyOrders"
 }, {
   path: prefix + '/show_all_orders',
   beforeEnter: guardMyroute,
-  component: _views_OrdersPages_showAllOrders_vue__WEBPACK_IMPORTED_MODULE_29__["default"],
+  component: _views_OrdersPages_showAllOrders_vue__WEBPACK_IMPORTED_MODULE_30__["default"],
   name: "ShowAllOrders"
 }, {
   path: prefix + '/filteration',
   beforeEnter: guardMyroute,
-  component: _views_OrdersPages_ordersFilteration_vue__WEBPACK_IMPORTED_MODULE_30__["default"],
+  component: _views_OrdersPages_ordersFilteration_vue__WEBPACK_IMPORTED_MODULE_31__["default"],
   name: "Filteration"
 }, // Tickets pages routes
 {
   path: prefix + '/u_new_ticket',
   beforeEnter: guardMyroute,
-  component: _views_TicketsPages_createTecket_vue__WEBPACK_IMPORTED_MODULE_31__["default"],
+  component: _views_TicketsPages_createTecket_vue__WEBPACK_IMPORTED_MODULE_32__["default"],
   name: "addTicket"
 }, {
   path: prefix + '/order/:code',
   beforeEnter: guardMyroute,
   props: true,
-  component: _views_OrdersPages_ShowSingleOrder_vue__WEBPACK_IMPORTED_MODULE_32__["default"],
+  component: _views_OrdersPages_ShowSingleOrder_vue__WEBPACK_IMPORTED_MODULE_33__["default"],
   name: 'ShowSingleOrder'
 }, {
   path: prefix + '/negotiation/:id',
-  component: _components_Negotiation__WEBPACK_IMPORTED_MODULE_33__["default"],
+  component: _components_Negotiation__WEBPACK_IMPORTED_MODULE_34__["default"],
   name: 'negotiation',
   props: true
 }, {
   path: prefix + '/order-negotiations/:id',
-  component: _views_OrdersPages_NegotiationsPage__WEBPACK_IMPORTED_MODULE_34__["default"],
+  component: _views_OrdersPages_NegotiationsPage__WEBPACK_IMPORTED_MODULE_35__["default"],
   name: 'order_negotiations',
   props: true
 }, {
   path: prefix + '/subscription',
-  component: _views_Subscription__WEBPACK_IMPORTED_MODULE_35__["default"],
+  component: _views_Subscription__WEBPACK_IMPORTED_MODULE_36__["default"],
   name: 'Subscription'
 }];
-var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_36__.createRouter)({
-  history: (0,vue_router__WEBPACK_IMPORTED_MODULE_36__.createWebHistory)(),
+var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_37__.createRouter)({
+  history: (0,vue_router__WEBPACK_IMPORTED_MODULE_37__.createWebHistory)(),
   routes: routes
 });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (router);
@@ -65263,6 +65357,34 @@ if (false) {}
 
 /***/ }),
 
+/***/ "./resources/js/components/AccountSettings/firstRegister.vue":
+/*!*******************************************************************!*\
+  !*** ./resources/js/components/AccountSettings/firstRegister.vue ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _firstRegister_vue_vue_type_template_id_cabb4a8e__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./firstRegister.vue?vue&type=template&id=cabb4a8e */ "./resources/js/components/AccountSettings/firstRegister.vue?vue&type=template&id=cabb4a8e");
+/* harmony import */ var _firstRegister_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./firstRegister.vue?vue&type=script&lang=js */ "./resources/js/components/AccountSettings/firstRegister.vue?vue&type=script&lang=js");
+/* harmony import */ var C_xampp_htdocs_reliable_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs_reliable_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_firstRegister_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_firstRegister_vue_vue_type_template_id_cabb4a8e__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/AccountSettings/firstRegister.vue"]])
+/* hot reload */
+if (false) {}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
 /***/ "./resources/js/components/AddJudgerModal.vue":
 /*!****************************************************!*\
   !*** ./resources/js/components/AddJudgerModal.vue ***!
@@ -66942,6 +67064,34 @@ if (false) {}
 
 /***/ }),
 
+/***/ "./resources/js/views/AccountPages/firstRegisterPage.vue":
+/*!***************************************************************!*\
+  !*** ./resources/js/views/AccountPages/firstRegisterPage.vue ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _firstRegisterPage_vue_vue_type_template_id_63037fee__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./firstRegisterPage.vue?vue&type=template&id=63037fee */ "./resources/js/views/AccountPages/firstRegisterPage.vue?vue&type=template&id=63037fee");
+/* harmony import */ var _firstRegisterPage_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./firstRegisterPage.vue?vue&type=script&lang=js */ "./resources/js/views/AccountPages/firstRegisterPage.vue?vue&type=script&lang=js");
+/* harmony import */ var C_xampp_htdocs_reliable_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs_reliable_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_firstRegisterPage_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_firstRegisterPage_vue_vue_type_template_id_63037fee__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/views/AccountPages/firstRegisterPage.vue"]])
+/* hot reload */
+if (false) {}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
 /***/ "./resources/js/views/AccountPages/loginPage.vue":
 /*!*******************************************************!*\
   !*** ./resources/js/views/AccountPages/loginPage.vue ***!
@@ -68036,6 +68186,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/AccountSettings/firstRegister.vue?vue&type=script&lang=js":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/components/AccountSettings/firstRegister.vue?vue&type=script&lang=js ***!
+  \*******************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_firstRegister_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_firstRegister_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./firstRegister.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/AccountSettings/firstRegister.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
 /***/ "./resources/js/components/AddJudgerModal.vue?vue&type=script&lang=js":
 /*!****************************************************************************!*\
   !*** ./resources/js/components/AddJudgerModal.vue?vue&type=script&lang=js ***!
@@ -68980,6 +69146,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/views/AccountPages/firstRegisterPage.vue?vue&type=script&lang=js":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/views/AccountPages/firstRegisterPage.vue?vue&type=script&lang=js ***!
+  \***************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_firstRegisterPage_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_firstRegisterPage_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./firstRegisterPage.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/views/AccountPages/firstRegisterPage.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
 /***/ "./resources/js/views/AccountPages/loginPage.vue?vue&type=script&lang=js":
 /*!*******************************************************************************!*\
   !*** ./resources/js/views/AccountPages/loginPage.vue?vue&type=script&lang=js ***!
@@ -69632,6 +69814,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Verify_vue_vue_type_template_id_66ec8643__WEBPACK_IMPORTED_MODULE_0__.render)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Verify_vue_vue_type_template_id_66ec8643__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Verify.vue?vue&type=template&id=66ec8643 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/AccountSettings/Verify.vue?vue&type=template&id=66ec8643");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/AccountSettings/firstRegister.vue?vue&type=template&id=cabb4a8e":
+/*!*************************************************************************************************!*\
+  !*** ./resources/js/components/AccountSettings/firstRegister.vue?vue&type=template&id=cabb4a8e ***!
+  \*************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_firstRegister_vue_vue_type_template_id_cabb4a8e__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_firstRegister_vue_vue_type_template_id_cabb4a8e__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./firstRegister.vue?vue&type=template&id=cabb4a8e */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/AccountSettings/firstRegister.vue?vue&type=template&id=cabb4a8e");
 
 
 /***/ }),
@@ -70576,6 +70774,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ServiceProduction_vue_vue_type_template_id_0f687ec0__WEBPACK_IMPORTED_MODULE_0__.render)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ServiceProduction_vue_vue_type_template_id_0f687ec0__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./ServiceProduction.vue?vue&type=template&id=0f687ec0 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/partials/home/ServiceProduction.vue?vue&type=template&id=0f687ec0");
+
+
+/***/ }),
+
+/***/ "./resources/js/views/AccountPages/firstRegisterPage.vue?vue&type=template&id=63037fee":
+/*!*********************************************************************************************!*\
+  !*** ./resources/js/views/AccountPages/firstRegisterPage.vue?vue&type=template&id=63037fee ***!
+  \*********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_firstRegisterPage_vue_vue_type_template_id_63037fee__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_firstRegisterPage_vue_vue_type_template_id_63037fee__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./firstRegisterPage.vue?vue&type=template&id=63037fee */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/views/AccountPages/firstRegisterPage.vue?vue&type=template&id=63037fee");
 
 
 /***/ }),

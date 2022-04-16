@@ -72,6 +72,7 @@ class AuthController extends Controller
 	 * @return \Illuminate\Http\JsonResponse
 	 */
 	public function login(Request $login) {
+		// dd($login->all());
 	    $val = Validator::make(request()->all(),[
             'id_number' => 'required|exists:users',
 			'password' => [
