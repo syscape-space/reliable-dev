@@ -63,7 +63,7 @@
               </div>
               <div>
                 <p class="my-4 "> {{ $root._t("app.do_you_have_account") }}
-                    <router-link :to="{name:'Register'}"
+                    <router-link :to="{name:'FirstRegister'}"
                       href="#"
                       style="color: #048e81;"  
                     class=""> {{ $root._t("app.create_account_now") }} </router-link></p> 
