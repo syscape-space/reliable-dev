@@ -14,7 +14,7 @@
         </div>
 
         <div class="row w-100 mx-0 px-0">
-          <div class="col-md-3" v-if="order.order_step === 2">
+          <div class="col-md-3" v-if="order.order_status === 'ongoing'">
             <div>
               <div
                   class="bg-users f-14 p-3 text-center"
