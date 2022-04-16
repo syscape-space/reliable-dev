@@ -72,7 +72,7 @@
                     class="float-start"><i class="fa fa-check-circle text-success fa-x"></i></span> </a>
                 <!-- <a class="nav-link list-group-item list-group-item-action active" id="user-edit-account-tab" data-toggle="pill" href="#user-edit-account" role="tab" aria-controls="user-edit-account" aria-selected="true"> <span class="f-w-500"><i class="feather icon-user m-r-10 h5 "></i>معلومات شخصية </span> <span class="float-start"><i class="feather icon-chevron-right"></i></span> </a> -->
 
-                <a v-if="user?.membership_type != 'user'"
+                <a v-if="user?.membership_type == 'vendor'"
                    class="nav-link list-group-item list-group-item-action  d-flex justify-content-between"
                    :class="{active: activeLink == 'commercial'}" @click="activeLink = 'commercial'" href="#"> <span
                     class="f-w-500"><i class="feather icon-image m-r-10 h5 ">
@@ -86,7 +86,7 @@
 
                 <!-- license-->
 
-                <a v-if="user?.membership_type != 'user'"
+                <a v-if="user?.membership_type == 'vendor'"
                    class="nav-link list-group-item list-group-item-action d-flex justify-content-between"
                    :class="{active: activeLink == 'license'}" @click="activeLink = 'license'" href="#"> <span
                     class="f-w-500"><i class="feather icon-image m-r-10 h5 "></i>الرخصة المهنية </span>
@@ -99,14 +99,14 @@
                     </i></span> </a>
 
                 <!-- qualification -->
-                <a v-if="user?.membership_type != 'user'" class="nav-link list-group-item list-group-item-action"
+                <a v-if="user?.membership_type == 'vendor'" class="nav-link list-group-item list-group-item-action"
                    :class="{active: activeLink == 'qualification'}" @click="activeLink = 'qualification'"
                    href="#"> <span
                     class="f-w-500"><i class="feather icon-image m-r-10 h5 "></i>المؤهلات </span> <span
                     class="float-start"><i class="fa fa-check-circle text-success fa-x"></i></span> </a>
 
                 <!-- experience -->
-                <a v-if="user?.membership_type != 'user'" class="nav-link list-group-item list-group-item-action"
+                <a v-if="user?.membership_type == 'vendor'" class="nav-link list-group-item list-group-item-action"
                    :class="{active: activeLink == 'experience'}"
                    @click="activeLink = 'experience'" href="#"> <span class="f-w-500"><i
                     class="feather icon-image m-r-10 h5 "></i>الخبرات </span> <span class="float-start">

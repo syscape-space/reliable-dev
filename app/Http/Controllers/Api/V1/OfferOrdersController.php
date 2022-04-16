@@ -25,8 +25,14 @@ class OfferOrdersController extends Controller
     }
 
     public function acceptOffer($id){
-        OrderOffer::where('id', $id)->update(['offer_status' => 'approved']);
-
+        $offer = OrderOffer::query()->find($id);
+        $offer->update(['offer_status' => 'approved']);
+        $order = Order::query()->find($offer->order_id);
+        $order->update(['order_status'=>'ongoing']);
+        if ($order->negotiations()->count() == 0){
+            $chat = $order->negotiations()->create();
+            $chat->users()->attach($offer->vendor->id);
+        }
         return response()->json([
             "message" => "updated"
         ] , 200) ;
