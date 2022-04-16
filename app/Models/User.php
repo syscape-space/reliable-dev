@@ -217,7 +217,7 @@ class User extends Authenticatable implements JWTSubject {
     }
     public function getMyAllOrdersAttribute(){
 	    return $this->membership_type === 'user' ? [
-	        'all'   =>  $this->orders()->get(),
+	        'all'   =>  $this->orders()->count(),
 	        'under_review'   =>  $this->orders()->whereOrderStatus('under_review')->count(),
 	        'refused'   =>  $this->orders()->whereOrderStatus('refused')->count(),
 	        'done'   =>  $this->orders()->get()->where('order_step',3)->count(),
@@ -227,6 +227,7 @@ class User extends Authenticatable implements JWTSubject {
 	        'archived'   =>  $this->orders()->whereOrderStatus('archived')->count(),
         ] : [
             'ongoing'   =>  Order::all()->where('order_status','ongoing')->filter(function ($item){
+                if ($item->active_vendor)
                 return $item->active_vendor->id == $this->id;
             })->count(),
             'offered'   =>  OrderOffer::query()->where('vendor_id',$this->id)->count(),

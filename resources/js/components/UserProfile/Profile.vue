@@ -286,7 +286,7 @@
             </div>
             <div class="percent-requst mt-2">
               <div class="d-flex align-items-center justify-content-between mb-2" style="color: #363848;">
-                <span class="  ">{{ $root.auth_user.my_all_orders.done }} {{ $root._t("app.request") }}</span>
+                <span class="  ">{{ $root.auth_user.my_all_orders.completed }} {{ $root._t("app.request") }}</span>
                 <span> 24% </span>
               </div>
               <div class="line  rounded position-relative">
