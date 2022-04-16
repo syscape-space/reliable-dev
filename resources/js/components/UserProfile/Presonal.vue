@@ -86,7 +86,7 @@
 
                 <!-- license-->
 
-                <a v-if="user?.membership_type == 'vendor'"
+                <a v-if="user?.membership_type != 'user'"
                    class="nav-link list-group-item list-group-item-action d-flex justify-content-between"
                    :class="{active: activeLink == 'license'}" @click="activeLink = 'license'" href="#"> <span
                     class="f-w-500"><i class="feather icon-image m-r-10 h5 "></i>الرخصة المهنية </span>
