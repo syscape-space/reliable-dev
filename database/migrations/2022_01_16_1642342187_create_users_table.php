@@ -59,6 +59,9 @@ class CreateUsersTable extends Migration {
 				$table->enum('gender', ['male', 'female'])->nullable();
 
 				$table->bigInteger('rate_overall')->nullable();
+				$table->string('badge');
+				$table->string('badge_condition');
+				$table->string('badeg_icon');
 				$table->rememberToken();
 				$table->timestamps();
 			});
