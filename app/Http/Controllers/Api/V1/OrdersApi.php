@@ -31,6 +31,8 @@ class OrdersApi extends Controller{
         'created_at',
         'negotiable',
         'views',
+        'reason',
+        'hash_code',
 	];
 
     /**
@@ -112,9 +114,9 @@ class OrdersApi extends Controller{
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($code)
     {
-        $Order = Order::with($this->arrWith())->find($id,$this->selectColumns)
+        $Order = Order::query()->select($this->selectColumns)->with($this->arrWith())->firstWhere('hash_code',$code)
             ->append('order_step','active_vendor','active_negotiation','active_offer');
         if(is_null($Order) || empty($Order)){
             return errorResponseJson([

@@ -88,14 +88,14 @@
 
               <ul class=" dropdown-menu profile" aria-labelledby="dropdownMenuLink">
                 <li>
-                  <a class="dropdown-item" href="#"> {{ $root._t("app.edit_profile") }}  </a>
+                  <router-link class="dropdown-item" :to="{name:'u_indexPage'}"> {{ $root._t("app.edit_profile") }}  </router-link>
                 </li>
-                <li><a class="dropdown-item" href="#">{{ $root._t("app.orders") }}</a></li>
+                <li><router-link class="dropdown-item" :to="{name:'ShowAllOrders'}">{{ $root._t("app.orders") }}</router-link></li>
                 <li>
-                  <a class="dropdown-item" href="#"> {{ $root._t("app.card") }} </a>
+                  <router-link class="dropdown-item" :to="{name:'Balance'}"> {{ $root._t("app.card") }} </router-link>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#"> {{ $root._t("app.customer_service") }} </a>
+                  <router-link class="dropdown-item" :to="{name:'Ticket2'}"> {{ $root._t("app.customer_service") }} </router-link>
                 </li>
                 <li>
                   <a class="dropdown-item" @click.prevent="logout()" style="cursor: pointer;">خروج</a>

@@ -4,6 +4,7 @@ namespace App\Models;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 // Auto Models By Baboon Script
 // Baboon Maker has been Created And Developed By  [it v 1.6.37]
@@ -38,6 +39,7 @@ class Order extends Model {
 		'reason',
 		'created_at',
 		'updated_at',
+        'hash_code',
 	];
 
 	/**
@@ -178,6 +180,11 @@ class Order extends Model {
 				//$order->department_id()->delete();
 				//$order->department_id()->delete();
 			});
+		static::retrieved(function (Order $order){
+		    if (is_null($order->hash_code)){
+		        $order->update(['hash_code'=>Str::random(50)]);
+            }
+        });
 	}
 
 	public function getCreatedAtAttribute($date)
