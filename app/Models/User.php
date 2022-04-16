@@ -34,7 +34,7 @@ class User extends Authenticatable implements JWTSubject
 		'membership_type',
 
 		'account_type',
-		'add_badge',
+		'badge',
 		'badge_condition',
 		'badge_icon',
 		'id_number',
