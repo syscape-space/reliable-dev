@@ -75,7 +75,7 @@
                                 </label>
                                 <input class="form-control" name="license_file"
                                     type="file"  :disabled="editable == false">
-                                <small v-if="license_file" class="text-muted">{{license_file}}</small>
+                                <img v-if="license_file" height="100" :src="cloud_url + license_file">
                                 
                             </div>
                         </div>
@@ -105,6 +105,7 @@ import api from '../../utils/api';
             return {
                 errors: [],
                 successMsg: null,
+                cloud_url: cloud_url,
                 errorMsg: null,
                 loading: false,
                 specialties: this.specialties,

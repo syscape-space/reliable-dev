@@ -216,15 +216,24 @@ class User extends Authenticatable implements JWTSubject {
 	    return $this->hasMany(Order::class,'user_id','id');
     }
     public function getMyAllOrdersAttribute(){
-	    return [
+	    return $this->membership_type === 'user' ? [
 	        'all'   =>  $this->orders()->get(),
-	        'under_review'   =>  $this->orders()->whereOrderStatus('under_review')->get(),
-	        'refused'   =>  $this->orders()->whereOrderStatus('refused')->get(),
-	        'done'   =>  $this->orders()->get()->where('order_step',3),
-	        'ongoing'   =>  $this->orders()->get()->where('order_step',2),
-	        'closed'   =>  $this->orders()->whereOrderStatus('closed')->get(),
-	        'open'   =>  $this->orders()->whereOrderStatus('open')->get(),
-	        'archived'   =>  $this->orders()->whereOrderStatus('archived')->get(),
+	        'under_review'   =>  $this->orders()->whereOrderStatus('under_review')->count(),
+	        'refused'   =>  $this->orders()->whereOrderStatus('refused')->count(),
+	        'done'   =>  $this->orders()->get()->where('order_step',3)->count(),
+	        'ongoing'   =>  $this->orders()->get()->where('order_step',2)->count(),
+	        'closed'   =>  $this->orders()->whereOrderStatus('closed')->count(),
+	        'open'   =>  $this->orders()->whereOrderStatus('open')->count(),
+	        'archived'   =>  $this->orders()->whereOrderStatus('archived')->count(),
+        ] : [
+            'ongoing'   =>  Order::all()->where('order_status','ongoing')->filter(function ($item){
+                return $item->active_vendor->id == $this->id;
+            })->count(),
+            'offered'   =>  OrderOffer::query()->where('vendor_id',$this->id)->count(),
+            'completed'  =>  Order::all()->where('order_status','ongoing')->filter(function ($item){
+                return $item->active_vendor->id == $this->id;
+            })->count(),
+            'all'   =>  OrderOffer::query()->where('vendor_id',$this->id)->count(),
         ];
     }
 

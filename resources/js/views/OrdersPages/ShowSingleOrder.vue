@@ -247,7 +247,7 @@
                 </button>
               </div>
             </div>
-            <div v-if="order.order_step <= 1" class="row w-100">
+            <div v-if="order.order_step <= 1 && $root.auth_user.membership_type === 'user'" class="row w-100">
               <div class="col-12 alert alert-primary p-3">
                 <h5 class="text-center w-100">
                   يمكنك اغلاق الطلب الان قبل قبول اي عرض و الدخول في مرحلة التنفيذ

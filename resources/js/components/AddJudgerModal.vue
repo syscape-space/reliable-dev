@@ -71,7 +71,7 @@ export default {
     },
 
     sendRequest(){
-      api.post('/v1/orderarbitrators',{arbitrator_id:this.form.arbitrator_id,order_id:this.$parent.$props.id}).then(res=>{
+      api.post('/v1/orderarbitrators',{arbitrator_id:this.form.arbitrator_id,order_id:this.$parent.order.id}).then(res=>{
         this.$root.alertSuccess('تم ارسال الطلب بنجاح');
         this.$refs.modal.modal('hide');
         api.post("v1/accept_offer/" + this.offer_id, {'_method': 'put'})
