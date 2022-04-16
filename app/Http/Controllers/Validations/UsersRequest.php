@@ -61,6 +61,10 @@ class UsersRequest extends FormRequest {
 			'password'                      => 'sometimes|nullable|string|min:6',
 			'current_balance'               => 'sometimes|nullable|numeric',
 			'suspended_balance'             => 'sometimes|nullable|numeric',
+			'badge_icon'                    => 'sometimes|nullable|file|image',
+			'add_badge'                     => 'sometimes|nullable|string',
+			'badge_condition'               => 'sometimes|nullable|string',
+
 		];
 		$rules['country_id'] = 'required|integer|exists:countries,id';
 		$rules['city_id']    = 'required|integer|exists:cities,id';

@@ -75,9 +75,13 @@ class Users extends Controller
 		$data['admin_id']      = admin()->id();
 		$data['password']      = bcrypt(request('password'));
 		$users                 = User::create($data);
-		if (request()->hasFile('photo_profile')) {
+		if (request()->hasFile('photo_profile') || request()->hasFile('badge_icon')) {
 			$users->photo_profile = it()->upload('photo_profile', 'users/' . $users->id);
+			$users->badge_icon = it()->upload('badge_icon', 'badges/' . $users->id);
 			$users->save();
+		}
+		if (request()->hasFile('badge_icon')) {
+
 		}
 		if (\request()->judger_request_id){
 		    $judger_request = JudgerRequest::query()->find(\request()->judger_request_id);
