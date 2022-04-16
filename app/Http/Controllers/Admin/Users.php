@@ -80,9 +80,6 @@ class Users extends Controller
 			$users->badge_icon = it()->upload('badge_icon', 'badges/' . $users->id);
 			$users->save();
 		}
-		if (request()->hasFile('badge_icon')) {
-
-		}
 		if (\request()->judger_request_id){
 		    $judger_request = JudgerRequest::query()->find(\request()->judger_request_id);
 		    $judger_request->update(['status'=>'done','note'=>'تم قبول اضافة المحكم والتواصل معه']);
