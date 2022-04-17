@@ -143,10 +143,10 @@
             <profile-commercial :user_id="user?.id" :commercial="commercial" :commercial_status="commercial_status"
                                 :specialties="specialties" v-if="!loading && activeLink == 'commercial'"
                                 @refersh="handleRefresh"></profile-commercial>
-            <profile-experience :user_id="user?.id" :experience="experience" :specialties="specialties"
+            <profile-experience :user_id="user?.id" :specialties="specialties"
                                 v-if="!loading && activeLink == 'experience'"
                                 @refersh="handleRefresh"></profile-experience>
-            <profile-qualification :user_id="user?.id" :qualification="qualification" :specialties="specialties"
+            <profile-qualification :user_id="user?.id"  :specialties="specialties"
                                    v-if="!loading && activeLink == 'qualification'"
                                    @refersh="handleRefresh"></profile-qualification>
             <profile-change-password v-if="!loading && activeLink == 'change_password'"></profile-change-password>

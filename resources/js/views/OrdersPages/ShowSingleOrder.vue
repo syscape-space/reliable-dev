@@ -119,9 +119,9 @@
 
                 </div>
               </div>
-              <template  v-if="$root.auth_user.membership_type === 'vendor' && order.judgers.filter(item=>item.pivot.vendor_status === 'pending').length">
-                <button class="mohkam-btn">
-                  طلب المحكم بانتظار الرد
+              <template  v-if="$root.auth_user.membership_type === 'vendor' && order.judgers.filter(item=>item.pivot.vendor_status === 'pending').length === 0">
+                <button @click="$refs.add_judger_modal.modal('show')" class="mohkam-btn">
+                  طلب المحكم
                 </button>
               </template>
 
@@ -152,31 +152,31 @@
                       </div>
                       <span class="text-center">{{ judger.name  }} </span>
                     </li>
-                    <li class="mb-3">
-                      <span style="min-width: 60px" class="d-inline-block"
-                      >الحالة من طرف مقدم الخدمة
-                      </span>
-                      <span
-                          style="margin-right: 15px; color: #0995eb"
-                          class="fw-bold"
-                      > {{$root._t('admin.'+judger.pivot.vendor_status)}}
+<!--                    <li class="mb-3">-->
+<!--                      <span style="min-width: 60px" class="d-inline-block"-->
+<!--                      >الحالة من طرف مقدم الخدمة-->
+<!--                      </span>-->
+<!--                      <span-->
+<!--                          style="margin-right: 15px; color: #0995eb"-->
+<!--                          class="fw-bold"-->
+<!--                      > {{$root._t('admin.'+judger.pivot.vendor_status)}}-->
 
-                        </span>
-                    </li>
-                    <li class="mb-3" v-if="judger.pivot.vendor_refused_message">
-                      <span style="min-width: 60px" class="d-inline-block"
-                      >سبب الرفض
-                      </span>
-                      <span
-                          style="margin-right: 15px; color: #0995eb"
-                          class="fw-bold"
-                      > {{judger.pivot.vendor_refused_message}}
+<!--                        </span>-->
+<!--                    </li>-->
+<!--                    <li class="mb-3" v-if="judger.pivot.vendor_refused_message">-->
+<!--                      <span style="min-width: 60px" class="d-inline-block"-->
+<!--                      >سبب الرفض-->
+<!--                      </span>-->
+<!--                      <span-->
+<!--                          style="margin-right: 15px; color: #0995eb"-->
+<!--                          class="fw-bold"-->
+<!--                      > {{judger.pivot.vendor_refused_message}}-->
 
-                        </span>
-                    </li>
-                    <template v-if="$root.auth_user.membership_type === 'vendor' && judger.pivot.vendor_status === 'pending'">
-                      <judger-request-status-modal :judger="judger"/>
-                    </template>
+<!--                        </span>-->
+<!--                    </li>-->
+<!--                    <template v-if="$root.auth_user.membership_type === 'vendor' && judger.pivot.vendor_status === 'pending'">-->
+<!--                      <judger-request-status-modal :judger="judger"/>-->
+<!--                    </template>-->
                   </ul>
                 </div>
               </template>

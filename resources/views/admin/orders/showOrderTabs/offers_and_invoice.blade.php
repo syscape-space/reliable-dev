@@ -22,6 +22,10 @@
 						<span class="badge badge-danger">{{ $orders->arbitratorInvoices()->count() }}</span>
 					{{ trans('admin.arbitration_decisions') }}</a>
 				</li>
+			<li class="nav-item">
+					<a class="nav-link {{ request('tab') == 'negotiations'?'active':'' }}" href="{{ url()->current() }}?tab=negotiations"><i class="fa fa-user-shield"></i>
+					المفاوضات | المناقشة</a>
+				</li>
 			</ul>
 			<div class="tab-content">
 				<div class="tab-pane active">
@@ -33,6 +37,8 @@
 					 @include('admin.orders.showOrderTabs.arbitrations')
 					@elseif(request('tab') == 'arbitration_decisions')
 					 @include('admin.orders.showOrderTabs.arbitration_decisions')
+					@elseif(request('tab') == 'negotiations')
+					 @include('admin.orders.showOrderTabs.negotiations')
 					@endif
 				</div>
 			</div>

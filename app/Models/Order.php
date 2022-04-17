@@ -228,7 +228,7 @@ class Order extends Model {
     public function getActiveNegotiationAttribute(){
 	    if ($this->order_step >= 2){
             $user = User::query()->find(auth('api')->id()??auth()->id());
-            if ($user->membership_type == 'vendor'){
+            if ($user and $user->membership_type == 'vendor'){
                 return $user->negotiations()->with(['users','messages','order'])->firstWhere('order_id',$this->id);
             }else{
                 return $this->negotiations()->with(['users','messages','order'])
@@ -237,6 +237,7 @@ class Order extends Model {
                     })->first();
             }
         }
+	    return null;
     }
 
 

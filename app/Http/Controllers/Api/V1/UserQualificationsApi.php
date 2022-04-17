@@ -17,6 +17,7 @@ class UserQualificationsApi extends Controller{
 		"qualification_file",
 		"user_id",
 		"comment",
+        "status",'specialtie_id'
 	];
 
             /**
@@ -25,7 +26,7 @@ class UserQualificationsApi extends Controller{
              * @return array to assign with index & show methods
              */
             public function arrWith(){
-               return ['user_id',];
+               return ['user_id','specialtie'];
             }
 
 
@@ -36,7 +37,9 @@ class UserQualificationsApi extends Controller{
              */
             public function index()
             {
-            	$UserQualification = UserQualification::select($this->selectColumns)->with($this->arrWith())->orderBy("id","desc")->paginate(15);
+            	$UserQualification = UserQualification::select($this->selectColumns)
+                    ->whereUserId(auth('api')->id())
+                    ->with($this->arrWith())->orderBy("id","desc")->get();
                return successResponseJson(["data"=>$UserQualification]);
             }
 

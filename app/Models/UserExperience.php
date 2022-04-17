@@ -17,11 +17,12 @@ class UserExperience extends Model {
 		'user_id',
 
 		'comment',
-		'user_job_id',
-		'occupation_id',
 		'specialtie_id',
 		'created_at',
 		'updated_at',
+
+        'status',
+        'refuse_message',
 	];
 
 	/**
@@ -30,28 +31,9 @@ class UserExperience extends Model {
 	 * @param void
 	 * @return object data
 	 */
-	public function user_job_id() {
-		return $this->hasOne(\App\Models\UserJob::class , 'id', 'user_job_id');
-	}
-
-	/**
-	 *
-	 * occupation_id relation method
-	 * @param void
-	 * @return object data
-	 */
-	public function occupation_id() {
-		return $this->hasOne(\App\Models\Occupation::class , 'id', 'occupation_id');
-	}
-	/**
-	 *
-	 * specialtie_id relation method
-	 * @param void
-	 * @return object data
-	 */
-	public function specialtie_id() {
-		return $this->hasOne(\App\Models\Specialtie::class , 'id', 'specialtie_id');
-	}
+    public function specialtie() {
+        return $this->belongsTo(\App\Models\Specialtie::class , 'specialtie_id','id');
+    }
 
 	/**
 	 * user_id relation method
