@@ -25320,7 +25320,7 @@ var _hoisted_26 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_27 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"last_group\"><div class=\"group\"><label>افراد</label><input type=\"radio\" name=\"court-choice\"></div><div class=\"group\"><label>شركه</label><input type=\"radio\" name=\"court-choice\"></div><div class=\"group\"><label>شركه</label><input type=\"radio\" name=\"court-choice\"></div></div>", 1);
+var _hoisted_27 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"last_group\"><div class=\"group\"><label>افراد</label><input type=\"radio\" name=\"judger-choice\"></div><div class=\"group\"><label>شركه</label><input type=\"radio\" name=\"judger-choice\"></div><div class=\"group\"><label>شركه</label><input type=\"radio\" name=\"judger-choice\"></div></div>", 1);
 
 var _hoisted_28 = {
   "class": "mt-5 d-flex justify-content-center"
@@ -25352,12 +25352,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     name: "first-choice"
   }, null, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $data.first_choice]])]), _hoisted_19])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [$data.first_choice == 'court' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("img", _hoisted_22)) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("img", _hoisted_23)), _hoisted_24, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_25, [_hoisted_26, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $data.first_choice]])]), _hoisted_19])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [$data.first_choice == 'judger' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("img", _hoisted_22)) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("img", _hoisted_23)), _hoisted_24, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_25, [_hoisted_26, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
       return $data.first_choice = $event;
     }),
     type: "radio",
-    value: "court",
+    value: "judger",
     name: "first-choice"
   }, null, 512
   /* NEED_PATCH */

@@ -117,6 +117,7 @@ class AuthController extends Controller
 		$register['password'] = bcrypt(request('password'));
 		//$register['email_verified_at'] =null;
 
+		// dd($register);
 		$user = User::create($register);
 
 		$credentials = request(['email', 'password']);

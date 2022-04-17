@@ -54,25 +54,25 @@
 
                 <div class="col-md-4 part">
                     <div class="parent_all">
-                                                <img v-if="first_choice =='court'" style="width: 20%;object-fit:contain" src="../../assets/images/logo-active.png" alt="">
+                                                <img v-if="first_choice =='judger'" style="width: 20%;object-fit:contain" src="../../assets/images/logo-active.png" alt="">
                         <img v-else style="width: 20%;object-fit:contain" src="../../assets/images/logo-inactive.png" alt="">
                         <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص</p>
                         <div class="first_group">
                             <label>محكم</label>
-                            <input v-model="first_choice" type="radio" value="court" name="first-choice" />
+                            <input v-model="first_choice" type="radio" value="judger" name="first-choice" />
                         </div>
                         <div class="last_group">
                             <div class="group">
                                 <label>افراد</label>
-                                <input type="radio" name="court-choice" />
+                                <input type="radio" name="judger-choice" />
                             </div>
                             <div class="group">
                                 <label>شركه</label>
-                                <input type="radio" name="court-choice" />
+                                <input type="radio" name="judger-choice" />
                             </div>
                             <div class="group">
                                 <label>شركه</label>
-                                <input type="radio" name="court-choice" />
+                                <input type="radio" name="judger-choice" />
                             </div>
                         </div>
                     </div>
