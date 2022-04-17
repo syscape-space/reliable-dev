@@ -34,8 +34,8 @@
                   <span>رقم الجوال</span>
                 </label>
                 <input type="number" class="pe-2 form-control" placeholder=" رقم الجوال" v-model="id_number"> <!-- Phone number -->
-                <img class="img-lllo" style="width: 20px; position: absolute; right: 10px;"
-                :src="base_url+'/assets/images/login-user.svg'" alt="">
+                <!-- <img class="img-lllo" style="width: 20px; position: absolute; right: 10px;"
+                :src="base_url+'/assets/images/login-user.svg'" alt=""> -->
               </div>
               <div class="auth-login text-center  position-relative">
                 <label class="w-100 d-flex align-items-center mb-2 text-right" style="column-gap:5px;color:#4E5567">
