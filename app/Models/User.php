@@ -204,52 +204,57 @@ class User extends Authenticatable implements JWTSubject
 			//$user->company_id()->delete();
 		});
 	}
-	public function specialties()
-	{
-		return $this->belongsToMany(Specialtie::class, 'user_specialties', 'user_id', 'specialty_id');
-	}
-	public function occupations()
-	{
-		return $this->belongsToMany(Occupation::class, 'user_occupations', 'user_id', 'occupation_id');
-	}
-	public function packageRequests()
-	{
-		return $this->hasMany(PackageRequest::class, 'user_id', 'id');
-	}
-	public function getCurrentSubscriptionAttribute()
-	{
-		return $this->packageRequests()->with('package')
-			->where('request_status', 'approved')
-			->get()
-			->filter(function ($d) {
-				return Carbon::today() <= Carbon::parse($d->updated_at)->addDays($d->package->duration_package_days);
-			})
-			->first();
-	}
-	public function getPhotoProfileAttribute($value)
-	{
-		if ($value) {
-			if (Storage::disk('cloud')->exists($value)) {
-				return $value;
-			}
-		}
-		return 'default-user-icon.jpg';
-	}
-	public function orders()
-	{
-		return $this->hasMany(Order::class, 'user_id', 'id');
-	}
-	public function getMyAllOrdersAttribute()
-	{
-		return [
-			'all'   =>  $this->orders()->get(),
-			'under_review'   =>  $this->orders()->whereOrderStatus('under_review')->get(),
-			'refused'   =>  $this->orders()->whereOrderStatus('refused')->get(),
-			'done'   =>  $this->orders()->get()->where('order_step', 3),
-			'ongoing'   =>  $this->orders()->get()->where('order_step', 2),
-			'closed'   =>  $this->orders()->whereOrderStatus('closed')->get(),
-			'open'   =>  $this->orders()->whereOrderStatus('open')->get(),
-			'archived'   =>  $this->orders()->whereOrderStatus('archived')->get(),
-		];
-	}
+	public function specialties(){
+	    return $this->belongsToMany(Specialtie::class,'user_specialties','user_id','specialty_id');
+    }
+	public function occupations(){
+	    return $this->belongsToMany(Occupation::class,'user_occupations','user_id','occupation_id');
+    }
+    public function packageRequests(){
+	    return $this->hasMany(PackageRequest::class,'user_id','id');
+    }
+    public function getCurrentSubscriptionAttribute(){
+	    return $this->packageRequests()->with('package')
+            ->where('request_status','approved')
+            ->get()
+            ->filter(function ($d){
+                return Carbon::today() <= Carbon::parse($d->updated_at)->addDays($d->package->duration_package_days);
+            })
+            ->first();
+    }
+    public function getPhotoProfileAttribute($value){
+	    if ($value){
+	        if (Storage::disk('cloud')->exists($value)){
+	            return $value;
+            }
+        }
+	    return 'default-user-icon.jpg';
+    }
+    public function orders(){
+	    return $this->hasMany(Order::class,'user_id','id');
+    }
+    public function getMyAllOrdersAttribute(){
+	    return $this->membership_type === 'user' ? [
+	        'all'   =>  $this->orders()->count(),
+	        'under_review'   =>  $this->orders()->whereOrderStatus('under_review')->count(),
+	        'refused'   =>  $this->orders()->whereOrderStatus('refused')->count(),
+	        'done'   =>  $this->orders()->get()->where('order_step',3)->count(),
+	        'ongoing'   =>  $this->orders()->get()->where('order_step',2)->count(),
+	        'closed'   =>  $this->orders()->whereOrderStatus('closed')->count(),
+	        'open'   =>  $this->orders()->whereOrderStatus('open')->count(),
+	        'archived'   =>  $this->orders()->whereOrderStatus('archived')->count(),
+        ] : [
+            'ongoing'   =>  Order::all()->where('order_status','ongoing')->filter(function ($item){
+                if ($item->active_vendor)
+                return $item->active_vendor->id == $this->id;
+            })->count(),
+            'offered'   =>  OrderOffer::query()->where('vendor_id',$this->id)->count(),
+            'completed'  =>  Order::all()->where('order_status','ongoing')->filter(function ($item){
+                return $item->active_vendor->id == $this->id;
+            })->count(),
+            'all'   =>  OrderOffer::query()->where('vendor_id',$this->id)->count(),
+        ];
+    }
+
 }
+

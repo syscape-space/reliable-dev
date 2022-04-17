@@ -87,17 +87,17 @@ class Orders extends Controller {
 	}
 
 	public function order_arbitrator($order_id) {
-		OrderArbitrator::where('order_id', $order_id)->delete();
-		if (!empty(request('arbitrators')) && is_array(request('arbitrators')) && count(request('arbitrators')) > 0) {
-			$i = 0;
-			foreach (request('arbitrators') as $arbitrator) {
-				OrderArbitrator::create([
-						'order_id'      => $order_id,
-						'arbitrator_id' => $arbitrator,
-					]);
-				$i++;
-			}
-		}
+//		OrderArbitrator::where('order_id', $order_id)->delete();
+//		if (!empty(request('arbitrators')) && is_array(request('arbitrators')) && count(request('arbitrators')) > 0) {
+//			$i = 0;
+//			foreach (request('arbitrators') as $arbitrator) {
+//				OrderArbitrator::create([
+//						'order_id'      => $order_id,
+//						'arbitrator_id' => $arbitrator,
+//					]);
+//				$i++;
+//			}
+//		}
 	}
 
 	public function order_vendors($order_id) {

@@ -14,7 +14,7 @@
         </div>
 
         <div class="row w-100 mx-0 px-0">
-          <div class="col-md-3" v-if="order.order_step === 2">
+          <div class="col-md-3" v-if="order.order_status === 'ongoing'">
             <div>
               <div
                   class="bg-users f-14 p-3 text-center"
@@ -130,12 +130,10 @@
                   تم ارسال طلب محكم للأدارة
                 </button>
               </template>
-              <template v-else>
-
-                <template v-if="order.judgers.length">
-                  <div
-                      class="bg-users f-14 p-3 text-center"
-                      style="
+              <template v-if="order.judgers.length">
+                <div
+                    class="bg-users f-14 p-3 text-center"
+                    style="
                     background-image: linear-gradient(
                       to bottom,
                       #ff584d20,
@@ -144,44 +142,43 @@
                     border-radius: 8px;
                     background-color: transparent;
                   "
-                  >
-                    <h6 style="font-size: 13px" class=""> بيانات المحكم </h6>
+                >
+                  <h6 style="font-size: 13px" class=""> بيانات المحكم </h6>
 
-                    <ul class="list-unstyled px-0 f-12 text-end mt-4" v-for="judger in order.judgers">
-                      <li class="mb-3 mt-4 text-center">
-                        <div class="text-center mb-2" >
-                          <img style="width: 50px;height: 50px;" class="uses-img" :src="cloud_url  +  judger.photo_profile " alt="">
-                        </div>
-                        <span class="text-center">{{ judger.name  }} </span>
-                      </li>
-                      <li class="mb-3">
+                  <ul class="list-unstyled px-0 f-12 text-end mt-4" v-for="judger in order.judgers">
+                    <li class="mb-3 mt-4 text-center">
+                      <div class="text-center mb-2" >
+                        <img style="width: 50px;height: 50px;" class="uses-img" :src="cloud_url  +  judger.photo_profile " alt="">
+                      </div>
+                      <span class="text-center">{{ judger.name  }} </span>
+                    </li>
+                    <li class="mb-3">
                       <span style="min-width: 60px" class="d-inline-block"
                       >الحالة من طرف مقدم الخدمة
                       </span>
-                        <span
-                            style="margin-right: 15px; color: #0995eb"
-                            class="fw-bold"
-                        > {{$root._t('admin.'+judger.pivot.vendor_status)}}
+                      <span
+                          style="margin-right: 15px; color: #0995eb"
+                          class="fw-bold"
+                      > {{$root._t('admin.'+judger.pivot.vendor_status)}}
 
                         </span>
-                      </li>
-                      <li class="mb-3" v-if="judger.pivot.vendor_refused_message">
+                    </li>
+                    <li class="mb-3" v-if="judger.pivot.vendor_refused_message">
                       <span style="min-width: 60px" class="d-inline-block"
                       >سبب الرفض
                       </span>
-                        <span
-                            style="margin-right: 15px; color: #0995eb"
-                            class="fw-bold"
-                        > {{judger.pivot.vendor_refused_message}}
+                      <span
+                          style="margin-right: 15px; color: #0995eb"
+                          class="fw-bold"
+                      > {{judger.pivot.vendor_refused_message}}
 
                         </span>
-                      </li>
-                      <template v-if="$root.auth_user.membership_type === 'vendor' && judger.pivot.vendor_status === 'pending'">
-                        <judger-request-status-modal :judger="judger"/>
-                      </template>
-                    </ul>
-                  </div>
-                </template>
+                    </li>
+                    <template v-if="$root.auth_user.membership_type === 'vendor' && judger.pivot.vendor_status === 'pending'">
+                      <judger-request-status-modal :judger="judger"/>
+                    </template>
+                  </ul>
+                </div>
               </template>
               <button class="mohkam-btn" v-if="$root.auth_user.membership_type === 'user'">
                 إضافة طلب جديد
@@ -247,7 +244,7 @@
                 </button>
               </div>
             </div>
-            <div v-if="order.order_step <= 1" class="row w-100">
+            <div v-if="order.order_step <= 1 && $root.auth_user.membership_type === 'user'" class="row w-100">
               <div class="col-12 alert alert-primary p-3">
                 <h5 class="text-center w-100">
                   يمكنك اغلاق الطلب الان قبل قبول اي عرض و الدخول في مرحلة التنفيذ

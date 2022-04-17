@@ -41,7 +41,7 @@ class OrdersRequest extends FormRequest {
 			'assigning_arbitration'   => 'sometimes|nullable|string|in:yes,no',
 			//'decisions_status'         => 'sometimes|nullable|string|in:pending,accept,refused',
 			'decisions_refused_reason' => 'sometimes|nullable|string',
-			'order_status'             => 'required|string|in:under_review,open,closed,close_and_refund,refused',
+			'order_status'             => 'required|string|in:under_review,open,ongoing,done,closed,close_and_refund,refused',
 		];
 	}
 
@@ -65,7 +65,7 @@ class OrdersRequest extends FormRequest {
 			'assigning_arbitration'    => 'sometimes|nullable|string|in:yes,no',
 			'decisions_status'         => 'sometimes|nullable|string|in:pending,accept,refused',
 			'decisions_refused_reason' => 'sometimes|nullable|string',
-			'order_status'             => 'required|string|in:under_review,open,closed,close_and_refund,refused',
+			'order_status'             => 'required|string|in:under_review,open,ongoing,done,closed,close_and_refund,refused',
 		];
 	}
 

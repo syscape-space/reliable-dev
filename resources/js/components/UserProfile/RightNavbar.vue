@@ -32,16 +32,16 @@
               </p>
             </div>
              <div class="pt-2 text-center mawtheq-head d-flex justify-content-center">
-                <p class="m-0 bg-transparent text-white border px-3" style="width:auto" v-if="user.membership_type === null">
+                <p class="m-0 bg-transparent text-white border px-3" style="width:auto" v-if="$root.auth_user.membership_type === null">
                   الرئيسية
                 </p>
              </div>
              <div class="pt-0 text-center mawtheq-head d-flex justify-content-center">
-                <p class="m-0 bg-transparent text-white border px-3" style="width:auto" v-if="user.membership_type === null">
+                <p class="m-0 bg-transparent text-white border px-3" style="width:auto" v-if="$root.auth_user.membership_type === null">
                   {{ $root._t("app.withoutMemberShip") }}
                 </p>
                   <p class="m-0 bg-transparent text-white border px-3" style="width:auto" v-else>
-                    {{ $root._t("app."+user.membership_type) }}
+                    {{ $root._t("app."+$root.auth_user.membership_type) }}
                 </p>
               </div>
             <div
@@ -127,7 +127,7 @@
                   <span> كل الطلبات </span>
                 </router-link>
               </li>
-              <li class=""  v-if="$root.auth_user.membership_type === 'user'">
+              <li class=""  v-else>
                 <a href="#" id="panelsStayOpen-headingTwo" style="width:150px">
                   <img
                       :src="base_url+'/assets/images/o_under.svg'"
@@ -143,27 +143,34 @@
                       <li class="mt-2 text-white">
                         <router-link :to="{name:'MyOrder',params:{status:''}}">كل الطلبات</router-link>
                       </li>
-                      <li class="mt-2 text-white">
-                        <router-link :to="{name:'MyOrder',params:{status:'archived'}}">{{ $root._t("app.drafts") }}</router-link>
-                      </li>
-                      <li class="mt-2 text-white">
-                        <router-link :to="{name:'MyOrder',params:{status:'under_review'}}">{{ $root._t("app.waitting") }}</router-link>
-                      </li>
-                      <li class="mt-2 text-white">
-                        <router-link :to="{name:'MyOrder',params:{status:'open'}}"> المفتوحة</router-link>
-                      </li>
-                      <li class="mt-2 text-white">
-                        <router-link :to="{name:'MyOrder',params:{status:'refused'}}">{{ $root._t("app.rejected") }}</router-link>
-                      </li>
-                      <li class="mt-2 text-white">
-                        <router-link :to="{name:'MyOrder',params:{status:'ongoing'}}">تحت التنفيذ</router-link>
-                      </li>
-                      <li class="mt-2 text-white">
-                        <router-link :to="{name:'MyOrder',params:{status:'done'}}">اكتملت</router-link>
-                      </li>
-                      <li class="mt-2 text-white">
-                        <router-link :to="{name:'MyOrder',params:{status:'closed'}}">مغلقه</router-link>
-                      </li>
+                      <template v-if="$root.auth_user.membership_type ==='judger'">
+                        <li class="mt-2 text-white">
+                          <router-link :to="{name:'MyOrder',params:{status:'pending'}}">طلبات بأنتظار قبول مقدم الخدمة</router-link>
+                        </li>
+                      </template>
+                      <template v-else>
+                        <li class="mt-2 text-white">
+                          <router-link :to="{name:'MyOrder',params:{status:'archived'}}">{{ $root._t("app.drafts") }}</router-link>
+                        </li>
+                        <li class="mt-2 text-white">
+                          <router-link :to="{name:'MyOrder',params:{status:'under_review'}}">{{ $root._t("app.waitting") }}</router-link>
+                        </li>
+                        <li class="mt-2 text-white">
+                          <router-link :to="{name:'MyOrder',params:{status:'open'}}"> المفتوحة</router-link>
+                        </li>
+                        <li class="mt-2 text-white">
+                          <router-link :to="{name:'MyOrder',params:{status:'refused'}}">{{ $root._t("app.rejected") }}</router-link>
+                        </li>
+                        <li class="mt-2 text-white">
+                          <router-link :to="{name:'MyOrder',params:{status:'ongoing'}}">تحت التنفيذ</router-link>
+                        </li>
+                        <li class="mt-2 text-white">
+                          <router-link :to="{name:'MyOrder',params:{status:'done'}}">اكتملت</router-link>
+                        </li>
+                        <li class="mt-2 text-white">
+                          <router-link :to="{name:'MyOrder',params:{status:'closed'}}">مغلقه</router-link>
+                        </li>
+                      </template>
                     </ul>
                   </div>
                 </div>

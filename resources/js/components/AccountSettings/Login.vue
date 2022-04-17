@@ -115,7 +115,6 @@ export default {
             // saving token to localSorage
             this.$root.alertSuccess("Loggened Successfully");
             localStorage.setItem("token", token );
-            this.$root.getAuthUser();
             // route for u_index page
             this.$router.push({ name: "profilePage" });
           })
