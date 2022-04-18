@@ -62,6 +62,25 @@
                             </div>
                         </div>
                         <div class="col-12">
+                            <h4 class="text-success">قائمة الاضافات الممكنه للعقد</h4>
+                            <div class="row">
+                                <div class="col-6">
+                                    <ul>
+                                        @foreach(contractTemplateVars() as $item => $title)
+                                            <li> {{$title}} : <b>{{$item}}</b> </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                                <div class="col-6">
+                                    <h5 class="text-primary">طريقة الاستخدام</h5>
+                                    <p>اذا افترضنا نريد عرض قيمة العقد المخزنة في الداتابيز وهي 100 ريال </p>
+                                    <p>في النص " تم التواصل الي بقيمة 100 ريال "</p>
+                                    <p>يمكنك استخدام contract-amount في النص كالتالي " تم التواصل الي بقيمة contract-amount ريال "</p>
+                                    <p>لذلك بمكن لأكثر من عميل استخدامه مع قيم مختلفة لكل عقد</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
                             <div class="form-group">
                                 <label for="content_ar">المحتوي بالعربي</label>
                                 <textarea name="content_ar" id="content_ar" class="form-control">{!! old('content_ar',$edit->content_ar) !!}</textarea>
