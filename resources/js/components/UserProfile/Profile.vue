@@ -63,7 +63,7 @@
     </div>
   </section>
 
-  <section class="requsts-sec mt-4 " v-if="$root.auth_user.membership_type === 'user'">
+  <section class="requsts-sec mt-4 " v-if="$root.auth_user.membership_type === 'user' && $root.auth_user.my_all_orders">
     <div class="container">
       <div class="row">
         <div class="col-lg-3 mb-5">
@@ -217,7 +217,7 @@
     </div>
   </section>
   <section class="requsts-sec mt-4 " v-else>
-    <div class="container">
+    <div class="container" v-if="$root.auth_user.my_all_orders">
       <div class="row">
         <div class="col-lg-3 mb-5">
           <div class="requsts">

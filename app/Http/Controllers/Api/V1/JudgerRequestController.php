@@ -16,5 +16,6 @@ class JudgerRequestController extends Controller
         'city'  =>  'required',
         'contact'  =>  'required',
         'order_id'  =>  'required',
+        'amount_rate'  =>  'required',
     ];
 }
