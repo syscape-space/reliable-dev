@@ -7,7 +7,7 @@
                                     <div class="photo">
                                         <img
                                             class="img-fluid"
-                                            src="../../assets/images/person.jpg"
+                                            :src="`${base_url}/assets/images/person.jpg`"
                                             alt=""
                                         />
                                     </div>
@@ -15,7 +15,7 @@
                                     <p v-if="$root.auth_user.membership_type === null">{{ $root._t("app.withoutMemberShip") }}</p>
                                                                         <p v-else>{{ $root._t("app."+$root.auth_user.membership_type) }}</p>
 
-                                    <img src="../../assets/images/done.svg" alt="" />
+                                    <img :src="`${base_url}/assets/images/done.svg`" alt="" />
                                     <!-- <i class="fa-solid fa-circle-check"></i> -->
                                 </div>
                             </div>

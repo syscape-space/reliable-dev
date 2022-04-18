@@ -5,8 +5,8 @@
                 <div class="col-md-4 part">
                     <div class="parent_all">
                         
-                        <img v-if="first_choice =='user'" style="width: 20%;object-fit:contain" src="../../assets/images/logo-active.png" alt="">
-                        <img v-else style="width: 20%;object-fit:contain" src="../../assets/images/logo-inactive.png" alt="">
+                        <img v-if="first_choice =='user'" style="width: 20%;object-fit:contain" :src="`${base_url}/assets/images/logo-active.png`" alt="">
+                        <img v-else style="width: 20%;object-fit:contain" :src="`${base_url}/assets/images/logo-inactive.png`" alt="">
                         <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص</p>
                         <div class="first_group">
                             <label>عميل</label>
@@ -32,8 +32,8 @@
                 
                 <div class="col-md-4 part">
                     <div class="parent_all">
-                                                <img v-if="first_choice =='vendor'" style="width: 20%;object-fit:contain" src="../../assets/images/logo-active.png" alt="">
-                        <img v-else style="width: 20%;object-fit:contain" src="../../assets/images/logo-inactive.png" alt="">
+                                                <img v-if="first_choice =='vendor'" style="width: 20%;object-fit:contain" :src="`${base_url}/assets/images/logo-active.png`" alt="">
+                        <img v-else style="width: 20%;object-fit:contain" :src="`${base_url}/assets/images/logo-inactive.png`" alt="">
                         <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص</p>
                         <div class="first_group">
                             <label>مقدم خدمة</label>
@@ -54,8 +54,8 @@
 
                 <div class="col-md-4 part">
                     <div class="parent_all">
-                                                <img v-if="first_choice =='judger'" style="width: 20%;object-fit:contain" src="../../assets/images/logo-active.png" alt="">
-                        <img v-else style="width: 20%;object-fit:contain" src="../../assets/images/logo-inactive.png" alt="">
+                                                <img v-if="first_choice =='judger'" style="width: 20%;object-fit:contain" :src="`${base_url}/assets/images/logo-active.png`" alt="">
+                        <img v-else style="width: 20%;object-fit:contain" :src="`${base_url}/assets/images/logo-inactive.png`" alt="">
                         <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص</p>
                         <div class="first_group">
                             <label>محكم</label>
@@ -94,7 +94,9 @@ export default {
         return{
             first_choice:'user',
             logo_active:'active',
-            logo_inactive:'inactive'
+            logo_inactive:'inactive',
+                  base_url:base_url,
+
         }
     },
     watch:{

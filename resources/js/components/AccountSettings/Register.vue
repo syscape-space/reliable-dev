@@ -38,7 +38,7 @@
                               </div>
                               <img
                                   class="img-fluid"
-                                  src="../../assets/images/corner.png"
+                                  :src="`${base_url}/assets/images/corner.png`"
                                   alt=""
                               />
                           </div>
@@ -51,7 +51,7 @@
                               <i class="fas fa-book-open"></i
                           ></a>
                           <div class="logo">
-                              <img src="../../assets/images/logo-min.png" alt="" />
+                              <img :src="`${base_url}/assets/images/logo-min.png`" alt="" />
                               <div class="text">
                                   <h5>موثوق Reliable</h5>
                                   <p>صناع الثقة Trust Makers</p>
@@ -69,7 +69,7 @@
           </div>
                         <form action="">
                             <div class="logo-sgin text-center">
-                                <img src="../../assets/images/logo-min.png" alt="" />
+                                <img :src="`${base_url}/assets/images/logo-min.png`" alt="" />
                                 <h1>موثوق Reliable</h1>
                                 <p>صناع الثقة Trust Makers</p>
                             </div>

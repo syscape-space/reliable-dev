@@ -12,7 +12,7 @@
           <div class="p-3">
             <div class="text-center mt-1 mb-5 logoText">
               <!--<img style="width: 100px;" :src="base_url+'/public/assets/images/login-1-logo.svg'" alt="">-->
-              <img style="width: 30%;object-fit:contain" src="../../assets/images/logoText.png" alt="">
+              <img style="width: 30%;object-fit:contain" :src="`${base_url}/assets/images/logoText.png`" alt="">
             </div>
             <div class="register text-center" style="color:#0995EB">
               <h4 class="mb-4">  {{ $root._t("app.login") }} </h4>
