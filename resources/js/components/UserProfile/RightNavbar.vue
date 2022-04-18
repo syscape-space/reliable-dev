@@ -1,55 +1,43 @@
+
 <template>
-    <section>
-      <div class="dash">
-        <div class="head-dash">
-          <div>
-            
-            <div class="text-center pt-4">
-              <div class="image-user position-relative d-inline-block">
-                <img style="width: 140px; height: 140px; border-radius: 50%;" :src="user?.photo_profile != null ? cloud_url + user?.photo_profile : base_url+ '/assets/images/dash-user.png'" alt="" srcset="" />
-                
-                <p class="m-0" style="position: absolute; bottom: 1px; left: -8px; background-color: #fff; padding: 5px; border-radius: 5px;">
-                <img
-                  :src="base_url+'/assets/images/dash-mawthq.svg'"
-                  class="ms-2"
-                  alt=""
-                  srcset=""
-                />
-                موثق
-              </p>
-              </div>
-              <h4
-                class="mt-3"
-                style="color: #fff; font-size: 16px; margin-bottom: 0px"
-              >
-                {{ user.name }}
-              </h4>
-              <p>
-                <span class="w-100 text-white" v-if="$root.auth_user.main_department">{{$root.auth_user.main_department.department_name_ar}}</span>
-              </p>
-              <p>
-                <span class="w-100 text-white" v-if="$root.auth_user.sub_department">{{$root.auth_user.sub_department.department_name_ar}}</span>
-              </p>
-            </div>
-             <div class="pt-2 text-center mawtheq-head d-flex justify-content-center">
-                <p class="m-0 bg-transparent text-white border px-3" style="width:auto" v-if="$root.auth_user.membership_type === null">
-                  الرئيسية
-                </p>
-             </div>
-             <div class="pt-0 text-center mawtheq-head d-flex justify-content-center">
-                <p class="m-0 bg-transparent text-white border px-3" style="width:auto" v-if="$root.auth_user.membership_type === null">
-                  {{ $root._t("app.withoutMemberShip") }}
-                </p>
-                  <p class="m-0 bg-transparent text-white border px-3" style="width:auto" v-else>
-                    {{ $root._t("app."+$root.auth_user.membership_type) }}
-                </p>
-              </div>
-            <div
-              class="pt-4 text-center mawtheq-head d-flex justify-content-center"
-              >
-              
-            </div>
-            <ul class="px-0 list-unstyled text-center dash-list mt-0">
+  <div class="col-xl-3 r-bar text-center text-xl-end ps-xl-5">
+                        <div class="row parent-boxes">
+                            <div class="col-md-6 col-xl-12 mb-5">
+                                <div class="box box-info">
+                                    <div class="photo">
+                                        <img
+                                            class="img-fluid"
+                                            src="../../assets/images/person.jpg"
+                                            alt=""
+                                        />
+                                    </div>
+                                    <h4>{{ user.name }}</h4>
+                                    <p v-if="$root.auth_user.membership_type === null">{{ $root._t("app.withoutMemberShip") }}</p>
+                                                                        <p v-else>{{ $root._t("app."+$root.auth_user.membership_type) }}</p>
+
+                                    <img src="../../assets/images/done.svg" alt="" />
+                                    <!-- <i class="fa-solid fa-circle-check"></i> -->
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-xl-12 mb-5">
+                                <div class="box box-welcome">
+                                    <h6>مرحبا مجددا {{ user.name }}</h6>
+                                    <p>
+                                        حسابك مكتمل بنسبة
+                                        <span class="count">80%</span>
+                                    </p>
+                                    <div class="progress prog">
+                                        <div
+                                            class="progress-bar prog-bar"
+                                            role="progressbar"
+                                            style="width: 80%"
+                                            aria-valuenow="80"
+                                            aria-valuemin="0"
+                                            aria-valuemax="100"
+                                        ></div>
+                                    </div>
+                                    <!-- <a href="" class="btn">أكمل بيانات حسابك</a> -->
+                                                <ul class="px-0 list-unstyled text-center dash-list mt-0">
               <li class="active">
                 <router-link :to="{ name : 'profilePage' }">
                   <img
@@ -116,7 +104,7 @@
                   <span>الاشتراك</span>
                 </router-link>
               </li>
-              <li v-if="user.membership_type === 'vendor'" class="mt-2">
+              <li v-if="user.membership_type === 'vendor'" class="">
                 <router-link class="mt-0" :to="{ name : 'ShowAllOrders' }" style="color:#fff; cursor: pointer; margin-top: 20px;">
                   <img
                     :src="base_url+'/assets/images/dash-remem.svg'"
@@ -177,11 +165,41 @@
               </li>
              
             </ul>
-          </div>
-        </div>
-      </div>
-    </section>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-xl-12 mb-5">
+                                <div class="box box-package">
+                                    <i class="fas fa-ribbon"></i>
+                                    <h6>الباقة الفضية</h6>
+                                    <p>
+                                        ينتهي اشتراكك في
+                                        <span class="deta">4/15/2022</span>
+                                    </p>
+                                    <p>متبقي علي انتهاء اشتراكك</p>
+                                    <p>10 أيام</p>
+                                    <div class="progress prog">
+                                        <div
+                                            class="progress-bar prog-bar"
+                                            role="progressbar"
+                                            style="width: 80%"
+                                            aria-valuenow="80"
+                                            aria-valuemin="0"
+                                            aria-valuemax="100"
+                                        ></div>
+                                    </div>
+                                    <a href="" class="btn">أكمل بيانات حسابك</a>
+                                </div>
+                            </div>
+                            <div class="col-12 col-xl-12 mb-5">
+                                <a href="" class="support">
+                                    الدعم
+                                    <i class="fas fa-comments"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
 </template>
+
 <script>
 import api from "../../utils/api";
 
@@ -218,3 +236,284 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+/* Start Section */
+:root {
+    --green-color: #028e80;
+    --green-color-two: #048e81;
+    --dark-green-color: #2b7b74;
+    --light-green-color: #ecf8ff;
+    --grey-color: #808285;
+    --grey-color-srction: #f6f6f6;
+    --light-blue-color: #0491e8;
+    --h-color: #314450;
+    --red-color: #ff584d;
+    --dark-red-color: #e53535;
+    --prog-color: #c5c5c5;
+}
+@media (min-width: 1200px) {
+    .r-bar {
+        margin-top: -3.7rem;
+    }
+}
+ul li{
+  background: #048e81;
+    padding: 5px 0 5px 0;
+    border-radius: 2px;
+
+}
+.parent-boxes .box-package i[class="fas fa-ribbon"] {
+    position: absolute;
+    right: 15px;
+    width: 23px;
+    color: #0491e8;
+    height: 32px;
+    top: -15px;
+    font-size: 25px;
+}
+.parent-boxes .box {
+    background-color: #ecf8ff;
+    text-align: center;
+    padding: 20px 15px;
+    border-radius: 8px;
+    
+}
+.box-info .photo {
+    overflow: hidden;
+    width: 102px;
+    height: 102px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+
+    background-color: white;
+    justify-content: center;
+}
+.box-info .photo img {
+    width: 100%;
+}
+.box-info h4 {
+    font-size: 22px;
+    color: #0491e8;
+    font-weight: normal;
+    margin: 15px auto;
+}
+.box-info p {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 25px auto 19px;
+}
+.box-info > img {
+    color: var(--green-color);
+    width: 28.2px;
+}
+.parent-boxes .box-welcome h6 {
+    color: #0491e8;
+    font-size: 14px;
+    font-weight: bolder;
+    margin-bottom: 15px;
+}
+.parent-boxes .box-welcome p {
+    font-size: 14px;
+    font-weight: bold;
+}
+.parent-boxes .box-welcome p span {
+    margin-right: 5px;
+}
+.parent-boxes .box-welcome .prog {
+    border-radius: 4px !important;
+    height: 8px;
+    background-color: #c5c5c5 !important;
+}
+.parent-boxes .box-welcome .prog-bar {
+    background-color: #048e81 !important;
+}
+.parent-boxes .box-welcome .btn {
+    color: white !important;
+    background-color: #0491e8 !important;
+    display: block !important;
+    max-width: 142px !important;
+    text-align: center !important;
+    border-radius: 18px !important;
+    padding: 7.5px 5px;
+    font-size: 12px !important;
+    margin: 25px auto 0;
+}
+.parent-boxes .box-welcome .btn:hover {
+    color: white !important;
+}
+.parent-boxes .box-package {
+    position: relative;
+}
+.parent-boxes .box-package svg {
+    position: absolute;
+    right: 15px;
+    width: 23px;
+    color: var(--light-blue-color);
+    height: 32px;
+    top: -15px;
+}
+
+.parent-boxes .box-package h6 {
+    color: #0491e8;
+    font-size: 14px;
+    font-weight: bolder;
+    margin-bottom: 15px;
+}
+.parent-boxes .box-package p {
+    font-size: 14px;
+}
+.parent-boxes .box-package p:first-of-type {
+    font-size: 14px;
+    margin-bottom: 50px;
+
+    font-weight: bold;
+}
+.parent-boxes .box-package p:nth-of-type(2) {
+    font-size: 14px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+.parent-boxes .box-package p:nth-of-type(3) {
+    font-size: 14px;
+    color: #e53535;
+    text-align: right;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+.parent-boxes .box-package .prog {
+    border-radius: 4px !important;
+    height: 8px;
+    background-color: #c5c5c5 !important;
+    margin-bottom: 25px;
+}
+.parent-boxes .box-package .prog-bar {
+    background-color: #e53535 !important;
+}
+.parent-boxes .box-package .btn {
+    color: white !important;
+    background-color: #0491e8 !important;
+    display: block !important;
+    max-width: 142px !important;
+    text-align: center !important;
+    border-radius: 18px !important;
+    padding: 7.5px 5px;
+    font-size: 12px !important;
+    margin: 15px auto 0;
+}
+.parent-boxes .support {
+    box-shadow: 15px 15px 20px #0000001a;
+    max-width: 178px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 14.5px 5px;
+    align-items: center;
+    margin: auto;
+    font-size: 22px;
+    color: #048e81;
+    text-align: center;
+    border-radius: 25px;
+    text-decoration: none;
+}
+.parent-boxes .support i[class="fas fa-comments"] {
+    color: #0491e8;
+    font-size: 31px;
+}
+.back h4 {
+    font-weight: 600;
+    color: var(--h-color);
+}
+.back .icon-back {
+    background-color: #b8b8b8;
+    width: 57px;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+}
+.back .icon-back {
+    color: black;
+    font-size: 15px;
+}
+.packages-available h6 {
+    font-size: 18px;
+    color: var(--h-color);
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+.packages-available .box {
+    background-color: var(--light-green-color);
+    text-align: center;
+    padding: 25px 20px;
+    border-radius: 8px;
+}
+.packages-available .box h4 {
+    color: var(--h-color);
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+.packages-available .box .price {
+    color: var(--green-color-two);
+    font-size: 26px;
+    margin-bottom: 50px;
+    font-weight: 600;
+}
+.packages-available .btn {
+    max-width: 168px;
+    width: 100%;
+    color: white;
+    outline: none;
+    font-size: 20px;
+    padding: 10.9px 5px;
+
+    box-shadow: none;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--light-blue-color);
+}
+.packages-available .icon {
+    width: 49.5px;
+    height: 85px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    margin-right: 5px;
+    justify-content: center;
+    background-color: var(--light-green-color);
+}
+.packages-available .icon img {
+    width: 100%;
+}
+.subscriptions .table-resp {
+    padding: 25px;
+    background-color: var(--light-green-color);
+
+    overflow: auto;
+}
+.subscriptions table {
+    overflow: hidden;
+    text-align: center;
+    width: 100%;
+    border-radius: 8px;
+}
+.subscriptions table th {
+    color: var(--light-blue-color);
+}
+.subscriptions table th,
+.subscriptions table td {
+    font-weight: 600;
+    font-size: 18px;
+    padding: 15px;
+}
+.subscriptions h6 {
+    font-size: 18px;
+    color: var(--h-color);
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+/* End Section */
+
+</style>
