@@ -141,6 +141,7 @@ Route::group(
 
 			Route::as('admin.')->group(function () {
 				Route::resource('our-services', 'Admin\OurServiceController');
+                Route::resource('contract-templates','Admin\ContractTemplateController');
 			});
 			Route::resource('mail-templates', 'Admin\MailTemplatesController');
 			Route::resource('partners', 'Admin\PartnerController');
@@ -150,6 +151,7 @@ Route::group(
 			Route::get('careerrequests/{id}', 'Admin\CareerRequestController@show');
 			Route::post('careerrequests/multi_delete', 'Admin\CareerRequestController@multi_delete');
 			Route::get('update-document-status/{table}','Admin\UserDocumentController@changeDocumentStatus');
+
 		});
 	}
 );

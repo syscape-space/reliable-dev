@@ -32,7 +32,6 @@ class UserExperiencesRequest extends FormRequest
             'experience_name' => 'required|string',
             'experience_file' => 'required|file|pdf',
             'user_id' => 'required|integer|exists:users,id',
-            'specialtie_id' => 'required',
             'comment' => 'sometimes|nullable|string',
         ];
     }
@@ -43,7 +42,6 @@ class UserExperiencesRequest extends FormRequest
         return [
             'experience_name' => 'required|string',
             'experience_file' => 'required|file|pdf',
-            'specialtie_id' => 'sometimes',
             'user_id' => 'required|integer|exists:users,id',
             'comment' => 'sometimes|nullable|string',
         ];

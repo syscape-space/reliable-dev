@@ -22,20 +22,6 @@
 
         <div class="card-body">
           <div class="row w-100 mx-0 px-0">
-            <div class="col-sm-12  col-lg-6 col-xl-6">
-              <div class="form-group">
-                <label class="mt-3 mb-1" for="specialtie_id">التخصص<span class="text-danger">*</span>
-                </label>
-                <select class="form-control" v-model="specialtie_id" name="specialtie_id"
-                        id="specialtie_id" :disabled="editable == false">
-                  <option value="0">{{ $root._t('admin.choose') }}</option>
-                  <option v-for="sp in specialties" :key="sp.id" :value="sp.id">
-                    {{ sp.specialty_name_ar }}
-                  </option>
-                </select>
-              </div>
-            </div>
-
             <!-- ddd -->
             <div class="col-sm-12  col-lg-6 col-xl-6">
               <div class="form-group">
@@ -82,13 +68,11 @@
           <tr>
             <td>المسمي</td>
             <td>الملف</td>
-            <td>التخصص</td>
             <td>الحالة</td>
           </tr>
           <tr v-for="qualification in qualifications" :key="'qualification-'+qualification.id">
             <td>{{qualification.qualification_name}}</td>
             <td><a :href="cloud_url + qualification.qualification_file">عرض</a></td>
-            <td>{{ qualification.specialtie.specialty_name_ar }}</td>
             <td>{{ $root._t( 'admin.' + qualification.status ) }}</td>
           </tr>
         </table>
@@ -101,7 +85,10 @@
 import api from '../../utils/api';
 
 export default {
-  props: ['user_id', 'specialties'],
+  props: [
+      'user_id',
+    'specialties'
+  ],
   emits: ['refersh'],
   data() {
     return {
@@ -129,7 +116,7 @@ export default {
     },
     submitForm() {
       this.loading = true;
-      if (this.specialtie_id != "0" && this.user_id && this.qualification_name) {
+      if (this.user_id && this.qualification_name) {
         const qualificationData = new FormData(this.$refs.qualificationForm);
         api.post("/v1/userqualifications", qualificationData)
             .then((response) => {

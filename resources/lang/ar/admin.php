@@ -1,5 +1,7 @@
 <?php
 return [
+	"title"                                    => "العنوان",
+	"contract-templates"                       => "نماذج العقود",
 	"systemmessages"                           => "رسائل النظام",
 	"special_for"                              => "الرسالة خاصة بــ",
 	"orders"                                   => "الطلبات",
