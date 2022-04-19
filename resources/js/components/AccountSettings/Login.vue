@@ -5,7 +5,7 @@
     <div class="row w-100 mx-0 px-0 mt-5" >
         <div class="col-md-6 login-page" id="pageLoginImage">
           <div class="text-center mt-5">
-            <!--<img style="width: 150px;" :src="base_url+'/assets/images/login-1-logo.svg'" alt="">-->
+            <img style="width: 150px;" :src="base_url+'/assets/images/login-1-logo.svg'" alt="">
           </div>
         </div>
         <div class="col-md-6 px-0 ">
