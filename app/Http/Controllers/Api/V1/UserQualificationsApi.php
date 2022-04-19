@@ -17,7 +17,7 @@ class UserQualificationsApi extends Controller{
 		"qualification_file",
 		"user_id",
 		"comment",
-        "status",'specialtie_id'
+        "status",
 	];
 
             /**
@@ -26,7 +26,7 @@ class UserQualificationsApi extends Controller{
              * @return array to assign with index & show methods
              */
             public function arrWith(){
-               return ['user_id','specialtie'];
+               return ['user_id'];
             }
 
 

@@ -31,7 +31,6 @@ class UserQualificationsRequest extends FormRequest
         return [
             'qualification_name' => 'required|string',
             'qualification_file' => 'required|file|pdf',
-            'specialtie_id' =>  'required',
             'user_id' => 'required|integer|exists:users,id',
             'comment' => 'sometimes|nullable|string',
         ];
@@ -43,7 +42,6 @@ class UserQualificationsRequest extends FormRequest
         return [
             'qualification_name' => 'required|string',
             'qualification_file' => 'required|file|pdf',
-            'specialtie_id' =>  'sometimes',
             'user_id'   => 'required|integer|exists:users,id',
             'comment'   => 'sometimes|nullable|string',
         ];

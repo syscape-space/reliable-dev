@@ -13,6 +13,7 @@
                                 <h6>موثوق Reliable</h6>
                                 <p>صنتاع الثقة Trust Makers</p>
   
+
                             </div>
                         </div>
                         <a href="" class="icon-notice me-5 position-relative">
@@ -67,6 +68,7 @@
             >
                طلب
             </router-link>
+
                                     </div>
                                 </form>
                             </div>
@@ -88,6 +90,7 @@
                                                 <img
                                                     class="img-fluid"
                                                     :src="`${base_url}/assets/images/person.jpg`"
+
                                                     alt=""
                                                 />
                                             </span>
@@ -149,6 +152,7 @@ toggSearch.forEach(function (e) {
         }
     });
 });
+
     // document.getElementById("addOrderBasedOnUserMembership").style.display = 'none';
   },
   methods: {

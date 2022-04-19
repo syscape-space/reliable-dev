@@ -17,21 +17,6 @@
 
         <div class="card-body">
           <div class="row w-100 mx-0 px-0">
-            <div class="col-sm-12  col-lg-6 col-xl-6">
-              <div class="form-group">
-                <label class="mt-3 mb-1" for="specialtie_id">التخصص<span class="text-danger">*</span>
-                </label>
-                <select class="form-control" v-model="specialtie_id" name="specialtie_id"
-                        id="specialtie_id" :disabled="editable == false">
-                  <option value="0">{{ $root._t('admin.choose') }}</option>
-                  <option v-for="sp in specialties" :key="sp.id" :value="sp.id"
-                          :selected="sp.id == (experience?.specialtie_id ?? '')">
-                    {{ sp.specialty_name_ar }}
-                  </option>
-                </select>
-              </div>
-            </div>
-
             <!-- ddd -->
             <div class="col-sm-12  col-lg-6 col-xl-6">
               <div class="form-group">
@@ -79,13 +64,11 @@
           <tr>
             <td>المسمي</td>
             <td>الملف</td>
-            <td>التخصص</td>
             <td>الحالة</td>
           </tr>
-          <tr v-for="experience in experiences" :key="'qualification-'+experience.id">
+          <tr v-for="experience in experiences" :key="'experiences-'+experience.id">
             <td>{{experience.experience_name}}</td>
             <td><a :href="cloud_url + experience.experience_file">عرض</a></td>
-            <td>{{ experience.specialtie.specialty_name_ar }}</td>
             <td>{{ $root._t('admin.'+experience.status) }}</td>
           </tr>
         </table>
@@ -108,7 +91,6 @@ export default {
       base_url: base_url,
       cloud_url: cloud_url,
       editable: true,
-      specialtie_id: this.experience?.specialtie_id ?? "0",
       experience_name: this.experience?.experience_name,
       experience_file: this.experience?.experience_file,
       comment: this.experience?.comment,
@@ -126,7 +108,7 @@ export default {
     },
     submitForm() {
       this.loading = true;
-      if (this.specialtie_id != "0" && this.user_id && this.experience_name) {
+      if (this.user_id && this.experience_name) {
         const experienceData = new FormData(this.$refs.experienceForm);
         api.post("/v1/userexperiences", experienceData)
             .then((response) => {

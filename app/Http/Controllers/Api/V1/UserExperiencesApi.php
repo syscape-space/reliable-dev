@@ -18,7 +18,6 @@ class UserExperiencesApi extends Controller{
 		"user_id",
 		"comment",
         "status",
-        "specialtie_id"
 	];
 
             /**
@@ -27,7 +26,7 @@ class UserExperiencesApi extends Controller{
              * @return array to assign with index & show methods
              */
             public function arrWith(){
-               return ['user_id',"specialtie"];
+               return ['user_id'];
             }
 
 

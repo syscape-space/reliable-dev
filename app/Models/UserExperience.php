@@ -17,7 +17,6 @@ class UserExperience extends Model {
 		'user_id',
 
 		'comment',
-		'specialtie_id',
 		'created_at',
 		'updated_at',
 
@@ -25,15 +24,6 @@ class UserExperience extends Model {
         'refuse_message',
 	];
 
-	/**
-	 *
-	 * user_job_id relation method
-	 * @param void
-	 * @return object data
-	 */
-    public function specialtie() {
-        return $this->belongsTo(\App\Models\Specialtie::class , 'specialtie_id','id');
-    }
 
 	/**
 	 * user_id relation method

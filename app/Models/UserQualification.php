@@ -17,16 +17,13 @@ class UserQualification extends Model {
 		'user_id',
 
 		'comment',
-		'specialtie_id',
 		'created_at',
 		'updated_at',
 
         'status',
         'refuse_message',
 	];
-	public function specialtie() {
-		return $this->belongsTo(\App\Models\Specialtie::class , 'specialtie_id','id');
-	}
+
 
 	/**
 	 * user_id relation method
