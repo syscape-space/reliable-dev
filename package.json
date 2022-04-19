@@ -21,6 +21,7 @@
         "@alfsnd/vue-bootstrap-select": "^0.4.4",
         "bootstrap-select": "^1.13.18",
         "jquery": "^3.6.0",
+        "popper.js": "^1.16.1",
         "vue": "^3.2.31",
         "vue-router": "^4.0.13",
         "vue-select-3": "^1.0.1",

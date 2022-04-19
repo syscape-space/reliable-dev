@@ -2,11 +2,11 @@
   
                 <div class="boxes d-flex flex-column gap-5">
                     <div class="box-order">
-                        <div class="info">
+                        <div class="info" v-if="order.user_id">
                             <div class="photo">
                                 <img
                                     class="img-fluid"
-                                    src="../../assets/images/person.jpg"
+                                   :src="cloud_url+ order.user_id.photo_profile"
                                     alt=""
                                 />
                             </div>
@@ -17,43 +17,47 @@
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                             </div>
-                            <p class="name">محمد مصطفي</p>
-                            <p class="job">محامي حر</p>
+                            <p class="name" style="cursor:pointer;" @click="goToThisUserProfile(order.user_id['id'])">{{ order.user_id.name }}</p>
+                            <p class="job">{{ order.department_id.department_name_ar }}</p>
                         </div>
                         <div class="text">
                             <div
                                 class="data flex-wrap d-flex justify-content-between align-items-center"
                             >
                                 <div class="order-num mb-3 mb-lg-0">
-                                    طلب رقم: <span class="count">545121</span>
+                                    <!-- طلب رقم: <span class="count">545121</span> -->
                                 </div>
                                 <div
                                     class="d-flex flex-wrap align-items-center gap-3 gap-md-4"
                                 >
                                     <div class="deta">
                                         <i class="fas fa-calendar-day"></i>
-                                        4/16/2022
+                                        {{ order.execution_time }} {{ $root._t("app.day") }}
                                     </div>
                                     <div class="view">
-                                        <i class="fas fa-eye"></i> 5465
+                                        <i class="fas fa-eye"></i> {{ order.views }}
                                         مشاهده
                                     </div>
                                     <div class="deta">
                                         <i class="fas fa-clock"></i>
-                                        منذ 4 ساعات
+                                        {{ $root._t("app.deliveryTime") }}
                                     </div>
                                     <div class="deta">
                                         <i class="fa fa-money-bill"></i>
-                                        عدد 5 عروض
+                                        عدد {{ order.offers.length }} عروض
                                     </div>
-                                    <div class="deta">
+                                    <div class="deta" v-if="order.city_id === null">
                                         <i class="fa fa-map-marker"></i>
-                                        المكان
+                                        كل المدن
+                                    </div>
+                                    <div class="deta" v-else>
+                                        <i class="fa fa-map-marker"></i>
+                                         {{ order.city_id.city_name_ar }}
                                     </div>
                                     <div class="duration">
                                         <i class="fas fa-clock"></i>
 
-                                        مده التسليم 44 يوم
+                                        {{ order.execution_time }} {{ $root._t("app.day") }}
                                     </div>
                                     <a href="" class="setting">
                                         <i
@@ -62,37 +66,38 @@
                                     </a>
                                 </div>
                             </div>
-                            <h5 class="title">
-                                هذا النص هو مثال لنص يمكن أن يستبدل في نفس
-                                المساحة
+                            <h5 class="title" @click.prevent="showThisOrderDetails(order.hash_code)" style="cursor: pointer;">
+                                {{ order.order_title }}
                             </h5>
                             <div
                                 class="d-flex align-items-center justify-content-between flex-wrap"
                             >
-                                <p class="content">
-                                    هذا النص هو مثال لنص يمكن أن يستبدل في نفس
-                                    المساحة، لقد تم توليد هذا النص من مولد النص
-                                    العربى، حيث يمكنك أن تولد مثل هذا النص أو
-                                    العديد من النصوص الأخرى إضافة إلى زيادة عدد
-                                    الحروف التى يولدها التطبيق. إذا كنت تحتاج
-                                    إلى عدد أكبر من الفقرات يتيح لك مولد النص
-                                    العربى زيادة عدد الفقرات كما تريد
+                                <p class="content" v-html="order.order_content.substring(0,40)+'..'">
+                                    
                                 </p>
 
                                 <div
                                     class="group-btn m-auto m-lg-0 d-flex flex-column gap-3"
                                 >
-                                    <a href="" class="btn new">طلبات جديدة</a>
+                                    <a href="" class="btn new"> {{ $root._t("app." + order.order_status) }}</a>
 
-                                    <a href="" class="btn negotiate">
-                                        التفاوض: 2510</a
-                                    >
+                                    
+                                    <router-link v-if="order && order.negotiable === 'yes' && $root.auth_user.membership_type === 'user'"
+                       :to="{name:'order_negotiations',params:{id:order.id}}"
+                       class="btn negotiate">
+            التفاوض
+            <span v-html="order.negotiations.length">
+
+                    </span>
+          </router-link>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 </template>
+
+
 <script>
 import api from "../../utils/api";
 
@@ -114,7 +119,7 @@ export default {
     }
   },
   created(){
-    console.log(this.order)
+    console.log(20,this.order)
   }
 }
 </script>

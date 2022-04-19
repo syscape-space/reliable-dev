@@ -7,15 +7,88 @@
                     <div
                         class="group-filtar flex-wrap d-flex align-items-center gap-4"
                     >
-                        <div class="box check">
+                        <!-- <div class="box check">
                             المحاماة <i class="fas fa-filter"></i>
-                        </div>
-                        <div class="box">
+                        </div> -->
+                                    <div class="btn-group one_drop">
+              <button
+                
+                type="button"
+                class="f-14 collapsed btn dropdown-toggle "
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i style="color:#0995eb" class="fas fa-filter"></i>
+                <span>فلتر</span>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a style="   text-align: right;font-size: 14px;" class="dropdown-item" @click="filter.sort_by = 'desc'" href="#">الاحدث</a></li>
+                <li><a style="   text-align: right;font-size: 14px;" class="dropdown-item" @click="filter.sort_by = 'asc'" href="#">الاقدم</a></li>
+              </ul>
+              </div>
+              
+        <div class="d-flex align-items-center one_drop">
+          <div class="dropdown mx-1">
+            <button
+              class="btn  dropdown-toggle"
+              type="button"
+              id="dropdownMenuButton1"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              اختيار القسم
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li v-for="category in categories.filter(item=>item.parent == null)"><a class="dropdown-item"  @click="filter.main_category_id = category.id" href="#">{{category.department_name_ar}}</a></li>
+            </ul>
+          </div>
+          </div>
+                    <div class="dropdown mx-1" v-if="filter.main_category_id">
+            <button
+              class="btn dropdown-toggle"
+              type="button"
+              id="dropdownMenuButton1"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              الفرعى
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li v-for="category in categories.filter(item=>item.parent !== null && filter.main_category_id === item.parent)"><a class="dropdown-item" @click="filter.sub_category_id = category.id"  href="#">{{category.department_name_ar}}</a></li>
+            </ul>
+          </div>
+
+                    <div class="dropdown mx-1 one_drop">
+            <button
+              class="btn dropdown-toggle"
+              type="button"
+              id="dropdownMenuButton1"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              اختيار المدينة
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li v-for="city in cities.data"><a class="dropdown-item" @click="filter.city_id = city.id"  href="#">{{city.city_name_ar}}</a></li>
+            </ul>
+          </div>
+                    <button
+              @click="filter = {
+        main_category_id:null,
+        sub_category_id:null,
+        city_id:null,
+      }"
+              class="btn border "
+              type="button"
+          >
+            الكل
+          </button>
+                        <!-- <div class="box">
                             القسم الفرعي <i class="fas fa-filter"></i>
                         </div>
                         <div class="box">
                             حالة الطلب <i class="fas fa-filter"></i>
-                        </div>
+                        </div> -->
                     </div>
                     <!-- <a href="" style="text-decoration:none;" class="icon-back"> -->
                         <router-link style="text-decoration:none;" class="icon-back" :to="{name:'profilePage'}">
@@ -24,7 +97,14 @@
                         </router-link>
                     <!-- </a> -->
                 </div>
-                          <order-card :order="item" />
+                         <div
+          class="p-3 mt-3"
+          style="background-color: #f9f9f9"
+          v-for="item in filtered_orders"
+          :key="item.id"
+        >
+          <order-card :order="item" />
+        </div>
 
             </div>
         </section>
@@ -100,6 +180,17 @@ export default {
 button:not(.collapsed)::after {
     background-image: url(/images/down-aa.svg?18e7856…);
     transform: rotate(0deg) !important;
+}
+.one_drop{
+  background-color: #ecf8ff;
+    border: 0.5px solid #0491e8;
+    display: flex;
+    border-radius: 7px;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 17px;
+    cursor: pointer;
+    min-width: 200px;
 }
 /* Satrt Section Order */
 section.orders .back .box {

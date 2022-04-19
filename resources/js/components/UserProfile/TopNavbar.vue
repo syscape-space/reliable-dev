@@ -12,6 +12,7 @@
                             <div class="text">
                                 <h6>موثوق Reliable</h6>
                                 <p>صنتاع الثقة Trust Makers</p>
+  
                             </div>
                         </div>
                         <a href="" class="icon-notice me-5 position-relative">
