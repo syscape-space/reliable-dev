@@ -83,11 +83,11 @@ select:hover {
     font-size: 14px;
 }
 
-header {
+/* header {
     background-image: url("../images/header.png") !important;
     min-height: 450px;
     background-size: cover;
-}
+} */
 
 .title {
     font-size: 40px;
@@ -1164,3 +1164,4 @@ select {
 .page-link {
     color: #048e81;
 }
+
