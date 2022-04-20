@@ -1,7 +1,7 @@
 
 <template>
   <div class="col-xl-3 r-bar text-center text-xl-end ps-xl-5">
-                        <div class="row parent-boxes">
+                        <div class="row parent-boxes" :style="($route.name == 'MyOrder') ?'margin-top:75px;':''">
                             <div class="col-md-6 col-xl-12 mb-5">
                                 <div class="box box-info">
                                     <div class="photo">

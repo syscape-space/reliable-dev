@@ -82,14 +82,14 @@
                                     <a href="" class="btn new"> {{ $root._t("app." + order.order_status) }}</a>
 
                                     
-                                    <router-link v-if="order && order.negotiable === 'yes' && $root.auth_user.membership_type === 'user'"
+                                    <!-- <router-link v-if="order && order.negotiable === 'yes' && $root.auth_user.membership_type === 'user'"
                        :to="{name:'order_negotiations',params:{id:order.id}}"
                        class="btn negotiate">
             التفاوض
             <span v-html="order.negotiations.length">
 
                     </span>
-          </router-link>
+          </router-link> -->
                                 </div>
                             </div>
                         </div>
@@ -124,6 +124,3 @@ export default {
 }
 </script>
 
-<style scoped>
-
-</style>

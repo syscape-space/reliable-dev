@@ -99,7 +99,6 @@
                 </div>
                          <div
           class="p-3 mt-3"
-          style="background-color: #f9f9f9"
           v-for="item in filtered_orders"
           :key="item.id"
         >
@@ -241,7 +240,7 @@ section.orders .box-order .info::before {
     width: 2px;
     background-color: #0491e8;
     height: 75%;
-    left: 0;
+    left: -15px;
     top: 50%;
     transform: translateY(-50%);
 }
@@ -320,6 +319,11 @@ section.orders .box-order .duration {
     align-items: center;
     gap: 2px;
 }
+@media (min-width: 1200px){
+.info {
+    margin-top: 0;
+}
+}
 @media (min-width: 1400px) {
     section.orders .box-order .duration {
         margin-right: 25px;
@@ -375,7 +379,7 @@ section.orders .box-order .group-btn .btn {
     padding: 11px;
 }
 section.orders .box-order .group-btn .btn.new {
-    background-color: #4ac272;
+    background-color: #ffc107;
 }
 section.orders .box-order .group-btn .btn.negotiate {
     background-color: #0491e8;
