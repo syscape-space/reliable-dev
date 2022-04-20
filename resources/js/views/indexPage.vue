@@ -6,7 +6,7 @@
         <div class="main-lan pt-2 text-start">
           <button class="px-2 py-1">ع/E</button>
         </div>
-        <div class="logo mt-4 d-flex align-items-center ">
+        <div class="logo mt-4 d-md-flex align-items-center ">
           <div class="mt-3 pt-5">
             <a href="#">
               <img :src="base_url+'assets/images/images/logo.svg'" alt="" srcset="" />
@@ -29,7 +29,7 @@
             </div>
           </div>
 
-          <div id="carouselExampleIndicators" class="mx-auto carousel slide" data-bs-ride="carousel" style="max-width: 400px;">
+          <div id="carouselExampleIndicators" class="mx-auto carousel mt-4 mt-md-0 slide" data-bs-ride="carousel" style="max-width: 400px;">
             <div class="carousel-indicators">
               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="bg-white active" aria-current="true" aria-label="Slide 1">
                 <img :src="base_url+'assets/images/images/a-1.svg'" alt="">
@@ -1027,6 +1027,12 @@ header > .container {
   .last-footer div {
     margin-bottom: 10px;
   }
+  .carousel-control-prev {
+    left: -0 !important;
+}
+.carousel-control-next {
+    right: -0 !important;
+
 }
 
 /* ------------------------------------------------------------------------------------------------
