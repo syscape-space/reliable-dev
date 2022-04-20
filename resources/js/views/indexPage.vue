@@ -799,7 +799,7 @@ export default {
 }
 </script>
 
-<style >
+<style scoped>
 /*
 * Bootstrap v5.x
 */
@@ -876,15 +876,16 @@ body {
   position: relative;
 }
 .sum-btn button {
-  padding: 10px;
-  width: 100px;
-  border: 0;
-  height: 100px;
-  background-color: transparent;
-  border-radius: 50%;
-  color: #048e81;
-  font-size: 14px;
-  background-size: contain;
+padding: 10px;
+    width: 100px;
+    border: 0;
+    height: 100px;
+    background-color: transparent;
+    border-radius: 50%;
+    color: #048e81;
+    font-size: 14px;
+    background-size: contain;
+    text-align: center;
 }
 
 header > .container {
@@ -1224,7 +1225,7 @@ header > .container {
 }
 @media (min-width: 576px) {
   .modal-dialog {
-    max-width: 1148px;
+    max-width: 1148px !important;
     margin: 1.75rem auto;
   }
 }
