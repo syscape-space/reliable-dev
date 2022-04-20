@@ -101,6 +101,8 @@ class AdminAuthenticated extends Controller {
 	}
 
 	public function account() {
+		$version = phpversion();
+// dd($version);
 		return view('admin.account', ['title' => trans('admin.account')]);
 	}
 

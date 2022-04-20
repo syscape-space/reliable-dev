@@ -220,7 +220,7 @@
 			<div class="col-md-3 col-lg-3 col-sm-3 col-xs-12">
 				<div class="form-group">
 					{!! Form::label('order_status',trans('admin.order_status')) !!}
-					{!! Form::select('order_status',['under_review'=>trans('admin.under_review'),'open'=>trans('admin.open'),'closed'=>trans('admin.closed'),'close_and_refund'=>trans('admin.close_and_refund'),'refused'=>trans('admin.refused'),],$orders->order_status,['class'=>'form-control select2','placeholder'=>trans('admin.choose')]) !!}
+					{!! Form::select('order_status',['under_review'=>trans('admin.under_review'),'open'=>trans('admin.open'),'ongoing'=>'تحت التنفيذ','done'=>'مكتملة','closed'=>trans('admin.closed'),'close_and_refund'=>trans('admin.close_and_refund'),'refused'=>trans('admin.refused'),],$orders->order_status,['class'=>'form-control select2','placeholder'=>trans('admin.choose')]) !!}
 				</div>
 			</div>
 			<div class="col-md-9 col-lg-9 col-sm-9 col-xs-12 reason_box {{ !in_array($orders->order_status,['close_and_refund','refused'])?'hidden':'' }}">

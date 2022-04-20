@@ -22,6 +22,9 @@
       <div class="col-md-6">
         <input class="form-control" v-model="judger.city" placeholder="المدينة">
       </div>
+      <div class="col-md-6">
+        <input class="form-control" v-model="judger.amount_rate" placeholder="نسبة المحكم من العقد">
+      </div>
       <div class="col-md-12">
         <input class="form-control" v-model="judger.contact" placeholder="وسيلة اتصال">
       </div>
@@ -47,6 +50,7 @@ export default {
         name:'',
         city:'',
         contact:'',
+        amount_rate:0,
         order_id:this.$parent.$props.id,
       },
       form:{
@@ -69,7 +73,7 @@ export default {
     },
 
     sendRequest(){
-      api.post('/v1/orderarbitrators',{arbitrator_id:this.form.arbitrator_id,order_id:this.$parent.$props.id}).then(res=>{
+      api.post('/v1/orderarbitrators',{arbitrator_id:this.form.arbitrator_id,order_id:this.$parent.order.id}).then(res=>{
         this.$root.alertSuccess('تم ارسال الطلب بنجاح');
         this.$refs.modal.modal('hide');
         this.$parent.gettingOrderDetails();

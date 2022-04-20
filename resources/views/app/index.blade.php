@@ -14,11 +14,12 @@
     <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/droid-arabic-kufi" type="text/css"/>
     <link rel="stylesheet" href="{{cuteAsset('/assets')}}/css/style.css" />
     <link rel="stylesheet" href="{{cuteAsset('/assets')}}/css/layout.css" />
+    
     <title>موثوق</title>
     
 </head>
 
-<body>
+<body style="background-color:#fff !important;">
     <div id="app">
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 sm:items-center py-4 sm:pt-0">
             <app></app>

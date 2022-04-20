@@ -48,7 +48,23 @@
           <div class="row">
             <div class="col-lg-1"><br></div>
             <div class="col-lg-10">
-              <div class="d-flex jutify-content-end "><div class="dropdown border me-auto mt-2"><a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: rgb(255, 255, 255);"><img src="https://aa.law-mawthuq.com/public/cloud/users/1/uvdqzFsFBLz60Qxox8kBrca2C6cEpPjSYMGPB9b4.png" alt="" srcset="" style="width: 25px; margin-left: 5px;"><span class="ms-5" style="color: rgb(4, 142, 129); font-size: 13px;">مقدم فهد الخالدي</span></a><ul class="dropdown-menu profile" aria-labelledby="dropdownMenuLink" style=""><li><a class="dropdown-item" href="#"> تعديل الملف الشخصي </a></li><li><a class="dropdown-item" href="#"> الطلبات </a></li><li><a class="dropdown-item" href="#"> المحفظه </a></li><li><a class="dropdown-item" href="#"> الدعم الفنى </a></li><li><a class="dropdown-item" style="cursor: pointer;">خروج</a></li></ul></div></div>
+              <div class="d-flex jutify-content-end ">
+                <div class="dropdown border me-auto mt-2"><a class="btn dropdown-toggle" href="#" role="button"
+                                                             id="dropdownMenuLink" data-bs-toggle="dropdown"
+                                                             aria-expanded="false"
+                                                             style="background-color: rgb(255, 255, 255);"><img
+                    src="https://aa.law-mawthuq.com/public/cloud/users/1/uvdqzFsFBLz60Qxox8kBrca2C6cEpPjSYMGPB9b4.png"
+                    alt="" srcset="" style="width: 25px; margin-left: 5px;"><span class="ms-5"
+                                                                                  style="color: rgb(4, 142, 129); font-size: 13px;">مقدم فهد الخالدي</span></a>
+                  <ul class="dropdown-menu profile" aria-labelledby="dropdownMenuLink" style="">
+                    <li><a class="dropdown-item" href="#"> تعديل الملف الشخصي </a></li>
+                    <li><a class="dropdown-item" href="#"> الطلبات </a></li>
+                    <li><a class="dropdown-item" href="#"> المحفظه </a></li>
+                    <li><a class="dropdown-item" href="#"> الدعم الفنى </a></li>
+                    <li><a class="dropdown-item" style="cursor: pointer;">خروج</a></li>
+                  </ul>
+                </div>
+              </div>
               <div class="data  pt-2 text-right ">
                 <p class="st fw-normal">
                   {{ $root._t("app.steps") }} <span class="st-num">{{ step }}</span> <span
@@ -81,8 +97,8 @@
                                      :id="'type-input-'+type.id" name="type_id" :disabled="has_membership != true">
                               <label class="form-check-label name  pr-2"
                                      :for="'type-input-'+type.id">{{ type.type_name_ar }}</label>
-                                     <i class="fas fa-exclamation" data-v-2a94f58a="" 
-                                     style="font-size: 13px; float: left; vertical-align: unset; cursor: pointer; display: inline-block; width: 16px; background-color: rgb(255, 242, 165); border: 1px solid rgb(255, 208, 111); padding: 4px 0px; color: rgb(88, 88, 88); border-radius: 5px; margin-top: 0; margin-bottom: 0; text-align: center;    max-height: 25px;margin-right:5px"></i>
+                              <i class="fas fa-exclamation" data-v-2a94f58a=""
+                                 style="font-size: 13px; float: left; vertical-align: unset; cursor: pointer; display: inline-block; width: 16px; background-color: rgb(255, 242, 165); border: 1px solid rgb(255, 208, 111); padding: 4px 0px; color: rgb(88, 88, 88); border-radius: 5px; margin-top: 0; margin-bottom: 0; text-align: center;    max-height: 25px;margin-right:5px"></i>
                             </div>
                           </div>
                         </div>
@@ -160,7 +176,9 @@
                                  v-if=" form.choose_service_provider  === 'all'"></i>
                               {{ $root._t("app.all") }}
                               <span class="text-success" v-if=" form.choose_service_provider  === 'all'">سيتم اختيار مقدمي الخدمة من كل التخصصات و المدن</span>
-<i class="fas fa-exclamation" data-v-2a94f58a="" style="font-size: 13px; float: left; vertical-align: unset; cursor: pointer; display: inline-block; width: 16px; background-color: rgb(255, 242, 165); border: 1px solid rgb(255, 208, 111); padding: 4px 0px; color: rgb(88, 88, 88); border-radius: 5px; margin-top: 0; margin-bottom: 0; text-align: center;    max-height: 25px;margin-right:5px"></i>                            </p>
+                              <i class="fas fa-exclamation" data-v-2a94f58a=""
+                                 style="font-size: 13px; float: left; vertical-align: unset; cursor: pointer; display: inline-block; width: 16px; background-color: rgb(255, 242, 165); border: 1px solid rgb(255, 208, 111); padding: 4px 0px; color: rgb(88, 88, 88); border-radius: 5px; margin-top: 0; margin-bottom: 0; text-align: center;    max-height: 25px;margin-right:5px"></i>
+                            </p>
                             <p class="w-100 mt-0 pt-0"
                                style="position:relative;max-width:550px; cursor: pointer; background-color: #E2FFFC; padding: 13px !important; display: inline-block; border-radius: 8px;"
                                @click="form.choose_service_provider = 'by_city'">
@@ -172,7 +190,9 @@
                               <b class="text-danger"
                                  v-if=" form.choose_service_provider  === 'by_city' && form.city_id  === null">الرجاء
                                 اختيار مدينة</b>
-<i class="fas fa-exclamation" data-v-2a94f58a="" style="font-size: 13px; float: left; vertical-align: unset; cursor: pointer; display: inline-block; width: 16px; background-color: rgb(255, 242, 165); border: 1px solid rgb(255, 208, 111); padding: 4px 0px; color: rgb(88, 88, 88); border-radius: 5px; margin-top: 0; margin-bottom: 0; text-align: center;    max-height: 25px;margin-right:5px"></i>                            </p>
+                              <i class="fas fa-exclamation" data-v-2a94f58a=""
+                                 style="font-size: 13px; float: left; vertical-align: unset; cursor: pointer; display: inline-block; width: 16px; background-color: rgb(255, 242, 165); border: 1px solid rgb(255, 208, 111); padding: 4px 0px; color: rgb(88, 88, 88); border-radius: 5px; margin-top: 0; margin-bottom: 0; text-align: center;    max-height: 25px;margin-right:5px"></i>
+                            </p>
                             <div class="form-row" v-if="form.choose_service_provider === 'by_city'">
                               <div class="form-group col-md-6 mb-3">
                                 <select id="inputState" v-model="form.city_id" class="form-control "
@@ -202,16 +222,9 @@
                               <b class="text-danger"
                                  v-if=" form.choose_service_provider  === 'by_filter' && form.filter_id  === null">الرجاء
                                 اختيار مقدم الخدمة</b>
-<i class="fas fa-exclamation" data-v-2a94f58a="" style="font-size: 13px; float: left; vertical-align: unset; cursor: pointer; display: inline-block; width: 16px; background-color: rgb(255, 242, 165); border: 1px solid rgb(255, 208, 111); padding: 4px 0px; color: rgb(88, 88, 88); border-radius: 5px; margin-top: 0; margin-bottom: 0; text-align: center;    max-height: 25px;margin-right:5px"></i>                            </p>
-                            <p class="w-100 mt-0 pt-0"
-                               style="position:relative;max-width:550px; cursor: pointer; background-color: #E2FFFC; padding: 13px !important; display: inline-block; border-radius: 8px;"
-                               @click="form.choose_service_provider = 'by_occupation'">
-                              <i style="position: absolute; right: -21px; top: 50%; transform: translateY(-50%);"
-                                 class="fa fa-check-circle text-success"
-                                 v-if=" form.choose_service_provider  === 'by_occupation'"></i>
-                              بالتخصص
-                              <span class="text-success" v-if=" form.choose_service_provider  === 'by_occupation'">سيتم اختيار مقدمي الخدمة من نفس تخصص القسم المحدد</span>
-<i class="fas fa-exclamation" data-v-2a94f58a="" style="font-size: 13px; float: left; vertical-align: unset; cursor: pointer; display: inline-block; width: 16px; background-color: rgb(255, 242, 165); border: 1px solid rgb(255, 208, 111); padding: 4px 0px; color: rgb(88, 88, 88); border-radius: 5px; margin-top: 0; margin-bottom: 0; text-align: center;    max-height: 25px;margin-right:5px"></i>                            </p>
+                              <i class="fas fa-exclamation" data-v-2a94f58a=""
+                                 style="font-size: 13px; float: left; vertical-align: unset; cursor: pointer; display: inline-block; width: 16px; background-color: rgb(255, 242, 165); border: 1px solid rgb(255, 208, 111); padding: 4px 0px; color: rgb(88, 88, 88); border-radius: 5px; margin-top: 0; margin-bottom: 0; text-align: center;    max-height: 25px;margin-right:5px"></i>
+                            </p>
                             <div class="form-row" v-if="form.choose_service_provider === 'by_filter'">
                               <div class="form-group col-md-12">
                                 <select id="inputState" v-model="form.filter_id" class="form-control "
@@ -297,7 +310,9 @@
                                class="fa fa-check-circle text-success" v-else></i>
 
                             {{ $root._t("app.acceptDataAndMakeSure") }}
-<i class="fas fa-exclamation" data-v-2a94f58a="" style="font-size: 13px; float: left; vertical-align: unset; cursor: pointer; display: inline-block; width: 16px; background-color: rgb(255, 242, 165); border: 1px solid rgb(255, 208, 111); padding: 4px 0px; color: rgb(88, 88, 88); border-radius: 5px; margin-top: 0; margin-bottom: 0; text-align: center;    max-height: 25px;margin-right:5px"></i>                          </p>
+                            <i class="fas fa-exclamation" data-v-2a94f58a=""
+                               style="font-size: 13px; float: left; vertical-align: unset; cursor: pointer; display: inline-block; width: 16px; background-color: rgb(255, 242, 165); border: 1px solid rgb(255, 208, 111); padding: 4px 0px; color: rgb(88, 88, 88); border-radius: 5px; margin-top: 0; margin-bottom: 0; text-align: center;    max-height: 25px;margin-right:5px"></i>
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -310,17 +325,20 @@
               <div class="form-check">
                 <label class="form-check-label name red pr-2 mb-2" style="color: #FF584D; font-size:14px"
                        for="exampleCheckss81">
-                  {{ $root._t("app.suggestTimeForRequest") }} 
-                  <i class="fas fa-exclamation" data-v-2a94f58a="" style="font-size: 13px; float: left; vertical-align: unset; cursor: pointer; display: inline-block; width: 16px; background-color: rgb(255, 242, 165); border: 1px solid rgb(255, 208, 111); padding: 4px 0px; color: rgb(88, 88, 88); border-radius: 5px; margin-top: 0; margin-bottom: 0; text-align: center;    max-height: 25px;margin-right:5px"></i>
-                  </label>
+                  {{ $root._t("app.suggestTimeForRequest") }}
+                  <i class="fas fa-exclamation" data-v-2a94f58a=""
+                     style="font-size: 13px; float: left; vertical-align: unset; cursor: pointer; display: inline-block; width: 16px; background-color: rgb(255, 242, 165); border: 1px solid rgb(255, 208, 111); padding: 4px 0px; color: rgb(88, 88, 88); border-radius: 5px; margin-top: 0; margin-bottom: 0; text-align: center;    max-height: 25px;margin-right:5px"></i>
+                </label>
                 <input type="number" v-model="form.execution_time" class="form-control" id="exampleCheckss81"
                        placeholder="مدة الانجاز....">
               </div>
               <div class="form-check">
                 <label class="form-check-label name red pr-2 mb-2" style="color: #FF584D; font-size:14px"
                        for="order_title_input">
-                  عنوان الطلب 
-<i class="fas fa-exclamation" data-v-2a94f58a="" style="font-size: 13px; float: left; vertical-align: unset; cursor: pointer; display: inline-block; width: 16px; background-color: rgb(255, 242, 165); border: 1px solid rgb(255, 208, 111); padding: 4px 0px; color: rgb(88, 88, 88); border-radius: 5px; margin-top: 0; margin-bottom: 0; text-align: center;    max-height: 25px;margin-right:5px"></i>                  </label>
+                  عنوان الطلب
+                  <i class="fas fa-exclamation" data-v-2a94f58a=""
+                     style="font-size: 13px; float: left; vertical-align: unset; cursor: pointer; display: inline-block; width: 16px; background-color: rgb(255, 242, 165); border: 1px solid rgb(255, 208, 111); padding: 4px 0px; color: rgb(88, 88, 88); border-radius: 5px; margin-top: 0; margin-bottom: 0; text-align: center;    max-height: 25px;margin-right:5px"></i>
+                </label>
                 <input type="text" v-model="form.order_title" class="form-control" id="order_title_input"
                        placeholder="...">
               </div>
@@ -332,22 +350,28 @@
                        name="chos">
                 <label class="form-check-label name  pr-2" for="exampleCheck8000"> {{
                     $root._t("app.yes")
-                  }} 
-<i class="fas fa-exclamation" data-v-2a94f58a="" style="font-size: 13px; float: left; vertical-align: unset; cursor: pointer; display: inline-block; width: 16px; background-color: rgb(255, 242, 165); border: 1px solid rgb(255, 208, 111); padding: 4px 0px; color: rgb(88, 88, 88); border-radius: 5px; margin-top: 0; margin-bottom: 0; text-align: center;    max-height: 25px;margin-right:5px"></i>                  </label>
+                  }}
+                  <i class="fas fa-exclamation" data-v-2a94f58a=""
+                     style="font-size: 13px; float: left; vertical-align: unset; cursor: pointer; display: inline-block; width: 16px; background-color: rgb(255, 242, 165); border: 1px solid rgb(255, 208, 111); padding: 4px 0px; color: rgb(88, 88, 88); border-radius: 5px; margin-top: 0; margin-bottom: 0; text-align: center;    max-height: 25px;margin-right:5px"></i>
+                </label>
               </div>
               <div class="form-check form-check-inline mb-2">
                 <input type="radio" class="form-check-input" v-model="form.negotiable" value="no" id="exampleCheck800"
                        name="chos">
                 <label class="form-check-label name  pr-2" for="exampleCheck800"> {{
                     $root._t("app.no")
-                  }} 
-<i class="fas fa-exclamation" data-v-2a94f58a="" style="font-size: 13px; float: left; vertical-align: unset; cursor: pointer; display: inline-block; width: 16px; background-color: rgb(255, 242, 165); border: 1px solid rgb(255, 208, 111); padding: 4px 0px; color: rgb(88, 88, 88); border-radius: 5px; margin-top: 0; margin-bottom: 0; text-align: center;    max-height: 25px;margin-right:5px"></i>                </label>
+                  }}
+                  <i class="fas fa-exclamation" data-v-2a94f58a=""
+                     style="font-size: 13px; float: left; vertical-align: unset; cursor: pointer; display: inline-block; width: 16px; background-color: rgb(255, 242, 165); border: 1px solid rgb(255, 208, 111); padding: 4px 0px; color: rgb(88, 88, 88); border-radius: 5px; margin-top: 0; margin-bottom: 0; text-align: center;    max-height: 25px;margin-right:5px"></i>
+                </label>
               </div>
               <div class="form-check textare">
                 <label class="form-check-label name red pr-2 mb-2" for="exampleCheck81">
-                  {{ $root._t("app.details") }} 
-                  
-<i class="fas fa-exclamation" data-v-2a94f58a="" style="font-size: 13px; float: left; vertical-align: unset; cursor: pointer; display: inline-block; width: 16px; background-color: rgb(255, 242, 165); border: 1px solid rgb(255, 208, 111); padding: 4px 0px; color: rgb(88, 88, 88); border-radius: 5px; margin-top: 0; margin-bottom: 0; text-align: center;    max-height: 25px;margin-right:5px"></i>                  </label>
+                  {{ $root._t("app.details") }}
+
+                  <i class="fas fa-exclamation" data-v-2a94f58a=""
+                     style="font-size: 13px; float: left; vertical-align: unset; cursor: pointer; display: inline-block; width: 16px; background-color: rgb(255, 242, 165); border: 1px solid rgb(255, 208, 111); padding: 4px 0px; color: rgb(88, 88, 88); border-radius: 5px; margin-top: 0; margin-bottom: 0; text-align: center;    max-height: 25px;margin-right:5px"></i>
+                </label>
                 <textarea class="form-control textare-count" v-model="form.order_content" id="exampleCheck81"
                           maxlength="1000"
                           placeholder="اكتب التفاصيل هنا...." rows="4"></textarea>
@@ -397,10 +421,11 @@
               </div>
               <div class="btn btn-success page1 small cont ms-2"
                    style=" padding: 7px;border-color: #048E81 !important;background-color: #048E81 !important;min-width:120px;"
-                   @click="submitOrder(true)" >
+                   @click="submitOrder(true)">
                 <span>
                   حفظ طلبك كمسوده
-                  <img style="width: 12px; margin-right: 5px;" :src="base_url + '/assets/images/bookmark.svg'" alt="#" class="mr-2">
+                  <img style="width: 12px; margin-right: 5px;" :src="base_url + '/assets/images/bookmark.svg'" alt="#"
+                       class="mr-2">
                 </span>
               </div>
               <div class="btn btn-success page1 small cont "
@@ -543,7 +568,7 @@ export default {
     typeOf(id) {
       return this.types.data.find((t) => t.id == id);
     },
-    submitOrder(archived=false) {
+    submitOrder(archived = false) {
       var formData = new FormData();
       if (this.form.main_order_id)
         formData.append('main_order_id', this.form.main_order_id);
@@ -561,9 +586,10 @@ export default {
       formData.append('entities', JSON.stringify(this.form.entities));
       formData.append('entities_count', this.form.entities_count);
       formData.append('check_invalid_entities_data', this.form.check_invalid_entities_data);
-      for (var i = 0;i < this.form.attachments.length;i++){
-        formData.append('attachments['+i+']', this.form.attachments[i]);
-      };
+      for (var i = 0; i < this.form.attachments.length; i++) {
+        formData.append('attachments[' + i + ']', this.form.attachments[i]);
+      }
+      ;
       formData.append('filter_id', this.form.filter_id);
       formData.append('audio_file', this.form.audio_file);
       api.post('/v1/orders', formData).then(res => {

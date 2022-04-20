@@ -6,9 +6,9 @@
 				<span class="description">
 					<a href="{{ aurl('orderoffers/'.$offer->id) }}" target="_blank">{{ trans('admin.offer_id') }} : #{{ $offer->id }}</a>
 				</span>
-				@include('admin.show_image',['image'=>$offer->vendor_id()->first()->photo_profile])
+				@include('admin.show_image',['image'=>$offer->vendor->photo_profile])
 				<span class="username">
-					<a href="{{ aurl('users/'.$offer->vendor_id) }}" target="_blank">{{ $offer->vendor_id()->first()->name }}</a>
+					<a href="{{ aurl('users/'.$offer->vendor_id) }}" target="_blank">{{ $offer->vendor->name }}</a>
 				</span>
 				{{-- <span class="description timeago" datetime="{{ $offer->created_at }}"></span> --}}
 				<i class="fa fa-clock d-inline"></i> <time class="description timeago d-inline" datetime="{{ $offer->created_at }}" title="{{ $offer->created_at }}"></time>

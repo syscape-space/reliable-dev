@@ -1,5 +1,6 @@
 <?php
 namespace App\DataTables;
+use App\Models\Judger;
 use App\Models\User;
 use Yajra\DataTables\DataTables;
 use Yajra\DataTables\Services\DataTable;
@@ -10,13 +11,12 @@ use Yajra\DataTables\Services\DataTable;
 
 class UsersDataTable extends DataTable {
 
-	/**
-	 * dataTable to render Columns.
-	 * Auto Ajax Method By Baboon Script [it v 1.6.37]
-	 * @return \Illuminate\Http\JsonResponse
-	 */
+
 	public function dataTable(DataTables $dataTables, $query) {
 		return datatables($query)
+            ->addColumn('orders',function ($d){
+                return "<a href='".url('admin/orders?user_id='.$d->id)."'> ".$d->orders()->count()." طلب </a>";
+            })
 			->addColumn('actions', 'admin.users.buttons.actions')
 			->addColumn('email_verify', '{{ trans("admin.".$email_verify) }}')
 			->addColumn('mobile_verify', '{{ trans("admin.".$mobile_verify) }}')
@@ -33,7 +33,7 @@ class UsersDataTable extends DataTable {
                   <input type="checkbox" class="selected_data" name="selected_data[]" id="selectdata{{ $id }}" value="{{ $id }}" >
                   <label for="selectdata{{ $id }}"></label>
                 </div>')
-			->rawColumns(['checkbox', 'actions', "photo_profile"]);
+			->rawColumns(['checkbox', 'actions', "photo_profile",'orders']);
 	}
 
 	/**
@@ -42,6 +42,9 @@ class UsersDataTable extends DataTable {
 	 * @return \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Query\Builder|\Illuminate\Support\Collection
 	 */
 	public function query() {
+        if (request('membership_type') and request('membership_type') == 'judger') {
+            return Judger::query()->with(['orders']);
+        }
 		return User::query()->where(function ($q) {
 				if (request('membership_type')) {
 					$q->where('membership_type', request('membership_type'));
@@ -55,7 +58,7 @@ class UsersDataTable extends DataTable {
 				if (request('id_status')) {
 					$q->where('id_status', request('id_status'));
 				}
-			})->with(['company_id'])->select("users.*");
+			})->with(['company_id','orders'])->select("users.*");
 
 	}
 
@@ -131,7 +134,7 @@ class UsersDataTable extends DataTable {
 
 
 
-            ".filterElement('10', 'select', [
+            ".filterElement('11', 'select', [
 						'pending' => trans('admin.pending'),
 						'active'  => trans('admin.active'),
 						'refused' => trans('admin.refused'),
@@ -246,6 +249,11 @@ class UsersDataTable extends DataTable {
 				'name'  => 'users.id_status',
 				'data'  => 'id_status',
 				'title' => trans('admin.id_status'),
+			],
+			[
+				'name'  => 'orders',
+				'data'  => 'orders',
+				'title' => trans('admin.orders'),
 			],
 			[
 				'name'  => 'users.account_status',

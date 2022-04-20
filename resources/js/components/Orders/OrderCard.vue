@@ -1,134 +1,102 @@
 <template>
-  <div class="">
-    <div class="mb-2 text-start" style="font-size: 12px">
-      <!-- <span class="ms-3">
-        <img
-          style="width: 15px"
-          class="ms-1"
-          :src="base_url+'/assets/images/o_clock.svg'"
-          alt=""
-        />
-        <span>منذ 4 ساعات</span>
-      </span> -->
+  
+                <div class="boxes d-flex flex-column gap-5">
+                    <div class="box-order">
+                        <div class="info" v-if="order.user_id">
+                            <div class="photo">
+                                <img
+                                    class="img-fluid"
+                                   :src="cloud_url+ order.user_id.photo_profile"
+                                    alt=""
+                                />
+                            </div>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="name" style="cursor:pointer;" @click="goToThisUserProfile(order.user_id['id'])">{{ order.user_id.name }}</p>
+                            <p class="job">{{ order.department_id.department_name_ar }}</p>
+                        </div>
+                        <div class="text">
+                            <div
+                                class="data flex-wrap d-flex justify-content-between align-items-center"
+                            >
+                                <div class="order-num mb-3 mb-lg-0">
+                                    <!-- طلب رقم: <span class="count">545121</span> -->
+                                </div>
+                                <div
+                                    class="d-flex flex-wrap align-items-center gap-3 gap-md-4"
+                                >
+                                    <div class="deta">
+                                        <i class="fas fa-calendar-day"></i>
+                                        {{ order.execution_time }} {{ $root._t("app.day") }}
+                                    </div>
+                                    <div class="view">
+                                        <i class="fas fa-eye"></i> {{ order.views }}
+                                        مشاهده
+                                    </div>
+                                    <div class="deta">
+                                        <i class="fas fa-clock"></i>
+                                        {{ $root._t("app.deliveryTime") }}
+                                    </div>
+                                    <div class="deta">
+                                        <i class="fa fa-money-bill"></i>
+                                        عدد {{ order.offers.length }} عروض
+                                    </div>
+                                    <div class="deta" v-if="order.city_id === null">
+                                        <i class="fa fa-map-marker"></i>
+                                        كل المدن
+                                    </div>
+                                    <div class="deta" v-else>
+                                        <i class="fa fa-map-marker"></i>
+                                         {{ order.city_id.city_name_ar }}
+                                    </div>
+                                    <div class="duration">
+                                        <i class="fas fa-clock"></i>
 
-      <span class="ms-3">
-                <img
-                    style="width: 20px"
-                    class="ms-1"
-                    :src="base_url+'/assets/images/o_eye.svg'"
-                    alt=""
-                />
-                <span> المشاهدات {{ order.views }} </span>
-              </span>
-      <span class="ms-3">
-                <img
-                    style="width: 14px"
-                    class="ms-1"
-                    :src="base_url+'/assets/images/o_map.svg'"
-                    alt=""
-                />
-        <!--  -->
-                <span v-if="order.city_id === null">كل المدن</span>
-                <span v-else> {{ order.city_id.city_name_ar }}</span>
-              </span>
-      <span class="my-2" style="font-size: 12px">
-                <span class="o-box ms-2">
-                  <img
-                      style="width: 15px"
-                      class="ms-1"
-                      :src="base_url+'/assets/images/o_delever.svg'"
-                      alt=""
-                  />
-                  <span> {{ $root._t("app.deliveryTime") }} :</span>
-                  <span class="me-2"> {{ order.execution_time }} {{ $root._t("app.day") }}</span>
-                </span>
-                <span>
-                  <i class="fas fa-ellipsis-v"></i>
-                </span>
-              </span>
-    </div>
-  </div>
-  <div class="row w-100 mx-0 px-0">
-    <div
-        class="
-                col-md-3
-                text-center
-                d-flex
-                align-items-center
-                justify-content-center
-              "
-    >
-      <div style="border-left: 3px solid #ddd" class="px-3" v-if="order.user_id">
-        <img
-            style="width: 70px;height:70px;border-radius:50%"
-            :src="cloud_url+ order.user_id.photo_profile"
-            alt=""
-        />
-        <div>
-                  <span
-                      style="color: #2b7b74; text-decoration: underline; cursor:pointer;"
-                      class="mb-1 d-inline-block text-center"
-                      @click="goToThisUserProfile(order.user_id['id'])"
-                  >{{ order.user_id.name }}
-                  </span>
-        </div>
+                                        {{ order.execution_time }} {{ $root._t("app.day") }}
+                                    </div>
+                                    <a href="" class="setting">
+                                        <i
+                                            class="fas fa-ellipsis-vertical"
+                                        ></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <h5 class="title" @click.prevent="showThisOrderDetails(order.hash_code)" style="cursor: pointer;">
+                                {{ order.order_title }}
+                            </h5>
+                            <div
+                                class="d-flex align-items-center justify-content-between flex-wrap"
+                            >
+                                <p class="content" v-html="order.order_content.substring(0,40)+'..'">
+                                    
+                                </p>
 
-        <div>
-                  <span
-                      style="color: #2b7b74;font-size:14px"
-                      class="mb-2 d-inline-block text-center"
-                  >{{ order.department_id.department_name_ar }}
-                  </span>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-9">
-      <div class="clicker" @click.prevent="showThisOrderDetails(order.id)" style="cursor: pointer;">
-        <h6 style="color: #048e81;font-size:20px">{{ order.order_title }}</h6>
-        <!-- v-html=" order.order_content.split(' ')[0]" -->
-        <!-- <h6 style="color: #048e81">{{ $root._t("app.orderContent") }}</h6> -->
-        <p class="pb-3 f-12 mb-0" v-html="order.order_content.substring(0,40)+'..'">
-        </p>
-      </div>
-      <div class="mt-3 btw-flex">
-        <div></div>
-        <div class="text-center">
-          <router-link v-if="order && order.negotiable === 'yes' && $root.auth_user.membership_type === 'user'"
+                                <div
+                                    class="group-btn m-auto m-lg-0 d-flex flex-column gap-3"
+                                >
+                                    <a href="" class="btn new"> {{ $root._t("app." + order.order_status) }}</a>
+
+                                    
+                                    <router-link v-if="order && order.negotiable === 'yes' && $root.auth_user.membership_type === 'user'"
                        :to="{name:'order_negotiations',params:{id:order.id}}"
-                       class="btn  btn-offer" style="    border: 0px;
-                  background-color: rgb(10 149 235);
-                  color: rgb(255, 255, 255);
-                  font-size: 12px;
-                  padding: 9px 40px;
-                  height: 40px;
-                  white-space: nowrap;
-                  width: auto;
-                  margin-left: 5px;
-              ">
-            مفاوضات
+                       class="btn negotiate">
+            التفاوض
             <span v-html="order.negotiations.length">
 
                     </span>
           </router-link>
-          <button
-              style="
-                      border: 0;
-                      background-color: #4ac272;
-                      color: #fff;
-                      font-size: 12px;
-                      padding: 0 40px;
-                      height: 40px;
-                    "
-              class="rounded btn-sm"
-          >
-            {{ $root._t("app." + order.order_status) }}
-          </button>
-
-        </div>
-      </div>
-    </div>
-  </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 </template>
+
 
 <script>
 import api from "../../utils/api";
@@ -143,12 +111,15 @@ export default {
     };
   },
   methods: {
-    showThisOrderDetails(id) {
-      this.$router.push({name: "ShowSingleOrder", params: {id: id}});
+    showThisOrderDetails(code) {
+      this.$router.push({name: "ShowSingleOrder", params: {code: code}});
     },
     goToThisUserProfile(user_id) {
       this.$router.push({name: "UserProfile",params:{id:user_id}});
     }
+  },
+  created(){
+    console.log(20,this.order)
   }
 }
 </script>

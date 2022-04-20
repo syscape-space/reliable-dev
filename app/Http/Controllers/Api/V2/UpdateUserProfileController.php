@@ -326,7 +326,7 @@ class UpdateUserProfileController extends Controller
     public function getOccupations(Request $request , $user_id){
         return $user_id;
     }
-
+    # DEPRECATED ;
     public function storeExperience(Request $request)
     {
         $uncompletedInfo = "البيانات غير كاملة";
@@ -340,14 +340,8 @@ class UpdateUserProfileController extends Controller
         if ($validator->fails()) {
             return errorResponseJson(['message' => "البيانات غير كاملة"]);
         }
-        $job = UserJob::where('specialtie_id', $data['specialtie_id'])->where('user_id', $data['user_id'])->first();
-        if (is_null($job) || empty($job)) {
-            return errorResponseJson(['message' => 'برجاء اضافة وظيفة في هذا التخصص قبل اضافة شهادة الخبرة']);
-        }
         $experience  = UserExperience::where('user_id', $data['user_id'])->first();
         $data['experience_file'] = "";
-        $data['occupation_id'] = $job->occupation_id;
-        $data['user_job_id'] = $job->id;
         try {
             if ($experience) {
                 // update
@@ -384,14 +378,10 @@ class UpdateUserProfileController extends Controller
         if ($validator->fails()) {
             return errorResponseJson(['message' => $uncompletedInfo]);
         }
-        $job = UserJob::where('specialtie_id', $data['specialtie_id'])->where('user_id', $data['user_id'])->first();
-        if (is_null($job) || empty($job)) {
-            return errorResponseJson(['message' => 'برجاء اضافة وظيفة في هذا التخصص قبل اضافة المؤهل']);
-        }
+
         $qualification              = UserQualification::where('user_id', $data['user_id'])->first();
         $data['qualification_file'] = "";
-        $data['occupation_id'] = $job->occupation_id;
-        $data['user_job_id'] = $job->id;
+
         try {
             if ($qualification) {
                 // update

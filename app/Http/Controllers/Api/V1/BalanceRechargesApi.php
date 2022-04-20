@@ -48,7 +48,8 @@ class BalanceRechargesApi extends Controller
      */
     public function index()
     {
-        $BalanceRecharge = BalanceRecharge::select($this->selectColumns)->where('user_id',auth()->id())->with($this->arrWith())->orderBy("id", "desc")->get();
+        $BalanceRecharge = BalanceRecharge::select($this->selectColumns)->where('user_id',auth()->id())
+            ->with($this->arrWith())->orderBy("id", "desc")->get()->append(['date']);
         return successResponseJson(["data" => $BalanceRecharge]);
     }
 

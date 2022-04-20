@@ -4,6 +4,7 @@ import indexPage from '../views/indexPage.vue';
 // Account Settings
 import loginPage from '../views/AccountPages/loginPage.vue' // done
 import Register from '../views/AccountPages/registerPage.vue' // done
+import FirstRegister from '../views/AccountPages/firstRegisterPage.vue' // done
 import Verify from '../views/AccountPages/verifyPage.vue'
 import Success from '../views/AccountPages/successPage.vue'
 import UserProfile from '../views/AccountPages/userProfile.vue'
@@ -87,6 +88,12 @@ const routes = [{
         component: Register,
         beforeEnter: checkIfLogin,
         name: "Register",
+    },
+    {
+        path: prefix + '/FirstRegister',
+        component: FirstRegister,
+        beforeEnter: checkIfLogin,
+        name: "FirstRegister",
     },
     {
         path: prefix + '/user-profile/:id',
@@ -250,7 +257,7 @@ const routes = [{
         component: addTicket,
         name: "addTicket",
     }, {
-        path: prefix + '/order/:id',
+        path: prefix + '/order/:code',
         beforeEnter: guardMyroute,
         props: true,
         component: ShowSingleOrder,

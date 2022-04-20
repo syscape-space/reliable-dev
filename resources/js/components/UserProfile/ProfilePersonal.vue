@@ -234,9 +234,6 @@ export default {
       address: this.user?.address,
       bio: this.user?.bio,
       base_url: base_url,
-      user_id: this.user_id,
-      countries: this.countries,
-      cities: this.cities,
       departments:[],
     };
   },

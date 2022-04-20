@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\V1\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\ValidationsApi\V1\Auth\ChangePasswordRequest;
 use App\Http\Controllers\ValidationsApi\V1\Auth\LoginRequest;
+use App\Models\Judger;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -85,15 +86,20 @@ class AuthAndLogin extends Controller
 	public function account()
 	{
         $user_id =  $this->auth()->id();
-        $user = User::query()
-            ->select('*')
+
+        $user = User::query()->select('*')
             ->selectSub(function ($query) use ($user_id) {
             $query->from('orders')
                 ->selectRaw('COUNT(*)');
         },'orders_count')
             ->with(['occupations','specialties','mainDepartment','subDepartment'])
             ->find($user_id)
-            ->append('license_submitted','commercial_submitted','current_subscription');
+            ->append(
+                'license_submitted',
+                'commercial_submitted',
+                'current_subscription',
+                'my_all_orders',
+            );
 		return successResponseJson(['data' => $user]);
 	}
 

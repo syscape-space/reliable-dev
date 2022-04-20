@@ -1,5 +1,7 @@
 <?php
 return [
+	"title"                                    => "العنوان",
+	"contract-templates"                       => "نماذج العقود",
 	"systemmessages"                           => "رسائل النظام",
 	"special_for"                              => "الرسالة خاصة بــ",
 	"orders"                                   => "الطلبات",
@@ -134,6 +136,9 @@ return [
 	"subscribe_end_at"                         => "نهاية الاشتراك",
 	"company_id"                               => "موظف لدى شركة",
 	"add_offer"                                => "اضافة عروض",
+	"add_badge"                                => "اضافة وسام",
+	"badge_icon"                                => "وسام",
+	"badge_condition"                           => "شرط الوسام",
 	"enable"                                   => "مفعل",
 	"disable"                                  => "غير مفعل",
 	"disable_adding_offer_reason"              => "سبب حظر تقديم العروض على الطلبات",

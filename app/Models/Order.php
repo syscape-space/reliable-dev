@@ -3,6 +3,8 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 // Auto Models By Baboon Script
 // Baboon Maker has been Created And Developed By  [it v 1.6.37]
@@ -37,6 +39,7 @@ class Order extends Model {
 		'reason',
 		'created_at',
 		'updated_at',
+        'hash_code',
 	];
 
 	/**
@@ -177,6 +180,11 @@ class Order extends Model {
 				//$order->department_id()->delete();
 				//$order->department_id()->delete();
 			});
+		static::retrieved(function (Order $order){
+		    if (is_null($order->hash_code)){
+		        $order->update(['hash_code'=>Str::random(50)]);
+            }
+        });
 	}
 
 	public function getCreatedAtAttribute($date)
@@ -185,17 +193,22 @@ class Order extends Model {
 	}
 	public function getOrderStepAttribute()
 	{
+	    switch ($this->order_status){
+            case 'under_review':
+            case 'open':
+                return 1;
+        }
 	    $temp = 0;
-	    if($this->order_status == "open")
+	    if($this->order_status != "under_review")
             $temp++;
 	    if ($this->offers()->where('offer_status','approved')->count())
 	        $temp++;
-	    if ($this->order_status == "closed")
+	    if ($this->order_status == "closed" || $this->order_status == "done")
 	        $temp+=3;
 		return $temp;
 	}
 	public function judgers(){
-	    return $this->belongsToMany(User::class,'order_arbitrators','order_id','arbitrator_id')
+	    return $this->belongsToMany(Judger::class,'order_arbitrators','order_id','arbitrator_id')
             ->withPivot('vendor_status','vendor_refused_message','id');
     }
 	public function judger_requests(){
@@ -213,9 +226,9 @@ class Order extends Model {
 	    return $this->offers()->firstWhere('offer_status','approved');
     }
     public function getActiveNegotiationAttribute(){
-	    if ($this->order_status == "open" and $this->order_step == 2){
+	    if ($this->order_step >= 2){
             $user = User::query()->find(auth('api')->id()??auth()->id());
-            if ($user->membership_type == 'vendor'){
+            if ($user and $user->membership_type == 'vendor'){
                 return $user->negotiations()->with(['users','messages','order'])->firstWhere('order_id',$this->id);
             }else{
                 return $this->negotiations()->with(['users','messages','order'])
@@ -224,6 +237,8 @@ class Order extends Model {
                     })->first();
             }
         }
+	    return null;
     }
+
 
 }

@@ -37,7 +37,7 @@
                 </div>
               </template>
             </template>
-            <form v-on:submit.prevent="submitForm" ref='commercialForm' v-if="commercial == null || commercial.status == 2 || commercial.status == null  ">
+            <form v-on:submit.prevent="submitForm" ref='commercialForm' v-if="commercial == null || commercial.status != 0 || commercial.status == null  ">
                 <input type="hidden" name="status" value="0" />
                 <input type="hidden" v-model="user_id" name="user_id" />
 
@@ -67,7 +67,7 @@
                                 </label>
                                 <input class="form-control" name="commercial_file"
                                     type="file" :disabled="editable == false">
-                                <small v-if="commercial_file" class="text-muted">{{commercial_file}}</small>
+                              <img v-if="commercial_file" height="100" :src="cloud_url + commercial_file">
 
                             </div>
                         </div>
@@ -98,6 +98,7 @@ import api from '../../utils/api';
         data() {
             return {
                 errors: [],
+                cloud_url:cloud_url,
                 successMsg: null,
                 loading: false,
                 specialties: this.specialties,

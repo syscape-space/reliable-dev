@@ -25,9 +25,9 @@ class OrderOffersRequest extends FormRequest {
 	 */
 	protected function onCreate() {
 		return [
-             'vendor_comment'=>'sometimes|nullable|string',
-             'price'=>'sometimes|nullable|numeric',
-             'execution_time'=>'sometimes|nullable|integer',
+             'vendor_comment'=>'required|nullable|string',
+             'price'=>'required|nullable|numeric',
+             'execution_time'=>'required|nullable|integer',
              'requester_rate'=>'sometimes|nullable|string|in:1,2,3,4,5',
              'requester_feedback'=>'sometimes|nullable|string',
              'feedback_requester_status_by_admin'=>'sometimes|nullable|string',

@@ -462,7 +462,7 @@ select {
 
 /* *** ********* AUTH * *** ** * * * * */
 
-.login-page {
+/* .login-page {
     background-image: url("../images/login.png") !important;
     background-size: cover;
     min-height: 100vh;
@@ -478,7 +478,7 @@ select {
     background-image: url("../images/login.png") !important;
     background-size: cover;
     min-height: 100vh;
-}
+} */
 
 .auth-login input {
     border-radius: 3px;

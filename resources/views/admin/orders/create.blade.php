@@ -192,6 +192,7 @@
 						'under_review'=>trans('admin.under_review'),
 						'open'=>trans('admin.open'),
 						'closed'=>trans('admin.closed'),
+						,'ongoing'=>'تحت التنفيذ','done'=>'مكتملة'
 						//'close_and_refund'=>trans('admin.close_and_refund'),
 						//'refused'=>trans('admin.refused'),
 						],old('order_status'),['class'=>'form-control select2','placeholder'=>trans('admin.choose')]) !!}

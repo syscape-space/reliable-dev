@@ -381,4 +381,5 @@ return [
     'fullname' => 'الاسم' ,
     'nationalId' => 'رقم الهويه',
     'archived'  =>  'في المسودة',
+    'ongoing'   =>  'تحت التنفيذ',
 ];
