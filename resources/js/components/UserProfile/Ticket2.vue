@@ -1,76 +1,40 @@
 <template>
-    <section class="requsts-sec mt-4">
-      <div class="px-5">
-        <div class="have-ticket d-flex justify-content-between">
-          <div class="count-ticket">
-            <img style="width: 50px" :src="base_url+'/assets/images/login-1-logo.svg'" alt="" />
-            <span style="color: #048e81; font-size: 14px" class="me-4"
-              >{{ $root._t("app.youHave") }} {{ ticketsCount }} {{ $root._t("app.Tickets") }}</span
-            >
-          </div>
-          <button
-          @click.prevent="goToAddTicket()"
-            style="
-              border: 0;
-              background-color: #0995eb;
-              color: #fff;
-              font-size: 14px;
-              padding: 10px 70px;
-              border-radius: 7px;
-            "
-          >
-            {{ $root._t("app.newTicket") }}
-          </button>
-        </div>
-        <div class="your-tickets mt-5">
-          <ul
-            class="your-ticket list-unstyled d-flex rounded m-0 w-100 py-2 px-3"
-            style="    background-image: linear-gradient(to right,#048e8114, #0995eb21);align-items: center;"
-            v-for="item in list" :key="item.id"
-          >
-            <li><img :src="base_url+'/assets/images/time.svg'" alt="" /></li>
-            
-            <li> <span class="me-3" >{{ $root._t("app.ago") }} {{ $root._t("app.month") }} {{ $root._t("app.almost") }} </span> </li>
-            <li><div
-              class="mx-3"
-              style="
-                height: 30px;
-                width: 3px;
-                background-color: #fff;
-                border-radius: 10px;
-              ">
-            </div></li>
-            <li><div
-              style="
-                
-                border-radius: 50%;
-                background-color: #e0fffc75;
-              "><img style="height: 50px; width: 50px;" :src="cloud_url + $root.auth_user.photo_profile  " alt="" />
-            </div></li>
-            <li> 
-              <span class="mx-3" >{{ item.ticket_title }}</span>
-            </li>
-            <li style="margin-right: auto;">
-              <div class="number-ticket d-flex">
-                <span class="mx-3">
-                  <button class="save-btn" style="background-color: #43cfab;">مفتوح</button>
-                </span>
-              </div>
-            </li>
-            <li >
-              <div class="number-ticket d-flex">
-                <span class="mx-3">
-                  <button class="save-btn" @click.prevent="goToTicketDetails(item.id)">
-                    {{ $root._t("app.ticketDetails") }}
-                  </button>
-                </span>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
+            <div>
+                                      <div  class="d-flex align-items-center flex-wrap gap-2 justify-content-between">
+                            <div class="m-auto m-md-0 count-tickets">
+                                <div class="logo">
+                                    <img
+                                        class="img-fluid"
+                                        :src="`${base_url}assets/images/newLogo.png`"
+                                        alt=""
+                                    />
+                                    <div class="text-logo">
+                                        <h6>موثوق Reliable</h6>
+                                        <p>صنتاع الثقة Trust Makers</p>
+                                    </div>
+                                </div>
+                                <div class="count"> {{ $root._t("app.youHave") }} {{ ticketsCount }} {{ $root._t("app.Tickets") }} </div>
+                            </div>
+                            <div class="new-ticket m-auto m-md-0 btn"  @click.prevent="goToAddTicket()">
+                                {{ $root._t("app.newTicket") }}
+                            </div>
+                        </div>
+                        <div class="all-tickets d-flex flex-column gap-3">
+                            <div class="ticket"  v-for="item in list" :key="item.id">
+                                <div class="date">
+                                    <i class="far fa-clock"></i>
+                                    {{ $root._t("app.ago") }} {{ $root._t("app.month") }} {{ $root._t("app.almost") }}
+                                </div>
+                                <p class="text">
+                                  {{ item.ticket_title }}
+                                </p>
+                                <div class="status open">تذكرة مفتوحة <span  @click.prevent="goToTicketDetails(item.id)" style="font-size:14px;cursor:pointer;">({{$root._t("app.ticketDetails")}})</span></div>
+                            </div>
+                        </div>
+                        
+            </div>
 </template>
+
 <script>
 import api from "../../utils/api";
 export default {
@@ -114,5 +78,138 @@ export default {
 }
 </script>
 <style scoped>
+/* Start Section Tickets */
+section.tickets .count-tickets {
+    display: flex;
+    align-items: center;
+    padding: 10px 35px;
+    max-width: 370px;
+    gap: 40px;
+    background-color: #ecf8ff;
+    border-radius: 12px;
+}
+section.tickets .count-tickets .logo {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+}
+section.tickets .count-tickets .logo img {
+    width: 33.79px;
+}
+section.tickets .count-tickets .logo h6 {
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 0px;
+    color: var(--green-color);
+    font-weight: normal;
+}
+section.tickets .count-tickets .logo p {
+    font-size: 10px;
+    color: var(--grey-color);
+    margin-bottom: 0;
+
+    text-align: center;
+}
+section.tickets .count-tickets .count {
+    font: normal normal normal 28px/42px;
+    letter-spacing: 0px;
+    color: #0491e8;
+}
+@media (max-width: 575.98px) {
+    section.tickets .count-tickets .count {
+        font: normal normal normal 22px;
+        letter-spacing: 0px;
+        color: #0491e8;
+    }
+    section.tickets .count-tickets {
+        display: flex;
+        align-items: center;
+        padding: 15px;
+        max-width: 370px;
+        gap: 40px;
+        background-color: #ecf8ff;
+        border-radius: 12px;
+    }
+}
+section.tickets .new-ticket {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 202px;
+    height: 55px;
+    color: white;
+    background: #0995eb 0% 0% no-repeat padding-box;
+    border-radius: 12px;
+}
+section.tickets .all-tickets {
+    margin-top: 5rem;
+}
+section.tickets .all-tickets .ticket {
+    background-color: #ecf8ff;
+    display: flex;
+    padding: 11px 20px;
+    align-items: center;
+    border-radius: 12px;
+}
+
+section.tickets .all-tickets .ticket .date {
+    display: flex;
+    align-items: center;
+    padding: 14.1px 25px;
+    font-size: 18px;
+    letter-spacing: 0px;
+    position: relative;
+    color: #363848;
+}
+section.tickets .all-tickets .ticket .date::before {
+    content: "";
+    position: absolute;
+    background-color: #0491e8;
+    height: 100%;
+    width: 4px;
+    left: 0;
+    border-radius: 50px;
+    top: 0;
+}
+section.tickets .all-tickets .ticket .date i[class="far fa-clock"] {
+    color: #0491e8;
+    margin-left: 20px;
+}
+section.tickets .all-tickets .ticket .text {
+    margin: 0 30px 0 0;
+    font-size: 18px;
+    color: #363848;
+}
+section.tickets .all-tickets .ticket .status {
+    font-size: 20px;
+    letter-spacing: 0px;
+    margin-right: auto;
+}
+section.tickets .all-tickets .ticket .status.open {
+    color: #0491e8;
+}
+section.tickets .all-tickets .ticket .status.close {
+    color: #e53535;
+}
+@media (max-width: 1199.98px) {
+    section.tickets .all-tickets .ticket {
+        flex-direction: column;
+    }
+    section.tickets .all-tickets .ticket .date {
+        padding: 15px;
+    }
+    section.tickets .all-tickets .ticket .date::before {
+        height: 4px;
+        width: 100%;
+        left: 0;
+        top: 100%;
+    }
+    section.tickets .all-tickets .ticket .text {
+        margin: 30px 0 70px 0;
+    }
+}
+
+/* End Section Tickets */
 
 </style>

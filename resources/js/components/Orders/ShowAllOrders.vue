@@ -43,7 +43,7 @@
             </ul>
           </div>
           </div>
-                    <div class="dropdown mx-1" v-if="filter.main_category_id">
+                    <div class="dropdown mx-1 one_drop" v-if="filter.main_category_id">
             <button
               class="btn dropdown-toggle"
               type="button"
