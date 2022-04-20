@@ -23,7 +23,24 @@ a:hover {
     src: url("../fonts/ArbFONTS-Almarai-Bold.ttf");
     font-weight: bold;
 }
-
+@font-face {
+    font-family: "din-next";
+    src: url("../fonts/din-next-lt-w23-light-1.ttf");
+    font-weight: 300;
+  }
+  .f-300 {
+    font-weight: 300;
+  }
+  @font-face {
+    font-family: "din-next";
+    src: url("../fonts/din-next-lt-w23-regular.ttf");
+    font-weight: normal;
+  }
+  @font-face {
+    font-family: "din-next";
+    src: url("../fonts/din-next-lt-w23-bold-1.ttf");
+    font-weight: bold;
+  }
 body {
     text-align: "right";
     direction: rtl;
@@ -1162,3 +1179,26 @@ select {
 .page-link {
     color: #048e81;
 }
+
+
+.sum-btn button:hover {
+    background-image: url("../images/images/links.svg");
+  
+  }
+  header > .container {
+    background-image: url("../images/images/bg-header.svg");
+  }
+
+  
+  .carousel-control-next-icon {
+    background-image: url("../images/images/next-arro.svg") !important;
+  }
+  .carousel-control-prev-icon {
+    background-image: url("../images/images/prev-arro.svg") !important;
+  }
+
+  body , * {
+    text-align: right;
+    direction: rtl;
+    font-family: "din-next";
+  }
