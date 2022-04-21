@@ -1,8 +1,14 @@
-
 <template>
-  <RightNavbar/>
-  <TopNavbar/>
-  <section class="personal-section mt-2">
+<div>
+            <TopNavbar/>
+<section class="orders py-5">
+
+            <div class="container">
+                <div class="row">
+    <RightNavbar/>
+
+                        <div class="col-xl-9">
+ <section class="personal-section mt-2">
     <div class="personal">
       <div class="personal-info">
         <div class="btw-flex">
@@ -29,13 +35,21 @@
             </div>
           </div>
         </div>
-        <div class="p-3 mt-3" style="background-color: #f9f9f9" v-for="item in filteredOrders" :key="item.id">
+        <div class="p-3 mt-3" v-for="item in filteredOrders" :key="item.id">
           <order-card :order="item"/>
         </div>
       </div>
     </div>
   </section>
+                    </div>
+                </div>
+            </div>
+    </section>
+</div>
+
+
 </template>
+
 <script>
 import api from "../../utils/api";
 import OrderCard from "../../components/Orders/OrderCard";
@@ -117,3 +131,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.personal-section{
+  width:auto !important;
+}
+</style>

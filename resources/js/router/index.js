@@ -68,7 +68,6 @@ function checkIfLogin(to, from, next) {
         next();
     }
 }
-console.log(prefix)
 // our routes
 // Account Settings
 const routes = [{

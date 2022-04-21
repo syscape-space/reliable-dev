@@ -1,5 +1,5 @@
 <template>
-    <RightNavbar/>
+    <!-- <RightNavbar/> -->
     <TopNavbar/>
     <!-- <NewTopNavbar/> -->
     

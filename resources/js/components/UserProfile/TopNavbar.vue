@@ -8,10 +8,12 @@
                         <div
                             class="logo justify-content-center justify-content-xl-end"
                         >
-                            <img src="../../assets/images/newLogo.png" alt="" />
+                            <img :src="`${base_url}/assets/images/newLogo.png`" alt="" />
                             <div class="text">
                                 <h6>موثوق Reliable</h6>
                                 <p>صنتاع الثقة Trust Makers</p>
+  
+
                             </div>
                         </div>
                         <a href="" class="icon-notice me-5 position-relative">
@@ -50,6 +52,23 @@
                                             </span>
                                         </div>
                                         <input type="submit" value="بحث" />
+                                                    <router-link :to="{name:'DocumentRequest'}"
+             id="addOrderBasedOnUserMembership"
+              style="
+                  border: 0px;
+                  background-color: rgb(4, 142, 129);
+                  color: rgb(255, 255, 255);
+                  font-size: 14px;
+                  padding: 7px 40px;
+                  height: 38px;
+                  display: block;
+                  text-decoration: none;
+                "
+              class="rounded  "
+            >
+               طلب
+            </router-link>
+
                                     </div>
                                 </form>
                             </div>
@@ -70,7 +89,8 @@
                                             <span class="photo">
                                                 <img
                                                     class="img-fluid"
-                                                    src="../../assets/images/person.jpg"
+                                                    :src="`${base_url}/assets/images/person.jpg`"
+
                                                     alt=""
                                                 />
                                             </span>
@@ -116,6 +136,23 @@ export default {
   },
   mounted() {
     this.currentUser();
+    //element
+let toggSearch = document.querySelectorAll("form .togg-search"),
+    search = document.querySelector("header form .inpts");
+
+// Add Event
+
+toggSearch.forEach(function (e) {
+    e.addEventListener("click", function () {
+        search.classList.toggle("show-s");
+        if (search.classList.contains("show-s")) {
+            toggSearch[0].style.display = "none";
+        } else {
+            toggSearch[0].style.display = "block";
+        }
+    });
+});
+
     // document.getElementById("addOrderBasedOnUserMembership").style.display = 'none';
   },
   methods: {

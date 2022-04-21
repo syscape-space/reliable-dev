@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="{{cuteAsset('/contract')}}/css/all.min.css" />
     <!-- Main Faile Css  -->
     <link rel="stylesheet" href="{{cuteAsset('/contract')}}/css/style.css" />
+
     <title>موثوق</title>
     
 </head>

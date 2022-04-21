@@ -5,6 +5,10 @@ import store from './store'
 import VueSweetalert2 from 'vue-sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
 
+window.$ = window.jQuery = require('jquery');
+window.Popper = require('popper.js').default;
+
+
 import "./bootstrap"
 const vue_app = createApp(App)
     .use(store)
