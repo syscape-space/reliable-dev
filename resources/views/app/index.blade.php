@@ -14,6 +14,13 @@
     <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/droid-arabic-kufi" type="text/css"/>
     <link rel="stylesheet" href="{{cuteAsset('/assets')}}/css/style.css" />
     <link rel="stylesheet" href="{{cuteAsset('/assets')}}/css/layout.css" />
+    <link rel="stylesheet" href="{{cuteAsset('/contract')}}/css/normalize.css" />
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="{{cuteAsset('/contract')}}/css/bootstrap.min.css" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{{cuteAsset('/contract')}}/css/all.min.css" />
+    <!-- Main Faile Css  -->
+    <link rel="stylesheet" href="{{cuteAsset('/contract')}}/css/style.css" />
     <title>موثوق</title>
     
 </head>
@@ -51,6 +58,11 @@
     <script src="{{cuteAsset('/')}}/js/bootstrap.min.js"></script>
     <script src="{{cuteAsset('/')}}/js/owl.carousel.min.js"></script>
     <script src="{{cuteAsset('/')}}/js/main.js"></script>
+    <script src="{{cuteAsset('/contract')}}/js/bootstrap.bundle.min.js"></script>
+    <!-- Font Awesome -->
+    <script src="{{cuteAsset('/contract')}}/js/all.min.js"></script>
+    <!-- Main Faile -->
+    <script src="{{cuteAsset('/contract')}}/js/main.js"></script>
 </body>
 
 </html>

@@ -73,8 +73,9 @@
               <div
                   class="btn-rceive-report d-flex justify-content-between mt-3"
               >
-                <div class="recive-report position-relative">
+                <div v-if="$root.auth_user.membership_type === 'user'" class="recive-report position-relative">
                   <button
+                      @click="createContract()"
                       style=" background-color: #048e81;"
                       class="border-0 rounded"
                   >
@@ -83,7 +84,7 @@
                         alt=""
                         srcset=""
                     /> <br>
-                    {{ $root._t("app.contract") }}
+                    اضافة عقد
                   </button>
                 </div>
                 <div class="recive-report position-relative">
@@ -872,6 +873,12 @@ export default {
         this.offers = res.data.data;
       });
     },
+    createContract(){
+      this.$router.push({
+        name: "ContractCreate",
+        params: {hash_code: this.order.hash_code},
+      });
+    }
   },
   computed: {
     balanceCovered(){

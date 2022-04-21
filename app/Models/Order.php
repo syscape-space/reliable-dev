@@ -103,6 +103,9 @@ class Order extends Model {
 	public function user_id() {
 		return $this->hasOne(\App\Models\User::class , 'id', 'user_id');
 	}
+	public function user() {
+		return $this->belongsTo(\App\Models\User::class , 'user_id','id');
+	}
 	/**
 	 * order_type_id relation method
 	 * @param void
@@ -224,6 +227,9 @@ class Order extends Model {
     }
     public function getActiveOfferAttribute(){
 	    return $this->offers()->firstWhere('offer_status','approved');
+    }
+    public function getActiveJudgerAttribute(){
+	    return $this->judgers->first();
     }
     public function getActiveNegotiationAttribute(){
 	    if ($this->order_step >= 2){
