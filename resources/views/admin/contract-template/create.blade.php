@@ -58,8 +58,8 @@
 							<div class="row">
 								<div class="col-6">
 									<ul>
-										@foreach(contractTemplateVars() as $item => $title)
-											<li> {{$title}} : <b>{{$item}}</b> </li>
+										@foreach(contractTemplateVars() as $item => $name)
+											<li> {{$name}} : <b>{{$item}}</b> </li>
 										@endforeach
 									</ul>
 								</div>

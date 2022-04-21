@@ -41,14 +41,13 @@ import MyOrder from '../views/OrdersPages/myOrder.vue'
 import EXMyOrders from '../views/OrdersPages/EXMyOrders.vue'
 import ShowAllOrders from '../views/OrdersPages/showAllOrders.vue'
 import Filteration from '../views/OrdersPages/ordersFilteration.vue'
-
-
-// Tickets
+//
 import addTicket from '../views/TicketsPages/createTecket.vue'
 import ShowSingleOrder from "../views/OrdersPages/ShowSingleOrder.vue";
 import Negotiation from "../components/Negotiation";
 import NegotiationsPage from "../views/OrdersPages/NegotiationsPage";
 import Subscription from "../views/Subscription";
+import ContractCreate from "../views/Contract/Create";
 
 
 const prefix = APP_PREFIX;
@@ -276,6 +275,12 @@ const routes = [{
         path: prefix + '/subscription',
         component: Subscription,
         name: 'Subscription',
+    },
+    {
+        path: prefix + '/contract/create/:hash_code',
+        props:true,
+        component:ContractCreate ,
+        name: 'ContractCreate',
     },
 ]
 const router = createRouter({

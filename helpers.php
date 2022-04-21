@@ -55,5 +55,6 @@ function contractTemplateVars(){
         'order-price'   =>  'قيمة مبلغ الطلب',
         #
         'terms'     =>  'بنود العقد',
+        'financial'     =>  'البدلات المالية',
     ];
 }
