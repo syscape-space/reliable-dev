@@ -73,8 +73,9 @@
               <div
                   class="btn-rceive-report d-flex justify-content-between mt-3"
               >
-                <div class="recive-report position-relative">
+                <div v-if="$root.auth_user.membership_type === 'user'" class="recive-report position-relative">
                   <button
+                      @click="createContract()"
                       style=" background-color: #048e81;"
                       class="border-0 rounded"
                   >
@@ -83,7 +84,7 @@
                         alt=""
                         srcset=""
                     /> <br>
-                    {{ $root._t("app.contract") }}
+                    اضافة عقد
                   </button>
                 </div>
                 <div class="recive-report position-relative">
@@ -371,6 +372,15 @@
                         type="text"
                         class="o_input form-control"
                     />
+                  </div>
+                  <div class="col-md-4 mb-3 f-14">
+                    <label class="mb-2" for="">
+                      قابل للتفاوض
+                    </label>
+                    <select class="form-control" v-model="offer_negotiable" id="">
+                      <option value="1">نعم</option>
+                      <option value="0">لا</option>
+                    </select>
                   </div>
                   <div class="col-md-12 mb-3 f-14">
                     <label class="mb-2" for="">
@@ -731,6 +741,7 @@ export default {
         contact:'',
         order_id:null,
       },
+      offer_negotiable:'0',
       form:{
         arbitrator_id:null,
         order_id:null,
@@ -853,6 +864,7 @@ export default {
         formData.append("price", this.price);
         formData.append("execution_time", this.execution_time);
         formData.append("offer_status", "pending");
+        formData.append("negotiable", this.offer_negotiable);
 
         api.post("v1/orderoffers", formData)
             .then((response) => {
@@ -872,6 +884,12 @@ export default {
         this.offers = res.data.data;
       });
     },
+    createContract(){
+      this.$router.push({
+        name: "ContractCreate",
+        params: {hash_code: this.order.hash_code},
+      });
+    }
   },
   computed: {
     balanceCovered(){

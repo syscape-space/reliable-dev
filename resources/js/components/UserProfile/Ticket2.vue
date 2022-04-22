@@ -10,7 +10,7 @@
                                     />
                                     <div class="text-logo">
                                         <h6>موثوق Reliable</h6>
-                                        <p>صنتاع الثقة Trust Makers</p>
+                                        <p>صناع الثقة Trust Makers</p>
                                     </div>
                                 </div>
                                 <div class="count"> {{ $root._t("app.youHave") }} {{ ticketsCount }} {{ $root._t("app.Tickets") }} </div>

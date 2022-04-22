@@ -453,6 +453,29 @@ admin()->user()->role("systemmessages_show"))
     </li>
   </ul>
 </li>
+<li class="nav-item {{active_link('vendorpackages','menu-open')}} ">
+  <a href="#" class="nav-link {{active_link('contract-templates','active')}}">
+    <i class="nav-icon fa fa-comment"></i>
+    <p>
+      {{trans('admin.vendorpackages')}}
+      <i class="right fas fa-angle-left"></i>
+    </p>
+  </a>
+  <ul class="nav nav-treeview">
+    <li class="nav-item">
+      <a href="{{aurl('vendorpackages')}}" class="nav-link  {{active_link('vendorpackages','active')}}">
+        <i class="fa fa-comment nav-icon"></i>
+        <p>{{trans('admin.vendorpackages')}} </p>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="{{ aurl('vendorpackages/create') }}" class="nav-link">
+        <i class="fas fa-plus nav-icon"></i>
+        <p>{{trans('admin.create')}} </p>
+      </a>
+    </li>
+  </ul>
+</li>
 @endif
 @if(admin()->user()->role("departments_show"))
 <li class="nav-item {{active_link('departments','menu-open')}} ">

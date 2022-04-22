@@ -1,5 +1,5 @@
-
 <template>
+<div>
   <TopNavbar/>
 <RightNavbar/>
   <section class="personal-section mt-2">
@@ -29,13 +29,18 @@
             </div>
           </div>
         </div>
-        <div class="p-3 mt-3" style="background-color: #f9f9f9" v-for="item in filteredOrders" :key="item.id">
+        <div class="p-3 mt-3" v-for="item in filteredOrders" :key="item.id">
           <order-card :order="item"/>
         </div>
       </div>
     </div>
   </section>
+              
+</div>
+
+
 </template>
+
 <script>
 import api from "../../utils/api";
 import OrderCard from "../../components/Orders/OrderCard";
@@ -117,3 +122,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.personal-section{
+  width:auto !important;
+}
+</style>

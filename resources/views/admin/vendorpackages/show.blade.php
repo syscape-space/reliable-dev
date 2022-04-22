@@ -66,10 +66,6 @@
 				<b>{{trans('admin.package_title')}} :</b>
 				{!! $vendorpackages->package_title !!}
 			</div>
-			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-				<b>{{trans('admin.package_content')}} :</b>
-				{!! $vendorpackages->package_content !!}
-			</div>
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 				<b>{{trans('admin.number_purchases')}} :</b>
 				{!! $vendorpackages->number_purchases !!}
@@ -86,12 +82,7 @@
 				<b>{{trans('admin.package_price')}} :</b>
 				{!! $vendorpackages->package_price !!}
 			</div>
-			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-				<b>{{trans('admin.user_id')}} :</b>
-				@if(!empty($vendorpackages->user_id()->first()))
-			{{ $vendorpackages->user_id()->first()->name }}
-			@endif
-			</div>
+
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 				<b>{{trans('admin.package_status')}} :</b>
 				{{ trans("admin.".$vendorpackages->package_status) }}

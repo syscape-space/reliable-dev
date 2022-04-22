@@ -61,22 +61,11 @@
 		<div class="row">
 			<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
 				<div class="form-group">
-					{!! Form::label('user_id',trans('admin.user_id')) !!}
-					{!! Form::select('user_id',App\Models\User::where('membership_type','!=','user')->pluck('name','id'),$vendorpackages->user_id,['class'=>'form-control select2','placeholder'=>trans('admin.choose')]) !!}
-				</div>
-			</div>
-			<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-				<div class="form-group">
 					{!! Form::label('package_title',trans('admin.package_title'),['class'=>' control-label']) !!}
 					{!! Form::text('package_title',$vendorpackages->package_title,['class'=>'form-control','placeholder'=>trans('admin.package_title')]) !!}
 				</div>
 			</div>
-			<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-				<div class="form-group">
-					{!! Form::label('package_content',trans('admin.package_content'),['class'=>'control-label']) !!}
-					{!! Form::textarea('package_content',$vendorpackages->package_content,['class'=>'form-control','placeholder'=>trans('admin.package_content')]) !!}
-				</div>
-			</div>
+
 			<div class="col-md-4 col-lg-4 col-sm-4 col-xs-12">
 				<div class="form-group">
 					{!! Form::label('package_price',trans('admin.package_price'),['class'=>' control-label']) !!}

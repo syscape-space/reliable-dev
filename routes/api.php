@@ -86,6 +86,9 @@ Route::group(
 
 		Route::get('settings', 'SettingController@index');
 		Route::group(['middleware' => 'jwt.auth'], function () {
+		    Route::post('contract/preview/{template_id}','ContractController@preview');
+		    Route::post('contracts','ContractController@store');
+		    Route::get('contract-templates','ContractTemplateController@index');
 		    Route::get('open-order/{order_id}','UserOrderController@openOrder');
 			Route::get('account', 'Auth\AuthAndLogin@account')->name('api.account');
 			Route::post('logout', 'Auth\AuthAndLogin@logout')->name('api.logout');

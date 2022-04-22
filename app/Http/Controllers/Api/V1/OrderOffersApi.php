@@ -32,7 +32,8 @@ class OrderOffersApi extends Controller
         "feedback_user_offer_status_by_admin",
         "requester_objected_status",
         "requester_objected_endat",
-        "created_at"
+        "created_at",
+        'negotiable',
     ];
 
     /**
