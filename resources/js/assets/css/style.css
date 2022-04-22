@@ -241,6 +241,7 @@ select:hover {
 }
 
 @media (max-width: 575.98px) {
+    
     .last-footer {
         display: block;
         text-align: center;
@@ -1181,10 +1182,7 @@ select {
 }
 
 
-.sum-btn button:hover {
-    background-image: url("../images/images/links.svg");
-  
-  }
+
   header > .container {
     background-image: url("../images/images/bg-header.svg");
   }
@@ -1202,3 +1200,37 @@ select {
     direction: rtl;
     font-family: "din-next";
   }
+  .sum-btn button {
+    background-image: none;
+  
+  }
+  .sum-btn button:hover {
+    background-image: url("../images/links.svg");
+  
+  }
+  header > .container,
+  section > .container {
+    background-image: url("../images/bg-header.svg");
+  }
+ 
+  .carousel-control-next-icon {
+    background-image: url("../images/next-arro.svg");
+  }
+  .carousel-control-prev-icon {
+    background-image: url("../images/prev-arro.svg");
+  }
+
+  @media (max-width: 575.98px) {
+    .head-dash {
+        width: 100%;
+    }
+    .dash {
+        position: relative !important;
+        width: 97%;
+    margin: auto;
+    }
+    .top-header, .content-body, .requsts-sec, .call, .personal-section, .acount-balance, .ticket-confirmedؤ {
+        padding: 15px;
+        width: 100% !important;
+    }
+}

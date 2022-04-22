@@ -5,14 +5,14 @@
       <div class="row">
         <div class="col-lg-4 d-none d-lg-block">
           <div class="content text-center pt-1 ">
-            <p class="num">0{{ step }}</p>
-            <img style="width: 60px;" :src="base_url + 'assets/images/white-logo.svg'" alt="logo" class="mt-5 pt-5">
+            <p class="num d-none">0{{ step }}</p>
+            <img style="width: 60px;" :src="base_url + 'assets/images/newLogo.png'" alt="logo" class="mt-5 pt-5">
             <p
                 class="title mt-0 fw-normal"
                 style="font-size: 17px; margin-top: 5px !important;">{{ $root._t("app.chooseServiceType") }}</p>
             <p class="sup-title"> {{ $root._t("app.addNewRequest") }}</p>
             <p class="dis" style="font-size: 14px;font-weight: 300;">
-              {{ $root._t("app.thisServiceFeature") }}
+              عند اختيار خدمة سيظهر هنا تعليمات الخدمة وشرح  
               <br> {{ $root._t("app.withVideoBelow") }}
             </p>
             <div class="vid  px-5 py-2">
@@ -673,7 +673,9 @@ export default {
 .main-pc .col-lg-4 .content p.vid-title {
   font-size: 13px;
 }
-
+.main-pc .col-lg-4 .content p {
+  text-align: center;
+}
 .main-pc .col-lg-4 .content .center .img[data-v-6a84a0f0] {
   position: relative;
   width: 400px;
@@ -736,5 +738,12 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-around;
+}
+.main-pc .col-lg-4 .content {
+  background-image: none !important;
+  background-color: #C0E2FC;
+}
+.main-pc .col-lg-4 .content p {
+  color: #32394A;
 }
 </style>
