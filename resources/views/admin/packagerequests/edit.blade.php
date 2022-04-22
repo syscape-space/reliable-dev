@@ -66,12 +66,6 @@
 			</div>
 			<div class="col-md-3 col-lg-3 col-sm-3 col-xs-12">
 				<div class="form-group">
-					{!! Form::label('user_id',trans('admin.user_id')) !!}
-					{!! Form::select('user_id',App\Models\User::where('membership_type','user')->pluck('name','id'),$packagerequests->user_id,['class'=>'form-control select2','placeholder'=>trans('admin.choose')]) !!}
-				</div>
-			</div>
-			<div class="col-md-3 col-lg-3 col-sm-3 col-xs-12">
-				<div class="form-group">
 					{!! Form::label('suspended_balance',trans('admin.suspended_balance')) !!}
 					{!! Form::select('suspended_balance',['yes'=>trans('admin.yes'),'no'=>trans('admin.no'),],$packagerequests->suspended_balance,['class'=>'form-control select2','placeholder'=>trans('admin.choose')]) !!}
 				</div>
