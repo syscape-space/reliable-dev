@@ -373,6 +373,15 @@
                         class="o_input form-control"
                     />
                   </div>
+                  <div class="col-md-4 mb-3 f-14">
+                    <label class="mb-2" for="">
+                      قابل للتفاوض
+                    </label>
+                    <select class="form-control" v-model="offer_negotiable" id="">
+                      <option value="1">نعم</option>
+                      <option value="0">لا</option>
+                    </select>
+                  </div>
                   <div class="col-md-12 mb-3 f-14">
                     <label class="mb-2" for="">
                       {{ $root._t("app.offerDetails") }}
@@ -732,6 +741,7 @@ export default {
         contact:'',
         order_id:null,
       },
+      offer_negotiable:'0',
       form:{
         arbitrator_id:null,
         order_id:null,
@@ -854,6 +864,7 @@ export default {
         formData.append("price", this.price);
         formData.append("execution_time", this.execution_time);
         formData.append("offer_status", "pending");
+        formData.append("negotiable", this.offer_negotiable);
 
         api.post("v1/orderoffers", formData)
             .then((response) => {

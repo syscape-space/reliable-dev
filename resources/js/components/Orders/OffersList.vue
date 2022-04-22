@@ -59,6 +59,8 @@
             </p>
           </div>
           <div class="col-md-9">
+            <button v-if="parseInt(offer.negotiable)" class="btn btn-primary btn-sm">قابل للتفاوض</button>
+            <button v-else class="btn btn-primary btn-sm">غير قابل للتفاوض</button>
             <p class="py-3 f-12">
               {{ offer.vendor_comment }}
             </p>

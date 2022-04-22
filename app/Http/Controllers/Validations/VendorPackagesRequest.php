@@ -23,9 +23,7 @@ class VendorPackagesRequest extends FormRequest {
 	 */
 	protected function onCreate() {
 		return [
-			'user_id'               => 'required|integer|exists:users,id',
 			'package_title'         => 'required|string',
-			'package_content'       => 'required|string',
 			'package_status'        => 'required|string|in:show,hide',
 			'duration_package_days' => 'required|integer',
 			'package_price'         => 'required|numeric',
@@ -34,9 +32,7 @@ class VendorPackagesRequest extends FormRequest {
 
 	protected function onUpdate() {
 		return [
-			'user_id'               => 'required|integer|exists:users,id',
 			'package_title'         => 'required|string',
-			'package_content'       => 'required|string',
 			'package_status'        => 'required|string|in:show,hide',
 			'duration_package_days' => 'required|integer',
 			'package_price'         => 'required|numeric',

@@ -38,6 +38,7 @@ class OrderOffersRequest extends FormRequest {
              'feedback_user_offer_status_by_admin'=>'sometimes|nullable|string',
              'requester_objected_status'=>'sometimes|nullable|string|in:yes,no,ended',
              'requester_objected_endat'=>'sometimes|nullable|date',
+             'negotiable'=>'sometimes|nullable',
 		];
 	}
 
@@ -59,6 +60,7 @@ class OrderOffersRequest extends FormRequest {
              'feedback_user_offer_status_by_admin'=>'sometimes|nullable|string',
              'requester_objected_status'=>'sometimes|nullable|string|in:yes,no,ended',
              'requester_objected_endat'=>'sometimes|nullable|date',
+             'negotiable'=>'sometimes|nullable',
 		];
 	}
 
