@@ -86,6 +86,7 @@ Route::group(
 
 		Route::get('settings', 'SettingController@index');
 		Route::group(['middleware' => 'jwt.auth'], function () {
+		    Route::post('order-access/{order_id}','OrdersApi@orderAccess');
 		    Route::post('contract/preview/{template_id}','ContractController@preview');
 		    Route::post('contracts','ContractController@store');
 		    Route::get('contract-templates','ContractTemplateController@index');

@@ -245,6 +245,9 @@ class Order extends Model {
         }
 	    return null;
     }
+    public function accessVendors(){
+	    return $this->belongsToMany(User::class,'order_access_vendors','order_id','user_id');
+    }
 
 
 }

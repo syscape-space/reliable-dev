@@ -302,7 +302,7 @@
                                     <div class="active"></div>
                                     <img
                                         class="img-fluid"
-                                        src="./img/person.jpg"
+                                        :src="base_url+'/img/person.jpg'"
                                         alt=""
                                     />
                                 </div>
@@ -352,7 +352,7 @@
                                     <div class="active"></div>
                                     <img
                                         class="img-fluid"
-                                        src="./img/person.jpg"
+                                        :src="base_url+'/img/person.jpg'"
                                         alt=""
                                     />
                                 </div>
@@ -402,7 +402,7 @@
                                     <div class="active"></div>
                                     <img
                                         class="img-fluid"
-                                        src="./img/person.jpg"
+                                        :src="base_url+'/img/person.jpg'"
                                         alt=""
                                     />
                                 </div>
