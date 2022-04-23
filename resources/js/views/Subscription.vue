@@ -29,7 +29,6 @@
             <div class="alert alert-danger">غير مشترك</div>
           </template>
           <div class="packages-available mb-5">
-
             <h6>الباقات المتاحة</h6>
             <div class="row justify-content-between">
               <div class="col-md-6 col-xl-4 pt-xl-0 p-4 pe-xl-0" :key="'item'+item" v-for="item in packages">

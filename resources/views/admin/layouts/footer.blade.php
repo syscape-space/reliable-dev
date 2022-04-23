@@ -48,7 +48,7 @@ $.widget.bridge('uibutton', $.ui.button);
 <script src="{{cuteAsset("assets/plugins/datatables-buttons/js/buttons.flash.min.js")}}"></script>
 <script src="{{cuteAsset("assets/plugins/datatables-buttons/js/buttons.colVis.min.js")}}"></script>
 <script src="{{cuteAsset("assets/plugins/datatables-buttons/js/buttons.server-side.js")}}"></script>
-
+@livewireScripts
 
 <!-- moment -->
 <script src="{{ cuteAsset('assets') }}/plugins/moment/moment.min.js"></script>
