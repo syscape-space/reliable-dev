@@ -1,14 +1,8 @@
 <template>
 <div>
-            <TopNavbar/>
-<section class="orders py-5">
-
-            <div class="container">
-                <div class="row">
-    <RightNavbar/>
-
-                        <div class="col-xl-9">
- <section class="personal-section mt-2">
+  <TopNavbar/>
+<RightNavbar/>
+  <section class="personal-section mt-2">
     <div class="personal">
       <div class="personal-info">
         <div class="btw-flex">
@@ -41,10 +35,7 @@
       </div>
     </div>
   </section>
-                    </div>
-                </div>
-            </div>
-    </section>
+              
 </div>
 
 

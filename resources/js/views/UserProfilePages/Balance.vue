@@ -1,6 +1,6 @@
 <template>
-  <RightNavbar/>
   <TopNavbar/>
+<RightNavbar/>
   <section class="personal-section mt-2">
     <div class="personal">
       <div class="personal-info">

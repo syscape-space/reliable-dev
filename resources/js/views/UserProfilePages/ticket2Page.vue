@@ -1,9 +1,11 @@
 <template>
 <div>
             <TopNavbar/>
-<section class="tickets py-5">
+    <RightNavbar/>
 
-            <div class="container">
+<section class="tickets py-5 content-body">
+
+            <div class="container"  style="background-image: none;">
                 <div class="row">
  <div class="col-12 back mb-5 d-flex align-items-center justify-content-end"  >
                         <div class="row w-100 justify-content-end">
@@ -14,7 +16,6 @@
                             </div>
                         </div>
                     </div>
-    <RightNavbar/>
 
                         <div class="col-xl-9">
     <Ticket2/>

@@ -180,9 +180,8 @@ body {
 }
 
 .box-info p {
-  font-size: 16px;
-  font-weight: 700;
-  margin: 25px auto 19px;
+    font-size: 16px;
+    margin: 25px auto 19px;
 }
 
 .box-info > img {
@@ -191,15 +190,13 @@ body {
 }
 
 .parent-boxes .box-welcome h6 {
-  color: var(--light-blue-color);
-  font-size: 14px;
-  font-weight: bolder;
-  margin-bottom: 15px;
+    color: var(--light-blue-color);
+    font-size: 14px;
+    margin-bottom: 15px;
 }
 
 .parent-boxes .box-welcome p {
-  font-size: 14px;
-  font-weight: bold;
+    font-size: 14px;
 }
 
 .parent-boxes .box-welcome p span {
@@ -257,10 +254,8 @@ body {
 }
 
 .parent-boxes .box-package p:first-of-type {
-  font-size: 14px;
-  margin-bottom: 50px;
-
-  font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 50px;
 }
 
 .parent-boxes .box-package p:nth-of-type(2) {
