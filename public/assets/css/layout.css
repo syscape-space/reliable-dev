@@ -12,7 +12,7 @@
 }
 
 .main-pc .col-lg-4 .content {
-  background: url("../images/back.png") no-repeat center center;
+  background: url("../imgs/back.png") no-repeat center center;
   background-size: cover;
 }
 
@@ -586,14 +586,3 @@
   height: 15px !important;
 }
 /*# sourceMappingURL=layout.css.map */
-
-
-.main-pc .col-lg-4 .content p.num {
-  font-size: 117px;
-  font-family: system-ui;
-  opacity: 0.4;
-  font-weight: bolder;
-  position: absolute;
-  top: -62px;
-  right: 0;
-}

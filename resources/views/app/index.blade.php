@@ -4,11 +4,9 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{{asset('/')}}/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="{{asset('/')}}/css/owl.theme.default.min.css" />
-    <link rel="stylesheet" href="{{asset('/')}}/css/owl.carousel.min.css" />
-    <link rel="stylesheet" href="{{asset('/')}}/css/style.css" />
-    <link rel="stylesheet" href="{{asset('/')}}/css/layout.css" />
+    <link rel="stylesheet" href="{{cuteAsset('/assets')}}/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="{{cuteAsset('/assets')}}/css/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="{{cuteAsset('/assets')}}/css/owl.carousel.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/droid-arabic-kufi" type="text/css"/>
@@ -54,11 +52,11 @@
         }
     </script>
     <script src="{{ cuteAsset('/js/app.js') }}"></script>
-    <script src="{{cuteAsset('/')}}/js/jquery-3.3.1.min.js"></script>
-    <script src="{{cuteAsset('/')}}/js/popper.min.js"></script>
-    <script src="{{cuteAsset('/')}}/js/bootstrap.min.js"></script>
-    <script src="{{cuteAsset('/')}}/js/owl.carousel.min.js"></script>
-    <script src="{{cuteAsset('/')}}/js/main.js"></script>
+    <script src="{{cuteAsset('/')}}assets/js/jquery-3.3.1.min.js"></script>
+    <script src="{{cuteAsset('/')}}assets/js/popper.min.js"></script>
+    <script src="{{cuteAsset('/')}}assets/js/bootstrap.min.js"></script>
+    <script src="{{cuteAsset('/')}}assets/js/owl.carousel.min.js"></script>
+    <script src="{{cuteAsset('/')}}assets/js/main.js"></script>
     <script src="{{cuteAsset('/contract')}}/js/bootstrap.bundle.min.js"></script>
     <!-- Font Awesome -->
     <script src="{{cuteAsset('/contract')}}/js/all.min.js"></script>
