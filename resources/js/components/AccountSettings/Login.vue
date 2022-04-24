@@ -105,6 +105,7 @@ export default {
   },
   methods:{
     loginFun() {
+      console.log(this.id_number);
         api
           .post("/v2/login", {
             id_number: this.id_number,

@@ -265,6 +265,7 @@
 
 </template>
 <script>
+
 export default {
   name: "Profile",
   data() {
@@ -820,17 +821,11 @@ section > .container {
 }
 
 .end-sub {
-    font-size: 13px;
-    font-weight: 300;
-    color: #fff;
-    padding: 8px 0;
-    background-color: #e33232;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 51px;
-    border-radius: 8px;
-    min-width: 250px;
+  font-size: 13px;
+  font-weight: 300;
+  color: #fff;
+  padding: 8px 0;
+  background-color: #e33232;
 }
 
 .contain-btn {

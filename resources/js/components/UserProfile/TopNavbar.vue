@@ -112,6 +112,9 @@
                                                 >الاعدادات
                                             </a>
                                         </li>
+                                        <li>
+                                            <LogoutButton />
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -124,8 +127,12 @@
 
 <script>
 import api from "../../utils/api";
+import LogoutButton from '../../components/AccountSettings/LogoutButton.vue'
 
 export default {
+    components: {
+        LogoutButton
+    },
   data(){
     return{
       name : "" ,
