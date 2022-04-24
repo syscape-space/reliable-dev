@@ -820,11 +820,17 @@ section > .container {
 }
 
 .end-sub {
-  font-size: 13px;
-  font-weight: 300;
-  color: #fff;
-  padding: 8px 0;
-  background-color: #e33232;
+    font-size: 13px;
+    font-weight: 300;
+    color: #fff;
+    padding: 8px 0;
+    background-color: #e33232;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 51px;
+    border-radius: 8px;
+    min-width: 250px;
 }
 
 .contain-btn {

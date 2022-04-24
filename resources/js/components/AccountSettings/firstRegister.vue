@@ -173,5 +173,8 @@ export default {
     width: 100px;
     outline:none;
 }
-
+.parent_all .last_group .group label {
+    color: #4E5567;
+    margin-right: 30px;
+}
 </style>

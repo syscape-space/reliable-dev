@@ -2,7 +2,9 @@
           <!-- Start Section Orders-->
         <section class="offers overflow-hidden py-5">
             <div class="container">
-                <div class="col-12 back mb-5 flex-wrap gap-5 d-flex align-items-center justify-content-between">
+                <div
+                    class="col-12 back mb-5 flex-wrap gap-5 d-flex align-items-center justify-content-between"
+                >
                     <div
                         class="link-sections flex-wrap d-flex align-items-center gap-4"
                     >
@@ -30,19 +32,19 @@
                             <ul class="level">
                                 <li class="active">
                                     <div class="icon">
-                                        <i class="far fa-handshake"></i>
+                                        <i class="fa-regular fa-handshake"></i>
                                     </div>
                                     الأطلاع وتقديم العروض
                                 </li>
                                 <li>
                                     <div class="icon">
-                                        <i class="far fa-handshake"></i>
+                                        <i class="fa-regular fa-handshake"></i>
                                     </div>
                                     الأطلاع وتقديم العروض
                                 </li>
                                 <li>
                                     <div class="icon">
-                                        <i class="far fa-handshake"></i>
+                                        <i class="fa-regular fa-handshake"></i>
                                     </div>
                                     الأطلاع وتقديم العروض
                                 </li>
@@ -61,11 +63,11 @@
                                 />
                             </div>
                             <div class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
                             </div>
                             <p class="name">محمد مصطفي</p>
                             <p class="job">عميل</p>
@@ -81,33 +83,33 @@
                                     class="d-flex flex-wrap align-items-center gap-3 gap-md-4"
                                 >
                                     <div class="deta">
-                                        <i class="fas fa-calendar-day"></i>
+                                        <i class="fa-solid fa-calendar-day"></i>
                                         4/16/2022
                                     </div>
                                     <div class="view">
-                                        <i class="fas fa-eye"></i> 5465
+                                        <i class="fa-solid fa-eye"></i> 5465
                                         مشاهده
                                     </div>
                                     <div class="deta">
-                                        <i class="fas fa-clock"></i>
+                                        <i class="fa-solid fa-clock"></i>
                                         منذ 4 ساعات
                                     </div>
                                     <div class="deta">
-                                        <i class="fa fa-money-bill"></i>
+                                        <i class="fa-solid fa-money-bills"></i>
                                         عدد 5 عروض
                                     </div>
                                     <div class="deta">
-                                        <i class="fa fa-map-marker"></i>
+                                        <i class="fa-solid fa-location-dot"></i>
                                         المكان
                                     </div>
-                                    <div class="duration" style="color:#048e81 !important;">
-                                        <i style="color:#048e81;" class="fas fa-clock"></i>
+                                    <div class="duration">
+                                        <i class="fa-solid fa-clock"></i>
 
                                         مده التسليم 44 يوم
                                     </div>
                                     <a href="" class="setting">
                                         <i
-                                            class="fa fa-ellipsis-v"
+                                            class="fa-solid fa-ellipsis-vertical"
                                         ></i>
                                         <div class="report">
                                             <i class="fa-solid fa-flag"></i>
@@ -140,9 +142,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="box-search row d-flex align-items-center justify-content-between">
+                <div
+                    class="box-search row d-flex align-items-center justify-content-between"
+                >
                     <div class="col-xl-8 d-flex align-items-center gap-3">
-                        <span class="titl-search">العروض المقدمة</span>
+                        <span class="titl-search">العروص المقدمة</span>
                         <form class="flex-fill" action="">
                             <div class="box-inpt position-relative">
                                 <input
@@ -168,7 +172,7 @@
                 </div>
                 <div class="boxes-offers d-flex flex-wrap">
                     <div class="box-offer">
-                        <i class="fas fa-star star-box"></i>
+                        <i class="fa-solid fa-star star-box"></i>
                         <div class="row">
                             <div class="col-7 info p-0">
                                 <p class="name">محمد مصطفي علي</p>
@@ -204,7 +208,7 @@
                                 </div>
                                 <div class="star">
                                     4.5
-                                    <i class="fas fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
                                 </div>
                                 <a href="" class="profile">تصفح الملف الشخصي</a>
                             </div>
@@ -217,7 +221,7 @@
                         </div>
                     </div>
                     <div class="box-offer">
-                        <i class="fas fa-star star-box"></i>
+                        <i class="fa-solid fa-star star-box"></i>
 
                         <div class="row">
                             <div class="col-7 info p-0">
@@ -254,7 +258,7 @@
                                 </div>
                                 <div class="star">
                                     4.5
-                                    <i class="fas fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
                                 </div>
                                 <a href="" class="profile">تصفح الملف الشخصي</a>
                             </div>
@@ -267,7 +271,7 @@
                         </div>
                     </div>
                     <div class="box-offer">
-                        <i class="fas fa-star star-box"></i>
+                        <i class="fa-solid fa-star star-box"></i>
 
                         <div class="row">
                             <div class="col-7 info p-0">
@@ -298,13 +302,13 @@
                                     <div class="active"></div>
                                     <img
                                         class="img-fluid"
-                                        :src="`${base_url}assets/images/person.jpg`"
+                                        :src="base_url+'/img/person.jpg'"
                                         alt=""
                                     />
                                 </div>
                                 <div class="star">
                                     4.5
-                                    <i class="fas fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
                                 </div>
                                 <a href="" class="profile">تصفح الملف الشخصي</a>
                             </div>
@@ -317,7 +321,7 @@
                         </div>
                     </div>
                     <div class="box-offer">
-                        <i class="fas fa-star star-box"></i>
+                        <i class="fa-solid fa-star star-box"></i>
 
                         <div class="row">
                             <div class="col-7 info p-0">
@@ -348,13 +352,13 @@
                                     <div class="active"></div>
                                     <img
                                         class="img-fluid"
-                                        :src="`${base_url}assets/images/person.jpg`"
+                                        :src="base_url+'/img/person.jpg'"
                                         alt=""
                                     />
                                 </div>
                                 <div class="star">
                                     4.5
-                                    <i class="fas fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
                                 </div>
                                 <a href="" class="profile">تصفح الملف الشخصي</a>
                             </div>
@@ -367,7 +371,7 @@
                         </div>
                     </div>
                     <div class="box-offer">
-                        <i class="fas fa-star star-box"></i>
+                        <i class="fa-solid fa-star star-box"></i>
 
                         <div class="row">
                             <div class="col-7 info p-0">
@@ -398,13 +402,13 @@
                                     <div class="active"></div>
                                     <img
                                         class="img-fluid"
-                                        :src="`${base_url}assets/images/person.jpg`"
+                                        :src="base_url+'/img/person.jpg'"
                                         alt=""
                                     />
                                 </div>
                                 <div class="star">
                                     4.5
-                                    <i class="fas fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
                                 </div>
                                 <a href="" class="profile">تصفح الملف الشخصي</a>
                             </div>
@@ -417,7 +421,7 @@
                         </div>
                     </div>
                     <div class="box-offer">
-                        <i class="fas fa-star star-box"></i>
+                        <i class="fa-solid fa-star star-box"></i>
                         <div class="row">
                             <div class="col-7 info p-0">
                                 <p class="name">محمد مصطفي علي</p>
@@ -453,7 +457,7 @@
                                 </div>
                                 <div class="star">
                                     4.5
-                                    <i class="fas fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
                                 </div>
                                 <a href="" class="profile">تصفح الملف الشخصي</a>
                             </div>
