@@ -86,12 +86,14 @@
                     </select>
                 </div>
             </div>
+            
             <div class="col-md-4 col-lg-4 col-sm-4 col-xs-12" style="display:none" id="sub_depart_parent">
                 <div class="form-group">
                     <label for="" class="control-label">اختر القسم الفرعي</label>
-                    <select name="sub_department" class="form-control" id="sub_depart"></select>
+                    <select name="sub_department[]" class="form-control select2" id="sub_depart" multiple></select>
                 </div>
             </div>
+
             @push('js')
             <script type="text/javascript">
                 $(document).on('change', '#main_depart', function() {
@@ -155,6 +157,31 @@
                     <span class="city_id"></span>
                 </div>
             </div>
+            <div class="col-md-3 col-lg-3 col-sm-3 col-xs-12">
+                <div class="form-group">
+                    <label for="" class="control-label">اختر مدن العمل</label>
+                    <select name="cities[]" class="form-control select2" multiple></select>
+                </div>
+            </div>
+            @push('js')
+            <script type="text/javascript">
+                $("select[name='country_id']").change(function(){
+                    var country_id = $(this).val();
+                    var token = $("input[name='_token']").val();
+                    $.ajax({
+                        url: "{{ route('users.get-cities-by-country-id') }}",
+                        method: 'POST',
+                        data: {country_id:country_id, _token:token},
+                        success: function(data) {
+                        $("select[name='cities[]'").html('');
+                        $("select[name='cities[]'").html(data.options);
+                        }
+                    });
+                });
+
+               
+            </script>
+            @endpush
             <div class="col-md-3 col-lg-3 col-sm-3 col-xs-12">
                 <div class="form-group">
                     {!! Form::label('mobile', trans('admin.mobile'), ['class' => ' control-label']) !!}

@@ -88,6 +88,8 @@ Route::group(
 			Route::resource('users', 'Admin\Users');
 			Route::post('users/multi_delete', 'Admin\Users@multi_delete');
 			Route::post('users/get/city/id', 'Admin\Users@get_city_id');
+			Route::post('users/get-cities-by-country-id', 'Admin\Users@get_cities_by_country_id')->name('users.get-cities-by-country-id');
+
 			Route::post('users/get/vendor', 'Admin\Users@get_vendor');
 			Route::post('users/get/arbitrators', 'Admin\Users@get_arbitrators');
 			Route::post('users/get/all/users', 'Admin\Users@get_users');
