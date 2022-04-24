@@ -26,7 +26,7 @@
         </div>
         <!-- /.card-header -->
         <div class="card-body">
-            <form action="{{ route('departments.store') }}" method="POST">
+            <form action="{{ route('departments.store') }}" method="POST" enctype="multipart/form-data">
 				@csrf
                 <div class="form-group">
                     <label for="">اسم القسم بالعربية</label>
@@ -37,14 +37,10 @@
                     <input type="text" name="department_name_en" class="form-control">
                 </div>
                 <div class="form-group">
-					<label for="">فرعي من</label>
-                    <select name="parent" id="" class="form-control">
-						<option value="">قسم رئيسي</option>
-                        @foreach ($departments as $depart)
-                            <option value="{{$depart->id}}">{{$depart->department_name_ar}}</option>
-                        @endforeach
-                    </select>
+                    <label for="">صورة</label>
+                    <input type="file" name="image" class="form-control">
                 </div>
+                <livewire:category-selector/>
 				<div class="form-group">
                     <label for="">تفعيل القسم</label>
                     <input type="checkbox" name="status">

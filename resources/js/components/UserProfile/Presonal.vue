@@ -169,7 +169,7 @@
             </div>
           </div>
           </div>
-
+ 
           <!-- @yield('content') -->
           <div class="col-12 col-lg-8">
 

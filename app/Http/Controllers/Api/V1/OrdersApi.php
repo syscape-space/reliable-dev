@@ -47,7 +47,7 @@ class OrdersApi extends Controller
      */
     public function arrWith()
     {
-        return ['department_id', 'entities', 'negotiations', 'country_id', 'city_id', 'user_id', 'offers', 'files', 'judgers', 'judger_requests'];
+        return ['accessVendors','department_id', 'entities', 'negotiations', 'country_id', 'city_id', 'user_id', 'offers', 'files', 'judgers', 'judger_requests'];
 
     }
 
@@ -120,7 +120,9 @@ class OrdersApi extends Controller
      */
     public function show($code)
     {
-        $Order = Order::query()->select($this->selectColumns)->with($this->arrWith())->firstWhere('hash_code', $code)
+        $Order = Order::query()->select($this->selectColumns)
+            ->with($this->arrWith())
+            ->firstWhere('hash_code', $code)
             ->append('order_step', 'active_vendor', 'active_negotiation', 'active_offer');
         if (is_null($Order) || empty($Order)) {
             return errorResponseJson([
@@ -265,5 +267,10 @@ class OrdersApi extends Controller
             "type" => request("dz_type"),
             "file" => it()->getFile("orders", request("dz_id")),
         ]);
+    }
+    public function orderAccess($order_id){
+        $order = Order::query()->find($order_id);
+        $order->accessVendors()->attach(\auth('api')->id(),\request()->only('option_1','option_2'));
+        return response(['message'=>'done']);
     }
 }

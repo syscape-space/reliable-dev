@@ -204,7 +204,10 @@ class Departments extends Controller {
 			$request->merge([
 				'status'=>$request->status?true:false
 			]);
-		Department::create($request->all());
+			$data = $request->all();
+			if($request->hasFile('image'))
+			$data['image'] = it()->upload('image','images');
+		Department::create($data);
 		return redirectWithSuccess(aurl('departments'), trans('admin.added'));
 	}
 
@@ -270,10 +273,14 @@ class Departments extends Controller {
 			'department_name_en' => trans('admin.department_name_en'),
 			'parent'             => trans('admin.parent'),
 		]);
+
 			$request->merge([
 				'status'=>$request->status?true:false
 			]);
-			$department->update($request->all());
+            $data = $request->all();
+            if($request->hasFile('image'))
+            $data['image'] = it()->upload('image','images');
+			$department->update($data);
 		return redirectWithSuccess(aurl('departments'), trans('admin.updated'));
 	}
 

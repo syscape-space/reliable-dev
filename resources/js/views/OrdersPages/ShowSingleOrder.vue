@@ -1,7 +1,8 @@
 <template>
   <NewTopNavbar/>
   <add-judger-modal ref="add_judger_modal"/>
-  <section class="container mt-2" v-if="order">
+  <show-order-options-modal v-if="order" :order_id="order.id" ref="show_order_options_modal"/>
+  <section class="container mt-2" v-if="order && accessOrder">
     <div class="personal">
       <div class="personal-info">
         <div class="px-3 mb-2">
@@ -32,10 +33,11 @@
 
                 <ul class="list-unstyled px-0 f-12 text-end mt-4">
                   <li class="mb-3 mt-4 text-center">
-                    <div class="text-center mb-2" >
-                      <img style="width: 50px;height: 50px;" class="uses-img" :src="cloud_url  +  order.active_vendor.photo_profile " alt="">
+                    <div class="text-center mb-2">
+                      <img style="width: 50px;height: 50px;" class="uses-img"
+                           :src="cloud_url  +  order.active_vendor.photo_profile " alt="">
                     </div>
-                    <span class="text-center">{{ order.active_vendor.name  }} </span>
+                    <span class="text-center">{{ order.active_vendor.name }} </span>
                   </li>
                   <li class="mb-3">
                       <span style="min-width: 60px" class="d-inline-block"
@@ -120,13 +122,15 @@
 
                 </div>
               </div>
-              <template  v-if="$root.auth_user.membership_type === 'vendor' && order.judgers.filter(item=>item.pivot.vendor_status === 'pending').length === 0">
+              <template
+                  v-if="$root.auth_user.membership_type === 'vendor' && order.judgers.filter(item=>item.pivot.vendor_status === 'pending').length === 0">
                 <button @click="$refs.add_judger_modal.modal('show')" class="mohkam-btn">
                   طلب المحكم
                 </button>
               </template>
 
-              <template v-if="$root.auth_user.membership_type === 'user' && order.judger_requests.filter(item=>item.status ==='pending').length">
+              <template
+                  v-if="$root.auth_user.membership_type === 'user' && order.judger_requests.filter(item=>item.status ==='pending').length">
                 <button class="mohkam-btn">
                   تم ارسال طلب محكم للأدارة
                 </button>
@@ -148,36 +152,37 @@
 
                   <ul class="list-unstyled px-0 f-12 text-end mt-4" v-for="judger in order.judgers">
                     <li class="mb-3 mt-4 text-center">
-                      <div class="text-center mb-2" >
-                        <img style="width: 50px;height: 50px;" class="uses-img" :src="cloud_url  +  judger.photo_profile " alt="">
+                      <div class="text-center mb-2">
+                        <img style="width: 50px;height: 50px;" class="uses-img"
+                             :src="cloud_url  +  judger.photo_profile " alt="">
                       </div>
-                      <span class="text-center">{{ judger.name  }} </span>
+                      <span class="text-center">{{ judger.name }} </span>
                     </li>
-<!--                    <li class="mb-3">-->
-<!--                      <span style="min-width: 60px" class="d-inline-block"-->
-<!--                      >الحالة من طرف مقدم الخدمة-->
-<!--                      </span>-->
-<!--                      <span-->
-<!--                          style="margin-right: 15px; color: #0995eb"-->
-<!--                          class="fw-bold"-->
-<!--                      > {{$root._t('admin.'+judger.pivot.vendor_status)}}-->
+                    <!--                    <li class="mb-3">-->
+                    <!--                      <span style="min-width: 60px" class="d-inline-block"-->
+                    <!--                      >الحالة من طرف مقدم الخدمة-->
+                    <!--                      </span>-->
+                    <!--                      <span-->
+                    <!--                          style="margin-right: 15px; color: #0995eb"-->
+                    <!--                          class="fw-bold"-->
+                    <!--                      > {{$root._t('admin.'+judger.pivot.vendor_status)}}-->
 
-<!--                        </span>-->
-<!--                    </li>-->
-<!--                    <li class="mb-3" v-if="judger.pivot.vendor_refused_message">-->
-<!--                      <span style="min-width: 60px" class="d-inline-block"-->
-<!--                      >سبب الرفض-->
-<!--                      </span>-->
-<!--                      <span-->
-<!--                          style="margin-right: 15px; color: #0995eb"-->
-<!--                          class="fw-bold"-->
-<!--                      > {{judger.pivot.vendor_refused_message}}-->
+                    <!--                        </span>-->
+                    <!--                    </li>-->
+                    <!--                    <li class="mb-3" v-if="judger.pivot.vendor_refused_message">-->
+                    <!--                      <span style="min-width: 60px" class="d-inline-block"-->
+                    <!--                      >سبب الرفض-->
+                    <!--                      </span>-->
+                    <!--                      <span-->
+                    <!--                          style="margin-right: 15px; color: #0995eb"-->
+                    <!--                          class="fw-bold"-->
+                    <!--                      > {{judger.pivot.vendor_refused_message}}-->
 
-<!--                        </span>-->
-<!--                    </li>-->
-<!--                    <template v-if="$root.auth_user.membership_type === 'vendor' && judger.pivot.vendor_status === 'pending'">-->
-<!--                      <judger-request-status-modal :judger="judger"/>-->
-<!--                    </template>-->
+                    <!--                        </span>-->
+                    <!--                    </li>-->
+                    <!--                    <template v-if="$root.auth_user.membership_type === 'vendor' && judger.pivot.vendor_status === 'pending'">-->
+                    <!--                      <judger-request-status-modal :judger="judger"/>-->
+                    <!--                    </template>-->
                   </ul>
                 </div>
               </template>
@@ -189,47 +194,47 @@
           <div v-if="order" :class="order.order_step === 1 ? 'col-lg-9':'col-lg-6'">
 
             <div class="border row w-100 mx-0 px-0"
-                  v-if="order && order.order_status !== 'archived'"
-                  style="box-shadow: 1px 1px 3px #ddd; margin-bottom: 20px; margin-top: 10px;">
-                <div class="col-md-4 my-4" style="color: #aeaeae">
-                  <div class="cir-prog "  :class="{'current-circle-status':order.order_step >= 1}">
-                    <img :src="base_url + '/assets/images/o_hand.svg'" alt=""/>
-                  </div>
-                  <div class="fw-bold o-num text-center" :class="{'current-text-status':order.order_step >= 1}" >
-                    {{ $root._t("app.number1") }}
-                  </div>
-                  <div>
-                    <h6 class="o-txt text-center" :class="{'current-text-status':order.order_step >= 1}" >
-                      {{ $root._t("app.deal") }}
-                    </h6>
-                  </div>
+                 v-if="order && order.order_status !== 'archived'"
+                 style="box-shadow: 1px 1px 3px #ddd; margin-bottom: 20px; margin-top: 10px;">
+              <div class="col-md-4 my-4" style="color: #aeaeae">
+                <div class="cir-prog " :class="{'current-circle-status':order.order_step >= 1}">
+                  <img :src="base_url + '/assets/images/o_hand.svg'" alt=""/>
                 </div>
-                <div class="col-md-4 my-4" style="color: #aeaeae">
-                  <div class="cir-prog" :class="{'current-circle-status':order.order_step >= 2}">
-                    <img :src="base_url + '/assets/images/o_exe.svg'" alt=""/>
-                  </div>
-                  <div class="fw-bold o-num text-center" :class="{'current-text-status':order.order_step >= 2}">
-                    {{ $root._t("app.number2") }}
-                  </div>
-                  <div>
-                    <h6 class="o-txt text-center" :class="{'current-text-status':order.order_step >= 2}">
-                      {{ $root._t("app.execution") }}
-                    </h6>
-                  </div>
+                <div class="fw-bold o-num text-center" :class="{'current-text-status':order.order_step >= 1}">
+                  {{ $root._t("app.number1") }}
                 </div>
-                <div class="col-md-4 my-4" style="color: #aeaeae">
-                  <div class="cir-prog" :class="{'current-circle-status':order.order_step >= 3}">
-                    <img :src="base_url + '/assets/images/o_roket.svg'" alt=""/>
-                  </div>
-                  <div class="fw-bold o-num text-center" :class="{'current-text-status':order.order_step >= 3}">
-                    {{ $root._t("app.number3") }}
-                  </div>
-                  <div>
-                    <h6 class="o-txt text-center" :class="{'current-text-status':order.order_step >= 3}">
-                      {{ $root._t("app.ending") }}
-                    </h6>
-                  </div>
+                <div>
+                  <h6 class="o-txt text-center" :class="{'current-text-status':order.order_step >= 1}">
+                    {{ $root._t("app.deal") }}
+                  </h6>
                 </div>
+              </div>
+              <div class="col-md-4 my-4" style="color: #aeaeae">
+                <div class="cir-prog" :class="{'current-circle-status':order.order_step >= 2}">
+                  <img :src="base_url + '/assets/images/o_exe.svg'" alt=""/>
+                </div>
+                <div class="fw-bold o-num text-center" :class="{'current-text-status':order.order_step >= 2}">
+                  {{ $root._t("app.number2") }}
+                </div>
+                <div>
+                  <h6 class="o-txt text-center" :class="{'current-text-status':order.order_step >= 2}">
+                    {{ $root._t("app.execution") }}
+                  </h6>
+                </div>
+              </div>
+              <div class="col-md-4 my-4" style="color: #aeaeae">
+                <div class="cir-prog" :class="{'current-circle-status':order.order_step >= 3}">
+                  <img :src="base_url + '/assets/images/o_roket.svg'" alt=""/>
+                </div>
+                <div class="fw-bold o-num text-center" :class="{'current-text-status':order.order_step >= 3}">
+                  {{ $root._t("app.number3") }}
+                </div>
+                <div>
+                  <h6 class="o-txt text-center" :class="{'current-text-status':order.order_step >= 3}">
+                    {{ $root._t("app.ending") }}
+                  </h6>
+                </div>
+              </div>
             </div>
             <div v-else-if="order.order_status === 'archived'" class="row w-100">
               <div class="col-12 alert alert-primary p-3">
@@ -238,7 +243,7 @@
                 </h5>
                 <button class="btn btn-sm btn-success" @click="openOrder" v-if="balanceCovered">
                   فتح الطلب
-                  <span>{{$root.settings.minimum_amount_add_order}} $</span>
+                  <span>{{ $root.settings.minimum_amount_add_order }} $</span>
                 </button>
                 <button class="btn btn-sm btn-danger" v-else disabled>
                   لا يوجد رصيد كافي
@@ -260,7 +265,7 @@
               <div class="col-12 alert alert-primary p-3">
                 <h5 class="text-center w-100">
                   الطلب مرفوض من الادارة والسبب :
-                  {{order.reason}}
+                  {{ order.reason }}
                 </h5>
 
               </div>
@@ -271,49 +276,51 @@
               </h5>
               <p style="font-size: 12px" v-html="order_details"></p>
             </div>
-            <div  class="fw-bold  border p-2" v-if="order && ($root.auth_user.membership_type === 'user' || order.order_step >= 2)">
-            <!-- <h6 style="font-size: 13px" class="d-none">اطراف الطلب</h6> -->
-            <h6 style="font-size: 13px;background-image: linear-gradient(to bottom, #ff584d14, #802c2710); padding: 10px;" class="d-none">{{ $root._t("app.enemyCard") }}</h6>
-            <ul
-                class="list-unstyled px-0 f-12 text-end mt-0"
-                v-for="item in order.entities"
-                :key="item.id"
-            >
-              <li class="mb-3  d-inline-block">
+            <div class="fw-bold  border p-2"
+                 v-if="order && ($root.auth_user.membership_type === 'user' || order.order_step >= 2)">
+              <!-- <h6 style="font-size: 13px" class="d-none">اطراف الطلب</h6> -->
+              <h6 style="font-size: 13px;background-image: linear-gradient(to bottom, #ff584d14, #802c2710); padding: 10px;"
+                  class="d-none">{{ $root._t("app.enemyCard") }}</h6>
+              <ul
+                  class="list-unstyled px-0 f-12 text-end mt-0"
+                  v-for="item in order.entities"
+                  :key="item.id"
+              >
+                <li class="mb-3  d-inline-block">
                     <span style="min-width: 60px" class="d-block mb-2">
                       {{ $root._t("app.fullname") }}
                     </span>
-                <span
-                    style="margin-right: 0; color: #0995eb"
-                    class="fw-bold form-control"
-                >
+                  <span
+                      style="margin-right: 0; color: #0995eb"
+                      class="fw-bold form-control"
+                  >
                       {{ item.name }}
                     </span>
-              </li>
-              <li class="mb-3 mx-3 d-inline-block">
+                </li>
+                <li class="mb-3 mx-3 d-inline-block">
                     <span style="min-width: 60px" class="d-block mb-2">
                       {{ $root._t("app.nationalId") }}
                     </span>
-                <span
-                    style="margin-right: 0; color: #0995eb"
-                    class="fw-bold form-control"
-                >
+                  <span
+                      style="margin-right: 0; color: #0995eb"
+                      class="fw-bold form-control"
+                  >
                       {{ item.id_number }}
                     </span>
-              </li>
-              <li class="mb-3  d-inline-block">
+                </li>
+                <li class="mb-3  d-inline-block">
                     <span style="min-width: 60px" class="d-block mb-2">
                       {{ $root._t("app.nationality") }}
                     </span>
-                <span
-                    style="margin-right: 0; color: #0995eb"
-                    class="fw-bold form-control"
-                >
+                  <span
+                      style="margin-right: 0; color: #0995eb"
+                      class="fw-bold form-control"
+                  >
                       {{ item.nationality }}
                     </span>
-              </li>
-            </ul>
-          </div>
+                </li>
+              </ul>
+            </div>
 
             <template v-if="order.order_step === 1">
               <template
@@ -362,7 +369,7 @@
                     </label>
                     <span class="text-success">
                     خصم نسبة
-                    {{$root.settings.amount_add_order_vat}}
+                    {{ $root.settings.amount_add_order_vat }}
                     %
                   </span>
                     <input
@@ -433,7 +440,7 @@
                   </div>
                 </div>
               </template>
-              <div class="my-4 border btw-flex border p-2" >
+              <div class="my-4 border btw-flex border p-2">
                 <span> {{ $root._t("app.presentation") }} </span>
                 <span>
                 <button
@@ -478,8 +485,8 @@
             </template>
             <template v-else>
               <div class="single-nog">
-                 <single-negotiation v-if="order.active_negotiation" :id="order.active_negotiation.id"/>  
-              </div> 
+                <single-negotiation v-if="order.active_negotiation" :id="order.active_negotiation.id"/>
+              </div>
             </template>
             <div
                 class="py-2 px-3 my-3 d-inline-block rounded f-14"
@@ -492,8 +499,8 @@
               </span>
               <a class="ms-3 fw-bold" :href="cloud_url + file.path" target="_blank">
                 ملف
-                {{index + 1}}
-                {{file.image}}
+                {{ index + 1 }}
+                {{ file.image }}
               </a>
 
             </div>
@@ -627,60 +634,40 @@
                   </li>
                 </ul>
               </div>
-              <!-- هنا بدايه بيانات المدعى عليه -->
-              <!-- <div
-                  v-if="order && order.entities.length"
-                  class="bg-users d-flex align-items-center f-14 p-3 text-center dataOfDefendant"
-                  style="
-                  background-image: linear-gradient(
-                    to bottom,
-                    #ff584d20,
-                    #802c2710
-                  );
-                  border-radius: 8px;
-                  background-color: transparent;
-                  margin-top: 20px;
-                "
-              > -->
-                <!-- <h6
-                    style="font-size: 13px"
-                    class=""
-                    v-if="order.entities.length === 1"
-                >
-                  {{ $root._t("app.enemyCard") }}
-                </h6> -->
-
-              </div>
-              <!-- هنا نهايه بيانات المدعى عليه -->
-            <!-- </div> -->
-            <div class="div-save p-2 mt-4">
-              <div class="d-flex align-items-center">
-                <div>
-                  <img
-                      style="width: 40px; margin-left: 8px"
-                      :src="base_url + '/assets/images/o_save.svg'"
-                      alt=""
-                  />
-                </div>
-                <div class="text-white">
-                  <img
-                      :src="base_url + '/assets/images/sm-logo-w.svg'"
-                      alt=""
-                  />
-                  <br/>
-                  <span style="font-size: 10px">
+              <div class="div-save p-2 mt-4">
+                <div class="d-flex align-items-center">
+                  <div>
+                    <img
+                        style="width: 40px; margin-left: 8px"
+                        :src="base_url + '/assets/images/o_save.svg'"
+                        alt=""
+                    />
+                  </div>
+                  <div class="text-white">
+                    <img
+                        :src="base_url + '/assets/images/sm-logo-w.svg'"
+                        alt=""
+                    />
+                    <br/>
+                    <span style="font-size: 10px">
                     <span> {{ $root._t("app.guarantee100") }} </span>
                     <span style="margin-top: -3px; display: block">
                       {{ $root._t("app.yourOrderAtTheSameTime") }}
                     </span>
                   </span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-          
         </div>
       </div>
+    </div>
+  </section>
+  <section v-else>
+    <div class="col-12 text-center p-3">
+      <h1 class="w-100 text-center">غير مصرح</h1>
+      <button class="btn btn-success" @click="orderAccess()">دخول</button>
     </div>
   </section>
 </template>
@@ -695,15 +682,23 @@ import SingleNegotiation from "../../components/SingleNegotiation";
 import AddJudgerModal from "../../components/AddJudgerModal";
 import TModal from "../../components/TModal";
 import JudgerRequestStatusModal from "../../components/JudgerRequestStatusModal";
+import ShowOrderOptionsModal from "../../components/Modals/ShowOrderOptionsModal";
 
 export default {
   name: "ShowSingleOrder",
   props: ["code"],
   components: {
+    ShowOrderOptionsModal,
     JudgerRequestStatusModal,
     TModal,
     AddJudgerModal,
-    SingleNegotiation, Negotiation, OrderNegotiations, NewTopNavbar, OrderRightNavbar, OffersList},
+    SingleNegotiation,
+    Negotiation,
+    OrderNegotiations,
+    NewTopNavbar,
+    OrderRightNavbar,
+    OffersList
+  },
   mounted() {
     this.gettingOrderDetails();
     this.getJudgers();
@@ -733,53 +728,56 @@ export default {
       errors: null,
       // vars of defendant
       defendantList: [],
-      filter:'',
-      judgers:[],
-      judger:{
-        name:'',
-        city:'',
-        contact:'',
-        order_id:null,
+      filter: '',
+      judgers: [],
+      judger: {
+        name: '',
+        city: '',
+        contact: '',
+        order_id: null,
       },
-      offer_negotiable:'0',
-      form:{
-        arbitrator_id:null,
-        order_id:null,
+      offer_negotiable: '0',
+      form: {
+        arbitrator_id: null,
+        order_id: null,
       },
-      judger_refused_message:'',
+      judger_refused_message: '',
     };
   },
   methods: {
-    getJudgers(){
-      api.get('/v1/judgers').then(res=>{
+    orderAccess(){
+      this.$refs.show_order_options_modal.modal('show');
+    },
+    getJudgers() {
+      api.get('/v1/judgers').then(res => {
         this.judgers = res.data.data;
       })
     },
-    vendorUpdateJudger(id,accepted=false){
+    vendorUpdateJudger(id, accepted = false) {
       var data = {
-        _method:'PUT',
-        vendor_refused_message:this.judger_refused_message,
-        vendor_status:accepted?'accepted':'refused',
+        _method: 'PUT',
+        vendor_refused_message: this.judger_refused_message,
+        vendor_status: accepted ? 'accepted' : 'refused',
       };
-      api.post('/v1/orderarbitrators/'+id).then(res=>{
+      api.post('/v1/orderarbitrators/' + id).then(res => {
         this.gettingOrderDetails();
         this.$refs.judger_request_status_modal.modal('hide');
       })
     },
-    sendRequest(){
-      api.post('/v1/orderarbitrators',{arbitrator_id:this.form.arbitrator_id,order_id:this.order.id}).then(res=>{
+    sendRequest() {
+      api.post('/v1/orderarbitrators', {arbitrator_id: this.form.arbitrator_id, order_id: this.order.id}).then(res => {
         this.$root.alertSuccess('تم ارسال الطلب بنجاح');
         this.$parent.gettingOrderDetails();
       })
     },
-    sendJudgerRequest(){
-      api.post('/v1/judger_requests',this.judger).then(res=>{
+    sendJudgerRequest() {
+      api.post('/v1/judger_requests', this.judger).then(res => {
         this.$root.alertSuccess('تم ارسال الطلب بنجاح سيتم التواصل مع المحكم و ابلاغكم');
         this.$parent.gettingOrderDetails();
       })
     },
-    openOrder(){
-      api.get('/v1/open-order/'+this.order.id).then(res=>{
+    openOrder() {
+      api.get('/v1/open-order/' + this.order.id).then(res => {
         this.order.order_status = "under_review";
         this.$root.alertSuccess('تم ارسال الطلب بنجاح وبأنتظار موافقة الادارة');
       });
@@ -803,7 +801,7 @@ export default {
         });
       });
     },
-    cancelOrder(){
+    cancelOrder() {
       this.$swal({
         title: 'هل انت متأكد ؟',
         text: "الغاء كل المعاملات والنقاشات او العروض لهذا الطلب",
@@ -815,8 +813,8 @@ export default {
         cancelButtonText: 'الغاء'
       }).then((result) => {
         if (result.isConfirmed) {
-          var v_data = {_method:'PUT',order_status:'closed'};
-          api.post('/v1/orders/'+this.order.id,v_data).then(res=>{
+          var v_data = {_method: 'PUT', order_status: 'closed'};
+          api.post('/v1/orders/' + this.order.id, v_data).then(res => {
             this.$root.alertSuccess('تم اغلاق المشروع بنجاح');
             this.gettingOrderDetails();
           })
@@ -824,9 +822,9 @@ export default {
       })
     },
     gettingOrderDetails() {
-      api
-          .get("v1/orders/" + this.$props.code)
+      api.get("v1/orders/" + this.$props.code)
           .then((response) => {
+
             this.deptname =
                 response.data.data["department_id"].department_name_ar;
             this.order_details = response.data.data.order_content;
@@ -843,10 +841,8 @@ export default {
             this.judger.order_id = this.order.id;
             //  let splittingOrderContent = response.data.data.data[1].order_content.split(" ") ;
             this.getOffers();
-            console.log(response.data.data);
           })
           .catch((e) => {
-            console.log(e.response);
           });
     },
     addNewOffer() {
@@ -884,7 +880,7 @@ export default {
         this.offers = res.data.data;
       });
     },
-    createContract(){
+    createContract() {
       this.$router.push({
         name: "ContractCreate",
         params: {hash_code: this.order.hash_code},
@@ -892,9 +888,22 @@ export default {
     }
   },
   computed: {
-    balanceCovered(){
+    accessOrder(){
+      if(this.order){
+        if(this.$root.auth_user.id === this.order.user_id.id)
+          return true;
+        var access = false;
+        access = this.order.access_vendors.map(item=>{
+          if (item.id === this.$root.auth_user.id){
+            return true;
+          }
+        })
+        return access;
+      }
+    },
+    balanceCovered() {
       var current_balance = parseInt(this.$root.auth_user.current_balance);
-      var order_fees  = parseInt(this.$root.settings.minimum_amount_add_order);
+      var order_fees = parseInt(this.$root.settings.minimum_amount_add_order);
       return current_balance >= order_fees;
     },
     summitedOffer() {
@@ -918,68 +927,83 @@ export default {
 h1 {
   font-family: "DroidArabicKufiRegular";
 }
+
 .add-o-file {
-    color: #3e3f40;
-    width: 141px;
-    background: #ffffff;
-    border: 1px solid #dee2e6;
-    padding: 6px;
-    border-radius: 3px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+  color: #3e3f40;
+  width: 141px;
+  background: #ffffff;
+  border: 1px solid #dee2e6;
+  padding: 6px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
+
 .single-nog .requsts-sec {
-      width: 100%;
+  width: 100%;
 }
-.single-nog .d-flex.mb-3  .bg-primary {
-    background-color: #048e81!important;
-    padding: 2px 5px;
-    border-radius: 5px;
-    font-size: 12px;
+
+.single-nog .d-flex.mb-3 .bg-primary {
+  background-color: #048e81 !important;
+  padding: 2px 5px;
+  border-radius: 5px;
+  font-size: 12px;
 }
-.single-nog .d-flex.mb-3  textarea {
-    border: 1px solid #ddd !important;
+
+.single-nog .d-flex.mb-3 textarea {
+  border: 1px solid #ddd !important;
 }
-.single-nog .d-flex.mb-3  {
-    align-items: flex-start;
+
+.single-nog .d-flex.mb-3 {
+  align-items: flex-start;
 }
-.single-nog .d-flex.mb-3  img {
+
+.single-nog .d-flex.mb-3 img {
   width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    margin-left: 10px;
-    margin-bottom: 5px;
+  height: 30px;
+  border-radius: 50%;
+  margin-left: 10px;
+  margin-bottom: 5px;
 }
-.single-nog  .item-chat li div {
-    justify-content: start;
-    align-items: center;
+
+.single-nog .item-chat li div {
+  justify-content: start;
+  align-items: center;
 }
+
 .header-top {
-    width: 100%;
-  
+  width: 100%;
+
 }
+
 .cir-prog {
-max-width: 65px;
-    height: 65px;
+  max-width: 65px;
+  height: 65px;
 }
-.current-circle-status{
-  border-color: #048e81;
-}
-.current-text-status{
-  color: #048e81;
-}
-.cir-prog img {
-    width: 23px;
-}
-.cir-prog {
-    border: 6px solid #0a95eb;
-}
+
 .current-circle-status {
   border-color: #048e81;
-  
 }
+
+.current-text-status {
+  color: #048e81;
+}
+
+.cir-prog img {
+  width: 23px;
+}
+
+.cir-prog {
+  border: 6px solid #0a95eb;
+}
+
+.current-circle-status {
+  border-color: #048e81;
+
+}
+
 .o-txt {
-    font-size: 16px;
+  font-size: 16px;
 }
 </style>
