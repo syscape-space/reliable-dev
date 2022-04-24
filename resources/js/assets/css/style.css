@@ -41,10 +41,10 @@ a:hover {
     src: url("../fonts/din-next-lt-w23-bold-1.ttf");
     font-weight: bold;
   }
-body {
+body, * {
     text-align: "right";
     direction: rtl;
-    font-family: "ameria", sans-serif;
+    font-family: "din-next";
     color: #363848;
     background-color: #ECF8FF !important;
 }
