@@ -68,12 +68,14 @@ class UsersRequest extends FormRequest {
 		];
 		$rules['country_id'] = 'required|integer|exists:countries,id';
 		$rules['city_id']    = 'required|integer|exists:cities,id';
+		// $rules['cities']    = 'required';
+
 		if (request('membership_type') == 'employee') {
 			$rules['company_id'] = 'required|integer|exists:users,id';
 		}
 		if (request('membership_type') == 'vendor') {
             $rules['main_department'] = 'required';
-			// $rules['sub_department'] = 'required';
+			$rules['sub_department'] = 'required';
 		}
 		return $rules;
 	}
@@ -120,12 +122,15 @@ class UsersRequest extends FormRequest {
 			'suspended_balance'             => 'sometimes|nullable|numeric',
 		];
 		$rules['city_id']    = 'required|integer|exists:cities,id';
+		
+
 		if (request('membership_type') == 'employee') {
 			$rules['company_id'] = 'required|integer|exists:users,id';
 		}
         if (request('membership_type') == 'vendor') {
             $rules['main_department'] = 'required';
             $rules['sub_department'] = 'required';
+			// $rules['cities']    = 'required';
         }
 		return $rules;
 	}

@@ -122,9 +122,20 @@ class User extends Authenticatable implements JWTSubject
 	{
 		return $this->belongsTo(Department::class, 'main_department', 'id');
 	}
-	public function subDepartment()
+
+	// public function main_departments()
+	// {
+	// 	return $this->belongsToMany(Department::class, 'main_department_user');
+	// }
+
+	// public function subDepartment()
+	// {
+	// 	return $this->belongsTo(Department::class, 'sub_department', 'id');
+	// }
+
+	public function sub_departments()
 	{
-		return $this->belongsTo(Department::class, 'sub_department', 'id');
+		return $this->belongsToMany(Department::class, 'sub_department_user');
 	}
 
 	public function getJWTIdentifier()
@@ -176,6 +187,11 @@ class User extends Authenticatable implements JWTSubject
 	public function city()
 	{
 		return $this->belongsTo(City::class);
+	}
+
+	public function cities()
+	{
+		return $this->belongsToMany(\App\Models\City::class);
 	}
 	public function country()
 	{
