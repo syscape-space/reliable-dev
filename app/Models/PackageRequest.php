@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class PackageRequest extends Model {
 
 protected $table    = 'package_requests';
+protected $appends =['end_at','start_at','remaining_days'];
 protected $fillable = [
 		'id',
 		'admin_id',
@@ -41,6 +42,7 @@ protected $fillable = [
       return $this->belongsTo(\App\Models\VendorPackage::class,'package_id','id');
    }
 
+
 	/**
     * user_id relation method
     * @param void
@@ -54,6 +56,9 @@ protected $fillable = [
    }
    public function getEndAtAttribute(){
        return Carbon::parse($this->updated_at)->addDays($this->package->duration_package_days)->format('Y-m-d');
+   }
+   public function getRemainingDaysAttribute(){
+       return Carbon::today()->diffInDays(Carbon::parse($this->end_at));
    }
 
  	/**

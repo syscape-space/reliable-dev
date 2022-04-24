@@ -245,4 +245,9 @@ class OrderOffersApi extends Controller
             "file" => it()->getFile("orderoffers", request("dz_id")),
         ]);
     }
+
+    public function favoriteTrigger($id){
+        auth('api')->user()->triggerOfferFavorite($id);
+        return response(['message'=>'done']);
+    }
 }

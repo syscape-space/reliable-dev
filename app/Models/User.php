@@ -255,6 +255,16 @@ class User extends Authenticatable implements JWTSubject
             'all'   =>  OrderOffer::query()->where('vendor_id',$this->id)->count(),
         ];
     }
+    public function offer_favorites(){
+	    return $this->belongsToMany(OrderOffer::class,'offer_favorites','user_id','order_offer_id');
+    }
+    public function triggerOfferFavorite($offer_id){
+	    if ($this->offer_favorites()->where('id',$offer_id)->count()){
+            $this->offer_favorites()->where('id',$offer_id)->delete();
+        }else{
+            $this->offer_favorites()->attach($offer_id);
+        }
+    }
 
 }
 
