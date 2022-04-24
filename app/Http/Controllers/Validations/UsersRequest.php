@@ -73,7 +73,7 @@ class UsersRequest extends FormRequest {
 		}
 		if (request('membership_type') == 'vendor') {
             $rules['main_department'] = 'required';
-			$rules['sub_department'] = 'required';
+			// $rules['sub_department'] = 'required';
 		}
 		return $rules;
 	}

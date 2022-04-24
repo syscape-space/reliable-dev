@@ -8,43 +8,41 @@
     <div v-if="license_status == 'end' && !errorMsg && !successMsg" class="alert alert-warning">
         <strong>الرخصة منتهية</strong> يرجي تجديد الرخصة
     </div>
-
     <div v-if="successMsg" class="alert alert-success">
         <p class="m-0 p-0" v-text="successMsg"></p>
     </div>
     <div v-if="errorMsg" class="alert alert-danger">
         <p class="m-0 p-0" v-text="errorMsg"></p>
     </div>
-
-
-
     <div class="card tab-content">
         <div class="tab-pane fade active show" id="user-edit-account">
             <div class="card-header">
-                <h5><i data-feather="user" class="icon-svg-primary wid-20"></i><span class="p-l-5">الرخصة
-                        المهنية</span></h5>
+                <h5>
+                    <i data-feather="user" class="icon-svg-primary wid-20"></i>
+                    <span class="p-l-5">الرخصة
+                        المهنية</span>
+                </h5>
             </div>
-          <template v-if="license">
-            <template v-if="parseInt(license.status) === 0">
-              <div class="alert alert-info">
-                جاري الفحص من الادارة
-              </div>
+            <template v-if="license">
+                <template v-if="parseInt(license.status) === 0">
+                <div class="alert alert-info">
+                    جاري الفحص من الادارة
+                </div>
+                </template>
+                <template v-else-if="parseInt(license.status) === 1">
+                <div class="alert alert-success">
+                    تم الاعتماد
+                </div>
+                </template>
+                <template v-else>
+                <div class="alert alert-danger">
+                    تم الرفض من الادارة والسبب :
+                    <p v-html="license.comment"></p>
+                    الرجاء تصحيح الوثيقة والمحاولة
+                </div>
+                </template>
             </template>
-            <template v-else-if="parseInt(license.status) === 1">
-              <div class="alert alert-success">
-                تم الاعتماد
-              </div>
-            </template>
-            <template v-else>
-              <div class="alert alert-danger">
-                تم الرفض من الادارة والسبب :
-                <p v-html="license.comment"></p>
-                الرجاء تصحيح الوثيقة والمحاولة
-              </div>
-            </template>
-          </template>
-
-          <form v-on:submit.prevent="submitForm" ref='licenseForm' v-if=" license == null || license.status != 0 || license.status == null  ">
+            <form v-on:submit.prevent="submitForm" ref='licenseForm' v-if=" license == null || license.status != 0 || license.status == null  ">
                 <input type="hidden" name="csrf_token" value="ebd97b854219e3339845763cb1846258" />
                 <input type="hidden" name="token" value="NI0eiHSJ6I26pSIAihHjG1lCkUVK983_ofqxWxD2HEs" />
                 <input type="hidden" v-model="user_id" name="user_id" />
@@ -69,12 +67,15 @@
                                     name="license_end_at" type="date" :disabled="editable == false">
                             </div>
                         </div>
-                        <div class="col-sm-12">
+                        <div class="col-sm-12 col-lg-6 col-xl-4">
                             <div class="form-group">
                                 <label class="mt-3 mb-1" for="license_file">رفع صورة الرخصة<span class="text-danger">*</span>
                                 </label>
-                                <input class="form-control" name="license_file"
+                                <div class="position-relative form-control">
+                                     <input style="opacity:0" class="" name="license_file"
                                     type="file"  :disabled="editable == false">
+                                    <div class="file-icoo two"> <svg class="svg-inline--fa fa-paperclip" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="paperclip" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M364.2 83.8C339.8 59.39 300.2 59.39 275.8 83.8L91.8 267.8C49.71 309.9 49.71 378.1 91.8 420.2C133.9 462.3 202.1 462.3 244.2 420.2L396.2 268.2C407.1 257.3 424.9 257.3 435.8 268.2C446.7 279.1 446.7 296.9 435.8 307.8L283.8 459.8C219.8 523.8 116.2 523.8 52.2 459.8C-11.75 395.8-11.75 292.2 52.2 228.2L236.2 44.2C282.5-2.08 357.5-2.08 403.8 44.2C450.1 90.48 450.1 165.5 403.8 211.8L227.8 387.8C199.2 416.4 152.8 416.4 124.2 387.8C95.59 359.2 95.59 312.8 124.2 284.2L268.2 140.2C279.1 129.3 296.9 129.3 307.8 140.2C318.7 151.1 318.7 168.9 307.8 179.8L163.8 323.8C157.1 330.5 157.1 341.5 163.8 348.2C170.5 354.9 181.5 354.9 188.2 348.2L364.2 172.2C388.6 147.8 388.6 108.2 364.2 83.8V83.8z"></path></svg><!-- <i class="fa-solid fa-paperclip"></i> Font Awesome fontawesome.com --> </div>
+                                </div>
                                 <img v-if="license_file" height="100" :src="cloud_url + license_file">
                                 
                             </div>
@@ -92,7 +93,7 @@
                 <div style="display:none"><label>Bot Will Fill This Field</label><input type="text" name="ciapp_check"
                         value="" /></div>
             </form>
-        </div>
+        </div>  
     </div>
 
 </template>
@@ -147,6 +148,17 @@ import api from '../../utils/api';
         },
     }
 </script>
-<style scoped>
-
+<style >
+.card-footer , .card-header{
+  border: 0 !important;
+  background-color:transparent !important
+}
+.form-control {
+    width: 100%;
+    min-height: 50px;
+    border: 1px solid #73737d8f;
+    outline: none;
+    padding: 0 10px;
+    border-radius: 10px !important;
+  }
 </style>

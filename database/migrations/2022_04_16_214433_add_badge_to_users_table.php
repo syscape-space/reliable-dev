@@ -14,9 +14,9 @@ class AddBadgeToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('badge');
-            $table->string('badge_condition');
-            $table->string('badge_icon');
+            $table->string('badge')->nullable();
+            $table->string('badge_condition')->nullable();
+            $table->string('badge_icon')->nullable();
         });
     }
 
