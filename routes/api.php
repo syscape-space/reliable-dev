@@ -69,6 +69,9 @@ Route::group(
 		Route::put('update_user_profile/{user_id}' , 'EditUserProfileController@updateUseProfileImage') ;
 		Route::get('user_profile_data/{user_id} , UserProfileController@getThisUserProfileData');
 
+		Route::get('lawyers', 'SelectLawyerController@index');
+		Route::get('lawyers-search', 'SelectLawyerController@search');
+
 
 		Route::get('/', function () {
 			echo "HI";

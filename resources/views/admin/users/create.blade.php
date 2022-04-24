@@ -34,7 +34,7 @@
     </div>
     <!-- /.card-header -->
     <div class="card-body">
-        {!! Form::open(['url' => url('/users'), 'id' => 'users', 'files' => true, 'class' => 'form-horizontal form-row-seperated']) !!}
+        {!! Form::open(['url' => route('users.store'), 'id' => 'users', 'files' => true, 'class' => 'form-horizontal form-row-seperated']) !!}
         @if(request()->judger_request_id)
         <input type="hidden" name="judger_request_id" value="{{request()->judger_request_id}}">
         @php($juder_request = \App\Models\JudgerRequest::query()->find(request()->judger_request_id))
@@ -387,7 +387,7 @@
             </div>
             @endif
             @if (request('membership_type') == 'vendor')
-            <div class="class="col-md-3 col-lg-3 col-sm-3 col-xs-12 photo_profile">
+            <div class="col-md-3 col-lg-3 col-sm-3 col-xs-12 photo_profile">
                 <div class="form-group">
                     <label for="'badge_icon'">{{ trans('admin.badge_icon') }}</label>
                     <div class="input-group">

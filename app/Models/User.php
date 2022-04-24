@@ -108,6 +108,7 @@ class User extends Authenticatable implements JWTSubject
 	{
 		return $this->hasMany(UserLicense::class, 'user_id', 'id');
 	}
+
 	public function comericals()
 	{
 		return $this->hasMany(UserCommercial::class, 'user_id', 'id');

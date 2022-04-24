@@ -87,6 +87,7 @@ class Users extends Controller
 		    $order->judgers()->attach($users);
         }
 
+		// return redirectWithSuccess(aurl("users"), trans('admin.added'));
 		return successResponseJson([
 			"message" => trans("admin.added"),
 			"data"    => $users,

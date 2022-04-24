@@ -1,5 +1,7 @@
 import { createWebHistory, createRouter } from "vue-router";
 import indexPage from '../views/indexPage.vue';
+import selectLawyerPage from '../views/SelectLawyer/selectLawyerPage.vue';
+
 
 // Account Settings
 import loginPage from '../views/AccountPages/loginPage.vue' // done
@@ -75,6 +77,12 @@ const routes = [{
         component: indexPage,
         beforeEnter: checkIfLogin,
         name: 'home',
+    },
+    {
+        path: prefix + '/select-lawyer',
+        component: selectLawyerPage,
+        // beforeEnter: checkIfLogin,
+        name: 'select-lawyer',
     },
     {
         path: prefix + '/login',
