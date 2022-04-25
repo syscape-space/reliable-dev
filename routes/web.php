@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\Api\V2\UpdateUserProfileController;
+use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Front\ProfileController;
 use App\Models\FAQ;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\File;
@@ -22,7 +24,7 @@ use App\Http\Livewire\Users\Tickets;
 | contains the "web" middleware group. Now create something great!
 |
  */
-
+Auth::routes();
 Route::get('/provider', function () {
 	return view('front.user.provider.provider');
 });
