@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Instruction;
 use Illuminate\Support\Facades\Route;
 
 \L::Panel(app('admin')); ///SetLangredirecttoadmin
@@ -77,6 +78,8 @@ Route::group(
 			Route::post('departments/check/parent', 'Admin\Departments@check_parent');
 			Route::post('departments/get/master', 'Admin\Departments@get_master');
 			Route::post('departments/check/available/add/order', 'Admin\Departments@check_department');
+
+			Route::resource('instructions','Admin\InstructionController');
 
 			Route::resource('ticketdepartments', 'Admin\TicketDepartments');
 			Route::post('ticketdepartments/multi_delete', 'Admin\TicketDepartments@multi_delete');

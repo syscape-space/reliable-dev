@@ -2,8 +2,8 @@ import { createWebHistory, createRouter } from "vue-router";
 import indexPage from '../views/indexPage.vue';
 
 // Account Settings
-import loginPage from '../views/AccountPages/loginPage.vue' // done
-import Register from '../views/AccountPages/registerPage.vue' // done
+/* import loginPage from '../views/AccountPages/loginPage.vue' // done */
+/* import Register from '../views/AccountPages/registerPage.vue' // done */
 import Verify from '../views/AccountPages/verifyPage.vue'
 import Success from '../views/AccountPages/successPage.vue'
 import UserProfile from '../views/AccountPages/userProfile.vue'
@@ -76,18 +76,18 @@ const routes = [{
         beforeEnter: checkIfLogin,
         name: 'home',
     },
-    {
+    /* {
         path: prefix + '/login',
         component: loginPage,
         beforeEnter: checkIfLogin,
         name: "Login",
-    },
-    {
+    }, */
+    /* {
         path: prefix + '/register',
         component: Register,
         beforeEnter: checkIfLogin,
         name: "Register",
-    },
+    }, */
     {
         path: prefix + '/user-profile/:id',
         component: UserProfile,
