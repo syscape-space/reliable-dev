@@ -128,10 +128,10 @@ class User extends Authenticatable implements JWTSubject
 	// 	return $this->belongsToMany(Department::class, 'main_department_user');
 	// }
 
-	// public function subDepartment()
-	// {
-	// 	return $this->belongsTo(Department::class, 'sub_department', 'id');
-	// }
+	public function subDepartment()
+	{
+		return $this->belongsTo(Department::class, 'sub_department', 'id');
+	}
 
 	public function sub_departments()
 	{
