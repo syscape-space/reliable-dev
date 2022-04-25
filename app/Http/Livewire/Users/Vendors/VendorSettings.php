@@ -20,6 +20,6 @@ class VendorSettings extends Component
     {
         $main_departments=Department::whereNull('parent')->get();
         $sub_departments=Department::whereNotNull('parent')->get();
-        return view('livewire.users.vendors.vendor-settings',compact('main_departments','sub_departments'))->extends('front.layout.index')->section('content');
+        return view('livewire.front.users.vendors.vendor-settings',compact('main_departments','sub_departments'))->extends('front.layout.index')->section('content');
     }
 }

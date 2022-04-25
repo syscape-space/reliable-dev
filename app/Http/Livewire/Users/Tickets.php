@@ -10,8 +10,8 @@ class Tickets extends Component
     public function render()
     {
         $tickets = Ticket::where('user_id', 1)->get();
-        return view('livewire.users.tickets', [
+        return view('livewire.front.users.tickets', [
             'tickets' => $tickets,
-        ]);
+        ])->extends('front.layout.index');
     }
 }

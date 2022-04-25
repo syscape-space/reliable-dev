@@ -15,9 +15,8 @@
     @livewireStyles
 </head>
 <body>
-   
-    <!-- Sttart Header -->
-    <header>
+   <!-- Sttart Header -->
+   <header>
         <div class="container">
             <div class="row align-items-center">
                 <div
@@ -26,7 +25,7 @@
                     <div
                         class="logo justify-content-center justify-content-xl-end"
                     >
-                        <img src="{{asset('tem_assets')}}/img/logo.png" alt="" />
+                        <img src="{{asset('tem_assets')}}//img/logo.png" alt="" />
                         <div class="text">
                             <h6>موثوق Reliable</h6>
                             <p>صنتاع الثقة Trust Makers</p>
@@ -46,7 +45,7 @@
                 <div class="col-xl-9">
                     <div class="row">
                         <div
-                            class="col-md-6 pe-xl-0 d-flex align-items-center mb-4 mb-md-0"
+                            class="col-md-6 pe-xl-0 d-flex justify-content-center justify-content-md-start align-items-center mb-4 mb-md-0"
                         >
                             <form action="">
                                 <div class="inpts">
@@ -76,9 +75,15 @@
                                 </div>
                             </form>
                         </div>
-                        <div class="col-md-6 text-center text-md-start">
+                        <div
+                            class="col-md-6 d-flex align-items-center text-center text-md-start flex-column flex-lg-row justify-content-end gap-3"
+                        >
+                            <a href="" class="new-order btn">
+                                <i class="fa-solid fa-user-group"></i>
+                                طلب جديد
+                            </a>
                             <div
-                                class="dropdown ms-auto ms-lg-0 position-relative drop-d"
+                                class="dropdown position-relative me-0 drop-d"
                             >
                                 <button
                                     class="ms-auto ms-md-0 btn btn-secondary dropdown-toggle"
@@ -124,8 +129,8 @@
         </div>
     </header>
     <!-- End Header -->
-    <!-- Start Section -->
-    <section class="py-5">
+    <!-- Start Section tickets -->
+    <section class="tickets py-5">
         <div class="container">
             <div class="row">
                 <div
@@ -135,10 +140,7 @@
                         <div
                             class="col-xl-9 d-flex align-items-center justify-content-between"
                         >
-                            <h4>الاشتراك</h4>
-                            <a href="" class="icon-back">
-                                <i class="fas fa-arrow-left-long"></i>
-                            </a>
+                            <h4>تذاكري</h4>
                         </div>
                     </div>
                 </div>
@@ -149,13 +151,13 @@
                                 <div class="photo">
                                     <img
                                         class="img-fluid"
-                                        src="{{asset('tem_assets')}}/img/person.jpg"
+                                        src="{{asset('tem_assets')}}//img/person.jpg"
                                         alt=""
                                     />
                                 </div>
                                 <h4>محمد مصطفي</h4>
                                 <p>عميل أفراد</p>
-                                <img src="{{asset('tem_assets')}}/img/done.svg" alt="" />
+                                <img src="{{asset('tem_assets')}}//img/done.svg" alt="" />
                                 <!-- <i class="fa-solid fa-circle-check"></i> -->
                             </div>
                         </div>
@@ -211,126 +213,133 @@
                     </div>
                 </div>
                 <div class="col-xl-9">
-                    <div class="packages-available mb-5">
-                        <h6>الباقات المتاحة</h6>
-                        <div class="row justify-content-between">
-
-                            @foreach ($packages as $package)
-                            <div class="col-md-6 col-xl-4 pt-xl-0 p-4 pe-xl-0">
-                                <div class="box box-one">
-                                    <h4>{{$package->package_title}}</h4>
-                                    <div class="price">
-                                        {{$package->package_price}} <span>$</span>
-                                    </div>
-                                    <div
-                                        class="d-flex align-items-center justify-content-between"
-                                    >
-                                        <a href="" class="btn"
-                                            >أشترك الأن</a
-                                        >
-                                        <span class="icon"
-                                            ><img
-                                                class="img-fluid"
-                                                src="{{asset('tem_assets')}}/img/one.PNG"
-                                                alt=""
-                                        /></span>
-                                    </div>
+                    <div
+                        class="d-flex align-items-center flex-wrap gap-2 justify-content-between"
+                    >
+                        <div class="m-auto m-md-0 count-tickets">
+                            <div class="logo">
+                                <img
+                                    class="img-fluid"
+                                    src="{{asset('tem_assets')}}//img/logo.png"
+                                    alt=""
+                                />
+                                <div class="text-logo">
+                                    <h6>موثوق Reliable</h6>
+                                    <p>صنتاع الثقة Trust Makers</p>
                                 </div>
                             </div>
-                            @endforeach
-                            
-                            {{-- <div class="col-md-6 col-xl-4 pt-xl-0 p-4">
-                                <div class="box box-one">
-                                    <h4>أسم الباقة</h4>
-                                    <div class="price">
-                                        450 <span>$</span>
-                                    </div>
-                                    <div
-                                        class="d-flex align-items-center justify-content-between"
-                                    >
-                                        <a href="" class="btn"
-                                            >أشترك الأن</a
-                                        >
-                                        <span class="icon"
-                                            ><img
-                                                class="img-fluid"
-                                                src="{{asset('tem_assets')}}/img/two.PNG"
-                                                alt=""
-                                        /></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-xl-4 pt-xl-0 p-4 ps-xl-0">
-                                <div class="box box-one">
-                                    <h4>أسم الباقة</h4>
-                                    <div class="price">
-                                        450 <span>$</span>
-                                    </div>
-                                    <div
-                                        class="d-flex align-items-center justify-content-between"
-                                    >
-                                        <a href="" class="btn"
-                                            >أشترك الأن</a
-                                        >
-                                        <span class="icon"
-                                            ><img
-                                                class="img-fluid"
-                                                src="{{asset('tem_assets')}}/img/three.PNG"
-                                                alt=""
-                                        /></span>
-                                    </div>
-                                </div>
-                            </div> --}}
+                            <div class="count">لديك {{$tickets->count()}} تذكرة</div>
+                        </div>
+                        <div class="new-ticket m-auto m-md-0 btn">
+                            تذكرة جديدة
                         </div>
                     </div>
-                    <div class="subscriptions">
-                        <h6>الاشتراكات</h6>
+                    <div class="all-tickets d-flex flex-column gap-3">
 
-                        @php
-                            $user = \App\Models\User::find(1)
-                        @endphp
-                        {{-- {{dd($user->current_subscription)}} --}}
-                        <div class="table-resp">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>حاله الأشتراك</th>
-                                        <th>أسم الباقة</th>
-                                        <th>الرصيد المعلق</th>
-                                        <th>مدة الاشتراك</th>
-                                        <th>يبداء في</th>
-                                        <th>ينتهي في</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    
-
-                                    @forelse ($user->packageRequests as $index => $packageRequest)
-                                    {{-- {{dd($packageRequest)}} --}}
-                                        <tr>
-                                            <td>{{$index+1}}</td>
-                                            <td>{{$packageRequest->request_status}}</td>
-                                            <td>{{$packageRequest->package->package_title}}</td>
-                                            <td>{{$packageRequest->suspended_balance}}</td>
-                                            <td>{{$packageRequest->package->duration_package_days}}</td>
-                                            <td>{{$packageRequest->start_at}}</td>
-                                            <td>{{$packageRequest->end_at}}</td>
-                                        </tr>
-                                    @empty
-                                        لم تقم بالاشتراك في اي باقة بعد
-                                    @endforelse
-                                    
-                                </tbody>
-                            </table>
+                        @foreach ($tickets as $ticket)
+                        <div class="ticket">
+                            <div class="date">
+                                <i class="fa-regular fa-clock"></i>
+                                {{$ticket->created_at->diffForHumans()}}
+                            </div>
+                            <p class="text">
+                                {{$ticket->ticket_title}}
+                            </p>
+                            @if ($ticket->ticket_status == 'opened')
+                                <div class="status open">تذكرة مفتوحة</div>
+                            @else
+                                <div class="status close">تذكرة مغلقة</div>
+                            @endif
                         </div>
+                        @endforeach
+                        
+                        
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- End Section -->
+    <!-- End Section  tickets-->
     <!-- Js Files -->
+
+    <section class="personal-section mt-2">
+        <div class="personal">
+          <div class="personal-info">
+            <h6 class="my-4">@{{ $root._t("app.ticketDetails") }}</h6>
+            <form action="" enctype="multipart/form-data">
+              <div class="row w-100 mx-0 px-0">
+               
+               <!--- Error Will Validate Here -->
+            <div class="errors">
+              <div class="alert alert-danger" v-for="error in errors" :key="error">
+                <strong>@{{ error }}</strong>
+              </div>
+            </div>
+  
+                <div class="mb-3 col-md-4">
+                  <div class="content-col">
+                    <label style="font-size: 13px">@{{ $root._t("app.ticketTitle") }}</label>
+                    <input
+                      class="input-personal mt-1 w-100"
+                      type="text"
+                      placeholder="عنوان التذكره"
+                      v-model="ticketTitle"
+                    />
+                  </div>
+                </div>
+                <div class="mb-3 col-md-4">
+                  <div class="content-col">
+                    <label style="font-size: 13px">@{{ $root._t("app.chooseDepartment") }}</label>
+                      <select  class="input-personal mt-1 w-100" v-model="ticketDepartment">
+                          <option :value="item.id" v-for="item in list" :key="item.id"> @{{ item.department_name_ar }} </option>
+                      </select>
+                  </div>
+                </div>
+                <div class="mb-3 col-md-4">
+                  <div class="content-col">
+                    <label style="font-size: 13px">@{{ $root._t("app.uploadFiles") }}</label>
+                    <input
+                      class="input-personal mt-1 w-100"
+                      type="file"
+                      @change="onSelectedImage"
+                    />
+                  </div>
+                </div>
+                <div class="mb-3 col-md-12">
+                  <div class="content-col">
+                    <label style="font-size: 13px">@{{ $root._t("app.relatedTo") }}</label>
+                      <select  class="input-personal mt-1 w-100" v-model="ticketLinked">
+                          <option value="order" > @{{ $root._t("app.order") }} </option>
+                          <option value="offer" > @{{ $root._t("app.preview") }} </option>
+                          <option value="charge" > @{{ $root._t("app.charge") }} </option>
+                          <option value="received_money" > @{{ $root._t("app.recieveMony") }} </option>
+                          <option value="account" > @{{ $root._t("app.account") }} </option>
+                          <option value="other" > @{{ $root._t("app.other") }} </option>
+                      </select>
+                  </div>
+                </div>
+                <div class="mb-3 col-md-12">
+                  <div class="content-col">
+                    <label style="font-size: 13px">@{{ $root._t("app.content") }}</label>
+                    <textarea
+                        class="input-personal mt-1 w-100"
+                        name="" id="" cols="30" rows="10" v-model="ticketContent">
+                    </textarea>
+                  </div>
+                </div>
+  
+                <div class="col-md-12 text-center">
+                  <button class="save-btn" @click.prevent="addNewTicket()">
+                    اضافه تذكره جديده
+                  </button>
+                </div>
+                
+              </div>
+            </form>
+          </div>
+        </div>
+    </section>
+
     <script src="{{asset('tem_assets')}}/js/all.min.js"></script>
     <script src="{{asset('tem_assets')}}/js/tickets.js"></script>
     <script src="{{asset('tem_assets')}}/js/bootstrap.bundle.min.js"></script>
