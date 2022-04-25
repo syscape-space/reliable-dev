@@ -184,6 +184,7 @@
 		<b>{{trans('admin.id_type')}} :</b>
 		{{ trans("admin.".$users->id_type) }}
 	</div>
+	
 	<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
 		<b>{{trans('admin.id_status')}} :</b>
 		{{ trans("admin.".$users->id_status) }}
@@ -201,6 +202,10 @@
 	<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
 		<b>{{trans('admin.gender')}} :</b>
 		{{ trans("admin.".$users->gender) }}
+	</div>
+	<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+		<b>{{trans('admin.gender')}} :</b>
+		{{ optional($users->current_subscription->package)->package_end_at }}
 	</div>
 	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 		<hr />

@@ -1,9 +1,17 @@
 import { createWebHistory, createRouter } from "vue-router";
 import indexPage from '../views/indexPage.vue';
+import selectLawyerPage from '../views/SelectLawyer/selectLawyerPage.vue';
+
 
 // Account Settings
+<<<<<<< HEAD
 /* import loginPage from '../views/AccountPages/loginPage.vue' // done */
 /* import Register from '../views/AccountPages/registerPage.vue' // done */
+=======
+import loginPage from '../views/AccountPages/loginPage.vue' // done
+import Register from '../views/AccountPages/registerPage.vue' // done
+import FirstRegister from '../views/AccountPages/firstRegisterPage.vue' // done
+>>>>>>> b3780898262d2868182a948ac54d3a22e673f9ec
 import Verify from '../views/AccountPages/verifyPage.vue'
 import Success from '../views/AccountPages/successPage.vue'
 import UserProfile from '../views/AccountPages/userProfile.vue'
@@ -40,14 +48,13 @@ import MyOrder from '../views/OrdersPages/myOrder.vue'
 import EXMyOrders from '../views/OrdersPages/EXMyOrders.vue'
 import ShowAllOrders from '../views/OrdersPages/showAllOrders.vue'
 import Filteration from '../views/OrdersPages/ordersFilteration.vue'
-
-
-// Tickets
+//
 import addTicket from '../views/TicketsPages/createTecket.vue'
 import ShowSingleOrder from "../views/OrdersPages/ShowSingleOrder.vue";
 import Negotiation from "../components/Negotiation";
 import NegotiationsPage from "../views/OrdersPages/NegotiationsPage";
 import Subscription from "../views/Subscription";
+import ContractCreate from "../views/Contract/Create";
 
 
 const prefix = APP_PREFIX;
@@ -76,7 +83,17 @@ const routes = [{
         beforeEnter: checkIfLogin,
         name: 'home',
     },
+<<<<<<< HEAD
     /* {
+=======
+    {
+        path: prefix + '/select-lawyer',
+        component: selectLawyerPage,
+        // beforeEnter: checkIfLogin,
+        name: 'select-lawyer',
+    },
+    {
+>>>>>>> b3780898262d2868182a948ac54d3a22e673f9ec
         path: prefix + '/login',
         component: loginPage,
         beforeEnter: checkIfLogin,
@@ -88,6 +105,12 @@ const routes = [{
         beforeEnter: checkIfLogin,
         name: "Register",
     }, */
+    {
+        path: prefix + '/FirstRegister',
+        component: FirstRegister,
+        beforeEnter: checkIfLogin,
+        name: "FirstRegister",
+    },
     {
         path: prefix + '/user-profile/:id',
         component: UserProfile,
@@ -269,6 +292,12 @@ const routes = [{
         path: prefix + '/subscription',
         component: Subscription,
         name: 'Subscription',
+    },
+    {
+        path: prefix + '/contract/create/:hash_code',
+        props:true,
+        component:ContractCreate ,
+        name: 'ContractCreate',
     },
 ]
 const router = createRouter({

@@ -32,7 +32,8 @@ class OrderOffersApi extends Controller
         "feedback_user_offer_status_by_admin",
         "requester_objected_status",
         "requester_objected_endat",
-        "created_at"
+        "created_at",
+        'negotiable',
     ];
 
     /**
@@ -243,5 +244,10 @@ class OrderOffersApi extends Controller
             "type" => request("dz_type"),
             "file" => it()->getFile("orderoffers", request("dz_id")),
         ]);
+    }
+
+    public function favoriteTrigger($id){
+        auth('api')->user()->triggerOfferFavorite($id);
+        return response(['message'=>'done']);
     }
 }

@@ -37,7 +37,6 @@ class PackageRequestsRequest extends FormRequest {
 	protected function onUpdate() {
 		return [
 			'package_id'        => 'required|integer|exists:vendor_packages,id',
-			'user_id'           => 'required|string|exists:users,id',
 			'request_status'    => 'required|string',
 			'refused_reason'    => 'sometimes|nullable|string',
 			'suspended_balance' => 'required|string|in:yes,no',

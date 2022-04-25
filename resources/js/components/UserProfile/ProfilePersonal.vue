@@ -8,14 +8,22 @@
   <div v-if="success" class="alert alert-success">
     <p class="m-0 p-0" v-text="success"></p>
   </div>
-  <div v-if="subscribtion_end && subscribe_end_at" class="alert alert-warning">
+  <div v-if="subscribtion_end && subscribe_end_at" class="" style="
+      background: transparent linear-gradient(270deg, #df2929 0%, #ff6d6d 100%) 0% 0% no-repeat padding-box;
+      min-height: 50px;
+      color: white;
+      min-width: 100px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;">
     <strong>الاشتراك منتهي</strong> يرجي تجديد الاشتراك
   </div>
 
-  <div class="card tab-content">
-    <div class="tab-pane fade active show" id="user-edit-account">
-      <div class="card-header">
-        <h5><span class="p-l-5">اعدادات الحساب</span></h5>
+  <div class="card tab-content border-0">
+    <div class="tab-pane fade active show border-0" id="user-edit-account">
+      <div class="card-header bg-transparent border-0">
+        <h5 style="    font-size: 1.5rem;"><span class="p-l-5">اعدادت الحساب الخاص بك</span></h5>
       </div>
       <div>
         <div class="card-body">
@@ -185,9 +193,11 @@
 
           </div>
         </div>
-        <div class="card-footer text-right">
+        <div class="card-footer text-right bg-white">
 
-          <button class="btn btn-primary d-flex align-items-center" type="button" @click="submitForm()"
+          <button style="
+            background-color: rgb(4, 145, 232); color: white; font-size: 18px; min-height: 50px; justify-content: center; margin: 0px auto; min-width: 200px; border: 1px solid #73737d8f; outline: none; padding: 0 10px; border-radius: 10px;
+          " class=" d-flex align-items-center" type="button" @click="submitForm()"
                   :disabled="loading">
             <span v-if="loading"> حفظ...</span>
             <span v-if="loading" class="spinner-border spinner-border-sm me-3 ms-1" role="status"></span>
@@ -234,9 +244,6 @@ export default {
       address: this.user?.address,
       bio: this.user?.bio,
       base_url: base_url,
-      user_id: this.user_id,
-      countries: this.countries,
-      cities: this.cities,
       departments:[],
     };
   },
@@ -303,5 +310,16 @@ export default {
 }
 </script>
 <style scoped>
-
+  .form-control {
+    width: 100%;
+    min-height: 50px;
+    border: 1px solid #73737d8f;
+    outline: none;
+    padding: 0 10px;
+    border-radius: 10px;
+  }
+  label {
+    font-size: 17px !important;
+    margin-bottom: 5px !important;
+  }
 </style>

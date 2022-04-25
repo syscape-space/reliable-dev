@@ -5,14 +5,14 @@
     <div class="row w-100 mx-0 px-0 mt-5" >
         <div class="col-md-6 login-page" id="pageLoginImage">
           <div class="text-center mt-5">
-            <!--<img style="width: 150px;" :src="base_url+'/assets/images/login-1-logo.svg'" alt="">-->
+            <img style="width: 150px;" :src="base_url+'/assets/images/login-1-logo.svg'" alt="">
           </div>
         </div>
         <div class="col-md-6 px-0 ">
           <div class="p-3">
             <div class="text-center mt-1 mb-5 logoText">
               <!--<img style="width: 100px;" :src="base_url+'/public/assets/images/login-1-logo.svg'" alt="">-->
-              <img style="width: 30%;object-fit:contain" src="../../assets/images/logoText.png" alt="">
+              <img style="width: 30%;object-fit:contain" :src="`${base_url}/assets/images/logoText.png`" alt="">
             </div>
             <div class="register text-center" style="color:#0995EB">
               <h4 class="mb-4">  {{ $root._t("app.login") }} </h4>
@@ -34,8 +34,8 @@
                   <span>رقم الجوال</span>
                 </label>
                 <input type="number" class="pe-2 form-control" placeholder=" رقم الجوال" v-model="id_number"> <!-- Phone number -->
-                <img class="img-lllo" style="width: 20px; position: absolute; right: 10px;"
-                :src="base_url+'/assets/images/login-user.svg'" alt="">
+                <!-- <img class="img-lllo" style="width: 20px; position: absolute; right: 10px;"
+                :src="base_url+'/assets/images/login-user.svg'" alt=""> -->
               </div>
               <div class="auth-login text-center  position-relative">
                 <label class="w-100 d-flex align-items-center mb-2 text-right" style="column-gap:5px;color:#4E5567">
@@ -63,7 +63,7 @@
               </div>
               <div>
                 <p class="my-4 "> {{ $root._t("app.do_you_have_account") }}
-                    <router-link :to="{name:'Register'}"
+                    <router-link :to="{name:'FirstRegister'}"
                       href="#"
                       style="color: #048e81;"  
                     class=""> {{ $root._t("app.create_account_now") }} </router-link></p> 
@@ -105,6 +105,7 @@ export default {
   },
   methods:{
     loginFun() {
+      console.log(this.id_number);
         api
           .post("/v2/login", {
             id_number: this.id_number,
@@ -115,7 +116,6 @@ export default {
             // saving token to localSorage
             this.$root.alertSuccess("Loggened Successfully");
             localStorage.setItem("token", token );
-            this.$root.getAuthUser();
             // route for u_index page
             this.$router.push({ name: "profilePage" });
           })

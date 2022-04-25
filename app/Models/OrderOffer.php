@@ -30,6 +30,7 @@ class OrderOffer extends Model {
 		'requester_objected_endat',
 		'created_at',
 		'updated_at',
+		'negotiable',
 	];
 
 	/**
@@ -87,5 +88,6 @@ class OrderOffer extends Model {
 				//$orderoffer->vendor_id()->delete();
 			});
 	}
+
 
 }

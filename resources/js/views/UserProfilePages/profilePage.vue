@@ -1,6 +1,7 @@
 <template>
-    <RightNavbar/>
+    
     <TopNavbar/>
+    <RightNavbar/>
     <Profile/>
     
 </template>

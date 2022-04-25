@@ -69,6 +69,9 @@ Route::group(
 		Route::put('update_user_profile/{user_id}' , 'EditUserProfileController@updateUseProfileImage') ;
 		Route::get('user_profile_data/{user_id} , UserProfileController@getThisUserProfileData');
 
+		Route::get('lawyers', 'SelectLawyerController@index');
+		Route::get('lawyers-search', 'SelectLawyerController@search');
+
 
 		Route::get('/', function () {
 			echo "HI";
@@ -86,6 +89,10 @@ Route::group(
 
 		Route::get('settings', 'SettingController@index');
 		Route::group(['middleware' => 'jwt.auth'], function () {
+		    Route::post('order-access/{order_id}','OrdersApi@orderAccess');
+		    Route::post('contract/preview/{template_id}','ContractController@preview');
+		    Route::post('contracts','ContractController@store');
+		    Route::get('contract-templates','ContractTemplateController@index');
 		    Route::get('open-order/{order_id}','UserOrderController@openOrder');
 			Route::get('account', 'Auth\AuthAndLogin@account')->name('api.account');
 			Route::post('logout', 'Auth\AuthAndLogin@logout')->name('api.logout');

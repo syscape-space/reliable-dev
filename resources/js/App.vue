@@ -61,6 +61,7 @@ export default {
   },
   watch:{
     $route (to, from){
+      this.getAuthUser();
       this.userLicenseAndCommercialSubmitted();
     }
   },
@@ -72,6 +73,8 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style>
+body{
+background-color:#fff !important;
+}
 </style>

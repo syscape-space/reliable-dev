@@ -5,6 +5,8 @@
         'query' => '?membership_type=' . request('membership_type'),
     ])
 
+
+{{-- {{dd($users->cities->pluck('id')->toArray())}} --}}
     @include('admin.ajax', [
         'typeForm' => 'edit',
         'selectID' => 'country_id',
@@ -111,7 +113,7 @@
                     </div>
                 </div>
                 @if (request('membership_type') != 'user')
-                    <div class="col-md-3 col-lg-3 col-sm-3 col-xs-12">
+                    <div class="col-md-4 col-lg-3 col-sm-3 col-xs-12">
                         <div class="form-group">
                             <label for="" class="control-label">اختر القسم الرئيسي</label>
                             <select name="main_department" class="form-control" id="main_depart">
@@ -124,19 +126,21 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-md-3 col-lg-3 col-sm-3 col-xs-12" style="display:none" id="sub_depart_parent">
+                    {{-- {{dd($users->sub_departments->pluck('id')->toArray())}} --}}
+                    <div class="col-md-4 col-lg-3 col-sm-3 col-xs-12" id="sub_depart_parent">
                         <div class="form-group">
                             <label for="" class="control-label">اختر القسم الفرعي</label>
-                            <select name="sub_department" class="form-control" id="sub_depart">
+                            <select name="sub_department[]" class="form-control select2" id="sub_depart" multiple>
                                 @foreach ($children as $child)
-                                    <option value="">اختر القسم الفرعي</option>
+                                    {{-- <option value="">اختر القسم الفرعي</option> --}}
                                     <option value="{{ $child->id }}"
-                                        {{ $child->id == $users->sub_department ? 'selected' : '' }}>
+                                        {{ in_array($child->id, $users->sub_departments->pluck('id')->toArray()) ? 'selected' : '' }}>
                                         {{ $child->department_name_ar }}</option>
                                 @endforeach
                             </select>
                         </div>
                     </div>
+                    
                     @push('js')
                         <script type="text/javascript">
                             $(document).on('change', '#main_depart', function() {
@@ -190,7 +194,9 @@
                     @endpush
                 @endif
 
-                <div class="col-md-3 col-lg-3 col-sm-3 col-xs-12">
+                
+
+                <div class="col-md-4 col-lg-3 col-sm-3 col-xs-12">
                     <div class="form-group">
                         {!! Form::label('email', trans('admin.email'), ['class' => 'control-label']) !!}
                         {!! Form::email('email', $users->email, ['class' => 'form-control', 'placeholder' => trans('admin.email')]) !!}
@@ -218,6 +224,20 @@
                     <div class="form-group">
                         {!! Form::label('city_id', trans('admin.city_id')) !!}
                         <span class="city_id"></span>
+                        
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3 col-sm-3 col-xs-12">
+                    <div class="form-group">
+                        <label for="" class="control-label">اختر مدن العمل</label>
+                        <select name="cities[]" class="form-control select2" multiple>
+                            @foreach ($users->country->cities as $city)
+                                {{-- <option value="0">جميع المدن</option> --}}
+                                <option value="{{ $city->id }}"
+                                    {{ in_array($city->id, $users->cities->pluck('id')->toArray()) ? 'selected' : '' }}>
+                                    {{ $city->city_name_ar }}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
                 <div class="col-md-3 col-lg-3 col-sm-3 col-xs-12">

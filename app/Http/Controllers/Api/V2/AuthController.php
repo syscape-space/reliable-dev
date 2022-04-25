@@ -72,6 +72,7 @@ class AuthController extends Controller
 	 * @return \Illuminate\Http\JsonResponse
 	 */
 	public function login(Request $login) {
+		// dd($login->all());
 	    $val = Validator::make(request()->all(),[
             'id_number' => 'required|exists:users',
 			'password' => [
@@ -116,6 +117,7 @@ class AuthController extends Controller
 		$register['password'] = bcrypt(request('password'));
 		//$register['email_verified_at'] =null;
 
+		// dd($register);
 		$user = User::create($register);
 
 		$credentials = request(['email', 'password']);

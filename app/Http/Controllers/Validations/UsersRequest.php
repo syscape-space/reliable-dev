@@ -61,9 +61,15 @@ class UsersRequest extends FormRequest {
 			'password'                      => 'sometimes|nullable|string|min:6',
 			'current_balance'               => 'sometimes|nullable|numeric',
 			'suspended_balance'             => 'sometimes|nullable|numeric',
+			'badge_icon'                    => 'sometimes|nullable|file|image',
+			'add_badge'                     => 'sometimes|nullable|string',
+			'badge_condition'               => 'sometimes|nullable|string',
+
 		];
 		$rules['country_id'] = 'required|integer|exists:countries,id';
 		$rules['city_id']    = 'required|integer|exists:cities,id';
+		// $rules['cities']    = 'required';
+
 		if (request('membership_type') == 'employee') {
 			$rules['company_id'] = 'required|integer|exists:users,id';
 		}
@@ -116,12 +122,15 @@ class UsersRequest extends FormRequest {
 			'suspended_balance'             => 'sometimes|nullable|numeric',
 		];
 		$rules['city_id']    = 'required|integer|exists:cities,id';
+		
+
 		if (request('membership_type') == 'employee') {
 			$rules['company_id'] = 'required|integer|exists:users,id';
 		}
         if (request('membership_type') == 'vendor') {
             $rules['main_department'] = 'required';
             $rules['sub_department'] = 'required';
+			// $rules['cities']    = 'required';
         }
 		return $rules;
 	}

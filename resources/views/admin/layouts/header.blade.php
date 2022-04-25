@@ -145,6 +145,7 @@ function loadUsers(elem,param,val=null,name=null){
 
 }
 </script>
+    @livewireStyles
   </head>
  <body class="hold-transition sidebar-mini layout-navbar-fixed layout-fixed">
     <div class="wrapper">

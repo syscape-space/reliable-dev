@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Models;
 
 use Carbon\Carbon;
@@ -8,7 +9,8 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Storage;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 
-class User extends Authenticatable implements JWTSubject {
+class User extends Authenticatable implements JWTSubject
+{
 	use HasFactory, Notifiable;
 	protected $table    = 'users';
 	protected $fillable = [
@@ -32,7 +34,9 @@ class User extends Authenticatable implements JWTSubject {
 		'membership_type',
 
 		'account_type',
-
+		'badge',
+		'badge_condition',
+		'badge_icon',
 		'id_number',
 		'id_type',
 
@@ -70,8 +74,8 @@ class User extends Authenticatable implements JWTSubject {
 		'created_at',
 		'updated_at',
 
-        'main_department',
-        'sub_department',
+		'main_department',
+		'sub_department',
 	];
 
 	/**
@@ -92,37 +96,56 @@ class User extends Authenticatable implements JWTSubject {
 	protected $casts = [
 		'email_verified_at' => 'datetime',
 	];
-	public function getLicenseSubmittedAttribute(){
-        return $this->licenses()->where('status',1)->count() > 0;
-    }
-	public function getCommercialSubmittedAttribute(){
-        return $this->comericals()->where('status',1)->count() > 0;
+	public function getLicenseSubmittedAttribute()
+	{
+		return $this->licenses()->where('status', 1)->count() > 0;
+	}
+	public function getCommercialSubmittedAttribute()
+	{
+		return $this->comericals()->where('status', 1)->count() > 0;
+	}
+	public function licenses()
+	{
+		return $this->hasMany(UserLicense::class, 'user_id', 'id');
+	}
 
-    }
-	public function licenses(){
-	    return $this->hasMany(UserLicense::class,'user_id','id');
-    }
-	public function comericals(){
-	    return $this->hasMany(UserCommercial::class,'user_id','id');
-    }
+	public function comericals()
+	{
+		return $this->hasMany(UserCommercial::class, 'user_id', 'id');
+	}
 	/**
 	 * Get the identifier that will be stored in the subject claim of the JWT.
 	 *
 	 * @return mixed
 	 */
-    public function mainDepartment(){
-        return $this->belongsTo(Department::class,'main_department','id');
-    }
-    public function subDepartment(){
-        return $this->belongsTo(Department::class,'sub_department','id');
-    }
+	public function mainDepartment()
+	{
+		return $this->belongsTo(Department::class, 'main_department', 'id');
+	}
 
-    public function getJWTIdentifier() {
+	// public function main_departments()
+	// {
+	// 	return $this->belongsToMany(Department::class, 'main_department_user');
+	// }
+
+	public function subDepartment()
+	{
+		return $this->belongsTo(Department::class, 'sub_department', 'id');
+	}
+
+	public function sub_departments()
+	{
+		return $this->belongsToMany(Department::class, 'sub_department_user');
+	}
+
+	public function getJWTIdentifier()
+	{
 		return $this->getKey();
 	}
-	public function negotiations(){
-	    return $this->belongsToMany(Negotiate::class,'negotiate_users','user_id','negotiate_id');
-    }
+	public function negotiations()
+	{
+		return $this->belongsToMany(Negotiate::class, 'negotiate_users', 'user_id', 'negotiate_id');
+	}
 
 
 	/**
@@ -130,7 +153,8 @@ class User extends Authenticatable implements JWTSubject {
 	 *
 	 * @return array
 	 */
-	public function getJWTCustomClaims() {
+	public function getJWTCustomClaims()
+	{
 		return [];
 	}
 
@@ -140,8 +164,9 @@ class User extends Authenticatable implements JWTSubject {
 	 * @param void
 	 * @return object data
 	 */
-	public function admin_id() {
-		return $this->hasOne(\App\Models\Admin::class , 'id', 'admin_id');
+	public function admin_id()
+	{
+		return $this->hasOne(\App\Models\Admin::class, 'id', 'admin_id');
 	}
 
 	/**
@@ -149,8 +174,9 @@ class User extends Authenticatable implements JWTSubject {
 	 * @param void
 	 * @return object data
 	 */
-	public function company_id() {
-		return $this->hasOne(\App\Models\User::class , 'id', 'company_id');
+	public function company_id()
+	{
+		return $this->hasOne(\App\Models\User::class, 'id', 'company_id');
 	}
 
 	/**
@@ -158,10 +184,17 @@ class User extends Authenticatable implements JWTSubject {
 	 * @param void
 	 * @return object data
 	 */
-	public function city() {
+	public function city()
+	{
 		return $this->belongsTo(City::class);
 	}
-	public function country() {
+
+	public function cities()
+	{
+		return $this->belongsToMany(\App\Models\City::class);
+	}
+	public function country()
+	{
 		return $this->belongsTo(Country::class);
 	}
 
@@ -170,8 +203,9 @@ class User extends Authenticatable implements JWTSubject {
 	 * @param void
 	 * @return object data
 	 */
-	public function user_job() {
-		return $this->hasMany(\App\Models\UserJob::class , 'user_id', 'id');
+	public function user_job()
+	{
+		return $this->hasMany(\App\Models\UserJob::class, 'user_id', 'id');
 	}
 
 	/**
@@ -179,12 +213,13 @@ class User extends Authenticatable implements JWTSubject {
 	 * @param void
 	 * @return void
 	 */
-	protected static function boot() {
+	protected static function boot()
+	{
 		parent::boot();
 		// if you disable constraints should by run this static method to Delete children data
-		static ::deleting(function ($user) {
-				//$user->company_id()->delete();
-			});
+		static::deleting(function ($user) {
+			//$user->company_id()->delete();
+		});
 	}
 	public function specialties(){
 	    return $this->belongsToMany(Specialtie::class,'user_specialties','user_id','specialty_id');
@@ -237,5 +272,16 @@ class User extends Authenticatable implements JWTSubject {
             'all'   =>  OrderOffer::query()->where('vendor_id',$this->id)->count(),
         ];
     }
+    public function offer_favorites(){
+	    return $this->belongsToMany(OrderOffer::class,'offer_favorites','user_id','order_offer_id');
+    }
+    public function triggerOfferFavorite($offer_id){
+	    if ($this->offer_favorites()->where('id',$offer_id)->count()){
+            $this->offer_favorites()->where('id',$offer_id)->delete();
+        }else{
+            $this->offer_favorites()->attach($offer_id);
+        }
+    }
 
 }
+

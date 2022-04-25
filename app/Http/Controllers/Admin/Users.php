@@ -70,13 +70,19 @@ class Users extends Controller
 	 */
 	public function store(UsersRequest $request)
 	{
-		$data                  = $request->except("_token", "_method");
+		$data                  = $request->except("_token", "_method", 'sub_department', 'cities');
 		$data['photo_profile'] = "";
 		$data['admin_id']      = admin()->id();
 		$data['password']      = bcrypt(request('password'));
 		$users                 = User::create($data);
-		if (request()->hasFile('photo_profile')) {
+		// $users->main_departments()->sync($request->main_department);
+		$users->sub_departments()->sync($request->sub_department);
+		$users->cities()->sync($request->cities);
+
+
+		if (request()->hasFile('photo_profile') || request()->hasFile('badge_icon')) {
 			$users->photo_profile = it()->upload('photo_profile', 'users/' . $users->id);
+			$users->badge_icon = it()->upload('badge_icon', 'badges/' . $users->id);
 			$users->save();
 		}
 		if (\request()->judger_request_id){
@@ -86,6 +92,7 @@ class Users extends Controller
 		    $order->judgers()->attach($users);
         }
 
+		// return redirectWithSuccess(aurl("users"), trans('admin.added'));
 		return successResponseJson([
 			"message" => trans("admin.added"),
 			"data"    => $users,
@@ -186,8 +193,20 @@ class Users extends Controller
 			it()->delete($users->photo_profile);
 			$data['photo_profile'] = it()->upload('photo_profile', 'users');
 		}
-		User::where('id', $id)->update($data);
+		$User = User::where('id', $id)->update($data);
+		$User = User::find($id);
+		// dd($request->main_department);
+		// $User->main_departments()->sync($request->main_department);
+
+		// dd($request->sub_department);
+		$User->sub_departments()->sync($request->sub_department);
+		$User->cities()->sync($request->cities);
+
 		$users = User::find($id);
+		// dd($request->cities);
+
+		
+
 		return successResponseJson([
 			"message" => trans("admin.updated"),
 			"data"    => $users,
@@ -327,13 +346,26 @@ class Users extends Controller
 	{
 		if (request()->ajax()) {
 			if (request("country_id") > 0) {
-				$select = request("select") > 0 ? request("select") : "";
+				$select = request("select") > 0 ? request("select") : [];
 				return \Form::select("city_id", \App\Models\City::where("country_id", request("country_id"))->pluck('city_name_ar', 'id'), $select, ["class" => "form-control select2", "placeholder" => trans("admin.choose"), "id" => "city_id"]);
 			}
 		} else {
 			return "<select class='form-control'></select>";
 		}
 	}
+
+
+	public function get_cities_by_country_id(Request $r)
+    {
+        $r->validate([
+            'country_id' => ['required'],
+        ]);
+        $title = 'اختر المدن';
+        $error = 'No results found';
+        $options = \App\Models\City::where('country_id', $r->country_id)->pluck("city_name_ar","id")->all();
+        $data = view('admin.ajax_views.select',compact(['options', 'title', 'error']))->render();
+        return response()->json(['options'=>$data]);
+    }
 
 	public function get_users_departments(Request $request){
 		if($request->department_id){

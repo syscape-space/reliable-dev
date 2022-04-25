@@ -1,7 +1,32 @@
 <template>
+<div>
+            <TopNavbar/>
     <RightNavbar/>
-    <TopNavbar/>
+
+<section class="tickets py-5 content-body">
+
+            <div class="container"  style="background-image: none;">
+                <div class="row">
+ <div class="col-12 back mb-5 d-flex align-items-center justify-content-end"  >
+                        <div class="row w-100 justify-content-end">
+                            <div
+                                class="col-xl-9 d-flex align-items-center justify-content-between"
+                            >
+                                <h4>تذاكري</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                        <div class="col-xl-9">
     <Ticket2/>
+
+                    </div>
+                </div>
+            </div>
+    </section>
+</div>
+
+
 </template>
 <script>
 import RightNavbar from '../../components/UserProfile/RightNavbar'

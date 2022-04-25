@@ -103,6 +103,9 @@ class Order extends Model {
 	public function user_id() {
 		return $this->hasOne(\App\Models\User::class , 'id', 'user_id');
 	}
+	public function user() {
+		return $this->belongsTo(\App\Models\User::class , 'user_id','id');
+	}
 	/**
 	 * order_type_id relation method
 	 * @param void
@@ -193,6 +196,11 @@ class Order extends Model {
 	}
 	public function getOrderStepAttribute()
 	{
+	    switch ($this->order_status){
+            case 'under_review':
+            case 'open':
+                return 1;
+        }
 	    $temp = 0;
 	    if($this->order_status != "under_review")
             $temp++;
@@ -202,22 +210,8 @@ class Order extends Model {
 	        $temp+=3;
 		return $temp;
 	}
-    public function getOrderStatusAttribute($value){
-        $status = DB::table('orders')->find($this->id)->order_status;
-        $temp = 0;
-        if($status == "open")
-            $temp++;
-        if ($this->offers()->where('offer_status','approved')->count())
-            $temp++;
-        if ($status == "closed")
-            return "closed";
-        if ($temp <= 1){
-            return $value;
-        }
-        return "ongoing";
-    }
 	public function judgers(){
-	    return $this->belongsToMany(User::class,'order_arbitrators','order_id','arbitrator_id')
+	    return $this->belongsToMany(Judger::class,'order_arbitrators','order_id','arbitrator_id')
             ->withPivot('vendor_status','vendor_refused_message','id');
     }
 	public function judger_requests(){
@@ -234,10 +228,13 @@ class Order extends Model {
     public function getActiveOfferAttribute(){
 	    return $this->offers()->firstWhere('offer_status','approved');
     }
+    public function getActiveJudgerAttribute(){
+	    return $this->judgers->first();
+    }
     public function getActiveNegotiationAttribute(){
-	    if ($this->order_status == "open" and $this->order_step == 2){
+	    if ($this->order_step >= 2){
             $user = User::query()->find(auth('api')->id()??auth()->id());
-            if ($user->membership_type == 'vendor'){
+            if ($user and $user->membership_type == 'vendor'){
                 return $user->negotiations()->with(['users','messages','order'])->firstWhere('order_id',$this->id);
             }else{
                 return $this->negotiations()->with(['users','messages','order'])
@@ -246,6 +243,10 @@ class Order extends Model {
                     })->first();
             }
         }
+	    return null;
+    }
+    public function accessVendors(){
+	    return $this->belongsToMany(User::class,'order_access_vendors','order_id','user_id');
     }
 
 

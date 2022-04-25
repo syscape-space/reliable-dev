@@ -34,7 +34,6 @@ Route::group(
 					\UniSharp\LaravelFilemanager\Lfm::routes();
 				});
 			}
-
 			////////AdminRoutes/*Start*///////////////
 			Route::get('/', 'Admin\Dashboard@home');
 			Route::any('logout', 'Admin\AdminAuthenticated@logout');
@@ -92,6 +91,8 @@ Route::group(
 			Route::resource('users', 'Admin\Users');
 			Route::post('users/multi_delete', 'Admin\Users@multi_delete');
 			Route::post('users/get/city/id', 'Admin\Users@get_city_id');
+			Route::post('users/get-cities-by-country-id', 'Admin\Users@get_cities_by_country_id')->name('users.get-cities-by-country-id');
+
 			Route::post('users/get/vendor', 'Admin\Users@get_vendor');
 			Route::post('users/get/arbitrators', 'Admin\Users@get_arbitrators');
 			Route::post('users/get/all/users', 'Admin\Users@get_users');
@@ -143,6 +144,7 @@ Route::group(
 
 			Route::as('admin.')->group(function () {
 				Route::resource('our-services', 'Admin\OurServiceController');
+                Route::resource('contract-templates','Admin\ContractTemplateController');
 			});
 			Route::resource('mail-templates', 'Admin\MailTemplatesController');
 			Route::resource('partners', 'Admin\PartnerController');
@@ -152,6 +154,7 @@ Route::group(
 			Route::get('careerrequests/{id}', 'Admin\CareerRequestController@show');
 			Route::post('careerrequests/multi_delete', 'Admin\CareerRequestController@multi_delete');
 			Route::get('update-document-status/{table}','Admin\UserDocumentController@changeDocumentStatus');
+
 		});
 	}
 );

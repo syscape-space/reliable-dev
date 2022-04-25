@@ -1,7 +1,8 @@
 <template>
     
-    <RightNavbar/>
-    <TopNavbar/>
+     <TopNavbar/>
+<RightNavbar/>
+   
     <ExecuteNowOrder/>
 </template>
 <script>

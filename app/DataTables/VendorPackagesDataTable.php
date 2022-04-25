@@ -32,7 +32,7 @@ class VendorPackagesDataTable extends DataTable {
 	 * @return \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Query\Builder|\Illuminate\Support\Collection
 	 */
 	public function query() {
-		return VendorPackage::query()->with(['user_id'])->select("vendor_packages.*");
+		return VendorPackage::query()->select("vendor_packages.*");
 
 	}
 
@@ -161,11 +161,6 @@ class VendorPackagesDataTable extends DataTable {
 				'title'     => trans('admin.record_id'),
 				'width'     => '10px',
 				'aaSorting' => 'none',
-			],
-			[
-				'name'  => 'user_id.name',
-				'data'  => 'user_id.name',
-				'title' => trans('admin.user_id'),
 			],
 			[
 				'name'  => 'package_title',

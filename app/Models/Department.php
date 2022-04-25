@@ -15,7 +15,11 @@ class Department extends Model {
 		'department_name_en',
 		'status',
 		'parent',
+        'image'
 	];
+	public function main(){
+	    return $this->belongsTo(self::class,'parent','id');
+    }
 
 	public function parent() {
 		return $this->hasOne('App\Models\Department', 'id', 'parent');

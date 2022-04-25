@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
 use Spatie\Honeypot\ProtectAgainstSpam;
+use App\Http\Livewire\Users\Judgers\SelectJudges;
+use App\Http\Livewire\Users\Vendors\VendorsSelect;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,3 +68,11 @@ Route::get('/faqs', function(){
 // });
 // Route::post('/profile', [ProfileController::class, 'updatePersonalInfo'])->name('profile.personal.update');
 // Route::post('/profile', [ProfileController::class, 'updatePersonalInfo'])->name('profile.personal.update');
+
+
+Route::get('judges-select', [SelectJudges::class, 'render']);
+Route::get('vendors-judges', [VendorsSelect::class, 'render']);
+
+
+
+

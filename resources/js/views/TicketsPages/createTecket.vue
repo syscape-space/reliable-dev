@@ -1,6 +1,7 @@
 <template>
-    <RightNavbar/>
-    <TopNavbar/>
+     <TopNavbar/>
+<RightNavbar/>
+   
     <AddTicket/>
 </template>
 <script>

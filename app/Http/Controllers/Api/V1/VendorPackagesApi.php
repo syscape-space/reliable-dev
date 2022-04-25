@@ -13,9 +13,7 @@ use App\Http\Controllers\ValidationsApi\V1\VendorPackagesRequest;
 class VendorPackagesApi extends Controller{
 	protected $selectColumns = [
 		"id",
-		"user_id",
 		"package_title",
-		"package_content",
 		"package_status",
 		"number_purchases",
 		"duration_package_days",
@@ -29,7 +27,7 @@ class VendorPackagesApi extends Controller{
              * @return array to assign with index & show methods
              */
             public function arrWith(){
-               return ['user_id',];
+               return [];
             }
 
 

@@ -17,6 +17,7 @@ class UserExperiencesApi extends Controller{
 		"experience_file",
 		"user_id",
 		"comment",
+        "status",
 	];
 
             /**
@@ -25,7 +26,7 @@ class UserExperiencesApi extends Controller{
              * @return array to assign with index & show methods
              */
             public function arrWith(){
-               return ['user_id',];
+               return ['user_id'];
             }
 
 
@@ -36,7 +37,9 @@ class UserExperiencesApi extends Controller{
              */
             public function index()
             {
-            	$UserExperience = UserExperience::select($this->selectColumns)->with($this->arrWith())->orderBy("id","desc")->paginate(15);
+            	$UserExperience = UserExperience::select($this->selectColumns)
+                    ->whereUserId(auth('api')->id())
+                    ->with($this->arrWith())->orderBy("id","desc")->get();
                return successResponseJson(["data"=>$UserExperience]);
             }
 
