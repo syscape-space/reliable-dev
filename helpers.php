@@ -24,6 +24,9 @@ function cuteAsset($uri){
     // return uri if not file or not exists
 //    return  abort(404);
 }
+function cloudUrl($path){
+ return Storage::disk('cloud')->url($path);
+}
 function contractTemplateVars(){
     return [
         'contract-amount'   =>  'المبلغ في العقد',

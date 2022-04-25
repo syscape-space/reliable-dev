@@ -10,10 +10,6 @@ use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
 use Spatie\Honeypot\ProtectAgainstSpam;
-use App\Http\Livewire\Users\Judgers\SelectJudges;
-use App\Http\Livewire\Users\Vendors\VendorsSelect;
-use App\Http\Livewire\Users\Tickets;
-use App\Http\Livewire\Users\Subscription;
 
 
 /*
@@ -55,7 +51,7 @@ Route::middleware('app-lang')->group(function () {
 		return redirect()->back();
 	});
 });
-Route::resource('orders', 'Front\OrderController');
+//Route::resource('orders', 'Front\OrderController');
 // Route::resource('profile', UpdateUserProfileController::class);
 // Route::group(['middleware' => 'auth'], function () {
 Route::get('/profile', [UpdateUserProfileController::class, 'index']);
@@ -73,12 +69,11 @@ Route::get('/faqs', function(){
 // Route::post('/profile', [ProfileController::class, 'updatePersonalInfo'])->name('profile.personal.update');
 
 
-Route::get('judges-select', [SelectJudges::class, 'render']);
+
+
+
+/* Route::get('judges-select', [SelectJudges::class, 'render']);
 Route::get('vendors-judges', [VendorsSelect::class, 'render']);
 Route::get('tickets', [Tickets::class, 'render']);
-Route::get('subscription', [Subscription::class, 'render']);
-
-
-
-
+Route::get('subscription', [Subscription::class, 'render']); */
 
