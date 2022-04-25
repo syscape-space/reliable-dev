@@ -458,8 +458,7 @@ with font-awesome or any other icon font library -->
             @endif
         </ul>
     </li>
-<<<<<<< HEAD
-=======
+
     @endif
   </ul>
 </li>
@@ -509,8 +508,6 @@ with font-awesome or any other icon font library -->
     </li>
   </ul>
 </li>
->>>>>>> b3780898262d2868182a948ac54d3a22e673f9ec
-@endif
 @if (admin()->user()->role('departments_show'))
     <li class="nav-item {{ active_link('departments', 'menu-open') }} ">
         <a href="#" class="nav-link {{ active_link('departments', 'active') }}">

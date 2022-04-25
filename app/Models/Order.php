@@ -248,6 +248,14 @@ class Order extends Model {
     public function accessVendors(){
 	    return $this->belongsToMany(User::class,'order_access_vendors','order_id','user_id');
     }
-
+    public function department(){
+	    return $this->belongsTo(Department::class,'department_id','id');
+    }
+    public function city(){
+	    return $this->belongsTo(City::class,'city_id','id');
+    }
+    public function country(){
+	    return $this->belongsTo(Country::class,'country_id','id');
+    }
 
 }
