@@ -97,4 +97,10 @@ class UserJob extends Model {
 			});
 	}
 
+	public function tickets() {
+
+		return $this->hasMany(\App\Models\Ticket::class);
+		
+	}
+
 }

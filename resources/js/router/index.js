@@ -4,9 +4,14 @@ import selectLawyerPage from '../views/SelectLawyer/selectLawyerPage.vue';
 
 
 // Account Settings
+<<<<<<< HEAD
+/* import loginPage from '../views/AccountPages/loginPage.vue' // done */
+/* import Register from '../views/AccountPages/registerPage.vue' // done */
+=======
 import loginPage from '../views/AccountPages/loginPage.vue' // done
 import Register from '../views/AccountPages/registerPage.vue' // done
 import FirstRegister from '../views/AccountPages/firstRegisterPage.vue' // done
+>>>>>>> b3780898262d2868182a948ac54d3a22e673f9ec
 import Verify from '../views/AccountPages/verifyPage.vue'
 import Success from '../views/AccountPages/successPage.vue'
 import UserProfile from '../views/AccountPages/userProfile.vue'
@@ -78,6 +83,9 @@ const routes = [{
         beforeEnter: checkIfLogin,
         name: 'home',
     },
+<<<<<<< HEAD
+    /* {
+=======
     {
         path: prefix + '/select-lawyer',
         component: selectLawyerPage,
@@ -85,17 +93,18 @@ const routes = [{
         name: 'select-lawyer',
     },
     {
+>>>>>>> b3780898262d2868182a948ac54d3a22e673f9ec
         path: prefix + '/login',
         component: loginPage,
         beforeEnter: checkIfLogin,
         name: "Login",
-    },
-    {
+    }, */
+    /* {
         path: prefix + '/register',
         component: Register,
         beforeEnter: checkIfLogin,
         name: "Register",
-    },
+    }, */
     {
         path: prefix + '/FirstRegister',
         component: FirstRegister,

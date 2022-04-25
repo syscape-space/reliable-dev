@@ -1,15 +1,16 @@
 <?php
 
 use App\Http\Controllers\Api\V2\UpdateUserProfileController;
+use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Front\ProfileController;
 use App\Models\FAQ;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
 use Spatie\Honeypot\ProtectAgainstSpam;
-use App\Http\Livewire\Users\Judgers\SelectJudges;
-use App\Http\Livewire\Users\Vendors\VendorsSelect;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +22,7 @@ use App\Http\Livewire\Users\Vendors\VendorsSelect;
 | contains the "web" middleware group. Now create something great!
 |
  */
-
+Auth::routes();
 Route::get('/provider', function () {
 	return view('front.user.provider.provider');
 });
@@ -68,9 +69,11 @@ Route::get('/faqs', function(){
 // Route::post('/profile', [ProfileController::class, 'updatePersonalInfo'])->name('profile.personal.update');
 
 
-Route::get('judges-select', [SelectJudges::class, 'render']);
+
+
+
+/* Route::get('judges-select', [SelectJudges::class, 'render']);
 Route::get('vendors-judges', [VendorsSelect::class, 'render']);
-
-
-
+Route::get('tickets', [Tickets::class, 'render']);
+Route::get('subscription', [Subscription::class, 'render']); */
 
