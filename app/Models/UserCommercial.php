@@ -18,9 +18,9 @@ class UserCommercial extends Model {
 		'user_id',
 
 		'comment',
-		'user_job_id',
-		'occupation_id',
-		'specialtie_id',
+		/* 'user_job_id', */
+		/* 'occupation_id', */
+		/* 'specialtie_id', */
 		'created_at',
 		'updated_at',
 	];
