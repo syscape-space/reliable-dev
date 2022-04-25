@@ -248,7 +248,7 @@ export default {
 }
 section.login::before {
     content: "";
-    background-image: url(../../assets/images/bgOverlay.png);
+    /* background-image: url(../../assets/images/bgOverlay.png); */
     right: 0;
     opacity: 0.1;
     bottom: 0;

@@ -44,11 +44,13 @@
                     >أشترك الأن</a
                     >
                     <span class="icon"
-                    ><img
+                    >
+                    <!-- <img
                         class="img-fluid"
                         src="../assets/images/three.png"
                         alt=""
-                    /></span>
+                    /> -->
+                    </span>
                   </div>
                 </div>
               </div>

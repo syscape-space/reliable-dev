@@ -15,8 +15,8 @@ const vue_app = createApp(App)
     .use(router)
     .use(VueSweetalert2)
     .mount('#app');
-import './assets/css/style.css';
-import './assets/css/bootstrap.min.css';
-import './assets/css/owl.theme.default.min.css';
-import './assets/css/owl.carousel.min.css';
+// import './assets/css/style.css';
+// import './assets/css/bootstrap.min.css';
+// import './assets/css/owl.theme.default.min.css';
+// import './assets/css/owl.carousel.min.css';
 
