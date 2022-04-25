@@ -72,5 +72,8 @@ Route::get('/faqs', function(){
 
 
 
-
+/* Route::get('judges-select', [SelectJudges::class, 'render']);
+Route::get('vendors-judges', [VendorsSelect::class, 'render']);
+Route::get('tickets', [Tickets::class, 'render']);
+Route::get('subscription', [Subscription::class, 'render']); */
 
