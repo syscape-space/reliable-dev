@@ -1,21 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/bootstrap.min.css" />
-    <link rel="stylesheet" href="./css/owl.theme.default.min.css" />
-    <link rel="stylesheet" href="./css/owl.carousel.min.css" />
+
+    <link rel="stylesheet" href="{{asset('assets/css/normalize.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/owl.theme.default.min.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/owl.carousel.min.css')}}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link href='http://fonts.googleapis.com/earlyaccess/droidarabickufi.css' rel='stylesheet' type='text/css' />
 
-
     <link rel="stylesheet" href="./fonts/font-awsome-pro/css/pro.min.css">
     <link rel="stylesheet" href="./fonts/feather.css">
-    <link rel="stylesheet" href="./fonts/fontawesome.css">
-    <link rel="stylesheet" href="./css/style.css" />
+    {{--     <link rel="stylesheet" href="./fonts/fontawesome.css"> --}}
+    <link rel="stylesheet" href="{{asset('assets/css/styssle.css')}}" />
+    @livewireStyles
     <style>
         body {
             margin: 0;
@@ -41,11 +43,11 @@
                
                 <div class="text-center py-4">
                     <div class="image-user position-relative d-inline-block">
-                        <img src="{{(!empty($user) && !empty($user->photo_profile)) ? it()->url($user->photo_profile) : asset('assets/images/dash-user.png')}}" alt="" width="90px" height="90px" srcset="" style="border-radius: 45px;" />
+                        <img src="{{(!empty(auth()->user()) && !empty(auth()->user()->photo_profile)) ? it()->url(auth()->user()->photo_profile) : asset('assets/images/dash-user.png')}}" alt="" width="90px" height="90px" srcset="" style="border-radius: 45px;" />
                         <img style="position: absolute; bottom: 0; left: 0" src="./images/dash-edit.svg" alt="" srcset="" />
                     </div>
                     <h4 class="mt-3" style="color: #fff; font-size: 16px; margin-bottom: 0px">
-                        {{ !empty($user) ? $user->first_name." ".$user->middle_name." ".$user->last_name : 'username'}}
+                        {{ !empty(auth()->user()) ? auth()->user()->first_name." ".auth()->user()->middle_name." ".auth()->user()->last_name : 'username'}}
                     </h4>
                 </div>
                 <div class="pt-4 text-center mawtheq-head d-flex justify-content-center">
@@ -137,9 +139,9 @@
                 <li style="margin-right: auto">
                     <div class="dropdown">
                         <a style="background-color: #fff" class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                            <!-- @include("admin.show_image",["image"=>$user->photo_profile]) -->
-                            <img style="width: 25px; margin-left: 5px" src="{{!empty($user) ? it()->url($user->photo_profile) : './images/dash-user.png'}}" alt="" srcset="" />
-                            <span class="ms-5" style="color: #048e81; font-size: 13px">{{ !empty($user) ? $user->first_name." ".$user->middle_name." ".$user->last_name : 'username'}}</span>
+                            <!-- @include("admin.show_image",["image"=>auth()->user()->photo_profile]) -->
+                            <img style="width: 25px; margin-left: 5px" src="{{!empty(auth()->user()) ? it()->url(auth()->user()->photo_profile) : './images/dash-user.png'}}" alt="" srcset="" />
+                            <span class="ms-5" style="color: #048e81; font-size: 13px">{{ !empty(auth()->user()) ? auth()->user()->first_name." ".auth()->user()->middle_name." ".auth()->user()->last_name : 'username'}}</span>
                         </a>
 
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -183,14 +185,14 @@
                                 </div>
                             </div>
                             <ul class="list-group list-group-flush px-0">
-                                <li class="list-group-item"> <span class="f-w-500"><i class="feather icon-mail m-r-10"></i>بريد الالكتروني </span> <a href="mailto:{{$user->email}}" class="text-body"> {{!empty($user) ? $user->email : ''}} </a> </li>
-                                <li class="list-group-item"> <span class="f-w-500"><i class="feather icon-phone-call m-r-10"></i> هاتف </span> <a href="#" class="text-body">{{!empty($user) ? $user->mobile: ''}}</a> </li>
+                                <li class="list-group-item"> <span class="f-w-500"><i class="feather icon-mail m-r-10"></i>بريد الالكتروني </span> <a href="mailto:{{auth()->user()->email}}" class="text-body"> {{!empty(auth()->user()) ? auth()->user()->email : ''}} </a> </li>
+                                <li class="list-group-item"> <span class="f-w-500"><i class="feather icon-phone-call m-r-10"></i> هاتف </span> <a href="#" class="text-body">{{!empty(auth()->user()) ? auth()->user()->mobile: ''}}</a> </li>
                             </ul>
                             <div class="nav flex-column nav-pills list-group list-group-flush list-pills" id="user-set-tab" role="tablist" aria-orientation="vertical">
-                                <a class="nav-link list-group-item list-group-item-action {{!empty($type) && $type == 'account-settings' ? 'active' : ''}}" id="account-settings-tab" data-toggle="pill" href="{{$base_url.'/profile?id='.$user->id.'&type=account-settings'}}" role="tab" aria-controls="account-settings" aria-selected="true"> <span class="f-w-500"><i class="feather icon-disc m-r-10 h5 "></i>إعدادت الحساب </span> <span class="float-right"><i class="feather icon-chevron-right"></i></span> </a>
-                                <a class="nav-link list-group-item list-group-item-action {{!empty($type) && $type == 'identity-verification' ? 'active' : ''}}" id="identity-verification-tab" data-toggle="pill" href="{{$base_url.'/profile?id='.$user->id.'&type=identity-verification'}}" role="tab" aria-controls="identity-verification" aria-selected="true"> <span class="f-w-500"><i class="feather icon-disc m-r-10 h5 "></i>تحقق الهوية </span> <span class="float-right"><i class="feather icon-chevron-right"></i></span> </a>
+                                <a class="nav-link list-group-item list-group-item-action {{!empty($type) && $type == 'account-settings' ? 'active' : ''}}" id="account-settings-tab" data-toggle="pill" href="{{-- {{$base_url.'/profile?id='.auth()->user()->id.'&type=account-settings'}} --}}" role="tab" aria-controls="account-settings" aria-selected="true"> <span class="f-w-500"><i class="feather icon-disc m-r-10 h5 "></i>إعدادت الحساب </span> <span class="float-right"><i class="feather icon-chevron-right"></i></span> </a>
+                                <a class="nav-link list-group-item list-group-item-action {{!empty($type) && $type == 'identity-verification' ? 'active' : ''}}" id="identity-verification-tab" data-toggle="pill" href="{{-- {{$base_url.'/profile?id='.auth()->user()->id.'&type=identity-verification'}} --}}" role="tab" aria-controls="identity-verification" aria-selected="true"> <span class="f-w-500"><i class="feather icon-disc m-r-10 h5 "></i>تحقق الهوية </span> <span class="float-right"><i class="feather icon-chevron-right"></i></span> </a>
                                 <!-- <a class="nav-link list-group-item list-group-item-action active" id="user-edit-account-tab" data-toggle="pill" href="#user-edit-account" role="tab" aria-controls="user-edit-account" aria-selected="true"> <span class="f-w-500"><i class="feather icon-user m-r-10 h5 "></i>معلومات شخصية </span> <span class="float-right"><i class="feather icon-chevron-right"></i></span> </a> -->
-                                <a class="nav-link list-group-item list-group-item-action  d-flex justify-content-between {{!empty($type) && $type == 'commercial' ? 'active' : ''}}" id="user-profile-logo-tab" data-toggle="pill" href="{{$base_url.'/profile?id='.$user->id.'&type=commercial'}}" role="tab" aria-controls="user-profile-logo" aria-selected="false"> <span class="f-w-500"><i class="feather icon-image m-r-10 h5 "></i>السجلات التجارية </span> <span class="float-right">
+                                <a class="nav-link list-group-item list-group-item-action  d-flex justify-content-between {{!empty($type) && $type == 'commercial' ? 'active' : ''}}" id="user-profile-logo-tab" data-toggle="pill" href="{{-- {{$base_url.'/profile?id='.auth()->user()->id.'&type=commercial'}} --}}" role="tab" aria-controls="user-profile-logo" aria-selected="false"> <span class="f-w-500"><i class="feather icon-image m-r-10 h5 "></i>السجلات التجارية </span> <span class="float-right">
                                         @if(!empty($commercial_status) && $commercial_status == "end")
                                         <span class="{{!empty($type) && $type == 'commercial' ? 'text-white' : 'text-danger'}}">منتهي</span>
                                         @endif
@@ -199,7 +201,7 @@
                                         @endif
                                         </i></span> </a>
                                 <i class="feather icon-chevron-right"></i></span> </a>
-                                <a class="nav-link list-group-item list-group-item-action d-flex justify-content-between {{!empty($type) && $type == 'license' ? 'active' : ''}}" id="user-profile-logo-tab" data-toggle="pill" href="{{$base_url.'/profile?id='.$user->id.'&type=license'}}" role="tab" aria-controls="user-profile-logo" aria-selected="false"> <span class="f-w-500"><i class="feather icon-image m-r-10 h5 "></i>الرخصة المهنية </span>
+                                <a class="nav-link list-group-item list-group-item-action d-flex justify-content-between {{!empty($type) && $type == 'license' ? 'active' : ''}}" id="user-profile-logo-tab" data-toggle="pill" href="{{-- {{$base_url.'/profile?id='.auth()->user()->id.'&type=license'}} --}}" role="tab" aria-controls="user-profile-logo" aria-selected="false"> <span class="f-w-500"><i class="feather icon-image m-r-10 h5 "></i>الرخصة المهنية </span>
                                     <span class="float-right">
                                         @if(!empty($license_status) && $license_status == "end")
                                         <span class="{{!empty($type) && $type == 'license' ? 'text-white' : 'text-danger'}}">منتهي</span>
@@ -209,10 +211,10 @@
                                         @endif
                                         <i class="feather icon-chevron-right">
                                         </i></span> </a>
-                                <a class="nav-link list-group-item list-group-item-action {{!empty($type) && $type == 'qualification' ? 'active' : ''}}" id="user-profile-logo-tab" data-toggle="pill" href="{{$base_url.'/profile?id='.$user->id.'&type=qualification'}}" role="tab" aria-controls="user-profile-logo" aria-selected="false"> <span class="f-w-500"><i class="feather icon-image m-r-10 h5 "></i>المؤهلات </span> <span class="float-right"><i class="feather icon-chevron-right"></i></span> </a>
-                                <a class="nav-link list-group-item list-group-item-action  {{!empty($type) && $type == 'experiance' ? 'active' : ''}}" id="user-profile-logo-tab" data-toggle="pill" href="{{$base_url.'/profile?id='.$user->id.'&type=experience'}}" role="tab" aria-controls="user-profile-logo" aria-selected="false"> <span class="f-w-500"><i class="feather icon-image m-r-10 h5 "></i>الخبرات </span> <span class="float-right"><i class="feather icon-chevron-right"></i></span> </a>
+                                <a class="nav-link list-group-item list-group-item-action {{!empty($type) && $type == 'qualification' ? 'active' : ''}}" id="user-profile-logo-tab" data-toggle="pill" href="{{-- {{$base_url.'/profile?id='.auth()->user()->id.'&type=qualification'}} --}}" role="tab" aria-controls="user-profile-logo" aria-selected="false"> <span class="f-w-500"><i class="feather icon-image m-r-10 h5 "></i>المؤهلات </span> <span class="float-right"><i class="feather icon-chevron-right"></i></span> </a>
+                                <a class="nav-link list-group-item list-group-item-action  {{!empty($type) && $type == 'experiance' ? 'active' : ''}}" id="user-profile-logo-tab" data-toggle="pill" href="{{-- {{$base_url.'/profile?id='.auth()->user()->id.'&type=experience'}} --}}" role="tab" aria-controls="user-profile-logo" aria-selected="false"> <span class="f-w-500"><i class="feather icon-image m-r-10 h5 "></i>الخبرات </span> <span class="float-right"><i class="feather icon-chevron-right"></i></span> </a>
                                 <!-- <a class="nav-link list-group-item list-group-item-action" id="user-companyinfo-tab" data-toggle="pill" href="#user-companyinfo" role="tab" aria-controls="user-companyinfo" aria-selected="false"> <span class="f-w-500"><i class="feather icon-file-text m-r-10 h5 "></i>معلومات الشركة </span> <spa n class="float-right"><i class="feather icon-chevron-right"></i></span> </a> -->
-                                <a class="nav-link list-group-item list-group-item-action {{!empty($type) && $type == 'change-password' ? 'active' : ''}}" id="user-password-tab" data-toggle="pill" href="{{$base_url.'/profile?id='.$user->id.'&type=change-password'}}" role="tab" aria-controls="user-password" aria-selected="false"> <span class="f-w-500"><i class="feather icon-shield m-r-10 h5 "></i>تغيير كلمة المرور </span> <span class="float-right"><i class="feather icon-chevron-right"></i></span> </a>
+                                <a class="nav-link list-group-item list-group-item-action {{!empty($type) && $type == 'change-password' ? 'active' : ''}}" id="user-password-tab" data-toggle="pill" href="{{-- {{$base_url.'/profile?id='.auth()->user()->id.'&type=change-password'}} --}}" role="tab" aria-controls="user-password" aria-selected="false"> <span class="f-w-500"><i class="feather icon-shield m-r-10 h5 "></i>تغيير كلمة المرور </span> <span class="float-right"><i class="feather icon-chevron-right"></i></span> </a>
                             </div>
                         </div>
                     </div>
@@ -226,11 +228,12 @@
     <!-- ============================================================================================================
   ================================ [End Footer ] ==================================================================
   ============================================================================================================= -->
-    <script src="./js/jquery-3.3.1.min.js"></script>
-    <script src="./js/popper.min.js"></script>
-    <script src="./js/bootstrap.min.js"></script>
-    <script src="./js/owl.carousel.min.js"></script>
-    <script src="./js/main.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+    <script src="{{asset('js/owl.carousel.min.js')}}"></script>
+    <script src="{{asset('js/main.js')}}"></script>
+    @livewireScripts
 </body>
 
 </html>
