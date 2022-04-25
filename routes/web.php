@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Route;
 use Spatie\Honeypot\ProtectAgainstSpam;
 use App\Http\Livewire\Users\Judgers\SelectJudges;
 use App\Http\Livewire\Users\Vendors\VendorsSelect;
+use App\Http\Livewire\Users\Tickets;
 
 /*
 |--------------------------------------------------------------------------
@@ -70,6 +71,7 @@ Route::get('/faqs', function(){
 
 Route::get('judges-select', [SelectJudges::class, 'render']);
 Route::get('vendors-judges', [VendorsSelect::class, 'render']);
+Route::get('tickets', [Tickets::class, 'render']);
 
 
 
