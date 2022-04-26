@@ -308,7 +308,10 @@
                                 </p>
                                 <p class="license-number">
                                     <span class="color">رخصة برقم:</span>
-                                    21450364102
+                                    @if ($offer->vendor->licenses->count() > 0)
+                                    {{$offer->vendor->licenses[0]->license_name}}
+                                    @endif
+                                    
                                 </p>
                                 <p class="duration">
                                     <span class="color">مدة التسليم:</span>
@@ -328,27 +331,36 @@
                                     <div class="active"></div>
                                     <img
                                         class="img-fluid"
-                                        src="{{asset('tem_assets')}}/img/person.jpg"
+
+                                        {{ asset($offer->vendor->photo_profile) }}
                                         alt=""
                                     />
                                 </div>
                                 <div class="star">
-                                    4.5
+                                    {{$offer->vendor->rate_overall}}
                                     <i class="fa-solid fa-star"></i>
                                 </div>
                                 <a href="" class="profile">تصفح الملف الشخصي</a>
                             </div>
                             <div class="col-12 controll">
                                 <a href="" class="btn view">العرض المقدم</a>
-                                <a href="" class="btn negotiable">
-                                    قابل للتفاوض
+
+                                @if ($offer->negotiable)
+                                    <a href="" class="btn negotiable">
+                                        قابل للتفاوض
+                                    </a>
+                                @else
+                                <a href="" class="btn non-negotiable">
+                                    غير قابل للتفاوض
                                 </a>
+                                @endif
+                                
                             </div>
                         </div>
                     </div>
                 @endforeach
                 
-                {{ dd($order->offers) }}
+                {{-- {{ dd($order->offers) }} --}}
                 {{-- <div class="box-offer">
                     <i class="fa-solid fa-star star-box"></i>
 
