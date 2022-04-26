@@ -163,7 +163,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-12 d-flex flex-wrap mb-4 justify-content-between">
+                            {{-- <div class="col-12 d-flex flex-wrap mb-4 justify-content-between">
                                 <div class="box">
                                     <div class="lable">القسم الرئيسي<span>*</span></div>
                                     <div class="select">
@@ -181,14 +181,14 @@
                                     <div class="select">
                                         <i class="arrow fa-solid fa-chevron-down"></i>
 
-                                        <select id="subsection  " wire:model="sub_department">
+                                        <select id="subsection" wire:model="sub_department">
                                             @foreach ($sub_departments as $department)
                                                 <option value="{{$department->id}}">{{$department->department_name_ar}}</option>
                                             @endforeach
                                         </select>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="col-12 d-flex flex-wrap mb-4 justify-content-between">
                                 <div class="box">
                                     <div class="lable"> الدولة<span>*</span></div>

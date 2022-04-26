@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Judger;
 use App\Models\Order;
 use Illuminate\Http\Request;
+use App\Models\Department;
+use App\Models\City;
 
 class OrderController extends Controller
 {
@@ -27,7 +29,12 @@ class OrderController extends Controller
      */
     public function create()
     {
-        //
+        $Order = Order::first();
+        $main_departments = Department::where('parent', null)->get();
+        $second_departments = Department::query()->whereParent($main_departments->first()->id)->get();
+        $cities = City::all();
+
+        return view('front.orders.create', compact(['Order', 'main_departments', 'second_departments', 'cities']));
     }
 
     /**
@@ -75,7 +82,8 @@ class OrderController extends Controller
      */
     public function update(Request $request, Order $order)
     {
-        //
+        $order->update($request->all());
+        return redirect()->back()->with('success', 'تم حفظ الطلب بنجاح');
     }
 
     /**

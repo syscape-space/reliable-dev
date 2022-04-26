@@ -51,7 +51,7 @@ Route::middleware('app-lang')->group(function () {
 		return redirect()->back();
 	});
 });
-//Route::resource('orders', 'Front\OrderController');
+// Route::resource('orders', 'Front\OrderController');
 // Route::resource('profile', UpdateUserProfileController::class);
 // Route::group(['middleware' => 'auth'], function () {
 Route::get('/profile', [UpdateUserProfileController::class, 'index']);
