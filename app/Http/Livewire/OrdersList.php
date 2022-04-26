@@ -41,7 +41,7 @@ class OrdersList extends Component
                     $q->where('choose_service_provider', 'all')
                         ->orWhere(function ($q1) {
                             $q1->where('choose_service_provider', 'by_city')
-                                ->where('city_id', auth('api')->id());
+                                ->where('city_id', auth()->id());
                         });
                 }
             });

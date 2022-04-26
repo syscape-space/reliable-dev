@@ -80,7 +80,7 @@
         >
             @if($order->accessOpen())
             <p class="content">
-                {{\Illuminate\Support\Str::limit($order->order_content)}}
+                {!! \Illuminate\Support\Str::limit($order->order_content) !!}
             </p>
             @endif
 
