@@ -1,6 +1,5 @@
 @extends('front.layout.index')
 @section('content')
-@include('front.parts.auth-topbar')
 <section class="orders overflow-hidden py-5">
     <div class="container">
         <livewire:orders-list/>

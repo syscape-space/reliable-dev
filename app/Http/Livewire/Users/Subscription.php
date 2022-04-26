@@ -10,7 +10,7 @@ class Subscription extends Component
     public function render()
     {
         $packages = VendorPackage::where('package_status', 'show')->get();
-        return view('livewire.users.subscription', [
+        return view('livewire.front.users.subscription', [
             'packages' => $packages
         ]);
     }
