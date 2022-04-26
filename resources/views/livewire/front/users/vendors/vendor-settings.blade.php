@@ -199,10 +199,10 @@
                                     <i class="arrow fa-solid fa-chevron-down"></i>
 
                                     <select id="main-section " wire:model="country_id">
-                                        {{-- @foreach ($countries as $country)
+                                        @foreach ($countries as $country)
                                             <option value="{{ $country->id }}">{{ $country->country_name_ar }}
                                             </option>
-                                        @endforeach --}}
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
@@ -212,9 +212,9 @@
                                     <i class="arrow fa-solid fa-chevron-down"></i>
 
                                     <select id="subsection  " wire:model="city_id">
-                                       {{--  @foreach ($cities as $city)
+                                        @foreach ($cities as $city)
                                             <option value="{{ $city->id }}">{{ $city->city_name_ar }}</option>
-                                        @endforeach --}}
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
@@ -297,33 +297,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 d-flex flex-wrap mb-4 justify-content-between">
-                            <div class="box d-flex gap-2">
-                                <div>
-                                    <div class="lable">الوظائف</div>
-                                    <select wire:model="occupation_id">
-                                        <option value="">اختر الوظيفة</option>
-                                        {{-- @foreach ($occupations as $occupation)
-                                            <option value="{{ $occupation->id }}">
-                                                {{ $occupation->occupation_name_ar }}</option>
-                                        @endforeach --}}
-                                    </select>
-                                </div>
-
-                                @if ($occupation_id)
-                                    <div>
-                                        <div class="lable">التخصصات</div>
-                                        <select>
-                                            {{-- @foreach ($specialties as $specialty)
-                                                <option value="{{ $specialty->id }}">
-                                                    {{ $specialty->specialty_name_ar }}</option>
-                                            @endforeach --}}
-                                        </select>
-                                    </div>
-                                @endif
-
-                            </div>
-                        </div>
+                        
                         <div class="col-12 d-flex flex-wrap mb-4 justify-content-between">
                             <div class="box d-flex gap-2">
                                 <div class="w-75">
@@ -337,17 +311,20 @@
                                             <span class="icon">!</span>
                                         </div>
                                     </div>
+                                    <div class="">
+                                        <div class="one">اسم شهادة المؤهل</div>
+                                        <input type="text" wire:model="qualification_name" id="">
+                                        <div class="two"> <i class="fa-solid fa-paperclip"></i> </div>
+
+                                    </div>
                                     <div class="inp-file">
                                         <div class="one">أضافة شهادة المؤهل</div>
-                                        <input type="file" name="" id="">
+                                        <input type="file" wire:model="qualification_file" id="">
                                         <div class="two"> <i class="fa-solid fa-paperclip"></i> </div>
 
                                     </div>
                                 </div>
-                                <div>
-                                    <div class="lable">تاريخ الحصول عليها :</div>
-                                    <input type="text" placeholder="تاريخ شهادة المؤهل... " name="addres">
-                                </div>
+
                             </div>
 
                             <div class="box d-flex gap-2">
@@ -362,9 +339,9 @@
                                             <span class="icon">!</span>
                                         </div>
                                     </div>
-                                    <div class="inp-file">
+                                    <div class="">
                                         <div class="one">أضافة رقم الهوية</div>
-                                        <input type="file" name="" id="">
+                                        <input type="number" wire:model="id_number" id="">
                                         <div class="two"> <i class="fa-solid fa-paperclip"></i> </div>
 
                                     </div>
@@ -384,9 +361,15 @@
                                         <span class="icon">!</span>
                                     </div>
                                 </div>
+                                <div class="">
+                                    <div class="one"> اسم الخبرة</div>
+                                    <input type="text" wire:model="experience_name" id="">
+                                    <div class="two"> <i class="fa-solid fa-paperclip"></i> </div>
+
+                                </div>
                                 <div class="inp-file">
                                     <div class="one"> خبراتك...</div>
-                                    <input type="file" name="" id="">
+                                    <input type="file" wire:model="experience_file" id="">
                                     <div class="two"> <i class="fa-solid fa-paperclip"></i> </div>
 
                                 </div>
@@ -398,7 +381,7 @@
 
                         <div class="col-12 d-flex flex-wrap mb-4 justify-content-between">
                             <div class="lable">نبذه عنك</div>
-                            <textarea placeholder="قم بكتابة نبذه عنك..." name="" id=""></textarea>
+                            <textarea placeholder="قم بكتابة نبذه عنك..." wire:model="bio" id=""></textarea>
                         </div>
                         <div class="col-12 d-flex flex-wrap mb-4 justify-content-between">
                             <button class="inp-sub" type="submit">حفظ التغيرات</button>
