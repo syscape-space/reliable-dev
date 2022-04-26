@@ -34,7 +34,7 @@ Route::group(
 					\UniSharp\LaravelFilemanager\Lfm::routes();
 				});
 			}
-			////////AdminRoutes/*Start*///////////////
+			//////AdminRoutes/*Start*///////////////
 			Route::get('/', 'Admin\Dashboard@home');
 			Route::any('logout', 'Admin\AdminAuthenticated@logout');
 			Route::get('account', 'Admin\AdminAuthenticated@account');
