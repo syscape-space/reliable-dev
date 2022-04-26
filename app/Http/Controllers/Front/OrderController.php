@@ -64,4 +64,9 @@ class OrderController extends Controller
     {
         //
     }
+    public function orderAccess($order_id){
+        $order = Order::query()->find($order_id);
+        $order->accessVendors()->attach(\auth()->id(),\request()->only('option_1','option_2'));
+        return redirect()->route('front.orders.show',$order->hash_code)->withSuccess('تم الدخول بنجاح');
+    }
 }

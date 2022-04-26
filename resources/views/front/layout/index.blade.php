@@ -196,6 +196,12 @@
                 title: message
             })
         })
+        @if(session()->has('success'))
+            Toast.fire({
+                icon: "success",
+                title: "{{session('success')}}"
+            })
+        @endif
     </script>
     @livewireScripts
     

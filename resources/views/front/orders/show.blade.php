@@ -3,7 +3,7 @@
     <section class="offers overflow-hidden py-5">
         <div class="container">
             @if(! $order->accessOpen())
-                <x-order.access-card />
+                <x-order.access-card :order="$order"/>
             @else
                 <div
                         class="col-12 back mb-5 flex-wrap gap-5 d-flex align-items-center justify-content-between"

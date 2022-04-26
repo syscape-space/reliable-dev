@@ -2,18 +2,20 @@
 
 namespace App\View\Components\Order;
 
+use App\Models\Order;
 use Illuminate\View\Component;
 
 class AccessCard extends Component
 {
+    public $order;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Order $order)
     {
-        //
+        $this->order = $order;
     }
 
     /**
