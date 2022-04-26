@@ -458,7 +458,6 @@ with font-awesome or any other icon font library -->
             @endif
         </ul>
     </li>
-
     @endif
   </ul>
 </li>

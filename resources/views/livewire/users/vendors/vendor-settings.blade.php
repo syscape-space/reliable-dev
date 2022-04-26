@@ -163,7 +163,7 @@
                                     </div>
                                 </div>
                             </div>
-                            {{-- <div class="col-12 d-flex flex-wrap mb-4 justify-content-between">
+                            <div class="col-12 d-flex flex-wrap mb-4 justify-content-between">
                                 <div class="box">
                                     <div class="lable">القسم الرئيسي<span>*</span></div>
                                     <div class="select">
@@ -188,7 +188,7 @@
                                         </select>
                                     </div>
                                 </div>
-                            </div> --}}
+                            </div>
                             <div class="col-12 d-flex flex-wrap mb-4 justify-content-between">
                                 <div class="box">
                                     <div class="lable"> الدولة<span>*</span></div>

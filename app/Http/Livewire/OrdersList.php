@@ -55,6 +55,6 @@ class OrdersList extends Component
             ->with($this->arrWith())->orderBy("id", "desc")->paginate(15);
         if ($this->parent)
         $this->sub_categories = Department::query()->whereParent($this->selected_main_id)->get();
-        return view('livewire.front.orders-list',compact('orders'));
+        return view('livewire.orders-list',compact('orders'));
     }
 }
