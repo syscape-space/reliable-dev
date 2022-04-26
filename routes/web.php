@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\V2\UpdateUserProfileController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Front\ProfileController;
+use App\Http\Livewire\Users\Register;
 use App\Models\FAQ;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -22,7 +23,8 @@ use Spatie\Honeypot\ProtectAgainstSpam;
 | contains the "web" middleware group. Now create something great!
 |
  */
-Auth::routes();
+
+
 Route::get('/provider', function () {
 	return view('front.user.provider.provider');
 });
@@ -51,7 +53,7 @@ Route::middleware('app-lang')->group(function () {
 		return redirect()->back();
 	});
 });
-//Route::resource('orders', 'Front\OrderController');
+// Route::resource('orders', 'Front\OrderController');
 // Route::resource('profile', UpdateUserProfileController::class);
 // Route::group(['middleware' => 'auth'], function () {
 Route::get('/profile', [UpdateUserProfileController::class, 'index']);

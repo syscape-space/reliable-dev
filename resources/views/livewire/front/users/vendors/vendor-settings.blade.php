@@ -3,6 +3,9 @@
 <section class="settings py-5">
     <div class="container">
         <div class="row">
+
+            @if (auth()->user()->packageRequests->count() > 0 && !auth()->user()->current_subscription)
+            
             <div class="col-12 back mb-5 d-flex align-items-center justify-content-end">
                 <div class="row w-100 justify-content-end">
                     <div class="flex-wrap col-xl-8 d-flex align-items-center justify-content-between gap-2 gap-sm-4">
@@ -11,6 +14,8 @@
                     </div>
                 </div>
             </div>
+            @endif
+
             <div class="col-xl-4 pe-lg-0 r-bar text-center text-xl-end ps-xl-5">
                 <div class="row parent-boxes">
                     <div class="col-12 mb-5">
@@ -66,11 +71,19 @@
                                     <p class="title">
                                         الاشتركات:
                                     </p>
-                                    <p class="dont-sub">
-                                        غير مشترك
+                                    <p class="{{ auth()->user()->current_subscription ? '' : 'dont-sub' }}">
+                                        @if (auth()->user()->packageRequests->count() > 0)
+                                            @if (auth()->user()->current_subscription)
+                                                {{ auth()->user()->current_subscription->package->package_title }}
+                                                @else
+                                                    انتهى الاشتراك
+                                            @endif
+                                        @else
+                                            غير مشترك
+                                        @endif
                                     </p>
                                 </div>
-
+{{$current}}
                             </div>
                             <div class="box-child d-flex flex-column ">
                                 <div class="data d-flex gap-1 justify-content-between align-items-center">
@@ -172,7 +185,8 @@
 
                                     <select id="main-section " wire:model="main_department">
                                         @foreach ($main_departments as $department)
-                                            <option value="{{ $department->id }}">{{ $department->department_name_ar }}
+                                            <option value="{{ $department->id }}">
+                                                {{ $department->department_name_ar }}
                                             </option>
                                         @endforeach
                                     </select>
@@ -185,7 +199,8 @@
 
                                     <select id="subsection  " wire:model="sub_department">
                                         @foreach ($sub_departments as $department)
-                                            <option value="{{ $department->id }}">{{ $department->department_name_ar }}
+                                            <option value="{{ $department->id }}">
+                                                {{ $department->department_name_ar }}
                                             </option>
                                         @endforeach
                                     </select>
@@ -253,7 +268,8 @@
                                     </div>
                                     <div class="inp-file">
                                         <div class="">أضافة سجل اداري</div>
-                                        <input type="file" wire:model="commercial_file" id="">
+                                        <input type="file" wire:model="commercial_file" id=""
+                                            accept="image/jpeg,image/gif,image/png,application/pdf,image/x-eps">
                                         <div class=""> <i class="fa-solid fa-paperclip"></i> </div>
 
                                     </div>
@@ -285,7 +301,8 @@
                                     </div>
                                     <div class="inp-file">
                                         <div class="one">أضافة رخصة مهنية</div>
-                                        <input type="file" wire:model="license_file" id="">
+                                        <input type="file" wire:model="license_file" id=""
+                                            accept="image/jpeg,image/gif,image/png,application/pdf,image/x-eps">
                                         <div class="two"> <i class="fa-solid fa-paperclip"></i> </div>
 
                                     </div>
@@ -297,7 +314,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="col-12 d-flex flex-wrap mb-4 justify-content-between">
                             <div class="box d-flex gap-2">
                                 <div class="w-75">
@@ -319,7 +336,8 @@
                                     </div>
                                     <div class="inp-file">
                                         <div class="one">أضافة شهادة المؤهل</div>
-                                        <input type="file" wire:model="qualification_file" id="">
+                                        <input type="file" wire:model="qualification_file" id=""
+                                            accept="image/jpeg,image/gif,image/png,application/pdf,image/x-eps">
                                         <div class="two"> <i class="fa-solid fa-paperclip"></i> </div>
 
                                     </div>
@@ -343,7 +361,9 @@
                                         <div class="one">أضافة رقم الهوية</div>
                                         <input type="number" wire:model="id_number" id="">
                                         <div class="two"> <i class="fa-solid fa-paperclip"></i> </div>
-
+                                        @error('id_number')
+                                            {{ $message }}
+                                        @enderror
                                     </div>
                                 </div>
 
@@ -369,7 +389,8 @@
                                 </div>
                                 <div class="inp-file">
                                     <div class="one"> خبراتك...</div>
-                                    <input type="file" wire:model="experience_file" id="">
+                                    <input type="file" wire:model="experience_file" id=""
+                                        accept="image/jpeg,image/gif,image/png,application/pdf,image/x-eps">
                                     <div class="two"> <i class="fa-solid fa-paperclip"></i> </div>
 
                                 </div>

@@ -181,7 +181,7 @@
                                     <div class="select">
                                         <i class="arrow fa-solid fa-chevron-down"></i>
 
-                                        <select id="subsection  " wire:model="sub_department">
+                                        <select id="subsection" wire:model="sub_department">
                                             @foreach ($sub_departments as $department)
                                                 <option value="{{$department->id}}">{{$department->department_name_ar}}</option>
                                             @endforeach

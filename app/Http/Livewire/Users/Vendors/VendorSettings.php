@@ -18,7 +18,7 @@ use Livewire\WithFileUploads;
 class VendorSettings extends Component
 {
     use WithFileUploads;
-    public $user_id,$id_number, $name, $email, $email_verify, $mobile_verify, $mobile,$membership_type, $gender, $main_department, $sub_department, $country_id, $city_id, $address,$commercial_end_at,$commercial_file,$commercial_id,$license_name,$license_file,$license_end_at,$qualification_file,$qualification_name,$experience_name,$experience_file,$bio;
+    public $user_id,$id_number, $name, $email, $email_verify, $mobile_verify, $mobile,$membership_type, $gender, $main_department, $sub_department, $country_id, $city_id, $address,$commercial_end_at,$commercial_file,$commercial_id,$license_name,$license_file,$license_end_at,$qualification_file,$qualification_name,$experience_name,$experience_file,$bio,$current=1;
 
     protected function rules()
     {

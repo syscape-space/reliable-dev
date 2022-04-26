@@ -22,10 +22,10 @@ class CreateOrdersTable extends Migration {
 				$table->enum('show_order_data', ['yes', 'no'])->default('no');
 				$table->enum('linked_order', ['yes', 'no'])->default('no');
 				$table->foreignId("order_type_id")->constrained("order_types")->references("id")->onUpdate("cascade")->onDelete("cascade");
-				$table->string('order_title');
-				$table->longtext('order_content');
+				$table->string('order_title')->nullable();
+				$table->longtext('order_content')->nullable();
 				$table->foreignId("department_id")->constrained("departments")->references("id")->onUpdate("cascade")->onDelete("cascade");
-				$table->enum('choose_service_provider', ['all', 'by_city', 'by_filter', 'by_occupation']);
+				$table->enum('choose_service_provider', ['all', 'by_city', 'by_filter', 'by_occupation'])->nullable();
 				$table->foreignId("country_id")->nullable()->constrained("countries")->references("id")->onUpdate("cascade")->onDelete("cascade");
 				$table->foreignId("city_id")->nullable()->constrained("cities")->references("id")->onUpdate("cascade")->onDelete("cascade");
 				$table->bigInteger('execution_time')->nullable();
@@ -36,7 +36,7 @@ class CreateOrdersTable extends Migration {
 				$table->enum('decisions_status', ['pending', 'accept', 'refused'])->nullable();
 				$table->enum('negotiable', ['yes', 'no'])->default('no');
 				$table->longtext('decisions_refused_reason')->nullable();
-				$table->enum('order_status', ['under_review', 'open', 'closed', 'close_and_refund', 'refused'])->default('under_review');
+				$table->enum('order_status', ['draft', 'under_review', 'open', 'closed', 'close_and_refund', 'refused'])->default('under_review');
 				$table->longtext('reason')->nullable();
 				$table->timestamps();
 			});

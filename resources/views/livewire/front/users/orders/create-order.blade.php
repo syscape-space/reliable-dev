@@ -141,21 +141,22 @@
                             <div
                                 class="type mb-5 flex-wrap justify-content-sm-start justify-content-center mt-5 d-flex align-items-center gap-5"
                             >
-                                <div class="box-one">
-                                    المحاماة
-                                    <i
-                                        class="fa-solid fa-scale-balanced"
-                                    ></i>
-                                </div>
-                                <div class="box-two">
+                            @if ($main_departments->first() != null)
+                            <div class="box-one">
+                                {{$main_departments->first()->department_name_ar}}
+                                <i
+                                    class="fa-solid fa-scale-balanced"
+                                ></i>
+                            </div>
+                            @endif
+                                
+                                {{-- <div class="box-two">
                                     <div>استشارة قانونية</div>
                                     <div>تجاري</div>
-                                </div>
+                                </div> --}}
                             </div>
-                            <ul
-                                class="list-btn d-flex gap-2 gap-2 flex-wrap"
-                            >
-                                <li class="active">
+                            <ul class="list-btn d-flex gap-2 gap-2 flex-wrap">
+                                {{-- <li class="active">
                                     <input
                                         type="radio"
                                         name="service-type"
@@ -163,79 +164,50 @@
                                         value="1"
                                     />
                                     البحث عن محامي
-                                </li>
-                                <li>
-                                    <input
-                                        type="radio"
-                                        name="service-type"
-                                        id=""
-                                        value="2"
-                                    />
-
-                                    استشارة قانونية
-                                </li>
-                                <li>
-                                    <input
-                                        type="radio"
-                                        name="service-type"
-                                        id=""
-                                        value="3"
-                                    />
-
-                                    القضايا
-                                </li>
-                                <li>
-                                    <input
-                                        type="radio"
-                                        name="service-type"
-                                        id=""
-                                        value="4"
-                                    />
-
-                                    المطالبات المالية
-                                </li>
-                                <li>
-                                    <input
-                                        type="radio"
-                                        name="service-type"
-                                        id=""
-                                        value="5"
-                                    />
-
-                                    خدمات العقود
-                                </li>
-                                <li>
-                                    <input
-                                        type="radio"
-                                        name="service-type"
-                                        id=""
-                                        value="6"
-                                    />
-
-                                    المذكرات القانونية
-                                </li>
-                                <li>
-                                    <input
-                                        type="radio"
-                                        name="service-type"
-                                        id=""
-                                        value="7"
-                                    />
-
-                                    إضافة عقد
-                                </li>
+                                </li> --}}
+                                @foreach ($second_departments as $second_department)
+                                
+                                    <li><input type="radio" wire:model="second_department_id" name="second_department" id="secondDepartment{{$second_department->id}}" value="{{ $second_department->id }}" />{{ $second_department->department_name_ar }}</li>
+                                @endforeach
+                                
                             </ul>
+
+                            {{-- <div class="col-12 d-flex flex-wrap mb-4 justify-content-between">
+                                <div class="box">
+                                    <div class="lable">القسم الرئيسي<span>*</span></div>
+                                    <div class="select">
+                                        <i class="arrow fa-solid fa-chevron-down"></i>
+
+                                        <select  id="main-section " wire:model="main_department">
+                                            @foreach ($main_departments as $department)
+                                                <option value="{{$department->id}}">{{$department->department_name_ar}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="box">
+                                    <div class="lable "> القسم الفرعي<span>*</span></div>
+                                    <div class="select">
+                                        <i class="arrow fa-solid fa-chevron-down"></i>
+
+                                        <select id="subsection" wire:model="sub_department">
+                                            @foreach ($second_departments as $department)
+                                                <option value="{{$department->id}}">{{$department->department_name_ar}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                            </div> --}}
                             <select
                                 dir="rtl"
                                 name="section"
                                 id="inp-selector"
                             >
-                                <option value="1">تجاري</option>
 
-                                <option value="2">اداري</option>
+                                @foreach ($third_departments as $third_department)
+                                    <option value="{{$third_department->id}}">{{$third_department->department_name_ar}}</option>
+                                @endforeach
 
-                                <option value="3">جنائي</option>
-                                <option value="4">عمالي</option>
                             </select>
                             <div
                                 class="order-number mt-5 d-flex align-items-center gap-3"
