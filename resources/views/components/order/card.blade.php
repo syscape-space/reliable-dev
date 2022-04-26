@@ -1,3 +1,6 @@
+<a href="{{route('orders.show',$order->id)}}">
+
+</a>
 <div class="box-order">
     <div class="info">
         <div class="photo">
@@ -15,7 +18,7 @@
             <i class="fa-solid fa-star"></i>
         </div>
         <p class="name">{{$order->user->name}}</p>
-{{--        <p class="job">محامي حر</p>--}}
+        {{--        <p class="job">محامي حر</p>--}}
     </div>
     <div class="text">
         <div
@@ -68,14 +71,18 @@
             </div>
         </div>
         <h5 class="title">
-            {{$order->order_title}}
+            <a href="{{route('front.orders.show',$order->hash_code)}}">
+                {{$order->order_title}}
+            </a>
         </h5>
         <div
                 class="d-flex align-items-center justify-content-between flex-wrap"
         >
+            @if($order->accessOpen())
             <p class="content">
                 {{\Illuminate\Support\Str::limit($order->order_content)}}
             </p>
+            @endif
 
             <div
                     class="group-btn m-auto m-lg-0 d-flex flex-column gap-3"

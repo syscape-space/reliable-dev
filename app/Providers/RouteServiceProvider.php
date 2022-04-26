@@ -50,6 +50,7 @@ class RouteServiceProvider extends ServiceProvider {
 				->namespace($this->namespace)
 				->group(base_path('routes/web.php'));
 			Route::middleware('web')
+                ->as('front.')
 				->namespace($this->namespace.'\Front')
 				->group(base_path('routes/front.php'));
 

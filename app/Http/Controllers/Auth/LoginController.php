@@ -26,7 +26,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/orders';
 
     /**
      * Create a new controller instance.
@@ -49,7 +49,7 @@ class LoginController extends Controller
         $fieldType = filter_var($request->id_number, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
         if(auth()->attempt(array('id_number' => $input['id_number'], 'password' => $input['password'])))
         {
-            return redirect('home');
+            return redirect()->intended('/');
         }else{
             return redirect()->route('login');
         }

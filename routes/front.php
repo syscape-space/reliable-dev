@@ -1,5 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
-Route::resource('orders','OrderController');
+Route::redirect('/',url('/orders'));
+Route::middleware('auth')->group(function (){
+    Route::resource('orders','OrderController');
+});
