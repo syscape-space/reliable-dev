@@ -18,10 +18,10 @@
             <div class="main-lan pt-2 text-start">
                 <button class="px-2 py-1">ع/E</button>
             </div>
-            <div class="logo mt-4 d-flex align-items-center ">
+            <div class="logo mt-4 d-flex align-items-center flex-wrap mt-5">
                 <div class="mt-3 pt-5">
                     <a href="#">
-                        <img src="./images/logo.svg" alt="" srcset="" />
+                        <img  src="{{ asset('assets/images/images/logo.svg')}}" alt="" srcset="" />
                     </a>
                     <p class="pt-3 f-300" style="font-size: 14px; color: #606572">
                         منصة موثوق هي منصة سعودية تعمل في مجال البحث وتوفير المحامين<br />
@@ -38,36 +38,36 @@
                     </div>
                 </div>
 
-                <div id="carouselExampleIndicators" class="mx-auto carousel slide" data-bs-ride="carousel"
+                <div id="carouselExampleIndicators" class="mx-auto carousel slide mt-4 mt-md-0 ff-dd-ss" data-bs-ride="carousel"
                     style="max-width: 400px;">
                     <div class="carousel-indicators">
                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
                             class="bg-white active" aria-current="true" aria-label="Slide 1">
-                            <img src="./images/a-1.svg" alt="">
+                            <img  src="{{ asset('assets/images/images/a-1.svg')}}" alt="">
                         </button>
                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
                             class="bg-white" aria-label="Slide 1">
-                            <img src="./images/a-2.svg" alt="">
+                            <img  src="{{ asset('assets/images/images/a-2.svg')}}" alt="">
                         </button>
                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
                             class="bg-white" aria-label="Slide 1">
-                            <img src="./images/a-3.svg" alt="">
+                            <img  src="{{ asset('assets/images/images/a-3.svg')}}" alt="">
                         </button>
                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
                             class="bg-white" aria-label="Slide 1">
-                            <img src="./images/a-4.svg" alt="">
+                            <img  src="{{ asset('assets/images/images/a-4.svg')}}" alt="">
                         </button>
                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4"
                             class="bg-white" aria-label="Slide 1">
-                            <img src="./images/a-5.svg" alt="">
+                            <img  src="{{ asset('assets/images/images/a-5.svg')}}" alt="">
                         </button>
                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5"
                             class="bg-white" aria-label="Slide 1">
-                            <img src="./images/a-6.svg" alt="">
+                            <img  src="{{ asset('assets/images/images/a-6.svg')}}" alt="">
                         </button>
                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="6"
                             class="bg-white" aria-label="Slide 1">
-                            <img src="./images/a-7.svg" alt="">
+                            <img  src="{{ asset('assets/images/images/a-7.svg')}}" alt="">
                         </button>
                     </div>
                     <div class="carousel-inner">
@@ -75,7 +75,7 @@
                             <div>
                                 <div class="d-flex align-items-center mb-1">
                                     <span class="metr">
-                                        <img src="./images/a-1.png" alt="">
+                                        <img  src="{{ asset('assets/images/images/a-1.png')}}" alt="">
                                     </span>
                                     <h6 style=" color: #0091ea;font-size: 16px;">البحث عن محامي</h6>
                                 </div>
@@ -87,7 +87,7 @@
                             <div>
                                 <div class="d-flex align-items-center mb-1">
                                     <span class="metr">
-                                        <img src="./images/a-2.png" alt="">
+                                        <img  src="{{ asset('assets/images/images/a-2.png')}}" alt="">
                                     </span>
                                     <h6 style=" color: #0091ea;font-size: 16px;">البحث عن محامي</h6>
                                 </div>
@@ -99,7 +99,7 @@
                             <div>
                                 <div class="d-flex align-items-center mb-1">
                                     <span class="metr">
-                                        <img src="./images/a-3.png" alt="">
+                                        <img  src="{{ asset('assets/images/images/a-3.png')}}" alt="">
                                     </span>
                                     <h6 style=" color: #0091ea;font-size: 16px;">البحث عن محامي</h6>
                                 </div>
@@ -111,7 +111,7 @@
                             <div>
                                 <div class="d-flex align-items-center mb-1">
                                     <span class="metr">
-                                        <img src="./images/a-4.png" alt="">
+                                        <img  src="{{ asset('assets/images/images/a-4.png')}}" alt="">
                                     </span>
                                     <h6 style=" color: #0091ea;font-size: 16px;">البحث عن محامي</h6>
                                 </div>
@@ -123,7 +123,7 @@
                             <div>
                                 <div class="d-flex align-items-center mb-1">
                                     <span class="metr">
-                                        <img src="./images/a-5.png" alt="">
+                                        <img  src="{{ asset('assets/images/images/a-5.png')}}" alt="">
                                     </span>
                                     <h6 style=" color: #0091ea;font-size: 16px;">البحث عن محامي</h6>
                                 </div>
@@ -135,7 +135,7 @@
                             <div>
                                 <div class="d-flex align-items-center mb-1">
                                     <span class="metr">
-                                        <img src="./images/a-6.png" alt="">
+                                        <img  src="{{ asset('assets/images/images/a-6.png')}}" alt="">
                                     </span>
                                     <h6 style=" color: #0091ea;font-size: 16px;">البحث عن محامي</h6>
                                 </div>
@@ -147,7 +147,7 @@
                             <div>
                                 <div class="d-flex align-items-center mb-1">
                                     <span class="metr">
-                                        <img src="./images/a-7.png" alt="">
+                                        <img  src="{{ asset('assets/images/images/a-7.png')}}" alt="">
                                     </span>
                                     <h6 style=" color: #0091ea;font-size: 16px;">البحث عن محامي</h6>
                                 </div>
@@ -169,7 +169,7 @@
                 </div>
             </div>
             <div class="container login">
-                <div class="content-login d-md-flex justify-content-between pt-4">
+                <div class="content-login d-md-flex justify-content-between pt-4 mt-5 mt-md-0">
 
                     <div class=" d-flex align-items-start">
                         @if (!auth()->check())
@@ -196,7 +196,7 @@
                             <a href="#" class="about-btn-1" data-bs-toggle="modal" data-bs-target="#exampleModal"> من
                                 نحن </a>
                         </div>
-                        <img class="about-img" src="./images/img-links.png" alt="" srcset="" />
+                        <img class="about-img" src="{{ asset('assets/images/img-links.png')}}" alt="" srcset="" />
                     </div>
                 </div>
             </div>
@@ -207,7 +207,7 @@
         <div class="modal-dialog">
             <div class="modal-content" style="align-items: flex-start;">
                 <img class="mx-5" style="opacity: .2; width: 82px; margin-top: 42px;"
-                    src="./images/single-logo.svg" alt="">
+                    src="{{ asset('assets/images/single-logo.svg')}}" alt="">
                 <div>
                     <div class="modal-header border-0">
                         <h5 class="modal-title" id="exampleModalLabel"
@@ -272,10 +272,10 @@
                 </div>
             </div>
             <div class="text-center">
-                <img class="ital" src="./images/italic.svg" alt="" />
+                <img class="ital" src="{{ asset('assets/images/italic.svg')}}" alt="" />
             </div>
             <div style="max-width: 967px; margin: 23px auto;" class="position-relative">
-                <img class="abs-img h-100" src="./images/dots.svg" alt="">
+                <img class="abs-img h-100" src="{{ asset('assets/images/dots.svg')}}" alt="">
                 <div class="btns-bb">
                     <div class="d-flex align">
 
@@ -302,7 +302,7 @@
                     </div>
                     <div class="position-relative">
                         <img class="d-inline-block mt-3 share-btns" style="width: 52px;cursor: pointer;"
-                            src="./images/share.svg" alt="">
+                            src="{{ asset('assets/images/share.svg')}}" alt="">
                         <div class="btns-icons-ff">
                             <span><i class="fab fa-facebook-square"></i></span>
                             <span> <i class="fab  fa-linkedin"></i> </span>
@@ -317,7 +317,7 @@
                             <h4 class="my-0" style="white-space: nowrap;">
                                 <span style="color: #0491e8">1.</span> انشاء الطلب
                             </h4>
-                            <img class="dots-blue mx-1" src="./images/doted.svg" alt="" />
+                            <img class="dots-blue mx-1" src="{{ asset('assets/images/doted.svg')}}" alt="" />
                         </div>
                         <div>
                             <button class="more-btn">مزيد من التفاصيل</button>
@@ -355,7 +355,7 @@
                             <h4 class="my-0" style="white-space: nowrap;">
                                 طريقة العرض <span style="color: #0491e8">.2</span>
                             </h4>
-                            <img class="dots-blue mx-1" src="./images/doted.svg" alt="" />
+                            <img class="dots-blue mx-1" src="{{ asset('assets/images/doted.svg')}}" alt="" />
                         </div>
                         <div>
                             <button class="more-btn">مزيد من التفاصيل</button>
@@ -394,7 +394,7 @@
                             <h4 class="my-0" style="white-space: nowrap;">
                                 <span style="color: #048E81">3.</span> اختيار الانسب
                             </h4>
-                            <img class="dots-blue mx-1" src="./images/doted.svg" alt="" />
+                            <img class="dots-blue mx-1" src="{{ asset('assets/images/doted.svg')}}" alt="" />
                         </div>
                         <div>
                             <button class="more-btn">مزيد من التفاصيل</button>
@@ -432,7 +432,7 @@
                             <h4 class="my-0" style="white-space: nowrap;">
                                 تحديد حجم العمل والقيمة <span style="color: #048E81">.4</span>
                             </h4>
-                            <img class="dots-blue mx-1" src="./images/doted.svg" alt="" />
+                            <img class="dots-blue mx-1" src="{{ asset('assets/images/doted.svg')}}" alt="" />
                         </div>
                         <div>
                             <button class="more-btn">مزيد من التفاصيل</button>
@@ -471,7 +471,7 @@
                             <h4 class="my-0" style="white-space: nowrap;">
                                 <span style="color: #048E81">5.</span> اختيار المحكم
                             </h4>
-                            <img class="dots-blue mx-1" src="./images/doted.svg" alt="" />
+                            <img class="dots-blue mx-1" src="{{ asset('assets/images/doted.svg')}}" alt="" />
                         </div>
                         <div>
                             <button class="more-btn">مزيد من التفاصيل</button>
@@ -509,7 +509,7 @@
                             <h4 class="my-0" style="white-space: nowrap;">
                                 انشاء العقد<span style="color: #048E81">.6</span>
                             </h4>
-                            <img class="dots-blue mx-1" src="./images/doted.svg" alt="" />
+                            <img class="dots-blue mx-1" src="{{ asset('assets/images/doted.svg')}}" alt="" />
                         </div>
                         <div>
                             <button class="more-btn">مزيد من التفاصيل</button>
@@ -548,7 +548,7 @@
                             <h4 class="my-0" style="white-space: nowrap;">
                                 <span style="color: #048E81">7.</span> الدفع
                             </h4>
-                            <img class="dots-blue mx-1" src="./images/doted.svg" alt="" />
+                            <img class="dots-blue mx-1" src="{{ asset('assets/images/doted.svg')}}" alt="" />
                         </div>
                         <div>
                             <button class="more-btn">مزيد من التفاصيل</button>
@@ -586,7 +586,7 @@
                             <h4 class="my-0" style="white-space: nowrap;">
                                 التسليم<span style="color: #048E81">.8</span>
                             </h4>
-                            <img class="dots-blue mx-1" src="./images/doted.svg" alt="" />
+                            <img class="dots-blue mx-1" src="{{ asset('assets/images/doted.svg')}}" alt="" />
                         </div>
                         <div>
                             <button class="more-btn">مزيد من التفاصيل</button>
@@ -657,7 +657,7 @@
                 </div>
                 <div class="col-lg-3">
                     <div style="color: #048E81;" class="f-18">
-                        <img src="./images/logo.svg" alt="">
+                        <img  src="{{ asset('assets/images/images/logo.svg')}}" alt="">
                     </div>
                 </div>
             </div>
