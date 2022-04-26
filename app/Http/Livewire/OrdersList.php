@@ -35,7 +35,7 @@ class OrdersList extends Component
         }else{
             $query = Order::select('*')->where(function ($q) {
                 if (auth()->check() and auth()->user()->membership_type === 'user') {
-                    $q->where('user_id',auth('api')->id() );
+                    $q->where('user_id',auth()->id() );
                 } else {
                     $q->where('order_status', 'open');
                     $q->where('choose_service_provider', 'all')
