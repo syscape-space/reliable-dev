@@ -75,14 +75,14 @@
                 {{$order->order_title}}
             </a>
         </h5>
+        @if($order->isActiveUser())
         <div
                 class="d-flex align-items-center justify-content-between flex-wrap"
         >
-            @if($order->accessOpen())
+
             <p class="content">
                 {!! \Illuminate\Support\Str::limit($order->order_content) !!}
             </p>
-            @endif
 
             <div
                     class="group-btn m-auto m-lg-0 d-flex flex-column gap-3"
@@ -97,5 +97,8 @@
                 >
             </div>
         </div>
+        @else
+        {{-- TODO : vendor area --}}
+        @endif
     </div>
 </div>
