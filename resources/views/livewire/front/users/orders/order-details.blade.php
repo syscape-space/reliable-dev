@@ -269,9 +269,7 @@
                     </div>
                 </div>
             </div>
-            <div
-                class="box-search row d-flex align-items-center justify-content-between"
-            >
+            <div class="box-search row d-flex align-items-center justify-content-between">
                 <div class="col-xl-8 d-flex align-items-center gap-3">
                     <span class="titl-search">العروص المقدمة</span>
                     <form class="flex-fill" action="">
@@ -298,8 +296,62 @@
                 </div>
             </div>
             <div class="boxes-offers d-flex flex-wrap">
-                <div class="box-offer">
+                @foreach ($order->offers as $offer)
+                    <div class="box-offer">
+                        <i class="fa-solid fa-star star-box"></i>
+                        <div class="row">
+                            <div class="col-7 info p-0">
+                                <p class="name">{{ $offer->vendor->name }}</p>
+                                <p class="specialty">
+                                    <span class="color">محامي:</span>
+                                    جميع الحالات
+                                </p>
+                                <p class="license-number">
+                                    <span class="color">رخصة برقم:</span>
+                                    21450364102
+                                </p>
+                                <p class="duration">
+                                    <span class="color">مدة التسليم:</span>
+                                    {{ $offer->execution_time }} يوم
+                                </p>
+                                <p class="price">
+                                    <span class="color">القيمة:</span>
+                                    ريال {{ $offer->price }}
+                                </p>
+                                <p class="deta">
+                                    <span class="color">التاريخ:</span>
+                                    {{ \Carbon\Carbon::create($offer->created_at)->format('Y-m-d') }}
+                                </p>
+                            </div>
+                            <div class="col-5 photo p-0">
+                                <div class="img-cont">
+                                    <div class="active"></div>
+                                    <img
+                                        class="img-fluid"
+                                        src="{{asset('tem_assets')}}/img/person.jpg"
+                                        alt=""
+                                    />
+                                </div>
+                                <div class="star">
+                                    4.5
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <a href="" class="profile">تصفح الملف الشخصي</a>
+                            </div>
+                            <div class="col-12 controll">
+                                <a href="" class="btn view">العرض المقدم</a>
+                                <a href="" class="btn negotiable">
+                                    قابل للتفاوض
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+                
+                {{ dd($order->offers) }}
+                {{-- <div class="box-offer">
                     <i class="fa-solid fa-star star-box"></i>
+
                     <div class="row">
                         <div class="col-7 info p-0">
                             <p class="name">محمد مصطفي علي</p>
@@ -341,8 +393,58 @@
                         </div>
                         <div class="col-12 controll">
                             <a href="" class="btn view">العرض المقدم</a>
-                            <a href="" class="btn negotiable">
-                                قابل للتفاوض
+                            <a href="" class="btn non-negotiable">
+                                غير قابل للتفاوض
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-offer">
+                    <i class="fa-solid fa-star star-box"></i>
+
+                    <div class="row">
+                        <div class="col-7 info p-0">
+                            <p class="name">محمد مصطفي علي</p>
+                            <p class="specialty">
+                                <span class="color">محامي:</span>
+                                جميع الحالات
+                            </p>
+                            <p class="license-number">
+                                <span class="color">رخصة برقم:</span>
+                                21450364102
+                            </p>
+                            <p class="duration">
+                                <span class="color">مدة التسليم:</span>
+                                15 يوم
+                            </p>
+                            <p class="price">
+                                <span class="color">القيمة:</span>
+                                ريال 150
+                            </p>
+                            <p class="deta">
+                                <span class="color">التاريخ:</span>
+                                4/20/2022
+                            </p>
+                        </div>
+                        <div class="col-5 photo p-0">
+                            <div class="img-cont">
+                                <div class="active"></div>
+                                <img
+                                    class="img-fluid"
+                                    src="{{asset('tem_assets')}}/img/person.jpg"
+                                    alt=""
+                                />
+                            </div>
+                            <div class="star">
+                                4.5
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <a href="" class="profile">تصفح الملف الشخصي</a>
+                        </div>
+                        <div class="col-12 controll">
+                            <a href="" class="btn inquiries"
+                                >أستفسار وتفاوض
+                                <div class="noti">2</div>
                             </a>
                         </div>
                     </div>
@@ -449,106 +551,6 @@
                 </div>
                 <div class="box-offer">
                     <i class="fa-solid fa-star star-box"></i>
-
-                    <div class="row">
-                        <div class="col-7 info p-0">
-                            <p class="name">محمد مصطفي علي</p>
-                            <p class="specialty">
-                                <span class="color">محامي:</span>
-                                جميع الحالات
-                            </p>
-                            <p class="license-number">
-                                <span class="color">رخصة برقم:</span>
-                                21450364102
-                            </p>
-                            <p class="duration">
-                                <span class="color">مدة التسليم:</span>
-                                15 يوم
-                            </p>
-                            <p class="price">
-                                <span class="color">القيمة:</span>
-                                ريال 150
-                            </p>
-                            <p class="deta">
-                                <span class="color">التاريخ:</span>
-                                4/20/2022
-                            </p>
-                        </div>
-                        <div class="col-5 photo p-0">
-                            <div class="img-cont">
-                                <div class="active"></div>
-                                <img
-                                    class="img-fluid"
-                                    src="{{asset('tem_assets')}}/img/person.jpg"
-                                    alt=""
-                                />
-                            </div>
-                            <div class="star">
-                                4.5
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                            <a href="" class="profile">تصفح الملف الشخصي</a>
-                        </div>
-                        <div class="col-12 controll">
-                            <a href="" class="btn view">العرض المقدم</a>
-                            <a href="" class="btn non-negotiable">
-                                غير قابل للتفاوض
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="box-offer">
-                    <i class="fa-solid fa-star star-box"></i>
-
-                    <div class="row">
-                        <div class="col-7 info p-0">
-                            <p class="name">محمد مصطفي علي</p>
-                            <p class="specialty">
-                                <span class="color">محامي:</span>
-                                جميع الحالات
-                            </p>
-                            <p class="license-number">
-                                <span class="color">رخصة برقم:</span>
-                                21450364102
-                            </p>
-                            <p class="duration">
-                                <span class="color">مدة التسليم:</span>
-                                15 يوم
-                            </p>
-                            <p class="price">
-                                <span class="color">القيمة:</span>
-                                ريال 150
-                            </p>
-                            <p class="deta">
-                                <span class="color">التاريخ:</span>
-                                4/20/2022
-                            </p>
-                        </div>
-                        <div class="col-5 photo p-0">
-                            <div class="img-cont">
-                                <div class="active"></div>
-                                <img
-                                    class="img-fluid"
-                                    src="{{asset('tem_assets')}}/img/person.jpg"
-                                    alt=""
-                                />
-                            </div>
-                            <div class="star">
-                                4.5
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                            <a href="" class="profile">تصفح الملف الشخصي</a>
-                        </div>
-                        <div class="col-12 controll">
-                            <a href="" class="btn inquiries"
-                                >أستفسار وتفاوض
-                                <div class="noti">2</div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="box-offer">
-                    <i class="fa-solid fa-star star-box"></i>
                     <div class="row">
                         <div class="col-7 info p-0">
                             <p class="name">محمد مصطفي علي</p>
@@ -595,7 +597,7 @@
                             </a>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </section>
