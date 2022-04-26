@@ -1,4 +1,6 @@
 <?php
+
+use App\Http\Livewire\CategorySelector;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Users\Judgers\SelectJudges;
 use App\Http\Livewire\Users\Subscription;
@@ -11,3 +13,4 @@ Route::get('vendors-judges', VendorsSelect::class);
 Route::get('vendors-settings', VendorSettings::class);
 Route::get('tickets', Tickets::class);
 Route::get('subscription',Subscription::class);
+
