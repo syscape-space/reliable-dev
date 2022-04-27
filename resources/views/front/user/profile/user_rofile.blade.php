@@ -14,7 +14,6 @@
 <body style="background: #fff ">
     <!-- Header -->
 
-
     <!-- client page -->
 
     <section class="  pt-5">
@@ -310,7 +309,6 @@
                     </div>
                 </div>
             </div>
-        </div>
         </div>
     </section>
 

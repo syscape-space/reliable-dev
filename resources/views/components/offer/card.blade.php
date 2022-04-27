@@ -38,9 +38,9 @@
             {!! $offer->vendor_comment !!}
         </p>
         <div class="btns d-flex align-items-center justify-content-end gap-2">
-            <a href="" class="btn acceptance">قبول العرض</a>
+                <a href="" class="btn acceptance btn-success">قبول العرض</a>
             @if($offer->negotiable)
-            <a href="" class="btn acceptance">تفاوض</a>
+                <a href="" class="btn acceptance btn-success">تفاوض</a>
             @endif
         </div>
     </div>

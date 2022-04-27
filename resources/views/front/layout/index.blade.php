@@ -116,7 +116,7 @@
                                     <span class="photo">
                                         <img
                                             class="img-fluid"
-                                            src="{{asset('/assets')}}img/photo"
+                                            src="{{cloudUrl(auth()->user()->photo_profile)}}"
                                             alt=""
                                         />
                                     </span>
