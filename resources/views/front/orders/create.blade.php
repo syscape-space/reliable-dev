@@ -479,60 +479,38 @@
     <script src="{{ asset('tem_assets') }}/js/paying.js"></script>
     <script src="{{ asset('tem_assets') }}/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    @if (count($errors) > 0)
-        @foreach ($errors->all() as $error)
-            <script>
-                Swal.fire({
-                title: 'Error!',
-                text: '{{ $error }}',
-                icon: 'error',
-                confirmButtonText: 'Ok'
-                })
-            </script>
-        @endforeach
-    @endif
-
-    @if (session('success'))
-        <script>
-            Swal.fire({
-                title: 'Success!',
-                text: '{{ session('success') }}',
-                icon: 'success',
-                confirmButtonText: 'Ok'
-            })
-        </script>
-    @endif
-
-    @if (session('error'))
-        <script>
-            Swal.fire({
-                title: 'Error!',
-                text: '{{ session('error') }}',
-                icon: 'error',
-                confirmButtonText: 'Ok'
-            })
-        </script>
-    @endif  
-    <script type="text/javascript">
-        $("input[name='second_department_id']").change(function() {
-            // console.log('dd');
-            var second_department_id = $(this).val();
-            var token = $("input[name='_token']").val();
-            $.ajax({
-                url: "{{ route('front.ajax.third-departments') }}",
-                method: 'GET',
-                data: {
-                    second_department_id: second_department_id,
-                    _token: token
-                },
-                success: function(data) {
-                    $("#third_department").html('');
-                    $("#third_department").html(data.options);
-                    // console.log(data.options);
-                }
-            });
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script>
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'bottom',
+            showConfirmButton: false,
+            showCloseButton: true,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
         });
+
+        window.addEventListener('alert', ({
+            detail: {
+                type,
+                message
+            }
+        }) => {
+            Toast.fire({
+                icon: type,
+                title: message
+            })
+        })
+        @if(session()->has('success'))
+            Toast.fire({
+                icon: "success",
+                title: "{{session('success')}}"
+            })
+        @endif
     </script>
 
 </body>

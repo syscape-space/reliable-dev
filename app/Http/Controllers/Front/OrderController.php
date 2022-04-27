@@ -106,7 +106,7 @@ class OrderController extends Controller
     public function update_selected_vendors(Request $request)
     {
         $Order = Order::find($request->order_id);
-        $Order->order_vendors->sync($request->vendors);
+        $Order->order_vendors()->sync($request->vendors);
         return redirect()->route('front.orders.create', $Order->id)->with('success', 'تم الحفظ بنجاح');
     }
 

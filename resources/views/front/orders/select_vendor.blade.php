@@ -74,14 +74,16 @@
     </div>
 </header>
 <section class="select overflow-hidden pt-4">
-    <form action="">
+    <form action="{{ route('front.orders.select-vendors.update', $Order->id) }}" method="post">
+        @method('PUT')
+        @csrf
         <div class="container">
             <div class="boxes-offers d-flex flex-wrap">
                 
                 @foreach ($users as $user)
                     <div class="box-offer">
                         <div class="d-flex flex-wrap box-child align-items-center justify-content-between" >
-                            <input type="checkbox" name="vendors[]" class="check"/>
+                            <input type="checkbox" name="vendors[]" value="{{$user->id}}" class="check"/>
                             <div class="info">
                                 <p class="name">{{$user->name}}</p>
                                 <p class="specialty">
