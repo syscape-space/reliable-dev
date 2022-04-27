@@ -94,7 +94,7 @@
                     </div>
                     <div class="boxes-offers d-flex flex-wrap">
                         @foreach($order->offers as $offer)
-                            <x-offer.card :offer="$offer" />
+                            <x-order.vendor-card :item="$offer" :isOffer="true"  />
                         @endforeach
                     </div>
                 @endif
