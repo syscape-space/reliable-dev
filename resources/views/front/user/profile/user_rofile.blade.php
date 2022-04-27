@@ -88,7 +88,7 @@
                         <img class="ms-3" style="width: 40px;" src="{{asset('tem_assets')}}/images/think.svg" alt="" srcset="">
                       </div>
                       <div class="text-center">
-                        <button  class="show-balance mt-3 border-0" style="background-color: #028e80;" > إنشاء طلب جديد </button>
+                        <a href="{{ route('orders.create') }}" class="show-balance mt-3 border-0" style="background-color: #028e80;" > إنشاء طلب جديد </a>
                       </div>
                     </div>
                   </div>
