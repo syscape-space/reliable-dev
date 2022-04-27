@@ -24,6 +24,6 @@
     </div>
     @endif
     @if($parent == null)
-        <input type="hidden" name="parent" value="{{$selected_main_id}}">
+        <input type="hidden" name="parent" value="{{$selected_main_id ?? $parent}}">
     @endif
 </div>
