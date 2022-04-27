@@ -23,4 +23,7 @@
         </div>
     </div>
     @endif
+    @if($parent == null)
+        <input type="hidden" name="parent" value="{{$selected_main_id}}">
+    @endif
 </div>
