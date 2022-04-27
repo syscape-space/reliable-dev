@@ -91,10 +91,10 @@
                 >{{__('admin.'.$order->order_status)}}</a
                 >
 
-                <a href="" class="btn negotiate">
+                {{-- <a href="" class="btn negotiate">
                     التفاوض:
                     {{$order->negotiations()->count()}}</a
-                >
+                > --}}
             </div>
         </div>
         @else
