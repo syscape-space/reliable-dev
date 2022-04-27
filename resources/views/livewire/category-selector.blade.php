@@ -14,8 +14,8 @@
     <div class="col-6">
         <div class="form-group">
             <label for="">فرعي من</label>
-            <select name="parent" id="" wire:model="parent" class="form-control">
-                <option value="">قسم فرعي منه</option>
+            <select id="" wire:model="parent" class="form-control">
+                <option value="0">قسم فرعي منه</option>
                 @foreach ($sub_categories as $depart)
                     <option value="{{$depart->id}}">{{$depart->department_name_ar}}</option>
                 @endforeach
@@ -23,5 +23,5 @@
         </div>
     </div>
     @endif
-    <input type="hidden" name="parent" value="{{$parent ?? $selected_main_id}}">
+    <input type="hidden" name="parent" value="{{($parent == null or $parent == 0) ? $selected_main_id : $parent}}">
 </div>

@@ -22,10 +22,7 @@
                         <table class="table">
                             <tr>
                                 <td>اسم القسم</td>
-                                @if (!request('department_id'))
-                                    <td>الأقسام الفرعية</td>
-                                @endif
-
+                                <td>الأقسام الفرعية</td>
                                 <td>حالة القسم</td>
                                 <td>العمليات</td>
                             </tr>
@@ -38,15 +35,13 @@
                                     @else
                                         <td>{{ $depart->department_name_ar }}</td>
                                     @endif
-                                    @if (!request('department_id'))
-                                        @if ($depart->children->count() > 0)
-                                            <td><a
-                                                    href="{{ route('departments.index', ['department_id' => $depart->id]) }}"><i
-                                                        class="fas fa-eye"></i>{{ $depart->children_count }}</a>
-                                            </td>
-                                        @else
-                                            <td>{{ $depart->children_count }}</td>
-                                        @endif
+                                    @if ($depart->children->count() > 0)
+                                        <td><a
+                                                href="{{ route('departments.index', ['department_id' => $depart->id]) }}"><i
+                                                    class="fas fa-eye"></i>{{ $depart->children_count }}</a>
+                                        </td>
+                                    @else
+                                        <td>{{ $depart->children_count }}</td>
                                     @endif
 
                                     <td>{{ $depart->status ? 'مفعل' : 'غير مفعل' }}</td>
