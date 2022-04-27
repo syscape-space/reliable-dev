@@ -283,5 +283,9 @@ class User extends Authenticatable implements JWTSubject
         }
     }
 
+	public function tickets(){
+		return $this->hasMany(Ticket::class);
+	}
+
 }
 

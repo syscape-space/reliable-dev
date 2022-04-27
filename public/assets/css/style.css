@@ -240,6 +240,7 @@ input[type="file"]::selection::after {
 /* Start Components */
 .back h4 {
     font-weight: 600;
+
     margin-bottom: 0;
     color: var(--h-color);
 }
@@ -1444,7 +1445,6 @@ section.offers ul.level li:nth-child(2) .icon:before {
     border-bottom: 2px dotted #8f8f8f;
 }
 
-
 section.offers ul.level.level2 li:first-child .icon:before {
     position: absolute;
     content: "";
@@ -1485,23 +1485,23 @@ section.offers ul.level.level2 li:nth-child(4) .icon:before {
     width: 162px;
     border-bottom: 2px dotted #8f8f8f;
 }
-@media (max-width: 991.98px) { 
+@media (max-width: 991.98px) {
     section.offers ul.level.level2 {
         width: 595px;
     }
-    
-        section.offers ul.level.level2 li:first-child .icon:before {
-               width: 164px;
-        }
-        section.offers ul.level.level2 li:nth-child(2) .icon:before {
-               width: 130px;
-        }
-        section.offers ul.level.level2 li:nth-child(3) .icon:before {
-               width: 130px;
-        }
-        section.offers ul.level.level2 li:nth-child(4) .icon:before {
-               width: 130px;
-        }
+
+    section.offers ul.level.level2 li:first-child .icon:before {
+        width: 164px;
+    }
+    section.offers ul.level.level2 li:nth-child(2) .icon:before {
+        width: 130px;
+    }
+    section.offers ul.level.level2 li:nth-child(3) .icon:before {
+        width: 130px;
+    }
+    section.offers ul.level.level2 li:nth-child(4) .icon:before {
+        width: 130px;
+    }
 }
 
 section.offers ul.level li {
@@ -2245,14 +2245,256 @@ section.select .inp-sub {
 }
 
 /* End Section Select */
+/* Start Section add-ticket */
+section.add-ticket input:focus,
+section.add-ticket textarea:focus,
+section.add-ticket select:focus {
+    border-color: var(--light-blue-color);
+}
+section.add-ticket input,
+section.add-ticket select {
+    height: 53px;
+    border-color: transparent;
+    padding: 10px;
+}
+section.add-ticket input,
+section.add-ticket textarea {
+    color: black;
+    border-color: transparent;
+    background-color: #eeeeee;
+}
+section.add-ticket select {
+    appearance: auto;
+    color: black;
+    background-color: #eeeeee;
+}
+
+section.add-ticket textarea {
+    padding: 10px;
+
+    min-height: 200px;
+}
+section.add-ticket input[type="file"] {
+    align-items: center;
+}
+section.add-ticket input[type="file"]::after {
+    content: none;
+}
+section.add-ticket input[type="file"]::before {
+    content: none;
+}
+section.add-ticket input[type="submit"] {
+    color: white;
+    background-color: var(--dark-green-color);
+    display: block;
+    margin: auto;
+    padding: 10px 20px;
+}
+/* End Section add-ticket */
+/* Starat Section balance */
+section.balance .balance-info .balance-card {
+    border-radius: 8px;
+    background-color: var(--light-green-color);
+    padding: 15px;
+}
+
+section.balance .balance-info .balance-card h3 {
+    font-size: 16px;
+    margin-bottom: 2rem;
+    color: var(--color-info);
+    font-weight: bold;
+}
+section.balance .balance-info .balance-card p {
+    font-size: 20px;
+    margin: 0;
+    color: var(--light-blue-color);
+    font-weight: bold;
+}
+section.balance .balance-info .balance-card svg {
+    color: var(--light-blue-color);
+    margin-right: auto;
+    display: block;
+    font-size: 25px;
+}
+section.balance .all-tickets {
+    margin-top: 3rem;
+}
+section.balance .all-tickets > .title > h4 {
+    font-weight: 600;
+    margin-bottom: 0;
+    color: var(--h-color);
+}
+section.balance .all-tickets > .title > a {
+    font-size: 16px;
+    color: var(--light-blue-color);
+    font-weight: bold;
+    text-decoration: underline;
+}
+section.balance .all-tickets > .ticket {
+    border-radius: 8px;
+    gap: 2rem;
+}
+section.balance .all-tickets > .ticket > .count {
+    color: white;
+    background-color: #0491e8;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    padding: 0.5rem 1rem;
+}
+section.balance .all-tickets > .ticket > p {
+    margin-bottom: 0;
+    font-size: 16px;
+    color: var(--color-info);
+}
+section.balance .group-btn .btn {
+    border-radius: 4px;
+    font-size: 18px;
+    width: 230px;
+    height: 50px;
+    color: white;
+    margin-top: auto;
+    border: none;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+section.balance .group-btn .withdrawal {
+    background: #2b7b74;
+}
+section.balance .group-btn .recharge {
+    background: #0995eb;
+}
+/* End Section balance */
+/* Start section account-type */
+section.account-type {
+    background-color: var(--light-green-color);
+    color: var(--color-info);
+}
+section.account-type .box {
+    padding: 1.5rem 1.5rem;
+    min-height: 100vh;
+}
+section.account-type .box img {
+    width: 150px;
+    margin-bottom: 1rem;
+    filter: grayscale(1);
+}
+section.account-type .box.active img {
+    width: 150px;
+    margin-bottom: 1rem;
+    filter: grayscale(0);
+}
+section.account-type .box p {
+    font-size: 18px;
+    margin-bottom: 3rem;
+}
+section.account-type .box label {
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+section.account-type .box label > input {
+    width: 5px;
+    height: 5px;
+    position: relative;
+}
+section.account-type .box label > input::before {
+    position: absolute;
+    content: "";
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid #e2e2e2;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+}
+section.account-type .box label > input::after {
+    position: absolute;
+    content: "";
+    cursor: pointer;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: none;
+
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #048e81;
+}
+section.account-type .box label > input:checked:after {
+    display: block;
+}
+section.account-type .box .inp-radio {
+    margin: auto;
+    margin-bottom: 3rem;
+    position: relative;
+    display: block;
+}
+section.account-type .box .inp-radio::before {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    background-color: #e2e2e2;
+    color: black;
+    cursor: pointer;
+    width: 250px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    height: 50px;
+    border-radius: 50px;
+}
+section.account-type .box .inp-radio:nth-of-type(1):before {
+    content: "أفراد";
+}
+section.account-type .box .inp-radio:nth-of-type(2):before {
+    content: "شركة";
+}
+section.account-type .box .inp-radio:nth-of-type(3):before {
+    content: "جهة حكومية";
+}
+section.account-type .box .inp-radio::after {
+    position: absolute;
+    content: "";
+    background-color: white;
+    cursor: pointer;
+    width: 12px;
+    height: 12px;
+    right: -100px;
+    top: 50%;
+    display: none;
+    transform: translateY(-50%);
+    border-radius: 50%;
+}
+section.account-type .box .inp-radio:checked:before {
+    background-color: #0491e8;
+    color: white;
+}
+section.account-type .box .inp-radio:checked::after {
+    display: block;
+}
+/* End Section account-type */
 section.offers .back .icon-back-yellow {
-    background-color: #FFC107;
+    background-color: #ffc107;
 }
 
 .brd-l-w {
     border-left: 3px solid #ddd;
 }
-@media (max-width: 575.98px) { 
+@media (max-width: 575.98px) {
     .brd-l-w {
         border-left: 0;
     }
@@ -2266,21 +2508,20 @@ section.offers .back .icon-back-yellow {
         font-size: 10px !important;
     }
     section.offers ul.level.level2 li:first-child .icon:before {
-            width: 80px;
+        width: 80px;
     }
     section.offers ul.level.level2 li:nth-child(2) .icon:before {
-            width: 60px;
+        width: 60px;
     }
     section.offers ul.level.level2 li:nth-child(3) .icon:before {
-            width: 60px;
+        width: 60px;
     }
     section.offers ul.level.level2 li:nth-child(4) .icon:before {
         width: 60px;
     }
-            
- }
- .on-hour {
-    background-image: url('../img/one-hour.png');
+}
+.on-hour {
+    background-image: url("../img/one-hour.png");
     padding: 6px;
     background-size: contain;
     text-align: center;
@@ -2289,77 +2530,75 @@ section.offers .back .icon-back-yellow {
     margin-bottom: -5px;
     font-size: 12px;
     background-repeat: no-repeat;
- }
+}
 
- .bx-rr {
-    color: #0995EB;
+.bx-rr {
+    color: #0995eb;
     text-align: center;
-    border: 1px solid #0491E8;
+    border: 1px solid #0491e8;
     border-radius: 14px;
     padding: 17px 10px;
-    background-color: #F4FBFF;
+    background-color: #f4fbff;
     min-height: 78px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: bold;
- }
+}
 
- section.offers .box-order .title {
+section.offers .box-order .title {
     font-size: 18px;
- }
- .f-12 {
-     font-size: 12px;
- }
- .f-13 {
-     font-size: 13px;
- }
- .f-14 {
-     font-size: 14px;
- }
- .f-16 {
-     font-size: 16px;
- }
- 
+}
+.f-12 {
+    font-size: 12px;
+}
+.f-13 {
+    font-size: 13px;
+}
+.f-14 {
+    font-size: 14px;
+}
+.f-16 {
+    font-size: 16px;
+}
 
- .bl-f {
+.bl-f {
     border: 0.5px solid #0491e8 !important;
     color: #0491e8 !important;
     display: flex;
     background-color: #e5f5ff !important;
- }
- .red-f  {
-    border: 0.5px solid #FF3E3E !important;
-    color: #FF3E3E !important;
-    background-color: #FFD2D2 !important;
- }
- .text-black {
-     color: #000 !important;
- }
- .line-bb {
+}
+.red-f {
+    border: 0.5px solid #ff3e3e !important;
+    color: #ff3e3e !important;
+    background-color: #ffd2d2 !important;
+}
+.text-black {
+    color: #000 !important;
+}
+.line-bb {
     height: 2px;
     background-color: #0491e8;
     width: 100%;
     margin-top: -20px;
- }
+}
 
- .trk > button {
+.trk > button {
     padding: 7px 57px 11px;
-   
+
     font-size: 14px;
     border-radius: 7px;
     color: #fff !important;
     margin: 3px 10px;
- }
- @media (min-width: 576px)
-{
+}
+@media (min-width: 576px) {
     .modal-dialog {
         max-width: 880px;
         margin: 1.75rem auto;
     }
 }
 .liner-grd {
-    background-image: linear-gradient(#048E81,#0491E8);
+    background-image: linear-gradient(#048e81, #0491e8);
 }
 .meeting-btn {
     padding: 15px 35px;
