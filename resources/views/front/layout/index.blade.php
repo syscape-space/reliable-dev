@@ -18,6 +18,8 @@
     {{--     <link rel="stylesheet" href="./fonts/fontawesome.css"> --}}
 
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}" />
+    @stack('page_styles')
+
     @livewireStyles
     <style>
         body {
@@ -203,6 +205,7 @@
             })
         @endif
     </script>
+    @stack('page_scripts')
     @livewireScripts
 
 </body>

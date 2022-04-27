@@ -10,6 +10,12 @@ use Illuminate\Support\Facades\Auth;
 class ProfileController extends Controller
 {
 
+    public function profile()
+    {
+       $user = auth()->user();
+        return view('front.user.profile.user_rofile', compact('user'));
+    }
+
     public function index(Request $request)
     {
         $user_id = $request->query('id');

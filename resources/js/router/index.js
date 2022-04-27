@@ -83,9 +83,6 @@ const routes = [{
         beforeEnter: checkIfLogin,
         name: 'home',
     },
-<<<<<<< HEAD
-    /* {
-=======
     {
         path: prefix + '/select-lawyer',
         component: selectLawyerPage,
@@ -93,12 +90,11 @@ const routes = [{
         name: 'select-lawyer',
     },
     {
->>>>>>> b3780898262d2868182a948ac54d3a22e673f9ec
         path: prefix + '/login',
         component: loginPage,
         beforeEnter: checkIfLogin,
         name: "Login",
-    }, */
+    },
     /* {
         path: prefix + '/register',
         component: Register,
