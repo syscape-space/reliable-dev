@@ -516,7 +516,7 @@
     @endif  
     <script type="text/javascript">
         $("input[name='second_department_id']").change(function() {
-            console.log('dd');
+            // console.log('dd');
             var second_department_id = $(this).val();
             var token = $("input[name='_token']").val();
             $.ajax({
@@ -529,7 +529,7 @@
                 success: function(data) {
                     $("#third_department").html('');
                     $("#third_department").html(data.options);
-                    console.log(data.options);
+                    // console.log(data.options);
                 }
             });
         });
