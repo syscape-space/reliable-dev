@@ -38,6 +38,9 @@
             @endforeach
         </div>
     @else
-{{--        TODO else --}}
+        <div class="group-btn flex-wrap mb-5 d-flex align-items-center justify-content-center">
+            <a href="" class="btn btn-one">تقديم عرض</a>
+            <a href="" class="btn btn-two">استفسار وتفاوض </a>
+        </div>
     @endif
 @endsection
