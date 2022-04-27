@@ -25,7 +25,6 @@ Route::get('/', [Home::class,'render'])->name('home');
             Route::get('tickets', Tickets::class);
             Route::get('subscription', Subscription::class);
             Route::get('order-details', OrderDetails::class);
-            Route::get('balance', Balance::class);
             
         }
     );
