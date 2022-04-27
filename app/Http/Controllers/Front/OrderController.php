@@ -98,8 +98,9 @@ class OrderController extends Controller
     public function select_vendors($order_id)
     {
         $Order = Order::find($order_id);
-        $users = User::where('membership_type', 'vendor')->get();
-        return view('front.orders.select_vendor', compact(['Order', 'users']));
+        $vendors = User::where('membership_type', 'vendor')->get();
+        $order_vendors = $Order->order_vendors->pluck('id')->toArray();
+        return view('front.orders.select_vendor', compact(['Order', 'vendors', 'order_vendors']));
     }
 
 
