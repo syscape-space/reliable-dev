@@ -205,7 +205,7 @@
                                 {{-- <div id="third_department">
                                     
                                 </div> --}}
-                                <select dir="rtl" name="third_department_id" id="inp-selector">
+                                <select dir="rtl" name="third_department_id" id="third_department">
 
                                 </select>
 
