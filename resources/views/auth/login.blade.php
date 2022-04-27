@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
     <link rel="stylesheet" href="./webProject/icofont/css/icofont.min.css" />
     <link rel="stylesheet" href="{{ asset('assets/css/styleHome.css') }}" />
+    <!-- <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" /> -->
+    <link rel="stylesheet" href="{{ asset('assets/css/style2.css') }}" />
     <title>title</title>
 </head>
 
@@ -47,7 +49,7 @@
                           </div>
                       @endif
 
-                      
+
                           @csrf
                           <div class="auth-login mb-4 text-center  position-relative">
                               <label class="w-100 d-flex align-items-center mb-2 text-right"
@@ -57,7 +59,7 @@
                               </label>
                               <input type="number" class="pe-2 form-control" placeholder=" رقم الجوال" name="id_number">
                               <!-- Phone number -->
-                              <img class="img-lllo" style="width: 20px; position: absolute; right: 10px;"
+                              <img class="img-lllo d-none" style="width: 20px; position: absolute; right: 10px;"
                                   src="{{ asset('assets/images/login-user.svg') }}" alt="">
                           </div>
                           <div class="auth-login text-center  position-relative">

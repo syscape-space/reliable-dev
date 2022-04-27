@@ -63,7 +63,7 @@ body {
   font-weight: 300;
   text-decoration: none;
   border-bottom: solid 2px #048e81;
-  
+
 }
 .log-in a {
   color: #0491e8;
@@ -490,6 +490,9 @@ section > .container {
   .btns-bb {
     display: none;
   }
+  .ff-dd-ss {
+    max-width: 80% !important
+  }
 }
 .li-color {
   width: 52px;
@@ -601,7 +604,7 @@ section > .container {
 }
 
 .end-sub {
-  font-size:13px ; 
+  font-size:13px ;
   font-weight: 300;
   color:#fff ;
   padding: 8px 0;
@@ -665,7 +668,7 @@ section > .container {
 .new-order-btn:nth-child(1){
   top: 30% !important;
   right: 0% !important;
-  
+
 }
 .new-new .about-us .sum-btn button:nth-child(1) {
   position: absolute;

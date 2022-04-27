@@ -18,7 +18,6 @@
     @livewireStyles
 </head>
 <body>
- 
     <!-- Sttart Header -->
     <header class="togg-s">
         <div class="container">
@@ -187,7 +186,7 @@
             </div>
             <div class="boxes d-flex flex-column mb-5 gap-5">
                 <div class="box-order">
-                    <div class="info">
+                    <div class="info " style="margin-top: 16px; !importnat">
                         <div class="photo">
                             <img
                                 class="img-fluid"
@@ -217,7 +216,7 @@
                             >
                                 <div class="deta">
                                     <i class="fa-solid fa-calendar-day"></i>
-                                    {{ \Carbon\Carbon::create($order->created_at)->format('Y-m-d') }} 
+                                    {{ \Carbon\Carbon::create($order->created_at)->format('Y-m-d') }}
                                 </div>
                                 <div class="view">
                                     <i class="fa-solid fa-eye"></i> {{$order->views}}
@@ -226,7 +225,7 @@
                                 </div>
                                 <div class="deta">
                                     <i class="fa-solid fa-clock"></i>
-                                    {{ \Carbon\Carbon::create($order->created_at)->diffForHumans() }} 
+                                    {{ \Carbon\Carbon::create($order->created_at)->diffForHumans() }}
                                 </div>
                                 <div class="deta">
                                     <i class="fa-solid fa-money-bills"></i>
@@ -311,7 +310,7 @@
                                     @if ($offer->vendor->licenses->count() > 0)
                                     {{$offer->vendor->licenses[0]->license_name}}
                                     @endif
-                                    
+
                                 </p>
                                 <p class="duration">
                                     <span class="color">مدة التسليم:</span>
@@ -354,12 +353,12 @@
                                     غير قابل للتفاوض
                                 </a>
                                 @endif
-                                
+
                             </div>
                         </div>
                     </div>
                 @endforeach
-                
+
                 {{-- {{ dd($order->offers) }} --}}
                 {{-- <div class="box-offer">
                     <i class="fa-solid fa-star star-box"></i>

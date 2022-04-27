@@ -28,7 +28,7 @@
                                 type="search"
                                 placeholder="أبحث بالأسم....."
                                 name="search-offers"
-                                
+
                             />
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </div>
@@ -60,7 +60,7 @@
                                 type="search"
                                 placeholder="أبحث بالأسم....."
                                 name="search-offers"
-                                
+
                             />
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </div>
@@ -91,7 +91,7 @@
         <form action="">
             <div class="container">
                 <div class="boxes-offers d-flex flex-wrap">
-                    
+
                     @foreach ($users as $user)
                         <div class="box-offer">
                             <div
@@ -100,10 +100,10 @@
                                 <input
                                     type="checkbox"
                                     name="person[]"
-                                    
+
                                     class="check"
                                 />
-                                <div class="info">
+                                <div class="info" style="margin-top: 16px !important">
                                     <p class="name">{{$user->name}}</p>
                                     <p class="specialty">
                                         <span class="color">محامي:</span>
@@ -114,7 +114,7 @@
                                         @if ($user->licenses->count() > 0)
                                         {{$user->licenses[0]->license_name}}
                                         @endif
-                                       
+
                                     </p>
                                     <p class="duration">
                                         <span class="color">
@@ -144,7 +144,7 @@
                             <a href="" class="profile">تصفح الملف الشخصي</a>
                         </div>
                     @endforeach
-                    
+
                 </div>
             </div>
             <div class="box-sub">

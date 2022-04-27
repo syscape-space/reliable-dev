@@ -233,6 +233,9 @@ input[type="file"]::after {
 .inp-file .two svg {
     font-size: 14px;
 }
+.inp-file .two i {
+    font-size: 14px;
+}
 input[type="file"]::selection::after {
     color: #0d1920;
 }
@@ -294,6 +297,10 @@ table td {
     border-radius: 25px;
 }
 .support svg {
+    color: var(--light-blue-color);
+    font-size: 31px;
+}
+.support i {
     color: var(--light-blue-color);
     font-size: 31px;
 }
@@ -403,6 +410,10 @@ header .icon-notice svg {
     color: var(--dark-green-color);
     font-size: 20px;
 }
+header .icon-notice i {
+    color: var(--dark-green-color);
+    font-size: 20px;
+}
 header .icon-notice .notice {
     position: absolute;
     background-color: var(--red-color);
@@ -442,6 +453,10 @@ header form ::placeholder {
     font-size: 17px;
     color: #404040;
 }
+.i-search i {
+    font-size: 17px;
+    color: #404040;
+}
 header .search .i-search {
     position: absolute;
     right: 7px;
@@ -449,6 +464,10 @@ header .search .i-search {
     transform: translateY(-50%);
 }
 header .search .i-search svg {
+    font-size: 17px;
+    color: #404040;
+}
+header .search .i-search i {
     font-size: 17px;
     color: #404040;
 }
@@ -462,7 +481,10 @@ header .search .i-filter {
 }
 header .search .i-filter svg {
     font-size: 17px;
-
+    color: #0995eb;
+}
+header .search .i-filter i {
+    font-size: 17px;
     color: #0995eb;
 }
 
@@ -470,6 +492,10 @@ header .icon-mssg {
     margin-bottom: -5px;
 }
 header .icon-mssg svg {
+    color: #0995eb;
+    font-size: 20px;
+}
+header .icon-mssg i {
     color: #0995eb;
     font-size: 20px;
 }
@@ -680,6 +706,14 @@ header .new-order:hover {
     height: 32px;
     top: -15px;
 }
+.parent-boxes .box-package i {
+    position: absolute;
+    right: 15px;
+    width: 23px;
+    color: var(--light-blue-color);
+    height: 32px;
+    top: -15px;
+}
 
 .parent-boxes .box-package h6 {
     color: var(--light-blue-color);
@@ -805,6 +839,9 @@ section.orders .back .box.check {
 section.orders .back .box svg {
     color: var(--light-blue-color);
 }
+section.orders .back .box i {
+    color: var(--light-blue-color);
+}
 @media (max-width: 767.98px) {
     section.orders .back .box {
         min-width: 100px;
@@ -868,6 +905,10 @@ section.orders .box-order .stars svg {
     font-size: 14px;
     color: var(--gold-color);
 }
+section.orders .box-order .stars i {
+    font-size: 14px;
+    color: var(--gold-color);
+}
 section.orders .box-order .name {
     color: var(--color-info);
     font-size: 18px;
@@ -901,6 +942,11 @@ section.orders .box-order .data svg {
     font-size: 16px;
     margin-left: 2px;
 }
+section.orders .box-order .data i {
+    color: var(--light-blue-color);
+    font-size: 16px;
+    margin-left: 2px;
+}
 section.orders .box-order .duration {
     border: 0.5px solid var(--light-blue-color);
     color: var(--light-blue-color);
@@ -925,6 +971,10 @@ section.orders .box-order .setting {
 }
 
 section.orders .box-order .setting > svg {
+    font-size: 20px;
+    color: var(--color-info);
+}
+section.orders .box-order .setting > i {
     font-size: 20px;
     color: var(--color-info);
 }
@@ -965,6 +1015,9 @@ section.orders .box-order .setting > .report::before {
     border-color: #eee transparent transparent transparent;
 }
 section.orders .box-order .setting > .report > svg {
+    color: var(--dark-red-color);
+}
+section.orders .box-order .setting > .report > i {
     color: var(--dark-red-color);
 }
 @media (max-width: 1199.98px) {
@@ -1120,6 +1173,9 @@ section.settings .box-data .status.active .icon {
 section.settings .box-data .status.active .icon svg {
     color: #009045;
 }
+section.settings .box-data .status.active .icon i {
+    color: #009045;
+}
 section.settings .box-data .status.dn-active .icon {
     width: 23px;
     justify-content: center;
@@ -1130,6 +1186,9 @@ section.settings .box-data .status.dn-active .icon {
     border-radius: 50%;
 }
 section.settings .box-data .status.dn-active .icon svg {
+    color: white;
+}
+section.settings .box-data .status.dn-active .icon i {
     color: white;
 }
 
@@ -1146,6 +1205,10 @@ section.settings .box-data .status.waiting .icon {
     border-radius: 50%;
 }
 section.settings .box-data .status.waiting .icon svg {
+    color: #73737d;
+    font-size: 20px;
+}
+section.settings .box-data .status.waiting .icon i {
     color: #73737d;
     font-size: 20px;
 }
@@ -1300,6 +1363,10 @@ section.tickets .all-tickets .ticket .date svg {
     color: var(--light-blue-color);
     margin-left: 20px;
 }
+section.tickets .all-tickets .ticket .date i {
+    color: var(--light-blue-color);
+    margin-left: 20px;
+}
 section.tickets .all-tickets .ticket .text {
     margin: 0 30px 0 0;
     font-size: 18px;
@@ -1420,7 +1487,7 @@ section.offers ul.level {
     height: 100%;
     align-items: center;
     text-align: center;
-    width: 800px;
+    width: 600px;
     min-height: 119px;
     margin: auto;
 }
@@ -1431,7 +1498,7 @@ section.offers ul.level li:first-child .icon:before {
     top: 50%;
     z-index: -1;
     transform: translateY(-50%);
-    width: 326px;
+    width: 285px;
     border-bottom: 2px solid var(--light-blue-color);
 }
 section.offers ul.level li:nth-child(2) .icon:before {
@@ -1441,7 +1508,7 @@ section.offers ul.level li:nth-child(2) .icon:before {
     top: 50%;
     z-index: -1;
     transform: translateY(-50%);
-    width: 326px;
+    width: 266px;
     border-bottom: 2px dotted #8f8f8f;
 }
 
@@ -1490,6 +1557,7 @@ section.offers ul.level.level2 li:nth-child(4) .icon:before {
         width: 595px;
     }
 
+<<<<<<< HEAD
     section.offers ul.level.level2 li:first-child .icon:before {
         width: 164px;
     }
@@ -1502,6 +1570,20 @@ section.offers ul.level.level2 li:nth-child(4) .icon:before {
     section.offers ul.level.level2 li:nth-child(4) .icon:before {
         width: 130px;
     }
+=======
+        section.offers ul.level.level2 li:first-child .icon:before {
+               width: 164px;
+        }
+        section.offers ul.level.level2 li:nth-child(2) .icon:before {
+               width: 130px;
+        }
+        section.offers ul.level.level2 li:nth-child(3) .icon:before {
+               width: 130px;
+        }
+        section.offers ul.level.level2 li:nth-child(4) .icon:before {
+               width: 130px;
+        }
+>>>>>>> 9569b72 (dd)
 }
 
 section.offers ul.level li {
@@ -1528,10 +1610,16 @@ section.offers ul.level .icon {
 section.offers ul.level .icon svg {
     color: #dbdbdb;
 }
+section.offers ul.level .icon i {
+    color: #dbdbdb;
+}
 section.offers ul.level .active .icon {
     border: 3px solid var(--light-blue-color);
 }
 section.offers ul.level .active .icon svg {
+    color: var(--light-blue-color);
+}
+section.offers ul.level .active .icon i {
     color: var(--light-blue-color);
 }
 section.offers .box-order {
@@ -1585,6 +1673,9 @@ section.offers .box-order .duration {
 section.offers .box-order .duration svg {
     color: var(--green-color-two) !important;
 }
+section.offers .box-order .duration i {
+    color: var(--green-color-two) !important;
+}
 
 section.offers .box-order .setting {
     left: 0 !important;
@@ -1601,7 +1692,7 @@ section.offers .box-order .setting {
 
 section.offers .box-order .info {
     text-align: center;
-    margin-top: 86px;
+    margin-top: 26px;
     min-width: unset !important;
     position: unset !important;
 }
@@ -1654,6 +1745,10 @@ section.offers .box-order .stars svg {
     font-size: 14px;
     color: var(--gold-color);
 }
+section.offers .box-order .stars i {
+    font-size: 14px;
+    color: var(--gold-color);
+}
 section.offers .box-order .name {
     color: var(--color-info);
     font-size: 18px;
@@ -1687,6 +1782,11 @@ section.offers .box-order .data svg {
     font-size: 16px;
     margin-left: 2px;
 }
+section.offers .box-order .data i {
+    color: var(--light-blue-color);
+    font-size: 16px;
+    margin-left: 2px;
+}
 section.offers .box-order .duration {
     border: 0.5px solid var(--light-blue-color);
     color: var(--light-blue-color);
@@ -1711,6 +1811,10 @@ section.offers .box-order .setting {
 }
 
 section.offers .box-order .setting > svg {
+    font-size: 20px;
+    color: var(--color-info);
+}
+section.offers .box-order .setting > i {
     font-size: 20px;
     color: var(--color-info);
 }
@@ -1751,6 +1855,9 @@ section.offers .box-order .setting > .report::before {
     border-color: #eee transparent transparent transparent;
 }
 section.offers .box-order .setting > .report > svg {
+    color: var(--dark-red-color);
+}
+section.offers .box-order .setting > .report > i {
     color: var(--dark-red-color);
 }
 @media (max-width: 1199.98px) {
@@ -1838,6 +1945,14 @@ section.offers .box-search .box-inpt svg {
     font-size: 20px;
     color: var(--light-blue-color);
 }
+section.offers .box-search .box-inpt i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 20px;
+    font-size: 20px;
+    color: var(--light-blue-color);
+}
 section.offers .btns .btn {
     border-radius: 4px;
     display: flex;
@@ -1915,6 +2030,9 @@ section.offers .boxes-offers .box-offer .photo .star {
     margin-bottom: 0px;
 }
 section.offers .boxes-offers .box-offer .photo .star svg {
+    color: var(--yellow-color);
+}
+section.offers .boxes-offers .box-offer .photo .star i {
     color: var(--yellow-color);
 }
 section.offers .boxes-offers .box-offer .photo .profile {
@@ -2038,6 +2156,14 @@ header.fix .box-search .box-inpt input {
     padding: 15px;
 }
 header.fix .box-search .box-inpt svg {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 20px;
+    font-size: 20px;
+    color: var(--light-blue-color);
+}
+header.fix .box-search .box-inpt i {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -2225,6 +2351,9 @@ section.select .boxes-offers .box-offer .photo .star {
     font-size: 18px;
 }
 section.select .boxes-offers .box-offer .photo .star svg {
+    color: var(--yellow-color);
+}
+section.select .boxes-offers .box-offer .photo .star i {
     color: var(--yellow-color);
 }
 section.select .boxes-offers .box-offer .profile {
@@ -2519,9 +2648,16 @@ section.offers .back .icon-back-yellow {
     section.offers ul.level.level2 li:nth-child(4) .icon:before {
         width: 60px;
     }
+<<<<<<< HEAD
 }
 .on-hour {
     background-image: url("../img/one-hour.png");
+=======
+
+ }
+ .on-hour {
+    background-image: url('../img/one-hour.png');
+>>>>>>> 9569b72 (dd)
     padding: 6px;
     background-size: contain;
     text-align: center;
@@ -2548,6 +2684,7 @@ section.offers .back .icon-back-yellow {
 
 section.offers .box-order .title {
     font-size: 18px;
+<<<<<<< HEAD
 }
 .f-12 {
     font-size: 12px;
@@ -2561,6 +2698,22 @@ section.offers .box-order .title {
 .f-16 {
     font-size: 16px;
 }
+=======
+ }
+ .f-12 {
+     font-size: 12px;
+ }
+ .f-13 {
+     font-size: 13px;
+ }
+ .f-14 {
+     font-size: 14px;
+ }
+ .f-16 {
+     font-size: 16px;
+ }
+
+>>>>>>> 9569b72 (dd)
 
 .bl-f {
     border: 0.5px solid #0491e8 !important;

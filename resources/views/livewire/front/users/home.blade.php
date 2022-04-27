@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
-    <link rel="stylesheet" href="./webProject/icofont/css/icofont.min.css" />
-    <link rel="stylesheet" href="{{ asset('assets/css/styleHome.css') }}" />
-    <title>title</title>
-</head>
-
+  <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
+      <link rel="stylesheet" href="./webProject/icofont/css/icofont.min.css" />
+      <link rel="stylesheet" href="{{ asset('assets/css/styleHome.css') }}" />
+      <title>title</title>
+  </head>
 <body>
     <!-- Header -->
     <header>
@@ -30,14 +28,13 @@
                         بهم بشكل آمن ومضمون
                     </p>
                     <div class="line" style="
-                background-color: #048e81;
-                border-radius: 4px;
-                width: 340px;
-                height: 4px;
-              ">
+                                background-color: #048e81;
+                                border-radius: 4px;
+                                width: 340px;
+                                height: 4px;
+                              ">
                     </div>
                 </div>
-
                 <div id="carouselExampleIndicators" class="mx-auto carousel slide mt-4 mt-md-0 ff-dd-ss" data-bs-ride="carousel"
                     style="max-width: 400px;">
                     <div class="carousel-indicators">
@@ -655,7 +652,7 @@
                         <span>نص رقم واحد</span>
                     </div>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-3 mt-md-0 mt-5">
                     <div style="color: #048E81;" class="f-18">
                         <img  src="{{ asset('assets/images/images/logo.svg')}}" alt="">
                     </div>
