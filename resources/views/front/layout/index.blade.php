@@ -49,7 +49,7 @@
                 <div
                     class="logo justify-content-center justify-content-xl-end"
                 >
-                    <img src="./img/logo.png" alt="" />
+                    <img src="{{asset('assets/img/logo.png')}}" alt="" />
                     <div class="text">
                         <h6>موثوق Reliable</h6>
                         <p>صنتاع الثقة Trust Makers</p>
@@ -69,7 +69,7 @@
             <div class="col-xl-9">
                 <div class="row">
                     <div
-                        class="col-md-6 pe-xl-0 d-flex align-items-center mb-4 mb-md-0"
+                        class="col-md-5 pe-xl-0 d-flex align-items-center mb-4 mb-md-0"
                     >
                         <form action="">
                             <div class="inpts">
@@ -99,7 +99,7 @@
                             </div>
                         </form>
                     </div>
-                    <div class="col-md-6 text-center text-md-start">
+                    <div class="col-md-5 text-center text-md-start">
                         <div
                             class="dropdown ms-auto ms-lg-0 position-relative drop-d"
                         >
@@ -116,12 +116,12 @@
                                     <span class="photo">
                                         <img
                                             class="img-fluid"
-                                            src="img/photo"
+                                            src="{{asset('/assets')}}img/photo"
                                             alt=""
                                         />
                                     </span>
 
-                                    محمد مصطفي علي
+                                    {{auth()->user()->name}}
                                 </div>
                             </button>
                             <ul
@@ -134,12 +134,20 @@
                                     >
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="#"
-                                        >الاعدادات
-                                    </a>
                                 </li>
                             </ul>
                         </div>
+
+
+                    </div>
+
+                    <div class="col-md-2 text-center text-md-start">
+                        <form action="{{route('web.logout')}}" method="post" id="logout-form">
+                            @csrf
+                        </form>
+                        <button type="submit" form="logout-form" class="btn btn-sm btn-info"
+                        >تسجيل خروج
+                        </button>
                     </div>
                 </div>
             </div>
@@ -160,6 +168,7 @@
                     <!-- [ Main Content ] end -->
                 </div>
             </div>
+        </div>
     </section>
 
 
