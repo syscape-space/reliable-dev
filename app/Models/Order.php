@@ -258,7 +258,7 @@ class Order extends Model {
 	    return $this->belongsTo(Country::class,'country_id','id');
     }
     public function isActiveUser($user_id = null){
-	    return $this->user_id  === ($user_id ?? auth()->id()) ;
+	    return $this->getOriginal('user_id')  === ($user_id ?? auth()->id()) ;
     }
     public function accessOpen(){
 	    return $this->isActiveUser() or (auth()->user()->membership_type === 'vendor' and $this->accessVendors->contains(auth()->user()));
