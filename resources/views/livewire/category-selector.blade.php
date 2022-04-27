@@ -2,7 +2,7 @@
     <div class="col-6">
         <div class="form-group">
             <label for="">قسم رئيسي</label>
-            <select id="" wire:model="selected_main_id" class="form-control">
+            <select id="" wire:model="selected_main_id" name="{{$sub_categories->count()?"":"parent"}}" class="form-control">
                 <option value="">قسم رئيسي</option>
                 @foreach ($main_categories as $depart)
                     <option value="{{$depart->id}}">{{$depart->department_name_ar}}</option>
