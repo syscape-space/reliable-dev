@@ -18,7 +18,7 @@ class Department extends Model {
         'image'
 	];
 	public function main(){
-	    return $this->belongsTo(self::class,'parent','id');
+	    return $this->belongsTo(static::class,'parent','id');
     }
 
 	public function parent() {
@@ -26,7 +26,7 @@ class Department extends Model {
 	}
 
 	public function children() {
-		return $this->hasMAny(Self::class,'parent');
+		return $this->hasMAny(static::class,'parent');
 	}
 	public function specialties() {
 		return $this->hasMany('App\Models\DepartmentSpecialtie', 'department_id', 'id');
