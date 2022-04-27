@@ -19,7 +19,7 @@ Route::get('/', [Home::class,'render'])->name('home');
     
         function () {
             Route::get('judges-select', SelectJudges::class);
-            Route::get('vendors-judges', VendorsSelect::class);
+            Route::get('vendors-select', VendorsSelect::class)->name('vendors-select');
             Route::get('vendors-settings', VendorSettings::class);
             Route::get('tickets', Tickets::class);
             Route::get('subscription', Subscription::class);

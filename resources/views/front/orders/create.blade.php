@@ -18,6 +18,27 @@
 </head>
 
 <body>
+    {{-- @if (count($errors) > 0)
+        @foreach ($errors->all() as $error)
+        
+            <div class="alert alert-danger" role="alert">
+                <div class="alert-body"> {{ $error }} </div>
+            </div>
+            
+        @endforeach
+    @endif
+
+    @if (session('success'))
+        <div class="alert alert-success" role="alert">
+            <div class="alert-body"> {{ session('success') }} </div>
+        </div>
+    @endif
+
+    @if (session('error'))
+        <div class="alert alert-danger" role="alert">
+            <div class="alert-body"> {{ session('error') }} </div>
+        </div>
+    @endif   --}}
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-5 p-0">
@@ -51,7 +72,8 @@
             <div class="col-lg-7 p-0">
                 <main class="py-5">
                     <div class="container">
-                        <form action="{{ route('orders.update', $Order->id) }}">
+                        <form action="{{ route('user.orders.update', $Order->id) }}" method="post">
+                            <input type="hidden" name="price" value="6510">
                             @csrf
                             @method('PUT')
                             <!-- Start Level One -->
@@ -186,6 +208,8 @@
                                 <select dir="rtl" name="third_department_id" id="inp-selector">
 
                                 </select>
+
+                                <a href="{{ route('vendors-select') }}" class="mt-5 mx-auto d-block" style="color:black" value="1">البحث عن محامي</a>
                                 {{-- <select dir="rtl" name="section"
                                         id="inp-selector">
                                         <option value="1">تجاري</option>
@@ -271,7 +295,7 @@
                                         </select>
                                     </div>
                                     <label class="d-flex align-items-center gap-3" for="check-duration">
-                                        <input type="checkbox" name="negotiable" value="1" id="check-duration" />
+                                        <input type="checkbox" name="negotiable" value="yes " id="check-duration" />
                                         المدة غير قابله للتفاوض
                                     </label>
                                 </div>
@@ -455,6 +479,41 @@
     <script src="{{ asset('tem_assets') }}/js/paying.js"></script>
     <script src="{{ asset('tem_assets') }}/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @if (count($errors) > 0)
+        @foreach ($errors->all() as $error)
+            <script>
+                Swal.fire({
+                title: 'Error!',
+                text: '{{ $error }}',
+                icon: 'error',
+                confirmButtonText: 'Ok'
+                })
+            </script>
+        @endforeach
+    @endif
+
+    @if (session('success'))
+        <script>
+            Swal.fire({
+                title: 'Success!',
+                text: '{{ session('success') }}',
+                icon: 'success',
+                confirmButtonText: 'Ok'
+            })
+        </script>
+    @endif
+
+    @if (session('error'))
+        <script>
+            Swal.fire({
+                title: 'Error!',
+                text: '{{ session('error') }}',
+                icon: 'error',
+                confirmButtonText: 'Ok'
+            })
+        </script>
+    @endif  
     <script type="text/javascript">
         $("input[name='second_department_id']").change(function() {
             console.log('dd');

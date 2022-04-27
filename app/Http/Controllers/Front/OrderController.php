@@ -11,6 +11,8 @@ use App\Models\City;
 
 class OrderController extends Controller
 {
+
+    
     public function arrWith()
     {
         return ['accessVendors','department', 'entities', 'negotiations', 'country', 'city', 'user', 'offers', 'files', 'judgers', 'judger_requests'];
@@ -82,7 +84,22 @@ class OrderController extends Controller
      */
     public function update(Request $request, Order $order)
     {
-        $order->update($request->all());
+        // $order->order_type_id = '';
+        // $order->user_id = $request->user_id;
+        // $order->department_id = '';
+        // $order->main_order_id = '';
+        // $order->linked_order = '';
+        // $order->show_order_data = '';
+        // $order->order_title = $request->order_title;
+        // $order->choose_service_provider = '';
+        // $order->country_id = $request->country_id;
+        // $order->city_id = $request->city_id;
+        // $order->execution_time = $request->execution_time;
+        // $order->amount = $request->amount;
+
+        $order->save();
+
+        
         return redirect()->back()->with('success', 'تم حفظ الطلب بنجاح');
     }
 
