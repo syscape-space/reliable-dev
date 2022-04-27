@@ -1,3 +1,6 @@
+<a href="{{route('orders.show',$order->id)}}">
+
+</a>
 <div class="box-order">
     <div class="info">
         <div class="photo">
@@ -15,7 +18,7 @@
             <i class="fa-solid fa-star"></i>
         </div>
         <p class="name">{{$order->user->name}}</p>
-{{--        <p class="job">محامي حر</p>--}}
+        {{--        <p class="job">محامي حر</p>--}}
     </div>
     <div class="text">
         <div
@@ -68,13 +71,17 @@
             </div>
         </div>
         <h5 class="title">
-            {{$order->order_title}}
+            <a href="{{route('front.orders.show',$order->hash_code)}}">
+                {{$order->order_title}}
+            </a>
         </h5>
+        @if($order->isActiveUser())
         <div
                 class="d-flex align-items-center justify-content-between flex-wrap"
         >
+
             <p class="content">
-                {{\Illuminate\Support\Str::limit($order->order_content)}}
+                {!! \Illuminate\Support\Str::limit($order->order_content) !!}
             </p>
 
             <div
@@ -90,5 +97,8 @@
                 >
             </div>
         </div>
+        @else
+        {{-- TODO : vendor area --}}
+        @endif
     </div>
 </div>

@@ -615,4 +615,5 @@ return [
 	'license'  =>  'التراخيص',
 	'careerrequests' => 'طلبات الوظائف',
 	'show_attached' => 'مشاهدة المرفق',
+	'ongoing' => 'تحت التنفيذ',
 ];

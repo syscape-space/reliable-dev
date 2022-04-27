@@ -1,19 +1,16 @@
-<!-- End Header -->
-<!-- Start Section Setting-->
 <section class="settings py-5">
     <div class="container">
         <div class="row">
 
             @if (auth()->user()->packageRequests->count() > 0 && !auth()->user()->current_subscription)
-            
-            <div class="col-12 back mb-5 d-flex align-items-center justify-content-end">
-                <div class="row w-100 justify-content-end">
-                    <div class="flex-wrap col-xl-8 d-flex align-items-center justify-content-between gap-2 gap-sm-4">
-                        <div class="status">تم انتهاء اشتراكك</div>
-                        <a class="update btn m-auto"> تحديث الاشتراك</a>
+                <div class="col-12 back mb-5 d-flex align-items-center justify-content-end">
+                    <div class="row w-100 justify-content-end">
+                        <div class="flex-wrap col-xl-8 d-flex align-items-center justify-content-between gap-2 gap-sm-4">
+                            <div class="status">تم انتهاء اشتراكك</div>
+                            <a class="update btn m-auto"> تحديث الاشتراك</a>
+                        </div>
                     </div>
                 </div>
-            </div>
             @endif
 
             <div class="col-xl-4 pe-lg-0 r-bar text-center text-xl-end ps-xl-5">
@@ -75,15 +72,14 @@
                                         @if (auth()->user()->packageRequests->count() > 0)
                                             @if (auth()->user()->current_subscription)
                                                 {{ auth()->user()->current_subscription->package->package_title }}
-                                                @else
-                                                    انتهى الاشتراك
+                                            @else
+                                                انتهى الاشتراك
                                             @endif
                                         @else
                                             غير مشترك
                                         @endif
                                     </p>
                                 </div>
-{{$current}}
                             </div>
                             <div class="box-child d-flex flex-column ">
                                 <div class="data d-flex gap-1 justify-content-between align-items-center">
@@ -147,15 +143,7 @@
             </div>
             <div class="col-xl-8">
                 <h4 class="mb-5 fw-bold">اعدادت الحساب الخاص بك</h4>
-                {{-- @if ($errors->any())
-                          <div class="errors">
-                              @foreach ($errors->all() as $error)
-                                  <div class="alert alert-danger">
-                                      <strong>{{ $error }}</strong>
-                                  </div>
-                              @endforeach
-                          </div>
-                      @endif --}}
+
                 <form wire:submit.prevent='update'>
 
                     <div class="row">
@@ -183,7 +171,7 @@
                                 <div class="select">
                                     <i class="arrow fa-solid fa-chevron-down"></i>
 
-                                    <select id="main-section " wire:model="main_department">
+                                    <select id="main-section " wire:model="main_department"  >
                                         @foreach ($main_departments as $department)
                                             <option value="{{ $department->id }}">
                                                 {{ $department->department_name_ar }}
@@ -412,7 +400,5 @@
             </div>
         </div>
     </div>
-    </div>
 </section>
-<!-- End Section -->
-<!-- Js Files -->
+

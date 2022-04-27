@@ -72,7 +72,7 @@
             <div class="col-lg-7 p-0">
                 <main class="py-5">
                     <div class="container">
-                        <form action="{{ route('user.orders.update', $Order->id) }}" method="post">
+                        <form action="{{ route('front.orders.update', $Order->id) }}" method="post">
                             <input type="hidden" name="price" value="6510">
                             @csrf
                             @method('PUT')
@@ -520,7 +520,7 @@
             var second_department_id = $(this).val();
             var token = $("input[name='_token']").val();
             $.ajax({
-                url: "{{ route('ajax.third-departments') }}",
+                url: "{{ route('front.ajax.third-departments') }}",
                 method: 'GET',
                 data: {
                     second_department_id: second_department_id,
