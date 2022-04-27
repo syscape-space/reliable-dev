@@ -59,12 +59,10 @@
                 <p class=" text-end " style="font-size: 13px;">متبقى على انتهاء اشتراكك</p>
                 <div class="text-end">
                     @php
-                        $date = "2016-09-16 11:00:00";
-                        $datework = Carbon::createFromDate($date);
-                        $now = Carbon::now();
-                        $testdate = $datework->diffInDays($now);
+                        $package_end_at = \Carbon\Carbon::createFromDate($user->current_subscription->package->package_end_at);
+                        $Remaining = $package_end_at->diffInDays(\Carbon\Carbon::now());
                     @endphp
-                  <span  style="color: #E33232 "> {{$user->current_subscription->package->duration_package_days}} ايام </span>
+                  <span  style="color: #E33232 "> {{$Remaining}} ايام </span>
                 </div>
                 <div class="percent-line w-100 rounded mt-3 mb-4" style="height: 8px; ;background-color: #ddd;">
                   <div class="w-75 rounded" style="height: 8px;background-color: #E33232  ;"></div>
