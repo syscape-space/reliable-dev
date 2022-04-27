@@ -44,7 +44,7 @@
                         <img width="100" src="{{it()->url($department->image)}}">
                     @endif
                 </div>
-                <livewire:category-selector :parent="$department->main->id ?? ''" :main_selected_id="$department->main->main->id ?? ''"/>
+                <livewire:category-selector :parent="$department->main->id" :main_selected_id="$department->main->main->id "/>
 				<div class="form-group">
                     <label for="">تفعيل القسم</label>
                     <input type="checkbox" name="status" {{$department->status?'checked':''}}>
