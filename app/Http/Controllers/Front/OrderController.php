@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
 use App\Models\Judger;
 use App\Models\Order;
+use App\Models\OrderOffer;
 use Illuminate\Http\Request;
 use App\Models\Department;
 use App\Models\City;
@@ -60,6 +61,15 @@ class OrderController extends Controller
             ->append('order_step', 'active_vendor', 'active_negotiation', 'active_offer');
         $order->increment('views');
         return view('front.orders.show', compact('order'));
+    }
+    public function showOffer($hash_code, $offer)
+    {
+        $offer = OrderOffer::query()->find($offer);
+        $order= Order::query()->with($this->arrWith())
+            ->firstWhere('hash_code', $hash_code)
+            ->append('order_step', 'active_vendor', 'active_negotiation', 'active_offer');
+        $order->increment('views');
+        return view('front.orders.show-offer', compact('order','offer'));
     }
 
 
