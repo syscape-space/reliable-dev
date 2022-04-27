@@ -249,7 +249,7 @@
                           <div class="col-md-6 p-1">
                             <div class=" w-100  mt-3 d-flex ">  
                               <div class="add-order">
-                                <div class="order-number">15</div>
+                                <div class="order-number">{{ $user->orders()->where('order_status', 'ongoing')->count() }}</div>
                                 <div class="text-order">جارى تنفيذة</div>
                               </div>
                               
@@ -258,7 +258,7 @@
                           <div class="col-md-6 p-1">
                             <div class=" w-100  mt-3 d-flex ">  
                               <div class="add-order">
-                                <div class="order-number">22</div>
+                                <div class="order-number">{{ $user->orders()->where('order_status', 'done')->count() }}</div>
                                 <div class="text-order">تم تنفيذة</div>
                               </div>
                               
@@ -283,7 +283,7 @@
                           <div class="col-md-5  p-1">
                             <div class=" w-100  mt-3 d-flex ">  
                               <div class="add-order">
-                                <div class="order-number">15</div>
+                                <div class="order-number">{{ $user->orders()->where('order_status', 'closed')->count() }}</div>
                                 <div class="text-order">المقفلة</div>
                               </div>
                               
@@ -292,7 +292,7 @@
                           <div class="col-md-7 p-1">
                             <div class=" w-100  mt-3 d-flex ">  
                               <div class="add-order">
-                                <div class="order-number">15</div>
+                                <div class="order-number">{{ $user->orders()->where('order_status', 'refused')->count() }}</div>
                                 <div class="text-order"> المعترض عليهها (تحكيم)</div>
                               </div>
                               
@@ -301,7 +301,7 @@
                           <div class="col-md-7 p-1 ">
                             <div class=" w-100 p-2 mt-2 d-flex ">  
                               <div class="add-order">
-                                <div class="order-number">13</div>
+                                <div class="order-number">{{ $user->orders()->where('order_status', 'close_and_refund')->count() }}</div>
                                 <div class="text-order">الملغاة</div>
                               </div>
                               
