@@ -120,8 +120,12 @@ class Order extends Model {
 	 * @param void
 	 * @return object data
 	 */
+	// public function order_vendors() {
+	// 	return $this->hasMany(\App\Models\OrderVendors::class , 'order_id', 'id');
+	// }
+
 	public function order_vendors() {
-		return $this->hasMany(\App\Models\OrderVendors::class , 'order_id', 'id');
+		return $this->belongsToMany(\App\Models\User::class , 'order_vendors', 'order_id', 'user_id');
 	}
 
 	/**
