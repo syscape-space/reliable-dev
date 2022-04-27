@@ -8,6 +8,7 @@ use App\Models\Order;
 use Illuminate\Http\Request;
 use App\Models\Department;
 use App\Models\City;
+use App\Models\User;
 
 class OrderController extends Controller
 {
@@ -25,9 +26,20 @@ class OrderController extends Controller
     }
 
 
-    public function create()
+    public function create($id = null)
     {
-        $Order = Order::first();
+        if ($id == null) {
+            $Order = new Order;
+            $Order->user_id = auth()->user()->id;
+            $Order->order_type_id = 1;
+            $Order->order_content = ' ';
+            $Order->department_id = 1;
+            $Order->save();
+
+        } else {
+            $Order = Order::find($id);
+        }
+       
         $main_departments = Department::where('parent', null)->get();
         $second_departments = Department::query()->whereParent($main_departments->first()->id)->get();
         $cities = City::all();
@@ -56,6 +68,7 @@ class OrderController extends Controller
         //
     }
 
+
     public function update(Request $request, Order $order)
     {
         // $order->order_type_id = '';
@@ -72,18 +85,37 @@ class OrderController extends Controller
         // $order->amount = $request->amount;
 
         $order->save();
-
-        
         return redirect()->back()->with('success', 'تم حفظ الطلب بنجاح');
     }
 
-    public function destroy(Order $order)
+
+    public function destroy($order_id)
     {
         //
     }
+
+
+    public function select_vendors($order_id)
+    {
+        $Order = Order::find($order_id);
+        $users = User::where('membership_type', 'vendor')->get();
+        return view('front.orders.select_vendor', compact(['Order', 'users']));
+    }
+
+
+    public function update_selected_vendors(Request $request)
+    {
+        $Order = Order::find($request->order_id);
+        $Order->order_vendors->sync($request->vendors);
+        return redirect()->route('front.orders.create', $Order->id)->with('success', 'تم الحفظ بنجاح');
+    }
+
+    
     public function orderAccess($order_id){
         $order = Order::query()->find($order_id);
         $order->accessVendors()->attach(\auth()->id(),\request()->only('option_1','option_2'));
         return redirect()->route('front.orders.show',$order->hash_code)->withSuccess('تم الدخول بنجاح');
     }
+
+
 }

@@ -209,7 +209,7 @@
 
                                 </select>
 
-                                <a href="{{ route('vendors-select') }}" class="mt-5 mx-auto d-block" style="color:black" value="1">البحث عن محامي</a>
+                                <a href="{{ route('front.orders.select-vendors', $Order->id) }}" class="mt-5 mx-auto d-block" style="color:black" value="1">البحث عن محامي</a>
                                 {{-- <select dir="rtl" name="section"
                                         id="inp-selector">
                                         <option value="1">تجاري</option>

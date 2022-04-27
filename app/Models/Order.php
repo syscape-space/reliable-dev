@@ -121,7 +121,7 @@ class Order extends Model {
 	 * @return object data
 	 */
 	public function order_vendors() {
-		return $this->hasMany(\App\Models\OrderVendors::class , 'order_id', 'id');
+		return $this->hasMany(\App\Models\User::class , 'rder_vendors', 'order_id', 'user_id');
 	}
 
 	/**
