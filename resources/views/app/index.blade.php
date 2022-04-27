@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="{{cuteAsset('/contract')}}/css/style.css" />
 
     <title>موثوق</title>
-    
+
 </head>
 
 <body style="background-color:#fff !important;">

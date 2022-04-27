@@ -16,6 +16,7 @@
 {{--     <link rel="stylesheet" href="./fonts/font-awsome-pro/css/pro.min.css"> --}}
 {{--     <link rel="stylesheet" href="./fonts/feather.css"> --}}
     {{--     <link rel="stylesheet" href="./fonts/fontawesome.css"> --}}
+
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}" />
     @livewireStyles
     <style>
@@ -143,7 +144,7 @@
         </div>
     </div>
 </header>
-  
+
 
 
 
@@ -152,9 +153,7 @@
             <div class="pcoded-content" style="    font-size: 14px;">
                 <!-- [ Main Content ] start -->
                 <div class="row w-100 mx-0 px-0 ">
-                    <div class="col-12 col-md-4 mb-5">
-                        
-                    </div>
+                  
                     @yield('content')
                     <!-- [ Main Content ] end -->
                 </div>
@@ -185,7 +184,7 @@
                 toast.addEventListener('mouseleave', Swal.resumeTimer)
             }
         });
-    
+
         window.addEventListener('alert', ({
             detail: {
                 type,
@@ -205,7 +204,7 @@
         @endif
     </script>
     @livewireScripts
-    
+
 </body>
 
 </html>

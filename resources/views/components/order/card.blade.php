@@ -1,6 +1,6 @@
-<a href="{{route('orders.show',$order->id)}}">
+<!-- <a href="{{route('orders.show',$order->id)}}">
 
-</a>
+</a> -->
 <div class="box-order">
     <div class="info">
         <div class="photo">
@@ -71,18 +71,18 @@
             </div>
         </div>
         <h5 class="title">
-            <a href="{{route('front.orders.show',$order->hash_code)}}">
+            <a  class="title" href="{{route('front.orders.show',$order->hash_code)}}">
                 {{$order->order_title}}
             </a>
         </h5>
         @if($order->isActiveUser())
         <div
-                class="d-flex align-items-center justify-content-between flex-wrap"
+                class="d-flex align-items-start justify-content-between flex-wrap"
         >
 
-            <p class="content">
+            <div class="content">
                 {!! \Illuminate\Support\Str::limit($order->order_content) !!}
-            </p>
+            </div>
 
             <div
                     class="group-btn m-auto m-lg-0 d-flex flex-column gap-3"

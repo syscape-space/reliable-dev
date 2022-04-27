@@ -1,6 +1,6 @@
 @extends('front.layout.index')
 @section('content')
-<section class="orders overflow-hidden py-5">
+<section class="orders overflow-hidden pb-5">
     <div class="container">
         <livewire:orders-list/>
         <div class="scrll-supp mt-5">
