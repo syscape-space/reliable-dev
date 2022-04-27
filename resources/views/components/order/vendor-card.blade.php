@@ -45,7 +45,7 @@
         </div>
         <div class="col-12 controll">
             @if($isOffer)
-            <a href="" class="btn view">العرض المقدم</a>
+                <a href="{{route('front.order.offers.show',['hash_code'=>$item->order->hash_code,'id'=>$item->id])}}" class="btn view">العرض المقدم</a>
                 @if($item->negotiable)
                 <span class="btn negotiable">
                     قابل للتفاوض
