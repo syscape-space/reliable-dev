@@ -207,7 +207,7 @@
         @endif
     </script>
 
-    <script>
+    {{-- <script>
         $(document).ready(function(){
             sendRequest();
             function sendRequest(){
@@ -220,12 +220,12 @@
                     },
                     complete: function() {
                         // Schedule the next request when the current one's complete
-                        setInterval(sendRequest, 5000); // The interval set to 5 seconds
+                        setInterval(sendRequest, 1000); // The interval set to 5 seconds
                     }
                 });
             };
         });
-    </script>
+    </script> --}}
     @stack('page_scripts')
     @livewireScripts
 
