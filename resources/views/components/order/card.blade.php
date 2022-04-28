@@ -72,7 +72,7 @@
         </div>
         <h5 class="title">
             <a  class="title" href="{{route('front.orders.show',$order->hash_code)}}">
-                {{$order->order_title}}
+                {{$order->department->department_name_ar}}
             </a>
         </h5>
         @if($order->isActiveUser())

@@ -49,7 +49,7 @@
                                                 src="{{ asset('tem_assets') }}/images/think.svg" alt="" srcset="">
                                         </div>
                                         <div class="text-center mt-3">
-                                            <a href="{{ route('orders.create') }}" class="show-balance mt-3 border-0"
+                                            <a href="{{ route('front.orders.create') }}" class="show-balance mt-3 border-0"
                                                 style="background-color: #028e80;text-decoration:none"> إنشاء طلب جديد </a>
                                         </div>
                                     </div>
@@ -308,10 +308,8 @@
 
                                         <button class="about-btn-1" data-bs-toggle="modal"
                                             data-bs-target="#exampleModal">خدماتنا</button>
-                                        <button class="about-btn-1" data-bs-toggle="modal"
-                                            data-bs-target="#exampleModal">طلباتي</button>
-                                        <a href="#" class="new-order-btn new-2  " data-bs-toggle="modal"
-                                            data-bs-target="#exampleModal"> طلب جديد </a>
+                                        <button class="about-btn-1" ><a href="{{ route('front.orders.index') }}">طلباتي</a></button>
+                                        <button  class="new-order-btn new-2 "><a href="{{ route('front.orders.create') }}">طلب جديد</a> </button>
                                     </div>
                                     <img class="about-img" src="{{ asset('tem_assets') }}/images/basma.svg"
                                         alt="" srcset="" />

@@ -231,12 +231,15 @@
                     <div class="form-group">
                         <label for="" class="control-label">اختر مدن العمل</label>
                         <select name="cities[]" class="form-control select2" multiple>
-                            @foreach ($users->country->cities as $city)
+                            @if ($users->country != null)
+                                @foreach ($users->country->cities as $city)
                                 {{-- <option value="0">جميع المدن</option> --}}
-                                <option value="{{ $city->id }}"
-                                    {{ in_array($city->id, $users->cities->pluck('id')->toArray()) ? 'selected' : '' }}>
-                                    {{ $city->city_name_ar }}</option>
-                            @endforeach
+                                    <option value="{{ $city->id }}"
+                                        {{ in_array($city->id, $users->cities->pluck('id')->toArray()) ? 'selected' : '' }}>
+                                        {{ $city->city_name_ar }}</option>
+                                @endforeach
+                            @endif
+                           
                         </select>
                     </div>
                 </div>

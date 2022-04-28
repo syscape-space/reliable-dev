@@ -29,6 +29,7 @@ class OrderController extends Controller
 
     public function create($id = null)
     {
+        
         if ($id == null) {
             $Order = new Order;
             $Order->user_id = auth()->user()->id;
