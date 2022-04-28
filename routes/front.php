@@ -10,7 +10,7 @@ Route::middleware('auth:web')->group(function (){
 
     Route::post('order-access/{order_id}','OrderController@orderAccess')->name('orders.orderAccess');
     Route::resource('tickets','TicketsController');
-    Route::get('balance','balanceController@balance')->name('balance');
+    Route::get('balance','BalanceController@balance')->name('balance');
     Route::get('profile','ProfileController@profile')->name('profile');
     Route::get('order/{hash_code}/offer/{id}','OrderController@showOffer')->name('order.offers.show');
     Route::get('vendor/{id}/profile','VendorContrller@profile')->name('vendor.profile');
