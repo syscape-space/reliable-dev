@@ -22,15 +22,7 @@
 
     @livewireStyles
     <style>
-        body {
-            margin: 0;
-            font-family: Droid Arabic Kufi;
-            font-size: 0.875rem;
-            font-weight: 400;
-            line-height: 1.5;
-            color: #293240;
-            background-color: #f0f2f8;
-        }
+      
     </style>
     <title>title</title>
 </head>
@@ -163,7 +155,7 @@
             <div class="pcoded-content" style="    font-size: 14px;">
                 <!-- [ Main Content ] start -->
                 <div class="row w-100 mx-0 px-0 ">
-                  
+
                     @yield('content')
                     <!-- [ Main Content ] end -->
                 </div>

@@ -1,6 +1,7 @@
+@include('front.css.style')
+
 @include('front.layout.rightNavbar')
 @include('front.layout.topNavbar')
-
 <section class="personal-section mt-2">
     <div class="personal">
       <div class="personal-info">
@@ -10,15 +11,15 @@
               top: 50%;
               right:5px;
               transform: translateY(-50%);" class="text-white fas fa-search"></i>
-              <input 
+              <input
 
                 placeholder="... بحث"
               class=" search-cc form-control  pe-4" type="text" name="" id="">
             </div>
             <div>
               <div class="btn-group">
-                <button 
-                  
+                <button
+
                 style="background-color: #0995EB;border-color: #0995EB;"
                  type="button" class="f-14 collapsed btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                   <i class="fas fa-filter"></i>
@@ -32,25 +33,25 @@
                   <li><a class="dropdown-item" href="#">Separated link</a></li>
                 </ul>
               </div>
-              
+
             </div>
         </div>
         <div class="p-3 mt-3" style="background-color: #F9F9F9;">
           <div class="">
             <div class="mb-2 text-start" style="font-size: 12px;">
               <span class="ms-3">
-                <img style="width: 15px;" class="ms-1" src="./images/o_clock.svg" alt=""> <span>منذ 4 ساعات</span>
+                <img style="width: 15px;" class="ms-1" src="{{asset('assets/images/o_clock.svg')}}" alt=""> <span>منذ 4 ساعات</span>
               </span>
-              
+
               <span class="ms-3">
-                <img style="width: 20px;" class="ms-1" src="./images/o_offer.svg" alt=""> <span>مقدم 5 عروض</span>
+                <img style="width: 20px;" class="ms-1" src="{{asset('assets/images/o_offer.svg')}}" alt=""> <span>مقدم 5 عروض</span>
               </span>
               <span class="ms-3">
-                <img style="width: 14px;" class="ms-1" src="./images/o_map.svg" alt=""> <span>السعودية</span>
+                <img style="width: 14px;" class="ms-1" src="{{asset('assets/images/o_map.svg')}}" alt=""> <span>السعودية</span>
               </span>
               <span class="my-2" style="font-size: 12px;">
                 <span class="o-box ms-2">
-                  <img style="width: 15px;" class="ms-1" src="./images/o_delever.svg" alt="">
+                  <img style="width: 15px;" class="ms-1" src="{{asset('assets/images/o_delever.svg')}}" alt="">
                   <span>مده التسليم:</span>
                   <span class="me-2">14 يوم</span>
                 </span>
@@ -59,13 +60,13 @@
                 </span>
              </span>
             </div>
-            
-              
+
+
           </div>
           <div class="row w-100 mx-0 px-0 ">
             <div class="col-md-3 text-center d-flex align-items-center justify-content-center">
               <div style="border-left: 3px solid #ddd;" class="px-3">
-                <img style="width: 70px;" src="./images/user.svg" alt="">
+                <img style="width: 70px;" src="{{asset('assets/images/user.svg')}}" alt="">
               <div>
                 <div class="text-center">
                   <i class="fas fa-star yellow"></i>
@@ -84,11 +85,11 @@
             <div class="col-md-9">
               <h6 style="color: #048E81;">عنوان الطلب هنا</h6>
               <p class="pb-3 f-12">
-                لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت  لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت  لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت 
+                لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت  لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت  لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت
               </p>
               <div class="mt-3 btw-flex">
                 <div>
-                  
+
                 </div>
                 <div class="text-center">
                   <button style="
@@ -122,18 +123,18 @@
           <div class="">
             <div class="mb-2 text-start" style="font-size: 12px;">
               <span class="ms-3">
-                <img style="width: 15px;" class="ms-1" src="./images/o_clock.svg" alt=""> <span>منذ 4 ساعات</span>
+                <img style="width: 15px;" class="ms-1" src="{{asset('assets/images/o_clock.svg')}}" alt=""> <span>منذ 4 ساعات</span>
               </span>
-              
+
               <span class="ms-3">
-                <img style="width: 20px;" class="ms-1" src="./images/o_offer.svg" alt=""> <span>مقدم 5 عروض</span>
+                <img style="width: 20px;" class="ms-1" src="{{asset('assets/images/o_offer.svg')}}" alt=""> <span>مقدم 5 عروض</span>
               </span>
               <span class="ms-3">
-                <img style="width: 14px;" class="ms-1" src="./images/o_map.svg" alt=""> <span>السعودية</span>
+                <img style="width: 14px;" class="ms-1" src="{{asset('assets/images/o_map.svg')}}" alt=""> <span>السعودية</span>
               </span>
               <span class="my-2" style="font-size: 12px;">
                 <span class="o-box ms-2">
-                  <img style="width: 15px;" class="ms-1" src="./images/o_delever.svg" alt="">
+                  <img style="width: 15px;" class="ms-1" src="{{asset('assets/images/o_delever.svg')}}" alt="">
                   <span>مده التسليم:</span>
                   <span class="me-2">14 يوم</span>
                 </span>
@@ -142,13 +143,13 @@
                 </span>
              </span>
             </div>
-            
-              
+
+
           </div>
           <div class="row w-100 mx-0 px-0 ">
             <div class="col-md-3 text-center d-flex align-items-center justify-content-center">
               <div style="border-left: 3px solid #ddd;" class="px-3">
-                <img style="width: 70px;" src="./images/user.svg" alt="">
+                <img style="width: 70px;" src="{{asset('assets/images/user.svg')}}" alt="">
               <div>
                 <div class="text-center">
                   <i class="fas fa-star yellow"></i>
@@ -167,11 +168,11 @@
             <div class="col-md-9">
               <h6 style="color: #048E81;">عنوان الطلب هنا</h6>
               <p class="pb-3 f-12">
-                لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت  لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت  لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت 
+                لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت  لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت  لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت
               </p>
               <div class="mt-3 btw-flex">
                 <div>
-                  
+
                 </div>
                 <div class="text-center">
                   <button style="
@@ -205,18 +206,18 @@
           <div class="">
             <div class="mb-2 text-start" style="font-size: 12px;">
               <span class="ms-3">
-                <img style="width: 15px;" class="ms-1" src="./images/o_clock.svg" alt=""> <span>منذ 4 ساعات</span>
+                <img style="width: 15px;" class="ms-1" src="{{asset('assets/images/o_clock.svg')}}" alt=""> <span>منذ 4 ساعات</span>
               </span>
-              
+
               <span class="ms-3">
-                <img style="width: 20px;" class="ms-1" src="./images/o_offer.svg" alt=""> <span>مقدم 5 عروض</span>
+                <img style="width: 20px;" class="ms-1" src="{{asset('assets/images/o_offer.svg')}}" alt=""> <span>مقدم 5 عروض</span>
               </span>
               <span class="ms-3">
-                <img style="width: 14px;" class="ms-1" src="./images/o_map.svg" alt=""> <span>السعودية</span>
+                <img style="width: 14px;" class="ms-1" src="{{asset('assets/images/o_map.svg')}}" alt=""> <span>السعودية</span>
               </span>
               <span class="my-2" style="font-size: 12px;">
                 <span class="o-box ms-2">
-                  <img style="width: 15px;" class="ms-1" src="./images/o_delever.svg" alt="">
+                  <img style="width: 15px;" class="ms-1" src="{{asset('assets/images/o_delever.svg')}}" alt="">
                   <span>مده التسليم:</span>
                   <span class="me-2">14 يوم</span>
                 </span>
@@ -225,13 +226,13 @@
                 </span>
              </span>
             </div>
-            
-              
+
+
           </div>
           <div class="row w-100 mx-0 px-0 ">
             <div class="col-md-3 text-center d-flex align-items-center justify-content-center">
               <div style="border-left: 3px solid #ddd;" class="px-3">
-                <img style="width: 70px;" src="./images/user.svg" alt="">
+                <img style="width: 70px;" src="{{asset('assets/images/user.svg')}}" alt="">
               <div>
                 <div class="text-center">
                   <i class="fas fa-star yellow"></i>
@@ -250,11 +251,11 @@
             <div class="col-md-9">
               <h6 style="color: #048E81;">عنوان الطلب هنا</h6>
               <p class="pb-3 f-12">
-                لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت  لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت  لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت 
+                لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت  لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت  لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت
               </p>
               <div class="mt-3 btw-flex">
                 <div>
-                  
+
                 </div>
                 <div class="text-center">
                   <button style="

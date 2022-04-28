@@ -132,7 +132,7 @@
     </header>
     <!-- End Header -->
     <!-- Start Section Orders-->
-    <section class="offers overflow-hidden py-5">
+    <section class="offers overflow-hidden pt-3 pb-5">
         <div class="container">
             <div
                 class="col-12 back mb-5 flex-wrap gap-5 d-flex align-items-center justify-content-between"
