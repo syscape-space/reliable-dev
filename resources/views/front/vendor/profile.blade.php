@@ -93,9 +93,9 @@
                     <p>
                         {{ $user->bio }}
                     </p>
-                    <div class="photo">
+                    {{-- <div class="photo">
                         <img src="{{asset('cloud/')}}/{{ $user->photo_profile }}" alt="" />
-                    </div>
+                    </div> --}}
                 </div>
                 <!-- End about-me -->
                 <!-- Start licenses -->
@@ -188,21 +188,11 @@
                 <div class="specialization main-content pt-5">
                     <h1 class="title mb-4">التخصص</h1>
                     <p>
-                        لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا
-                        يسكينج أليايت,سيت دو أيوسمود تيمبور
-                        أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا .
-                        يوت انيم أد مينيم فينايم,كيواس نوستريد أكسير
-                        سيتاشن يللأمكو لابورأس نيسي يت أليكيوب أكس أيا
-                        كوممودو كونسيكيوات . ديواس أيوتي أريري دولار إن
-                        ريبريهينديرأيت فوليوبتاتي فيلايت أيسسي كايلليوم
-                        دولار أيو فيجايت نيولا باراياتيور. أيكسسيبتيور
-                        ساينت أوككايكات كيوبايداتات نون بروايدينت ,سيونت
-                        ان كيولبا كيو أوفيسيا ديسيريونتموليت انيم أيدي
-                        ايست لابوريوم.
+                        @foreach ($user->specialties as $specialty)
+                        {{ $specialty->specialty_name_ar }} <br>
+                        @endforeach
                     </p>
-                    <div class="photo">
-                        <img src="{{asset('assets')}}/img/photo" alt="" />
-                    </div>
+                    
                 </div>
                 <!-- End specialization -->
                 <!-- Start my-articles -->
