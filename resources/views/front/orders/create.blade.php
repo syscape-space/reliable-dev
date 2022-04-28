@@ -25,6 +25,7 @@
 </head>
 
 <body>
+    
     {{-- @if (count($errors) > 0)
         @foreach ($errors->all() as $error)
         
@@ -379,7 +380,7 @@
                                         <div>تجاري</div>
                                     </div> --}}
                                 </div>
-                                <select dir="rtl" id="select-city" required>
+                                <select dir="rtl" name="city_id" id="select-city" required >
                                     <option value="">أختر المدينة</option>
                                     @forelse ($cities as $city)
                                         <option value="1">{{$city->city_name_ar}}</option>
@@ -387,11 +388,11 @@
                                         
                                     @endforelse
                                 </select>
-                                <div class="parent-inp">
+                                {{-- <div class="parent-inp">
                                     <input type="text" placeholder="البحث عن مقدم الخدمة"
                                         class="service-provider" />
                                     <i class="fa-solid fa-hand-pointer"></i>
-                                </div>
+                                </div> --}}
                                 <div class="group-btn d-flex align-items-center justify-content-center gap-5">
                                     <input class="back" type="reset" value="العودة" />
                                     <input class="sub" type="submit" value="متابعة" />
@@ -449,18 +450,19 @@
                                 <div class="price d-flex justify-content-between align-items-center">
                                     <div class="text d-flex align-items-center gap-5">
                                         رسوم تقديم الطلب:
-                                        <div class="count">$6510</div>
+                                        <div class="count">${{$G_SETTINGS->minimum_amount_add_order}}</div>
                                     </div>
                                     <div class="icon">!</div>
                                 </div>
                                 <div class="group-btn d-flex align-items-center justify-content-center gap-5">
                                     <input class="back" type="reset" value="العودة" />
                                     <input class="sub" type="submit" value="حفظ ومتابعة" />
+                                    <button type="submit">dsfdsf</button>
                                 </div>
                             </div>
                             <!-- End Level Five -->
                             <!-- Start Inputs Hidden -->
-                            <input id="conditions" type="hidden" name="conditions" />
+                            {{-- <input id="conditions" type="hidden" name="conditions" />
                             <input id="service" type="hidden" name="service" />
                             <input id="type" type="hidden" name="type" />
                             <input id="order-number" type="hidden" name="order-number" />
@@ -471,7 +473,7 @@
                             <input id="send-file" type="hidden" name="file" />
                             <input id="send-voice" type="hidden" name="voice" />
                             <input id="city" type="hidden" name="city" />
-                            <input id="service-provider" type="hidden" name="service-provider" />
+                            <input id="service-provider" type="hidden" name="service-provider" /> --}}
 
                             <!-- End Inputs Hidden -->
                         </form>
@@ -481,12 +483,11 @@
         </div>
     </div>
     <!-- Js Files -->
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
     <script src="{{ asset('tem_assets') }}/js/all.min.js"></script>
     <script src="{{ asset('tem_assets') }}/js/paying.js"></script>
     <script src="{{ asset('tem_assets') }}/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
     {{-- <script>
         const Toast = Swal.mixin({
