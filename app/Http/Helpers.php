@@ -1,4 +1,6 @@
 <?php
+
+use App\Models\User;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Storage;
 use PhpOffice\PhpSpreadsheet\Calculation\Logical\Boolean;
@@ -80,5 +82,8 @@ function exerpt_text($text, $length)
     return $text;
 }
 
+function active_user(){
+    return User::find(auth()->id());
+}
 
 

@@ -7,9 +7,9 @@
                     src="https://cdn.landesa.org/wp-content/uploads/default-user-image.png" alt=""
                     srcset="">
             </div>
-            <h5>{{ $user->name }}</h5>
+            <h5>{{ active_user()->name }}</h5>
             <p class="">
-                {{ $user->membership_type }}
+                {{ active_user()->membership_type }}
             </p>
             <div class="protection">
                 <img src="{{ asset('tem_assets') }}/images/protection.svg" alt="" srcset="">
@@ -17,11 +17,11 @@
         </div>
         <div class="card-client text-center rounded mb-2 py-3">
             <p class="  "> الرصيد الكلى: <span class="me-2 f-300 "
-                    style=" color: #0491e8 ;"> {{ $user->current_balance }} $ </span> </p>
+                    style=" color: #0491e8 ;"> {{ active_user()->current_balance }} $ </span> </p>
             <p class="  "> يمكن سحبة : <span class="me-2 f-300 "
-                    style=" color: #0491e8 ;"> {{ $user->current_balance - $user->suspended_balance }}
+                    style=" color: #0491e8 ;"> {{ active_user()->current_balance - active_user()->suspended_balance }}
                     $ </span> </p>
-            <button class="show-balance">عرض رصيدى</button>
+            <a href="{{route('front.balance')}}" class="show-balance">عرض رصيدى</a>
         </div>
 
         <div class="card-client text-end rounded  p-3 mb-2 pb-4">
@@ -31,20 +31,20 @@
                 <div class="w-75 rounded" style="height: 8px;background-color: #028e80  ;"></div>
             </div>
             <div class="text-center">
-                <button class="show-balance">أكمل بيانات حسابى</button>
+                <a href="{{route('profile_settings')}}" class="show-balance">أكمل بيانات حسابى</a>
             </div>
         </div>
         <div class="card-client text-center rounded px-3 py-2 mb-2 ">
 
             <h6 class="  "><img class="ms-2"
                     src="{{ asset('tem_assets') }}/images/pkg.svg" alt=""
-                    srcset="">{{ optional(optional($user->current_subscription)->package)->package_title }}</h6>
+                    srcset="">{{ optional(optional(active_user()->current_subscription)->package)->package_title }}</h6>
             <p class="  my-2 text-end " style="font-size: 13px;"> ينتهى اشتراكك فى
-                {{ optional(optional($user->current_subscription)->package)->package_end_at }} </p>
+                {{ optional(optional(active_user()->current_subscription)->package)->package_end_at }} </p>
             <p class=" text-end " style="font-size: 13px;">متبقى على انتهاء اشتراكك</p>
             <div class="text-end">
                 @php
-                    $package_end_at = \Carbon\Carbon::createFromDate(optional(optional($user->current_subscription)->package)->package_end_at);
+                    $package_end_at = \Carbon\Carbon::createFromDate(optional(optional(active_user()->current_subscription)->package)->package_end_at);
                     $Remaining = $package_end_at->diffInDays(\Carbon\Carbon::now());
                 @endphp
                 <span style="color: #E33232 "> {{ $Remaining }} ايام </span>

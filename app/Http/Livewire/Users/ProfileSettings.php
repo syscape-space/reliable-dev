@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Users\Vendors;
+namespace App\Http\Livewire\Users;
 
 use App\Models\City;
 use App\Models\Country;
@@ -16,10 +16,10 @@ use App\Models\UserQualification;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
-class VendorSettings extends Component
+class ProfileSettings extends Component
 {
     use WithFileUploads;
-    public $user_id, $id_number, $name, $email, $email_verify, $mobile_verify, $mobile, $membership_type, $gender, $main_department, $sub_department, $country_id, $city_id, $address, $commercial_end_at, $commercial_file, $commercial_id, $license_name, $license_file, $license_end_at, $qualification_file, $qualification_name, $experience_name, $experience_file, $bio, $current = 1, $sub_departments, $cities;
+    public $user_id, $id_number, $name, $email, $email_verify, $mobile_verify, $mobile, $membership_type,$account_type, $gender, $main_department, $sub_department, $country_id, $city_id, $address, $commercial_end_at, $commercial_file, $commercial_id, $license_name, $license_file, $license_end_at, $qualification_file, $qualification_name, $experience_name, $experience_file, $bio, $current = 1, $sub_departments, $cities;
 
     protected function rules()
     {
@@ -90,6 +90,7 @@ class VendorSettings extends Component
         $this->mobile_verify = $user->mobile_verify;
         $this->gender = $user->gender;
         $this->membership_type = $user->membership_type;
+        $this->account_type = $user->account_type;
         $this->main_department = $user->main_department;
         $this->sub_department = $user->sub_department;
         $this->country_id = $user->country_id;
@@ -122,6 +123,6 @@ class VendorSettings extends Component
         }else{
             $user_jobs=collect();
         } */
-        return view('livewire.front.users.vendors.vendor-settings', compact('main_departments', 'countries', 'cities'))->extends('front.layout.index')->section('content');
+        return view('livewire.front.users.profile-settings', compact('main_departments', 'countries', 'cities'))->extends('front.layout.index')->section('content');
     }
 }

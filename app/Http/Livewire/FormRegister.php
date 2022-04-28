@@ -31,7 +31,7 @@ class FormRegister extends Component
 //                Password::min(6)->mixedCase()->numbers()->symbols()->uncompromised(),
 			],
         ]);
-        dd($data);
+        
         User::create([
 			'name' => $data['name'],
 			'email' => $data['email'],
