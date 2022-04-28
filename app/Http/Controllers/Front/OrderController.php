@@ -33,6 +33,7 @@ class OrderController extends Controller
             $Order = new Order;
             $Order->user_id = auth()->user()->id;
             $Order->order_content = '';
+            $Order->order_status = 'archived';
             $Order->save();
 
         } else {
@@ -92,7 +93,7 @@ class OrderController extends Controller
         // $order->execution_time = $request->execution_time;
         // $order->amount = $request->amount;
 
-        $order->save();
+        $order->update($request->except('_token','_method'));
         return redirect()->back()->with('success', 'تم حفظ الطلب بنجاح');
     }
 
