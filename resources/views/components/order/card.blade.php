@@ -75,6 +75,24 @@
                 {{$order->department->department_name_ar}}
             </a>
         </h5>
+        <div class="">
+          <div class="d-inline-block">
+              <div class="d-flex flex-wrap mt-3">
+                  <button class="bl-f text-black py-2 px-md-5 px-2">
+                       محاماة
+                  </button>
+                  <button class="bl-f mx-3 text-black py-2 px-md-5 px-2">
+                      استشارات
+                  </button>
+                  <button class="bl-f text-black py-2 px-md-5 px-2">
+                      تجاري
+                  </button>
+              </div>
+              <div class="line-bb">
+
+              </div>
+             </div>
+        </div>
         @if($order->isActiveUser())
         <div
                 class="d-flex align-items-start justify-content-between flex-wrap"
@@ -87,7 +105,7 @@
             <div
                     class="group-btn m-auto m-lg-0 d-flex flex-column gap-3"
             >
-                <a href="" class="btn underway"
+                <a href="" class="btn new"
                 >{{__('admin.'.$order->order_status)}}</a
                 >
 

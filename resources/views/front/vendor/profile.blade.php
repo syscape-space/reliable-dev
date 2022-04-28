@@ -47,8 +47,8 @@
                                         <p class="job">محامي - تجاري</p>
                                         <p class="city">{{ optional($user->city)->name }}</p>
                                         <p class="last-seen">
-                                            اخر تواجد: 4/23/2022 الساعة:
-                                            5:30 م
+                                            اخر تواجد: {{date('Y-m-d', strtotime($user->last_seen))}} الساعة:
+                                            {{ date('h:i A', strtotime($user->last_seen)) }}
                                         </p>
                                     </div>
                                 </div>
@@ -136,6 +136,9 @@
 @endsection
 
 @push('page_scripts')
+
 <script src="{{asset('assets')}}/js/web.js"></script>
+
+
 @endpush
 

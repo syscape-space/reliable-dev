@@ -16,10 +16,10 @@ let subLevOne = document.querySelector(".level-one .sub"),
     inpConditionsHidd = document.querySelector("#conditions");
 
 subLevOne.addEventListener("click", function (evt) {
-    evt.preventDefault();
+    // evt.preventDefault();
     if (inpConditions.checked) {
         inpConditions.value = "done";
-        saveDate(inpConditions, inpConditionsHidd);
+        // saveDate(inpConditions, inpConditionsHidd);
         levelOne.style.display = "none";
         levelTwo.style.display = "block";
     } else {
@@ -43,14 +43,14 @@ listInp.forEach(function (e) {
     });
 });
 // Pass single element
-const inpSelector = document.querySelector("#inp-selector");
-const choices = new Choices(inpSelector, {
-    position: "bottom",
-    searchEnabled: true,
-    searchChoices: true,
+// const inpSelector = document.querySelector("#inp-selector");
+// const choices = new Choices(inpSelector, {
+//     position: "bottom",
+//     searchEnabled: true,
+//     searchChoices: true,
 
-    searchPlaceholderValue: "ابحث عن القسم الفرعي",
-});
+//     searchPlaceholderValue: "ابحث عن القسم الفرعي",
+// });
 
 //Click Submit
 let subLevTwo = document.querySelector(".level-two .sub"),
@@ -63,21 +63,21 @@ let subLevTwo = document.querySelector(".level-two .sub"),
     inpTypeHidd = document.querySelector("#type");
 
 subLevTwo.addEventListener("click", function (evt) {
-    evt.preventDefault();
+    // evt.preventDefault();
     listInpNew = "";
     listInputs.forEach(function (e) {
         if (e.checked) {
             listInpNew = e.value;
         }
     });
-    saveDateText(listInpNew, inpServiceHidd);
-    saveDate(inpSelector, inpTypeHidd);
-    saveDate(inpNum, inpNumHidd);
+    // saveDateText(listInpNew, inpServiceHidd);
+    // saveDate(inpSelector, inpTypeHidd);
+    // saveDate(inpNum, inpNumHidd);
     levelTwo.style.display = "none";
     levelThree.style.display = "block";
 });
 iBackLevTwo.addEventListener("click", function (evt) {
-    evt.preventDefault();
+    // evt.preventDefault();
 
     levelTwo.style.display = "none";
     levelOne.style.display = "block";
@@ -112,16 +112,16 @@ let subLevThree = document.querySelector(".level-three .sub"),
     selectDurationHidd = document.querySelector("#duration"); ///
 
 subLevThree.addEventListener("click", function (evt) {
-    evt.preventDefault();
-    saveDate(requestAddress, requestAddressHidd);
-    saveDate(orderDetails, orderDetailsHidd);
-    saveDate(selectDuration, selectDurationHidd);
+    // evt.preventDefault();
+    // saveDate(requestAddress, requestAddressHidd);
+    // saveDate(orderDetails, orderDetailsHidd);
+    // saveDate(selectDuration, selectDurationHidd);
     if (checkDuration.checked) {
         checkDuration.value = "done";
     }
-    saveDate(checkDuration, checkDurationHidd);
-    saveDate(inpFile, inpFileHidd);
-    saveDate(inpVoice, inpVoiceHidd);
+    // saveDate(checkDuration, checkDurationHidd);
+    // saveDate(inpFile, inpFileHidd);
+    // saveDate(inpVoice, inpVoiceHidd);
     levelThree.style.display = "none";
     levelFour.style.display = "block";
 });
@@ -131,7 +131,7 @@ backLevThree.addEventListener("click", function (evt) {
     levelTwo.style.display = "block";
 });
 iBackLevThree.addEventListener("click", function (evt) {
-    evt.preventDefault();
+    // evt.preventDefault();
 
     levelThree.style.display = "none";
     levelTwo.style.display = "block";
@@ -158,9 +158,9 @@ let subLevFour = document.querySelector(".level-four .sub"),
     selectCityHidd = document.querySelector("#city"); ///
 
 subLevFour.addEventListener("click", function (evt) {
-    evt.preventDefault();
-    saveDate(selectCity, selectCityHidd);
-    saveDate(serviceProvider, serviceProviderHiss);
+    // evt.preventDefault();
+    // saveDate(selectCity, selectCityHidd);
+    // saveDate(serviceProvider, serviceProviderHiss);
     levelFour.style.display = "none";
     levelFive.style.display = "block";
 });
@@ -170,7 +170,7 @@ backLevFour.addEventListener("click", function (evt) {
     levelThree.style.display = "block";
 });
 iBackLevFour.addEventListener("click", function (evt) {
-    evt.preventDefault();
+    // evt.preventDefault();
 
     levelFour.style.display = "none";
     levelThree.style.display = "block";
@@ -189,7 +189,7 @@ backLevFive.addEventListener("click", function (evt) {
     levelFour.style.display = "block";
 });
 iBackLevFive.addEventListener("click", function (evt) {
-    evt.preventDefault();
+    // evt.preventDefault();
     levelFive.style.display = "none";
     levelFour.style.display = "block";
 });
