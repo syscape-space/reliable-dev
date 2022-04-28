@@ -75,24 +75,6 @@
                 {{$order->order_title}}
             </a>
         </h5>
-        <div class="">
-          <div class="d-inline-block">
-              <div class="d-flex flex-wrap mt-3">
-                  <button class="bl-f text-black py-2 px-md-5 px-2">
-                       محاماة
-                  </button>
-                  <button class="bl-f mx-3 text-black py-2 px-md-5 px-2">
-                      استشارات
-                  </button>
-                  <button class="bl-f text-black py-2 px-md-5 px-2">
-                      تجاري
-                  </button>
-              </div>
-              <div class="line-bb">
-
-              </div>
-             </div>
-        </div>
         @if($order->isActiveUser())
         <div
                 class="d-flex align-items-start justify-content-between flex-wrap"
@@ -116,7 +98,30 @@
             </div>
         </div>
         @else
-        {{-- TODO : vendor area --}}
+            <div class="">
+                <div class="d-inline-block">
+                    <div class="d-flex flex-wrap mt-3">
+                        @if($dep = $order->department)
+                        <button class="bl-f text-black py-2 px-md-5 px-2">
+                            {{$dep->department_name_ar}}
+                        </button>
+                        @endif
+                        @if($dep = $order->department->main)
+                            <button class="bl-f mx-3 text-black py-2 px-md-5 px-2">
+                                {{$dep->department_name_ar}}
+                            </button>
+                        @endif
+                        @if($dep = $order->department->main->main)
+                            <button class="bl-f text-black py-2 px-md-5 px-2">
+                                {{$dep->department_name_ar}}
+                            </button>
+                        @endif
+                    </div>
+                    <div class="line-bb">
+
+                    </div>
+                </div>
+            </div>
         @endif
     </div>
 </div>
