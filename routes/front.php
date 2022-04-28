@@ -18,9 +18,6 @@ Route::middleware('auth:web')->group(function (){
 });
 
 Route::get('ajax/third-departments','AjaxController@third_departments')->name('ajax.third-departments');
+Route::get('ajax/last-seen','AjaxController@last_seen')->name('ajax.last-seen');
 
-// Route::get('test-login', function () {
-// 	$user = \App\Models\User::first();
-//     \Auth::login($user);
-//     dd(auth()->check());
-// });
+

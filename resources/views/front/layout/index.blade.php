@@ -206,6 +206,26 @@
             })
         @endif
     </script>
+
+    <script>
+        $(document).ready(function(){
+            sendRequest();
+            function sendRequest(){
+                $.ajax({
+                    url: "{{route('front.ajax.last-seen')}}",
+                    success: 
+                    function(data){
+                        console.log('done')
+                    
+                    },
+                    complete: function() {
+                        // Schedule the next request when the current one's complete
+                        setInterval(sendRequest, 5000); // The interval set to 5 seconds
+                    }
+                });
+            };
+        });
+    </script>
     @stack('page_scripts')
     @livewireScripts
 
