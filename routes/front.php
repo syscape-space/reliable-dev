@@ -12,8 +12,11 @@ Route::middleware('auth:web')->group(function (){
     Route::resource('tickets','TicketsController');
     Route::get('balance','BalanceController@balance')->name('balance');
     Route::get('profile','ProfileController@profile')->name('profile');
+    
     Route::get('order/{hash_code}/offer/{id}','OrderController@showOffer')->name('order.offers.show');
     Route::get('vendor/{id}/profile','VendorContrller@profile')->name('vendor.profile');
+    Route::get('vendor/subscription','VendorContrller@subscription')->name('vendor.subscription');
+
     Route::get('vendor/{id}/about','VendorContrller@about')->name('vendor.about');
     Route::get('vendor/{id}/licenses','VendorContrller@licenses')->name('vendor.licenses');
     Route::get('vendor/{id}/executed-contracts','VendorContrller@executed_contracts')->name('vendor.executed-contracts');

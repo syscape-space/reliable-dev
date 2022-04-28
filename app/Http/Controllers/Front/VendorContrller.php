@@ -5,9 +5,17 @@ namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\VendorPackage;
 
 class VendorContrller extends Controller
 {
+    public function subscription()
+    {
+        $user = User::find(auth()->user()->id);
+        $packages = VendorPackage::where('package_status', 'show')->get();
+        return view('front.vendor.subscription', compact(['user', 'packages']));
+    }
+
     public function profile($id)
     {
         $user = User::find($id);
