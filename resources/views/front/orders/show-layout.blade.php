@@ -1,6 +1,6 @@
 @extends('front.layout.index')
 @section('content')
-    <section class="offers overflow-hidden py-5">
+    <section class="offers overflow-hidden pt-3 pb-5">
         <div class="container">
             @if(! $order->accessOpen())
                 <x-order.access-card :order="$order"/>
@@ -11,7 +11,7 @@
                     <div
                             class="link-sections flex-wrap d-flex align-items-center gap-4"
                     >
-                        الرئيسية / المشاريع /
+                        الرئيسية / المشاريع 
                         {{$order->department->parent->department_name_ar ?? ""}}
                         /
                         {{$order->department->department_name_ar ?? ""}}

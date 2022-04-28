@@ -9,6 +9,18 @@
     <link rel="stylesheet" href="{{ asset('tem_assets') }}/webProject/icofont/css/icofont.min.css" />
     <link rel="stylesheet" href="{{ asset('tem_assets') }}/css/style.css" />
     <title>title</title>
+    <style media="screen">
+    .new-new .about-us .sum-btn button:nth-child(2) {
+        position: absolute;
+        top: 4%;
+        right: 2%;
+      }
+      .new-new .about-us .sum-btn button:nth-child(1) {
+          position: absolute;
+          top: 59%;
+          right: -19%;
+      }
+    </style>
 </head>
 
 <body style="background: #fff ">
@@ -36,14 +48,14 @@
                                             <img class="ms-3" style="width: 40px;"
                                                 src="{{ asset('tem_assets') }}/images/think.svg" alt="" srcset="">
                                         </div>
-                                        <div class="text-center">
+                                        <div class="text-center mt-3">
                                             <a href="{{ route('orders.create') }}" class="show-balance mt-3 border-0"
-                                                style="background-color: #028e80;"> إنشاء طلب جديد </a>
+                                                style="background-color: #028e80;text-decoration:none"> إنشاء طلب جديد </a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-8 col-lg-8 col-xl-7  mt-md-0 mt-5">
-                                    <div class="contain-btn  d-flex justify-content-between flex-wrap">
+                                    <div class="contain-btn  d-flex justify-content-center flex-wrap flex-lg-nowrap">
                                         <div class=" mb-3 active-log" style="width: 70px;">
                                             <button type="button" data-bs-target="#carouselExampleIndicators"
                                                 data-bs-slide-to="0" class="bg-white active" aria-current="true"

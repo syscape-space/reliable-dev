@@ -1420,7 +1420,7 @@ section.offers ul.level {
     height: 100%;
     align-items: center;
     text-align: center;
-    width: 800px;
+    width: 600px;
     min-height: 119px;
     margin: auto;
 }
@@ -1431,7 +1431,7 @@ section.offers ul.level li:first-child .icon:before {
     top: 50%;
     z-index: -1;
     transform: translateY(-50%);
-    width: 326px;
+    width: 286px;
     border-bottom: 2px solid var(--light-blue-color);
 }
 section.offers ul.level li:nth-child(2) .icon:before {
@@ -1441,7 +1441,7 @@ section.offers ul.level li:nth-child(2) .icon:before {
     top: 50%;
     z-index: -1;
     transform: translateY(-50%);
-    width: 326px;
+    width: 266px;
     border-bottom: 2px dotted #8f8f8f;
 }
 
@@ -1601,7 +1601,7 @@ section.offers .box-order .setting {
 
 section.offers .box-order .info {
     text-align: center;
-    margin-top: 86px;
+    margin-top: 15px;
     min-width: unset !important;
     position: unset !important;
 }
