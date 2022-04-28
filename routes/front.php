@@ -14,6 +14,15 @@ Route::middleware('auth:web')->group(function (){
     Route::get('profile','ProfileController@profile')->name('profile');
     Route::get('order/{hash_code}/offer/{id}','OrderController@showOffer')->name('order.offers.show');
     Route::get('vendor/{id}/profile','VendorContrller@profile')->name('vendor.profile');
+    Route::get('vendor/{id}/about','VendorContrller@about')->name('vendor.about');
+    Route::get('vendor/{id}/licenses','VendorContrller@licenses')->name('vendor.licenses');
+    Route::get('vendor/{id}/executed-contracts','VendorContrller@executed_contracts')->name('vendor.executed-contracts');
+    Route::get('vendor/{id}/audio-consulting','VendorContrller@audio_consulting')->name('vendor.audio-consulting');
+    Route::get('vendor/{id}/qualifications-and-training','VendorContrller@qualifications_and_training')->name('vendor.qualifications-and-training');
+    Route::get('vendor/{id}/specialty','VendorContrller@specialty')->name('vendor.specialty');
+    Route::get('vendor/{id}/statistics','VendorContrller@statistics')->name('vendor.statistics');
+    Route::get('vendor/{id}/posts','VendorContrller@posts')->name('vendor.posts');
+
 
 });
 
