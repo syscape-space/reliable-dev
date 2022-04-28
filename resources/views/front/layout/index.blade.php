@@ -207,7 +207,7 @@
         @endif
     </script>
 
-    {{-- <script>
+    <script>
         $(document).ready(function(){
             sendRequest();
             function sendRequest(){
@@ -225,7 +225,7 @@
                 });
             };
         });
-    </script> --}}
+    </script>
     @stack('page_scripts')
     @livewireScripts
 

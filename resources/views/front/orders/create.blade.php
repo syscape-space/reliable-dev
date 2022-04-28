@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <!-- Normalize -->
+
     <link rel="stylesheet" href="{{ asset('tem_assets') }}/css/normalize.css" />
     <!-- Bootstrap -->
     <link rel="stylesheet" href="{{ asset('tem_assets') }}/css/bootstrap.min.css" />
@@ -13,8 +13,15 @@
     <link rel="stylesheet" href="{{ asset('tem_assets') }}/css/all.min.css" />
     <!-- Main Faile Css  -->
     <link rel="stylesheet" href="{{ asset('tem_assets') }}/css/paying.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/base.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/base.min.css"
+    />
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css"
+    />
+</head>
 </head>
 
 <body>
@@ -474,13 +481,14 @@
         </div>
     </div>
     <!-- Js Files -->
+
     <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
     <script src="{{ asset('tem_assets') }}/js/all.min.js"></script>
     <script src="{{ asset('tem_assets') }}/js/paying.js"></script>
     <script src="{{ asset('tem_assets') }}/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <script>
+
+    {{-- <script>
         const Toast = Swal.mixin({
             toast: true,
             position: 'bottom',
@@ -511,7 +519,28 @@
                 title: "{{session('success')}}"
             })
         @endif
-    </script>
+    </script> --}}
+
+<script type="text/javascript">
+    $("input[name='second_department_id']").change(function() {
+        // console.log('dd');
+        var second_department_id = $(this).val();
+        var token = $("input[name='_token']").val();
+        $.ajax({
+            url: "{{ route('front.ajax.third-departments') }}",
+            method: 'GET',
+            data: {
+                second_department_id: second_department_id,
+                _token: token
+            },
+            success: function(data) {
+                $("#third_department").html('');
+                $("#third_department").html(data.options);
+                // console.log(data.options);
+            }
+        });
+    });
+</script>
 
 </body>
 

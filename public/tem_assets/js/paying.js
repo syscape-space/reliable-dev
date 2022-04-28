@@ -43,14 +43,14 @@ listInp.forEach(function (e) {
     });
 });
 // Pass single element
-const inpSelector = document.querySelector("#inp-selector");
-const choices = new Choices(inpSelector, {
-    position: "bottom",
-    searchEnabled: true,
-    searchChoices: true,
+// const inpSelector = document.querySelector("#inp-selector");
+// const choices = new Choices(inpSelector, {
+//     position: "bottom",
+//     searchEnabled: true,
+//     searchChoices: true,
 
-    searchPlaceholderValue: "ابحث عن القسم الفرعي",
-});
+//     searchPlaceholderValue: "ابحث عن القسم الفرعي",
+// });
 
 //Click Submit
 let subLevTwo = document.querySelector(".level-two .sub"),
@@ -70,9 +70,9 @@ subLevTwo.addEventListener("click", function (evt) {
             listInpNew = e.value;
         }
     });
-    saveDateText(listInpNew, inpServiceHidd);
-    saveDate(inpSelector, inpTypeHidd);
-    saveDate(inpNum, inpNumHidd);
+    // saveDateText(listInpNew, inpServiceHidd);
+    // saveDate(inpSelector, inpTypeHidd);
+    // saveDate(inpNum, inpNumHidd);
     levelTwo.style.display = "none";
     levelThree.style.display = "block";
 });

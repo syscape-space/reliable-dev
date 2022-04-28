@@ -38,13 +38,13 @@
 
             <h6 class="  "><img class="ms-2"
                     src="{{ asset('tem_assets') }}/images/pkg.svg" alt=""
-                    srcset="">{{ $user->current_subscription->package->package_title }}</h6>
+                    srcset="">{{ optional(optional($user->current_subscription)->package)->package_title }}</h6>
             <p class="  my-2 text-end " style="font-size: 13px;"> ينتهى اشتراكك فى
-                {{ $user->current_subscription->package->package_end_at }} </p>
+                {{ optional(optional($user->current_subscription)->package)->package_end_at }} </p>
             <p class=" text-end " style="font-size: 13px;">متبقى على انتهاء اشتراكك</p>
             <div class="text-end">
                 @php
-                    $package_end_at = \Carbon\Carbon::createFromDate($user->current_subscription->package->package_end_at);
+                    $package_end_at = \Carbon\Carbon::createFromDate(optional(optional($user->current_subscription)->package)->package_end_at);
                     $Remaining = $package_end_at->diffInDays(\Carbon\Carbon::now());
                 @endphp
                 <span style="color: #E33232 "> {{ $Remaining }} ايام </span>
