@@ -32,9 +32,7 @@ class OrderController extends Controller
         if ($id == null) {
             $Order = new Order;
             $Order->user_id = auth()->user()->id;
-            $Order->order_type_id = '';
             $Order->order_content = '';
-            $Order->department_id = '';
             $Order->save();
 
         } else {
