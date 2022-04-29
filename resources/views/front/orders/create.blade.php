@@ -25,14 +25,14 @@
 </head>
 
 <body>
-    
+
     {{-- @if (count($errors) > 0)
         @foreach ($errors->all() as $error)
-        
+
             <div class="alert alert-danger" role="alert">
                 <div class="alert-body"> {{ $error }} </div>
             </div>
-            
+
         @endforeach
     @endif
 
@@ -141,7 +141,8 @@
                                 <p class="error mb-5">
                                     يجب الموافقة علش الشروط
                                 </p>
-                                <input class="sub mx-auto mt-5 d-block" type="submit" value="التالي"
+
+                                <input class="sub mx-auto mt-5 d-block" value="التالي"
                                     href="https://fontawesome.com/icons/book-open?s=solid" />
                             </div>
                             <!-- End Level One -->
@@ -202,7 +203,6 @@
                                             />
                                             البحث عن محامي
                                         </li> --}}
-
                                     @foreach ($second_departments as $second_department)
                                         <li ><input type="radio" name="second_department_id" class="second_department_id"
                                                 id="secondDepartment{{ $second_department->id }}"
@@ -211,11 +211,14 @@
                                     @endforeach
                                 </ul>
                                 {{-- <div id="third_department">
-                                    
-                                </div> --}}
-                                <select dir="rtl" name="third_department_id" id="third_department">
 
-                                </select>
+                                </div> --}}
+                                <div class="choices">
+                                  <div class="choices__inner">
+                                    <select style="width: 100%; height: 100%; opacity: 0;" dir="rtl" name="third_department_id choices__input" id="third_department">
+                                    </select>
+                                  </div>
+                                </div>
 
                                 <a href="{{ route('front.orders.select-vendors', $Order->id) }}" class="mt-5 mx-auto d-block" style="color:black" value="1">البحث عن محامي</a>
                                 {{-- <select dir="rtl" name="section"
@@ -231,7 +234,7 @@
                                     <p>ملحق بطلب رقم</p>
                                     <input type="text" placeholder="رقم الملحق هنا" />
                                 </div>
-                                <input class="sub mt-5 mx-auto d-block" type="submit" value="حفظ ومتابعة" />
+                                <input class="sub mt-5 mx-auto d-block"  value="حفظ ومتابعة" />
                             </div>
                             <!-- End Level Two -->
                             <!-- Start Level Three -->
@@ -330,8 +333,8 @@
                                     </div>
                                 </div>
                                 <div class="group-btn mt-5 d-flex align-items-center justify-content-center gap-5">
-                                    <input class="back" type="reset" value="العودة" />
-                                    <input class="sub" type="submit" value="متابعة" />
+                                    <input class="back"  value="العودة" />
+                                    <input class="sub"  value="متابعة" />
                                 </div>
                             </div>
                             <!-- End LEvel Three -->
@@ -385,7 +388,7 @@
                                     @forelse ($cities as $city)
                                         <option value="1">{{$city->city_name_ar}}</option>
                                     @empty
-                                        
+
                                     @endforelse
                                 </select>
                                 {{-- <div class="parent-inp">
@@ -394,8 +397,8 @@
                                     <i class="fa-solid fa-hand-pointer"></i>
                                 </div> --}}
                                 <div class="group-btn d-flex align-items-center justify-content-center gap-5">
-                                    <input class="back" type="reset" value="العودة" />
-                                    <input class="sub" type="submit" value="متابعة" />
+                                    <input class="back"  value="العودة" />
+                                    <input class="sub"  value="متابعة" />
                                 </div>
                             </div>
                             <!-- End Level Four -->
@@ -455,7 +458,7 @@
                                     <div class="icon">!</div>
                                 </div>
                                 <div class="group-btn d-flex align-items-center justify-content-center gap-5">
-                                    <input class="back" type="reset" value="العودة" />
+                                    <input class="back"  value="العودة" />
                                     <input class="sub" type="submit" value="حفظ ومتابعة" />
                                     <button type="submit">dsfdsf</button>
                                 </div>

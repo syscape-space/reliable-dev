@@ -8,51 +8,9 @@
           <span>الرئيسية / المشاريع / القسم الرئيسي / القسم الفرعي</span>
           <div class="row w-100 mx-0 px-0">
             <div class="col-lg-9">
-              <div class="row w-100 mx-0 px-0">
-                <div class="col-md-4 my-4" style="color: #AEAEAE;">
-                  <div class="cir-prog" style="border-color: #048e81;">
-                    <img src="{{asset('assets/images/o_hand.svg')}}" alt="">
-                  </div>
-                  <div
-                    class="fw-bold o-num text-center"
-                    style="color: #048e81;;">
-                    01
-                  </div>
-                  <div>
-                    <h6 class="o-txt text-center" style="color: #0995EB; ">
-                      التفاوض
-                    </h6>
-                  </div>
-                </div>
-                <div class="col-md-4 my-4" style="color: #AEAEAE;">
-                  <div class="cir-prog">
-                    <img src="{{asset('assets/images/o_exe.svg')}}" alt="">
-                  </div>
-                  <div class="fw-bold o-num text-center">
-                    02
-                  </div>
-                  <div>
-                    <h6 class="o-txt text-center" >
-                      التنفيذ
-                    </h6>
-                  </div>
-                </div>
-                <div class="col-md-4 my-4" style="color: #AEAEAE;">
-                  <div class="cir-prog">
-                    <img src="{{asset('assets/images/o_roket.svg')}}" alt="">
-                  </div>
-                  <div class="fw-bold o-num text-center">
-                    03
-                  </div>
-                  <div>
-                    <h6 class="o-txt text-center" >
-                      الانهاء
-                    </h6>
-                  </div>
-                </div>
-              </div>
+
               <div>
-                <h5 class="fw-bold g-color">تفاصيل المشروع</h5>
+                <h5 class="fw-bold g-color mt-4">تفاصيل المشروع</h5>
                 <p style="font-size:12px">
                   لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت  لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت  لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت
                 </p>

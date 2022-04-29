@@ -1,0 +1,1 @@
+[28-Apr-2022 09:18:32 UTC] PHP Fatal error:  Cannot declare class AddlastSeenToUsersTable, because the name is already in use in /home/aalawmawthuq/public_html/database/migrations/2022_04_28_151925_add_last_seen_to_users_table copy.php on line 7

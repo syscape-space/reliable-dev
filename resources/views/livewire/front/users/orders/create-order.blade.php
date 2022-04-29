@@ -149,7 +149,7 @@
                                 ></i>
                             </div>
                             @endif
-                                
+
                                 {{-- <div class="box-two">
                                     <div>استشارة قانونية</div>
                                     <div>تجاري</div>
@@ -166,10 +166,10 @@
                                     البحث عن محامي
                                 </li> --}}
                                 @foreach ($second_departments as $second_department)
-                                
+
                                     <li><input type="radio" wire:model="second_department_id" name="second_department" id="secondDepartment{{$second_department->id}}" value="{{ $second_department->id }}" />{{ $second_department->department_name_ar }}</li>
                                 @endforeach
-                                
+
                             </ul>
 
                             {{-- <div class="col-12 d-flex flex-wrap mb-4 justify-content-between">
