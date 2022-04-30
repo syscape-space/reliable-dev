@@ -123,6 +123,19 @@
                                             <h6> إضافة عقد </h6>
                                         </div>
                                     </div>
+                                    <div class="card-client  rounded me-auto p-3" style="max-width:200px">
+                                       <p class="  m-0" style=" color: #0491e8 ">الإستشارات الاونلاين</p>
+                                       <p class="f-12" style="font-size: 12px;"> هل تفكر فى حجز استشارة صوتية ؟؟
+                                       </p>
+                                       <div class="text-center">
+                                          <img class="ms-3" style="width: 40px;" src="https://aa.law-mawthuq.com/public/tem_assets/images/think.svg" alt="" srcset="">
+                                       </div>
+                                       <div class="text-center mt-3">
+                                          <a href="https://aa.law-mawthuq.com/order/create" class="show-balance mt-3 border-0" style="background-color: #028e80;text-decoration:none">
+                                            طلب استشارة قانونية
+                                          </a>
+                                       </div>
+                                    </div>
                                 </div>
 
                             </div>
@@ -324,11 +337,10 @@
 
                                         <button class="about-btn-1" data-bs-toggle="modal"
                                             data-bs-target="#exampleModal">خدماتنا</button>
-                  @if ( active_user()->membership_type == 'user')
-
-                                        <button class="about-btn-1" ><a style="position: relative; color: #048e81 !important; font-size: 16px !important; border: 0 !important; left: 0; right: 0; top: 0;" href="{{ route('front.orders.index') }}">طلباتي</a></button>
-                                        <button  class="new-order-btn new-2 " style="position: absolute; top: -18% !important; right: 68% !important; background-image: none !important;">
-                                          <a style="position: relative; color: #048e81 !important; font-size: 16px !important; border: 0 !important; left: 0; right: 0; top: 0;" href="{{ route('front.orders.create') }}">طلب جديد</a> </button>
+                                            @if ( active_user()->membership_type == 'user')
+                                              <button class="about-btn-1" ><a style="position: relative; color: #048e81 !important; font-size: 16px !important; border: 0 !important; left: 0; right: 0; top: 0;" href="{{ route('front.orders.index') }}">طلباتي</a></button>
+                                              <button  class="new-order-btn new-2 " style="position: absolute; top: -18% !important; right: 68% !important; background-image: none !important;">
+                                              <a style="position: relative; color: #048e81 !important; font-size: 16px !important; border: 0 !important; left: 0; right: 0; top: 0;" href="{{ route('front.orders.create') }}">طلب جديد</a> </button>
                                           @endif
                                     </div>
                                     <img class="about-img" src="{{ asset('tem_assets') }}/images/basma.svg"
