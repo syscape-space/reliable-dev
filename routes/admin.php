@@ -64,6 +64,8 @@ Route::group(
 			Route::resource('userexperiences', 'Admin\UserExperiences');
 			Route::post('userexperiences/multi_delete', 'Admin\UserExperiences@multi_delete');
 			Route::resource('userqualifications', 'Admin\UserQualifications');
+			// Route::get('userqualifications/create-by-user-id/{user_id?}', 'Admin\UserQualifications')->name('userqualifications.create-by-user-id');
+
 			Route::post('userqualifications/multi_delete', 'Admin\UserQualifications@multi_delete');
 			Route::resource('usercommercials', 'Admin\UserCommercials');
 			Route::post('usercommercials/multi_delete', 'Admin\UserCommercials@multi_delete');

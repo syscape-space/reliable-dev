@@ -37,7 +37,7 @@ class OrdersList extends Component
                 if (auth()->check() and auth()->user()->membership_type === 'user') {
                     $q->where('user_id',auth()->id() );
                 } else {
-                    $q->where('order_status', 'open');
+                    $q->where('order_status', ['open']);
                     $q->where('choose_service_provider', 'all')
                         ->orWhere(function ($q1) {
                             $q1->where('choose_service_provider', 'by_city')

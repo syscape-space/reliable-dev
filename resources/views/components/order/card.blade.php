@@ -1,14 +1,10 @@
-<!-- <a href="{{route('orders.show',$order->id)}}">
+<!-- <a href="{{ route('orders.show', $order->id) }}">
 
 </a> -->
 <div class="box-order">
     <div class="info">
         <div class="photo">
-            <img
-                    class="img-fluid"
-                    src="{{cloudUrl($order->user->photo_profile)}}"
-                    alt=""
-            />
+            <img class="img-fluid" src="{{ cloudUrl($order->user->photo_profile) }}" alt="" />
         </div>
         <div class="stars">
             <i class="fa-solid fa-star"></i>
@@ -17,52 +13,46 @@
             <i class="fa-solid fa-star"></i>
             <i class="fa-solid fa-star"></i>
         </div>
-        <p class="name">{{$order->user->name}}</p>
-        {{--        <p class="job">محامي حر</p>--}}
+        <p class="name">{{ $order->user->name }}</p>
+        {{-- <p class="job">محامي حر</p> --}}
     </div>
     <div class="text">
-        <div
-                class="data flex-wrap d-flex justify-content-between align-items-center"
-        >
+        <div class="data flex-wrap d-flex justify-content-between align-items-center">
             <div class="order-num mb-3 mb-lg-0">
-                طلب رقم : <span class="count">{{$order->id}}</span>
+                طلب رقم : <span class="count">{{ $order->id }}</span>
             </div>
-            <div
-                    class="d-flex flex-wrap align-items-center gap-3 gap-md-4"
-            >
+            <div class="d-flex flex-wrap align-items-center gap-3 gap-md-4">
                 <div class="deta">
                     <i class="fa-solid fa-calendar-day"></i>
-                    {{\Carbon\Carbon::parse($order->created_at)->format('Y-m-d')}}
+                    {{ \Carbon\Carbon::parse($order->created_at)->format('Y-m-d') }}
                 </div>
                 <div class="view">
-                    <i class="fa-solid fa-eye"></i> {{$order->views}}
+                    <i class="fa-solid fa-eye"></i> {{ $order->views }}
                     مشاهده
                 </div>
                 <div class="deta">
                     <i class="fa-solid fa-clock"></i>
-                    {{\Carbon\Carbon::parse($order->created_at)->diffForHumans()}}
+                    {{ \Carbon\Carbon::parse($order->created_at)->diffForHumans() }}
                 </div>
                 <div class="deta">
                     <i class="fa-solid fa-money-bills"></i>
                     عدد
-                    {{$order->offers()->count()}}
+                    {{ $order->offers()->count() }}
                     عروض
                 </div>
                 <div class="deta">
                     <i class="fa-solid fa-location-dot"></i>
-                    {{$order->city->city_name_ar ?? "لم يحدد مدينة"}}
+                    {{ $order->city->city_name_ar ?? 'لم يحدد مدينة' }}
                 </div>
                 <div class="duration">
                     <i class="fa-solid fa-clock"></i>
 
                     مده التسليم
-                    {{$order->execution_time}}
+                    {{ $order->execution_time }}
                     يوم
                 </div>
                 <a href="" class="setting">
-                    <i
-                            class="fa-solid fa-ellipsis-vertical"
-                    ></i>
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
                     <div class="report">
                         <i class="fa-solid fa-flag"></i>
                         ابلاغ عن الطلب
@@ -70,7 +60,6 @@
                 </a>
             </div>
         </div>
-
         @if($order->isActiveUser())
             <h5 class="title">
                 {{$order->order_title}}
@@ -98,19 +87,19 @@
             <div class="">
                 <div class="d-inline-block">
                     <div class="d-flex flex-wrap mt-3">
-                        @if($dep = $order->department)
-                        <button class="bl-f text-black py-2 px-md-5 px-2">
-                            {{$dep->department_name_ar}}
-                        </button>
-                        @endif
-                        @if($dep = $order->department->main)
-                            <button class="bl-f mx-3 text-black py-2 px-md-5 px-2">
-                                {{$dep->department_name_ar}}
+                        @if ($dep = $order->department)
+                            <button class="bl-f text-black py-2 px-md-5 px-2">
+                                {{ $dep->department_name_ar }}
                             </button>
                         @endif
-                        @if($dep = $order->department->main->main)
+                        @if ($dep = $order->department->main)
+                            <button class="bl-f mx-3 text-black py-2 px-md-5 px-2">
+                                {{ $dep->department_name_ar }}
+                            </button>
+                        @endif
+                        @if ($dep = $order->department->main->main)
                             <button class="bl-f text-black py-2 px-md-5 px-2">
-                                {{$dep->department_name_ar}}
+                                {{ $dep->department_name_ar }}
                             </button>
                         @endif
                             <a href="{{route('front.orders.show',$order->hash_code)}}" style="margin-right:10px; " class="btn new mr-2 btn-success float-left"
