@@ -1,4 +1,7 @@
 @extends('front.orders.show-layout')
+@section('title')
+    {{$order->order_title}}
+@endsection
 @section('order-page')
     @if($order->isActiveUser())
         <div

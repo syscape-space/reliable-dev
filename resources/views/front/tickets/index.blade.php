@@ -1,4 +1,7 @@
 @extends('front.layout.index')
+@section('title')
+    التذاكر
+@endsection
 @section('content')
     <section class="tickets py-5">
         <div class="container">

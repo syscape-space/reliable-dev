@@ -1,5 +1,8 @@
 
 @extends('front.layout.index')
+@section('title')
+    اختيار مقدم خدمة
+@endsection
 @section('content')
 <!-- Start Section Orders-->
 <header class="fix hid">

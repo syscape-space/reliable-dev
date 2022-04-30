@@ -9,6 +9,7 @@ use App\Models\OrderOffer;
 use Illuminate\Http\Request;
 use App\Models\Department;
 use App\Models\City;
+use App\Models\OrderFile;
 use App\Models\User;
 
 class OrderController extends Controller
@@ -93,9 +94,28 @@ class OrderController extends Controller
         // $order->city_id = $request->city_id;
         // $order->execution_time = $request->execution_time;
         // $order->amount = $request->amount;
-
+        $request->merge([
+            'negotiable'=>$request->has('negotiable')?'yes':'no'
+        ]);
+        
         $order->update($request->except('_token','_method'));
-        return redirect()->back()->with('success', 'تم حفظ الطلب بنجاح');
+        if($request->hasFile('pdf')){
+            it()->upload($request->file('pdf'), 'orders/' . $order->id);
+            $file=new OrderFile();
+            $file->order_id=$order->id;
+            $file->path=it()->upload($request->file('pdf'), 'orders/' . $order->id);
+            $file->type=$request->file('pdf')->getClientMimeType();
+            $file->save();
+        }
+        if($request->hasFile('voice')){
+            it()->upload($request->file('voice'), 'orders/' . $order->id);
+            $file=new OrderFile();
+            $file->order_id=$order->id;
+            $file->path=it()->upload($request->file('voice'), 'orders/' . $order->id);
+            $file->type=$request->file('voice')->getClientMimeType();
+            $file->save();
+        }
+        return redirect('/profile')->with('success', 'تم حفظ الطلب بنجاح');
     }
 
 

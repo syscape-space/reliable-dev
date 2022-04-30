@@ -1,4 +1,7 @@
 @extends('front.layout.index')
+@section('title')
+    الرصيد
+@endsection
 @section('content')
     <section class="balance tickets py-5">
         <div class="container">

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>إنشاء طلب جديد</title>
 
     <link rel="stylesheet" href="{{ asset('tem_assets') }}/css/normalize.css" />
     <!-- Bootstrap -->
@@ -80,7 +80,7 @@
             <div class="col-lg-7 p-0">
                 <main class="py-5">
                     <div class="container">
-                        <form action="{{ route('front.orders.update', $Order->id) }}" method="post">
+                        <form action="{{ route('front.orders.update', $Order->id) }}" method="post" enctype="multipart/form-data">
                             <input type="hidden" name="price" value="6510">
                             @csrf
                             @method('PUT')
@@ -306,14 +306,14 @@
                                         </select>
                                     </div>
                                     <label class="d-flex align-items-center gap-3" for="check-duration">
-                                        <input type="checkbox" name="negotiable" value="yes " id="check-duration" />
+                                        <input type="checkbox" name="negotiable" value="yes" id="check-duration" />
                                         المدة غير قابله للتفاوض
                                     </label>
                                 </div>
                                 <div class="files d-flex flex-wrap gap-5 align-items-center">
                                     <div>
                                         <div class="send-file mb-4">
-                                            <input type="file" id="" />
+                                            <input type="file" id="" name="pdf"/>
                                             <i class="fa-solid fa-file"></i>
                                         </div>
                                         <div class="view-file">
@@ -323,7 +323,7 @@
                                     </div>
                                     <div>
                                         <div class="send-voice mb-4">
-                                            <input type="file" id="" />
+                                            <input type="file" id="" name="voice"/>
                                             <i class="fa-solid fa-microphone-lines"></i>
                                         </div>
                                         <div class="view-voice">
@@ -460,7 +460,6 @@
                                 <div class="group-btn d-flex align-items-center justify-content-center gap-5">
                                     <input class="back"  value="العودة" />
                                     <input class="sub" type="submit" value="حفظ ومتابعة" />
-                                    <button type="submit">dsfdsf</button>
                                 </div>
                             </div>
                             <!-- End Level Five -->

@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/styleHome.css') }}" />
     <!-- <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" /> -->
     <link rel="stylesheet" href="{{ asset('assets/css/style2.css') }}" />
-    <title>title</title>
+    <title>تسجيل الدخول</title>
 </head>
 
 <body>

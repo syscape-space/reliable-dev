@@ -1,4 +1,7 @@
 @extends('front.layout.index')
+@section('title')
+    {{$order->order_title}}
+@endsection
 @section('content')
     <section class="offers overflow-hidden pt-3 pb-5">
         <div class="container">
