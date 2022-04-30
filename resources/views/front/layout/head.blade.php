@@ -10,6 +10,12 @@
 
 <link rel="stylesheet" href="{{asset('assets/css/style.css')}}" />
 <link rel="stylesheet" href="{{asset('tem_assets/css/style.css')}}" />
+<link rel="stylesheet" href="{{asset('tem_assets')}}/css/normalize.css" />
+<!-- Bootstrap -->
+<link rel="stylesheet" href="{{asset('tem_assets')}}/css/bootstrap.min.css" />
+<!-- Font Awesome -->
+<link rel="stylesheet" href="{{asset('tem_assets')}}/css/all.min.css" />
+<!-- Main Faile Css  -->
 @stack('page_styles')
 
 @livewireStyles
