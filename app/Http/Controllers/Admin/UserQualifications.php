@@ -43,7 +43,11 @@ class UserQualifications extends Controller {
 	 */
 	public function create() {
 
-		return view('admin.userqualifications.create', ['title' => trans('admin.create')]);
+		return view('admin.userqualifications.create', [
+			'title' => trans('admin.create'),
+			'user_id' => request()->user_id
+		]);
+		
 	}
 
 	/**

@@ -224,6 +224,11 @@ class User extends Authenticatable implements JWTSubject
 	public function specialties(){
 	    return $this->belongsToMany(Specialtie::class,'user_specialties','user_id','specialty_id');
     }
+
+	public function experiences(){
+	    return $this->belongsToMany(UserExperience::class,'user_experiences','user_id','experience_id');
+    }
+
 	public function occupations(){
 	    return $this->belongsToMany(Occupation::class,'user_occupations','user_id','occupation_id');
     }

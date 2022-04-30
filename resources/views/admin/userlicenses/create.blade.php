@@ -29,7 +29,9 @@
 
 {!! Form::open(['url'=>aurl('/userlicenses'),'id'=>'userlicenses','files'=>true,'class'=>'form-horizontal form-row-seperated']) !!}
 <div class="row">
-
+    @if ($user_id != null)
+        <input type="hidden" name="user_id" value="{{$user_id}}">
+    @endif
 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
     <div class="form-group">
         {!! Form::label('license_name',trans('admin.license_name'),['class'=>' control-label']) !!}
@@ -50,12 +52,15 @@
         </div>
     </div>
 </div>
+
+@if ($user_id === null)
 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-	<div class="form-group">
-		{!! Form::label('user_id',trans('admin.user_id')) !!}
-		{!! Form::select('user_id',App\Models\User::where('membership_type','!=','user')->pluck('name','id'),!empty(request('user_id'))?request('user_id'):old('user_id'),['class'=>'form-control select2','placeholder'=>trans('admin.choose')]) !!}
-	</div>
+    <div class="form-group">
+        {!! Form::label('user_id',trans('admin.user_id')) !!}
+        {!! Form::select('user_id',App\Models\User::where('membership_type','!=','user')->pluck('name','id'),!empty(request('user_id'))?request('user_id'):old('user_id'),['class'=>'form-control select2','placeholder'=>trans('admin.choose')]) !!}
+    </div>
 </div>
+@endif
 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
     <!-- Date range -->
     <div class="form-group">
@@ -72,12 +77,13 @@
     </div>
     <!-- /.form group -->
 </div>
-<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+
+{{-- <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
     <div class="form-group">
         {!! Form::label('comment',trans('admin.comment'),['class'=>'control-label']) !!}
             {!! Form::textarea('comment',old('comment'),['class'=>'form-control','placeholder'=>trans('admin.comment')]) !!}
     </div>
-</div>
+</div> --}}
 
 </div>
 		<!-- /.row -->
