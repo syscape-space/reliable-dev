@@ -82,18 +82,15 @@ class OrderController extends Controller
 
     public function update(Request $request, Order $order)
     {
-        // $order->order_type_id = '';
-        // $order->user_id = $request->user_id;
-        // $order->department_id = '';
-        // $order->main_order_id = '';
-        // $order->linked_order = '';
-        // $order->show_order_data = '';
-        // $order->order_title = $request->order_title;
-        // $order->choose_service_provider = '';
-        // $order->country_id = $request->country_id;
-        // $order->city_id = $request->city_id;
-        // $order->execution_time = $request->execution_time;
-        // $order->amount = $request->amount;
+        $request->validate([
+            'department_id'=>['required','exists:departments,id'],
+            'order_title'=>['required','string'],
+            'order_content'=>['required','string'],
+            'execution_time'=>['required'],
+            'execution_time'=>['required'],
+            'city_id'=>['required'],
+            
+        ]);
         $request->merge([
             'negotiable'=>$request->has('negotiable')?'yes':'no',
             'order_status'=>'under_review'

@@ -26,7 +26,7 @@
 
 <body>
 
-    {{-- @if (count($errors) > 0)
+@if (count($errors) > 0)
         @foreach ($errors->all() as $error)
 
             <div class="alert alert-danger" role="alert">
@@ -46,7 +46,7 @@
         <div class="alert alert-danger" role="alert">
             <div class="alert-body"> {{ session('error') }} </div>
         </div>
-    @endif   --}}
+    @endif  
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-5 p-0">
@@ -204,7 +204,7 @@
                                             البحث عن محامي
                                         </li> --}}
                                     @foreach ($second_departments as $second_department)
-                                        <li ><input type="radio" name="second_department_id" class="second_department_id"
+                                        <li ><input type="radio" name="second_department_id" class="second_department_id" 
                                                 id="secondDepartment{{ $second_department->id }}"
                                                 value="{{ $second_department->id }}" />{{ $second_department->department_name_ar }}
                                         </li>
@@ -215,7 +215,7 @@
                                 </div> --}}
                                 <div class="choices">
                                   <div class="choices__inner">
-                                    <select style="width: 100%; height: 100%; opacity: 0;" dir="rtl" name="third_department_id choices__input" id="third_department">
+                                    <select style="width: 100%; height: 100%; opacity: 0;" dir="rtl"  name="department_id" id="third_department">
                                     </select>
                                   </div>
                                 </div>
@@ -383,8 +383,9 @@
                                         <div>تجاري</div>
                                     </div> --}}
                                 </div>
-                                <select dir="rtl" name="city_id" id="select-city" required >
+                                <select dir="rtl" name="city_id" id="select-city"  >
                                     <option value="">أختر المدينة</option>
+                                    <option value="0">كل المدن</option>
                                     @forelse ($cities as $city)
                                         <option value="1">{{$city->city_name_ar}}</option>
                                     @empty
@@ -525,6 +526,7 @@
     </script> --}}
 
 <script type="text/javascript">
+
     $("input[name='second_department_id']").change(function() {
         // console.log('dd');
         var second_department_id = $(this).val();

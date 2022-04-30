@@ -45,9 +45,11 @@
                 @include('front.user.profile._user_sidebar')
                 <div class="col-lg-9 col-xl-10">
                     <div class="row">
+                        @if (auth()->user()->packageRequests->count() > 0 && !auth()->user()->current_subscription)
                         <div class="col-lg-12 col-md-12 ">
                             <button class="end-sub w-100 border-0 rounded "> تم انتهاء اشتراكك </button>
                         </div>
+                        @endif
                         <div class="col-lg-12 col-md-12 ">
                             <div class="mt-5 row w-100 mx-0 px-0">
                                 <div class="col-md-4 col-lg-3">

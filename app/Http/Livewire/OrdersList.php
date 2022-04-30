@@ -33,7 +33,7 @@ class OrdersList extends Component
             $query = $judger->orders()
                 ->whereIn('order_status',['ongoing','done']);
         }else{
-            $query = Order::select('*')->where(function ($q) {
+            $query = Order::with('files')->select('*')->where(function ($q) {
                 if (auth()->check() and auth()->user()->membership_type === 'user') {
                     $q->where('user_id',auth()->id() );
                 } else {
