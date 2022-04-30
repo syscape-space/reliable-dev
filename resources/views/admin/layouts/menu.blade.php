@@ -7,7 +7,17 @@ with font-awesome or any other icon font library -->
         left: 16px;
         right: auto;
     }
-
+    ::marker {
+      display: none !important;
+    }
+    .sidebar .nav-link p {
+      display: inline-block;
+    }
+    .nav-link   .right {
+      position: absolute;
+      left: 1rem;
+      right: auto;
+    }
 </style>
 <li class="nav-header"></li>
 <li class="nav-item">
@@ -93,8 +103,8 @@ with font-awesome or any other icon font library -->
                     <li class="nav-item">
                         <a href="{{ aurl('settings') }}?type=payment_methods_settings"
                             class="nav-link
-        {{ request()->segment(2) == 'settings' && request('type') == 'payment_methods_settings' ? 'active' : '' }}
-        ">
+                              {{ request()->segment(2) == 'settings' && request('type') == 'payment_methods_settings' ? 'active' : '' }}
+                              ">
                             <i class="fab fa-cc-visa nav-icon"></i>
                             <p>{{ trans('admin.payment_methods_settings') }} </p>
                         </a>
@@ -102,8 +112,8 @@ with font-awesome or any other icon font library -->
                     <li class="nav-item">
                         <a href="{{ aurl('settings') }}?type=contract_formats_settings"
                             class="nav-link
-        {{ request()->segment(2) == 'settings' && request('type') == 'contract_formats_settings' ? 'active' : '' }}
-        ">
+                              {{ request()->segment(2) == 'settings' && request('type') == 'contract_formats_settings' ? 'active' : '' }}
+                              ">
                             <i class="fa fa-file-contract nav-icon"></i>
                             <p>{{ trans('admin.contract_formats_settings') }} </p>
                         </a>
@@ -111,8 +121,8 @@ with font-awesome or any other icon font library -->
                     <li class="nav-item">
                         <a href="{{ aurl('settings') }}?type=attached_files_settings"
                             class="nav-link
-        {{ request()->segment(2) == 'settings' && request('type') == 'attached_files_settings' ? 'active' : '' }}
-        ">
+                              {{ request()->segment(2) == 'settings' && request('type') == 'attached_files_settings' ? 'active' : '' }}
+                              ">
                             <i class="fa fa-file-upload nav-icon"></i>
                             <p>{{ trans('admin.attached_files_settings') }} </p>
                         </a>
@@ -459,7 +469,6 @@ with font-awesome or any other icon font library -->
         </ul>
     </li>
     @endif
-  </ul>
 </li>
 <li class="nav-item {{active_link('contract-templates','menu-open')}} ">
   <a href="#" class="nav-link {{active_link('contract-templates','active')}}">
