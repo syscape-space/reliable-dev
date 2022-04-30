@@ -25,7 +25,7 @@ Route::middleware('auth:web')->group(function (){
     // Route::get('vendor/{id}/specialty','VendorContrller@specialty')->name('vendor.specialty');
     // Route::get('vendor/{id}/statistics','VendorContrller@statistics')->name('vendor.statistics');
     // Route::get('vendor/{id}/posts','VendorContrller@posts')->name('vendor.posts');
-
+    Route::post('offers','OrderOfferController@store')->name('offers.store');
 
 });
 

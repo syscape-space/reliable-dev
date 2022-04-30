@@ -70,33 +70,30 @@
                 </a>
             </div>
         </div>
-        <h5 class="title">
-            <a  class="title" href="{{route('front.orders.show',$order->hash_code)}}">
-                {{$order->order_title}}
-            </a>
-        </h5>
+
         @if($order->isActiveUser())
-        <div
-                class="d-flex align-items-start justify-content-between flex-wrap"
-        >
-
-            <div class="content">
-                {!! \Illuminate\Support\Str::limit($order->order_content) !!}
-            </div>
-
+            <h5 class="title">
+                {{$order->order_title}}
+            </h5>
             <div
-                    class="group-btn m-auto m-lg-0 d-flex flex-column gap-3"
+                    class="d-flex align-items-start justify-content-between flex-wrap"
             >
-                <a href="" class="btn new"
-                >{{__('admin.'.$order->order_status)}}</a
-                >
 
-                {{-- <a href="" class="btn negotiate">
-                    التفاوض:
-                    {{$order->negotiations()->count()}}</a
-                > --}}
+                <div class="content">
+                    {!! \Illuminate\Support\Str::limit($order->order_content) !!}
+                </div>
+                <div
+                        class="group-btn m-auto m-lg-0 d-flex flex-column gap-3"
+                >
+                    <a href="{{route('front.orders.show',$order->hash_code)}}" class="btn new"
+                    >{{__('admin.'.$order->order_status)}}</a
+                    >
+                    {{-- <a href="" class="btn negotiate">
+                        التفاوض:
+                        {{$order->negotiations()->count()}}</a
+                    > --}}
+                </div>
             </div>
-        </div>
         @else
             <div class="">
                 <div class="d-inline-block">
@@ -111,17 +108,23 @@
                                 {{$dep->department_name_ar}}
                             </button>
                         @endif
-                        @if($dep = $order->department->main)
+                        @if($dep = $order->department->main->main)
                             <button class="bl-f text-black py-2 px-md-5 px-2">
                                 {{$dep->department_name_ar}}
                             </button>
                         @endif
+                            <a href="{{route('front.orders.show',$order->hash_code)}}" style="margin-right:10px; " class="btn new mr-2 btn-success float-left"
+                            >{{__('admin.'.$order->order_status)}}</a
+                            >
                     </div>
                     <div class="line-bb">
 
                     </div>
+
                 </div>
+
             </div>
         @endif
+
     </div>
 </div>
