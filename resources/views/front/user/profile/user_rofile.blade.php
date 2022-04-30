@@ -132,10 +132,10 @@
                                        <p class="f-12" style="font-size: 12px;"> هل تفكر فى حجز استشارة صوتية ؟؟
                                        </p>
                                        <div class="text-center">
-                                          <img class="ms-3" style="width: 40px;" src="https://aa.law-mawthuq.com/public/tem_assets/images/think.svg" alt="" srcset="">
+                                          <i style="font-size: 40px; color: #028e80;" class="fas fa-microphone-alt"></i>
                                        </div>
                                        <div class="text-center mt-3">
-                                          <a href="https://aa.law-mawthuq.com/order/create" class="show-balance mt-3 border-0" style="background-color: #028e80;text-decoration:none">
+                                          <a href="https://aa.law-mawthuq.com/order/create" class="text-white show-balance mt-3 border-0" style="background-color: #028e80;text-decoration:none">
                                             طلب استشارة قانونية
                                           </a>
                                        </div>
