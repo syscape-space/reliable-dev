@@ -82,12 +82,12 @@ class OrderController extends Controller
 
     public function update(Request $request, Order $order)
     {
-        $request->validate([
+        $this->validate($request,[
             'department_id'=>['required','exists:departments,id'],
             'order_title'=>['required','string'],
             'order_content'=>['required','string'],
             'execution_time'=>['required'],
-            'city_id'=>['required'],
+            'city_id'=>['sometimes'],
             
         ]);
         $request->merge([
@@ -97,7 +97,7 @@ class OrderController extends Controller
         $data = $request->except('_token','_method','city_id');
         if ($request->city_id and  $request->city_id != 0)
             $data['city_id'] = $request->city_id;
-        $order->update();
+        $order->update($data);
         if($request->hasFile('pdf')){
             it()->upload($request->file('pdf'), 'orders/' . $order->id);
             $file=new OrderFile();
