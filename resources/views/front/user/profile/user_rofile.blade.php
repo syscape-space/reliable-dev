@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
     <link rel="stylesheet" href="{{ asset('tem_assets') }}/webProject/icofont/css/icofont.min.css" />
     <link rel="stylesheet" href="{{ asset('tem_assets') }}/css/style.css" />
-    <title>title</title>
+    <title>{{active_user()->name}}</title>
     <style media="screen">
     .new-new .about-us .sum-btn button:nth-child(2) {
         position: absolute ;

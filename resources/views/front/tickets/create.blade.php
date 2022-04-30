@@ -1,4 +1,7 @@
 @extends('front.layout.index')
+@section('title')
+    إنشاء تذكرة جديدة
+@endsection
 @section('content')
     @if ($errors->any())
         <div class="errors">

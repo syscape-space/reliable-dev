@@ -111,7 +111,7 @@
                                 {{$dep->department_name_ar}}
                             </button>
                         @endif
-                        @if($dep = $order->department->main->main)
+                        @if($dep = $order->department->main)
                             <button class="bl-f text-black py-2 px-md-5 px-2">
                                 {{$dep->department_name_ar}}
                             </button>

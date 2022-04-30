@@ -345,7 +345,7 @@
         }
 
     </style>
-    <title>title</title>
+    <title>تسجيل</title>
     @livewireStyles
 </head>
 

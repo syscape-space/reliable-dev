@@ -1,3 +1,6 @@
+@section('title')
+    إعدادات الحساب
+@endsection
 <section class="settings py-5">
     <div class="container">
         <div class="row">
