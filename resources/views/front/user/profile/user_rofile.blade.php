@@ -70,7 +70,7 @@
                                     </div>
                                     @endif
                                 </div>
-                                <div class="col-md-8 col-lg-8 col-xl-7  mt-md-0 mt-5">
+                                <div class="col-md-8 col-lg-8  mt-md-0 mt-5">
                                     <div class="contain-btn  d-flex justify-content-center flex-wrap flex-lg-nowrap">
                                         <div class=" mb-3 active-log" style="width: 70px;">
                                             <button type="button" data-bs-target="#carouselExampleIndicators"
@@ -122,6 +122,10 @@
                                             </button>
                                             <h6> إضافة عقد </h6>
                                         </div>
+                                    </div>
+                                    <div class="me-auto mb-2" style="max-width: 200px; font-size: 12px; background-color: #feb74c; color: #fff; padding: 10px; border-radius: 5px;">
+                                      <i class="fas fa-bell"></i>
+                                      لديك استشارة صوتية بعد ٢٥ دقيقة
                                     </div>
                                     <div class="card-client  rounded me-auto p-3" style="max-width:200px">
                                        <p class="  m-0" style=" color: #0491e8 ">الإستشارات الاونلاين</p>
