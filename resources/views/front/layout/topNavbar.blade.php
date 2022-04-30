@@ -132,7 +132,7 @@
                         </a>
 
                         <ul class="dropdown-menu profile" aria-labelledby="dropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">تعديل الملف الشخصي</a></li>
+                            <li><a class="dropdown-item" href="{{url('profile')}}">الملف الشخصي</a></li>
                             <li><a class="dropdown-item" href="#">الطلبات</a></li>
                             <li>
                                 <a class="dropdown-item" href="#">المحفظة</a>

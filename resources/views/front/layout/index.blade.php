@@ -99,8 +99,8 @@
                                     aria-labelledby="dropdownMenuButton1"
                                 >
                                     <li>
-                                        <a class="dropdown-item" href="#"
-                                            >تعديل الملف الشخصي</a
+                                        <a class="dropdown-item" href="{{url('profile')}}"
+                                            >الملف الشخصي</a
                                         >
                                     </li>
                                     <li>
