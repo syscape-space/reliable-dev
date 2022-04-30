@@ -95,7 +95,8 @@ class OrderController extends Controller
         // $order->execution_time = $request->execution_time;
         // $order->amount = $request->amount;
         $request->merge([
-            'negotiable'=>$request->has('negotiable')?'yes':'no'
+            'negotiable'=>$request->has('negotiable')?'yes':'no',
+            'order_status'=>'under_review'
         ]);
         
         $order->update($request->except('_token','_method'));
