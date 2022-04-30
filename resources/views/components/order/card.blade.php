@@ -93,12 +93,12 @@
                                 {{ $dep->department_name_ar }}
                             </button>
                         @endif
-                        @if ($dep = $order->department->main)
+                        @if ($order->department and $dep = $order->department->main)
                             <button class="bl-f mx-3 text-black py-2 px-md-5 px-2">
                                 {{ $dep->department_name_ar }}
                             </button>
                         @endif
-                        @if ($dep = $order->department->main->main)
+                        @if ($order->department and $order->department->main and $dep = $order->department->main->main)
                             <button class="bl-f text-black py-2 px-md-5 px-2">
                                 {{ $dep->department_name_ar }}
                             </button>
