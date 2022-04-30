@@ -87,7 +87,6 @@ class OrderController extends Controller
             'order_title'=>['required','string'],
             'order_content'=>['required','string'],
             'execution_time'=>['required'],
-            'execution_time'=>['required'],
             'city_id'=>['required'],
             
         ]);
@@ -95,8 +94,10 @@ class OrderController extends Controller
             'negotiable'=>$request->has('negotiable')?'yes':'no',
             'order_status'=>'under_review'
         ]);
-        
-        $order->update($request->except('_token','_method'));
+        $data = $request->except('_token','_method','city_id');
+        if ($request->city_id and  $request->city_id != 0)
+            $data['city_id'] = $request->city_id;
+        $order->update();
         if($request->hasFile('pdf')){
             it()->upload($request->file('pdf'), 'orders/' . $order->id);
             $file=new OrderFile();
