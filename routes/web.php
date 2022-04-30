@@ -56,7 +56,7 @@ Route::middleware('app-lang')->group(function () {
 // Route::resource('orders', 'Front\OrderController');
 // Route::resource('profile', UpdateUserProfileController::class);
 // Route::group(['middleware' => 'auth'], function () {
-Route::get('/profile', [UpdateUserProfileController::class, 'index']);
+Route::get('/profile', [UpdateUserProfileController::class, 'index'])->name('profile');
 Route::post('/profile', [UpdateUserProfileController::class, 'update']);
 Route::post('/profile/license', [UpdateUserProfileController::class, 'storeLicense']);
 Route::post('/profile/commercial', [UpdateUserProfileController::class, 'storeCommercial']);

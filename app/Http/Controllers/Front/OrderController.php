@@ -93,9 +93,11 @@ class OrderController extends Controller
         // $order->city_id = $request->city_id;
         // $order->execution_time = $request->execution_time;
         // $order->amount = $request->amount;
-
+        $request->merge([
+            'negotiable'=>$request->has('negotiable')?'yes':'no'
+        ]);
         $order->update($request->except('_token','_method'));
-        return redirect()->back()->with('success', 'تم حفظ الطلب بنجاح');
+        return redirect('/profile')->with('success', 'تم حفظ الطلب بنجاح');
     }
 
 

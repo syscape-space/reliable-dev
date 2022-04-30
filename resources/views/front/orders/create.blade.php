@@ -306,7 +306,7 @@
                                         </select>
                                     </div>
                                     <label class="d-flex align-items-center gap-3" for="check-duration">
-                                        <input type="checkbox" name="negotiable" value="yes " id="check-duration" />
+                                        <input type="checkbox" name="negotiable" value="yes" id="check-duration" />
                                         المدة غير قابله للتفاوض
                                     </label>
                                 </div>
