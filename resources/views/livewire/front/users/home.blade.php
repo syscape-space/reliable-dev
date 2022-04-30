@@ -7,7 +7,7 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
       <link rel="stylesheet" href="./webProject/icofont/css/icofont.min.css" />
       <link rel="stylesheet" href="{{ asset('assets/css/home.css') }}" />
-      <title>title</title>
+      <title>موثوق</title>
   </head>
 <body>
     <!-- Header -->

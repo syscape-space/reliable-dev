@@ -1,4 +1,7 @@
 @extends('front.layout.index')
+@section('title')
+    طلباتي
+@endsection
 @section('content')
 <section class="orders overflow-hidden pb-5">
     <div class="container">

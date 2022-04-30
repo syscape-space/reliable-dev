@@ -1,11 +1,11 @@
 // function Save Data
-function saveDate(inp, inpHidd) {
-    inpHidd.value = inp.value;
-}
-
-function saveDateText(inp, inpHidd) {
-    inpHidd.value = inp;
-}
+// function saveDate(inp, inpHidd) {
+//     inpHidd.value = inp.value;
+// }
+//
+// function saveDateText(inp, inpHidd) {
+//     inpHidd.value = inp;
+// }
 // Start Level One
 //Click Submit
 let subLevOne = document.querySelector(".level-one .sub"),

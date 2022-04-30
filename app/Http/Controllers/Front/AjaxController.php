@@ -19,7 +19,7 @@ class AjaxController extends Controller
         ]);
         $title = 'Choose a department';
         $error = 'No results found';
-        $options = Department::where('parent', $r->main_department_id)->pluck("department_name_ar","id")->all();
+        $options = Department::where('parent', $r->second_department_id)->pluck("department_name_ar","id")->all();
         $data = view('front.ajax_views.select',compact(['options', 'title', 'error']))->render();
         return response()->json(['options'=>$data]);
     }

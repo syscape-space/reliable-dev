@@ -22,4 +22,4 @@
 <style>
 
 </style>
-<title>موثوق</title>
+<title>@yield('title')</title>

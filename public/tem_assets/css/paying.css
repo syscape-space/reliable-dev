@@ -74,7 +74,7 @@ a {
 
     width: 250px;
     height: 55px;
-
+    text-align:center;
     outline: none;
 
     border: none;
@@ -83,7 +83,7 @@ a {
     border-radius: 12px;
     color: white;
     background-color: #707070;
-
+    text-align: center;
     width: 250px;
     height: 55px;
 

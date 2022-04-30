@@ -8,17 +8,28 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
     <link rel="stylesheet" href="{{ asset('tem_assets') }}/webProject/icofont/css/icofont.min.css" />
     <link rel="stylesheet" href="{{ asset('tem_assets') }}/css/style.css" />
-    <title>title</title>
+    <title>{{active_user()->name}}</title>
     <style media="screen">
     .new-new .about-us .sum-btn button:nth-child(2) {
-        position: absolute;
-        top: 4%;
-        right: 2%;
+        position: absolute ;
+        top: 1%;
+        right: 12%;
       }
       .new-new .about-us .sum-btn button:nth-child(1) {
           position: absolute;
           top: 59%;
-          right: -19%;
+          right: -6%;
+      }
+      .about-us-22 .sum-btn button:nth-child(3) {
+          position: absolute;
+          top: -18% !important;
+          right: 68% !important;
+          background-image: none !important;
+      }
+      @media (max-width: 1199.98px) {
+        .about-img {
+            width: 233px;
+        }
       }
     </style>
 </head>
@@ -308,8 +319,9 @@
 
                                         <button class="about-btn-1" data-bs-toggle="modal"
                                             data-bs-target="#exampleModal">خدماتنا</button>
-                                        <button class="about-btn-1" ><a href="{{ route('front.orders.index') }}">طلباتي</a></button>
-                                        <button  class="new-order-btn new-2 "><a href="{{ route('front.orders.create') }}">طلب جديد</a> </button>
+                                        <button class="about-btn-1" ><a style="position: relative; color: #048e81 !important; font-size: 16px !important; border: 0 !important; left: 0; right: 0; top: 0;" href="{{ route('front.orders.index') }}">طلباتي</a></button>
+                                        <button  class="new-order-btn new-2 " style="position: absolute; top: -18% !important; right: 68% !important; background-image: none !important;">
+                                          <a style="position: relative; color: #048e81 !important; font-size: 16px !important; border: 0 !important; left: 0; right: 0; top: 0;" href="{{ route('front.orders.create') }}">طلب جديد</a> </button>
                                     </div>
                                     <img class="about-img" src="{{ asset('tem_assets') }}/images/basma.svg"
                                         alt="" srcset="" />
