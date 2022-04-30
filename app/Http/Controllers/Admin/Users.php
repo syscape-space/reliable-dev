@@ -115,6 +115,8 @@ class Users extends Controller
 		$jobs               = UserJob::where('user_id', $id)->orderBy('id', 'desc');
 		$identity			= Identity::where('user_id', $id)->first();
 		$identity_count     = is_null($identity) || empty($identity) ? 0 : 1;
+		$invoices_count     = 0;
+
 		return is_null($users) || empty($users) ?
 			backWithError(trans("admin.undefinedRecord"), aurl("users")) :
 			view('admin.users.show', [
@@ -132,6 +134,8 @@ class Users extends Controller
 				'qualifications_count'     => $qualifications->count(),
 				'commercial_records_count' => $commercial_records->count(),
 				'jobs_count'               => $jobs->count(),
+				'invoices_count'       	=> $invoices_count,
+
 			]);
 	}
 

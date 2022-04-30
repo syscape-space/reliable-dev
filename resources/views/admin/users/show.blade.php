@@ -272,6 +272,9 @@
 					<li class="nav-item">
 						<a class="nav-link {{ request('tab') == 'useridentity'?'active':'' }}" href="{{ url()->current() }}?tab=useridentity"><span class="badge badge-danger">{{ $useridentity_count }}</span> {{ trans('admin.useridentity') }} <i class="far fa-id-card"></i> </a>
 					</li>
+					<li class="nav-item">
+						<a class="nav-link {{ request('tab') == 'invoices'?'active':'' }}" href="{{ url()->current() }}?tab=invoices"><span class="badge badge-danger">{{ $invoices_count }}</span> {{ trans('admin.invoices') }} <i class="far fa-id-card"></i> </a>
+					</li>
 				</ul>
 				<div class="tab-content">
 					<div class="tab-pane active" id="panel-303817">
@@ -285,6 +288,8 @@
 						@include('admin.users.tabs.userlicenses')
 						@elseif(request('tab') == 'useridentity')
 						@include('admin.users.tabs.useridentity')
+						@elseif(request('tab') == 'invoices')
+						@include('admin.users.tabs.invoices')
 						@elseif(request('tab') == 'jobs')
 						@include('admin.users.tabs.user_jobs')
 						@endif
