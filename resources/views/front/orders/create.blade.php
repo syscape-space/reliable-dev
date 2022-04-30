@@ -385,6 +385,7 @@
                                 </div>
                                 <select dir="rtl" name="city_id" id="select-city"  >
                                     <option value="">أختر المدينة</option>
+                                    <option value="0">كل المدن</option>
                                     @forelse ($cities as $city)
                                         <option value="1">{{$city->city_name_ar}}</option>
                                     @empty
@@ -525,6 +526,7 @@
     </script> --}}
 
 <script type="text/javascript">
+
     $("input[name='second_department_id']").change(function() {
         // console.log('dd');
         var second_department_id = $(this).val();
