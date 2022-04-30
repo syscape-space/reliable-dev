@@ -26,7 +26,7 @@ Route::middleware('auth:web')->group(function (){
     // Route::get('vendor/{id}/statistics','VendorContrller@statistics')->name('vendor.statistics');
     // Route::get('vendor/{id}/posts','VendorContrller@posts')->name('vendor.posts');
     Route::post('offers','OrderOfferController@store')->name('offers.store');
-
+    Route::get('order/negotiation/{hash_code}','OrderController@negotiation');
 });
 
 Route::get('ajax/third-departments','AjaxController@third_departments')->name('ajax.third-departments');

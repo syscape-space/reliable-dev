@@ -45,26 +45,47 @@
     })
     @endif
 </script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js" integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
-    $(document).ready(function(){
-        sendRequest();
-        function sendRequest(){
-            $.ajax({
-                url: "{{route('front.ajax.last-seen')}}",
-                success:
-                    function(data){
-                        console.log('done')
+    let api = axios.create({
+        baseURL: ( '{{url('/')}}' + "/api"),
+        withCredentials: false ,
+        'Content-Type': 'multipart/form-data' ,
+        accept: "application/json",
+    })
 
-                    },
-                complete: function() {
-                    // Schedule the next request when the current one's complete
-                    setInterval(sendRequest, 45000); // The interval set to 5 seconds
-                }
-            });
-        };
-    });
+    api.interceptors.request.use(
+        function(config) {
+            const token = localStorage.getItem("token")
+            if (token) {
+                config.headers["Authorization"] = 'Bearer ' + token
+            }
+            return config;
+        },
+        function(error) {
+            return Promise.reject(error);
+        }
+    );
+    {{--$(document).ready(function(){--}}
+    {{--    sendRequest();--}}
+    {{--    function sendRequest(){--}}
+    {{--        $.ajax({--}}
+    {{--            url: "{{route('front.ajax.last-seen')}}",--}}
+    {{--            success:--}}
+    {{--                function(data){--}}
+    {{--                    console.log('done')--}}
+
+    {{--                },--}}
+    {{--            complete: function() {--}}
+    {{--                // Schedule the next request when the current one's complete--}}
+    {{--                setInterval(sendRequest, 45000); // The interval set to 5 seconds--}}
+    {{--            }--}}
+    {{--        });--}}
+    {{--    };--}}
+    {{--});--}}
+{{--    FIXME : inntervals :?  --}}
 </script>
 @stack('page_scripts')
 @livewireScripts

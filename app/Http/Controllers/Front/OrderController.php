@@ -148,6 +148,11 @@ class OrderController extends Controller
         $order->accessVendors()->attach(\auth()->id(),\request()->only('option_1','option_2'));
         return redirect()->route('front.orders.show',$order->hash_code)->withSuccess('تم الدخول بنجاح');
     }
+    public function negotiation($hash_code){
+        $order = Order::query()->firstWhere('hash_code',$hash_code);
+        $active_negotiation = $order->active_negotiation;
+        return view('front.orders.negotiation',compact('active_negotiation','order'));
+    }
 
 
 }

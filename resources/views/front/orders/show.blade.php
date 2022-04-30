@@ -41,6 +41,6 @@
             @endforeach
         </div>
     @else
-        <livewire:offer-or-negotiate-form order_id="{{$order->id}}" :can-offer="$order->offers()->where('vendor_id',auth()->id())->count() == 0"/>
+        <livewire:offer-or-negotiate-form :active_negotiation="$order->active_negotiation" :order="$order" :can-offer="$order->offers()->where('vendor_id',auth()->id())->count() == 0"/>
     @endif
 @endsection

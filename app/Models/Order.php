@@ -236,18 +236,17 @@ class Order extends Model {
 	    return $this->judgers->first();
     }
     public function getActiveNegotiationAttribute(){
-	    if ($this->order_step >= 2){
-            $user = User::query()->find(auth('api')->id()??auth()->id());
-            if ($user and $user->membership_type == 'vendor'){
-                return $user->negotiations()->with(['users','messages','order'])->firstWhere('order_id',$this->id);
-            }else{
-                return $this->negotiations()->with(['users','messages','order'])
-                    ->get()->filter(function ($item){
-                        return $item->users->contains($this->active_vendor);
-                    })->first();
-            }
+        $user = User::query()->find(auth()->id());
+        if ($user and $user->membership_type == 'vendor'){
+            return Negotiate::query()->firstOrCreate(
+                ['order_id' => $this->id,'vendor_id'=>auth()->id()]
+            );
+        }else{
+            return $this->negotiations()->with(['users','messages','order'])
+                ->get()->filter(function ($item){
+                    return $item->users->contains($this->active_vendor);
+                })->first();
         }
-	    return null;
     }
     public function accessVendors(){
 	    return $this->belongsToMany(User::class,'order_access_vendors','order_id','user_id');

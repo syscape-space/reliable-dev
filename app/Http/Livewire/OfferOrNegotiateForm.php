@@ -6,8 +6,9 @@ use Livewire\Component;
 
 class OfferOrNegotiateForm extends Component
 {
-    public $order_id;
+    public $order;
     public $canOffer;
+    public $active_negotiation;
     public $op = null;
     public function render()
     {

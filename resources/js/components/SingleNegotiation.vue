@@ -52,33 +52,7 @@
               </div>
           </div>
         </li>
-       
-        <!-- <li :class="{'sec-list':message.user.membership_type === 'user'}" v-for="message in negotiate.messages">
 
-          <span class="w-100 d-block"
-                style="background-color: rgb(216 240 255) !important; max-width: 90%; border-radius: 10px 2px 10px 10px !important; color: rgb(76, 80, 83);">
-            <div class="d-flex">
-              <div>
-                <img style="width: 30px; height: 30px; border-radius: 50%; margin-bottom: 5px; margin-left: 10px;" :src="cloud_url+message.user.photo_profile" alt=""> <br>
-                <p class="m-0 fw-bold ">{{ message.user.first_name }}</p>
-              </div>
-              <span :class="{'bg-light p-1 rounded me-auto':message.user.membership_type !== 'user'}">
-                <small>{{ message.created_at }}</small>
-              </span>
-            </div>
-            <div class="px-3 pb-2 pt-1">
-              <span v-if="message.type === 'text'" v-html="message.content"></span>
-              <span v-else-if="message.type === 'image'" >
-                <img height="100" style="max-height: 150px" class="img-thumbnail" :src="cloud_url + message.content">
-              </span>
-              <span v-else-if="message.type === 'video'" >
-                <video style="max-height: 200px" class="img-thumbnail" controls>
-                  <source  :src="cloud_url + message.content">
-                </video>
-              </span>
-            </div>
-          </span>
-        </li> -->
       </ul>
       <div class="d-flex align-items-center justify-content-between">
         <div>
