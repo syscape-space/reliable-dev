@@ -616,4 +616,5 @@ return [
 	'careerrequests' => 'طلبات الوظائف',
 	'show_attached' => 'مشاهدة المرفق',
 	'ongoing' => 'تحت التنفيذ',
+    'archived'=> 'مؤرشف',
 ];
