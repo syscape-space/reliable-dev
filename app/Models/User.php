@@ -19,6 +19,7 @@ class User extends Authenticatable implements JWTSubject
 		'first_name',
 		'middle_name',
 		'last_name',
+		'last_seen',
 		'name',
 		'email',
 		'email_verify',
@@ -113,6 +114,10 @@ class User extends Authenticatable implements JWTSubject
 	{
 		return $this->hasMany(UserCommercial::class, 'user_id', 'id');
 	}
+	public function getIsOnlineAttribute(){
+	    if ($this->last_seen)
+	    return Carbon::now()->diffInMinutes(Carbon::parse($this->last_seen)) < 5;
+    }
 	/**
 	 * Get the identifier that will be stored in the subject claim of the JWT.
 	 *
@@ -282,14 +287,18 @@ class User extends Authenticatable implements JWTSubject
             'all'   =>  OrderOffer::query()->where('vendor_id',$this->id)->count(),
         ];
     }
-    public function offer_favorites(){
-	    return $this->belongsToMany(OrderOffer::class,'offer_favorites','user_id','order_offer_id');
+    public function favorites(){
+	    return $this->hasMany(OfferFavorite::class,'user_id','id');
     }
-    public function triggerOfferFavorite($offer_id){
-	    if ($this->offer_favorites()->where('id',$offer_id)->count()){
-            $this->offer_favorites()->where('id',$offer_id)->delete();
+    public function favourite($id,$type){
+	    return $this->favorites()->where('item_id',$id)->where('item_type',$type)->exists();
+    }
+    public function triggerOfferFavorite($item_id,$item_type){
+	    $user_id = $this->id;
+	    if ($this->favourite($item_id,$item_type)){
+            $this->favorites()->where('item_id',$item_id)->where('item_type',$item_type)->delete();
         }else{
-            $this->offer_favorites()->attach($offer_id);
+            $this->favorites()->create(compact('user_id','item_id','item_type'));
         }
     }
 
