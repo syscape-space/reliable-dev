@@ -56,7 +56,10 @@
                 </span>
                 @endif
             @else
-                <a href="{{route('front.negotiations.show',['id'=>$item->id])}}" class="btn view">الاستفسار و التفاوض</a>
+                <a href="{{route('front.negotiations.show',['id'=>$item->id])}}" class="btn view">
+                    الاستفسار و التفاوض
+                    <span class="badge-danger badge">{{$item->messages()->count()}}</span>
+                </a>
             @endif
         </div>
     </div>
