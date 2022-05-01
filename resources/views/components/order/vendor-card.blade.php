@@ -56,7 +56,7 @@
                 </span>
                 @endif
             @else
-
+                <a href="{{route('front.negotiations.show',['id'=>$item->id])}}" class="btn view">الاستفسار و التفاوض</a>
             @endif
         </div>
     </div>
