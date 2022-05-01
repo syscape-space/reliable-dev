@@ -115,6 +115,10 @@ class ProfileSettings extends Component
     {
         $this->sub_departments = Department::whereParent($this->main_department)->get();
     }
+public function updatedSubDepartment()
+    {
+        $this->specialties = Department::whereParent($this->sub_department)->get();
+    }
 
     public function updatedCountryId()
     {

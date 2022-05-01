@@ -183,6 +183,7 @@
                                         <i class="arrow fa-solid fa-chevron-down"></i>
 
                                         <select id="main-section" wire:model="main_department">
+                                            <option>ss</option>
                                             @foreach ($main_departments as $department)
                                                 <option value="{{ $department->id }}">
                                                     {{ $department->department_name_ar }}
