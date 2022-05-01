@@ -26,6 +26,7 @@ class AjaxController extends Controller
 
     public function last_seen()
     {
+        // deprecated
         $User = User::find(auth()->user()->id);
         $User->last_seen = \Carbon\Carbon::now();
         $User->save();

@@ -1,5 +1,5 @@
 <div class="box-offer">
-    <i class="fa-solid fa-star star-box"></i>
+    <livewire:favorite-button :item="$item"/>
     <div class="row">
         <div class="col-7 info p-0">
             <p class="name">{{$item->vendor->name}}</p>
@@ -30,7 +30,9 @@
         </div>
         <div class="col-5 photo p-0">
             <div class="img-cont">
+                @if($item->vendor->is_online)
                 <div class="active"></div>
+                @endif
                 <img
                         class="img-fluid"
                         src="{{cloudUrl($item->vendor->photo_profile)}}"
@@ -56,7 +58,10 @@
                 </span>
                 @endif
             @else
-
+                <a href="{{route('front.negotiations.show',['id'=>$item->id])}}" class="btn view">
+                    الاستفسار و التفاوض
+                    <span class="badge-danger badge">{{$item->messages()->count()}}</span>
+                </a>
             @endif
         </div>
     </div>
