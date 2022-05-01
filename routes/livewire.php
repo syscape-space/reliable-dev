@@ -1,8 +1,6 @@
 <?php
 
 use App\Http\Livewire\FormRegister;
-use App\Http\Livewire\Users\Balance;
-use App\Http\Livewire\Users\Home;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Users\Judgers\SelectJudges;
 use App\Http\Livewire\Users\Subscription;
@@ -14,7 +12,6 @@ use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
 Route::view('register','auth.register' )->middleware('guest')->name('register');
-Route::get('/', [Home::class,'render'])->name('home');
     Route::group(
         ['middleware' => 'auth'],
     

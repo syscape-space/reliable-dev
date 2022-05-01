@@ -69,7 +69,7 @@
                             <div class="box">
                                 <h5 class="title mb-4"> طلب جديد</h5>
                                 <p class="mb-2"> هل تفكر في انشاء طلب جديد ؟؟</p>
-                                <i class="fa-solid fa-file-pen"></i> <a href="" class="btn">انشاء طلب جديد
+                                <i class="fa-solid fa-file-pen"></i> <a href="{{route('front.orders.create')}}" class="btn">انشاء طلب جديد
                                 </a>
                             </div>
 
