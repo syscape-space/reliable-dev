@@ -1290,12 +1290,13 @@ section.settings form .box .lable span {
 }
 section.settings form .box input,
 section.settings form .box select {
-    width: 100%;
-    min-height: 50px;
-    border: 1px solid #73737d8f;
-    outline: none;
-    padding: 0 10px;
-    border-radius: 10px;
+  width: 100%;
+      min-height: 39px;
+      border: 1px solid #73737d8f;
+      outline: none;
+      padding: 0 10px;
+      border-radius: 10px;
+      font-size: 12px;
 }
 section.settings form .box input:focus,
 section.settings form .box select:focus {
@@ -1610,6 +1611,7 @@ section.offers ul.level.level2 li:nth-child(4) .icon:before {
 section.offers ul.level li {
     color: #8f8f8f;
     font-size: 16px;
+    width: 142px;
 }
 section.offers ul.level li.active {
     color: var(--light-blue-color);
@@ -1646,7 +1648,7 @@ section.offers .box-order {
 }
 @media (max-width: 767.98px) {
     section.offers ul.level {
-        width: 250px;
+        width: 350px;
     }
     section.offers ul.level li {
         font-size: 12px !important;
