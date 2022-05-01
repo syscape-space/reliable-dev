@@ -15,4 +15,10 @@ class OrderOfferController extends Controller
         OrderOffer::query()->create($data);
         return redirect()->back()->withSuccess('تم اضافة عرضك بنجاح');
     }
+
+    public function acceptOffer(OrderOffer $offer){
+        $offer->offer_status='approved';
+        $offer->save();
+        return redirect()->back()->with('success','تم قبول العرض بنجاح, يرجى انتظار المحامي لاختيار محكم');
+    }
 }

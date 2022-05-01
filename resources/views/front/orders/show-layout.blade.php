@@ -3,6 +3,12 @@
     {{$order->order_title}}
 @endsection
 @section('content')
+@if ($order->user_id==auth()->id() and $order->active_offer and !$order->active_judger )
+<div class="alert alert-warning">
+    بانتظار اختيار المحامي للمحكم
+</div>
+@endif
+
     <section class="offers overflow-hidden pt-3 pb-5">
         <div class="container">
             @if(! $order->accessOpen())
