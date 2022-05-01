@@ -32,6 +32,7 @@ Route::middleware('auth:web')->group(function (){
     Route::post('offers','OrderOfferController@store')->name('offers.store');
     Route::get('order/negotiation/{hash_code}','OrderController@negotiation');
     Route::get('negotiations/{id}','NegotiationController@show')->name('negotiations.show');
+    Route::get('vendor/my-orders','OrderController@MyOrders')->name('my-vendor.orders');
 });
 
 Route::get('ajax/third-departments','AjaxController@third_departments')->name('ajax.third-departments');

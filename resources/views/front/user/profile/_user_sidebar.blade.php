@@ -22,6 +22,9 @@
                     style=" color: #0491e8 ;"> {{ active_user()->current_balance - active_user()->suspended_balance }}
                     $ </span> </p>
             <a href="{{route('front.balance')}}" class="show-balance">عرض رصيدى</a>
+            @if(active_user()->membership_type === 'vendor')
+            <a href="{{route('front.my-vendor.orders')}}" class="show-balance">طلباتي</a>
+            @endif
         </div>
 
         <div class="card-client text-end rounded  p-3 mb-2 pb-4">

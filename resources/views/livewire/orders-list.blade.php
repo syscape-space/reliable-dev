@@ -54,7 +54,7 @@
         @empty
             <h4>لا يوجد طلبات</h4>
         @endforelse
-  </div>
+    </div>
 
   </section>
 

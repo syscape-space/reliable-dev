@@ -151,6 +151,18 @@ class OrderController extends Controller
         $active_negotiation = $order->active_negotiation;
         return view('front.orders.negotiation',compact('active_negotiation','order'));
     }
+    public function MyOrders(){ # vendor orders
+        $orders = Order::query()->join('order_offers','orders.id','=','order_offers.order_id','left')
+            ->where('order_offers.vendor_id',auth()->id())
+            ->where('offer_status','approved')
+            ->where(function ($q){
+                if (\request()->status)
+                    $q->where('orders.order_status',\request('status'));
+            })
+            ->select('orders.*')
+            ->get();
+        return view('front.orders.me',compact('orders'));
+    }
 
 
 }
