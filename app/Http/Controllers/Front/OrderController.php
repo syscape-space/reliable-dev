@@ -164,6 +164,14 @@ class OrderController extends Controller
         $Order->save();
         return redirect()->route('front.orders.show',$Order->hash_code)->with('success', 'تم قبول المحكم بنجاح');
     }
+    public function reject_judger_by_user(Request $request,$order)
+    {
+        $Order=Order::findOrFail($order);
+        $OrderArbitrator=$Order->arbitrators->last();
+        $OrderArbitrator->user_accept_decision='reject';
+        $OrderArbitrator->save();
+        return redirect()->route('front.orders.show',$Order->hash_code)->with('success', 'تم رفض المحكم بنجاح');
+    }
     
     public function orderAccess($order_id){
         $order = Order::query()->find($order_id);

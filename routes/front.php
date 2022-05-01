@@ -14,6 +14,7 @@ Route::middleware('auth:web')->group(function (){
     Route::get('order/{order_id}/select-judger','OrderController@select_judger')->name('orders.select-judger');
     Route::post('order/{order_id}/select-judger','OrderController@update_selected_judger')->name('orders.select-judger.update');
     Route::post('order/{order_id}/accept-judger-by-user','OrderController@accept_judger_by_user')->name('accept_judger_by_user');
+    Route::post('order/{order_id}/reject-judger-by-user','OrderController@reject_judger_by_user')->name('reject_judger_by_user');
 
 
     Route::post('order-access/{order_id}','OrderController@orderAccess')->name('orders.orderAccess');

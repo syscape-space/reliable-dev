@@ -144,7 +144,10 @@
                     @csrf
                     <button class="btn m-0">قبول المحكم</button>
                 </form>
-                <a href="" class="refusal btn m-0">رفض المحكم</a>
+                <form action="{{ route('front.reject_judger_by_user', $offer->order->id) }}" method="POST">
+                    @csrf
+                    <button class="refusal btn m-0">رفض المحكم</button>
+                </form>
             </div>
             <div class="chat w-75 mx-auto">
                 <div style="
