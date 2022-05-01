@@ -20,6 +20,10 @@
                 <div class="col-xl-3 mb-3">
                     <input class="w-100" name="execution_time" type="text" placeholder="وقت التنفيذ...">
                 </div>
+                <div class="col-xl-3 mb-3">
+                    <input class="" name="negotiable"  id="negotiable" type="checkbox" >
+                    <label for="negotiable">قابل للتفاوض</label>
+                </div>
 
                 <div class="col-12 mb-3">
                     <textarea name="vendor_comment" placeholder=" تفاصيل العرض..."></textarea>
