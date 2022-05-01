@@ -146,6 +146,12 @@ class Order extends Model {
 		return $this->hasMany(\App\Models\OrderOffer::class , 'order_id', 'id');
 	}
 
+	public function i_added_offer(){
+		return (bool)$this->offers()->where('vendor_id',auth()->id())->count();
+	}
+	public function myOffer(){
+		return $this->offers()->where('vendor_id',auth()->id())->first();
+	}
 	/**
 	 * invoices relation method
 	 * @param void
