@@ -1,9 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+Route::view('/', 'front.home')->name('home');
+Route::get('order/create/{id?}','OrderController@create')->name('orders.create');
+
 Route::middleware('auth:web')->group(function (){
     Route::resource('orders','OrderController')->except(['create']);
-    Route::get('order/create/{id?}','OrderController@create')->name('orders.create');
     Route::get('order/{order_id}/select-vendors','OrderController@select_vendors')->name('orders.select-vendors');
     Route::put('order/{order_id}/select-vendors','OrderController@update_selected_vendors')->name('orders.select-vendors.update');
 
