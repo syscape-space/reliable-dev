@@ -182,7 +182,7 @@
                                     <div class="select">
                                         <i class="arrow fa-solid fa-chevron-down"></i>
 
-                                        <select id="main-section " wire:model="main_department">
+                                        <select id="main-section" wire:model="main_department">
                                             @foreach ($main_departments as $department)
                                                 <option value="{{ $department->id }}">
                                                     {{ $department->department_name_ar }}
@@ -196,13 +196,22 @@
                                     <div class="select">
                                         <i class="arrow fa-solid fa-chevron-down"></i>
 
-                                        <select id="subsection  " wire:model="sub_department">
+                                        <select id="subsection" wire:model="sub_department">
                                             @foreach ($sub_departments as $department)
                                                 <option value="{{ $department->id }}">
                                                     {{ $department->department_name_ar }}
                                                 </option>
                                             @endforeach
                                         </select>
+                                    </div>
+                                </div>
+                                <div class="box">
+                                    <div class="lable ">التخصص<span>*</span></div>
+                                    <div class="select">
+                                        @foreach ($specialties as $specialty)
+                                            <span>{{ $specialty->department_name_ar }}</span>
+                                            <input type="checkbox" name="user_specialties[]" wire:model="specialties" value="{{ $specialty->id }}" id="user-specialties">
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>

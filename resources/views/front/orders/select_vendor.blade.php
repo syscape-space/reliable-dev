@@ -82,11 +82,11 @@
         @csrf
         <div class="container">
             <div class="boxes-offers d-flex flex-wrap">
-                
+       
                 @foreach ($vendors as $user)
                     <div class="box-offer">
                         <div class="d-flex flex-wrap box-child align-items-center justify-content-between" >
-                            <input type="checkbox" name="vendors[]" value="{{$user->id}}" class="check" @if (in_array($user->id, $order_vendors)) checked @endif />
+                            <input type="checkbox" name="vendors[]" value="{{$user->id}}" class="check" @if (in_array($user->id, $order_vendors)) checked  disabled @endif  />
                             <div class="info">
                                 <p class="name">{{$user->name}}</p>
                                 <p class="specialty">
@@ -123,7 +123,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="" class="profile">تصفح الملف الشخصي</a>
+                        <a href="{{route('front.vendor.profile', $user->id)}}" class="profile">تصفح الملف الشخصي</a>
                     </div>
                 @endforeach
                 
