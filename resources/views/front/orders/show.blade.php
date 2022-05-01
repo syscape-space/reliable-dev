@@ -36,7 +36,7 @@
                 <x-order.vendor-card :item="$offer" :isOffer="true"  />
             @endforeach
             @foreach($order->negotiations->unique(function ($item){return $item->vendor->id;}) as $offer)
-                <x-order.vendor-card :item="$offer" :isOffer="true"   />
+                <x-order.vendor-card :item="$offer" :isOffer="false"   />
             @endforeach
         </div>
     @else
