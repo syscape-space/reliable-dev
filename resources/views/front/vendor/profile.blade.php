@@ -3926,8 +3926,10 @@ Profile
                 <div class="specialization main-content pt-5">
                     <h1 class="title mb-4">التخصص</h1>
                     <p>
-                        @foreach ($user->specialties as $specialty)
-                        {{ $specialty->specialty_name_ar }} <br>
+                        @foreach ($user->third_departments as $specialty)
+                            <span>
+                                {{ $specialty->specialty_name_ar }}
+                            </span>
                         @endforeach
                     </p>
                     
