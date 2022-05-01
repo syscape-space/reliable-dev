@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
+Route::get('vendor/{id}/profile','VendorContrller@profile')->name('vendor.profile');
+Route::get('arbitrators/{id}/profile','VendorContrller@profile')->name('arbitrators.profile');
+
 Route::middleware('auth:web')->group(function (){
     Route::resource('orders','OrderController')->except(['create']);
     Route::get('order/create/{id?}','OrderController@create')->name('orders.create');
@@ -14,7 +18,6 @@ Route::middleware('auth:web')->group(function (){
     Route::get('profile','ProfileController@profile')->name('profile');
     
     Route::get('order/{hash_code}/offer/{id}','OrderController@showOffer')->name('order.offers.show');
-    Route::get('vendor/{id}/profile','VendorContrller@profile')->name('vendor.profile');
     Route::get('vendor/subscription','VendorContrller@subscription')->name('vendor.subscription');
 
     // Route::get('vendor/{id}/about','VendorContrller@about')->name('vendor.about');

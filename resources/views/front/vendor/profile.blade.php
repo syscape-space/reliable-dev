@@ -3707,6 +3707,9 @@
 
 </style>
 @endpush
+@section('title')
+Profile
+@endsection
 @section('content')
 
 <section class="web py-5">
@@ -3717,7 +3720,7 @@
                     <div
                         class="col-xl-8 d-flex align-items-center justify-content-xl-end justify-content-center gap-4 flex-wrap"
                     >
-                        <a href="" class="btn">تقديم طلب</a>
+                        <a href="{{route('front.orders.create')}}" class="btn">تقديم طلب</a>
                         <img src="{{asset('assets')}}/img/Group-logo.png" alt="" />
                     </div>
                 </div>

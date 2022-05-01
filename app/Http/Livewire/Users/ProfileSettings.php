@@ -19,7 +19,7 @@ use Livewire\WithFileUploads;
 class ProfileSettings extends Component
 {
     use WithFileUploads;
-    public $user_id, $id_number, $name, $email, $email_verify, $mobile_verify, $mobile, $membership_type,$account_type, $gender, $main_department, $sub_department, $country_id, $city_id, $address, $commercial_end_at, $commercial_file, $commercial_id, $license_name, $license_file, $license_end_at, $qualification_file, $qualification_name, $experience_name, $experience_file, $bio, $current = 1, $sub_departments, $cities;
+    public $user_id, $id_number, $name, $email, $email_verify, $mobile_verify, $mobile, $membership_type,$account_type, $gender, $main_department, $sub_department, $user_specialties, $country_id, $city_id, $address, $commercial_end_at, $commercial_file, $commercial_id, $license_name, $license_file, $license_end_at, $qualification_file, $qualification_name, $experience_name, $experience_file, $bio, $current = 1, $sub_departments, $cities, $specialties;
 
     protected function rules()
     {
@@ -52,11 +52,12 @@ class ProfileSettings extends Component
         'gender.required' => 'يرجى اختيار الجنس',
     ];
 
-    public function update()
+    public function update() 
     {
         $data = $this->validate();
         $data['user_id'] = $this->user_id;
         auth()->user()->update($data);
+        auth()->user()->third_departments()->sync($this->user_specialties);
         if ($this->commercial_file && $this->commercial_id && $this->commercial_end_at) {
             $data['commercial_file'] = it()->upload($data['commercial_file'], 'userCommercial/' . auth()->id());
             UserCommercial::create($data);
@@ -98,18 +99,28 @@ class ProfileSettings extends Component
         $this->address = $user->address;
         $this->bio = $user->bio;
 
+
         $this->sub_departments = $this->main_department ? Department::whereParent($this->main_department)->get() : collect();
         $this->cities = $this->country_id ? City::select('id', 'city_name_ar')->where('country_id', $this->country_id)->get() : collect();
+        $this->specialties = $this->sub_department ? Department::whereParent($this->sub_department)->get() : collect();
+
+    }
+
+    public function updatedUserSpecialties()
+    {
+        $this->specialties = Department::whereParent($this->sub_department)->get();
     }
 
     public function updatedMainDepartment()
     {
         $this->sub_departments = Department::whereParent($this->main_department)->get();
     }
+
     public function updatedCountryId()
     {
         $this->cities = $this->country_id ? City::select('id', 'city_name_ar')->where('country_id', $this->country_id)->get() : collect();
     }
+
     public function render()
     {
         $main_departments = Department::whereNull('parent')->get();
