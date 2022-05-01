@@ -35,9 +35,9 @@
             @foreach($order->offers->unique(function ($item){return $item->vendor->id;}) as $offer)
                 <x-order.vendor-card :item="$offer" :isOffer="true"  />
             @endforeach
-            {{-- @foreach($order->negotiations->unique(function ($item){return $item->vendor->id;}) as $offer)
+            @foreach($order->negotiations->unique(function ($item){return $item->vendor->id;}) as $offer)
                 <x-order.vendor-card :item="$offer" :isOffer="true"   />
-            @endforeach --}}
+            @endforeach
         </div>
     @else
         <livewire:offer-or-negotiate-form :active_negotiation="$order->active_negotiation" :order="$order" :can-offer="$order->i_added_offer() == 0"/>
