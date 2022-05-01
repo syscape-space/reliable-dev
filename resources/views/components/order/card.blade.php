@@ -66,7 +66,7 @@
                 </a>
             </div>
         </div>
-        @if ($order->isActiveUser())
+        @if ($order->accessOpen())
             <h5 class="title">
                 {{ $order->order_title }}
             </h5>
