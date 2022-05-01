@@ -9,6 +9,7 @@ use App\Models\OrderOffer;
 use Illuminate\Http\Request;
 use App\Models\Department;
 use App\Models\City;
+use App\Models\OrderArbitrator;
 use App\Models\OrderFile;
 use App\Models\User;
 
@@ -132,14 +133,37 @@ class OrderController extends Controller
         return view('front.orders.select_vendor', compact(['Order', 'vendors', 'order_vendors']));
     }
 
-
     public function update_selected_vendors(Request $request)
     {
         $Order = Order::find($request->order_id);
         $Order->order_vendors()->syncWithoutDetaching($request->vendors);
-        return redirect()->back()->with('success', 'تم الحفظ بنجاح');
+        return redirect()->route('front.orders.create',$Order->id)->with('success', 'تم الحفظ بنجاح');
     }
 
+    public function select_judger($order_id)
+    {
+        $Order = Order::find($order_id);
+        $judgers = User::where('membership_type', 'judger')->get();
+        return view('front.orders.select_judger', compact(['Order', 'judgers']));
+    }
+
+    public function update_selected_judger(Request $request)
+    {
+        OrderArbitrator::create($request->all());
+        $Order = Order::find($request->order_id);
+        $Order->save();
+        return redirect()->route('front.orders.show',$Order->hash_code)->with('success', 'تم الحفظ بنجاح');
+    }
+    public function accept_judger_by_user(Request $request,$order)
+    {
+        $Order=Order::findOrFail($order);
+        $OrderArbitrator=$Order->arbitrators->last();
+        $OrderArbitrator->user_accept_decision='accept';
+        $OrderArbitrator->save();
+        $Order->assigning_arbitration='yes';
+        $Order->save();
+        return redirect()->route('front.orders.show',$Order->hash_code)->with('success', 'تم قبول المحكم بنجاح');
+    }
     
     public function orderAccess($order_id){
         $order = Order::query()->find($order_id);

@@ -11,6 +11,9 @@ Route::middleware('auth:web')->group(function (){
     Route::resource('orders','OrderController')->except(['create']);
     Route::get('order/{order_id}/select-vendors','OrderController@select_vendors')->name('orders.select-vendors');
     Route::put('order/{order_id}/select-vendors','OrderController@update_selected_vendors')->name('orders.select-vendors.update');
+    Route::get('order/{order_id}/select-judger','OrderController@select_judger')->name('orders.select-judger');
+    Route::post('order/{order_id}/select-judger','OrderController@update_selected_judger')->name('orders.select-judger.update');
+    Route::post('order/{order_id}/accept-judger-by-user','OrderController@accept_judger_by_user')->name('accept_judger_by_user');
 
 
     Route::post('order-access/{order_id}','OrderController@orderAccess')->name('orders.orderAccess');
@@ -30,6 +33,7 @@ Route::middleware('auth:web')->group(function (){
     // Route::get('vendor/{id}/statistics','VendorContrller@statistics')->name('vendor.statistics');
     // Route::get('vendor/{id}/posts','VendorContrller@posts')->name('vendor.posts');
     Route::post('offers','OrderOfferController@store')->name('offers.store');
+    Route::post('offers/{offer}/accept','OrderOfferController@acceptOffer')->name('offer.accept');
     Route::get('order/negotiation/{hash_code}','OrderController@negotiation');
 });
 
