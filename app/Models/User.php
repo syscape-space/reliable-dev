@@ -100,25 +100,34 @@ class User extends Authenticatable implements JWTSubject
 	];
 	public function getLicenseSubmittedAttribute()
 	{
-		return $this->licenses()->where('status', 1)->count() > 0;
+		if($this->licenses()->count()>0){
+			return $this->licenses()->first();
+		}else{
+			return 0;
+		}
 	}
 	public function getCommercialSubmittedAttribute()
 	{
-		return $this->comericals()->where('status', 1)->count() > 0;
+		if($this->comericals()->count()>0){
+			return $this->comericals()->first();
+		}else{
+			return 0;
+		}
 	}
 	public function licenses()
 	{
-		return $this->hasMany(UserLicense::class, 'user_id', 'id');
+		return $this->hasOne(UserLicense::class, 'user_id', 'id');
 	}
 
 	public function comericals()
 	{
-		return $this->hasMany(UserCommercial::class, 'user_id', 'id');
+		return $this->hasOne(UserCommercial::class, 'user_id', 'id');
 	}
-	public function getIsOnlineAttribute(){
-	    if ($this->last_seen)
-	    return Carbon::now()->diffInMinutes(Carbon::parse($this->last_seen)) < 5;
-    }
+	public function getIsOnlineAttribute()
+	{
+		if ($this->last_seen)
+			return Carbon::now()->diffInMinutes(Carbon::parse($this->last_seen)) < 5;
+	}
 	/**
 	 * Get the identifier that will be stored in the subject claim of the JWT.
 	 *
@@ -139,7 +148,7 @@ class User extends Authenticatable implements JWTSubject
 		return $this->belongsTo(Department::class, 'sub_department', 'id');
 	}
 
-/* 	public function sub_departments()
+	/* 	public function sub_departments()
 	{
 		return $this->belongsTo(Department::class, 'sub_department_user');
 	} */
@@ -232,80 +241,91 @@ class User extends Authenticatable implements JWTSubject
 			//$user->company_id()->delete();
 		});
 	}
-	public function specialties(){
-	    return $this->belongsToMany(Specialtie::class,'user_specialties','user_id','specialty_id');
-    }
-
-	public function experiences(){
-	    return $this->belongsToMany(UserExperience::class,'user_experiences','user_id','experience_id');
-    }
-
-	public function occupations(){
-	    return $this->belongsToMany(Occupation::class,'user_occupations','user_id','occupation_id');
-    }
-    public function packageRequests(){
-	    return $this->hasMany(PackageRequest::class,'user_id','id');
-    }
-    public function getCurrentSubscriptionAttribute(){
-	    return $this->packageRequests()->with('package')
-            ->where('request_status','approved')
-            ->get()
-            ->filter(function ($d){
-                return Carbon::today() <= Carbon::parse($d->updated_at)->addDays($d->package->duration_package_days);
-            })
-            ->first();
-    }
-    public function getPhotoProfileAttribute($value){
-	    if ($value){
-	        if (Storage::disk('cloud')->exists($value)){
-	            return $value;
-            }
-        }
-	    return 'default-user-icon.jpg';
-    }
-    public function orders(){
-	    return $this->hasMany(Order::class,'user_id','id');
-    }
-    public function getMyAllOrdersAttribute(){
-	    return $this->membership_type === 'user' ? [
-	        'all'   =>  $this->orders()->count(),
-	        'under_review'   =>  $this->orders()->whereOrderStatus('under_review')->count(),
-	        'refused'   =>  $this->orders()->whereOrderStatus('refused')->count(),
-	        'done'   =>  $this->orders()->get()->where('order_step',3)->count(),
-	        'ongoing'   =>  $this->orders()->get()->where('order_step',2)->count(),
-	        'closed'   =>  $this->orders()->whereOrderStatus('closed')->count(),
-	        'open'   =>  $this->orders()->whereOrderStatus('open')->count(),
-	        'archived'   =>  $this->orders()->whereOrderStatus('archived')->count(),
-        ] : [
-            'ongoing'   =>  Order::all()->where('order_status','ongoing')->filter(function ($item){
-                if ($item->active_vendor)
-                return $item->active_vendor->id == $this->id;
-            })->count(),
-            'offered'   =>  OrderOffer::query()->where('vendor_id',$this->id)->count(),
-            'completed'  =>  Order::all()->where('order_status','ongoing')->filter(function ($item){
-                return $item->active_vendor->id == $this->id;
-            })->count(),
-            'all'   =>  OrderOffer::query()->where('vendor_id',$this->id)->count(),
-        ];
-    }
-    public function favorites(){
-	    return $this->hasMany(OfferFavorite::class,'user_id','id');
-    }
-    public function favourite($id,$type){
-	    return $this->favorites()->where('item_id',$id)->where('item_type',$type)->exists();
-    }
-    public function triggerOfferFavorite($item_id,$item_type){
-	    $user_id = $this->id;
-	    if ($this->favourite($item_id,$item_type)){
-            $this->favorites()->where('item_id',$item_id)->where('item_type',$item_type)->delete();
-        }else{
-            $this->favorites()->create(compact('user_id','item_id','item_type'));
-        }
-    }
-
-	public function tickets(){
-		return $this->hasMany(Ticket::class);
+	public function specialties()
+	{
+		return $this->belongsToMany(Specialtie::class, 'user_specialties', 'user_id', 'specialty_id');
 	}
 
-}
+	public function experiences()
+	{
+		return $this->belongsToMany(UserExperience::class, 'user_experiences', 'user_id', 'experience_id');
+	}
 
+	public function occupations()
+	{
+		return $this->belongsToMany(Occupation::class, 'user_occupations', 'user_id', 'occupation_id');
+	}
+	public function packageRequests()
+	{
+		return $this->hasMany(PackageRequest::class, 'user_id', 'id');
+	}
+	public function getCurrentSubscriptionAttribute()
+	{
+		return $this->packageRequests()->with('package')
+			->where('request_status', 'approved')
+			->get()
+			->filter(function ($d) {
+				return Carbon::today() <= Carbon::parse($d->updated_at)->addDays($d->package->duration_package_days);
+			})
+			->first();
+	}
+	public function getPhotoProfileAttribute($value)
+	{
+		if ($value) {
+			if (Storage::disk('cloud')->exists($value)) {
+				return $value;
+			}
+		}
+
+		return 'default-user-icon.jpg';
+	}
+	public function orders()
+	{
+		return $this->hasMany(Order::class, 'user_id', 'id');
+	}
+	public function getMyAllOrdersAttribute()
+	{
+		return $this->membership_type === 'user' ? [
+			'all'   =>  $this->orders()->count(),
+			'under_review'   =>  $this->orders()->whereOrderStatus('under_review')->count(),
+			'refused'   =>  $this->orders()->whereOrderStatus('refused')->count(),
+			'done'   =>  $this->orders()->get()->where('order_step', 3)->count(),
+			'ongoing'   =>  $this->orders()->get()->where('order_step', 2)->count(),
+			'closed'   =>  $this->orders()->whereOrderStatus('closed')->count(),
+			'open'   =>  $this->orders()->whereOrderStatus('open')->count(),
+			'archived'   =>  $this->orders()->whereOrderStatus('archived')->count(),
+		] : [
+			'ongoing'   =>  Order::all()->where('order_status', 'ongoing')->filter(function ($item) {
+				if ($item->active_vendor)
+					return $item->active_vendor->id == $this->id;
+			})->count(),
+			'offered'   =>  OrderOffer::query()->where('vendor_id', $this->id)->count(),
+			'completed'  =>  Order::all()->where('order_status', 'ongoing')->filter(function ($item) {
+				return $item->active_vendor->id == $this->id;
+			})->count(),
+			'all'   =>  OrderOffer::query()->where('vendor_id', $this->id)->count(),
+		];
+	}
+	public function favorites()
+	{
+		return $this->hasMany(OfferFavorite::class, 'user_id', 'id');
+	}
+	public function favourite($id, $type)
+	{
+		return $this->favorites()->where('item_id', $id)->where('item_type', $type)->exists();
+	}
+	public function triggerOfferFavorite($item_id, $item_type)
+	{
+		$user_id = $this->id;
+		if ($this->favourite($item_id, $item_type)) {
+			$this->favorites()->where('item_id', $item_id)->where('item_type', $item_type)->delete();
+		} else {
+			$this->favorites()->create(compact('user_id', 'item_id', 'item_type'));
+		}
+	}
+
+	public function tickets()
+	{
+		return $this->hasMany(Ticket::class);
+	}
+}

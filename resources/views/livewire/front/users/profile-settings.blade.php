@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row">
 
-            @if (auth()->user()->packageRequests->count() > 0 && !auth()->user()->current_subscription)
+            @if (active_user()->packageRequests->count() > 0 && !active_user()->current_subscription)
                 <div class="col-12 back mb-5 d-flex align-items-center justify-content-end">
                     <div class="row w-100 justify-content-end">
                         <div class="flex-wrap col-xl-8 d-flex align-items-center justify-content-between gap-2 gap-sm-4">
@@ -21,7 +21,8 @@
                     <div class="col-12 mb-5">
                         <div class="box box-info">
                             <div class="photo">
-                                <img class="img-fluid" src="./img/person.jpg" alt="" />
+                                <img class="img-fluid" src="{{ cloudUrl(active_user()->photo_profile) }}"
+                                    alt="" />
                             </div>
                             <h4>{{ $name }}</h4>
                             <p>
@@ -68,18 +69,29 @@
                             </div>
 
 
+
                             @if ($membership_type == 'vendor' || ($membership_type == 'user' && $account_type == 'company'))
                                 <div class="box-child d-flex flex-column ">
                                     <div class="data d-flex gap-1 justify-content-between align-items-center">
                                         <p class="title">
                                             السجلات التجارية:
                                         </p>
-                                        <div class="status dn-active">
-                                            لم يتم التحقق
-                                            <div class="icon">
-                                                <i class="fa-solid fa-xmark"></i>
+                                        @if (active_user()->commercial_submitted->status==1)
+                                            <div class="status active">
+                                                تم التحقق
+                                                <div class="icon">
+                                                    <i class="fa-solid fa-check"></i>
+                                                </div>
                                             </div>
-                                        </div>
+                                        @else
+                                            <div class="status dn-active">
+                                                لم يتم التحقق
+                                                <div class="icon">
+                                                    <i class="fa-solid fa-xmark"></i>
+                                                </div>
+                                            </div>
+                                        @endif
+
                                     </div>
 
                                 </div>
@@ -90,10 +102,10 @@
                                         <p class="title">
                                             الاشتركات:
                                         </p>
-                                        <p class="{{ auth()->user()->current_subscription ? '' : 'dont-sub' }}">
-                                            @if (auth()->user()->packageRequests->count() > 0)
-                                                @if (auth()->user()->current_subscription)
-                                                    {{ auth()->user()->current_subscription->package->package_title }}
+                                        <p class="{{ active_user()->current_subscription ? '' : 'dont-sub' }}">
+                                            @if (active_user()->packageRequests->count() > 0)
+                                                @if (active_user()->current_subscription)
+                                                    {{ active_user()->current_subscription->package->package_title }}
                                                 @else
                                                     انتهى الاشتراك
                                                 @endif
@@ -109,12 +121,21 @@
                                         <p class="title">
                                             الرخصة المهنية:
                                         </p>
-                                        <div class="status waiting">
-                                            في حالة الانتظار
-                                            <div class="icon">
-                                                <i class="fa-solid fa-spinner"></i>
+                                        @if (active_user()->license_submitted->status==1)
+                                            <div class="status active">
+                                                تم التحقق
+                                                <div class="icon">
+                                                    <i class="fa-solid fa-check"></i>
+                                                </div>
                                             </div>
-                                        </div>
+                                        @else
+                                            <div class="status dn-active">
+                                                لم يتم التحقق
+                                                <div class="icon">
+                                                    <i class="fa-solid fa-xmark"></i>
+                                                </div>
+                                            </div>
+                                        @endif
                                     </div>
 
                                 </div>
@@ -211,7 +232,7 @@
                                     <div class="select">
                                         @foreach ($specialties as $specialty)
                                             <span>{{ $specialty->department_name_ar }}</span>
-                                            <input type="checkbox" name="user_specialties[]" wire:model="specialties"
+                                            <input type="checkbox" wire:model="user_specialties"
                                                 value="{{ $specialty->id }}" id="user-specialties">
                                         @endforeach
                                     </div>
@@ -245,6 +266,12 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="inp-file">
+                            <div class="">الصورة الشخصية</div>
+                            <input type="file" wire:model="photo_profile" id="">
+                            <div class=""> <i class="fa-solid fa-paperclip"></i> </div>
+
+                        </div>
                         <div class="col-12 d-flex flex-wrap mb-4 justify-content-between">
                             <div class="box">
                                 <div class="lable">العنوان</div>
@@ -265,70 +292,104 @@
                         </div>
                         <div class="col-12 d-flex flex-wrap mb-4 justify-content-between">
                             @if ($membership_type == 'vendor' || ($membership_type == 'user' && $account_type == 'company'))
-                                <div class="box d-flex gap-2">
-                                    <div class="w-75">
-                                        <div class="lable">
-                                            السجلات التجارية:
-                                            <div class="tol-tip ">
-                                                <div class="text"> هذا النص هو مثال لنص يمكن أن يستبدل
-                                                    في نفس المساحة، لقد تم توليد هذا النص
-                                                    من مولد النص العربي
-                                                </div>
-                                                <span class="icon">!</span>
+                                <div class="box">
+                                    <div class="lable ">
+                                        السجلات التجارية:
+                                        <div class="tol-tip ">
+                                            <div class="text"> هذا النص هو مثال لنص يمكن أن يستبدل
+                                                في نفس المساحة، لقد تم توليد هذا النص
+                                                من مولد النص العربي
+                                            </div>
+                                            <span class="icon">!</span>
+                                        </div>
+                                    </div>
+
+                                    @if (active_user()->comericals()->count() > 0)
+                                        <div class="">
+                                            <p>لقد قمت بإضافة سجل تجاري بالفعل</p>
+                                            <div class="d-flex">
+                                            <img src="{{ cloudUrl(active_user()->commercial_submitted->commercial_file) }}"
+                                                width="100" alt="">
+                                                <p>تاريخ نهاية السجل: {{active_user()->commercial_submitted->commercial_end_at}}</p>
                                             </div>
                                         </div>
-                                        <div class="">
-                                            <div class="">رقم السجل اداري</div>
-                                            <input type="text" wire:model="commercial_id" id="">
+                                    @else
+                                        <div class="d-flex">
+                                            <div class="w-75">
 
-                                        </div>
-                                        <div class="inp-file">
-                                            <div class="">أضافة سجل اداري</div>
-                                            <input type="file" wire:model="commercial_file" id=""
-                                                accept="image/jpeg,image/gif,image/png,application/pdf,image/x-eps">
-                                            <div class=""> <i class="fa-solid fa-paperclip"></i> </div>
+                                                <div class="">
+                                                    <div class="">رقم السجل اداري</div>
+                                                    <input type="text" wire:model="commercial_id" id="">
 
+                                                </div>
+                                                <div class="inp-file">
+                                                    <div class="">أضافة سجل اداري</div>
+                                                    <input type="file" wire:model="commercial_file" id=""
+                                                        accept="image/jpeg,image/gif,image/png,application/pdf,image/x-eps">
+                                                    <div class=""> <i class="fa-solid fa-paperclip"></i>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="lable">تاريخ انتهاء السجل :</div>
+                                                <input type="date" placeholder="تاريخ انتهاء السجل ... "
+                                                    wire:model="commercial_end_at">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div>
-                                        <div class="lable">تاريخ انتهاء السجل :</div>
-                                        <input type="date" placeholder="تاريخ انتهاء السجل ... "
-                                            wire:model="commercial_end_at">
-                                    </div>
+                                    @endif
                                 </div>
+
                             @endif
                             @if ($membership_type == 'vendor')
-                                <div class="box d-flex gap-2">
-                                    <div class="w-75">
-                                        <div class="lable">
-                                            الرخصة المهنية :
-                                            <div class="tol-tip ">
-                                                <div class="text"> هذا النص هو مثال لنص يمكن أن يستبدل
-                                                    في نفس المساحة، لقد تم توليد هذا النص
-                                                    من مولد النص العربي
-                                                </div>
-                                                <span class="icon">!</span>
+                                <div class="box">
+                                    <div class="lable">
+                                        الرخصة المهنية :
+                                        <div class="tol-tip ">
+                                            <div class="text"> هذا النص هو مثال لنص يمكن أن يستبدل
+                                                في نفس المساحة، لقد تم توليد هذا النص
+                                                من مولد النص العربي
+                                            </div>
+                                            <span class="icon">!</span>
+                                        </div>
+                                    </div>
+
+                                    @if (active_user()->licenses()->count() > 0)
+                                        <div class="">
+                                            <p>لقد قمت بإضافة رخصة مهنية بالفعل</p>
+                                            <div class="d-flex">
+                                            <img src="{{ cloudUrl(active_user()->license_submitted->license_file) }}"
+                                                width="100" alt="">
+                                                <p>تاريخ نهاية الرخصة: {{active_user()->license_submitted->license_end_at}}</p>
                                             </div>
                                         </div>
-                                        <div class="">
-                                            <div class="">اسم الرخصة المهنية</div>
-                                            <input type="text" wire:model="license_name" id="">
-                                            <div class=""> <i class="fa-solid fa-paperclip"></i> </div>
+                                    @else
+                                        <div class="d-flex">
+                                            <div class="w-75">
 
-                                        </div>
-                                        <div class="inp-file">
-                                            <div class="one">أضافة رخصة مهنية</div>
-                                            <input type="file" wire:model="license_file" id=""
-                                                accept="image/jpeg,image/gif,image/png,application/pdf,image/x-eps">
-                                            <div class="two"> <i class="fa-solid fa-paperclip"></i> </div>
+                                                <div class="">
+                                                    <div class="">اسم الرخصة المهنية</div>
+                                                    <input type="text" wire:model="license_name" id="">
+                                                    <div class=""> <i class="fa-solid fa-paperclip"></i>
+                                                    </div>
 
+                                                </div>
+                                                <div class="inp-file">
+                                                    <div class="one">أضافة رخصة مهنية</div>
+                                                    <input type="file" wire:model="license_file" id=""
+                                                        accept="image/jpeg,image/gif,image/png,application/pdf,image/x-eps">
+                                                    <div class="two"> <i class="fa-solid fa-paperclip"></i>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="lable">تاريخ نهاية الرخصة :</div>
+                                                <input type="date" placeholder=" تاريخ نهاية الرخصة ... "
+                                                    wire:model="license_end_at">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div>
-                                        <div class="lable">تاريخ نهاية الرخصة :</div>
-                                        <input type="date" placeholder=" تاريخ نهاية الرخصة ... "
-                                            wire:model="license_end_at">
-                                    </div>
+                                    @endif
                                 </div>
                             @endif
                         </div>

@@ -344,6 +344,10 @@
                                               <button class="about-btn-1" ><a style="position: relative; color: #048e81 !important; font-size: 16px !important; border: 0 !important; left: 0; right: 0; top: 0;" href="{{ route('front.orders.index') }}">طلباتي</a></button>
                                               <button  class="new-order-btn new-2 " style="position: absolute; top: -18% !important; right: 68% !important; background-image: none !important;">
                                               <a style="position: relative; color: #048e81 !important; font-size: 16px !important; border: 0 !important; left: 0; right: 0; top: 0;" href="{{ route('front.orders.create') }}">طلب جديد</a> </button>
+                                              @elseif(active_user()->membership_type == 'vendor')
+                                              <button class="about-btn-1" ><a style="position: relative; color: #048e81 !important; font-size: 16px !important; border: 0 !important; left: 0; right: 0; top: 0;" href="{{ route('front.orders.index') }}">طلبات تحت التنفيذ</a></button>
+                                              <button  class="new-order-btn new-2 " style="position: absolute; top: -18% !important; right: 68% !important; background-image: none !important;">
+                                              <a style="position: relative; color: #048e81 !important; font-size: 16px !important; border: 0 !important; left: 0; right: 0; top: 0;" href="{{ route('front.orders.index') }}">الطلبات</a> </button>
                                           @endif
                                     </div>
                                     <img class="about-img" src="{{ asset('tem_assets') }}/images/basma.svg"

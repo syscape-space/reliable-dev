@@ -13,13 +13,14 @@ use App\Models\UserExperience;
 use App\Models\UserJob;
 use App\Models\UserLicense;
 use App\Models\UserQualification;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
 class ProfileSettings extends Component
 {
     use WithFileUploads;
-    public $user_id, $id_number, $name, $email, $email_verify, $mobile_verify, $mobile, $membership_type,$account_type, $gender, $main_department, $sub_department, $user_specialties, $country_id, $city_id, $address, $commercial_end_at, $commercial_file, $commercial_id, $license_name, $license_file, $license_end_at, $qualification_file, $qualification_name, $experience_name, $experience_file, $bio, $current = 1, $sub_departments, $cities, $specialties,$consulting;
+    public $user_id, $id_number, $name, $email, $email_verify, $mobile_verify, $mobile, $membership_type,$account_type, $gender, $main_department, $sub_department, $user_specialties, $country_id, $city_id, $address, $commercial_end_at, $commercial_file, $commercial_id, $license_name, $license_file, $license_end_at, $qualification_file, $qualification_name, $experience_name, $experience_file, $bio, $current = 1, $sub_departments, $cities, $specialties,$consulting,$photo_profile,$profile_img;
 
     protected function rules()
     {
@@ -43,7 +44,9 @@ class ProfileSettings extends Component
             'experience_name' => '',
             'experience_file' => '',
             'bio' => '',
-            'consulting'=>'nullable'
+            'consulting'=>'nullable',
+            'photo_profile'=>'nullable',
+            'user_specialties'=>''
         ];
     }
     protected $messages = [
@@ -57,8 +60,14 @@ class ProfileSettings extends Component
     {
         $data = $this->validate();
         $data['user_id'] = $this->user_id;
+        if ($this->photo_profile) {
+            $data['photo_profile'] = it()->upload($data['photo_profile'], 'users/' . auth()->id());
+        }else{
+            $data['photo_profile']=$this->profile_img;
+        }
         auth()->user()->update($data);
         auth()->user()->third_departments()->sync($this->user_specialties);
+        
         if ($this->commercial_file && $this->commercial_id && $this->commercial_end_at) {
             $data['commercial_file'] = it()->upload($data['commercial_file'], 'userCommercial/' . auth()->id());
             UserCommercial::create($data);
@@ -75,13 +84,14 @@ class ProfileSettings extends Component
             $data['experience_file'] = it()->upload($data['experience_file'], 'userexperience/' . auth()->id());
             UserExperience::create($data);
         }
-        $this->reset(['commercial_file', 'commercial_id', 'commercial_end_at', 'license_file', 'license_name', 'license_end_at', 'experience_file', 'experience_name', 'qualification_file', 'qualification_name']);
+        $this->reset(['commercial_file', 'commercial_id', 'commercial_end_at', 'license_file', 'license_name', 'license_end_at', 'experience_file', 'experience_name', 'qualification_file', 'qualification_name','photo_profile']);
         $this->dispatchBrowserEvent('alert', ['type' => 'success',  'message' => 'تم تعديل الإعدادات بنجاح']);
     }
 
 
     public function mount()
     {
+        /* dd(cloudUrl(auth()->user()->photo_profile)); */
         $user = User::findOrFail(auth()->id());
         $this->user_id = $user->id;
         $this->id_number = $user->id_number;
@@ -100,8 +110,8 @@ class ProfileSettings extends Component
         $this->address = $user->address;
         $this->bio = $user->bio;
         $this->consulting = $user->consulting;
-
-
+        $this->profile_img = $user->photo_profile;
+        $this->user_specialties=$user->third_departments()->pluck('departments.id');
         $this->sub_departments = $this->main_department ? Department::whereParent($this->main_department)->get() : collect();
         $this->cities = $this->country_id ? City::select('id', 'city_name_ar')->where('country_id', $this->country_id)->get() : collect();
         $this->specialties = $this->sub_department ? Department::whereParent($this->sub_department)->get() : collect();
