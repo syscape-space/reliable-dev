@@ -90,13 +90,7 @@
             <div class="col-md-4 col-lg-4 col-sm-4 col-xs-12" style="display:none" id="sub_depart_parent">
                 <div class="form-group">
                     <label for="" class="control-label">اختر القسم الفرعي</label>
-                    <select name="sub_department" class="form-control" id="sub_depart" ></select>
-                </div>
-            </div>
-            <div class="col-md-4 col-lg-4 col-sm-4 col-xs-12" style="display:none" id="third_depart_parent">
-                <div class="form-group">
-                    <label for="" class="control-label">اختر الأقسام</label>
-                    <select name="third_departments[]" class="form-control select2" id="third_depart" multiple></select>
+                    <select name="sub_department[]" class="form-control select2" id="sub_depart" multiple></select>
                 </div>
             </div>
 
@@ -125,34 +119,6 @@
                                 });
                             } else {
                                 $('#sub_depart_parent').css('display', 'none');
-                            }
-                        },
-                        error: function(response) {}
-                    });
-                });
-                $(document).on('change', '#sub_depart', function() {
-                    department_id = $('#sub_depart').val()
-                    $.ajax({
-                        url: "{{ route('users.department') }}",
-                        type: 'get',
-                        data: {
-                            department_id: department_id,
-                        },
-                        success: function(data) {
-                            if (data.length > 0) {
-                                $('#third_depart_parent').css('display', 'block');
-                                $('#third_depart').empty();
-                                var firstOption = $('<option>اختر القسم الفرعي من الفرعي </option>');
-                                $('#third_depart').append(firstOption);
-                                var data = data;
-                                data.forEach(e => {
-                                    var newOption = $('<option></option>');
-                                    newOption.text(e.department_name_ar);
-                                    newOption.val(e.id);
-                                    $('#third_depart').append(newOption);
-                                });
-                            } else {
-                                $('#third_depart_parent').css('display', 'none');
                             }
                         },
                         error: function(response) {}

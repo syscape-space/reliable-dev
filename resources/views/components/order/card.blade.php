@@ -66,7 +66,7 @@
                 </a>
             </div>
         </div>
-        @if ($order->accessOpen())
+        @if ($order->IsActiveUser())
             <h5 class="title">
                 {{ $order->order_title }}
             </h5>
@@ -98,13 +98,21 @@
                                 {{ $dep->department_name_ar }}
                             </button>
                         @endif
-                        
+
                         @if ($dep = $order->department)
                             <button class="bl-f text-black py-2 px-md-5 px-2">
                                 {{ $dep->department_name_ar }}
                             </button>
                         @endif
-                        <a href="{{ route('front.orders.show', $order->hash_code) }}" style="margin-right:10px; "
+                        <a href="{{ route('front.orders.show', $order->hash_code) }}" style="margin-right:10px;    border-radius: 5px;
+    color: white;
+    text-align: center;
+    min-width: 170px;
+    font-size: 16px;
+    outline: none;
+    font-weight: normal;
+    border: none;
+    padding: 11px;"
                             class="btn new mr-2 btn-success float-left">{{ __('admin.' . $order->order_status) }}</a>
                     </div>
                     <div class="line-bb">

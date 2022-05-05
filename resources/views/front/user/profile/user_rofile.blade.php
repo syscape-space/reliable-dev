@@ -26,10 +26,28 @@
           right: 68% !important;
           background-image: none !important;
       }
+
+      .text-white {
+        color: #FFF !important
+      }
+      .about-img {
+          width: 222px;
+      }
       @media (max-width: 1199.98px) {
         .about-img {
-            width: 233px;
+            width: 158px !important;
         }
+        .new-new .about-us .sum-btn button:nth-child(1) {
+            position: absolute;
+            top: 51%;
+            right: -11%;
+        }
+      }
+      @media (max-width: 991.98px) {
+        .about-us {
+          display: none;
+        }
+
       }
     </style>
 </head>
@@ -52,8 +70,9 @@
                         @endif
                         <div class="col-lg-12 col-md-12 ">
                             <div class="mt-5 row w-100 mx-0 px-0">
-                              @if (auth()->check() and active_user()->membership_type == 'user')
                                 <div class="col-md-4 col-lg-3">
+                                  @if (auth()->check() and active_user()->membership_type == 'user')
+
                                     <div class="card-client  rounded  p-3">
                                         <p class="  m-0" style=" color: #0491e8 ">مرحبا مجددا محمد </p>
                                         <p class="f-12" style="font-size: 12px;"> هل تفكر فى إنشاء طلب جديد؟؟
@@ -63,12 +82,12 @@
                                                 src="{{ asset('tem_assets') }}/images/think.svg" alt="" srcset="">
                                         </div>
                                         <div class="text-center mt-3">
-                                            <a href="{{ route('front.orders.create') }}" class="show-balance mt-3 border-0"
+                                            <a href="{{ route('front.orders.create') }}" class="show-balance mt-3 border-0 text-white"
                                                 style="background-color: #028e80;text-decoration:none"> إنشاء طلب جديد </a>
                                         </div>
                                     </div>
-                                  </div>
-                                @endif
+                                    @endif
+                                </div>
                                 <div class="col-md-8 col-lg-8  mt-md-0 mt-5">
                                     <div class="contain-btn  d-flex justify-content-center flex-wrap flex-lg-nowrap">
                                         <div class=" mb-3 active-log" style="width: 70px;">

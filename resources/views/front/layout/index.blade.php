@@ -104,6 +104,14 @@
                                         >
                                     </li>
                                     <li>
+                                      <div class="col-md-2 text-center text-md-start">
+                                          <form action="{{route('web.logout')}}" method="post" id="logout-form">
+                                              @csrf
+                                          </form>
+                                          <button type="submit" form="logout-form" class="btn w-100 btn-sm btn-info"
+                                          >تسجيل خروج
+                                          </button>
+                                      </div>
                                     </li>
                                 </ul>
                             </div>
@@ -111,14 +119,7 @@
 
                         </div>
 
-                        <div class="col-md-2 text-center text-md-start">
-                            <form action="{{route('web.logout')}}" method="post" id="logout-form">
-                                @csrf
-                            </form>
-                            <button type="submit" form="logout-form" class="btn btn-sm btn-info"
-                            >تسجيل خروج
-                            </button>
-                        </div>
+
                     </div>
                 </div>
             </div>

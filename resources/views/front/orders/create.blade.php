@@ -21,6 +21,84 @@
         rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css"
     />
+    <style media="screen">
+      .sub {
+        cursor: pointer;
+      }
+      .level-one .terms-service ul li::marker {
+          font-size: 20px;
+      }
+      .right .video > div {
+          width: 100%;
+          border-radius: 15px;
+          overflow: hidden;
+          max-width: 300px;
+          margin: auto;
+      }
+      .right .caption {
+    font-size: 18px;
+    max-width: 367px;
+}
+.level-two .list-btn {
+    list-style: none;
+    text-align: center;
+    row-gap: 3rem !important;
+    margin-bottom: 4rem;
+    margin-top: 5rem;
+    padding: 0;
+}
+.level-three input[type="text"] {
+    background: #ffffff 0% 0% no-repeat padding-box;
+    border: 0.5px solid #a5a5a5;
+    border-radius: 7px;
+    width: 100%;
+    outline: none;
+    padding: 13px;
+    height: 46px;
+}
+.level-three textarea {
+    background: #ffffff 0% 0% no-repeat padding-box;
+    border: 0.5px solid #a5a5a5;
+    border-radius: 12px;
+    width: 100%;
+    outline: none;
+    padding: 15px;
+    min-height: 131px;
+}
+.level-three .files .send-file, .level-three .files .send-voice {
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    width: 215px;
+    position: relative;
+    height: 48px;
+    font-size: 16px;
+    justify-content: space-between;
+}
+.choices__item {
+    font-size: 16px !important;
+  }
+  .level-three .files .view-file, .level-three .files .view-voice {
+    background: #f6fcff 0% 0% no-repeat padding-box;
+    border: 0.5px solid #0491e8;
+    border-radius: 12px;
+    color: #0491e8;
+    display: flex;
+    align-items: center;
+    width: 215px;
+    height: 47px;
+    padding: 15px;
+    font-size: 16px;
+    justify-content: space-between;
+}
+.level-three .duration label {
+  color: var(--colo-red);
+font-size: 17px;
+}
+.level-five .group-btn {
+    margin-top: 8.5rem;
+}
+    </style>
 </head>
 </head>
 
@@ -46,7 +124,7 @@
         <div class="alert alert-danger" role="alert">
             <div class="alert-body"> {{ session('error') }} </div>
         </div>
-    @endif  
+    @endif
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-5 p-0">
@@ -63,7 +141,7 @@
                         الفيديو بالأسفل
                     </p>
                     <div class="video mx-auto mb-4">
-                        <p class="fw-bold text-end">مشاهدة شرح الخدمة</p>
+                        <p style="max-width: 300px; margin: 5px auto 15px;" class="fw-bold text-end">مشاهدة شرح الخدمة</p>
                         <div class="position-relative">
                             <img src="{{ asset('tem_assets') }}//img/person.jpg" alt="" />
                             <div class="icon-play">
@@ -71,7 +149,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="" class="btn">
+                    <a href="" class="btn" style="max-width: 300px; margin: 5px auto 15px;">
                         الدليل الارشادي لطلب للخدمة
                         <i class="fa-solid fa-book-open"></i>
                     </a>
@@ -181,7 +259,7 @@
                                     </div>
                                 </div>
                                 <div
-                                    class="type mb-5 flex-wrap justify-content-sm-start justify-content-center mt-5 d-flex align-items-center gap-5">
+                                    class="type mb-2 flex-wrap justify-content-sm-start justify-content-center mt-5 d-flex align-items-center gap-5">
                                     @if ($main_departments->first() != null)
                                         <div class="box-one">
                                             {{ $main_departments->first()->department_name_ar }}
@@ -204,7 +282,7 @@
                                             البحث عن محامي
                                         </li> --}}
                                     @foreach ($second_departments as $second_department)
-                                        <li ><input type="radio" name="second_department_id" class="second_department_id" 
+                                        <li ><input type="radio" name="second_department_id" class="second_department_id"
                                                 id="secondDepartment{{ $second_department->id }}"
                                                 value="{{ $second_department->id }}" />{{ $second_department->department_name_ar }}
                                         </li>
