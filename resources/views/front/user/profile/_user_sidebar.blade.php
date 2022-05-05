@@ -21,7 +21,7 @@
             <p class="  "> يمكن سحبة : <span class="me-2 f-300 "
                     style=" color: #0491e8 ;"> {{ active_user()->current_balance - active_user()->suspended_balance }}
                     $ </span> </p>
-            <a href="{{route('front.balance')}}" class="show-balance">عرض رصيدى</a>
+            <a href="{{route('front.balance')}}" class="show-balance mb-2">عرض رصيدى</a>
             @if(active_user()->membership_type === 'vendor')
             <a href="{{route('front.my-vendor.orders')}}" class="show-balance">طلباتي</a>
             @endif
