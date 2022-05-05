@@ -19,7 +19,7 @@ use Livewire\WithFileUploads;
 class ProfileSettings extends Component
 {
     use WithFileUploads;
-    public $user_id, $id_number, $name, $email, $email_verify, $mobile_verify, $mobile, $membership_type,$account_type, $gender, $main_department, $sub_department, $user_specialties, $country_id, $city_id, $address, $commercial_end_at, $commercial_file, $commercial_id, $license_name, $license_file, $license_end_at, $qualification_file, $qualification_name, $experience_name, $experience_file, $bio, $current = 1, $sub_departments, $cities, $specialties;
+    public $user_id, $id_number, $name, $email, $email_verify, $mobile_verify, $mobile, $membership_type,$account_type, $gender, $main_department, $sub_department, $user_specialties, $country_id, $city_id, $address, $commercial_end_at, $commercial_file, $commercial_id, $license_name, $license_file, $license_end_at, $qualification_file, $qualification_name, $experience_name, $experience_file, $bio, $current = 1, $sub_departments, $cities, $specialties,$consulting;
 
     protected function rules()
     {
@@ -42,7 +42,8 @@ class ProfileSettings extends Component
             'qualification_file' => '',
             'experience_name' => '',
             'experience_file' => '',
-            'bio' => ''
+            'bio' => '',
+            'consulting'=>'nullable'
         ];
     }
     protected $messages = [
@@ -98,6 +99,7 @@ class ProfileSettings extends Component
         $this->city_id = $user->city_id;
         $this->address = $user->address;
         $this->bio = $user->bio;
+        $this->consulting = $user->consulting;
 
 
         $this->sub_departments = $this->main_department ? Department::whereParent($this->main_department)->get() : collect();

@@ -211,7 +211,8 @@
                                     <div class="select">
                                         @foreach ($specialties as $specialty)
                                             <span>{{ $specialty->department_name_ar }}</span>
-                                            <input type="checkbox" name="user_specialties[]" wire:model="specialties" value="{{ $specialty->id }}" id="user-specialties">
+                                            <input type="checkbox" name="user_specialties[]" wire:model="specialties"
+                                                value="{{ $specialty->id }}" id="user-specialties">
                                         @endforeach
                                     </div>
                                 </div>
@@ -414,15 +415,16 @@
 
                                     </div>
                                 </div>
-
-
-
+                            </div>
+                            <div class="col-12 d-flex mb-4 ">
+                                <div class="lable" style="margin-left:5px">تفعيل الاستشارات</div>
+                                <input type="checkbox" wire:model="consulting">
+                            </div>
+                            <div class="col-12 d-flex flex-wrap mb-4 justify-content-between">
+                                <div class="lable">نبذه عنك</div>
+                                <textarea placeholder="قم بكتابة نبذه عنك..." wire:model="bio" id=""></textarea>
                             </div>
                         @endif
-                        <div class="col-12 d-flex flex-wrap mb-4 justify-content-between">
-                            <div class="lable">نبذه عنك</div>
-                            <textarea placeholder="قم بكتابة نبذه عنك..." wire:model="bio" id=""></textarea>
-                        </div>
                         <div class="col-12 d-flex flex-wrap mb-4 justify-content-between">
                             <button class="inp-sub" type="submit">حفظ التغيرات</button>
                         </div>

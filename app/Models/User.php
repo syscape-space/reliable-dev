@@ -77,6 +77,7 @@ class User extends Authenticatable implements JWTSubject
 
 		'main_department',
 		'sub_department',
+		'consulting'
 	];
 
 	/**
