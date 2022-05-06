@@ -3,6 +3,11 @@
     الرصيد
 @endsection
 @section('content')
+<style media="screen">
+  body {
+    font-family: "din-next";
+  }
+</style>
     <section class="balance tickets py-5">
         <div class="container">
             <div class="row w-100 mx-0 px-0">

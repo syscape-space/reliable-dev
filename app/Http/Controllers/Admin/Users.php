@@ -70,13 +70,13 @@ class Users extends Controller
 	 */
 	public function store(UsersRequest $request)
 	{
-		$data                  = $request->except("_token", "_method", 'sub_department', 'cities');
+		$data                  = $request->except("_token", "_method", 'cities');
 		$data['photo_profile'] = "";
 		$data['admin_id']      = admin()->id();
 		$data['password']      = bcrypt(request('password'));
 		$users                 = User::create($data);
 		// $users->main_departments()->sync($request->main_department);
-		$users->sub_departments()->sync($request->sub_department);
+		$users->third_departments()->sync($request->third_departments);
 		$users->cities()->sync($request->cities);
 
 

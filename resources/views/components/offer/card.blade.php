@@ -147,7 +147,6 @@
                 <form action="{{ route('front.reject_judger_by_user', $offer->order->id) }}" method="POST">
                     @csrf
                     <button class="refusal btn m-0">رفض المحكم</button>
-                </form>
             </div>
             <div class="chat w-75 mx-auto">
                 <div style="
@@ -170,7 +169,7 @@
                                 <i style="color: rgb(111, 111, 111)" class="fas fa-microphone"></i>
                             </span>
                         </span>
-                        <textarea style="padding: 12px 10px 0; height: 50px" placeholder="اكتب تعليقك هنا" name="" id="" cols="30" rows="2"
+                        <textarea style="padding: 12px 10px 0; height: 50px" placeholder="اكتب تعليقك هنا" name="reject_msg" id="" cols="30" rows="2"
                             class="form-control bg-transparent border-0"></textarea>
                         <div style="
                             display: flex;
@@ -181,6 +180,8 @@
                             <span><i class="fas fa-ellipsis-v"></i></span>
                             <img style="width: 40px; height: 40px" src="./img/telegram.png" alt="" />
                         </div>
+                </form>
+
                     </div>
                 </div>
             </div>

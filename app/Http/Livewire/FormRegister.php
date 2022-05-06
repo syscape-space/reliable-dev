@@ -20,6 +20,7 @@ class FormRegister extends Component
     }
     public function secondStepSubmit()
     {
+        
         $data=$this->validate([
             'name' => 'required|alpha',
 			'email' => 'required|email|unique:users,email',
@@ -31,7 +32,6 @@ class FormRegister extends Component
 //                Password::min(6)->mixedCase()->numbers()->symbols()->uncompromised(),
 			],
         ]);
-        
         User::create([
 			'name' => $data['name'],
 			'email' => $data['email'],
@@ -41,7 +41,7 @@ class FormRegister extends Component
 			'membership_type' => $this->membership_type,
 			'account_type' => $this->account_type,
 		]);
-        return redirect()->route('home');
+        return redirect()->route('front.home');
     }
     public function render()
     {

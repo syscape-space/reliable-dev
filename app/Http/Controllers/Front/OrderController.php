@@ -115,7 +115,7 @@ class OrderController extends Controller
             $file->type=$request->file('voice')->getClientMimeType();
             $file->save();
         }
-        return redirect('/profile')->with('success', 'تم حفظ الطلب بنجاح');
+        return redirect()->route('front.orders.index')->with('success', 'تم حفظ الطلب بنجاح');
     }
 
 
@@ -169,6 +169,7 @@ class OrderController extends Controller
         $Order=Order::findOrFail($order);
         $OrderArbitrator=$Order->arbitrators->last();
         $OrderArbitrator->user_accept_decision='reject';
+        $OrderArbitrator->user_refused_message=$request->reject_msg;
         $OrderArbitrator->save();
         return redirect()->route('front.orders.show',$Order->hash_code)->with('success', 'تم رفض المحكم بنجاح');
     }

@@ -8,8 +8,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
     <link rel="stylesheet" href="{{ asset('tem_assets') }}/webProject/icofont/css/icofont.min.css" />
     <link rel="stylesheet" href="{{ asset('tem_assets') }}/css/style.css" />
-    <title>{{active_user()->name}}</title>
+    <title>{{ active_user()->name }}</title>
     <style media="screen">
+<<<<<<< HEAD
     .new-new .about-us .sum-btn button:nth-child(2) {
         position: absolute ;
         top: 1%;
@@ -49,6 +50,54 @@
         }
 
       }
+=======
+        .new-new .about-us .sum-btn button:nth-child(2) {
+            position: absolute;
+            top: 1%;
+            right: 12%;
+        }
+
+        .new-new .about-us .sum-btn button:nth-child(1) {
+            position: absolute;
+            top: 59%;
+            right: -6%;
+        }
+
+        .about-us-22 .sum-btn button:nth-child(3) {
+            position: absolute;
+            top: -18% !important;
+            right: 68% !important;
+            background-image: none !important;
+        }
+
+        .text-white {
+            color: #FFF !important
+        }
+
+        .about-img {
+            width: 222px;
+        }
+
+        @media (max-width: 1199.98px) {
+            .about-img {
+                width: 158px !important;
+            }
+
+            .new-new .about-us .sum-btn button:nth-child(1) {
+                position: absolute;
+                top: 51%;
+                right: -11%;
+            }
+        }
+
+        @media (max-width: 991.98px) {
+            .about-us {
+                display: none;
+            }
+
+        }
+
+>>>>>>> refs/remotes/origin/main
     </style>
 </head>
 
@@ -64,13 +113,14 @@
                 <div class="col-lg-9 col-xl-10">
                     <div class="row">
                         @if (auth()->user()->packageRequests->count() > 0 && !auth()->user()->current_subscription)
-                        <div class="col-lg-12 col-md-12 ">
-                            <button class="end-sub w-100 border-0 rounded "> تم انتهاء اشتراكك </button>
-                        </div>
+                            <div class="col-lg-12 col-md-12 ">
+                                <button class="end-sub w-100 border-0 rounded "> تم انتهاء اشتراكك </button>
+                            </div>
                         @endif
                         <div class="col-lg-12 col-md-12 ">
                             <div class="mt-5 row w-100 mx-0 px-0">
                                 <div class="col-md-4 col-lg-3">
+<<<<<<< HEAD
                                   @if (auth()->check() and active_user()->membership_type == 'user')
 
                                     <div class="card-client  rounded  p-3">
@@ -86,6 +136,25 @@
                                                 style="background-color: #028e80;text-decoration:none"> إنشاء طلب جديد </a>
                                         </div>
                                     </div>
+=======
+                                    @if (auth()->check() and active_user()->membership_type == 'user')
+                                        <div class="card-client  rounded  p-3">
+                                            <p class="  m-0" style=" color: #0491e8 ">مرحبا مجددا محمد </p>
+                                            <p class="f-12" style="font-size: 12px;"> هل تفكر فى إنشاء طلب
+                                                جديد؟؟
+                                            </p>
+                                            <div class="text-center">
+                                                <img class="ms-3" style="width: 40px;"
+                                                    src="{{ asset('tem_assets') }}/images/think.svg" alt="" srcset="">
+                                            </div>
+                                            <div class="text-center mt-3">
+                                                <a href="{{ route('front.orders.create') }}"
+                                                    class="show-balance mt-3 border-0 text-white"
+                                                    style="background-color: #028e80;text-decoration:none"> إنشاء طلب
+                                                    جديد </a>
+                                            </div>
+                                        </div>
+>>>>>>> refs/remotes/origin/main
                                     @endif
                                 </div>
                                 <div class="col-md-8 col-lg-8  mt-md-0 mt-5">
@@ -141,22 +210,27 @@
                                             <h6> إضافة عقد </h6>
                                         </div>
                                     </div>
-                                    <div class="me-auto mb-2" style="max-width: 200px; font-size: 12px; background-color: #feb74c; color: #fff; padding: 10px; border-radius: 5px;">
-                                      <i class="fas fa-bell"></i>
-                                      لديك استشارة صوتية بعد ٢٥ دقيقة
+                                    <div class="me-auto mb-2"
+                                        style="max-width: 200px; font-size: 12px; background-color: #feb74c; color: #fff; padding: 10px; border-radius: 5px;">
+                                        <i class="fas fa-bell"></i>
+                                        لديك استشارة صوتية بعد ٢٥ دقيقة
                                     </div>
                                     <div class="card-client  rounded me-auto p-3" style="max-width:200px">
-                                       <p class="  m-0" style=" color: #0491e8 ">الإستشارات الاونلاين</p>
-                                       <p class="f-12" style="font-size: 12px;"> هل تفكر فى حجز استشارة صوتية ؟؟
-                                       </p>
-                                       <div class="text-center">
-                                          <i style="font-size: 40px; color: #028e80;" class="fas fa-microphone-alt"></i>
-                                       </div>
-                                       <div class="text-center mt-3">
-                                          <a href="https://aa.law-mawthuq.com/order/create" class="text-white show-balance mt-3 border-0" style="background-color: #028e80;text-decoration:none">
-                                            طلب استشارة قانونية
-                                          </a>
-                                       </div>
+                                        <p class="  m-0" style=" color: #0491e8 ">الإستشارات الاونلاين</p>
+                                        <p class="f-12" style="font-size: 12px;"> هل تفكر فى حجز استشارة صوتية
+                                            ؟؟
+                                        </p>
+                                        <div class="text-center">
+                                            <i style="font-size: 40px; color: #028e80;"
+                                                class="fas fa-microphone-alt"></i>
+                                        </div>
+                                        <div class="text-center mt-3">
+                                            <a href="https://aa.law-mawthuq.com/order/create"
+                                                class="text-white show-balance mt-3 border-0"
+                                                style="background-color: #028e80;text-decoration:none">
+                                                طلب استشارة قانونية
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -304,7 +378,8 @@
                                 <div class="col-lg-6">
                                     <div class="new-order my-2">
                                         <div class="title-order d-flex align-items-center mb-2">
-                                            <img src="{{ asset('tem_assets') }}/images/end_order.svg" alt="" srcset="">
+                                            <img src="{{ asset('tem_assets') }}/images/end_order.svg" alt=""
+                                                srcset="">
                                             <h6 class="mx-3 mb-0">الطلبات المنتهية</h6>
                                             <img style="width: 18px;"
                                                 src="{{ asset('tem_assets') }}/images/question.svg" alt="" srcset="">
@@ -359,11 +434,24 @@
 
                                         <button class="about-btn-1" data-bs-toggle="modal"
                                             data-bs-target="#exampleModal">خدماتنا</button>
-                                            @if ( active_user()->membership_type == 'user')
-                                              <button class="about-btn-1" ><a style="position: relative; color: #048e81 !important; font-size: 16px !important; border: 0 !important; left: 0; right: 0; top: 0;" href="{{ route('front.orders.index') }}">طلباتي</a></button>
-                                              <button  class="new-order-btn new-2 " style="position: absolute; top: -18% !important; right: 68% !important; background-image: none !important;">
-                                              <a style="position: relative; color: #048e81 !important; font-size: 16px !important; border: 0 !important; left: 0; right: 0; top: 0;" href="{{ route('front.orders.create') }}">طلب جديد</a> </button>
-                                          @endif
+                                        @if (active_user()->membership_type == 'user')
+                                            <button class="about-btn-1"><a
+                                                    style="position: relative; color: #048e81 !important; font-size: 16px !important; border: 0 !important; left: 0; right: 0; top: 0;"
+                                                    href="{{ route('front.orders.index') }}">طلباتي</a></button>
+                                            <button class="new-order-btn new-2 "
+                                                style="position: absolute; top: -18% !important; right: 68% !important; background-image: none !important;">
+                                                <a style="position: relative; color: #048e81 !important; font-size: 16px !important; border: 0 !important; left: 0; right: 0; top: 0;"
+                                                    href="{{ route('front.orders.create') }}">طلب جديد</a> </button>
+                                        @elseif(active_user()->membership_type == 'vendor')
+                                            <button class="about-btn-1"><a
+                                                    style="position: relative; color: #048e81 !important; font-size: 16px !important; border: 0 !important; left: 0; right: 0; top: 0;"
+                                                    href="{{ route('front.orders.index') }}">طلبات تحت
+                                                    التنفيذ</a></button>
+                                            <button class="new-order-btn new-2 "
+                                                style="position: absolute; top: -18% !important; right: 68% !important; background-image: none !important;">
+                                                <a style="position: relative; color: #048e81 !important; font-size: 16px !important; border: 0 !important; left: 0; right: 0; top: 0;"
+                                                    href="{{ route('front.orders.index') }}">الطلبات</a> </button>
+                                        @endif
                                     </div>
                                     <img class="about-img" src="{{ asset('tem_assets') }}/images/basma.svg"
                                         alt="" srcset="" />

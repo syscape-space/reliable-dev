@@ -3810,60 +3810,61 @@ Profile
                 <div class="licenses main-content pt-5">
                     <h1 class="title mb-4">التراخيص</h1>
                     <p>
-                        @foreach ($user->licenses as $userlicenses)
+                        {{-- @foreach ($user->licenses as $userlicenses) --}}
+
                             <div class="row">
                                 <div class="col-md-12 col-lg-12 col-xs-12">
-                                    <b>{{trans('admin.id')}} :</b> {{$userlicenses->id}}
+                                    <b>{{trans('admin.id')}} :</b> {{$user->license_submitted->id}}
                                 </div>
                                 <div class="clearfix"></div>
                                 
                     
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                     <b>{{trans('admin.license_name')}} :</b>
-                                    {!! $userlicenses->license_name !!}
+                                    {!! $user->license_submitted->license_name !!}
                                 </div>
                     
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <b>{{trans('admin.comment')}} :</b>
-                                    {!! $userlicenses->comment !!}
+                                    {!! $user->license_submitted->comment !!}
                                 </div>
                     
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                     <b>{{trans('admin.license_file')}} :</b>
-                                    @include("admin.show_image",["image"=>$userlicenses->license_file])
+                                    @include("admin.show_image",["image"=>$user->license_submitted->license_file])
                                 </div>
                                 <!-- /.row -->
                             </div>
-                        @endforeach
+                        {{-- @endforeach --}}
                     </p>
                     <h1 class="title mb-4">السجلات التجارية</h1>
                     <p>
-                        @foreach ($user->comericals as $usercommercials)
+                        {{-- @foreach ($user->comericals as $usercommercials) --}}
                             <div class="row">
                                 <div class="col-md-12 col-lg-12 col-xs-12">
-                                    <b>{{trans('admin.id')}} :</b> {{$usercommercials->id}}
+                                    <b>{{trans('admin.id')}} :</b> {{$user->commercial_submitted->id}}
                                 </div>
                                 <div class="clearfix"></div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                     <b>{{trans('admin.commercial_id')}} :</b>
-                                    {!! $usercommercials->commercial_id !!}
+                                    {!! $user->commercial_submitted->commercial_id !!}
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                     <b>{{trans('admin.commercial_end_at')}} :</b>
-                                    {!! $usercommercials->commercial_end_at !!}
+                                    {!! $user->commercial_submitted->commercial_end_at !!}
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <b>{{trans('admin.comment')}} :</b>
-                                    {!! $usercommercials->comment !!}
+                                    {!! $user->commercial_submitted->comment !!}
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                     <b>{{trans('admin.commercial_file')}} :</b>
-                                    <a href="{{ it()->url($usercommercials->commercial_file) }}" target="_blank"><i class="fa fa-file-pdf"></i></a>
+                                    <a href="{{ it()->url($user->commercial_submitted->commercial_file) }}" target="_blank"><i class="fa fa-file-pdf"></i></a>
                                 </div>
  
                                 <!-- /.row -->
                             </div>
-                        @endforeach
+                        {{-- @endforeach --}}
 
                         
                     </p>
@@ -3928,7 +3929,7 @@ Profile
                     <p>
                         @foreach ($user->third_departments as $specialty)
                             <span>
-                                {{ $specialty->specialty_name_ar }}
+                                {{ $specialty->department_name_ar }}
                             </span>
                         @endforeach
                     </p>
