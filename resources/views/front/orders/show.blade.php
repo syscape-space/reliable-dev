@@ -1,4 +1,4 @@
-@extends('front.orders.show-layout')
+  @extends('front.orders.show-layout')
 @section('title')
     {{$order->order_title}}
 @endsection

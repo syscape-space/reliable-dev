@@ -5,7 +5,7 @@
 @section('content')
     <section class="balance tickets py-5">
         <div class="container">
-            <div class="row">
+            <div class="row w-100 mx-0 px-0">
                 @include('front.user.profile._user_sidebar')
                 <div class="col-lg-9 col-xl-10">
                     <div class="col-12 back mb-5 d-flex align-items-center justify-content-end">
@@ -25,31 +25,31 @@
 
                         </div>
                     </div>
-                    <div class="col-xl-9">
+                    <div class="col-xl-12">
                         <div class="balance-info">
                             <div class="row">
-                                <div class="col-xxl-3 col-xl-4 col-lg-6 my-3 my-xxl-0">
+                                <div class="col-xl-3  col-lg-6 my-3 my-xxl-0">
                                     <div class="balance-card">
                                         <h3>الرصيد القابل للسحب</h3>
                                         <p>{{ auth()->user()->current_balance - auth()->user()->suspended_balance }} $</p>
                                         <i class="fa-solid fa-hand-holding-dollar"></i>
                                     </div>
                                 </div>
-                                <div class="col-xxl-3 col-xl-4 col-lg-6 my-3 my-xxl-0">
+                                <div class="col-xl-3  col-lg-6 my-3 my-xxl-0">
                                     <div class="balance-card">
                                         <h3>الرصيد الملعق</h3>
                                         <p>{{ auth()->user()->suspended_balance }} $</p>
                                         <i class="fa-solid fa-sack-dollar"></i>
                                     </div>
                                 </div>
-                                <div class="col-xxl-3 col-xl-4 col-lg-6 my-3 my-xxl-0">
+                                <div class="col-xl-3  col-lg-6 my-3 my-xxl-0">
                                     <div class="balance-card">
                                         <h3>الرصيد المتاح</h3>
                                         <p>{{ auth()->user()->current_balance - auth()->user()->suspended_balance }} $</p>
                                         <i class="fa-solid fa-money-bills"></i>
                                     </div>
                                 </div>
-                                <div class="col-xxl-3 col-xl-4 col-lg-6 my-3 my-xxl-0">
+                                <div class="col-xl-3  col-lg-6 my-3 my-xxl-0">
                                     <div class="balance-card">
                                         <h3>الرصيد الكلي</h3>
                                         <p>{{ auth()->user()->current_balance }} $</p>
