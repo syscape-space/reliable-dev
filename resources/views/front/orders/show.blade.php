@@ -8,7 +8,7 @@
       @endif
       <style>
           body {
-            font-family: "din-next" !important;
+            font-family: "din-next" ;
          }
       </style>
       @if ($order->isActiveUser())
