@@ -1,43 +1,44 @@
 @extends('front.orders.show-layout')
 @section('order-page')
-<div class="boxes d-flex flex-column gap-5" id="negotiate-app" v-if="negotiate && negotiate.order">
-    <div class="box-order" :class="{'sec-list':message.user.membership_type === 'user'}" v-for="message in negotiate.messages">
-        <div class="info">
-            <div class="photo">
-                <img
-                    class="img-fluid"
-                  :src="cloud_url+message.user.photo_profile"
-                    alt=""
-                />
-            </div>
-            <a class="name d-block" style="text-decoration:none" :href="base_url+'/u_profile'"> @{{ message.user.first_name }} </a>
-        </div>
-        <div class="text">
-            <div
-                class="data flex-wrap d-flex justify-content-between align-items-center"
-            >
-                <div class="order-num mb-3 mb-lg-0">
-                    طلب رقم : <span class="count">@{{ negotiate.order.id }}</span>
-                </div>
-                <div
-                    class="d-flex flex-wrap align-items-center gap-3 gap-md-4"
-                >
-
-                    <div class="deta">
-                        <i class="fa-solid fa-clock"></i>
-                        @{{ message.created_at }}
+    <section id="negotiate-app" class="requsts-sec mt-4" v-if="negotiate && negotiate.order">
+        <div class="boxes d-flex flex-column gap-5" id="negotiate-app" v-if="negotiate && negotiate.order">
+            <div class="box-order" :class="{'sec-list':message.user.membership_type === 'user'}" v-for="message in negotiate.messages">
+                <div class="info">
+                    <div class="photo">
+                        <img
+                                class="img-fluid"
+                                :src="cloud_url+message.user.photo_profile"
+                                alt=""
+                        />
                     </div>
+                    <a class="name d-block" style="text-decoration:none" :href="base_url+'/u_profile'"> @{{ message.user.first_name }} </a>
                 </div>
-            </div>
-            <h5 class="title">
-              @{{ negotiate.order.order_title }}
-            </h5>
-            <div
-                class="d-flex align-items-top justify-content-between flex-wrap"
-            >
-            <div class="text-wrapper-div msg__body copy wb " style="    font-size: 16px;">
-                <span v-if="message.type === 'text'" v-html="message.content"></span>
-                <span v-else-if="message.type === 'image'" >
+                <div class="text">
+                    <div
+                            class="data flex-wrap d-flex justify-content-between align-items-center"
+                    >
+                        <div class="order-num mb-3 mb-lg-0">
+                            طلب رقم : <span class="count">@{{ negotiate.order.id }}</span>
+                        </div>
+                        <div
+                                class="d-flex flex-wrap align-items-center gap-3 gap-md-4"
+                        >
+
+                            <div class="deta">
+                                <i class="fa-solid fa-clock"></i>
+                                @{{ message.created_at }}
+                            </div>
+                        </div>
+                    </div>
+                    <h5 class="title">
+                        @{{ negotiate.order.order_title }}
+                    </h5>
+                    <div
+                            class="d-flex align-items-top justify-content-between flex-wrap"
+                    >
+                        <div class="text-wrapper-div msg__body copy wb " style="    font-size: 16px;">
+                            <span v-if="message.type === 'text'" v-html="message.content"></span>
+                            <span v-else-if="message.type === 'image'" >
                 <img height="100" style="max-height: 150px" class="img-thumbnail" :src="cloud_url + message.content">
               </span>
                             <span v-else-if="message.type === 'video'" >
@@ -45,18 +46,17 @@
                   <source  :src="cloud_url + message.content">
                 </video>
               </span>
-            </div>
+                        </div>
 
-                <div
-                    class="group-btn m-auto m-lg-0 d-flex flex-column gap-3"
-                >
+                        <div
+                                class="group-btn m-auto m-lg-0 d-flex flex-column gap-3"
+                        >
 
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
-    <section id="negotiate-app" class="requsts-sec mt-4" v-if="negotiate && negotiate.order">
         <div class="chat-clinet" style="margin: auto;">
 
 
@@ -75,7 +75,7 @@
                        <textarea v-model="new_message" @keyup.enter="sendMessage" style="padding: 12px 10px 0; height: 50px;" placeholder="اكتب تعليقك هنا" name="" id="" cols="30" rows="2" class="form-control bg-transparent border-0"></textarea>
                        <div style="display: flex; align-items: center; justify-content: space-around; min-width: 70px;">
                         <span><i class="fas fa-ellipsis-v"></i></span>
-                        <img @click="sendMessage" style="width: 40px;height:40px;" :src="base_url+'/images/telegram.png" alt="">
+                        <img @click="sendMessage" style="width: 40px;height:40px;" :src="base_url+'/images/telegram.png'" alt="">
                        </div>
 
                     </div>
