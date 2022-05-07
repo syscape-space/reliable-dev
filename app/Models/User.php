@@ -332,10 +332,7 @@ class User extends Authenticatable implements JWTSubject
 	public function getVendorIsActiveAttribute()
 	{
 		if ($this->membership_type == 'vendor') {
-			if ($this->email_verify == 'verified' and $this->license_submitted and $this->commercial_submitted and $this->Current_subscription) {
-				return true;
-			}
-			return false;
+			return (bool) ($this->email_verify == 'verified' and $this->license_submitted and $this->commercial_submitted and $this->Current_subscription);
 		}
 		return true;
 	}
