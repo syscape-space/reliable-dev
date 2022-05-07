@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="{{asset('assets/css/all.min.css')}}" />
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 <link href='http://fonts.googleapis.com/earlyaccess/droidarabickufi.css' rel='stylesheet' type='text/css' />
+<link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css' rel='stylesheet' type='text/css' />
 <link rel="stylesheet" href="{{asset('tem_assets')}}/css/normalize.css" />
 
 <link rel="stylesheet" href="{{asset('tem_assets')}}/css/bootstrap.min.css" />
