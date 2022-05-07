@@ -76,7 +76,7 @@
                                         <p class="title">
                                             السجلات التجارية:
                                         </p>
-                                        @if (active_user()->commercial_submitted->status==1)
+                                        @if (active_user()->commercial_submitted)
                                             <div class="status active">
                                                 تم التحقق
                                                 <div class="icon">
@@ -121,7 +121,7 @@
                                         <p class="title">
                                             الرخصة المهنية:
                                         </p>
-                                        @if (active_user()->license_submitted->status==1)
+                                        @if (active_user()->license_submitted)
                                             <div class="status active">
                                                 تم التحقق
                                                 <div class="icon">
@@ -308,9 +308,9 @@
                                         <div class="">
                                             <p>لقد قمت بإضافة سجل تجاري بالفعل</p>
                                             <div class="d-flex">
-                                            <img src="{{ cloudUrl(active_user()->commercial_submitted->commercial_file) }}"
+                                            <img src="{{ cloudUrl(active_user()->comericals()->first()->commercial_file) }}"
                                                 width="100" alt="">
-                                                <p>تاريخ نهاية السجل: {{active_user()->commercial_submitted->commercial_end_at}}</p>
+                                                <p>تاريخ نهاية السجل: {{active_user()->comericals()->first()->commercial_end_at}}</p>
                                             </div>
                                         </div>
                                     @else
@@ -358,9 +358,9 @@
                                         <div class="">
                                             <p>لقد قمت بإضافة رخصة مهنية بالفعل</p>
                                             <div class="d-flex">
-                                            <img src="{{ cloudUrl(active_user()->license_submitted->license_file) }}"
+                                            <img src="{{ cloudUrl(active_user()->licenses()->first()->license_file) }}"
                                                 width="100" alt="">
-                                                <p>تاريخ نهاية الرخصة: {{active_user()->license_submitted->license_end_at}}</p>
+                                                <p>تاريخ نهاية الرخصة: {{active_user()->licenses()->first()->license_end_at}}</p>
                                             </div>
                                         </div>
                                     @else

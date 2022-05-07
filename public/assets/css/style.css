@@ -1039,7 +1039,7 @@ section.orders .box-order .group-btn .btn.underway {
         margin-top: -6.5rem;
     }
 }
-section.settings .back .status {
+.back .status {
     background: var(--color-red-mix);
     flex: 1;
     color: white;
@@ -1051,7 +1051,7 @@ section.settings .back .status {
     border-radius: 8px;
     min-width: 250px;
 }
-section.settings .back .update {
+.back .update {
     background: var(--light-blue-color);
     color: white;
     font-size: 16px;
