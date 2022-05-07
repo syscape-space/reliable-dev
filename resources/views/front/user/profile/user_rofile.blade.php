@@ -1,111 +1,66 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{{ asset('tem_assets') }}/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
-    <link rel="stylesheet" href="{{ asset('tem_assets') }}/webProject/icofont/css/icofont.min.css" />
-    <link rel="stylesheet" href="{{ asset('tem_assets') }}/css/style.css" />
-    <title>{{ active_user()->name }}</title>
-    <style media="screen">
-<<<<<<< HEAD
+@extends('front.layout.index')
+@section('title')
+    {{active_user()->name}}
+@endsection
+@push('page_styles')
+<style media="screen">
     .new-new .about-us .sum-btn button:nth-child(2) {
-        position: absolute ;
+        position: absolute;
         top: 1%;
         right: 12%;
-      }
-      .new-new .about-us .sum-btn button:nth-child(1) {
-          position: absolute;
-          top: 59%;
-          right: -6%;
-      }
-      .about-us-22 .sum-btn button:nth-child(3) {
-          position: absolute;
-          top: -18% !important;
-          right: 68% !important;
-          background-image: none !important;
-      }
+    }
 
-      .text-white {
+    .new-new .about-us .sum-btn button:nth-child(1) {
+        position: absolute;
+        top: 59%;
+        right: -6%;
+    }
+
+    .about-us-22 .sum-btn button:nth-child(3) {
+        position: absolute;
+        top: -18% !important;
+        right: 68% !important;
+        background-image: none !important;
+    }
+
+    .text-white {
         color: #FFF !important
-      }
-      .about-img {
-          width: 222px;
-      }
-      @media (max-width: 1199.98px) {
+    }
+
+    .about-img {
+        width: 222px;
+    }
+
+    @media (max-width: 1199.98px) {
         .about-img {
             width: 158px !important;
         }
+
         .new-new .about-us .sum-btn button:nth-child(1) {
             position: absolute;
             top: 51%;
             right: -11%;
         }
-      }
-      @media (max-width: 991.98px) {
+    }
+
+    @media (max-width: 991.98px) {
         .about-us {
-          display: none;
+            display: none;
         }
 
-      }
-=======
-        .new-new .about-us .sum-btn button:nth-child(2) {
-            position: absolute;
-            top: 1%;
-            right: 12%;
-        }
+    }
 
-        .new-new .about-us .sum-btn button:nth-child(1) {
-            position: absolute;
-            top: 59%;
-            right: -6%;
-        }
-
-        .about-us-22 .sum-btn button:nth-child(3) {
-            position: absolute;
-            top: -18% !important;
-            right: 68% !important;
-            background-image: none !important;
-        }
-
-        .text-white {
-            color: #FFF !important
-        }
-
-        .about-img {
-            width: 222px;
-        }
-
-        @media (max-width: 1199.98px) {
-            .about-img {
-                width: 158px !important;
-            }
-
-            .new-new .about-us .sum-btn button:nth-child(1) {
-                position: absolute;
-                top: 51%;
-                right: -11%;
-            }
-        }
-
-        @media (max-width: 991.98px) {
-            .about-us {
-                display: none;
-            }
-
-        }
-
->>>>>>> refs/remotes/origin/main
-    </style>
-</head>
-
-<body style="background: #fff ">
-    <!-- Header -->
-
-    <!-- client page -->
-
+</style>
+@endpush
+@section('content')
+<div class="col-12 back mb-5 d-flex align-items-center justify-content-end">
+    <div class="row w-100 justify-content-end">
+        <div class="flex-wrap col-xl-8 d-flex align-items-center justify-content-between gap-2 gap-sm-4">
+            <div class="status">تم انتهاء اشتراكك</div>
+            <a class="update btn m-auto"> تحديث الاشتراك</a>
+        </div>
+    </div>
+</div>
     <section class="  pt-5">
         <div class="container">
             <div class="row" style="color: #333333;">
@@ -120,23 +75,6 @@
                         <div class="col-lg-12 col-md-12 ">
                             <div class="mt-5 row w-100 mx-0 px-0">
                                 <div class="col-md-4 col-lg-3">
-<<<<<<< HEAD
-                                  @if (auth()->check() and active_user()->membership_type == 'user')
-
-                                    <div class="card-client  rounded  p-3">
-                                        <p class="  m-0" style=" color: #0491e8 ">مرحبا مجددا محمد </p>
-                                        <p class="f-12" style="font-size: 12px;"> هل تفكر فى إنشاء طلب جديد؟؟
-                                        </p>
-                                        <div class="text-center">
-                                            <img class="ms-3" style="width: 40px;"
-                                                src="{{ asset('tem_assets') }}/images/think.svg" alt="" srcset="">
-                                        </div>
-                                        <div class="text-center mt-3">
-                                            <a href="{{ route('front.orders.create') }}" class="show-balance mt-3 border-0 text-white"
-                                                style="background-color: #028e80;text-decoration:none"> إنشاء طلب جديد </a>
-                                        </div>
-                                    </div>
-=======
                                     @if (auth()->check() and active_user()->membership_type == 'user')
                                         <div class="card-client  rounded  p-3">
                                             <p class="  m-0" style=" color: #0491e8 ">مرحبا مجددا محمد </p>
@@ -154,7 +92,6 @@
                                                     جديد </a>
                                             </div>
                                         </div>
->>>>>>> refs/remotes/origin/main
                                     @endif
                                 </div>
                                 <div class="col-md-8 col-lg-8  mt-md-0 mt-5">
@@ -464,16 +401,4 @@
         </div>
     </section>
 
-    <!-- client page -->
-
-
-    <!-- =============================================================================================================
-  ================================ [End Footer ] ===================================================================
-  ============================================================================================================== -->
-    <script src="{{ asset('tem_assets') }}/js/jquery-3.3.1.min.js"></script>
-    <script src="{{ asset('tem_assets') }}/js/popper.min.js"></script>
-    <script src="{{ asset('tem_assets') }}/js/bootstrap.min.js"></script>
-    <script src="{{ asset('tem_assets') }}/js/main.js"></script>
-</body>
-
-</html>
+    @endsection

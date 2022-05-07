@@ -100,17 +100,17 @@ class User extends Authenticatable implements JWTSubject
 	];
 	public function getLicenseSubmittedAttribute()
 	{
-		if($this->licenses()->count()>0){
-			return $this->licenses()->first();
-		}else{
+		if ($this->licenses()->count() > 0) {
+			return $this->licenses()->whereStatus(true)->first();
+		} else {
 			return 0;
 		}
 	}
 	public function getCommercialSubmittedAttribute()
 	{
-		if($this->comericals()->count()>0){
-			return $this->comericals()->first();
-		}else{
+		if ($this->comericals()->count() > 0) {
+			return $this->comericals()->whereStatus(true)->first();
+		} else {
 			return 0;
 		}
 	}
@@ -327,5 +327,16 @@ class User extends Authenticatable implements JWTSubject
 	public function tickets()
 	{
 		return $this->hasMany(Ticket::class);
+	}
+
+	public function getVendorIsActiveAttribute()
+	{
+		if ($this->membership_type == 'vendor') {
+			if ($this->email_verify == 'verified' and $this->license_submitted and $this->commercial_submitted and $this->Current_subscription) {
+				return true;
+			}
+			return false;
+		}
+		return true;
 	}
 }
