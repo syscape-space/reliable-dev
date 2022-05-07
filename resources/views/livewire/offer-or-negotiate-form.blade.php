@@ -9,18 +9,18 @@
     </div>
     @if($op == 'offer')
         @if($canOffer)
-        <h3 class="title mt-0 mb-4 fs-5 fw-bold">أضف عرضك</h3>
+        <h3 class="title mt-0 my-4 fs-5 fw-bold">أضف عرضك</h3>
         <form action="{{route('front.offers.store')}}" method="POST">
             @csrf
             <div class="row gap-3">
                 <input type="hidden" name="order_id" value="{{$order->id}}">
                 <div class="col-xl-3 mb-3">
-                    <input class="w-100" name="price" type="text" placeholder="مبلغ العرض...">
+                    <input style="height:40px" class="w-100" name="price" type="text" placeholder="مبلغ العرض...">
                 </div>
                 <div class="col-xl-3 mb-3">
-                    <input class="w-100" name="execution_time" type="text" placeholder="وقت التنفيذ...">
+                    <input style="height:40px" class="w-100" name="execution_time" type="text" placeholder="وقت التنفيذ...">
                 </div>
-                <div class="col-xl-3 mb-3">
+                <div class="col-xl-12 my-3">
                     <input class="" name="negotiable"  id="negotiable" type="checkbox" >
                     <label for="negotiable">قابل للتفاوض</label>
                 </div>
