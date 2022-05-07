@@ -9,7 +9,7 @@
     </div>
     @if($op == 'offer')
         @if($canOffer)
-        <h3 class="title mt-0 my-4 fs-5 fw-bold">أضف عرضك</h3>
+        <h3 class="title  my-4 fs-5 fw-bold">أضف عرضك</h3>
         <form action="{{route('front.offers.store')}}" method="POST">
             @csrf
             <div class="row gap-3">

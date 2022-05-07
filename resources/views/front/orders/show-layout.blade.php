@@ -47,7 +47,7 @@
                         </div>
                         <div class="col-xl-9">
                             <ul class="level">
-                                <li class="{{$order->order_step >= 1?"active":""}}">
+                                <li class="{{$order->order_step >= 1?"active":""}}" style="white-space: nowrap">
                                     <div class="icon">
                                         <i class="fa-regular fa-handshake"></i>
                                     </div>
