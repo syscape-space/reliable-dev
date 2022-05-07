@@ -6,6 +6,11 @@
       @if (active_user()->membership_type == 'vendor' and $order->i_added_offer() > 0)
           <x-offer.card :offer="$order->myOffer()" />
       @endif
+      <style>
+          body {
+            font-family: "din-next" !important;
+         }
+      </style>
       @if ($order->isActiveUser())
           <div class="box-search row d-flex align-items-center justify-content-between">
               <div class="col-xl-8 d-flex align-items-center gap-3">
