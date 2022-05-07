@@ -1,9 +1,22 @@
 /* Start Global Rules */
 @font-face {
-    font-family: "arabic";
+    font-family: "din-next";
+    src: url("../fonts/din-next-lt-w23-light-1.ttf");
+    font-weight: 300;
+  }
+  .f-300 {
+    font-weight: 300;
+  }
+  @font-face {
+    font-family: "din-next";
     src: url("../fonts/din-next-lt-w23-regular.ttf");
-}
-
+    font-weight: normal;
+  }
+  @font-face {
+    font-family: "din-next";
+    src: url("../fonts/din-next-lt-w23-bold-1.ttf");
+    font-weight: bold;
+  }
 :root {
     --green-color: #028e80;
     --green-color-two: #048e81;
@@ -23,7 +36,6 @@
         rgb(4, 144, 214),
         rgb(4, 142, 140)
     );
-
     --h-color: #314450;
     --red-color: #ff584d;
     --red-color-two: #ff5757;
@@ -3657,4 +3669,8 @@ section.offers .box-order .title {
 .meeting-btn {
     padding: 15px 35px;
     border-radius: 7px;
+}
+
+body {
+    font-family: "din-next";
 }
