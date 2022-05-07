@@ -60,7 +60,7 @@
             @else
                 <a href="{{route('front.negotiations.show',['id'=>$item->id])}}" class="btn view">
                     الاستفسار و التفاوض
-                    <span class="badge-danger badge">{{$item->messages()->count()}}</span>
+                    <span class="badge badge-danger bg-danger text-white badge">{{$item->messages()->count()}}</span>
                 </a>
             @endif
         </div>
