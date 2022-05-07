@@ -9,7 +9,7 @@ a,
 a:hover {
     text-decoration: none;
 }
- {
+ body{
     text-align: "right";
     direction: rtl;
     font-family: "din-next";
