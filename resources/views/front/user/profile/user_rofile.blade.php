@@ -1,66 +1,80 @@
 @extends('front.layout.index')
 @section('title')
-    {{active_user()->name}}
+    {{ active_user()->name }}
 @endsection
 @push('page_styles')
-<style media="screen">
-    .new-new .about-us .sum-btn button:nth-child(2) {
-        position: absolute;
-        top: 1%;
-        right: 12%;
-    }
-
-    .new-new .about-us .sum-btn button:nth-child(1) {
-        position: absolute;
-        top: 59%;
-        right: -6%;
-    }
-
-    .about-us-22 .sum-btn button:nth-child(3) {
-        position: absolute;
-        top: -18% !important;
-        right: 68% !important;
-        background-image: none !important;
-    }
-
-    .text-white {
-        color: #FFF !important
-    }
-
-    .about-img {
-        width: 222px;
-    }
-
-    @media (max-width: 1199.98px) {
-        .about-img {
-            width: 158px !important;
+    <style media="screen">
+        .new-new .about-us .sum-btn button:nth-child(2) {
+            position: absolute;
+            top: 1%;
+            right: 12%;
         }
 
         .new-new .about-us .sum-btn button:nth-child(1) {
             position: absolute;
-            top: 51%;
-            right: -11%;
-        }
-    }
-
-    @media (max-width: 991.98px) {
-        .about-us {
-            display: none;
+            top: 59%;
+            right: -6%;
         }
 
-    }
+        .about-us-22 .sum-btn button:nth-child(3) {
+            position: absolute;
+            top: -18% !important;
+            right: 68% !important;
+            background-image: none !important;
+        }
 
-</style>
+        .text-white {
+            color: #FFF !important
+        }
+
+        .about-img {
+            width: 222px;
+        }
+
+        @media (max-width: 1199.98px) {
+            .about-img {
+                width: 158px !important;
+            }
+
+            .new-new .about-us .sum-btn button:nth-child(1) {
+                position: absolute;
+                top: 51%;
+                right: -11%;
+            }
+        }
+
+        @media (max-width: 991.98px) {
+            .about-us {
+                display: none;
+            }
+
+        }
+
+    </style>
 @endpush
 @section('content')
-<div class="col-12 back mb-5 d-flex align-items-center justify-content-end">
-    <div class="row w-100 justify-content-end">
-        <div class="flex-wrap col-xl-8 d-flex align-items-center justify-content-between gap-2 gap-sm-4">
-            <div class="status">تم انتهاء اشتراكك</div>
-            <a class="update btn m-auto"> تحديث الاشتراك</a>
+
+    @if (!active_user()->vendor_is_active)
+        <div class="col-12 back mb-5 d-flex align-items-center justify-content-end">
+            <div class="row w-100 justify-content-end">
+                <div class="flex-wrap col-xl-8 d-flex align-items-center justify-content-between gap-2 gap-sm-4">
+                    @if (active_user()->email_verify != 'verified')
+                    <a class="update btn m-auto"> تحقق من البريد الالكتروني الان</a>
+                    @endif
+                    @if (!active_user()->license_submitted)
+                    <div class="status">لم يتم تفعيل الرخصه المهنية</div>
+                    @endif
+                    @if (!active_user()->commercial_submitted)
+                    <div class="status">لم يتم تفعيل السجل التحاري</div>
+                    @endif
+                    @if (!active_user()->Current_subscription)
+                    <div class="status">كي يتم تفعيل العضوية الخاصة بكم يجيب الأشتراك بأحد الباقات</div>
+                    @endif
+                </div>
+            </div>
         </div>
-    </div>
-</div>
+    @endif
+
     <section class="  pt-5">
         <div class="container">
             <div class="row" style="color: #333333;">
@@ -158,8 +172,7 @@
                                             ؟؟
                                         </p>
                                         <div class="text-center">
-                                            <i style="font-size: 40px; color: #028e80;"
-                                                class="fas fa-microphone-alt"></i>
+                                            <i style="font-size: 40px; color: #028e80;" class="fas fa-microphone-alt"></i>
                                         </div>
                                         <div class="text-center mt-3">
                                             <a href="https://aa.law-mawthuq.com/order/create"
@@ -180,8 +193,8 @@
                                         <div class="title-order d-flex align-items-center mb-2">
                                             <img src="{{ asset('tem_assets') }}/images/order.svg" alt="" srcset="">
                                             <h6 class="mx-3 mb-0">طلبات جديدة</h6>
-                                            <img style="width: 18px;"
-                                                src="{{ asset('tem_assets') }}/images/question.svg" alt="" srcset="">
+                                            <img style="width: 18px;" src="{{ asset('tem_assets') }}/images/question.svg"
+                                                alt="" srcset="">
                                         </div>
                                         <div class="content-order ">
                                             <div class="row w-100 mx-0 py-2 px-3">
@@ -230,11 +243,10 @@
                                 <div class="col-lg-6">
                                     <div class="new-order my-5 pt-2">
                                         <div class="title-order d-flex align-items-center mb-2">
-                                            <img src="{{ asset('tem_assets') }}/images/offer_order.svg" alt=""
-                                                srcset="">
+                                            <img src="{{ asset('tem_assets') }}/images/offer_order.svg" alt="" srcset="">
                                             <h6 class="mx-3 mb-0">الطلبات المعروضة</h6>
-                                            <img style="width: 18px;"
-                                                src="{{ asset('tem_assets') }}/images/question.svg" alt="" srcset="">
+                                            <img style="width: 18px;" src="{{ asset('tem_assets') }}/images/question.svg"
+                                                alt="" srcset="">
                                         </div>
                                         <div class="content-order ">
                                             <div class="row w-100 mx-0 py-2 px-3">
@@ -275,11 +287,10 @@
                                 <div class="col-lg-6">
                                     <div class="new-order my-2">
                                         <div class="title-order d-flex align-items-center mb-2">
-                                            <img src="{{ asset('tem_assets') }}/images/shake-hands.svg" alt=""
-                                                srcset="">
+                                            <img src="{{ asset('tem_assets') }}/images/shake-hands.svg" alt="" srcset="">
                                             <h6 class="mx-3 mb-0">تحت التنفيذ</h6>
-                                            <img style="width: 18px;"
-                                                src="{{ asset('tem_assets') }}/images/question.svg" alt="" srcset="">
+                                            <img style="width: 18px;" src="{{ asset('tem_assets') }}/images/question.svg"
+                                                alt="" srcset="">
                                         </div>
                                         <div class="content-order ">
                                             <div class="row w-100 mx-0 py-2 px-3">
@@ -315,11 +326,10 @@
                                 <div class="col-lg-6">
                                     <div class="new-order my-2">
                                         <div class="title-order d-flex align-items-center mb-2">
-                                            <img src="{{ asset('tem_assets') }}/images/end_order.svg" alt=""
-                                                srcset="">
+                                            <img src="{{ asset('tem_assets') }}/images/end_order.svg" alt="" srcset="">
                                             <h6 class="mx-3 mb-0">الطلبات المنتهية</h6>
-                                            <img style="width: 18px;"
-                                                src="{{ asset('tem_assets') }}/images/question.svg" alt="" srcset="">
+                                            <img style="width: 18px;" src="{{ asset('tem_assets') }}/images/question.svg"
+                                                alt="" srcset="">
                                         </div>
                                         <div class="content-order ">
                                             <div class="row w-100 mx-0 py-2 px-3">
@@ -379,7 +389,7 @@
                                                 style="position: absolute; top: -18% !important; right: 68% !important; background-image: none !important;">
                                                 <a style="position: relative; color: #048e81 !important; font-size: 16px !important; border: 0 !important; left: 0; right: 0; top: 0;"
                                                     href="{{ route('front.orders.create') }}">طلب جديد</a> </button>
-                                        @elseif(active_user()->membership_type == 'vendor')
+                                        @elseif(active_user()->vendor_is_active)
                                             <button class="about-btn-1"><a
                                                     style="position: relative; color: #048e81 !important; font-size: 16px !important; border: 0 !important; left: 0; right: 0; top: 0;"
                                                     href="{{ route('front.orders.index') }}">طلبات تحت
@@ -390,8 +400,8 @@
                                                     href="{{ route('front.orders.index') }}">الطلبات</a> </button>
                                         @endif
                                     </div>
-                                    <img class="about-img" src="{{ asset('tem_assets') }}/images/basma.svg"
-                                        alt="" srcset="" />
+                                    <img class="about-img" src="{{ asset('tem_assets') }}/images/basma.svg" alt=""
+                                        srcset="" />
                                 </div>
                             </div>
                         </div>
@@ -400,5 +410,4 @@
             </div>
         </div>
     </section>
-
-    @endsection
+@endsection

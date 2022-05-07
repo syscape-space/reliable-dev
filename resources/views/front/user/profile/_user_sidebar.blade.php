@@ -4,7 +4,7 @@
         <div class="card-client text-center rounded mb-2 pb-4">
             <div class="client-img">
                 <img style="width: 76px; height: 70px; border-radius: 50%; margin-bottom: 5px; margin-top: 10px;"
-                    src="https://cdn.landesa.org/wp-content/uploads/default-user-image.png" alt=""
+                    src="{{ cloudUrl(active_user()->photo_profile) }}" alt=""
                     srcset="">
             </div>
             <h5>{{ active_user()->name }}</h5>
